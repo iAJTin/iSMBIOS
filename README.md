@@ -27,7 +27,7 @@ For more information, please see https://www.dmtf.org/standards/smbios
 
 Call **DMI.Instance.Structures** for gets all SMBIOS structures availables.
 
-### Examples
+## Examples
 
 1. Gets and print all **SMBIOS** availables structures.
 

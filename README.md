@@ -23,7 +23,7 @@ For more information, please see https://www.dmtf.org/standards/smbios
   </tr>
 </table>
 
-### Usage
+## Usage
 
 Call **DMI.Instance.Structures** for gets all SMBIOS structures availables.
 

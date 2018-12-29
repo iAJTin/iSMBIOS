@@ -1,3 +1,15 @@
+ï»¿<p align="center">
+  <img src="https://cdn.rawgit.com/iAJTin/iSMBIOS/master/nuget/iSMBIOS.png"  
+       height="32">
+</p>
+<p align="center">
+  <a href="https://github.com/iAJTin/iSMBIOS">
+    <img src="https://img.shields.io/badge/iSMBIOS-green.svg?style=flat"/>
+  </a>
+</p>
+
+***
+
 # What is iSMBIOS?
 iSMBIOS is a lightweight implementation that allows us to obtain the SMBIOS information
 
@@ -55,7 +67,7 @@ Call **DMI.Instance.Structures** for gets all SMBIOS structures availables.
             foreach (DmiStructure structure in structures)
             {
                 Console.WriteLine($"{(int)structure.Class:D3}-{structure.Class} structure detail:");
-                Console.WriteLine("———————————————————————————————————————————————————————————————————————————————————————————————————————————————");
+                Console.WriteLine(@"â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”");
                 DmiClassCollection elements = structure.Elements;
                 foreach (DmiClass element in elements)
                 {

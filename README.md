@@ -5,6 +5,24 @@ This library fully implements DMTF Specification 3.2.0 and olders versions
 
 For more information, please see https://www.dmtf.org/standards/smbios
 
+# Install via NuGet
+
+<table>
+  <tr>
+    <td>
+      <a href="https://github.com/iAJTin/iSMBIOS/tree/master/src/iTin.Core.Hardware">
+        <img src="https://img.shields.io/badge/-iSMBIOS-green.svg?style=flat"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://www.nuget.org/packages/iSMBIOS/">
+        <img alt="NuGet Version" 
+             src="https://img.shields.io/nuget/v/iSMBIOS.svg" /> 
+      </a>
+    </td>  
+  </tr>
+</table>
+
 ### Usage
 
 Call **DMI.Instance.Structures** for gets all SMBIOS structures availables.

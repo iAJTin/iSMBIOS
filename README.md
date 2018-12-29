@@ -4,7 +4,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/iAJTin/iSMBIOS">
-    <img src="https://img.shields.io/badge/iSMBIOS-green.svg?style=flat"/>
+    <img src="https://img.shields.io/badge/iTin-iSMBIOS-green.svg?style=flat"/>
   </a>
 </p>
 

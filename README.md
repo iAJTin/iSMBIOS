@@ -60,7 +60,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
                 /// structure exist!!!
             }
 
-3. Print all **SMBIOS** structures properties
+3. Prints all **SMBIOS** structures properties
 
 
             DmiStructureCollection structures = DMI.Instance.Structures;

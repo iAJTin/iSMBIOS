@@ -37,11 +37,11 @@ For more information, please see https://www.dmtf.org/standards/smbios
 
 # Usage
 
-Call **DMI.Instance.Structures** for gets all SMBIOS structures availables.
+Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
 ## Examples
 
-1. Gets and print all **SMBIOS** availables structures.
+1. Gets and prints all **SMBIOS** availables structures.
 
 
             DmiStructureCollection structures = DMI.Instance.Structures;

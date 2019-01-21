@@ -143,6 +143,14 @@
       <Name>iTin.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Documents\SMBIOS\SMBIOS 3.2.0.pdf" />
+    <None Include="Documents\SMBIOS\SMBIOS 2.7.1.pdf" />
+    <None Include="Documents\SMBIOS\SMBIOS 2.8.0.pdf" />
+    <None Include="Documents\SMBIOS\SMBIOS 3.0.0d.pdf" />
+    <None Include="Documents\SMBIOS\SMBIOS 3.1.0.pdf" />
+    <None Include="Documents\SMBIOS\SMBIOS 3.1.1.pdf" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

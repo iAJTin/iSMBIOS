@@ -93,7 +93,6 @@ namespace iTin.Core
         public static byte GetByte(this int value, Bytes onebyte)
         {
             SentinelHelper.IsEnumValid(onebyte);
-            SentinelHelper.IsTrue((byte)onebyte > 1);
 
             return value.GetByte((byte) onebyte);
         }
@@ -108,7 +107,7 @@ namespace iTin.Core
         /// <returns></returns>
         public static byte GetByte(this int value, byte onebyte)
         {
-            SentinelHelper.IsTrue(onebyte > 1);
+            SentinelHelper.IsTrue(onebyte > 3);
 
             return value.ToArray()[onebyte];
         }

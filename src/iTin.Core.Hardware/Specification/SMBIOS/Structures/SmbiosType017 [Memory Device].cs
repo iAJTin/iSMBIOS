@@ -156,11 +156,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region constructor/s
 
         #region [public] SmbiosType017(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType017"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType017" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType017(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -946,7 +947,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region BIOS Specification 3.0.0d (14/08/2014)
+        #region BIOS Specification 3.2.0 (26/04/2018)
 
         #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type.
         /// <summary>
@@ -960,7 +961,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         {
             string[] deviceProperty =
             {
-                "Other",          // 0x01
+                "Other",                      // 0x01
                 "Unknown",
                 "DRAM",
                 "EDRAM",
@@ -979,18 +980,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "RDRAM",
                 "DDR",
                 "DDR2",
-                "DDR2 FB-DIMM"    // 0x14                                          
+                "DDR2 FB-DIMM"                // 0x14
             };
 
             string[] deviceProperty2 =
             {
-                "DDR3",           // 0x18
+                "DDR3",                       // 0x18
                 "FBD2",
                 "DDR4",
                 "LPDDR",
                 "LPDDR2",
                 "LPDDR3",
-                "LPDDR4"          // 0x1E
+                "LPDDR4",
+                "Logical non-volatile device" // 0x1F
             };
 
             if (code >= 0x01 && code <= 0x14)
@@ -998,7 +1000,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 return deviceProperty[code - 0x01];
             }
 
-            if (code >= 0x18 && code <= 0x1E)
+            if (code >= 0x18 && code <= 0x1F)
             {
                 return deviceProperty2[code - 0x18];
             }
@@ -1036,7 +1038,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "LRDIMM "                        // 0x15
             };
 
-            List<string> items = new List<string>();
+            var items = new List<string>();
             for (byte i = 1; i <= 15; i++)
             {
                 byte bit = (byte)(i + 1);

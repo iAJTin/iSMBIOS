@@ -101,11 +101,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region constructor/s
 
         #region [public] SmbiosType038(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType038"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType038" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType038(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -482,7 +483,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region BIOS Specification 2.7.1 (26/01/2011)
+        #region BIOS Specification 3.2.0 (26/04/2018)
 
         #region [private] {static} (string) GetInterfaceType(byte): Gets a string representing interface type.
         /// <summary>
@@ -499,7 +500,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "Unknown",                                 // 0x00
                 "KCS: Keyboard Controller Style",
                 "SMIC: Server Management Interface Chip",
-                "BT: Block Transfer"                       // 0x03
+                "BT: Block Transfer",
+                "SSIF: SMBus System Interface"             // 0x04
             };
 
             if (code <= 0x04)

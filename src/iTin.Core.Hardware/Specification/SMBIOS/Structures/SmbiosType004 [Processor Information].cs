@@ -168,11 +168,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region constructor/s
 
         #region [public] SmbiosType004(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType004"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType004" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType004(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }

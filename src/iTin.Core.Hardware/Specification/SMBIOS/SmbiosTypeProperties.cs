@@ -1,7 +1,6 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Smbios
 {
-    using System;
     using System.Collections.ObjectModel;
 
     using Device.DeviceProperty;
@@ -14,59 +13,59 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.0+
         [DevicePropertyDescription("Vendedor de esta bios")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Vendor,
 
         [DevicePropertyDescription("Version de esta bios")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BiosVersion,
 
         [DevicePropertyDescription("Ubicación del segmento de dirección inicial de esta bios")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BiosStartingAddressSegment,
 
         [DevicePropertyDescription("Fecha de la versión esta bios")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BiosReleaseDate,
 
         [DevicePropertyDescription("Tamaño de esta bios")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         BiosRomSize,
 
         [DevicePropertyDescription("Colección de funciones compatibles con esta bios")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         Characteristics,
         #endregion
 
         #region version 2.4+
         [DevicePropertyDescription("Colección de funciones compatibles con esta bios")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         ExtensionByte1,
 
         [DevicePropertyDescription("Colección de funciones compatibles con esta bios")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         ExtensionByte2,
 
         [DevicePropertyDescription("Número de versión de esta bios")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         SystemBiosMajorRelease,
 
         [DevicePropertyDescription("Número de revisión de esta bios")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         SystemBiosMinorRelease,
 
         [DevicePropertyDescription("Número de versión del firmware del controlador de esta bios")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         FirmwareMajorRelease,
 
         [DevicePropertyDescription("Número de revisón del firmware del controlador de esta bios")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         FirmwareMinorRelease,
         #endregion
 
         #region version 3.1.0+
         [DevicePropertyDescription("Tamaño extendido de la ROM")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         ExtendedBiosRomSize,
 
         [DevicePropertyDescription("Tamaño extendido de la ROM (undades)")]
@@ -84,39 +83,39 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.0+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Manufacturer,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ProductName,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Version,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SerialNumber,
         #endregion
 
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         UUID,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         WakeUpType,
         #endregion
 
         #region version 2.4+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SkuNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Family,
         #endregion
     }
@@ -129,59 +128,59 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType002Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Manufacturer,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Product,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Version,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SerialNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         AssetTag,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         HotSwappable,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         IsReplaceable,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         IsRemovable,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         RequiredDaughterBoard,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         IsHostingBoard,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         LocationInChassis,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         ChassisHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BoardType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         NumberOfContainedObjectHandles,
 
         [DevicePropertyDescription("")]
@@ -197,47 +196,47 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType003Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Manufacturer,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ChassisType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Locked,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Version,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SerialNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         AssetTagNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BootUpState,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         PowerSupplyState,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ThermalState,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SecurityStatus,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64?))]
+        [DevicePropertyType(typeof(long?))]
         OemDefined,
 
         [DevicePropertyDescription("")]
@@ -253,7 +252,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         ContainedElements,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SkuNumber,
 
         ContainedElementMinimum,
@@ -271,138 +270,138 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.0+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SocketDesignation,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ProcessorType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ProcessorFamily,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ProcessorManufacturer,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ProcessorId,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ProcessorVersion,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         IsLegacyMode,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         VoltageCapability,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         ExternalClock,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MaximunSpeed,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         CurrentSpeed,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         SocketPopulated,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         CpuStatus,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ProcessorUpgrade,
         #endregion
 
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         L1CacheHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         L2CacheHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         L3CacheHandle,
         #endregion
 
         #region version 2.3+
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SerialNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         AssetTag,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         PartNumber,
         #endregion
 
         #region version 2.6+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         CoreCount,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         CoreEnabled,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         ThreadCount,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         Capable64Bits,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         MultiCore,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         HardwareThreadPerCore,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         ExecuteProtectionSupport,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         EnhancedVirtualizationInstructions,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         PowerPerformanceControlSupport,
         #endregion
 
         #region version 3.0+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt32?))]
+        [DevicePropertyType(typeof(uint?))]
         CoreCount2,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt32?))]
+        [DevicePropertyType(typeof(uint?))]
         CoreEnabled2,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt32?))]
+        [DevicePropertyType(typeof(uint?))]
         ThreadCount2,
         #endregion
     }
@@ -416,39 +415,39 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.0+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorDetectingMethod,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorCorrectingCapabilities,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SupportedInterleave,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         CurrentInterleave,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         MaximumMemoryModuleSize,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         SupportedSpeeds,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         SupportedMemoryTypes,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         MemoryModuleVoltages,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         NumberMemorySlots,
 
         [DevicePropertyDescription("")]
@@ -458,7 +457,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         EnabledErrorCorrectingCapabilities,
         #endregion
     }
@@ -471,31 +470,31 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType006Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SocketDesignation,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         BankConnections,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         CurrentSpeed,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         CurrentMemoryType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         InstalledSize,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         EnabledSize,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorStatus,
     }
     #endregion
@@ -508,71 +507,71 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.0+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SocketDesignation,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         OperationalMode,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         CacheEnabled,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         CacheLocation,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         CacheSocketed,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         CacheLevel,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         MaximumCacheSize,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         InstalledCacheSize,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         SupportedSramTypes,
         #endregion
 
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         CurrentSramType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         CacheSpeed,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorCorrectionType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SystemCacheType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Associativity,
         #endregion
 
         #region version 3.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt32))]
+        [DevicePropertyType(typeof(uint))]
         MaximumCacheSize2,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt32?))]
+        [DevicePropertyType(typeof(uint?))]
         InstalledCacheSize2,
         #endregion
     }
@@ -585,23 +584,23 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType008Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         InternalReferenceDesignator,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         InternalConnectorType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ExternalReferenceDesignator,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ExternalConnectorType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         PortType,
     }
     #endregion
@@ -614,43 +613,43 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.0+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SlotDesignation,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SlotType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SlotDataBusWidth,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         CurrentUsage,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SlotLength,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SlotId,
         #endregion
 
         #region version 2.0+ - 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         SlotCharacteristics,
         #endregion
 
         #region version 2.6+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SegmentBusFunction,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BusDeviceFunction
         #endregion
     }
@@ -663,27 +662,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType010Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         Enabled,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DeviceType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
     }
     #endregion
 
-    #region [private] (emun) SmbiosType011Property: Defines the properties available for the structure type 011 [OEM Strings].
+    #region [private] (emun) SmbiosType011Property: Defines the properties available for the structure type 011 [OEM strings].
     /// <summary>
-    /// Defines the properties available for the structure type 011 [OEM Strings].
+    /// Defines the properties available for the structure type 011 [OEM strings].
     /// </summary>
     enum SmbiosType011Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         Values,
     }
     #endregion
@@ -695,7 +694,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType012Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         Values,
     }
     #endregion
@@ -708,15 +707,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.0+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         InstallableLanguages,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         IsCurrentAbbreviated,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Current,
         #endregion
     }
@@ -729,7 +728,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType014Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         GroupName,
 
         [DevicePropertyDescription("")]
@@ -737,7 +736,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         ContainedElements,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         Handle,
 
         [DevicePropertyDescription("")]
@@ -765,33 +764,33 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Location,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Use,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         MemoryErrorCorrection,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64))]
+        [DevicePropertyType(typeof(ulong))]
         MaximumCapacity,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         MemoryErrorInformationHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         NumberOfMemoryDevices,
         #endregion
 
         #region version 2.7+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64))]
+        [DevicePropertyType(typeof(ulong))]
         ExtendedMaximunCapacity,
         #endregion
     }
@@ -805,94 +804,100 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         PhysicalMemoryArrayHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         MemoryErrorInformationHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         TotalWidth,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         DataWidth,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Size,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         FormFactor,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         DeviceSet,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DeviceLocator,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         MemoryType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         TypeDetail,
         #endregion
 
         #region version 2.3+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MaximunSpeed,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Manufacturer,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SerialNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         AssetTag,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         PartNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         Rank,
         #endregion
 
         #region version 2.7+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         ConfiguredMemoryClockSpeed,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BankLocator,
         #endregion
 
         #region version 2.8+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MinimunVoltage,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MaximumVoltage,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         ConfiguredVoltage,
+        #endregion
+
+        #region version 3.2+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(string))]
+        MemoryTechnology
         #endregion
     }
     #endregion
@@ -905,31 +910,31 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorGranularity,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorOperation,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64?))]
+        [DevicePropertyType(typeof(long?))]
         VendorSyndrome,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64?))]
+        [DevicePropertyType(typeof(long?))]
         MemoryArrayErrorAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64?))]
+        [DevicePropertyType(typeof(long?))]
         DeviceErrorAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64?))]
+        [DevicePropertyType(typeof(long?))]
         ErrorResolution,
         #endregion
     }
@@ -943,21 +948,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         MemoryArrayHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         PartitionWidth,
         #endregion
 
         #region version 2.7+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64?))]
+        [DevicePropertyType(typeof(ulong?))]
         ExtendedStartingAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64?))]
+        [DevicePropertyType(typeof(ulong?))]
         ExtendedEndingAddress,
         #endregion
     }
@@ -971,23 +976,23 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt32?))]
+        [DevicePropertyType(typeof(uint?))]
         StartingAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt32?))]
+        [DevicePropertyType(typeof(uint?))]
         EndingAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         MemoryDeviceHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         MemoryArrayMappedAddressHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         PartitionRowPosition,
 
         [DevicePropertyDescription("")]
@@ -995,17 +1000,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
         InterleavePosition,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         InterleavedDataDepth,
         #endregion
 
         #region version 2.7+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64?))]
+        [DevicePropertyType(typeof(ulong?))]
         ExtendedStartingAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64?))]
+        [DevicePropertyType(typeof(ulong?))]
         ExtendedEndingAddress,
         #endregion
     }
@@ -1019,15 +1024,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Type,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Interface,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         NumberOfButtons,
         #endregion
     }
@@ -1041,65 +1046,65 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Location,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Manufacturer,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ManufactureDate,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SerialNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DeviceName,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DeviceChemistry,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         DesignCapacity,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         DesignVoltage,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SBDSVersionNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         MaximunErrorInBatteryData,
         #endregion
 
         #region version 2.2+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SBDSSerialNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SBDSManufactureDate,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SBDSDeviceChemistry,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DesignCapacityMultiplier,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64?))]
+        [DevicePropertyType(typeof(long?))]
         OemSpecific,
         #endregion
     }
@@ -1112,35 +1117,35 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType023Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BootOption,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BootOptionOnLimit,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Status,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         WatchdogTimer,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         ResetCount,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         ResetLimit,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         TimerInterval,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Timeout,
     }
     #endregion
@@ -1152,19 +1157,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType024Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         FrontPanelResetStatus,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         AdministratorPasswordStatus,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         KeyboardPasswordStatus,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         PowerOnPasswordStatus
     }
     #endregion
@@ -1176,23 +1181,23 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType025Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         Month,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         Day,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         Hour,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         Minute,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         Second,
     }
     #endregion
@@ -1204,43 +1209,43 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType026Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Location,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Status,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MaximunValue,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MinimunValue,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Resolution,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Tolerance,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Accuracy,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64))]
+        [DevicePropertyType(typeof(long))]
         OemDefined,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         NominalValue,
     }
     #endregion
@@ -1253,33 +1258,33 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.2+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         TemperatureProbeHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DeviceType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Status,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         CoolingUnitGroup,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64))]
+        [DevicePropertyType(typeof(long))]
         OemDefined,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         NominalSpeed,
         #endregion
 
         #region version 2.7+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
         #endregion
     }
@@ -1292,43 +1297,43 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType028Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Location,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Status,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MaximunValue,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MinimunValue,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Resolution,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Tolerance,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Accuracy,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64))]
+        [DevicePropertyType(typeof(long))]
         OemDefined,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         NominalValue,
     }
     #endregion
@@ -1340,43 +1345,43 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType029Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Location,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Status,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MaximunValue,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MinimunValue,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Resolution,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Tolerance,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         Accuracy,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64))]
+        [DevicePropertyType(typeof(long))]
         OemDefined,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         NominalValue,
     }
     #endregion
@@ -1388,15 +1393,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType030Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ManufacturerName,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         OutBoundConnection,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         InBoundConnection,
     }
     #endregion
@@ -1408,15 +1413,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType031Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         Checksum,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BisEntryPointAddress16,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BisEntryPointAddress32,
     }
     #endregion
@@ -1428,11 +1433,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType032Property
     {
         [DevicePropertyDescription("Reserved for future assignment by this specification; all bytes are set to 00h")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         Reserved,
 
         [DevicePropertyDescription("Status and Additional Data fields that identify the boot status")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         BootStatus,
     }
     #endregion
@@ -1444,31 +1449,31 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType033Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorGranularity,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ErrorOperation,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64?))]
+        [DevicePropertyType(typeof(long?))]
         VendorSyndrome,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64?))]
+        [DevicePropertyType(typeof(ulong?))]
         MemoryArrayErrorAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64?))]
+        [DevicePropertyType(typeof(ulong?))]
         DeviceErrorAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int64?))]
+        [DevicePropertyType(typeof(long?))]
         ErrorResolution,
     }
     #endregion
@@ -1480,19 +1485,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType034Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Type,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Address,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         AddressType,
     }
     #endregion
@@ -1504,19 +1509,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType035Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         ManagementDeviceHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         ComponentHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         ThresholdHandle,
     }
     #endregion
@@ -1528,27 +1533,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType036Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         LowerNonCritical,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         UpperNonCritical,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         LowerCritical,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         UpperCritical,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         LowerNonRecoverable,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         UpperNonRecoverable,
     }
     #endregion
@@ -1560,11 +1565,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType037Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ChannelType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         MaximunChannelLoad,
 
         [DevicePropertyDescription("")]
@@ -1572,11 +1577,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         Devices,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         Handle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         Load
     }
     #endregion
@@ -1588,47 +1593,47 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType038Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         InterfaceType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SpecificationRevision,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         I2CSlaveAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         NVStorageDeviceAddress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(UInt64))]
+        [DevicePropertyType(typeof(ulong))]
         BaseAdress,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         RegisterSpacing,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         LSBit,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean?))]
+        [DevicePropertyType(typeof(bool?))]
         SpecifiedInfo,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Polarity,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         TriggerMode,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte?))]
+        [DevicePropertyType(typeof(byte?))]
         InterruptNumber,
     }
     #endregion
@@ -1640,75 +1645,75 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType039Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         IsRedundant,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Location,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DeviceName,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Manufacturer,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SerialNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         AssetTagNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ModelPartNumber,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         RevisionLevel,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         MaxPowerCapacity,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         SupplyType,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Status,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         InputVoltageRange,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         IsPlugged,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         IsPresent,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Boolean))]
+        [DevicePropertyType(typeof(bool))]
         IsHotReplaceable,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         InputVoltageProbeHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         CoolingDeviceHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32?))]
+        [DevicePropertyType(typeof(int?))]
         InputCurrentProbeHandle,
     }
     #endregion
@@ -1720,23 +1725,23 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType040Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         EntryLength,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Int32))]
+        [DevicePropertyType(typeof(int))]
         ReferencedHandle,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         ReferencedOffset,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         StringValue,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(Byte))]
+        [DevicePropertyType(typeof(byte))]
         Value,
 
         [DevicePropertyDescription("")]
@@ -1752,15 +1757,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType041Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         ReferenceDesignation,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DeviceStatus,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         DeviceType,
     }
     #endregion
@@ -1772,7 +1777,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType042Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         InterfaceType,
     }
     #endregion
@@ -1785,35 +1790,35 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region Version 3.1.0+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         VendorId,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         MajorSpecVersion,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         MinorSpecVersion,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         FirmwareVersion1,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         FirmwareVersion2,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(ReadOnlyCollection<String>))]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         Characteristics,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         OemDefined,
 
         #endregion
@@ -1827,7 +1832,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType126Property
     {
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(String))]
+        [DevicePropertyType(typeof(string))]
         Description,
     }
     #endregion

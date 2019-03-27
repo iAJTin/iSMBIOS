@@ -6,11 +6,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
     using iTin.Core.Hardware.Specification.Smbios;
 
     /// <summary>
-    /// Definición de claves disponibles para los dispositivos disponibles de un sistema.
+    /// Defines available keys for the available devices of a system.
     /// </summary>
     public static partial class KnownDmiProperty
     {
-        #region [public] {static} (class) Bios: Contains the key definitions available for a type 000 [Bios Information] structure.
+        #region [public] {static} (class) Bios: Contains the key definitions available for a type 000 [Bios Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 000 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.Bios" /> Information] structure.
         /// </summary>
@@ -704,7 +704,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) System: Contains the key definitions available for a type 001 [System Information] structure.
+        #region [public] {static} (class) System: Contains the key definitions available for a type 001 [System Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 001 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" /> Information] structure.
         /// </summary>
@@ -1109,7 +1109,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) BaseBoard: Contains the key definitions available for a type 002 [Baseboard (or Module) Information] structure.
+        #region [public] {static} (class) BaseBoard: Contains the key definitions available for a type 002 [Baseboard (or Module) Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 002 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" /> (or Module) Information] structure.
         /// </summary>
@@ -1860,7 +1860,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) Chassis: Contains the key definitions available for a type 003 [System Enclosure or Chassis] structure.
+        #region [public] {static} (class) Chassis: Contains the key definitions available for a type 003 [System Enclosure or Chassis] structure
         /// <summary>
         /// Contains the key definitions available for a type 003 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.SystemEnclosure" /> Information] structure.
         /// </summary>
@@ -2367,7 +2367,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) Processor: Contains the key definitions available for a type 004 [Processor Information] structure.
+        #region [public] {static} (class) Processor: Contains the key definitions available for a type 004 [Processor Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 004 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.Processor" /> Information] structure.
         /// </summary>
@@ -4027,7 +4027,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) MemoryController: Contains the key definitions available for a type 005, obsolete [Memory Controller Information] structure.
+        #region [public] {static} (class) MemoryController: Contains the key definitions available for a type 005, obsolete [Memory Controller Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 005, obsolete [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.MemoryController" /> Information] structure.
         /// </summary>
@@ -4587,7 +4587,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) MemoryModule: Contains the key definitions available for a type 006, obsolete [Memory Module Information] structure.
+        #region [public] {static} (class) MemoryModule: Contains the key definitions available for a type 006, obsolete [Memory Module Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 006, obsolete [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.MemoryModule" /> Information] structure.
         /// </summary>
@@ -4931,7 +4931,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) Cache: Contains the key definitions available for a type 007 [Cache Information] structure.
+        #region [public] {static} (class) Cache: Contains the key definitions available for a type 007 [Cache Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 007 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.Cache" /> Information] structure.
         /// </summary>
@@ -5724,7 +5724,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) PortConnector: Contains the key definitions available for a type 008 [Port Connector Information] structure.
+        #region [public] {static} (class) PortConnector: Contains the key definitions available for a type 008 [Port Connector Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 008 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.PortConnector" /> Information] structure.
         /// </summary>
@@ -5972,7 +5972,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) SystemSlots: Contains the key definitions available for a type 009 [System Slots] structure.
+        #region [public] {static} (class) SystemSlots: Contains the key definitions available for a type 009 [System Slots] structure
         /// <summary>
         /// Contains the key definitions available for a type 009 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.SystemSlots" />] structure.
         /// </summary>
@@ -6424,7 +6424,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) OnBoardDevices: Contains the key definitions available for a type 010, obsolete [On Board Devices Information] structure.
+        #region [public] {static} (class) OnBoardDevices: Contains the key definitions available for a type 010, obsolete [On Board Devices Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 010, obsolete [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.OnBoardDevices"/> Information] structure.
         /// </summary>
@@ -6576,7 +6576,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) OnBoardDevices: Contains the key definitions available for a type 011 [OEM Strings] structure.
+        #region [public] {static} (class) OnBoardDevices: Contains the key definitions available for a type 011 [OEM Strings] structure
         /// <summary>
         /// Contains the key definitions available for a type 011 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.OemStrings" />] structure.
         /// </summary>
@@ -6632,7 +6632,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) SystemConfigurationOptions: Contains the key definitions available for a type 012 [System Configuration Options] structure.
+        #region [public] {static} (class) SystemConfigurationOptions: Contains the key definitions available for a type 012 [System Configuration Options] structure
         /// <summary>
         /// Contains the key definitions available for a type 012 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.SystemConfigurationOptions" />] structure.
         /// </summary>
@@ -6688,7 +6688,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) BiosLanguage: Contains the key definitions available for a type 013 [BIOS Language Information] structure.
+        #region [public] {static} (class) BiosLanguage: Contains the key definitions available for a type 013 [BIOS Language Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 013 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BiosLanguage" /> Information] structure.
         /// </summary>
@@ -6844,7 +6844,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) GroupAssociations: Contains the key definitions available for a type 014 [Group Associations] structure.
+        #region [public] {static} (class) GroupAssociations: Contains the key definitions available for a type 014 [Group Associations] structure
         /// <summary>
         /// Contains the key definitions available for a type 014 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.GroupAssociations" />] structure.
         /// </summary>
@@ -7063,7 +7063,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) SystemEventLog: Contains the key definitions available for a type 015 [System Event Log] structure.
+        #region [public] {static} (class) SystemEventLog: Contains the key definitions available for a type 015 [System Event Log] structure
         /// <summary>
         /// Contains the key definitions available for a type 015 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.SystemEventLog" />] structure.
         /// </summary>
@@ -7119,7 +7119,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) PhysicalMemoryArray: Contains the key definitions available for a type 016 [Physical Memory Array] structure.
+        #region [public] {static} (class) PhysicalMemoryArray: Contains the key definitions available for a type 016 [Physical Memory Array] structure
         /// <summary>
         /// Contains the key definitions available for a type 016 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.PhysicalMemoryArray" />] structure.
         /// </summary>
@@ -7471,7 +7471,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) MemoryDevice: Contains the key definitions available for a type 017 [Memory Device] structure.
+        #region [public] {static} (class) MemoryDevice: Contains the key definitions available for a type 017 [Memory Device] structure
         /// <summary>
         /// Contains the key definitions available for a type 016 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.MemoryDevice" />] structure.
         /// </summary>
@@ -7479,7 +7479,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         {
             #region version 2.1+
 
-            #region [public] {static} (PropertyKey) PhysicalMemoryArrayHandle: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) PhysicalMemoryArrayHandle: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7527,7 +7527,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) MemoryErrorInformationHandle: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) MemoryErrorInformationHandle: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7575,7 +7575,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) TotalWidth: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) TotalWidth: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7623,7 +7623,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) DataWidth: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) DataWidth: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7671,7 +7671,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) Size: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) Size: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7719,7 +7719,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) FormFactor: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) FormFactor: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7767,7 +7767,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) DeviceSet: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) DeviceSet: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7815,7 +7815,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) DeviceLocator: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) DeviceLocator: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7863,7 +7863,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) MemoryType: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) MemoryType: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7911,7 +7911,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) TypeDetail: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) TypeDetail: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -7963,7 +7963,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region version 2.3+
 
-            #region [public] {static} (PropertyKey) MaximunSpeed: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) MaximunSpeed: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8011,7 +8011,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) Manufacturer: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) Manufacturer: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8059,7 +8059,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) SerialNumber: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) SerialNumber: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8107,7 +8107,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) AssetTag: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) AssetTag: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8155,7 +8155,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) PartNumber: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) PartNumber: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8203,7 +8203,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) Rank: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) Rank: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8255,7 +8255,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region version 2.7+
 
-            #region [public] {static} (PropertyKey) ConfiguredMemoryClockSpeed: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) ConfiguredMemoryClockSpeed: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8303,7 +8303,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) BankLocator: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) BankLocator: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8355,7 +8355,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region version 2.8+
 
-            #region [public] {static} (PropertyKey) MinimunVoltage: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) MinimunVoltage: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8403,7 +8403,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) MaximumVoltage: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) MaximumVoltage: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8451,7 +8451,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             }
             #endregion
 
-            #region [public] {static} (PropertyKey) ConfiguredVoltage: Gets a value representing the key to retrieve the property.
+            #region [public] {static} (PropertyKey) ConfiguredVoltage: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition ——————————————</para>
@@ -8500,10 +8500,62 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #endregion
 
             #endregion
+
+            #region version 3.2+
+
+            #region [public] {static} (PropertyKey) MemoryTechnology: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition ——————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.MemoryDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType017Property.MemoryTechnology" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Return Value ———————————————— </para>
+            /// <para>Type: <see cref="T:System.String" /></para>
+            /// </summary>
+            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
+            /// <remarks><para>Key definition:</para>
+            /// <list type="table">
+            ///   <item>
+            ///     <term>Structure</term>
+            ///     <description>
+            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.MemoryDevice" />
+            ///     </description>
+            ///   </item>
+            ///   <item>
+            ///     <term>Property</term>
+            ///     <description>
+            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType017Property.MemoryTechnology" />
+            ///     </description>
+            ///   </item>
+            ///   <item>
+            ///     <term>Unit</term>
+            ///     <description>
+            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
+            ///     </description>
+            ///   </item>
+            /// </list>
+            /// <para>Returns:</para>
+            /// <list type="table">
+            ///   <item>
+            ///     <term>Type</term>
+            ///     <description>
+            ///       <see cref="T:System.String" />
+            ///     </description>
+            ///   </item>
+            /// </list>
+            /// </remarks>
+            public static PropertyKey MemoryTechnology
+            {
+                get { return new PropertyKey(SmbiosStructure.MemoryDevice, SmbiosType017Property.MinimunVoltage, PropertyUnit.mV); }
+            }
+            #endregion
+
+            #endregion
         }
         #endregion
 
-        #region [public] {static} (class) BitMemoryError32: Contains the key definitions available for a type 018 [32-Bit Memory Error Information] structure.
+        #region [public] {static} (class) BitMemoryError32: Contains the key definitions available for a type 018 [32-Bit Memory Error Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 018 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BitMemoryError32" /> Information] structure.
         /// </summary>
@@ -8851,7 +8903,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) MemoryArrayMappedAddress: Contains the key definitions available for a type 019 [Memory Array Mapped Address] structure.
+        #region [public] {static} (class) MemoryArrayMappedAddress: Contains the key definitions available for a type 019 [Memory Array Mapped Address] structure
         /// <summary>
         /// Contains the key definitions available for a type 019 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.MemoryArrayMappedAddress" />] structure.
         /// </summary>
@@ -9059,7 +9111,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) MemoryArrayMappedAddress: Contains the key definitions available for a type 020 [Memory Device Mapped Address] structure.
+        #region [public] {static} (class) MemoryArrayMappedAddress: Contains the key definitions available for a type 020 [Memory Device Mapped Address] structure
         /// <summary>
         /// Contains the key definitions available for a type 020 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.MemoryDeviceMappedAddress" />] structure.
         /// </summary>
@@ -9507,7 +9559,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) BuiltInPointingDevice: Contains the key definitions available for a type 021 [Built-in Pointing Device] structure.
+        #region [public] {static} (class) BuiltInPointingDevice: Contains the key definitions available for a type 021 [Built-in Pointing Device] structure
         /// <summary>
         /// Contains the key definitions available for a type 021 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BuiltInPointingDevice" />] structure.
         /// </summary>
@@ -9663,7 +9715,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) BuiltInPointingDevice: Contains the key definitions available for a type 022 [Portable Battery] structure.
+        #region [public] {static} (class) BuiltInPointingDevice: Contains the key definitions available for a type 022 [Portable Battery] structure
         /// <summary>
         /// Contains the key definitions available for a type 022 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.PortableBattery" />] structure.
         /// </summary>
@@ -10399,7 +10451,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) SystemReset: Contains the key definitions available for a type 023 [System Reset] structure.
+        #region [public] {static} (class) SystemReset: Contains the key definitions available for a type 023 [System Reset] structure
         /// <summary>
         /// Contains the key definitions available for a type 023 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.SystemReset" />] structure.
         /// </summary>
@@ -10804,7 +10856,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) HardwareSecurity: Contains the key definitions available for a type 024 [Hardware Security] structure.
+        #region [public] {static} (class) HardwareSecurity: Contains the key definitions available for a type 024 [Hardware Security] structure
         /// <summary>
         /// Contains the key definitions available for a type 024 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.HardwareSecurity" />] structure.
         /// </summary>
@@ -11016,7 +11068,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) HardwareSecurity: Contains the key definitions available for a type 025 [System Power Controls] structure.
+        #region [public] {static} (class) HardwareSecurity: Contains the key definitions available for a type 025 [System Power Controls] structure
         /// <summary>
         /// Contains the key definitions available for a type 025 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.SystemPowerControls" />] structure.
         /// </summary>
@@ -11264,7 +11316,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) VoltageProbe: Contains the key definitions available for a type 026 [Voltage Probe] structure.
+        #region [public] {static} (class) VoltageProbe: Contains the key definitions available for a type 026 [Voltage Probe] structure
         /// <summary>
         /// Contains the key definitions available for a type 026 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.VoltageProbe" />] structure.
         /// </summary>
@@ -11765,7 +11817,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) CoolingDevice: Contains the key definitions available for a type 027 [Cooling Device] structure.
+        #region [public] {static} (class) CoolingDevice: Contains the key definitions available for a type 027 [Cooling Device] structure
         /// <summary>
         /// Contains the key definitions available for a type 027 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.CoolingDevice" />] structure.
         /// </summary>
@@ -12130,7 +12182,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) TemperatureProbe: Contains the key definitions available for a type 028 [Temperature Probe] structure.
+        #region [public] {static} (class) TemperatureProbe: Contains the key definitions available for a type 028 [Temperature Probe] structure
         /// <summary>
         /// Contains the key definitions available for a type 028 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.TemperatureProbe" />] structure.
         /// </summary>
@@ -12631,7 +12683,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) ElectricalCurrentProbe: Contains the key definitions available for a type 029 [Electrical Current Probe] structure.
+        #region [public] {static} (class) ElectricalCurrentProbe: Contains the key definitions available for a type 029 [Electrical Current Probe] structure
         /// <summary>
         /// Contains the key definitions available for a type 029 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.ElectricalCurrentProbe" />] structure.
         /// </summary>
@@ -13132,7 +13184,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) OutOfBandRemote: Contains the key definitions available for a type 030 [Out-of-Band Remote Access] structure.
+        #region [public] {static} (class) OutOfBandRemote: Contains the key definitions available for a type 030 [Out-of-Band Remote Access] structure
         /// <summary>
         /// Contains the key definitions available for a type 030 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.ElectricalCurrentProbe" />] structure.
         /// </summary>
@@ -13298,7 +13350,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) BootIntegrityServicesEntryPoint: Contains the key definitions available for a type 031 [Boot Integrity 1621 Services (BIS) Entry Point] structure.
+        #region [public] {static} (class) BootIntegrityServicesEntryPoint: Contains the key definitions available for a type 031 [Boot Integrity 1621 Services (BIS) Entry Point] structure
         /// <summary>
         /// Contains the key definitions available for a type 031 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BootIntegrityServicesEntryPoint" />] structure.
         /// </summary>
@@ -13450,7 +13502,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) SystemBoot: Contains the key definitions available for a type 032 [System Boot Information] structure.
+        #region [public] {static} (class) SystemBoot: Contains the key definitions available for a type 032 [System Boot Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 032 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.SystemBoot" /> Information] structure.
         /// </summary>
@@ -13554,7 +13606,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) BitMemoryErrorInformation64: Contains the key definitions available for a type 033 [64-Bit Memory Error Information] structure.
+        #region [public] {static} (class) BitMemoryErrorInformation64: Contains the key definitions available for a type 033 [64-Bit Memory Error Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 033 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BitMemoryErrorInformation64" />] structure.
         /// </summary>
@@ -13898,7 +13950,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) ManagementDevice: Contains the key definitions available for a type 034 [Management Device] structure.
+        #region [public] {static} (class) ManagementDevice: Contains the key definitions available for a type 034 [Management Device] structure
         /// <summary>
         /// Contains the key definitions available for a type 034 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.ManagementDevice" />] structure.
         /// </summary>
@@ -14098,7 +14150,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) ManagementDeviceComponent: Contains the key definitions available for a type 035 [Management Device Component] structure.
+        #region [public] {static} (class) ManagementDeviceComponent: Contains the key definitions available for a type 035 [Management Device Component] structure
         /// <summary>
         /// Contains the key definitions available for a type 035 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.ManagementDeviceComponent" />] structure.
         /// </summary>
@@ -14298,7 +14350,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) ManagementDeviceThresholdData: Contains the key definitions available for a type 036 [Management Device Threshold Data] structure.
+        #region [public] {static} (class) ManagementDeviceThresholdData: Contains the key definitions available for a type 036 [Management Device Threshold Data] structure
         /// <summary>
         /// Contains the key definitions available for a type 036 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.ManagementDeviceThresholdData" />] structure.
         /// </summary>
@@ -14594,7 +14646,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) MemoryChannel: Contains the key definitions available for a type 037 [Memory Channel] structure.
+        #region [public] {static} (class) MemoryChannel: Contains the key definitions available for a type 037 [Memory Channel] structure
         /// <summary>
         /// Contains the key definitions available for a type 037 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.MemoryChannel" />] structure.
         /// </summary>
@@ -14855,7 +14907,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) IpmiDevice: Contains the key definitions available for a type 038 [IPMI Device Information] structure.
+        #region [public] {static} (class) IpmiDevice: Contains the key definitions available for a type 038 [IPMI Device Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 038 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.IpmiDevice" /> Information] structure.
         /// </summary>
@@ -15413,7 +15465,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) SystemPowerSupply: Contains the key definitions available for a type 039 [System Power Supply] structure.
+        #region [public] {static} (class) SystemPowerSupply: Contains the key definitions available for a type 039 [System Power Supply] structure
         /// <summary>
         /// Contains the key definitions available for a type 039 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.SystemPowerSupply" /> Information] structure.
         /// </summary>
@@ -16298,7 +16350,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) AdditionalInformation: Contains the key definitions available for a type 040 [Additional Information] structure.
+        #region [public] {static} (class) AdditionalInformation: Contains the key definitions available for a type 040 [Additional Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 040 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.AdditionalInformation" />] structure.
         /// </summary>
@@ -16607,7 +16659,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) OnBoardDevicesExtended: Contains the key definitions available for a type 041 [OnBoard Devices Extended Information] structure.
+        #region [public] {static} (class) OnBoardDevicesExtended: Contains the key definitions available for a type 041 [OnBoard Devices Extended Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 041 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.OnBoardDevicesExtended" /> Information] structure.
         /// </summary>
@@ -16772,7 +16824,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) ManagementControllerHostInterface: Contains the key definitions available for a type 042 [Management Controller Host Interface] structure.
+        #region [public] {static} (class) ManagementControllerHostInterface: Contains the key definitions available for a type 042 [Management Controller Host Interface] structure
         /// <summary>
         /// Contains the key definitions available for a type 042 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.ManagementControllerHostInterface" />] structure.
         /// </summary>
@@ -16821,7 +16873,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) TpmDevice: Contains the key definitions available for a type 043 [TpmDevice] structure.
+        #region [public] {static} (class) TpmDevice: Contains the key definitions available for a type 043 [TpmDevice] structure
         /// <summary>
         /// Contains the key definitions available for a type 043 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.TpmDevice" />] structure.
         /// </summary>
@@ -17157,7 +17209,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) Inactive: Contains the key definitions available for a type 126 [Inactive] structure.
+        #region [public] {static} (class) Inactive: Contains the key definitions available for a type 126 [Inactive] structure
         /// <summary>
         /// Contains the key definitions available for a type 126 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.Inactive" />] structure.
         /// </summary>
@@ -17206,7 +17258,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) EndOfTable: Contains the key definitions available for a type 127 [End-Of-Table] structure.
+        #region [public] {static} (class) EndOfTable: Contains the key definitions available for a type 127 [End-Of-Table] structure
         /// <summary>
         /// Contains the key definitions available for a type 127 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.EndOfTable" />] structure.
         /// </summary>

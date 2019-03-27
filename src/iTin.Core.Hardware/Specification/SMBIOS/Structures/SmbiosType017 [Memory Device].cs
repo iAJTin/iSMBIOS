@@ -147,6 +147,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // | 26h      2.8+        Configured          WORD        Varies      Configured voltage for this device, in millivolts  |
     // |                      voltage                                     If the value is 0, the voltage is unknown.         |
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 28h      3.2+        Memory              BYTE        Varies      Memory technology type for this memory device.     |
+    // |                      Technology                                  Note: See GetMemoryTechnology                      |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <summary>
     /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Device (Type 17) structure.
@@ -173,7 +176,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (int) PhysicalArrayMemoryHandle: Gets a value representing the 'Physical Array Memory Handle' field.
+        #region [private] (int) PhysicalArrayMemoryHandle: Gets a value representing the 'Physical Array Memory Handle' field
         /// <summary>
         /// Gets a value representing the <c>Physical Array Memory Handle</c> field.
         /// </summary>
@@ -181,13 +184,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int PhysicalArrayMemoryHandle
-        {
-            get { return GetWord(0x04); }
-        }
+        private int PhysicalArrayMemoryHandle => GetWord(0x04);
         #endregion
 
-        #region [private] (int) MemoryErrorInformationHandle: Gets a value representing the 'Memory Error Information Handle' field.
+        #region [private] (int) MemoryErrorInformationHandle: Gets a value representing the 'Memory Error Information Handle' field
         /// <summary>
         /// Gets a value representing the <c>Memory Error Information Handle</c> field.
         /// </summary>
@@ -195,13 +195,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryErrorInformationHandle
-        {
-            get { return GetWord(0x06); }
-        }
+        private int MemoryErrorInformationHandle => GetWord(0x06);
         #endregion
 
-        #region [private] (int) TotalWidth: Gets a value representing the 'Total Width' field.
+        #region [private] (int) TotalWidth: Gets a value representing the 'Total Width' field
         /// <summary>
         /// Gets a value representing the <c>Total Width</c> field.
         /// </summary>
@@ -209,13 +206,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TotalWidth
-        {
-            get { return GetWord(0x08); }
-        }
+        private int TotalWidth => GetWord(0x08);
         #endregion
 
-        #region [private] (int) DataWidth: Gets a value representing the 'Data Width' field.
+        #region [private] (int) DataWidth: Gets a value representing the 'Data Width' field
         /// <summary>
         /// Gets a value representing the <c>Data Width</c> field.
         /// </summary>
@@ -223,13 +217,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DataWidth
-        {
-            get { return GetWord(0x0a); }
-        }
+        private int DataWidth => GetWord(0x0a);
         #endregion
 
-        #region [private] (int) Size: Gets a value representing the 'Size' field.
+        #region [private] (int) Size: Gets a value representing the 'Size' field
         /// <summary>
         /// Gets a value representing the <c>Size</c> field.
         /// </summary>
@@ -237,14 +228,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Size
-        {
-            get { return GetWord(0x0c); }
-        }
-
+        private int Size => GetWord(0x0c);
         #endregion
 
-        #region [private] (byte) FormFactor: Gets a value representing the 'Form Factor' field.
+        #region [private] (byte) FormFactor: Gets a value representing the 'Form Factor' field
         /// <summary>
         /// Gets a value representing the <c>Form Factor</c> field.
         /// </summary>
@@ -252,13 +239,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FormFactor
-        {
-            get { return GetByte(0x0e); }
-        }
+        private byte FormFactor => GetByte(0x0e);
         #endregion
 
-        #region [private] (byte) DeviceSet: Gets a value representing the 'Device Set' field.
+        #region [private] (byte) DeviceSet: Gets a value representing the 'Device Set' field
         /// <summary>
         /// Gets a value representing the <c>Device Set</c> field.
         /// </summary>
@@ -266,14 +250,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceSet
-        {
-            get { return GetByte(0x0f); }
-        }
-
+        private byte DeviceSet => GetByte(0x0f);
         #endregion
 
-        #region [private] (MemoryDeviceBelongsToSet) BelongsToSet: Gets a value indicating whether this device belongs to a set of the same capacity and type.
+        #region [private] (MemoryDeviceBelongsToSet) BelongsToSet: Gets a value indicating whether this device belongs to a set of the same capacity and type
         /// <summary>
         /// Gets a value indicating whether this device belongs to a set of the same capacity and type.
         /// </summary>
@@ -300,7 +280,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] (string) DeviceLocator: Gets a value representing the 'Device Locator' field.
+        #region [private] (string) DeviceLocator: Gets a value representing the 'Device Locator' field
         /// <summary>
         /// Gets a value representing the <c>Device Locator</c> field.
         /// </summary>
@@ -308,13 +288,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string DeviceLocator
-        {
-            get { return GetString(0x10); }
-        }
+        private string DeviceLocator => GetString(0x10);
         #endregion
 
-        #region [private] (string) BankLocator: Gets a value representing the 'Bank Locator' field.
+        #region [private] (string) BankLocator: Gets a value representing the 'Bank Locator' field
         /// <summary>
         /// Gets a value representing the <c>Bank Locator</c> field.
         /// </summary>
@@ -322,13 +299,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string BankLocator
-        {
-            get { return GetString(0x11); }
-        }
+        private string BankLocator => GetString(0x11);
         #endregion
 
-        #region [private] (byte) MemoryType: Gets a value representing the 'Memory Type' field.
+        #region [private] (byte) MemoryType: Gets a value representing the 'Memory Type' field
         /// <summary>
         /// Gets a value representing the <c>Memory Type</c> field.
         /// </summary>
@@ -336,13 +310,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MemoryType
-        {
-            get { return GetByte(0x12); }
-        }
+        private byte MemoryType => GetByte(0x12);
         #endregion
 
-        #region [private] (int) TypeDetail: Gets a value representing the 'Type Detail' field.
+        #region [private] (int) TypeDetail: Gets a value representing the 'Type Detail' field
         /// <summary>
         /// Gets a value representing the <c>Type Detail</c> field.
         /// </summary>
@@ -350,17 +321,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TypeDetail
-        {
-            get { return GetWord(0x13); }
-        }
+        private int TypeDetail => GetWord(0x13);
         #endregion
 
         #endregion
 
         #region Version 2.3+ fields
 
-        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field.
+        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
         /// Gets a value representing the <c>Manufacturer</c> field.
         /// </summary>
@@ -368,13 +336,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Manufacturer
-        {
-            get { return GetString(0x17); }
-        }
+        private string Manufacturer => GetString(0x17);
         #endregion
 
-        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field.
+        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
         /// Gets a value representing the <c>Serial Number</c> field.
         /// </summary>
@@ -382,13 +347,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SerialNumber
-        {
-            get { return GetString(0x18); }
-        }
+        private string SerialNumber => GetString(0x18);
         #endregion
 
-        #region [private] (string) AssetTag: Gets a value representing the 'Asset Tag' field.
+        #region [private] (string) AssetTag: Gets a value representing the 'Asset Tag' field
         /// <summary>
         /// Gets a value representing the <c>Asset Tag</c> field.
         /// </summary>
@@ -396,13 +358,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string AssetTag
-        {
-            get { return GetString(0x19); }
-        }
+        private string AssetTag => GetString(0x19);
         #endregion
 
-        #region [private] (string) PartNumber: Gets a value representing the 'Part Number' field.
+        #region [private] (string) PartNumber: Gets a value representing the 'Part Number' field
         /// <summary>
         /// Gets a value representing the <c>Part Number</c> field.
         /// </summary>
@@ -410,13 +369,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string PartNumber
-        {
-            get { return GetString(0x1a); }
-        }
+        private string PartNumber => GetString(0x1a);
         #endregion
 
-        #region [private] (int) MaximunSpeed: Gets a value representing the 'Maximun Speed' field.
+        #region [private] (int) MaximunSpeed: Gets a value representing the 'Maximun Speed' field
         /// <summary>
         /// Gets a value representing the <c>Maximun Speed</c> field.
         /// </summary>
@@ -424,17 +380,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunSpeed
-        {
-            get { return GetWord(0x15); }
-        }
+        private int MaximunSpeed => GetWord(0x15);
         #endregion
 
         #endregion
 
         #region Version 2.6+ fields
 
-        #region [private] (byte) Rank: Gets a value representing the 'Rank' field.
+        #region [private] (byte) Rank: Gets a value representing the 'Rank' field
         /// <summary>
         /// Gets a value representing the <c>Rank</c> field.
         /// </summary>
@@ -442,17 +395,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Rank
-        {
-            get { return (byte) (GetByte(0x1b) & 0x0f); }
-        }
+        private byte Rank => (byte) (GetByte(0x1b) & 0x0f);
         #endregion
 
         #endregion
 
         #region Version 2.7+ fields
 
-        #region [private] (uint) ExtendedSize: Gets a value representing the 'Extended Size' field.
+        #region [private] (uint) ExtendedSize: Gets a value representing the 'Extended Size' field
         /// <summary>
         /// Gets a value representing the <c>Extended Size</c> field.
         /// </summary>
@@ -460,13 +410,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint ExtendedSize
-        {
-            get { return (uint) GetDoubleWord(0x1c) & 0x7FFFFFFF; }
-        }
+        private uint ExtendedSize => (uint) GetDoubleWord(0x1c) & 0x7FFFFFFF;
         #endregion
 
-        #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field.
+        #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field
         /// <summary>
         /// Gets a value representing the <c>Current Speed</c> field.
         /// </summary>
@@ -474,17 +421,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSpeed
-        {
-            get { return GetWord(0x20); }
-        }
+        private int CurrentSpeed => GetWord(0x20);
         #endregion
 
         #endregion
 
         #region Version 2.8+ fields
 
-        #region [private] (int) MinimunVoltage: Gets a value representing the 'Minimun Voltage' field.
+        #region [private] (int) MinimunVoltage: Gets a value representing the 'Minimun Voltage' field
         /// <summary>
         /// Gets a value representing the <c>Minimun Voltage</c> field.
         /// </summary>
@@ -492,13 +436,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MinimunVoltage
-        {
-            get { return GetWord(0x22); }
-        }
+        private int MinimunVoltage => GetWord(0x22);
         #endregion
 
-        #region [private] (int) MaximumVoltage: Gets a value representing the 'Maximum Voltage' field.
+        #region [private] (int) MaximumVoltage: Gets a value representing the 'Maximum Voltage' field
         /// <summary>
         /// Gets a value representing the <c>Maximum Voltage</c> field.
         /// </summary>
@@ -506,13 +447,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximumVoltage
-        {
-            get { return GetWord(0x24); }
-        }
+        private int MaximumVoltage => GetWord(0x24);
         #endregion
 
-        #region [private] (int) ConfiguredVoltage: Gets a value representing the 'Configured Voltage' field.
+        #region [private] (int) ConfiguredVoltage: Gets a value representing the 'Configured Voltage' field
         /// <summary>
         /// Gets a value representing the <c>Configured Voltage</c> field.
         /// </summary>
@@ -520,10 +458,22 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ConfiguredVoltage
-        {
-            get { return GetWord(0x26); }
-        }
+        private int ConfiguredVoltage => GetWord(0x26);
+        #endregion
+
+        #endregion
+
+        #region Version 3.2+ fields
+
+        #region [private] (byte) MemoryTechnology: Gets a value representing the 'Memory Technology' field
+        /// <summary>
+        /// Gets a value representing the <c>Memory Technology</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte MemoryTechnology => GetByte(0x28);
         #endregion
 
         #endregion
@@ -533,6 +483,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -785,6 +736,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
 
         #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -941,6 +893,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
             }
             #endregion
 
+            #region 3.2+
+            if (HeaderInfo.Lenght >= 0x29)
+            {
+                string memoryTechnology = GetMemoryTechnology(MemoryTechnology);
+                properties.Add(KnownDmiProperty.MemoryDevice.MemoryTechnology, memoryTechnology);
+
+            }
+            #endregion
+
             #endregion
         }
         #endregion
@@ -949,7 +910,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 3.2.0 (26/04/2018)
 
-        #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type.
+        #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
         /// <summary>
         /// Gets a string representing the device type.
         /// </summary>
@@ -1009,7 +970,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetDeviceTypeDetail(int): Gets a collection of additional features from a memory device detail.
+        #region [private] {static} (ReadOnlyCollection<string>) GetDeviceTypeDetail(int): Gets a collection of additional features from a memory device detail
         /// <summary>
         /// Gets a string representing the device type detail.
         /// </summary>
@@ -1053,7 +1014,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetFormFactor(byte): Gets a string that represents the shape of the device.
+        #region [private] {static} (string) GetFormFactor(byte): Gets a string that represents the shape of the device
         /// <summary>
         /// Gets a string that represents the shape of the device.
         /// </summary>
@@ -1091,7 +1052,37 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (bool) IsMeasuredInKb(int): Gets a value that indicates whether the memory is measured in KB.
+        #region [private] {static} (string) GetMemoryTechnology(byte): Gets a string that represents the memory type technology
+        /// <summary>
+        /// Gets a string that represents the memory type technology.
+        /// </summary>
+        /// <param name="code">Value to analyze.</param>
+        /// <returns>
+        /// A string that represents the memory type technology.
+        /// </returns> 
+        private static string GetMemoryTechnology(byte code)
+        {
+            string[] deviceProperty =
+            {
+                "Other",                  // 0x01
+                "Unknown",
+                "DRAM",
+                "NVDIMM-N",
+                "NVDIMM-F",
+                "NVDIMM-P",
+                "Intel persistent memory" // 0x07
+            };
+
+            if (code >= 0x01 && code <= 0x07)
+            {
+                return deviceProperty[code - 0x01];
+            }
+
+            return SmbiosHelper.OutOfSpec;
+        }
+        #endregion
+
+        #region [private] {static} (bool) IsMeasuredInKb(int): Gets a value that indicates whether the memory is measured in KB
         /// <summary>
         /// Gets a value that indicates whether the memory is measured in KB.
         /// </summary>

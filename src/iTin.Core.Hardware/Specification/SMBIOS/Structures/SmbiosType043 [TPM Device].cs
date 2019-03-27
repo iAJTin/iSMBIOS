@@ -60,19 +60,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // | 1Bh          OEM-defined     DWORD       Varies      OEM- or BIOS vendor-specific information              |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the TPM Device (Type 43) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the TPM Device (Type 43) structure.
     /// </summary>
     sealed class SmbiosType043 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType043(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType043(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType043"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType043" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType043(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -84,7 +86,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 3.1.0+ fields
 
-        #region [private] (string) VendorId: Gets a value representing the 'Vendor ID' field.
+        #region [private] (string) VendorId: Gets a value representing the 'Vendor ID' field
         /// <summary>
         ///  Gets a value representing the <c>Vendor ID</c> field.
         /// </summary>
@@ -95,7 +97,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string VendorId => GetBytes(HeaderInfo.RawData, 4, 4).ToString();
         #endregion
 
-        #region [private] (string) DescriptionVersion2: Gets a value representing the 'Description Version 2' field.
+        #region [private] (string) DescriptionVersion2: Gets a value representing the 'Description Version 2' field
         /// <summary>
         ///  Gets a value representing the <c>Description Version 2</c> field.
         /// </summary>
@@ -106,7 +108,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string DescriptionVersion2 => GetString(0x12);
         #endregion
 
-        #region [private] (ulong) Characteristics: Gets a value representing the 'Characteristics' field.
+        #region [private] (ulong) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Characteristics</c> field.
         /// </summary>
@@ -116,7 +118,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private ulong Characteristics => (ulong)GetQuadrupleWord(0x13);
         #endregion
 
-        #region [private] (int) OemDefined: Gets a value representing the 'OEM Defined' field.
+        #region [private] (int) OemDefined: Gets a value representing the 'OEM Defined' field
         /// <summary>
         /// Gets a value representing the <c>OEM Defined</c> field.
         /// </summary>
@@ -132,7 +134,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -158,7 +161,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -179,14 +183,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 3.1.0 (21/11/2016)
 
-
-        #endregion
-
-        private byte[] GetBytes(byte[] sequence, byte start, byte len)
+        private static byte[] GetBytes(byte[] sequence, byte start, byte len)
         {            
             IEnumerable<byte> query = sequence.TakeWhile((item, index) => index >= start && index <= len);
 
            return query.ToArray();
         }
+
+        #endregion
     }
 }

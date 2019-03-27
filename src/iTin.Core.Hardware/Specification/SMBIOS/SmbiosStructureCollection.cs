@@ -6,7 +6,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Linq;
 
     /// <summary>
-    /// Represents a read-only collection of objects <see cref = "SmbiosBaseType" />.
+    /// Represents a read-only collection of objects <see cref="SmbiosBaseType" />.
     /// </summary>
     public sealed class SmbiosStructureCollection : ReadOnlyCollection<SmbiosBaseType>
     {

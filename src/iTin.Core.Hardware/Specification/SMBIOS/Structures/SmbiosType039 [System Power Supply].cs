@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -132,19 +133,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver InputCurrentProbeHandle                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Power Supply (Type 39) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Power Supply (Type 39) structure.
     /// </summary>
     sealed class SmbiosType039 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType039(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType039(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType039"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType039" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType039(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -154,7 +157,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (bool) IsRedundant: Gets a value representing the 'Is Redundant' field.
+        #region [private] (bool) IsRedundant: Gets a value representing the 'Is Redundant' field
         /// <summary>
         /// Gets a value representing the <c>Is Redundant</c> field.
         /// </summary>
@@ -162,13 +165,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsRedundant
-        {
-            get { return GetByte(0x04) != 0x00; }
-        }
+        private bool IsRedundant => GetByte(0x04) != 0x00;
         #endregion
 
-        #region [private] (string) Location: Gets a value representing the 'Location' field.
+        #region [private] (string) Location: Gets a value representing the 'Location' field
         /// <summary>
         /// Gets a value representing the <c>Location</c> field.
         /// </summary>
@@ -176,13 +176,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Location
-        {
-            get { return GetString(0x05); }
-        }
+        private string Location => GetString(0x05);
         #endregion
 
-        #region [private] (string) DeviceName: Gets a value representing the 'Device Name' field.
+        #region [private] (string) DeviceName: Gets a value representing the 'Device Name' field
         /// <summary>
         /// Gets a value representing the <c>Device Name</c> field.
         /// </summary>
@@ -190,13 +187,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string DeviceName
-        {
-            get { return GetString(0x06); }
-        }
+        private string DeviceName => GetString(0x06);
         #endregion
 
-        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field.
+        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
         /// Gets a value representing the <c>Manufacturer</c> field.
         /// </summary>
@@ -204,13 +198,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Manufacturer
-        {
-            get { return GetString(0x07); }
-        }
+        private string Manufacturer => GetString(0x07);
         #endregion
 
-        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field.
+        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
         /// Gets a value representing the <c>Serial Number</c> field.
         /// </summary>
@@ -218,13 +209,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SerialNumber
-        {
-            get { return GetString(0x08); }
-        }
+        private string SerialNumber => GetString(0x08);
         #endregion
 
-        #region [private] (string) AssetTagNumber: Gets a value representing the 'Asset Tag Number' field.
+        #region [private] (string) AssetTagNumber: Gets a value representing the 'Asset Tag Number' field
         /// <summary>
         /// Gets a value representing the <c>Asset Tag Number</c> field.
         /// </summary>
@@ -232,13 +220,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string AssetTagNumber
-        {
-            get { return GetString(0x09); }
-        }
+        private string AssetTagNumber => GetString(0x09);
         #endregion
 
-        #region [private] (string) ModelPartNumber: Gets a value representing the 'Model Part Number' field.
+        #region [private] (string) ModelPartNumber: Gets a value representing the 'Model Part Number' field
         /// <summary>
         /// Gets a value representing the <c>Model Part Number</c> field.
         /// </summary>
@@ -246,13 +231,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string ModelPartNumber
-        {
-            get { return GetString(0x0a); }
-        }
+        private string ModelPartNumber => GetString(0x0a);
         #endregion
 
-        #region [private] (string) RevisionLevel: Gets a value representing the 'Revision Level' field.
+        #region [private] (string) RevisionLevel: Gets a value representing the 'Revision Level' field
         /// <summary>
         /// Gets a value representing the <c>Revision Level</c> field.
         /// </summary>
@@ -260,13 +242,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string RevisionLevel
-        {
-            get { return GetString(0x0b); }
-        }
+        private string RevisionLevel => GetString(0x0b);
         #endregion
 
-        #region [private] (int) MaxPowerCapacity: Gets a value representing the 'Max Power Capacity' field.
+        #region [private] (int) MaxPowerCapacity: Gets a value representing the 'Max Power Capacity' field
         /// <summary>
         /// Gets a value representing the <c>Max Power Capacity</c> field.
         /// </summary>
@@ -274,13 +253,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaxPowerCapacity
-        {
-            get { return GetWord(0x0c); }
-        }
+        private int MaxPowerCapacity => GetWord(0x0c);
         #endregion
 
-        #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field.
+        #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Characteristics</c> field.
         /// </summary>
@@ -288,13 +264,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Characteristics
-        {
-            get { return GetWord(0x0e); }
-        }
+        private int Characteristics => GetWord(0x0e);
         #endregion
 
-        #region [private] (bool) IsHotReplaceable: Gets a value representing the 'Is Hot Replaceable' feature of the 'Characteristics' field.
+        #region [private] (bool) IsHotReplaceable: Gets a value representing the 'Is Hot Replaceable' feature of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Is Hot Replaceable</c> feature of the <c>Characteristics</c> field
         /// </summary>
@@ -302,13 +275,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsHotReplaceable
-        {
-            get { return Characteristics.CheckBit(Bits.Bit00); }
-        }
+        private bool IsHotReplaceable => Characteristics.CheckBit(Bits.Bit00);
         #endregion
 
-        #region [private] (bool) IsPresent: Gets a value representing the 'Is Present' feature of the 'Characteristics' field.
+        #region [private] (bool) IsPresent: Gets a value representing the 'Is Present' feature of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Is Present</c> feature of the <c>Characteristics</c> field
         /// </summary>
@@ -316,13 +286,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsPresent
-        {
-            get { return Characteristics.CheckBit(Bits.Bit01); }
-        }
+        private bool IsPresent => Characteristics.CheckBit(Bits.Bit01);
         #endregion
 
-        #region [private] (bool) IsPlugged: Gets a value representing the 'Is Plugged' feature of the 'Characteristics' field.
+        #region [private] (bool) IsPlugged: Gets a value representing the 'Is Plugged' feature of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Is Plugged</c> feature of the <c>Characteristics</c> field
         /// </summary>
@@ -330,13 +297,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsPlugged
-        {
-            get { return !Characteristics.CheckBit(Bits.Bit02); }
-        }
+        private bool IsPlugged => !Characteristics.CheckBit(Bits.Bit02);
         #endregion
 
-        #region [private] (byte) InputVoltageRange: Gets a value representing the 'Input Voltage Range' feature of the 'Characteristics' field.
+        #region [private] (byte) InputVoltageRange: Gets a value representing the 'Input Voltage Range' feature of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Input Voltage Range</c> feature of the <c>Characteristics</c> field
         /// </summary>
@@ -344,13 +308,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InputVoltageRange
-        {
-            get { return (byte) ((Characteristics >> 0x03) & 0x0007); }
-        }
+        private byte InputVoltageRange => (byte) ((Characteristics >> 0x03) & 0x0007);
         #endregion
 
-        #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Characteristics' field.
+        #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Status</c> feature of the <c>Characteristics</c> field
         /// </summary>
@@ -358,13 +319,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Status
-        {
-            get { return (byte) ((Characteristics >> 0x07) & 0x0007); }
-        }
+        private byte Status => (byte) ((Characteristics >> 0x07) & 0x0007);
         #endregion
 
-        #region [private] (byte) SupplyType: Gets a value representing the 'Supply Type' feature of the 'Characteristics' field.
+        #region [private] (byte) SupplyType: Gets a value representing the 'Supply Type' feature of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Supply Type</c> feature of the <c>Characteristics</c> field
         /// </summary>
@@ -372,13 +330,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SupplyType
-        {
-            get { return (byte) ((Characteristics >> 0x0a) & 0x000f); }
-        }
+        private byte SupplyType => (byte) ((Characteristics >> 0x0a) & 0x000f);
         #endregion
 
-        #region [private] (int) InputVoltageProbeHandle: Gets a value representing the 'Input Voltage Probe Handle' field.
+        #region [private] (int) InputVoltageProbeHandle: Gets a value representing the 'Input Voltage Probe Handle' field
         /// <summary>
         /// Gets a value representing the <c>Input Voltage Probe Handle</c> field.
         /// </summary>
@@ -386,13 +341,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InputVoltageProbeHandle
-        {
-            get { return GetWord(0x10); }
-        }
+        private int InputVoltageProbeHandle => GetWord(0x10);
         #endregion
 
-        #region [private] (int) CoolingDeviceHandle: Gets a value representing the 'Cooling Device Handle' field.
+        #region [private] (int) CoolingDeviceHandle: Gets a value representing the 'Cooling Device Handle' field
         /// <summary>
         /// Gets a value representing the <c>Cooling Device Handle</c> field.
         /// </summary>
@@ -400,13 +352,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CoolingDeviceHandle
-        {
-            get { return GetWord(0x12); }
-        }
+        private int CoolingDeviceHandle => GetWord(0x12);
         #endregion
 
-        #region [private] (int) InputCurrentProbeHandle: Gets a value representing the 'Input Current Probe Handle' field.
+        #region [private] (int) InputCurrentProbeHandle: Gets a value representing the 'Input Current Probe Handle' field
         /// <summary>
         /// Gets a value representing the <c>Input Current Probe Handle</c> field.
         /// </summary>
@@ -414,17 +363,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InputCurrentProbeHandle
-        {
-            get { return GetWord(0x14); }
-        }
+        private int InputCurrentProbeHandle => GetWord(0x14);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -577,7 +524,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -642,7 +590,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetInputVoltageRange(byte): Gets a string representing the mode of use of the power supply.
+        #region [private] {static} (string) GetInputVoltageRange(byte): Gets a string representing the mode of use of the power supply
         /// <summary>
         /// Gets a string representing the mode of use of the power supply.
         /// </summary>
@@ -671,7 +619,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetStatus(byte): Gets a string representing the state of the power supply.
+        #region [private] {static} (string) GetStatus(byte): Gets a string representing the state of the power supply
         /// <summary>
         /// Gets a string representing the state of the power supply.
         /// </summary>
@@ -699,7 +647,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetSupplyType(byte): Gets a string representing the type of power supply.
+        #region [private] {static} (string) GetSupplyType(byte): Gets a string representing the type of power supply
         /// <summary>
         /// Gets a string representing the type of power supply.
         /// </summary>

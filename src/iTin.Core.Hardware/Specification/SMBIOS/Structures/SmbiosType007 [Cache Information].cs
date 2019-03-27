@@ -8,6 +8,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -139,19 +140,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  See 7.8.1.                                   |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Cache Information (Type 7) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Cache Information (Type 7) structure.
     /// </summary>
     sealed class SmbiosType007 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType007(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType007(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType007"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType007" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType007(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -163,7 +166,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.0+ fields
 
-        #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field.
+        #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field
         /// <summary>
         /// Gets a value representing the <c>Socket Designation</c> field.
         /// </summary>
@@ -171,13 +174,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SocketDesignation
-        {
-            get { return GetString(0x04); }
-        }
+        private string SocketDesignation => GetString(0x04);
         #endregion
 
-        #region [private] (int) CacheConfiguration: Gets a value representing the 'Cache Configuration' field.
+        #region [private] (int) CacheConfiguration: Gets a value representing the 'Cache Configuration' field
         /// <summary>
         /// Gets a value representing the <c>Cache Configuration</c> field.
         /// </summary>
@@ -185,13 +185,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CacheConfiguration
-        {
-            get { return GetWord(0x05); }
-        }
+        private int CacheConfiguration => GetWord(0x05);
         #endregion
 
-        #region [private] (byte) OperationalMode:  Gets a value that represents the 'Operational Mode' feature of the 'Cache Configuration' field.
+        #region [private] (byte) OperationalMode:  Gets a value that represents the 'Operational Mode' feature of the 'Cache Configuration' field
         /// <summary>
         /// Gets a value that represents the <c>bcOperational Mode</c> feature of the <c>Cache Configuration</c> field.
         /// </summary>
@@ -199,13 +196,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte OperationalMode
-        {
-            get { return (byte) ((CacheConfiguration >> 0x08) & 0x0003); }
-        }
+        private byte OperationalMode => (byte) ((CacheConfiguration >> 0x08) & 0x0003);
         #endregion
 
-        #region [private] (bool) Enabled: Gets a value that represents the 'Enabled' feature of the 'Cache Configuration' field.
+        #region [private] (bool) Enabled: Gets a value that represents the 'Enabled' feature of the 'Cache Configuration' field
         /// <summary>
         /// Gets a value that represents the <c>Enabled</c> feature of the <c>Cache Configuration</c> field.
         /// </summary>
@@ -213,13 +207,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool Enabled
-        {
-            get { return CacheConfiguration.CheckBit(Bits.Bit07); }
-        }
+        private bool Enabled => CacheConfiguration.CheckBit(Bits.Bit07);
         #endregion
 
-        #region [private] (byte) Location: Gets a value that represents the 'Location' feature of the 'Cache Configuration' field.
+        #region [private] (byte) Location: Gets a value that represents the 'Location' feature of the 'Cache Configuration' field
         /// <summary>
         /// Gets a value that represents the <c>Location</c> feature of the <c>Cache Configuration</c> field.
         /// </summary>
@@ -227,13 +218,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Location
-        {
-            get { return (byte) ((CacheConfiguration >> 0x05) & 0x0003); }
-        }
+        private byte Location => (byte) ((CacheConfiguration >> 0x05) & 0x0003);
         #endregion
 
-        #region [private] (bool) CacheSocketed: Gets a value that represents the 'Cache Socketed' feature of the 'Cache Configuration' field.
+        #region [private] (bool) CacheSocketed: Gets a value that represents the 'Cache Socketed' feature of the 'Cache Configuration' field
         /// <summary>
         /// Gets a value that represents the <c>Cache Socketed</c> feature of the <c>Cache Configuration</c> field.
         /// </summary>
@@ -241,13 +229,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool CacheSocketed
-        {
-            get { return CacheConfiguration.CheckBit(Bits.Bit03); }
-        }
+        private bool CacheSocketed => CacheConfiguration.CheckBit(Bits.Bit03);
         #endregion
 
-        #region [private] (byte) CacheLevel: Gets a value that represents the 'Cache Level' feature of the 'Cache Configuration' field.
+        #region [private] (byte) CacheLevel: Gets a value that represents the 'Cache Level' feature of the 'Cache Configuration' field
         /// <summary>
         /// Gets a value that represents the <c>Cache Level</c> feature of the <c>Cache Configuration</c> field.
         /// </summary>
@@ -267,7 +252,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] (int) MaximumCacheSize: Gets a value representing the 'Maximum Cache Size' field.
+        #region [private] (int) MaximumCacheSize: Gets a value representing the 'Maximum Cache Size' field
         /// <summary>
         /// Gets a value representing the <c>Maximum Cache Size</c> field.
         /// </summary>
@@ -275,13 +260,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximumCacheSize
-        {
-                get { return GetWord(0x07); }
-            }
+        private int MaximumCacheSize => GetWord(0x07);
         #endregion
 
-        #region [private] (int) InstalledSize: Gets a value representing the 'Installed Size' field.
+        #region [private] (int) InstalledSize: Gets a value representing the 'Installed Size' field
         /// <summary>
         /// Gets a value representing the <c>Installed Size</c> field.
         /// </summary>
@@ -289,13 +271,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InstalledSize
-        {
-            get { return GetWord(0x09); }
-        }
+        private int InstalledSize => GetWord(0x09);
         #endregion
 
-        #region [private] (int) SupportedSramType: Gets a value representing the 'Supported SRAM Type' field.
+        #region [private] (int) SupportedSramType: Gets a value representing the 'Supported SRAM Type' field
         /// <summary>
         /// Gets a value representing the <c>Supported SRAM Type</c> field.
         /// </summary>
@@ -303,13 +282,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedSramType
-        {
-            get { return GetWord(0x0b); }
-        }
+        private int SupportedSramType => GetWord(0x0b);
         #endregion
 
-        #region [private] (int) CurrentSramType: Gets a value representing the 'Current SRAM Type' field.
+        #region [private] (int) CurrentSramType: Gets a value representing the 'Current SRAM Type' field
         /// <summary>
         /// Gets a value representing the <c>Current SRAM Type</c> field.
         /// </summary>
@@ -317,17 +293,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSramType
-        {
-            get { return GetWord(0x0d); }
-        }
+        private int CurrentSramType => GetWord(0x0d);
         #endregion
 
         #endregion
 
         #region Version 2.1+ fields
 
-        #region [private] (byte) CacheSpeed: Gets a value representing the 'Cache Speed' field.
+        #region [private] (byte) CacheSpeed: Gets a value representing the 'Cache Speed' field
         /// <summary>
         /// Gets a value representing the <c>Cache Speed</c> field.
         /// </summary>
@@ -335,13 +308,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CacheSpeed
-        {
-            get { return GetByte(0x0F); }
-        }
+        private byte CacheSpeed => GetByte(0x0F);
         #endregion
 
-        #region [private] (byte) ErrorCorrectionType: Gets a value representing the 'Error Connection Type' field.
+        #region [private] (byte) ErrorCorrectionType: Gets a value representing the 'Error Connection Type' field
         /// <summary>
         /// Gets a value representing the <c>Error Connection Type</c> field.
         /// </summary>
@@ -349,13 +319,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorCorrectionType
-        {
-            get { return GetByte(0x10); }
-        }
+        private byte ErrorCorrectionType => GetByte(0x10);
         #endregion
 
-        #region [private] (byte) SystemCacheType: Gets a value representing the 'System Cache Type' field.
+        #region [private] (byte) SystemCacheType: Gets a value representing the 'System Cache Type' field
         /// <summary>
         /// Gets a value representing the <c>System Cache Type</c> field.
         /// </summary>
@@ -363,13 +330,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SystemCacheType
-        {
-            get { return GetByte(0x11); }
-        }
+        private byte SystemCacheType => GetByte(0x11);
         #endregion
 
-        #region [private] (byte) Associativity: Gets a value representing the 'Associativity' field.
+        #region [private] (byte) Associativity: Gets a value representing the 'Associativity' field
         /// <summary>
         /// Gets a value representing the <c>Associativity</c>' field.
         /// </summary>
@@ -377,17 +341,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Associativity
-        {
-            get { return GetByte(0x12); }
-        }
+        private byte Associativity => GetByte(0x12);
         #endregion
 
         #endregion
 
         #region Version 3.1.0+ fields
 
-        #region [private] (uint) MaximumCacheSize2: Gets a value representing the 'Maximum Cache Size 2' field.
+        #region [private] (uint) MaximumCacheSize2: Gets a value representing the 'Maximum Cache Size 2' field
         /// <summary>
         /// Gets a value representing the <c>Maximum Cache Size 2</c> field.
         /// </summary>
@@ -395,13 +356,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Valor de la propiedad.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint MaximumCacheSize2
-        {
-            get { return (uint)GetDoubleWord(0x13); }
-        }
+        private uint MaximumCacheSize2 => (uint)GetDoubleWord(0x13);
         #endregion
 
-        #region [private] (uint) InstalledCacheSize2: Gets a value representing the 'Installed Cache Size 2' field.
+        #region [private] (uint) InstalledCacheSize2: Gets a value representing the 'Installed Cache Size 2' field
         /// <summary>
         /// Gets a value representing the <c>Installed Cache Size 2</c> field.
         /// </summary>
@@ -409,10 +367,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Valor de la propiedad.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint InstalledCacheSize2
-        {
-            get { return (uint)GetDoubleWord(0x13); }
-        }
+        private uint InstalledCacheSize2 => (uint)GetDoubleWord(0x13);
         #endregion
 
         #endregion
@@ -421,7 +376,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -570,7 +526,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -641,7 +598,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetAssociativity(byte): Gets a string indicating the association mode of this cache.
+        #region [private] {static} (string) GetAssociativity(byte): Gets a string indicating the association mode of this cache
         /// <summary>
         /// Gets a <see cref="T:system.String"/> indicating the association mode of this cache.
         /// </summary>
@@ -676,7 +633,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetErrorCorrection(byte): Gets a string indicating the method of error correction.
+        #region [private] {static} (string) GetErrorCorrection(byte): Gets a string indicating the method of error correction
         /// <summary>
         /// Gets a <see cref="T:system.String"/> indicating the method of error correction.
         /// </summary>
@@ -703,7 +660,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetLocation(byte): Gets a string indicating the location of this cache against the processor.
+        #region [private] {static} (string) GetLocation(byte): Gets a string indicating the location of this cache against the processor
         /// <summary>
         /// Gets a <see cref="T:system.String"/> indicating the location of this cache against the processor.
         /// </summary>
@@ -723,7 +680,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetOperationalMode(byte): Gets a string representing the operational mode.
+        #region [private] {static} (string) GetOperationalMode(byte): Gets a string representing the operational mode
         /// <summary>
         /// Gets a <see cref="T:system.String"/> representing the operational mode.
         /// </summary>
@@ -743,7 +700,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (int) GetSize(int): Gets a string that represents the cache size in Kb.
+        #region [private] {static} (int) GetSize(int): Gets a string that represents the cache size in Kb
         /// <summary>
         /// Gets a <see cref="T:System.String"/> that represents the cache size in Kb.
         /// </summary>
@@ -762,7 +719,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (uint) GetSize(int): Gets a string that represents the cache size in Kb.
+        #region [private] {static} (uint) GetSize(int): Gets a string that represents the cache size in Kb
         /// <summary>
         /// Gets a <see cref="T:System.String"/> that represents the cache size in Kb.
         /// </summary>
@@ -808,7 +765,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<String>) GetTypes(int): Gets a read-only collection of supported memory types.
+        #region [private] {static} (ReadOnlyCollection<String>) GetTypes(int): Gets a read-only collection of supported memory types
         /// <summary>
         /// Gets a read-only collection of supported memory types.
         /// </summary>

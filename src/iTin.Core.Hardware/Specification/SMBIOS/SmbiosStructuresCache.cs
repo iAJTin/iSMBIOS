@@ -23,36 +23,38 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region constructor/s
 
-            #region private SmbiosStructuresCache(): Prevents a default instance of the class from being created.
-            /// <summary>
-            /// Prevents a default instance of the class from being created.
-            /// </summary>
-            private SmbiosStructuresCache()
-            {
-                structureDictionary = new Dictionary<SmbiosStructure, SmbiosStructureCollection>();   
-            }
-            #endregion
+        #region private SmbiosStructuresCache(): Prevents a default instance of the class from being created
+        /// <summary>
+        /// Prevents a default instance of the class from being created.
+        /// </summary>
+        private SmbiosStructuresCache()
+        {
+            structureDictionary = new Dictionary<SmbiosStructure, SmbiosStructureCollection>();   
+        }
+        #endregion
 
         #endregion
 
         #region public methods
 
-            #region public (SmbiosStructureCollection) Get(SmbiosStructureInfo): Gets the collection of available structures.
-            /// <summary>
-            /// Gets the collection of available structures.
-            /// </summary>
-            /// <param name="structureInfo">The structure info.</param>
-            /// <returns>The collection of available structures</returns>
-            public SmbiosStructureCollection Get(SmbiosStructureInfo structureInfo)
+        #region public (SmbiosStructureCollection) Get(SmbiosStructureInfo): Gets the collection of available structures
+        /// <summary>
+        /// Gets the collection of available structures.
+        /// </summary>
+        /// <param name="structureInfo">The structure info.</param>
+        /// <returns>
+        /// The collection of available structures.
+        /// </returns>
+        public SmbiosStructureCollection Get(SmbiosStructureInfo structureInfo)
+        {
+            if (!structureDictionary.ContainsKey(structureInfo.StructureType))
             {
-                if (!structureDictionary.ContainsKey(structureInfo.StructureType))
-                {
-                    structureDictionary.Add(structureInfo.StructureType, structureInfo.Structures);
-                }
-
-                return structureDictionary[structureInfo.StructureType];
+                structureDictionary.Add(structureInfo.StructureType, structureInfo.Structures);
             }
-            #endregion
+
+            return structureDictionary[structureInfo.StructureType];
+        }
+        #endregion
 
         #endregion
     }

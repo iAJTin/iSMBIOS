@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 027: Cooling Device.
@@ -70,19 +71,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver Description                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Cooling Device (Type 27) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Cooling Device (Type 27) structure.
     /// </summary>
     sealed class SmbiosType027 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType027(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType027(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType027"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType027" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType027(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -94,7 +97,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.2+ fields
 
-        #region [private] (int) TemperatureProbeHandle: Gets a value representing the 'Temperature Probe Handle' field.
+        #region [private] (int) TemperatureProbeHandle: Gets a value representing the 'Temperature Probe Handle' field
         /// <summary>
         /// Gets a value representing the <c>Temperature Probe Handle</c> field.
         /// </summary>
@@ -102,13 +105,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TemperatureProbeHandle
-        {
-            get { return GetWord(0x04); }
-        }
+        private int TemperatureProbeHandle => GetWord(0x04);
         #endregion
 
-        #region [private] (byte) DeviceTypeAndStatus: Gets a value representing the 'Device Type And Status' field.
+        #region [private] (byte) DeviceTypeAndStatus: Gets a value representing the 'Device Type And Status' field
         /// <summary>
         /// Gets a value representing the <c>Device Type And Status</c> field.
         /// </summary>
@@ -116,13 +116,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceTypeAndStatus
-        {
-            get { return GetByte(0x06); }
-        }
+        private byte DeviceTypeAndStatus => GetByte(0x06);
         #endregion
 
-        #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' feature of the 'Device Type And Status' field.
+        #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' feature of the 'Device Type And Status' field
         /// <summary>
         /// Gets a value representing the <c>Device Type</c> feature of the <c>Device Type And Status</c> field
         /// </summary>
@@ -130,13 +127,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceType
-        {
-            get { return (byte) (DeviceTypeAndStatus & 0x1f); }
-        }
+        private byte DeviceType => (byte) (DeviceTypeAndStatus & 0x1f);
         #endregion
 
-        #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Device Type And Status' field.
+        #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Device Type And Status' field
         /// <summary>
         /// Gets a value representing the <c>Status</c> feature of the <c>Device Type And Status</c> field
         /// </summary>
@@ -144,13 +138,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Status
-        {
-            get { return (byte) ((DeviceTypeAndStatus >> 5) & 0x07); }
-        }
+        private byte Status => (byte) ((DeviceTypeAndStatus >> 5) & 0x07);
         #endregion
 
-        #region [private] (byte) CoolingUnitGroup: Gets a value representing the 'Cooling Unit Group' field.
+        #region [private] (byte) CoolingUnitGroup: Gets a value representing the 'Cooling Unit Group' field
         /// <summary>
         /// Gets a value representing the <c>Cooling Unit Group</c> field.
         /// </summary>
@@ -158,13 +149,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CoolingUnitGroup
-        {
-            get { return GetByte(0x07); }
-        }
+        private byte CoolingUnitGroup => GetByte(0x07);
         #endregion
 
-        #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field.
+        #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field
         /// <summary>
         /// Gets a value representing the <c>Oem Defined</c> field.
         /// </summary>
@@ -172,13 +160,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemDefined
-        {
-            get { return GetDoubleWord(0x08); }
-        }
+        private long OemDefined => GetDoubleWord(0x08);
         #endregion
 
-        #region [private] (int) NominalSpeed: Gets a value representing the 'Nominal Speed' field.
+        #region [private] (int) NominalSpeed: Gets a value representing the 'Nominal Speed' field
         /// <summary>
         /// Gets a value representing the <c>Nominal Speed</c> field.
         /// </summary>
@@ -186,17 +171,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NominalSpeed
-        {
-            get { return GetWord(0x0c); }
-        }
+        private int NominalSpeed => GetWord(0x0c);
         #endregion
 
         #endregion
 
         #region Version 2.7+ fields
 
-        #region [private] (string) Description: Gets a value representing the 'Description' field.
+        #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
         /// Gets a value representing the <c>Description</c> field.
         /// </summary>
@@ -204,10 +186,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Description
-        {
-            get { return GetString(0x0e); }
-        }
+        private string Description => GetString(0x0e);
         #endregion
 
         #endregion
@@ -216,7 +195,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -297,11 +277,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Obtiene la colección de propiedades de esta estructura.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
-        /// Obtiene la colección de propiedades de esta estructura.
+        /// Gets the property collection for this structure.
         /// </summary>
-        /// <param name="properties">Colección de propiedades de esta estructura.</param>
+        /// <param name="properties">Collection of properties of this structure.</param>
         protected override void Parse(Hashtable properties)
         {
             #region validate parameter/s
@@ -344,7 +325,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type.
+        #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
         /// <summary>
         /// Gets a string representing the device type.
         /// </summary>
@@ -378,7 +359,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetStatus(byte): Gets a string representing the state of the test.
+        #region [private] {static} (string) GetStatus(byte): Gets a string representing the state of the test
         /// <summary>
         /// Gets a string representing the state of the test.
         /// </summary>

@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 019: Memory Array Mapped Address.
@@ -85,19 +86,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver ExtendedEndingAddress           |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Array Mapped Address (Type 19) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Array Mapped Address (Type 19) structure.
     /// </summary>
     sealed class SmbiosType019 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType019(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType019(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType019"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType019" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType019(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -109,7 +112,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (ulong) StartingAddress: Gets a value representing the 'Starting Address' field.
+        #region [private] (ulong) StartingAddress: Gets a value representing the 'Starting Address' field
         /// <summary>
         /// Gets a value representing the <c>Starting Address</c> field.
         /// </summary>
@@ -117,13 +120,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong StartingAddress
-        {
-            get { return (ulong)GetDoubleWord(0x04); }
-        }
+        private ulong StartingAddress => (ulong)GetDoubleWord(0x04);
         #endregion
 
-        #region [private] (ulong) EndingAddress: Gets a value representing the 'Ending Address' field.
+        #region [private] (ulong) EndingAddress: Gets a value representing the 'Ending Address' field
         /// <summary>
         /// Gets a value representing the <c>Ending Address</c> field.
         /// </summary>
@@ -131,13 +131,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong EndingAddress
-        {
-            get { return (ulong)GetDoubleWord(0x08); }
-        }
+        private ulong EndingAddress => (ulong)GetDoubleWord(0x08);
         #endregion
 
-        #region [private] (int) MemoryArrayHandle: Gets a value representing the 'Memory Array Handle' field.
+        #region [private] (int) MemoryArrayHandle: Gets a value representing the 'Memory Array Handle' field
         /// <summary>
         /// Gets a value representing the <c>Memory Array Handle</c> field.
         /// </summary>
@@ -145,13 +142,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryArrayHandle
-        {
-            get { return GetWord(0x0c); }
-        }
+        private int MemoryArrayHandle => GetWord(0x0c);
         #endregion
 
-        #region [private] (byte) PartitionWidth: Gets a value representing the 'Partition Width' field.
+        #region [private] (byte) PartitionWidth: Gets a value representing the 'Partition Width' field
         /// <summary>
         /// Gets a value representing the <c>Partition Width</c> field.
         /// </summary>
@@ -159,17 +153,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte PartitionWidth
-        {
-            get { return GetByte(0x0e); }
-        }
+        private byte PartitionWidth => GetByte(0x0e);
         #endregion
 
         #endregion
 
         #region Version 2.1+ fields
 
-        #region [private] (ulong) ExtendedStartingAddress: Gets a value representing the 'Extended Starting Address' field.
+        #region [private] (ulong) ExtendedStartingAddress: Gets a value representing the 'Extended Starting Address' field
         /// <summary>
         /// Gets a value representing the <c>Extended Starting Address</c> field.
         /// </summary>
@@ -177,13 +168,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedStartingAddress
-        {
-            get { return (ulong)GetQuadrupleWord(0x0f); }
-        }
+        private ulong ExtendedStartingAddress => (ulong)GetQuadrupleWord(0x0f);
         #endregion
 
-        #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field.
+        #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field
         /// <summary>
         /// Gets a value representing the <c>Extended Ending Address</c> field.
         /// </summary>
@@ -191,10 +179,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedEndingAddress
-        {
-            get { return (ulong)GetQuadrupleWord(0x17); }
-        }
+        private ulong ExtendedEndingAddress => (ulong)GetQuadrupleWord(0x17);
         #endregion
 
         #endregion
@@ -203,7 +188,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -269,7 +255,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>

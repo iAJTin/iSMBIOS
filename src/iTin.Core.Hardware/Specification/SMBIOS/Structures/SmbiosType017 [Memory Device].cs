@@ -7,6 +7,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -158,7 +159,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region constructor/s
 
-        #region [public] SmbiosType017(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType017(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType017" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
@@ -482,7 +483,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
         /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
@@ -735,7 +736,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
         /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.

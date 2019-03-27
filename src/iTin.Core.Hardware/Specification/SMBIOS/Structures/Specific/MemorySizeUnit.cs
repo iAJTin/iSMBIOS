@@ -2,22 +2,22 @@
 namespace iTin.Core.Hardware.Specification.Smbios
 {
     /// <summary>
-    /// Indica la unidad de memoria de la memoria.
+    /// Defines the unit of measurement of the memory.
     /// </summary>
     public enum MemorySizeUnit
     {
         /// <summary>
-        /// Memoria expresada en megabytes
+        /// Memory expressed in megabytes
         /// </summary>
-        MB ,
+        MB,
 
         /// <summary>
-        /// Memoria expresada en gigabytes
+        /// Memory expressed in gigabytes
         /// </summary>
         GB,
 
         /// <summary>
-        /// No definido
+        /// Undefined
         /// </summary>
         Reserved
     }

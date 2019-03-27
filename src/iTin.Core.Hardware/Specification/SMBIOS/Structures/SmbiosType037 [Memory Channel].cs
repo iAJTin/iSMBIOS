@@ -8,6 +8,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 037: Memory Channel.
@@ -56,19 +57,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              Handle                                                                                        |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Channel (Type 37) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Channel (Type 37) structure.
     /// </summary>
     sealed class SmbiosType037 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType037(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType037(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType037"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType037" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType037(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -78,7 +81,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (byte) ChannelType: Gets a value representing the 'Channel Type' field.
+        #region [private] (byte) ChannelType: Gets a value representing the 'Channel Type' field
         /// <summary>
         /// Gets a value representing the <c>Channel Type</c> field.
         /// </summary>
@@ -86,13 +89,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ChannelType
-        {
-            get { return GetByte(0x04); }
-        }
+        private byte ChannelType => GetByte(0x04);
         #endregion
 
-        #region [private] (byte) MaximunChannelLoad: Gets a value representing the 'Maximun Channel Load' field.
+        #region [private] (byte) MaximunChannelLoad: Gets a value representing the 'Maximun Channel Load' field
         /// <summary>
         /// Gets a value representing the <c>Maximun Channel Load</c> field.
         /// </summary>
@@ -100,13 +100,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MaximunChannelLoad
-        {
-            get { return HeaderInfo.RawData[0x05]; }
-        }
+        private byte MaximunChannelLoad => HeaderInfo.RawData[0x05];
         #endregion
 
-        #region [private] (byte) Count: Gets a value representing the 'Count' field.
+        #region [private] (byte) Count: Gets a value representing the 'Count' field
         /// <summary>
         /// Gets a value representing the <c>Count</c> field.
         /// </summary>
@@ -114,17 +111,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Count
-        {
-            get { return GetByte(0x06); }
-        }
+        private byte Count => GetByte(0x06);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -173,7 +168,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -209,7 +205,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetChannelType(byte): Gets a string representing the channel type.
+        #region [private] {static} (string) GetChannelType(byte): Gets a string representing the channel type
         /// <summary>
         /// Gets a string representing the channel type
         /// </summary>
@@ -236,7 +232,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (IEnumerable<MemoryChannelElement>) GetContainedElements(byte[], byte): Gets the list of devices.
+        #region [private] {static} (IEnumerable<MemoryChannelElement>) GetContainedElements(byte[], byte): Gets the list of devices
         /// <summary>
         /// Gets the list of devices.
         /// </summary>

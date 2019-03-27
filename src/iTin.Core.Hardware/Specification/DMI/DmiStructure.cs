@@ -6,7 +6,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios;
 
     /// <summary>
-    /// Representa a una estructura <see cref="DMI"/>.
+    /// Represents a structure <see cref="DMI" />.
     /// </summary>
     public sealed class DmiStructure
     {
@@ -22,9 +22,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region constructor/s
 
-        #region [internal] DmiStructure(SmbiosStructure): Inicializa una nueva instancia de la clase.
+        #region [internal] DmiStructure(SmbiosStructure): Initialize a new instance of the class DmiStructure
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="DmiStructure"/>.
+        /// Initialize a new instance of the class <see cref="DmiStructure" />.
         /// </summary>
         /// <param name="smbiosStructure">Estructura.</param>
         internal DmiStructure(SmbiosStructure smbiosStructure)
@@ -37,56 +37,42 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public properties
 
-        #region [public] (SmbiosStructure) Class: Obtiene un valor que representa la clase implementada.
+        #region [public] (SmbiosStructure) Class: Gets a value that represents the class implemented
         /// <summary>
-        /// Obtiene un valor que representa la clase implementada.
+        /// Gets a value that represents the class implemented.
         /// </summary>
         /// <value>
-        /// 	<para>Tipo: <see cref="SmbiosStructure"/></para>
-        /// 	<para>Uno de los valores de la enumeración <see cref="SmbiosStructure"/> que representa la clase implementada.</para>
+        /// One of the values of the enumeration <see cref="SmbiosStructure" /> that represents the implemented class.
         /// </value>
-        public SmbiosStructure Class
-        {
-            get { return smbiosStructure; }
-        }
+        public SmbiosStructure Class => smbiosStructure;
         #endregion
 
-        #region [public] (DmiClassCollection) Elements: Obtiene la colección de elementos disponibles.
+        #region [public] (DmiClassCollection) Elements: Gets the collection of available items
         /// <summary>
-        /// Obtiene la colección de elementos disponibles.
+        /// Gets the collection of available items.
         /// </summary>
         /// <value>
-        /// 	<para>Tipo: <see cref="DmiClassCollection"/></para>
-        /// 	<para>
-        ///         Objeto <see cref="DmiClassCollection"/> que contiene la colección de objetos <see cref="DmiClass"/> disponibles.
-        ///         Si no existe ningún objeto <see cref="DmiClass"/>, se devuelve <b>null</b>.
-        ///     </para>
+        /// Object <see cref="DmiClassCollection" /> that contains the collection of <see cref="DmiClass" /> objects available.
+        /// If there is no object <see cref="DmiClass" />, <b>null</b> is returned.
         /// </value>
-        public DmiClassCollection Elements
-        {
-            get { return elementsCollection ?? (elementsCollection = new DmiClassCollection(this)); }
-        }
+        public DmiClassCollection Elements => elementsCollection ?? (elementsCollection = new DmiClassCollection(this));
         #endregion
 
         #endregion
 
         #region public override methods
 
-        #region [public] {override} (String) ToString: Devuelve una cadena que representa al objeto actual.
+        #region [public] {override} (String) ToString: Returns a String that represents this instance
         /// <summary>
-        /// Devuelve una cadena que representa al objeto <see cref="DmiStructure"/> actual.
+        /// Returns a <see cref="T:System.String" /> that represents this instance.
         /// </summary>
         /// <returns>
-        ///   <para>Tipo: <see cref="T:System.String"/></para>
-        ///   <para>Cadena que representa al objeto <see cref="DmiStructure"/> actual.</para>
+        /// A <see cref="T:System.String" /> that represents this instance.
         /// </returns>
         /// <remarks>
-        /// El método <see cref="DmiStructure.ToString()"/> devuelve una cadena que incluye la clase.
-        /// </remarks>   
-        public override string ToString()
-        {
-            return string.Concat("Class = ", Class);
-        }
+        /// This method returns a string that represents this instance.
+        /// </remarks> 
+        public override string ToString() => $"Class = {Class}";
         #endregion
 
         #endregion

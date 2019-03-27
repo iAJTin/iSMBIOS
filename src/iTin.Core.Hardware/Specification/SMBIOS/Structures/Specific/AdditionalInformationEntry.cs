@@ -3,9 +3,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System.Collections;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 040: Additional Information. Additional Information Entry
@@ -35,7 +35,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <summary>
-    /// Esta clase representa a un elemento de la estructura <see cref="SmbiosType040"/>.
+    /// This class represents an element of the structure <see cref="SmbiosType040" />.
     /// </summary>
     class AdditionalInformationEntry
     {
@@ -51,170 +51,143 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region constructor/s
 
-            #region [internal] AdditionalInformationEntry(byte[]): Inicializa una nueva instancia de la clase especificando la información de la estructura.
-            /// <summary>
-            /// Inicializa una nueva instancia de la clase <see cref="AdditionalInformationEntry"/> especificando la información de la estructura.
-            /// </summary>
-            /// <param name="additionalInformationEntryArray">Información sin tratar de la estructura actual.</param>
-            internal AdditionalInformationEntry(byte[] additionalInformationEntryArray)
-            {
-                _additionalInformationEntryArray = additionalInformationEntryArray;
-            }
-            #endregion
+        #region [internal] AdditionalInformationEntry(byte[]): Initialize a new instance of the class specifying the structure information
+        /// <summary>
+        /// Initialize a new instance of the <see cref="AdditionalInformationEntry"/> class specifying the structure information.
+        /// </summary>
+        /// <param name="additionalInformationEntryArray">Untreated information of the current structure.</param>
+        internal AdditionalInformationEntry(byte[] additionalInformationEntryArray)
+        {
+            _additionalInformationEntryArray = additionalInformationEntryArray;
+        }
+        #endregion
 
         #endregion
 
         #region public properties
 
-            #region [public] (Hashtable) Properties: Obtiene las propiedades disponibles para esta estructura.
-            /// <summary>
-            /// Obtiene las propiedades disponibles para esta estructura.
-            /// </summary>
-            /// <value>
-            /// 	<para>Tipo: <see cref="T:System.Collections.Hashtable"/></para>
-            /// 	<para>Propiedades disponibles.</para>
-            /// </value>
-            public Hashtable Properties
+        #region [public] (Hashtable) Properties: Gets the properties available for this structure
+        /// <summary>
+        /// Gets the properties available for this structure.
+        /// </summary>
+        /// <value>
+        /// Available properties.
+        /// </value>
+        public Hashtable Properties
+        {
+            get
             {
-                get
+                if (_properties == null)
                 {
-                    if (_properties == null)
-                    {
-                        _properties = new Hashtable();
-                        Parse(_properties);
-                    }
-
-                    return _properties;
+                    _properties = new Hashtable();
+                    Parse(_properties);
                 }
+
+                return _properties;
             }
+        }
         #endregion
 
         #endregion
 
         #region private properties
 
-            #region [private] (byte) EntryLength: Obtiene un valor que representa al campo 'Entry Length'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>Entry Length</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Byte"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private byte EntryLength
-            {
-                get { return _additionalInformationEntryArray[0x00]; }
-            }
-            #endregion
+        #region [private] (byte) EntryLength: Gets a value that represents the 'Entry Length' field
+        /// <summary>
+        /// Gets a value that represents the <c>Entry Length</c> field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte EntryLength => _additionalInformationEntryArray[0x00];
+        #endregion
 
-            #region [private] (int) ReferencedHandle: Obtiene un valor que representa al campo 'Referenced Handle'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>Referenced Handle</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Int32"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private int ReferencedHandle
-            {
-                get { return LogicHelper.AWord(_additionalInformationEntryArray, 0x01); }
-            }
-            #endregion
+        #region [private] (int) ReferencedHandle: Gets a value that represents the 'Referenced Handle' field
+        /// <summary>
+        /// Gets a value that represents the '<c>Referenced Handle</c>' field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int ReferencedHandle => LogicHelper.AWord(_additionalInformationEntryArray, 0x01);
+        #endregion
 
-            #region [private] (byte) ReferencedOffset: Obtiene un valor que representa al campo 'Referenced Offset'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>Referenced Offset</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Byte"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private byte ReferencedOffset
-            {
-                get { return _additionalInformationEntryArray[0x03]; }
-            }
-            #endregion
+        #region [private] (byte) ReferencedOffset: Gets a value that represents the 'Referenced Offset' field
+        /// <summary>
+        /// Gets a value that represents the '<c>Referenced Offset</c>' field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte ReferencedOffset => _additionalInformationEntryArray[0x03];
+        #endregion
 
-            #region [private] (string) StringValue: Obtiene un valor que representa al campo 'String'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>String</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.String"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private string StringValue
-            {
-                get { return string.Empty; } //_additionalInformationEntryArray[0x04]; }
-            }
-            #endregion
+        #region [private] (string) StringValue: Gets a value that represents the 'String' field
+        /// <summary>
+        /// Gets a value that represents the '<c>String</c>' field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private string StringValue => string.Empty;
+        #endregion
 
-            #region [private] (byte) Value: Obtiene un valor que representa al campo 'Value'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>Value</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Byte"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private byte Value
-            {
-                get { return _additionalInformationEntryArray[0x05]; }
-            }
-            #endregion
+        #region [private] (byte) Value: Gets a value that represents the 'Value' field
+        /// <summary>
+        /// Gets a value that represents the '<c>Value</c>' field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte Value => _additionalInformationEntryArray[0x05];
+        #endregion
 
         #endregion
 
         #region public override methods
 
-        #region [public] {override} (string) ToString(): Devuelve una clase string que representa al objeto actual.
+        #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Devuelve una clase <see cref="T:System.String"/> que representa al objeto actual. 
+        /// Returns a class <see cref="T: System.String" /> that represents the current object.
         /// </summary>
         /// <returns>
-        ///   <para>Tipo: <see cref="T:System.String"/></para>
-        ///   <para>Objeto <see cref="T:System.String"/> que representa la clase <see cref="AdditionalInformationEntry"/> actual.</para>
+        /// Object <see cref="T:System.String" /> that represents the current <see cref = "T:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry"/> class.
         /// </returns>
         /// <remarks>
-        ///   <para>
-        ///   Este método devuelve una cadena que incluye la propiedad <see cref="AdditionalInformationEntry.Value"/>.
-        ///   </para>
+        /// This method returns a string that includes the property <see cref = "P:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry.Value" />.
         /// </remarks>                                    
-        public override string ToString()
-            {
-                return string.Format(CultureInfo.InvariantCulture, "Value = {0}", Value);
-            }
-            #endregion
+        public override string ToString() => $"Value = {Value}";
+        #endregion
 
         #endregion
 
         #region private methods
 
-            #region [private] (void) Parse(Hashtable): Obtiene la colección de propiedades de esta estructura.
-            /// <summary>
-            /// Obtiene la colección de propiedades de esta estructura.
-            /// </summary>
-            /// <param name="properties">Colección de propiedades de esta estructura.</param>
-            private void Parse(Hashtable properties)
-            {
-                #region validate parameter/s
-                SentinelHelper.ArgumentNull(properties);
-                #endregion
-
-                #region values
-                properties.Add(KnownDmiProperty.AdditionalInformation.Entry.EntryLength, EntryLength);
-                properties.Add(KnownDmiProperty.AdditionalInformation.Entry.ReferencedHandle, ReferencedHandle);
-                properties.Add(KnownDmiProperty.AdditionalInformation.Entry.ReferencedOffset, ReferencedOffset);
-                properties.Add(KnownDmiProperty.AdditionalInformation.Entry.StringValue, StringValue);
-                properties.Add(KnownDmiProperty.AdditionalInformation.Entry.Value, Value);
-                #endregion
-            }
+        #region [private] (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <summary>
+        /// Gets the property collection for this structure.
+        /// </summary>
+        /// <param name="properties">Collection of properties of this structure.</param>
+        private void Parse(Hashtable properties)
+        {
+            #region validate parameter/s
+            SentinelHelper.ArgumentNull(properties);
             #endregion
+
+            #region values
+            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.EntryLength, EntryLength);
+            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.ReferencedHandle, ReferencedHandle);
+            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.ReferencedOffset, ReferencedOffset);
+            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.StringValue, StringValue);
+            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.Value, Value);
+            #endregion
+        }
+        #endregion
             
         #endregion
     }

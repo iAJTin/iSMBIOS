@@ -3,9 +3,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System.Collections;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 034: Management Device.
@@ -35,19 +35,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver GetDeviceAddressType(byte)                  |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Management Device (Type 34) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Management Device (Type 34) structure.
     /// </summary>
     sealed class SmbiosType034 : SmbiosBaseType
     {
         #region Constructor/es
 
-        #region [public] SmbiosType034(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType034(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType034"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType034" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType034(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -57,7 +59,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) Description: Gets a value representing the 'Description' field.
+        #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
         /// Gets a value representing the <c>Description</c> field.
         /// </summary>
@@ -65,13 +67,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Description
-        {
-            get { return GetString(0x04); }
-        }
+        private string Description => GetString(0x04);
         #endregion
 
-        #region [private] (byte) Type: Gets a value representing the 'Type' field.
+        #region [private] (byte) Type: Gets a value representing the 'Type' field
         /// <summary>
         /// Gets a value representing the <c>Type</c> field.
         /// </summary>
@@ -79,13 +78,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Type
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte Type => GetByte(0x05);
         #endregion
 
-        #region [private] (string) Address: Gets a value representing the 'Address' field.
+        #region [private] (string) Address: Gets a value representing the 'Address' field
         /// <summary>
         /// Gets a value representing the <c>Address</c> field.
         /// </summary>
@@ -93,21 +89,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Address
-        {
-            get
-            {
-                return 
-                    string.Format(
-                        CultureInfo.InvariantCulture, 
-                        "{0}:{1}",
-                        GetWord(0x06).ToString("X", CultureInfo.InvariantCulture),
-                        GetWord(0x08).ToString("X", CultureInfo.InvariantCulture));
-            }
-        }
+        private string Address => $"{GetWord(0x06):X}:{GetWord(0x08):X}";
         #endregion
 
-        #region [private] (byte) AddressType: Gets a value representing the 'Address Type' field.
+        #region [private] (byte) AddressType: Gets a value representing the 'Address Type' field
         /// <summary>
         /// Gets a value representing the <c>Address Type</c> field.
         /// </summary>
@@ -115,17 +100,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte AddressType
-        {
-            get { return GetByte(0x0a); }
-        }
+        private byte AddressType => GetByte(0x0a);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -170,7 +153,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -195,7 +179,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetDeviceAddressType(byte): Gets a string that represents the type of address.
+        #region [private] {static} (string) GetDeviceAddressType(byte): Gets a string that represents the type of address
         /// <summary>
         /// Gets a string that represents the type of address.
         /// </summary>
@@ -223,7 +207,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type.
+        #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
         /// <summary>
         /// Gets a string representing the device type.
         /// </summary>

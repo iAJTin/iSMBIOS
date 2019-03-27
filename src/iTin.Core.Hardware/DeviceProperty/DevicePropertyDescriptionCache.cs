@@ -5,7 +5,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
     using System.Diagnostics;
 
     /// <summary>
-    /// La clase <see cref="DevicePropertyDescriptionsCache"/> representa la caché de descripciones disponibles por claves.
+    /// The class <see cref="DevicePropertyDescriptionsCache" /> represents the cache of descriptions available by keys.
     /// </summary>
     internal class DevicePropertyDescriptionsCache
     {
@@ -16,16 +16,16 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
 
         #region public static readonly members
         /// <summary>
-        /// Obtiene una referencia a la caché de descripciones disponibles.
+        /// Gets a reference to the cache of available descriptions.
         /// </summary>
         public static readonly DevicePropertyDescriptionsCache Cache = new DevicePropertyDescriptionsCache();
         #endregion
 
         #region constructor/s
 
-        #region [private] DevicePropertyDescriptionsCache(): Inicializa una nueva instancia de la clase.
+        #region [private] DevicePropertyDescriptionsCache(): Initialize a new instance of the class
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="DevicePropertyDescriptionsCache"/>.
+        /// Initialize a new instance of the <see cref="DevicePropertyDescriptionsCache"/> class.
         /// </summary>
         private DevicePropertyDescriptionsCache()
         {
@@ -37,22 +37,24 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
 
         #region public methods
 
-            #region [public] (DevicePropertyDescription) GetPropertyDescription(PropertyKey): Obtener la descripción para la clave especificada.
-            /// <summary>
-            /// Obtener la descripción para la clave especificada.
-            /// </summary>
-            /// <param name="key">The structure info.</param>
-            /// <returns>Descripción para la clave especificada.</returns>
-            public DevicePropertyDescription GetPropertyDescription(PropertyKey key)
+        #region [public] (DevicePropertyDescription) GetPropertyDescription(PropertyKey): Returns the description for the specified key
+        /// <summary>
+        /// Returns the description for the specified key.
+        /// </summary>
+        /// <param name="key">The structure info.</param>
+        /// <returns>
+        /// Description for the specified key.
+        /// </returns>
+        public DevicePropertyDescription GetPropertyDescription(PropertyKey key)
+        {
+            if (!_propsDictionary.ContainsKey(key))
             {
-                if (!_propsDictionary.ContainsKey(key))
-                {
-                    _propsDictionary.Add(key, new DevicePropertyDescription(key));
-                }
-
-                return _propsDictionary[key];
+                _propsDictionary.Add(key, new DevicePropertyDescription(key));
             }
-            #endregion
+
+            return _propsDictionary[key];
+        }
+        #endregion
 
         #endregion
     }

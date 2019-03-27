@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 025: System Power Controls.
@@ -39,19 +40,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      59h.                                                  |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Power Controls (Type 25) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Power Controls (Type 25) structure.
     /// </summary>
     sealed class SmbiosType025 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType025(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType025(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType025"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType025" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType025(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -61,7 +64,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (byte) Month: Gets a value representing the 'Month' field.
+        #region [private] (byte) Month: Gets a value representing the 'Month' field
         /// <summary>
         /// Gets a value representing the <c>Month</c> field.
         /// </summary>
@@ -69,13 +72,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Month
-        {
-            get { return GetByte(0x04); }
-        }
+        private byte Month => GetByte(0x04);
         #endregion
 
-        #region [private] (byte) Day: Gets a value representing the 'Day' field.
+        #region [private] (byte) Day: Gets a value representing the 'Day' field
         /// <summary>
         /// Gets a value representing the <c>Day</c> field.
         /// </summary>
@@ -83,13 +83,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Day
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte Day => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) Hour: Gets a value representing the 'Hour' field.
+        #region [private] (byte) Hour: Gets a value representing the 'Hour' field
         /// <summary>
         /// Gets a value representing the <c>Hour</c> field.
         /// </summary>
@@ -97,13 +94,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Hour
-        {
-            get { return GetByte(0x06); }
-        }
+        private byte Hour => GetByte(0x06);
         #endregion
 
-        #region [private] (byte) Minute: Gets a value representing the 'Minute' field.
+        #region [private] (byte) Minute: Gets a value representing the 'Minute' field
         /// <summary>
         /// Gets a value representing the <c>Minute</c> field.
         /// </summary>
@@ -111,13 +105,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Minute
-        {
-            get { return GetByte(0x07); }
-        }
+        private byte Minute => GetByte(0x07);
         #endregion
 
-        #region [private] (byte) Second: Gets a value representing the 'Second' field.
+        #region [private] (byte) Second: Gets a value representing the 'Second' field
         /// <summary>
         /// Gets a value representing the <c>Second</c> field.
         /// </summary>
@@ -125,17 +116,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Second
-        {
-            get { return GetByte(0x08); }
-        }
+        private byte Second => GetByte(0x08);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -185,7 +174,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>

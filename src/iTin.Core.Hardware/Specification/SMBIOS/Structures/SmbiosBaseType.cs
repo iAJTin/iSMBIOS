@@ -8,7 +8,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using Device.DeviceProperty;
 
     /// <summary>
-    /// La clase <b>SmbiosBaseType</b> proporciona funciones para analizar las propiedades asociadas a una estructura <see cref="SMBIOS" />.
+    /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="SMBIOS" />.
     /// </summary>
     public abstract class SmbiosBaseType
     {
@@ -33,7 +33,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region constructor/s
 
-        #region [protected] SmbiosBaseType(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the Header of the structure and current SMBIOS.
+        #region [protected] SmbiosBaseType(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the Header of the structure and current SMBIOS
         /// <summary>
         /// Initializes a new instance of the class <see cref="SmbiosBaseType"/> by specifying the Header of the structure and current SMBIOS.
         /// </summary>
@@ -50,20 +50,40 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public properties
 
-        #region [public] (SmbiosStructureHeaderInfo) HeaderInfo: Gets the raw information from this structure.
+        #region [public] (Hashtable) Content: Obtiene las propiedades disponibles para este dispositivo.
+        /// <summary>
+        /// Obtiene las propiedades disponibles para este dispositivo.
+        /// </summary>
+        /// <value>
+        /// 	<para>Tipo: <see cref="T:System.Collections.Hashtable"/></para>
+        /// 	<para>Propiedades disponibles.</para>
+        /// </value>
+        public Hashtable Content
+        {
+            get
+            {
+                if (_content == null)
+                {
+                    _content = new Hashtable();
+                    _strings = SmbiosHelper.ParseStrings(_smbiosStructureHeaderInfo.RawData);
+                }
+
+                return _content;
+            }
+        }
+        #endregion
+
+        #region [public] (SmbiosStructureHeaderInfo) HeaderInfo: Gets the raw information from this structure
         /// <summary>
         /// Gets the raw information from this structure.
         /// </summary>
         /// <value>
         /// A <see cref="SmbiosStructureHeaderInfo"/> object that contains the information.
         /// </value>
-        public SmbiosStructureHeaderInfo HeaderInfo
-        {
-            get { return _smbiosStructureHeaderInfo; }
-        }
+        public SmbiosStructureHeaderInfo HeaderInfo => _smbiosStructureHeaderInfo;
         #endregion
 
-        #region [public] (Hashtable) Properties: Gets the properties available for this structure.
+        #region [public] (Hashtable) Properties: Gets the properties available for this structure
         /// <summary>
         /// Gets the properties available for this structure.
         /// </summary>
@@ -90,22 +110,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region protecetd properties
+        #region protected readonly properties
 
-        #region [protected] (int) SmbiosVersion: Gets the current version of SMBIOS.
+        #region [protected] (int) SmbiosVersion: Gets the current version of SMBIOS
         /// <summary>
         /// Gets the current version of <see cref="SMBIOS" />.
         /// </summary>
         /// <value>
         /// Value representing the current version of <see cref="SMBIOS" />.
         /// </value>
-        protected int SmbiosVersion
-        {
-            get { return _smbiosVersion; }
-        }
+        protected int SmbiosVersion => _smbiosVersion;
         #endregion
 
-        #region [protected] (ReadOnlyCollection<string>) Strings: Gets the strings associated with this structure.
+        #region [protected] (ReadOnlyCollection<string>) Strings: Gets the strings associated with this structure
         /// <summary>
         /// Gets the strings associated with this structure.
         /// </summary>
@@ -113,9 +130,124 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// An read-only collection that contains the strings of this structure.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        protected ReadOnlyCollection<string> Strings
+        protected ReadOnlyCollection<string> Strings => new ReadOnlyCollection<string>(_strings);
+
+        #endregion
+
+        #endregion
+
+        #region public methods
+
+        #region [public] (IDeviceProperty) GetProperty(PropertyKey): Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property
+        /// <summary>
+        /// Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property.
+        /// </summary>
+        /// <param name="propertyKey">Key to the property to obtain</param>
+        /// <returns>
+        /// Reference to the object that represents the strongly typed value of the property
+        /// </returns>
+        public IDeviceProperty GetProperty(PropertyKey propertyKey)
         {
-            get { return new ReadOnlyCollection<string>(_strings); } 
+            if (!Content.Contains(propertyKey))
+            {
+                Content.Add(propertyKey, GetTypedProperty(propertyKey));
+            }
+
+            return (IDeviceProperty)Content[propertyKey];
+        }
+        #endregion
+
+        #endregion
+
+        #region public override methods
+
+        #region [protected] {override} (string) ToString(): Gets the property collection for this structure
+        /// <summary>
+        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="T:System.String" /> that represents this instance.
+        /// </returns>
+        /// <remarks>
+        /// This method returns a string that includes the property <see cref="SmbiosStructureHeaderInfo.StructureType" />.
+        /// </remarks> 
+        public override string ToString()
+        {
+            return $"Type = {HeaderInfo.StructureType}";
+        }
+        #endregion
+
+        #endregion
+
+        #region protected methods
+
+        #region [protected] (byte) GetByte(byte): Returns the stored value from the specified byte
+        /// <summary>
+        /// Returns the stored value from the specified byte.
+        /// </summary>
+        /// <param name="target">target byte</param>
+        /// <returns>
+        /// The value stored in the indicated byte.
+        /// </returns>
+        protected byte GetByte(byte target)
+        {
+            return HeaderInfo.RawData[target];
+        }
+        #endregion
+
+        #region [protected] (int) GetWord(byte): Returns the stored value from the specified byte
+        /// <summary>
+        /// Returns the stored value from the specified byte.
+        /// </summary>
+        /// <param name="start">start byte</param>
+        /// <returns>
+        /// The value stored in the indicated byte.
+        /// </returns>
+        protected int GetWord(byte start)
+        {
+            return HeaderInfo.RawData.GetWord(start);
+        }
+        #endregion
+
+        #region [protected] (int) GetDoubleWord(byte): Returns the stored value from the specified byte
+        /// <summary>
+        /// Returns the stored value from the specified byte.
+        /// </summary>
+        /// <param name="start">start byte</param>
+        /// <returns>
+        /// The value stored in the indicated byte.
+        /// </returns>
+        protected int GetDoubleWord(byte start)
+        {
+            return HeaderInfo.RawData.GetDoubleWord(start);
+        }
+        #endregion
+
+        #region [protected] (long) GetQuadrupleWord(byte): Returns the stored value from the specified byte
+        /// <summary>
+        /// Returns the stored value from the specified byte.
+        /// </summary>
+        /// <param name="start">start byte</param>
+        /// <returns>
+        /// The value stored in the indicated byte.
+        /// </returns>
+        protected long GetQuadrupleWord(byte start)
+        {
+            return HeaderInfo.RawData.GetQuadrupleWord(start);
+        }
+        #endregion
+
+        #region [protected] (string) GetString(byte): Returns the stored string from the specified byte
+        /// <summary>
+        /// Returns the stored string from the specified byte.
+        /// </summary>
+        /// <param name="target">target byte</param>
+        /// <returns>
+        /// The value stored in the indicated byte.
+        /// </returns>
+        protected string GetString(byte target)
+        {
+            return Strings[GetByte(target)];
         }
         #endregion
 
@@ -123,7 +255,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected virtual methods
 
-        #region [protected] {virtual} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {virtual} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        /// <summary>
+        /// Gets a value that represents the value of the specified property.
+        /// </summary>
+        /// <param name="propertyKey">Key to the property to obtain</param>
+        /// <returns>
+        /// An <see cref="T:System.Object"/> that contains property.
+        /// </returns>
+        protected virtual object GetValueTypedProperty(PropertyKey propertyKey)
+        {
+            return null;
+        }
+        #endregion
+
+        #region [protected] {virtual} (void) Parse(Hashtable): Gets the property collection for this structure
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -135,150 +281,24 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region public override methods
+        #region private members
 
-        #region [protected] {override} (string) ToString(): Gets the property collection for this structure.
+        #region [private] (IDeviceProperty) GetTypedProperty(PropertyKey): Gets a reference to an object that implements the interface IDeviceProperty, represents the value of the property specified by its key by the parameter propertyKey.
         /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// Gets a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
         /// </summary>
-        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
-        /// <remarks>
-        /// This method returns a string that includes the property <see cref="SmbiosStructureHeaderInfo.StructureType" />.
-        /// </remarks> 
-        public override string ToString()
+        /// <param name="propertyKey">Key to the property to obtain</param>
+        /// <returns>
+        /// Interface that represents the value of the property.
+        /// </returns>
+        private IDeviceProperty GetTypedProperty(PropertyKey propertyKey)
         {
-            return string.Concat("Type = ", HeaderInfo.StructureType); 
+            object propertyValue = GetValueTypedProperty(propertyKey);
+            IDeviceProperty newTypedProperty = DevicePropertyFactory.CreateTypedDeviceProperty(propertyKey, propertyValue);
+
+            return newTypedProperty;
         }
         #endregion
-
-        #endregion
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="target"></param>
-        /// <returns></returns>
-        protected byte GetByte(byte target)
-        {
-            return HeaderInfo.RawData[target];
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="start"></param>
-        /// <returns></returns>
-        protected int GetWord(byte start)
-        {
-            return HeaderInfo.RawData.GetWord(start);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="start"></param>
-        /// <returns></returns>
-        protected int GetDoubleWord(byte start)
-        {
-            return HeaderInfo.RawData.GetDoubleWord(start);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="start"></param>
-        /// <returns></returns>
-        protected long GetQuadrupleWord(byte start)
-        {
-            return HeaderInfo.RawData.GetQuadrupleWord(start);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="target"></param>
-        /// <returns></returns>
-        protected string GetString(byte target)
-        {
-            return Strings[GetByte(target)];
-        }
-
-        #region Propiedades
-
-        #region [public] (Hashtable) Content: Obtiene las propiedades disponibles para este dispositivo.
-        /// <summary>
-        /// Obtiene las propiedades disponibles para este dispositivo.
-        /// </summary>
-        /// <value>
-        /// 	<para>Tipo: <see cref="T:System.Collections.Hashtable"/></para>
-        /// 	<para>Propiedades disponibles.</para>
-        /// </value>
-        public Hashtable Content
-            {
-                get
-                {
-                    if (_content == null)
-                    {
-                        _content = new Hashtable();
-                        _strings = SmbiosHelper.ParseStrings(_smbiosStructureHeaderInfo.RawData);
-                    }
-                    return _content;
-                }
-            }
-            #endregion
-
-        #endregion
-
-        #region Métodos
-
-            #region [public] (IDeviceProperty) GetProperty(PropertyKey): Obtiene una referencia a un objeto que implementa la interfaz IDeviceProperty, representa el valor fuertemente tipado de la propiedad.
-            /// <summary>
-            /// Obtiene una referencia a un objeto que implementa la interfaz IDeviceProperty, representa el valor fuertemente tipado de la propiedad.
-            /// </summary>
-            /// <param name="propertyKey">Clave de la propiedad a recuperar.</param>
-            /// <returns>Referencia al objeto que representa el valor fuertemente tipado de la propiedad</returns>
-            public IDeviceProperty GetProperty(PropertyKey propertyKey)
-            {
-                if (!Content.Contains(propertyKey))
-                    Content.Add(propertyKey, GetTypedProperty(propertyKey));
-
-                return (IDeviceProperty)Content[propertyKey];
-            }
-            #endregion
-
-        #endregion
-
-        #region Miembros privados
-
-            #region [private] (IDeviceProperty) GetTypedProperty(PropertyKey): Obtiene una referencia a un objeto que implementa la interfaz IDeviceProperty, representa el valor de la propiedad especificada mediante su clave por el parámetro propertyKey.
-            /// <summary>
-            /// Obtiene una referencia a un objeto que implementa la interfaz <see cref="IDeviceProperty"/>, representa el valor de la propiedad especificada mediante su clave por el parámetro <c>propertyKey</c>.
-            /// </summary>
-            /// <param name="propertyKey">Clave de la propiedad a obtener.</param>
-            /// <returns>Interfaz que representa el valor de la propiedad.</returns>
-            private IDeviceProperty GetTypedProperty(PropertyKey propertyKey)
-            {
-                object propertyValue = GetValueTypedProperty(propertyKey);
-                IDeviceProperty newTypedProperty = DevicePropertyFactory.CreateTypedDeviceProperty(propertyKey, propertyValue);
-
-                return newTypedProperty;
-            }
-            #endregion
-
-        #endregion
-
-        #region Miembros protected
-
-            #region [protected] {virtual} (object) GetValueTypedProperty(PropertyKey): Obtiene un valor que representa el valor de la propiedad especificada.
-            /// <summary>
-            /// Obtiene un valor que representa el valor de la propiedad especificada.
-            /// </summary>
-            /// <param name="propertyKey">Clave de la propiedad a obtener.</param>
-            protected virtual object GetValueTypedProperty(PropertyKey propertyKey)
-            {
-                return null;
-            }
-            #endregion
 
         #endregion
     }

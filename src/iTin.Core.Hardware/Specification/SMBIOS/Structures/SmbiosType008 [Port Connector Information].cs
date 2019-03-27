@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 008: Port Connector Information
@@ -39,14 +40,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              Type                                    Note: Please see, GetPortType(byte)              |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Port Connector Information (Type 8) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Port Connector Information (Type 8) structure.
     /// </summary>
     sealed class SmbiosType008 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType008(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType008(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType008" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
@@ -62,7 +64,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) InternalReference: Gets a value representing the 'Internal Reference' field.
+        #region [private] (string) InternalReference: Gets a value representing the 'Internal Reference' field
         /// <summary>
         /// Gets a value representing the <c>Internal Reference</c> field.
         /// </summary>
@@ -70,13 +72,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string InternalReference
-        {
-            get { return GetString(0x04); }
-        }
+        private string InternalReference => GetString(0x04);
         #endregion
 
-        #region [private] (byte) InternalConnectorType: Gets a value representing the 'Internal Connector Type' field.
+        #region [private] (byte) InternalConnectorType: Gets a value representing the 'Internal Connector Type' field
         /// <summary>
         /// Gets a value representing the <c>Internal Connector Type</c> field.
         /// </summary>
@@ -84,13 +83,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InternalConnectorType
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte InternalConnectorType => GetByte(0x05);
         #endregion
 
-        #region [private] (string) ExternalReference: Gets a value representing the 'External Reference' field.
+        #region [private] (string) ExternalReference: Gets a value representing the 'External Reference' field
         /// <summary>
         /// Gets a value representing the <c>External Reference</c> field.
         /// </summary>
@@ -98,13 +94,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string ExternalReference
-        {
-            get { return GetString(0x06); }
-        }
+        private string ExternalReference => GetString(0x06);
         #endregion
 
-        #region [private] (byte) ExternalConnectorType: Gets a value representing the 'External Connector Type' field.
+        #region [private] (byte) ExternalConnectorType: Gets a value representing the 'External Connector Type' field
         /// <summary>
         /// Gets a value representing the <c>External Connector Type</c> field.
         /// </summary>
@@ -112,13 +105,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ExternalConnectorType
-        {
-            get { return GetByte(0x07); }
-        }
+        private byte ExternalConnectorType => GetByte(0x07);
         #endregion
 
-        #region [private] (byte) PortType: Gets a value representing the 'Port Type' field.
+        #region [private] (byte) PortType: Gets a value representing the 'Port Type' field
         /// <summary>
         /// Gets a value representing the <c>Port Type</c> field.
         /// </summary>
@@ -126,17 +116,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte PortType
-        {
-            get { return GetByte(0x08); }
-        }
+        private byte PortType => GetByte(0x08);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -186,7 +174,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -211,7 +200,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 3.2.0 (26/04/2018)
 
-        #region [private] {static} (string) GetConnectorType(byte): Gets a string representing the type of connector on this port.
+        #region [private] {static} (string) GetConnectorType(byte): Gets a string representing the type of connector on this port
         /// <summary>
         /// Gets a string representing the type of connector on this port.
         /// </summary>
@@ -289,7 +278,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetPortType(byte): Gets a string representing the function of this port.
+        #region [private] {static} (string) GetPortType(byte): Gets a string representing the function of this port
         /// <summary>
         /// Gets a string representing the function of this port.
         /// </summary>

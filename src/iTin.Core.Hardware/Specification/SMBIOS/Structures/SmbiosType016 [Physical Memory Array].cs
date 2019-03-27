@@ -3,9 +3,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System.Collections;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 016: Physical Memory Array.
@@ -74,19 +74,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver ExtendedMaximumCapacity         |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Physical Memory Array (Type 16) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Physical Memory Array (Type 16) structure.
     /// </summary>
     sealed class SmbiosType016 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType016(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType016(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType016"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType016" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType016(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -98,7 +100,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (byte) Location: Gets a value representing the 'Location' field.
+        #region [private] (byte) Location: Gets a value representing the 'Location' field
         /// <summary>
         /// Gets a value representing the <c>Location</c> field.
         /// </summary>
@@ -106,13 +108,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Location
-        {
-            get { return GetByte(0x04); }
-        }
+        private byte Location => GetByte(0x04);
         #endregion
 
-        #region [private] (byte) Use: Gets a value representing the 'Use' field.
+        #region [private] (byte) Use: Gets a value representing the 'Use' field
         /// <summary>
         /// Gets a value representing the <c>Use</c> field.
         /// </summary>
@@ -120,13 +119,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Use
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte Use => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) ErrorCorrection: Gets a value representing the 'Error Correction' field.
+        #region [private] (byte) ErrorCorrection: Gets a value representing the 'Error Correction' field
         /// <summary>
         /// Gets a value representing the <c>Error Correction</c> field.
         /// </summary>
@@ -134,13 +130,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorCorrection
-        {
-            get { return HeaderInfo.RawData[0x06]; }
-        }
+        private byte ErrorCorrection => HeaderInfo.RawData[0x06];
         #endregion
 
-        #region [private] (ulong) MaximumCapacity: Gets a value representing the 'Maximum Capacity' field.
+        #region [private] (ulong) MaximumCapacity: Gets a value representing the 'Maximum Capacity' field
         /// <summary>
         /// Gets a value representing the <c>Maximum Capacity</c> field.
         /// </summary>
@@ -148,13 +141,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong MaximumCapacity
-        {
-            get { return (ulong)GetDoubleWord(0x07); }
-        }
+        private ulong MaximumCapacity => (ulong)GetDoubleWord(0x07);
         #endregion
 
-        #region [private] (ulong) ErrorInformationHandle: Gets a value representing the 'Error Information Handle' field.
+        #region [private] (ulong) ErrorInformationHandle: Gets a value representing the 'Error Information Handle' field
         /// <summary>
         /// Gets a value representing the <c>Maximum Capacity</c> field.
         /// </summary>
@@ -162,13 +152,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ErrorInformationHandle
-        {
-            get { return GetWord(0x0b); }
-        }
+        private int ErrorInformationHandle => GetWord(0x0b);
         #endregion
 
-        #region [private] (int) NumberOfMemoryDevices: Gets a value representing the 'Number Of Memory Devices' field.
+        #region [private] (int) NumberOfMemoryDevices: Gets a value representing the 'Number Of Memory Devices' field
         /// <summary>
         /// Gets a value representing the <c>Number Of Memory Devices</c> field.
         /// </summary>
@@ -176,17 +163,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NumberOfMemoryDevices
-        {
-            get { return GetWord(0x0d); }
-        }
+        private int NumberOfMemoryDevices => GetWord(0x0d);
         #endregion
 
         #endregion
 
         #region Version 2.7+ fields
 
-        #region [private] (ulong) ExtendedMaximumCapacity: Gets a value representing the 'Extended Maximum Capacity' field.
+        #region [private] (ulong) ExtendedMaximumCapacity: Gets a value representing the 'Extended Maximum Capacity' field
         /// <summary>
         /// Gets a value representing the <c>Extended Maximum Capacity</c> field.
         /// </summary>
@@ -194,11 +178,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedMaximumCapacity
-        {
-            get { return (ulong) GetQuadrupleWord(0x0f); }
-        }
-
+        private ulong ExtendedMaximumCapacity => (ulong) GetQuadrupleWord(0x0f);
         #endregion
 
         #endregion
@@ -207,7 +187,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -263,7 +244,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -295,7 +277,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetLocation(byte): Gets a string indicating the location of the array.
+        #region [private] {static} (string) GetLocation(byte): Gets a string indicating the location of the array
         /// <summary>
         /// Gets a string indicating the location of the array.
         /// </summary>
@@ -341,7 +323,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetUse(byte): Gets a string indicating the use of the array.
+        #region [private] {static} (string) GetUse(byte): Gets a string indicating the use of the array
         /// <summary>
         /// Gets a string indicating the use of the array.
         /// </summary>
@@ -372,7 +354,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetErrorCorrectionTypes(byte): Gets a string indicating the type of error correction.
+        #region [private] {static} (string) GetErrorCorrectionTypes(byte): Gets a string indicating the type of error correction
         /// <summary>
         /// Gets a string indicating the type of error correction.
         /// </summary>
@@ -402,7 +384,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetErrorHandle(int): Gets a string representing the error handler.
+        #region [private] {static} (string) GetErrorHandle(int): Gets a string representing the error handler
         /// <summary>
         /// Gets a string representing the error handler.
         /// </summary>
@@ -422,7 +404,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 return "No Error";
             }
 
-            return code.ToString("X", CultureInfo.InvariantCulture);
+            return $"{code:X}";
         }
         #endregion
 

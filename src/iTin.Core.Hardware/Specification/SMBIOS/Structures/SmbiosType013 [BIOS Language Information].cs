@@ -7,6 +7,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -39,19 +40,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver Default                         |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the BIOS Language Information (Type 13) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the BIOS Language Information (Type 13) structure.
     /// </summary>
     sealed class SmbiosType013 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType013(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType013(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType013"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType013" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType013(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -63,7 +66,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.0+ fields
 
-        #region [private] (int) Count: Gets a value representing the 'Count' field.
+        #region [private] (int) Count: Gets a value representing the 'Count' field
         /// <summary>
         /// Gets a value representing the <c>Count</c> field.
         /// </summary>
@@ -71,13 +74,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Count
-        {
-            get { return GetByte(0x04); }
-        }
+        private int Count => GetByte(0x04);
         #endregion
 
-        #region [private] (bool) IsCurrentAbbreviated: Gets a value representing the 'Is Current Abbreviated' field.
+        #region [private] (bool) IsCurrentAbbreviated: Gets a value representing the 'Is Current Abbreviated' field
         /// <summary>
         /// Gets a value representing the <c>Is Current Abbreviated</c> field.
         /// </summary>
@@ -85,13 +85,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsCurrentAbbreviated
-        {
-            get { return GetByte(0x05).CheckBit(Bits.Bit00); }
-        }
+        private bool IsCurrentAbbreviated => GetByte(0x05).CheckBit(Bits.Bit00);
         #endregion
 
-        #region [private] (string) Current: Gets a value representing the 'Current' field.
+        #region [private] (string) Current: Gets a value representing the 'Current' field
         /// <summary>
         /// Gets a value representing the <c>Current</c> field.
         /// </summary>
@@ -99,10 +96,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Current
-        {
-            get { return GetString(0x015); }
-        }
+        private string Current => GetString(0x015);
         #endregion
 
         #endregion
@@ -111,7 +105,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -153,7 +148,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -176,7 +172,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private methods
 
-        #region [private] (ReadOnlyCollection<string>) GetValues(int): Gets a collection with system information.
+        #region [private] (ReadOnlyCollection<string>) GetValues(int): Gets a collection with system information
         /// <summary>
         /// Gets a collection with system information.
         /// </summary>

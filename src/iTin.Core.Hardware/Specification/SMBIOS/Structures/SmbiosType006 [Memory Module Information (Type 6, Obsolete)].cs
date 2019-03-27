@@ -6,9 +6,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -63,19 +63,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Please see, GetErrorStatus(byte)                |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Module Information (Type 6, Obsolete) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Module Information (Type 6, Obsolete) structure.
     /// </summary>
     sealed class SmbiosType006 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType006(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType006(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType006"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType006" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType006(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -85,7 +87,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field.
+        #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field
         /// <summary>
         /// Gets a value representing the <c>Socket Designation</c> field.
         /// </summary>
@@ -93,13 +95,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SocketDesignation
-        {
-            get { return Strings[HeaderInfo.RawData[0x04]]; }
-        }
+        private string SocketDesignation => Strings[HeaderInfo.RawData[0x04]];
         #endregion
 
-        #region [private] (byte) BankConnections: Gets a value representing the 'Bank Connections' field.
+        #region [private] (byte) BankConnections: Gets a value representing the 'Bank Connections' field
         /// <summary>
         /// Gets a value representing the <c>Bank Connections</c> field.
         /// </summary>
@@ -107,13 +106,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BankConnections
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte BankConnections => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) CurrentSpeed: Gets a value representing the 'Current Speed' field.
+        #region [private] (byte) CurrentSpeed: Gets a value representing the 'Current Speed' field
         /// <summary>
         /// Gets a value representing the <c>Current Speed</c> field.
         /// </summary>
@@ -121,13 +117,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CurrentSpeed
-        {
-            get { return GetByte(0x06); }
-        }
+        private byte CurrentSpeed => GetByte(0x06);
         #endregion
 
-        #region [private] (int) CurrentMemoryType: Gets a value representing the 'Current Memory Type' field.
+        #region [private] (int) CurrentMemoryType: Gets a value representing the 'Current Memory Type' field
         /// <summary>
         /// Gets a value representing the <c>Current Memory Type</c> field.
         /// </summary>
@@ -135,13 +128,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentMemoryType
-        {
-            get { return GetWord(0x07); }
-        }
+        private int CurrentMemoryType => GetWord(0x07);
         #endregion
 
-        #region [private] (byte) InstalledSize: Gets a value representing the 'Installed Size' field.
+        #region [private] (byte) InstalledSize: Gets a value representing the 'Installed Size' field
         /// <summary>
         /// Gets a value representing the <c>Installed Size</c> field.
         /// </summary>
@@ -149,13 +139,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InstalledSize
-        {
-            get { return GetByte(0x09); }
-        }
+        private byte InstalledSize => GetByte(0x09);
         #endregion
 
-        #region [private] (byte) EnabledSize: Gets a value representing the 'Enabled Size' field.
+        #region [private] (byte) EnabledSize: Gets a value representing the 'Enabled Size' field
         /// <summary>
         /// Gets a value representing the <c>Enabled Size</c> field.
         /// </summary>
@@ -163,13 +150,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte EnabledSize
-        {
-            get { return GetByte(0x0a); }
-        }
+        private byte EnabledSize => GetByte(0x0a);
         #endregion
 
-        #region [private] (byte) ErrorStatus: Gets a value representing the 'Error Status' field.
+        #region [private] (byte) ErrorStatus: Gets a value representing the 'Error Status' field
         /// <summary>
         /// Gets a value representing the <c>Error Status</c> field.
         /// </summary>
@@ -177,17 +161,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorStatus
-        {
-            get { return GetByte(0x0b); }
-        }
+        private byte ErrorStatus => GetByte(0x0b);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -253,7 +235,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -286,7 +269,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetBankConnections(byte): Gets a collection that represents the available memory banks.
+        #region [private] {static} (ReadOnlyCollection<string>) GetBankConnections(byte): Gets a collection that represents the available memory banks
         /// <summary>
         /// Gets a collection that represents the available memory banks.
         /// </summary>
@@ -303,7 +286,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 if (nibble != 0x0f)
                 {
-                    items.Add(string.Format(CultureInfo.InvariantCulture, "RAS#{0}", nibble));
+                    items.Add($"RAS#{nibble}");
                 }  
             }
 
@@ -311,7 +294,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetCurrentMemoryTypes(int): Gets a collection of supported memory types.
+        #region [private] {static} (ReadOnlyCollection<string>) GetCurrentMemoryTypes(int): Gets a collection of supported memory types
         /// <summary>
         /// Gets a collection of supported memory types.
         /// </summary>
@@ -350,7 +333,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetErrorStatus(byte): Gets a string representing the error state.
+        #region [private] {static} (string) GetErrorStatus(byte): Gets a string representing the error state
         /// <summary>
         /// Gets a string representing the error state.
         /// </summary>
@@ -376,7 +359,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetMemorySpeeds(int): Gets a collection of supported speeds.
+        #region [private] {static} (ReadOnlyCollection<string>) GetMemorySpeeds(int): Gets a collection of supported speeds
         /// <summary>
         /// Gets a collection of supported speeds.
         /// </summary>
@@ -414,7 +397,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetSize(byte): Obtiene una colección de tamaños disponibles.
+        #region [private] {static} (ReadOnlyCollection<string>) GetSize(byte): Returns a collection of available sizes
         // •————————————————————————————————————————————————————————————————————————————————————————•
         // | BitsOffset     Description                                                             |
         // •————————————————————————————————————————————————————————————————————————————————————————•
@@ -429,7 +412,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         // |                              7Fh - Not installed                                       |
         // •————————————————————————————————————————————————————————————————————————————————————————•
         /// <summary>
-        /// Gets a collection of available sizes.
+        /// Returns a collection of available sizes.
         /// </summary>
         /// <param name="code">Value to analyze</param>
         /// <returns>
@@ -459,7 +442,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                     bool isdoubleBank = code.CheckBit(Bits.Bit07);
                     items.Add(isdoubleBank ? "double-bank" : "single-bank");
-                    items.Add(size.ToString(CultureInfo.InvariantCulture));
+                    items.Add($"{size}");
                     break;
             }
 

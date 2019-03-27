@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 020: Memory Device Mapped Address.
@@ -128,19 +129,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver ExtendedEndingAddress           |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Device Mapped Address (Type 20) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Device Mapped Address (Type 20) structure.
     /// </summary>
     sealed class SmbiosType020 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType020(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType020(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType020"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType020" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType020(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -152,7 +155,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (ulong) StartingAddress: Gets a value representing the 'Starting Address' field.
+        #region [private] (ulong) StartingAddress: Gets a value representing the 'Starting Address' field
         /// <summary>
         /// Gets a value representing the <c>Starting Address</c> field.
         /// </summary>
@@ -160,13 +163,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong StartingAddress
-        {
-            get { return (ulong)GetDoubleWord(0x04); }
-        }
+        private ulong StartingAddress => (ulong)GetDoubleWord(0x04);
         #endregion
 
-        #region [private] (ulong) EndingAddress: Gets a value representing the 'Ending Address' field.
+        #region [private] (ulong) EndingAddress: Gets a value representing the 'Ending Address' field
         /// <summary>
         /// Gets a value representing the <c>Ending Address</c> field.
         /// </summary>
@@ -174,13 +174,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong EndingAddress
-        {
-            get { return (ulong)GetDoubleWord(0x08); }
-        }
+        private ulong EndingAddress => (ulong)GetDoubleWord(0x08);
         #endregion
 
-        #region [private] (int) MemoryDeviceHandle: Gets a value representing the 'Memory Device Handle' field.
+        #region [private] (int) MemoryDeviceHandle: Gets a value representing the 'Memory Device Handle' field
         /// <summary>
         /// Gets a value representing the <c>Memory Device Handle</c> field.
         /// </summary>
@@ -188,13 +185,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryDeviceHandle
-        {
-            get { return GetWord(0x0C); }
-        }
+        private int MemoryDeviceHandle => GetWord(0x0C);
         #endregion
 
-        #region [private] (int) MappedAddressHandle: Gets a value representing the 'Mapped Address Handle' field.
+        #region [private] (int) MappedAddressHandle: Gets a value representing the 'Mapped Address Handle' field
         /// <summary>
         /// Gets a value representing the <c>Mapped Address Handle</c> field.
         /// </summary>
@@ -202,13 +196,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MappedAddressHandle
-        {
-            get { return GetWord(0x0e); }
-        }
+        private int MappedAddressHandle => GetWord(0x0e);
         #endregion
 
-        #region [private] (byte) PartitionRowPosition: Gets a value representing the 'Partition Row Position' field.
+        #region [private] (byte) PartitionRowPosition: Gets a value representing the 'Partition Row Position' field
         /// <summary>
         /// Gets a value representing the <c>Partition Row Position</c> field.
         /// </summary>
@@ -216,13 +207,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte PartitionRowPosition
-        {
-            get { return GetByte(0x10); }
-        }
+        private byte PartitionRowPosition => GetByte(0x10);
         #endregion
 
-        #region [private] (MemoryDeviceMappedAddressInterleavedPosition) InterleavePosition: Gets a value representing the 'Interleave Position' field.
+        #region [private] (MemoryDeviceMappedAddressInterleavedPosition) InterleavePosition: Gets a value representing the 'Interleave Position' field
         /// <summary>
         /// Gets a value representing the <c>Interleave Position</c> field.
         /// </summary>
@@ -230,13 +218,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private MemoryDeviceMappedAddressInterleavedPosition InterleavePosition
-        {
-            get { return (MemoryDeviceMappedAddressInterleavedPosition)GetByte(0x11); }
-        }
+        private MemoryDeviceMappedAddressInterleavedPosition InterleavePosition => (MemoryDeviceMappedAddressInterleavedPosition)GetByte(0x11);
         #endregion
 
-        #region [private] (byte) InterleavedDataDepth: Gets a value representing the 'Interleaved Data Depth' field.
+        #region [private] (byte) InterleavedDataDepth: Gets a value representing the 'Interleaved Data Depth' field
         /// <summary>
         /// Gets a value representing the <c>Interleaved Data Depth</c> field.
         /// </summary>
@@ -244,17 +229,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InterleavedDataDepth
-        {
-            get { return GetByte(0x12); }
-        }
+        private byte InterleavedDataDepth => GetByte(0x12);
         #endregion
 
         #endregion
 
         #region Version 2.7+ fields
 
-        #region [private] (ulong) ExtendedStartingAddress: Gets a value representing the 'Extended Starting Address' field.
+        #region [private] (ulong) ExtendedStartingAddress: Gets a value representing the 'Extended Starting Address' field
         /// <summary>
         /// Gets a value representing the <c>Extended Starting Address</c> field.
         /// </summary>
@@ -262,13 +244,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedStartingAddress
-        {
-            get { return (ulong)GetQuadrupleWord(0x13); }
-        }
+        private ulong ExtendedStartingAddress => (ulong)GetQuadrupleWord(0x13);
         #endregion
 
-        #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field.
+        #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field
         /// <summary>
         /// Gets a value representing the <c>Extended Ending Address</c> field.
         /// </summary>
@@ -276,10 +255,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedEndingAddress
-        {
-            get { return (ulong)GetQuadrupleWord(0x1b); }
-        }
+        private ulong ExtendedEndingAddress => (ulong)GetQuadrupleWord(0x1b);
         #endregion
 
         #endregion
@@ -288,7 +264,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -378,7 +355,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>

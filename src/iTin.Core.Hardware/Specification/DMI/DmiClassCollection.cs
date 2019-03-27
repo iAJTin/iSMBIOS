@@ -6,14 +6,15 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     using Smbios;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Representa una colección de objetos <see cref="DmiClass"/>.
+    /// Representa una colección de objetos <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiClass" />.
     /// </summary>
     public sealed class DmiClassCollection : ReadOnlyCollection<DmiClass> 
     {
         /// <inheritdoc />
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiClassCollection" />.
+        /// Initialize a new instance of the <see cref = "T:iTin.Core.Hardware.Specification.Dmi.DmiClassCollection" /> class.
         /// </summary>
         /// <param name="parent">Estructura.</param>
         internal DmiClassCollection(DmiStructure parent) : base(new List<DmiClass>())

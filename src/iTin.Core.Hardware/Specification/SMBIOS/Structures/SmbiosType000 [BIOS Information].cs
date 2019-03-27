@@ -6,9 +6,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -113,19 +113,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                0100 0000 0011 0000b or 4030h.                         |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Bios Information (Type 0) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Bios Information (Type 0) structure.
     /// </summary>
     sealed class SmbiosType000 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType000(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType000(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType000"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType000" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType000(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -135,7 +137,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (ulong) Characteristics: Gets a value representing the 'Characteristics' field.
+        #region [private] (ulong) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Characteristics</c> field.
         /// </summary>
@@ -143,13 +145,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong Characteristics
-        {
-            get { return (ulong)GetQuadrupleWord(0x0a); }
-        }
+        private ulong Characteristics => (ulong)GetQuadrupleWord(0x0a);
         #endregion
 
-        #region [private] (byte) ExtensionByte1: Gets a value representing the 'Extension byte 1' field.
+        #region [private] (byte) ExtensionByte1: Gets a value representing the 'Extension byte 1' field
         /// <summary>
         /// Gets a value representing the <c>Extension byte 1</c> field.
         /// </summary>
@@ -157,13 +156,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ExtensionByte1
-        {
-            get { return GetByte(0x12); }
-        }
+        private byte ExtensionByte1 => GetByte(0x12);
         #endregion
 
-        #region [private] (byte) ExtensionByte2: Gets a value representing the 'Extension byte 2' field.
+        #region [private] (byte) ExtensionByte2: Gets a value representing the 'Extension byte 2' field
         /// <summary>
         /// Gets a value representing the <c>Extension byte 2</c> field.
         /// </summary>
@@ -171,13 +167,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ExtensionByte2
-        {
-            get { return GetByte(0x13); }
-        }
+        private byte ExtensionByte2 => GetByte(0x13);
         #endregion
 
-        #region [private] (byte) FirmwareMajorRelease: Gets a value representing the 'Firmware major release' field.
+        #region [private] (byte) FirmwareMajorRelease: Gets a value representing the 'Firmware major release' field
         /// <summary>
         /// Gets a value representing the <c>Firmware major release</c> field.
         /// </summary>
@@ -185,13 +178,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FirmwareMajorRelease
-        {
-            get { return GetByte(0x16); }
-        }
+        private byte FirmwareMajorRelease => GetByte(0x16);
         #endregion
 
-        #region [private] (byte) FirmwareMinorRelease: Gets a value representing the 'Firmware minor release' field.
+        #region [private] (byte) FirmwareMinorRelease: Gets a value representing the 'Firmware minor release' field
         /// <summary>
         /// Gets a value representing the <c>Firmware minor release</c> field.
         /// </summary>
@@ -199,13 +189,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FirmwareMinorRelease
-        {
-            get { return GetByte(0x17); }
-        }
+        private byte FirmwareMinorRelease => GetByte(0x17);
         #endregion
 
-        #region [private] (string) BiosReleaseDate: Gets a value representing the 'Bios release date' field.
+        #region [private] (string) BiosReleaseDate: Gets a value representing the 'Bios release date' field
         /// <summary>
         /// Gets a value representing the <c>Bios release date</c> field.
         /// </summary>
@@ -213,13 +200,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string BiosReleaseDate
-        {
-            get { return GetString(0x08); }
-        }
+        private string BiosReleaseDate => GetString(0x08);
         #endregion
 
-        #region [private] (int) RomSize: Gets a value representing the 'Rom size' field.
+        #region [private] (int) RomSize: Gets a value representing the 'Rom size' field
         /// <summary>
         /// Gets a value representing the <c>Rom size</c> field.
         /// </summary>
@@ -227,13 +211,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int RomSize
-        {
-            get { return (GetByte(0x09) + 1) << 6; }
-        }
+        private int RomSize => (GetByte(0x09) + 1) << 6;
         #endregion
 
-        #region [private] (string) BiosStartingAddressSegment: Gets a value representing the 'Bios starting address segment' field.
+        #region [private] (string) BiosStartingAddressSegment: Gets a value representing the 'Bios starting address segment' field
         /// <summary>
         /// Gets a value representing the <c>Bios starting address segment</c> field.
         /// </summary>
@@ -241,13 +222,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string BiosStartingAddressSegment
-        {
-            get { return GetWord(0x06).ToString("X", CultureInfo.InvariantCulture); }
-        }
+        private string BiosStartingAddressSegment => $"{GetWord(0x06):X}";
         #endregion
 
-        #region [private] (byte) SystemBiosMajorRelease: Gets a value representing the 'System bios major release' field.
+        #region [private] (byte) SystemBiosMajorRelease: Gets a value representing the 'System bios major release' field
         /// <summary>
         /// Gets a value representing the <c>System bios major release</c> field.
         /// </summary>
@@ -255,13 +233,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SystemBiosMajorRelease
-        {
-            get { return GetByte(0x14); }
-        }
+        private byte SystemBiosMajorRelease => GetByte(0x14);
         #endregion
 
-        #region [private] (byte) SystemBiosMinorRelease: Gets a value representing the 'System bios minor release' field.
+        #region [private] (byte) SystemBiosMinorRelease: Gets a value representing the 'System bios minor release' field
         /// <summary>
         /// Gets a value representing the <c>System bios minor release</c> field.
         /// </summary>
@@ -269,13 +244,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SystemBiosMinorRelease
-        {
-            get { return GetByte(0x15); }
-        }
+        private byte SystemBiosMinorRelease => GetByte(0x15);
         #endregion
 
-        #region [private] (string) Vendor: Gets a value representing the 'Vendor' field.
+        #region [private] (string) Vendor: Gets a value representing the 'Vendor' field
         /// <summary>
         /// Gets a value representing the <c>Vendor</c> field.
         /// </summary>
@@ -283,13 +255,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Vendor
-        {
-            get { return GetString(0x04); }
-        }
+        private string Vendor => GetString(0x04);
         #endregion
 
-        #region [private] (string) BiosVersion: Gets a value representing the 'Bios version' field.
+        #region [private] (string) BiosVersion: Gets a value representing the 'Bios version' field
         /// <summary>
         /// Gets a value representing the <c>Bios version</c> field.
         /// </summary>
@@ -297,13 +266,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string BiosVersion
-        {
-            get { return GetString(0x05); }
-        }
+        private string BiosVersion => GetString(0x05);
         #endregion
 
-        #region [private] (int) ExtendedBiosRomSizeRawInfo: Gets a value representing the 'Extended bios rom size raw info' field.
+        #region [private] (int) ExtendedBiosRomSizeRawInfo: Gets a value representing the 'Extended bios rom size raw info' field
         /// <summary>
         /// Gets a value representing the <c>Extended bios rom size raw info</c> field.
         /// </summary>
@@ -311,13 +277,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExtendedBiosRomSizeRawInfo
-        {
-            get { return GetWord(0x18); }
-        }
+        private int ExtendedBiosRomSizeRawInfo => GetWord(0x18);
         #endregion
 
-        #region [private] (int) ExtendedBiosRomSize: Gets a value representing the 'Extended bios rom size' field.
+        #region [private] (int) ExtendedBiosRomSize: Gets a value representing the 'Extended bios rom size' field
         /// <summary>
         /// Gets a value representing the <c>Extended bios rom size</c> field.
         /// </summary>
@@ -325,13 +288,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExtendedBiosRomSize
-        {
-            get { return ExtendedBiosRomSizeRawInfo & 0x3fff; }
-        }
+        private int ExtendedBiosRomSize => ExtendedBiosRomSizeRawInfo & 0x3fff;
         #endregion
 
-        #region [private] (int) ExtendedBiosRomSizeUnits: Gets a value representing the 'Extended bios rom size units' field.
+        #region [private] (int) ExtendedBiosRomSizeUnits: Gets a value representing the 'Extended bios rom size units' field
         /// <summary>
         /// Gets a value representing the <c>Extended bios rom size units</c> field.
         /// </summary>
@@ -358,7 +318,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -494,7 +455,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -559,7 +521,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetCharacteristics(ulong): Define which functions supports the BIOS: PCI, PCMCIA, Flash, etc..
+        #region [private] {static} (ReadOnlyCollection<string>) GetCharacteristics(ulong): Define which functions supports the BIOS: PCI, PCMCIA, Flash, etc.
         /// <summary>
         /// Define which functions supports the BIOS: PCI, PCMCIA, Flash, etc.
         /// </summary>
@@ -620,7 +582,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetExtensionByte1(byte): Space reserved for future BIOS functions (byte 01).
+        #region [private] {static} (ReadOnlyCollection<string>) GetExtensionByte1(byte): Space reserved for future BIOS functions (byte 01)
         /// <summary>
         /// space reserved for future BIOS functions (byte 01).
         /// </summary>
@@ -656,7 +618,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetExtensionByte2(byte): Space reserved for future BIOS functions (byte 02).
+        #region [private] {static} (ReadOnlyCollection<string>) GetExtensionByte2(byte): Space reserved for future BIOS functions (byte 02)
         /// <summary>
         /// space reserved for future BIOS functions (byte 01).
         /// </summary>

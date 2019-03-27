@@ -2,14 +2,13 @@
 namespace iTin.Core.Hardware.Device.DeviceProperty
 {
     using System.Diagnostics;
-    using System.Globalization;
 
     /// <summary>
-    /// Define un objeto que representa una propiedad fuertemente tipada.
+    /// Defines an object that represents a strongly typed property.
     /// </summary>
     /// <typeparam name="T">
-    /// El tipo de valor de esta propiedad. Debido a que el valor de propiedad puede estar vacío, sólo se admiten tipos que 
-    /// aceptan valores <c>null</c>.
+    /// The type of value of this property. Because the property value can be empty, only types that are
+    /// accept values<c>null</c>.
     /// </typeparam>
     public sealed class DeviceProperty<T> : IDeviceProperty
     {
@@ -26,105 +25,84 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
 
         #region constructor/es
 
-            #region [internal] DeviceProperty(PropertyKey, DevicePropertyDescription, object): Inicializa una nueva instancia de la clase.
-            /// <summary>
-            /// Inicializa una nueva instancia de la clase.
-            /// </summary>
-            /// <param name="propertykey">Clave de la propiedad a recuperar.</param>
-            /// <param name="description">Descripción de la propiedad.</param>
-            /// <param name="value">Valor de la propiedad.</param>
-            internal DeviceProperty(PropertyKey propertykey, DevicePropertyDescription description, object value)
-            {
-                this.value = value;
-                this.description = description;
-                this.propertykey = propertykey;
-            }
-            #endregion
+        #region [internal] DeviceProperty(PropertyKey, DevicePropertyDescription, object): Initialize a new instance of the class
+        /// <summary>
+        /// Initialize a new instance of the <see cref="DeviceProperty"/> class.
+        /// </summary>
+        /// <param name="propertykey">Key to the property to be recovered.</param>
+        /// <param name="description">Descripción de la propiedad.</param>
+        /// <param name="value">Valor de la propiedad.</param>
+        internal DeviceProperty(PropertyKey propertykey, DevicePropertyDescription description, object value)
+        {
+            this.value = value;
+            this.description = description;
+            this.propertykey = propertykey;
+        }
+        #endregion
 
         #endregion
 
         #region public properties
 
-            #region [public] (DevicePropertyDescription) Description: Obtiene un objeto que representa la descripción de la propiedad.
-            /// <summary>
-            /// Obtiene un objeto que representa la descripción de una propiedad.
-            /// </summary>
-            /// <value>
-            /// Descripción de una propiedad.
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            public DevicePropertyDescription Description
-            {
-                get { return description; }
-            }
-            #endregion
+        #region [public] (DevicePropertyDescription) Description: Gets an object that represents the description of the property
+        /// <summary>
+        /// Gets an object that represents the description of the property.
+        /// </summary>
+        /// <value>
+        /// Description of a property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public DevicePropertyDescription Description => description;
+        #endregion
 
-            #region [public] (bool) HasValue: Obtiene un valor que indica si existe un valor disponible para la propiedad.
-            /// <summary>
-            /// Obtiene un valor que indica si existe un valor disponible para la propiedad.
-            /// </summary>
-            /// <value>
-            /// <strong>true</strong> si esta propiedad tiene valor;<strong>false</strong> en caso contrario.
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            public bool HasValue
-            {                
-                get
-                {
-                    if (Value != null)
-                    {
-                        return true;
-                    }
+        #region [public] (bool) HasValue: Gets a value that indicates if there is a value available for the property
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets a value that indicates if there is a value available for the property.
+        /// </summary>
+        /// <value>
+        /// <strong>true</strong> if this property has value; otherwise, <strong>false</strong>.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public bool HasValue => Value != null;
+        #endregion
 
-                    return false;
-                }
-            }
-            #endregion
+        #region [public] (PropertyKey) PropertyKey: Gets a value that represents the unique key that identifies this property
+        /// <summary>
+        /// Gets a value that represents the unique key that identifies this property.
+        /// </summary>
+        /// <value>
+        /// Unique key that identifies this property.
+        /// </value>
+        public PropertyKey PropertyKey => propertykey;
+        #endregion
 
-            #region [public] (PropertyKey) PropertyKey: Obtiene un valor que representa la clave única que identifica a esta propiedad.
-            /// <summary>
-            /// Obtiene un valor que representa la clave única que identifica a esta propiedad.
-            /// </summary>
-            /// <value>
-            /// Clave única que identifica a esta propiedad.
-            /// </value>
-            public PropertyKey PropertyKey
-            {
-                get { return propertykey; }
-            }
-            #endregion
-
-            #region [public] (T) Value: Obtiene el valor fuertemente tipado de esta propiedad.
-            /// <summary>
-            /// Obtiene el valor fuertemente tipado de esta propiedad.
-            /// </summary>
-            /// <value>Valor de la esta propiedad.</value>
-            public T Value
-            {
-                get { return (T)value; }
-            }
-            #endregion
+        #region [public] (T) Value: Gets the strongly typed value of this property
+        /// <summary>
+        /// Gets the strongly typed value of this property
+        /// </summary>
+        /// <value>
+        /// Value of this property
+        /// </value>
+        public T Value => (T)value;
+        #endregion
 
         #endregion
 
         #region public override methods
 
-            #region [public] {override} (string) ToString(): Devuelve una cadena que representa la clase actual.
-            /// <summary>
-            /// Devuelve una cadena que representa la clase actual.
-            /// </summary>
-            /// <returns>
-            /// 	<para>Tipo: <see cref="T:System.String"/></para>
-            /// 	<para>Cadena que representa la clase actual.</para>
-            /// </returns>
-            /// <remarks>
-            /// Este método devuelve una cadena que identifica a esta propiedad.
-            /// </remarks>
-            public override string ToString()
-            {
-                return string.Format(CultureInfo.InvariantCulture, "HasValue = {0}", HasValue);
-            }
-            #endregion
+        #region [public] {override} (string) ToString(): Returns a string that represents this instance
+        /// <summary>
+        /// Returns a string that represents this instance
+        /// </summary>
+        /// <returns>
+        /// <see cref="T:System.String"/> that represents this instance.
+        /// </returns>
+        /// <remarks>
+        /// This method returns a string that identifies the device.
+        /// </remarks> 
+        public override string ToString() => $"HasValue = {HasValue}";
+        #endregion
 
         #endregion
     }

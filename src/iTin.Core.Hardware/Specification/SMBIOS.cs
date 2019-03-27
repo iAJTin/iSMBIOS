@@ -3,7 +3,6 @@ namespace iTin.Core.Hardware.Specification
 {
     using System.Collections.ObjectModel;
     using System.Diagnostics;
-    using System.Globalization;
     using System.Management;
 
     using Helpers;
@@ -37,7 +36,7 @@ namespace iTin.Core.Hardware.Specification
 
         #region constructor/s
 
-        #region [private] SMBIOS(): Initializes a new instance of the SMBIOS class. Retrieves the SMBIOS information by WMI.
+        #region [private] SMBIOS(): Initializes a new instance of the SMBIOS class. Retrieves the SMBIOS information by WMI
         /// <summary>
         /// Initializes a new instance of the <see cref="SMBIOS"/> class. Retrieves the SMBIOS information by WMI.
         /// </summary>
@@ -65,14 +64,14 @@ namespace iTin.Core.Hardware.Specification
 
         #region public properties
 
-        #region [public] (IEnumerable<SmbiosBaseType>) ImplementedStructures: Gets the list of implemented structures.
+        #region [public] (IEnumerable<SmbiosBaseType>) ImplementedStructures: Gets the list of implemented structures
         /// <summary>
         /// Gets the list of implemented structures.
         /// </summary>
         public ReadOnlyCollection<SmbiosStructure> ImplementedStructures => SmbiosHelper.GetImplementedStructureKeys();
         #endregion
 
-        #region [public] (uint) Lenght: Gets a value that contains the length of all SMBIOS tables.
+        #region [public] (uint) Lenght: Gets a value that contains the length of all SMBIOS tables
         /// <summary>
         /// Gets a value that contains the length of all <b>SMBIOS</b> tables.
         /// </summary>
@@ -82,7 +81,7 @@ namespace iTin.Core.Hardware.Specification
         public uint Lenght => length;
         #endregion
 
-        #region [public] (int) Version: Gets a value that contains the version of SMBIOS.
+        #region [public] (int) Version: Gets a value that contains the version of SMBIOS
         /// <summary>
         /// Gets a value that contains the version of <b>SMBIOS</b>.
         /// </summary>
@@ -96,7 +95,7 @@ namespace iTin.Core.Hardware.Specification
 
         #region public methods
 
-        #region [public] (SmbiosStructureCollection) Get(SmbiosStructure): Gets the data of the specified structure.
+        #region [public] (SmbiosStructureCollection) Get(SmbiosStructure): Gets the data of the specified structure
         /// <summary>
         /// Gets the data of the specified structure.
         /// </summary>
@@ -123,7 +122,7 @@ namespace iTin.Core.Hardware.Specification
 
         #region public override methods
 
-        #region [public] {override} (string) ToString(): Returns a string that represents this instance.
+        #region [public] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
         /// Returns a <see cref="T:System.String" /> that represents this instance.
         /// </summary>
@@ -132,16 +131,7 @@ namespace iTin.Core.Hardware.Specification
         /// The <see cref="T:SMBIOS.ToString ()" /> method returns a string that includes the version expresed in hexadecimal format,
         /// the number of available structures, and the total length occupied by all structures.
         /// </remarks>
-        public override string ToString()
-        {
-            return 
-                string.Format(
-                    CultureInfo.InvariantCulture, 
-                    "Version = {0}, Structures = {1}, Lenght = {2}", 
-                    Version.ToString("X", CultureInfo.InvariantCulture), 
-                    ImplementedStructures.Count, 
-                    Lenght);
-        }
+        public override string ToString() => $"Version = {Version:X}, Structures = {ImplementedStructures.Count}, Lenght = {Lenght}";
         #endregion
 
         #endregion

@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 033: 64-Bit Memory Error Information.
@@ -55,19 +56,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver ErrorResolution                             |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the 64-Bit Memory Error Information (Type 33) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the 64-Bit Memory Error Information (Type 33) structure.
     /// </summary>
     sealed class SmbiosType033 : SmbiosType018
     {
         #region Constructor/es
 
-        #region [public] SmbiosType033(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType033(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType033"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType033" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType033(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -77,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (ulong) MemoryArrayErrorAddress: Gets a value representing the 'Memory Array Error Address' field.
+        #region [private] (ulong) MemoryArrayErrorAddress: Gets a value representing the 'Memory Array Error Address' field
         /// <summary>
         /// Gets a value representing the <c>Memory Array Error Address</c> field.
         /// </summary>
@@ -85,13 +88,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong MemoryArrayErrorAddress
-        {
-            get { return (ulong)GetQuadrupleWord(0x0b); }
-        }
+        private ulong MemoryArrayErrorAddress => (ulong)GetQuadrupleWord(0x0b);
         #endregion
 
-        #region [private] (ulong) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field.
+        #region [private] (ulong) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field
         /// <summary>
         /// Gets a value representing the <c>Device Error Address</c> field.
         /// </summary>
@@ -99,13 +99,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong DeviceErrorAddress
-        {
-            get { return (ulong)GetQuadrupleWord(0x13); }
-        }
+        private ulong DeviceErrorAddress => (ulong)GetQuadrupleWord(0x13);
         #endregion
 
-        #region [private] (long) ErrorResolution: Gets a value representing the 'Error Resolution' field.
+        #region [private] (long) ErrorResolution: Gets a value representing the 'Error Resolution' field
         /// <summary>
         /// Gets a value representing the <c>Error Resolution</c> field.
         /// </summary>
@@ -113,17 +110,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long ErrorResolution
-        {
-            get { return GetDoubleWord(0x1b); }
-        }
+        private long ErrorResolution => GetDoubleWord(0x1b);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -197,7 +192,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>

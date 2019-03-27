@@ -27,30 +27,50 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public static properties
 
+        #region [public] {static} (Dictionary<SmbiosStructure, ICollection<byte[]>>) RawStructures: Gets the structures grouped by raw type
         /// <summary>
-        /// Obtiene las estructuras agrupadas por tipo sin procesar.
+        /// Gets the structures grouped by raw type.
         /// </summary>
-        /// <value>>Diccionario con las estructuras no procesadas agrupadas por tipo.</value>
+        /// <value>>
+        /// Dictionary with unprocessed structures grouped by type.
+        /// </value>
         public static Dictionary<SmbiosStructure, ICollection<byte[]>> RawStructures => _rawStructures ?? (_rawStructures = new Dictionary<SmbiosStructure, ICollection<byte[]>>());
+        #endregion
 
+        #region [public] {static} (IEnumerable<byte[]>) RawTables: Gets the raw SMBIOS tables
         /// <summary>
-        /// Obtiene las tablas SMBIOS sin procesar.
+        /// Gets the raw <c>SMBIOS</c> tables.
         /// </summary>
-        /// <value>Un enumerador, que admite una iteración simple en la colección.</value>
+        /// <value>
+        /// An enumerator, which supports a simple iteration in the collection.
+        /// </value>
         public static IEnumerable<byte[]> RawTables => _rawTables;
+        #endregion
 
+        #region [public] {static} (byte[]) RawData: Gets smbios raw data
+        /// <summary>
+        /// Gets smbios raw data
+        /// </summary>
+        /// <returns>
+        /// Raw data.
+        /// </returns>
         public static byte[] RawData
         {
             get; private set;
         }
-  
+        #endregion
+
         #endregion
 
         #region public static methods
+
+        #region [public] {static} (ReadOnlyCollection<SmbiosStructure>) GetImplementedStructureKeys: Returns the list with the keys of implemented structures
         /// <summary>
-        /// Obtener la lista con las claves de estructuras implementadas.
+        /// Returns the list with the keys of implemented structures.
         /// </summary>
-        /// <value>Lista de estructuras implementadas.</value>
+        /// <value>
+        /// List of structures implemented.
+        /// </value>
         public static ReadOnlyCollection<SmbiosStructure> GetImplementedStructureKeys()
         {
             return 
@@ -60,12 +80,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     .ToList()
                     .AsReadOnly();
         }
+        #endregion
 
+        #region [public] {static} (ReadOnlyCollection<SmbiosStructure>) GetAllRawTablesFrom(SmbiosStructure): Returns the list of structure(s) of the specified type
         /// <summary>
-        /// Obtener la lista de estructura(s) del tipo especificado.
+        /// Returns the list of structure(s) of the specified type.
         /// </summary>
-        /// <param name="structure">Estructura de referencia.</param>
-        /// <returns>Un enumerador, que admite una iteración simple en la colección.</returns>
+        /// <param name="structure">Reference structure.</param>
+        /// <returns>
+        /// An enumerator, which supports a simple iteration in the collection.
+        /// </returns>
         public static IEnumerable<byte[]> GetAllRawTablesFrom(SmbiosStructure structure)
         {
             ReadOnlyCollection<SmbiosStructure> implementedStructures = GetImplementedStructureKeys();
@@ -75,13 +99,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 return null;
             }
+
             return RawStructures[structure];
         }
+        #endregion
 
+        #region [public] {static} (void) ToRawTables(byte[]): Returns all the SMBIOS tables unprocessed
         /// <summary>
-        /// Obtener todas las tablas SMBIOS sin procesar.
+        /// Returns all the SMBIOS tables unprocessed.
         /// </summary>
-        /// <param name="rawSMBIOSTable">Array con los datos SMBIOS sin procesar.</param>
+        /// <param name="rawSMBIOSTable">Array with raw <c>SMBIOS</c> data.</param>
         public static void ToRawTables(byte[] rawSMBIOSTable)
         {
             int i = 0;
@@ -118,7 +145,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
             _rawTables = smbiosTables;
             ToRawStructures(_rawTables);
         }
+        #endregion
 
+        #region [public] {static} (string[]) ParseStrings(byte[]): Returns all stored strings in raw table
+        /// <summary>
+        /// Returns all stored strings in raw table.
+        /// </summary>
+        /// <param name="rawDataArray">Raw table</param>
+        /// <returns>
+        /// Strings stored in raw data.
+        /// </returns>
         public static string[] ParseStrings(byte[] rawDataArray)
         {
             bool exit = false;
@@ -143,15 +179,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             return items.ToArray();
         }
+        #endregion
 
         #endregion
 
         #region private static methods
 
+        #region [public] {static} (void) ToRawStructures(IEnumerable<byte[]): Returns the structures grouped by unprocessed type
         /// <summary>
-        /// Obtener las estructuras agrupadas por tipo sin procesar.
+        /// Returns the structures grouped by unprocessed type.
         /// </summary>
-        /// <param name="data">Estructuras no procesadas sin agrupar.</param>
+        /// <param name="data">Structures not processed without grouping.</param>
         private static void ToRawStructures(IEnumerable<byte[]> data)
         {
             if (RawStructures.Count != 0)
@@ -172,6 +210,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
         }
+        #endregion
 
         #endregion
     }

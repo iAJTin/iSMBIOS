@@ -10,16 +10,16 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios;
 
     /// <summary>
-    /// Representa una colección de objetos <see cref="DmiStructure"/> implementados en <see cref="DMI"/>.
+    /// Represents a collection of <see cref="DmiStructure" /> objects implemented in <see cref="DMI" />.
     /// </summary>
     public sealed class DmiStructureCollection : ReadOnlyCollection<DmiStructure>
     {
         #region constructor/s
 
-        #region [internal] DmiStructureCollection(bool): Inicializa una nueva instancia de la clase.
+        #region [internal] DmiStructureCollection(bool): Initialize a new instance of the class
         /// <inheritdoc />
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructureCollection" />.
+        /// Initialize a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructureCollection" /> class.
         /// </summary>
         internal DmiStructureCollection() : base(new List<DmiStructure>())
         {
@@ -34,16 +34,15 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public indexers
 
-        #region [public] (DmiStructure) this[SmbiosStructure]: Obtiene el elemento con la clave especificada.
+        #region [public] (DmiStructure) this[SmbiosStructure]: Gets the element with the specified key
         /// <summary>
-        /// Obtiene el elemento con la clave especificada.
+        /// Gets the element with the specified key.
         /// </summary>
         /// <value>
-        /// 	<para>Tipo: <see cref="DmiStructure"/></para>
-        /// 	<para>Objeto <see cref="DmiStructure"/> especificado mediante su clave.</para>
+        /// Object <see cref="DmiStructure" /> specified by its key.
         /// </value>
         /// <remarks>
-        /// Si el elemento no existe se devuelve <b>null</b>.
+        /// If the element does not exist, <b>null</b> is returned.
         /// </remarks>
         /// <exception cref="InvalidEnumArgumentException"></exception>
         public DmiStructure this[SmbiosStructure valueKey]
@@ -71,14 +70,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public methods
 
-        #region [public] (bool) Contains(SmbiosStructure): Determina si el elemento con la clave especificada se encuentra en la colección.
+        #region [public] (bool) Contains(SmbiosStructure): Determines whether the element with the specified key is in the collection
         /// <summary>
-        /// Determina si el elemento con la clave especificada se encuentra en la colección.
+        /// Determines whether the element with the specified key is in the collection.
         /// </summary>
-        /// <param name="valueKey">Uno de los valores de <see cref="SmbiosStructure"/> que representa la clave del objeto <see cref="DmiStructure"/> a buscar.</param>
+        /// <param name="valueKey">One of the values of <see cref="SmbiosStructure" /> that represents the key of the object <see cref="DmiStructure" /> to search.</param>
         /// <returns>
-        /// 	<para>Tipo: <see cref="T:System.Boolean"/></para>
-        /// 	<para><b>true</b> si el objeto <see cref="DmiStructure"/> con el <c>valueKey</c> se encuentra en la colección; de lo contrario, es <b>false</b>.</para>
+        /// <b>true</b> if the object <see cref="DmiStructure" /> with the <paramref name="valueKey"/> is in the collection; otherwise, it is <b>false</b>.
         /// </returns>
         /// <exception cref="InvalidEnumArgumentException"></exception>
         public bool Contains(SmbiosStructure valueKey)
@@ -95,14 +93,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         }
         #endregion
 
-        #region [public] (int) IndexOf(SmbiosStructure): Devuelve el índice del objeto con la clave especificada en la colección.
+        #region [public] (int) IndexOf(SmbiosStructure): Returns the index of the object with the key specified in the collection
         /// <summary>
-        /// Devuelve el índice del objeto con la clave especificada en la colección.
+        /// Returns the index of the object with the key specified in the collection
         /// </summary>
-        /// <param name="valueKey">Uno de los valores de <see cref="SmbiosStructure"/> que representa la clave del objeto que se va a buscar en la colección.</param>
+        /// <param name="valueKey">One of the values of <see cref="SmbiosStructure" /> that represents the key of the object to be searched in the collection.</param>
         /// <returns>
-        /// 	<para>Tipo: <see cref="T:System.Int32"/></para>
-        /// 	<para>Índice de base cero de la primera aparición del item en la colección, si se encuentra; en caso contrario, -1.</para>
+        /// Zero-base index of the first appearance of the item in the collection, if found; otherwise, -1.
         /// </returns>
         /// <exception cref="InvalidEnumArgumentException"></exception>
         public int IndexOf(SmbiosStructure valueKey)

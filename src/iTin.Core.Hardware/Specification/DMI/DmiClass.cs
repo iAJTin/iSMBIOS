@@ -3,13 +3,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
 {
     using System.Collections;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Device.DeviceProperty;
+
     using Smbios;
 
     /// <summary>
-    /// Representa una clase.
+    /// Represents a <c>DMI</c> class.
     /// </summary>
     public sealed class DmiClass
     {
@@ -20,11 +20,11 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region constructor/s
 
-        #region [internal] DmiClass(SmbiosBaseType): Inicializa una nueva instancia de la clase.
+        #region [internal] DmiClass(SmbiosBaseType): Initialize a new instance of the class
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="DmiClass" />.
+        /// Initialize a new instance of the <see cref="DmiClass" /> class.
         /// </summary>
-        /// <param name="smbiosTable">Tabla <see cref="SMBIOS" /> que contiene los datos de la estructura.</param>
+        /// <param name="smbiosTable">Table <see cref="SMBIOS" /> that contains the data of the structure.</param>
         internal DmiClass(SmbiosBaseType smbiosTable)
         {
             this.smbiosTable = smbiosTable;
@@ -35,69 +35,56 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public properties
 
-        #region [public] (Hashtable) Properties: Obtiene un valor que representa las propiedades disponibles.
+        #region [public] (Hashtable) Properties: Gets a value that represents the available properties
         /// <summary>
-        /// Obtiene un valor que representa las propiedades disponibles.
+        /// Gets a value that represents the available properties.
         /// </summary>
         /// <value>
-        ///   <para>Tipo: <see cref="Hashtable" /></para>
-        ///   <para>Propiedades disponibles.</para>
+        /// Available properties.
         /// </value>
-        public Hashtable Properties
-        {
-            get { return smbiosTable.Properties; }
-        }
+        public Hashtable Properties => smbiosTable.Properties;
         #endregion
 
         #endregion
 
         #region public methods
 
-        #region [public] (Hashtable) GetTypedProperties(): Obtiene un valor que representa las propiedades disponibles.
+        #region [public] (Hashtable) GetTypedProperties(): Gets a value that represents the available properties
         /// <summary>
-        /// Obtiene un valor que representa las propiedades disponibles.
+        /// Gets a value that represents the available properties.
         /// </summary>
         /// <returns>
-        ///   <para>Tipo: <see cref="Hashtable"/></para>
-        ///   <para>Propiedades disponibles.</para>
+        /// Available properties.
         /// </returns>
-        public Hashtable GetAllProperties()
-        {
-            return smbiosTable.Properties;
-        }
+        public Hashtable GetAllProperties() => smbiosTable.Properties;
         #endregion
 
-        #region [public] (IDeviceProperty) GetProperty(PropertyKey): Obtiene una referencia a un objeto que implementa la interfaz IDeviceProperty, representa el valor fuertemente tipado de la propiedad.
+        #region [public] (IDeviceProperty) GetProperty(PropertyKey): Gets a reference to an object that implements the interface IDeviceProperty represents the strongly typed value of the property
         /// <summary>
-        /// Obtiene una referencia a un objeto que implementa la interfaz <see cref="IDeviceProperty" />, representa el valor fuertemente tipado de la propiedad.
+        /// Gets a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the strongly typed value of the property.
         /// </summary>
-        /// <param name="propertyKey">Clave de la propiedad a recuperar.</param>
-        /// <returns>Referencia al objeto que representa el valor fuertemente tipado de la propiedad</returns>
-        public IDeviceProperty GetProperty(PropertyKey propertyKey)
-        {
-            return smbiosTable.GetProperty(propertyKey);
-        }
+        /// <param name="propertyKey">Key to the property to be recovered.</param>
+        /// <returns>
+        /// Reference to the object that represents the strongly typed value of the property.
+        /// </returns>
+        public IDeviceProperty GetProperty(PropertyKey propertyKey) => smbiosTable.GetProperty(propertyKey);
         #endregion
 
         #endregion
 
         #region public override methods
 
-        #region [public] {override} (String) ToString: Devuelve una cadena que representa al objeto actual.
+        #region [public] {override} (string) ToString(): Returns a String that represents this instance
         /// <summary>
-        /// Devuelve una cadena que representa al objeto <see cref="DmiClass" /> actual.
+        /// Returns a <see cref="T:System.String" /> that represents this instance.
         /// </summary>
         /// <returns>
-        ///   <para>Tipo: <see cref="T:System.String" /></para>
-        ///   <para>Cadena que representa al objeto <see cref="DmiClass"/> actual.</para>
+        /// A <see cref="T:System.String" /> that represents this instance.
         /// </returns>
         /// <remarks>
-        /// El método <see cref="DmiClass.ToString()" /> devuelve una cadena que incluye el número de propiedades disponibles.
-        /// </remarks>   
-        public override string ToString()
-        {
-            return string.Format(CultureInfo.InvariantCulture, "Properties = {0}", Properties.Count);
-        }
+        /// This method returns a string that includes the available properties.
+        /// </remarks> 
+        public override string ToString() => $"Properties = {Properties.Count}";
         #endregion
 
         #endregion

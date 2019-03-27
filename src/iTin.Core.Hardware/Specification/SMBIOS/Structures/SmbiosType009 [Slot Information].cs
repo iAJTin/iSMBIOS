@@ -5,9 +5,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 009: System Slots
@@ -62,19 +62,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                      groups              BYTE                    present in the slot; see 7.10.9                              |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Slot Information (Type 9) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Slot Information (Type 9) structure.
     /// </summary>
     sealed class SmbiosType009 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType009(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType009(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType009"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType009" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType009(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -86,7 +88,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.0+ fields
 
-        #region [private] (string) SlotDesignation: Gets a value representing the 'Socket Designation' field.
+        #region [private] (string) SlotDesignation: Gets a value representing the 'Socket Designation' field
         /// <summary>
         /// Gets a value representing the <c>Slot Designation</c> field.
         /// </summary>
@@ -94,13 +96,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SlotDesignation
-        {
-            get { return GetString(0x04); }
-        }
+        private string SlotDesignation => GetString(0x04);
         #endregion
 
-        #region [private] (byte) SlotType: Gets a value representing the 'Slot Type' field.
+        #region [private] (byte) SlotType: Gets a value representing the 'Slot Type' field
         /// <summary>
         /// Gets a value representing the <c>Slot Type</c> field.
         /// </summary>
@@ -108,13 +107,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SlotType
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte SlotType => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) DataWidth: Gets a value representing the 'Data Width' field.
+        #region [private] (byte) DataWidth: Gets a value representing the 'Data Width' field
         /// <summary>
         /// Gets a value representing the <c>Data Width</c> field.
         /// </summary>
@@ -122,13 +118,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DataWidth
-        {
-            get { return GetByte(0x06); }
-        }
+        private byte DataWidth => GetByte(0x06);
         #endregion
 
-        #region [private] (byte) CurrentUsage: Gets a value representing the 'Current Usage' field.
+        #region [private] (byte) CurrentUsage: Gets a value representing the 'Current Usage' field
         /// <summary>
         /// Gets a value representing the <c>Current Usage</c> field.
         /// </summary>
@@ -136,13 +129,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CurrentUsage
-        {
-            get { return GetByte(0x07); }
-        }
+        private byte CurrentUsage => GetByte(0x07);
         #endregion
 
-        #region [private] (byte) Length: Gets a value representing the 'Length' field.
+        #region [private] (byte) Length: Gets a value representing the 'Length' field
         /// <summary>
         /// Gets a value representing the <c>Length</c> field.
         /// </summary>
@@ -150,13 +140,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Length
-        {
-            get { return GetByte(0x08); }
-        }
+        private byte Length => GetByte(0x08);
         #endregion
 
-        #region [private] (byte) Adapter: Gets a value representing the 'Adapter' field.
+        #region [private] (byte) Adapter: Gets a value representing the 'Adapter' field
         /// <summary>
         /// Gets a value representing the <c>Adapter</c> field.
         /// </summary>
@@ -164,13 +151,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Adapter
-        {
-            get { return GetByte(0x09); }
-        }
+        private byte Adapter => GetByte(0x09);
         #endregion
 
-        #region [private] (byte) Socket: Gets a value representing the 'Socket' field.
+        #region [private] (byte) Socket: Gets a value representing the 'Socket' field
         /// <summary>
         /// Gets a value representing the <c>Socket</c> field.
         /// </summary>
@@ -178,13 +162,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Socket
-        {
-            get { return GetByte(0x0a); }
-        }
+        private byte Socket => GetByte(0x0a);
         #endregion
 
-        #region [private] (byte) Characteristics1: Gets a value representing the 'Characteristics1' field.
+        #region [private] (byte) Characteristics1: Gets a value representing the 'Characteristics1' field
         /// <summary>
         /// Gets a value representing the <c>Characteristics1</c> field.
         /// </summary>
@@ -192,17 +173,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Characteristics1
-        {
-            get { return GetByte(0x0b); }
-        }
+        private byte Characteristics1 => GetByte(0x0b);
         #endregion
 
         #endregion
 
         #region Version 2.1+ fields
 
-        #region [private] (byte) Characteristics2: Gets a value representing the 'Characteristics2' field.
+        #region [private] (byte) Characteristics2: Gets a value representing the 'Characteristics2' field
         /// <summary>
         /// Gets a value representing the <c>Characteristics2</c> field.
         /// </summary>
@@ -210,17 +188,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Characteristics2
-        {
-            get { return GetByte(0x0c); }
-        }
+        private byte Characteristics2 => GetByte(0x0c);
         #endregion
 
         #endregion
 
         #region Version 2.6+ fields
 
-        #region [private] (int) SegmentBusFunction: Gets a value representing the 'Segment Bus Function' field.
+        #region [private] (int) SegmentBusFunction: Gets a value representing the 'Segment Bus Function' field
         /// <summary>
         /// Gets a value representing the <c>Segment Bus Function</c> field.
         /// </summary>
@@ -228,13 +203,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SegmentBusFunction
-        {
-            get { return GetWord(0x0d); }
-        }
+        private int SegmentBusFunction => GetWord(0x0d);
         #endregion
 
-        #region [private] (byte) Bus: Gets a value representing the 'Bus' field.
+        #region [private] (byte) Bus: Gets a value representing the 'Bus' field
         /// <summary>
         /// Gets a value representing the <c>Bus</c> field.
         /// </summary>
@@ -242,13 +214,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Bus
-        {
-            get { return GetByte(0x0f); }
-        }
+        private byte Bus => GetByte(0x0f);
         #endregion
 
-        #region [private] (byte) DeviceFunctionNumber: Gets a value representing the 'Device Function Number' field.
+        #region [private] (byte) DeviceFunctionNumber: Gets a value representing the 'Device Function Number' field
         /// <summary>
         /// Gets a value representing the <c>Device Function Number</c> field.
         /// </summary>
@@ -256,13 +225,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceFunctionNumber
-        {
-            get { return GetByte(0x10); }
-        }
+        private byte DeviceFunctionNumber => GetByte(0x10);
         #endregion
 
-        #region [private] (byte) Device: Gets a value representing the 'Device' feature of the 'Device/Function Number' field.
+        #region [private] (byte) Device: Gets a value representing the 'Device' feature of the 'Device/Function Number' field
         /// <summary>
         /// Gets a value representing the <c>Device</c> feature of the <c>Device/Function Number</c> field.
         /// </summary>
@@ -270,13 +236,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Device
-        {
-            get { return (byte) ((DeviceFunctionNumber & 0xf8) >> 3); }
-        }
+        private byte Device => (byte) ((DeviceFunctionNumber & 0xf8) >> 3);
         #endregion
 
-        #region [private] (byte) Function: Gets a value representing the 'Function' feature of the 'Device/Function Number' field.
+        #region [private] (byte) Function: Gets a value representing the 'Function' feature of the 'Device/Function Number' field
         /// <summary>
         /// Gets a value representing the <c>Function</c> feature of the <c>Device/Function Number</c> field.
         /// </summary>
@@ -284,10 +247,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Function
-        {
-            get { return (byte) (DeviceFunctionNumber & 0x07); }
-        }
+        private byte Function => (byte) (DeviceFunctionNumber & 0x07);
         #endregion
 
         #endregion
@@ -296,7 +256,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -383,7 +344,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -432,7 +394,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 3.2.0 (26/04/2018)
 
-        #region [private] {static} (string) GetBusDeviceFunction(byte, byte, byte): Gets a string representing Bus / Device / Function of the slot.
+        #region [private] {static} (string) GetBusDeviceFunction(byte, byte, byte): Gets a string representing Bus / Device / Function of the slot
         /// <summary>
         /// Gets a string representing Bus / Device / Function of the slot.
         /// </summary>
@@ -444,11 +406,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </returns>
         private static string GetBusDeviceFunction(byte bus, byte device, byte function)
         {
-            return string.Format(CultureInfo.InvariantCulture, "Bus = {0}, Device = {1}, Function = {2}", bus, device, function);
+            return $"Bus = {bus}, Device = {device}, Function = {function}";
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetCharacteristics(byte, byte): Gets a collection with the characteristics of the slot.
+        #region [private] {static} (ReadOnlyCollection<string>) GetCharacteristics(byte, byte): Gets a collection with the characteristics of the slot
         /// <summary>
         /// Gets a collection with the characteristics of the slot.
         /// </summary>
@@ -505,7 +467,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetCurrentUsage(byte): Gets a string representing the current slot usage.
+        #region [private] {static} (string) GetCurrentUsage(byte): Gets a string representing the current slot usage
         /// <summary>
         /// Gets a string representing the current slot usage.
         /// </summary>
@@ -533,7 +495,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetDataBusWidth(byte): Gets a string representing the width of the data bus in the slot.
+        #region [private] {static} (string) GetDataBusWidth(byte): Gets a string representing the width of the data bus in the slot
         /// <summary>
         /// Gets a string representing the width of the data bus in the slot.
         /// </summary>
@@ -570,7 +532,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetId(byte, byte, byte): Gets a string that identifies the slot.
+        #region [private] {static} (string) GetId(byte, byte, byte): Gets a string that identifies the slot
         /// <summary>
         /// Gets a string that identifies the slot.
         /// </summary>
@@ -585,10 +547,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
             switch (type)
             {
                 case 0x04: // MCA
-                    return adpater.ToString("X", CultureInfo.InvariantCulture);
+                    return $"{adpater:X}";
 
                 case 0x05: // EISA
-                    return adpater.ToString("X", CultureInfo.InvariantCulture);
+                    return $"{adpater:X}";
 
                 case 0x06: // PCI
                 case 0x0E: // PCI
@@ -598,10 +560,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 case 0x12: // PCI-X
                 case 0x13: // AGP
                 case 0xA5: // PCI Express
-                    return adpater.ToString("X", CultureInfo.InvariantCulture);
+                    return $"{adpater:X}";
 
                 case 0x07: // PCMCIA
-                    return string.Format(CultureInfo.InvariantCulture, "ID: Adapter {0}, Socket {1}", adpater.ToString("X", CultureInfo.InvariantCulture), socket.ToString("X", CultureInfo.InvariantCulture));
+                    return $"ID: Adapter {adpater:X}, Socket {socket:X}";
 
                 default:
                     return SmbiosHelper.OutOfSpec;
@@ -609,7 +571,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetLength(byte): Gets a string that identifies the physical width of the slot.
+        #region [private] {static} (string) GetLength(byte): Gets a string that identifies the physical width of the slot
         /// <summary>
         /// Gets a string that identifies the physical width of the slot.
         /// </summary>
@@ -638,7 +600,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetSegmentBusFunction(int): Gets a string representing SegmentBusFuction.
+        #region [private] {static} (string) GetSegmentBusFunction(int): Gets a string representing SegmentBusFuction
         /// <summary>
         /// Gets a string representing SegmentBusFuction.
         /// </summary>
@@ -648,11 +610,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </returns>
         private static string GetSegmentBusFunction(int code)
         {
-            return code.ToString("x", CultureInfo.InvariantCulture);
+            return $"{code:X}";
         }
         #endregion
 
-        #region [private] {static} (string) GetSlotType(byte): Gets a string indicating the slot type.
+        #region [private] {static} (string) GetSlotType(byte): Gets a string indicating the slot type
         /// <summary>
         /// Gets a string indicating the slot type.
         /// </summary>

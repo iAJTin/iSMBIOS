@@ -7,6 +7,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Text;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -32,19 +33,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              String                                                                                        |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the On Board Devices (Type 10, Obsolete) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the On Board Devices (Type 10, Obsolete) structure.
     /// </summary>
     sealed class SmbiosType010 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType010(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType010(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType010"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType010" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType010(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -54,7 +57,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' field.
+        #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' field
         /// <summary>
         /// Gets a value representing the <c>Device Type</c> field.
         /// </summary>
@@ -62,13 +65,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceType
-        {
-            get { return (byte) (GetByte(0x04) & 0x7f); }
-        }
+        private byte DeviceType => (byte) (GetByte(0x04) & 0x7f);
         #endregion
 
-        #region [private] (bool) IsEnabled: Gets a value representing the 'Is Enabled' field.
+        #region [private] (bool) IsEnabled: Gets a value representing the 'Is Enabled' field
         /// <summary>
         /// Gets a value representing the <c>Is Enabled</c> field.
         /// </summary>
@@ -76,13 +76,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsEnabled
-        {
-            get { return LogicHelper.CheckBit(GetByte(0x04), Bits.Bit07); }
-        }
+        private bool IsEnabled => LogicHelper.CheckBit(GetByte(0x04), Bits.Bit07);
         #endregion
 
-        #region [private] (string) Description: Gets a value representing the 'Description' field.
+        #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
         /// Gets a value representing the <c>Description</c> field.
         /// </summary>
@@ -111,7 +108,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -153,7 +151,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -176,7 +175,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetDeviceType(byte): Gets a value representing the built-in device type.
+        #region [private] {static} (string) GetDeviceType(byte): Gets a value representing the built-in device type
         /// <summary>
         /// Gets a value representing the built-in device type.
         /// </summary>

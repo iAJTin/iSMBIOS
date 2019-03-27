@@ -4,7 +4,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Globalization;
 
     /// <summary>
     /// Defines the contents of a structure type.
@@ -21,7 +20,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region constructor/s
 
-        #region [public] SmbiosStructureInfo(SmbiosStructure, int): Initializes a new instance of the struct.
+        #region [public] SmbiosStructureInfo(SmbiosStructure, int): Initializes a new instance of the struct
         /// <summary>
         /// Initializes a new instance of the <see cref="SmbiosStructureInfo"/> struct.
         /// </summary>
@@ -38,7 +37,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public properties
 
-        #region [public] (int) SmbiosVersion: Gets a value representing the version of SMBIOS.
+        #region [public] (int) SmbiosVersion: Gets a value representing the version of SMBIOS
         /// <summary>
         /// Gets a value representing the version of <see cref="SMBIOS" />.
         /// </summary>
@@ -48,7 +47,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         public int SmbiosVersion => smbiosVersion;
         #endregion
 
-        #region [public] (SmbiosStructure) StructureType: Gets the type of structure.
+        #region [public] (SmbiosStructure) StructureType: Gets the type of structure
         /// <summary>
         /// Gets the type of structure.
         /// </summary>
@@ -56,7 +55,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         public SmbiosStructure StructureType => structureType;
         #endregion
 
-        #region [public] (SmbiosStructureCollection) Structures: Gets collection of available structures.
+        #region [public] (SmbiosStructureCollection) Structures: Gets collection of available structures
         /// <summary>
         /// Gets collection of available structures.
         /// </summary>
@@ -77,7 +76,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public methods
 
-        #region [public] (bool) Equals(SmbiosStructureInfo): Indicates whether the current object is equal to another object of the same type.
+        #region [public] (bool) Equals(SmbiosStructureInfo): Indicates whether the current object is equal to another object of the same type
         /// <summary>
         /// Indicates whether the current object is equal to another object of the same type.
         /// </summary>
@@ -95,20 +94,22 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public override methods
 
-        #region [public] {override} (int) GetHashCode(): Returns a hash code for this instance.
+        #region [public] {override} (int) GetHashCode(): Returns a hash code for this instance
         /// <summary>
         /// Returns a hash code for this instance.
         /// </summary>
-        /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+        /// </returns>
         public override int GetHashCode()
         {
             return structureType.GetHashCode() ^ smbiosVersion;
         }
         #endregion
 
-        #region [public] {override} (bool) Equals(object): Determines whether the specified object is equal to this instance.
+        #region [public] {override} (bool) Equals(object): Determines whether the specified object is equal to this instance
         /// <summary>
-        /// Determines whether the specified <see cref="System.Object" /> is equal to this instance.
+        /// Determines whether the specified <see cref="T:System.Object" /> is equal to this instance.
         /// </summary>
         /// <param name="obj">Another object with which the comparison is to be made.</param>
         /// <returns>
@@ -133,7 +134,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [public] {override} (string) ToString(): Returns a string that represents this instance.
+        #region [public] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
         /// Returns a <see cref="T:System.String" /> that represents this instance.
         /// </summary>
@@ -143,13 +144,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </remarks>
         public override string ToString()
         {
-            return 
-                string.Format(
-                    CultureInfo.InvariantCulture, 
-                    "SMBIOS = {0}, Type = {1}, Structures = {2}", 
-                    SmbiosVersion.ToString("X", CultureInfo.InvariantCulture),
-                    StructureType,
-                    Structures.Count);
+            return $"SMBIOS = {SmbiosVersion:X}, Type = {StructureType}, Structures = {Structures.Count}";
         }
         #endregion
 
@@ -157,7 +152,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public operators
 
-        #region [public] {operator} (bool) operator ==(SmbiosStructureInfo, SmbiosStructureInfo): Implements the == operator.
+        #region [public] {operator} (bool) operator ==(SmbiosStructureInfo, SmbiosStructureInfo): Implements the == operator
         /// <summary>
         /// Implements the == operator.
         /// </summary>
@@ -172,7 +167,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [public] {operator} (bool) operator !=(SmbiosStructureInfo, SmbiosStructureInfo): Implements the != operator.
+        #region [public] {operator} (bool) operator !=(SmbiosStructureInfo, SmbiosStructureInfo): Implements the != operator
         /// <summary>
         /// Implements the != operator.
         /// </summary>

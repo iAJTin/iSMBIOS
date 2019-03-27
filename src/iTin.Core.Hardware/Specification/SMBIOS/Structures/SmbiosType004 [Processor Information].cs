@@ -5,10 +5,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
-    using System.Globalization;
     using System.Linq;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -160,14 +160,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                                                                                       |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Processor Information (Type 4) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Processor Information (Type 4) structure.
     /// </summary>
     sealed class SmbiosType004 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType004(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType004(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType004" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
@@ -183,7 +184,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field.
+        #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field
         /// <summary>
         /// Gets a value representing the <c>Socket Designation</c> field.
         /// </summary>
@@ -191,13 +192,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SocketDesignation
-        {
-            get { return GetString(0x04); }
-        }
+        private string SocketDesignation => GetString(0x04);
         #endregion
 
-        #region [private] (byte) ProcessorType: Gets a value representing the 'Processor Type' field.
+        #region [private] (byte) ProcessorType: Gets a value representing the 'Processor Type' field
         /// <summary>
         /// Gets a value representing the <c>Processor Type</c> field.
         /// </summary>
@@ -205,13 +203,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ProcessorType
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte ProcessorType => GetByte(0x05);
         #endregion
 
-        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field.
+        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
         /// Gets a value representing the <c>Manufacturer</c> field.
         /// </summary>
@@ -219,13 +214,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Manufacturer
-        {
-            get { return GetString(0x07); }
-        }
+        private string Manufacturer => GetString(0x07);
         #endregion
 
-        #region [private] (string) ProcessorId: Gets a value representing the 'Processor Id' field.
+        #region [private] (string) ProcessorId: Gets a value representing the 'Processor Id' field
         /// <summary>
         /// Gets a value representing the <c>Processor Id</c> field.
         /// </summary>
@@ -233,13 +225,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string ProcessorId
-        {
-            get { return GetWord(0x08).ToString("X", CultureInfo.InvariantCulture); }
-        }
+        private string ProcessorId => $"{GetWord(0x08):X}";
         #endregion
 
-        #region [private] (string) Version: Gets a value representing the 'Version' field.
+        #region [private] (string) Version: Gets a value representing the 'Version' field
         /// <summary>
         /// Gets a value representing the <c>Version</c> field.
         /// </summary>
@@ -247,13 +236,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Version
-        {
-            get { return GetString(0x10); }
-        }
+        private string Version => GetString(0x10);
         #endregion
 
-        #region [private] (byte) Voltages: Gets a value representing the 'Voltages' field.
+        #region [private] (byte) Voltages: Gets a value representing the 'Voltages' field
         /// <summary>
         /// Gets a value representing the <c>Voltages</c> field.
         /// </summary>
@@ -261,13 +247,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Voltages
-        {
-            get { return GetByte(0x11); }
-        }
+        private byte Voltages => GetByte(0x11);
         #endregion
 
-        #region [private] (double) VoltageValue: Gets a value representing the 'Voltage Value' characteristic of the 'Voltages' field.
+        #region [private] (double) VoltageValue: Gets a value representing the 'Voltage Value' characteristic of the 'Voltages' field
         /// <summary>
         /// Gets a value representing the <c>Voltage Value</c> characteristic of the <c>Voltages</c> field
         /// </summary>
@@ -275,13 +258,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private double VoltageValue
-        {
-            get { return (double) (Voltages & 0x7f) / 10; }
-        }
+        private double VoltageValue => (double) (Voltages & 0x7f) / 10;
         #endregion
 
-        #region [private] (byte) VoltageCapability: Gets a value representing the 'Voltage Capability' characteristic of the 'Voltages' field.
+        #region [private] (byte) VoltageCapability: Gets a value representing the 'Voltage Capability' characteristic of the 'Voltages' field
         /// <summary>
         /// Gets a value representing the <c>Voltage Capability</c> characteristic of the <c>Voltages</c> field
         /// </summary>
@@ -289,13 +269,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte VoltageCapability
-        {
-            get { return Voltages.GetBit(Bits.Bit07); }
-        }
+        private byte VoltageCapability => Voltages.GetBit(Bits.Bit07);
         #endregion
 
-        #region [private] (bool) IsLegacyMode: Gets a value representing the 'Is Legacy Mode' characteristic of the 'Voltages' field.
+        #region [private] (bool) IsLegacyMode: Gets a value representing the 'Is Legacy Mode' characteristic of the 'Voltages' field
         /// <summary>
         /// Gets a value representing the <c>Is Legacy Mode</c> characteristic of the <c>Voltage</c> field
         /// </summary>
@@ -303,13 +280,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsLegacyMode
-        {
-            get { return Voltages.CheckBit(Bits.Bit07); }
-        }
+        private bool IsLegacyMode => Voltages.CheckBit(Bits.Bit07);
         #endregion
 
-        #region [private] (int) ExternalClock: Gets a value representing the 'External Clock' field.
+        #region [private] (int) ExternalClock: Gets a value representing the 'External Clock' field
         /// <summary>
         /// Gets a value representing the <c>External Clock</c> field.
         /// </summary>
@@ -317,13 +291,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExternalClock
-        {
-            get { return GetWord(0x12); }
-        }
+        private int ExternalClock => GetWord(0x12);
         #endregion
 
-        #region [private] (int) MaximunSpeed: Gets a value representing the 'Maximun Speed' field.
+        #region [private] (int) MaximunSpeed: Gets a value representing the 'Maximun Speed' field
         /// <summary>
         /// Gets a value representing the <c>Maximun Speed</c> field.
         /// </summary>
@@ -331,13 +302,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunSpeed
-        {
-            get { return GetWord(0x14); }
-        }
+        private int MaximunSpeed => GetWord(0x14);
         #endregion
 
-        #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field.
+        #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field
         /// <summary>
         /// Gets a value representing the <c>Current Speed</c> field.
         /// </summary>
@@ -345,13 +313,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSpeed
-        {
-            get { return GetWord(0x16); }
-        }
+        private int CurrentSpeed => GetWord(0x16);
         #endregion
 
-        #region [private] (byte) Status: Gets a value representing the 'Status' field.
+        #region [private] (byte) Status: Gets a value representing the 'Status' field
         /// <summary>
         /// Gets a value representing the <c>Status</c> field.
         /// </summary>
@@ -359,13 +324,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Status
-        {
-            get { return GetByte(0x18); }
-        }
+        private byte Status => GetByte(0x18);
         #endregion
 
-        #region [private] (byte) SocketPopulated: Gets a value representing the 'Socket Populated' characteristic of the 'Status' field.
+        #region [private] (byte) SocketPopulated: Gets a value representing the 'Socket Populated' characteristic of the 'Status' field
         /// <summary>
         /// Gets a value representing the <c>Socket Populated</c> characteristic of the <c>Status</c> field
         /// </summary>
@@ -373,13 +335,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool SocketPopulated
-        {
-            get { return Status.CheckBit(Bits.Bit06); }
-        }
+        private bool SocketPopulated => Status.CheckBit(Bits.Bit06);
         #endregion
 
-        #region [private] (byte) CpuStatus: Gets a value representing the 'Cpu Status' characteristic of the 'Status' field.
+        #region [private] (byte) CpuStatus: Gets a value representing the 'Cpu Status' characteristic of the 'Status' field
         /// <summary>
         /// Gets a value representing the <c>Cpu Status</c> characteristic of the <c>Status</c> field
         /// </summary>
@@ -387,13 +346,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CpuStatus
-        {
-            get { return Status.GetBit(Bits.Bit07); }
-        }
+        private byte CpuStatus => Status.GetBit(Bits.Bit07);
         #endregion
 
-        #region [private] (byte) UpgradeMethod: Gets a value representing the 'Upgrade Method' field.
+        #region [private] (byte) UpgradeMethod: Gets a value representing the 'Upgrade Method' field
         /// <summary>
         /// Gets a value representing the <c>Upgrade Method</c> field.
         /// </summary>
@@ -401,13 +357,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte UpgradeMethod
-        {
-            get { return GetByte(0x19); }
-        }
+        private byte UpgradeMethod => GetByte(0x19);
         #endregion
 
-        #region [private] (int) L1CacheHandle: Gets a value representing the 'L1 CacheH andle' field.
+        #region [private] (int) L1CacheHandle: Gets a value representing the 'L1 CacheH andle' field
         /// <summary>
         /// Gets a value representing the <c>L1 Cache Handle</c> field.
         /// </summary>
@@ -415,13 +368,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L1CacheHandle
-        {
-            get { return GetWord(0x1a); }
-        }
+        private int L1CacheHandle => GetWord(0x1a);
         #endregion
 
-        #region [private] (int) L2CacheHandle: Gets a value representing the 'L2 CacheH andle' field.
+        #region [private] (int) L2CacheHandle: Gets a value representing the 'L2 CacheH andle' field
         /// <summary>
         /// Gets a value representing the <c>L2 Cache Handle</c> field.
         /// </summary>
@@ -429,13 +379,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L2CacheHandle
-        {
-            get { return GetWord(0x1c); }
-        }
+        private int L2CacheHandle => GetWord(0x1c);
         #endregion
 
-        #region [private] (int) L3CacheHandle: Gets a value representing the 'L3 CacheH andle' field.
+        #region [private] (int) L3CacheHandle: Gets a value representing the 'L3 CacheH andle' field
         /// <summary>
         /// Gets a value representing the <c>L3 Cache Handle</c> field.
         /// </summary>
@@ -443,13 +390,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L3CacheHandle
-        {
-            get { return GetWord(0x1e); }
-        }
+        private int L3CacheHandle => GetWord(0x1e);
         #endregion
 
-        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field.
+        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
         /// Gets a value representing the <c>Serial Number</c> field.
         /// </summary>
@@ -457,13 +401,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SerialNumber
-        {
-            get { return GetString(0x20); }
-        }
+        private string SerialNumber => GetString(0x20);
         #endregion
 
-        #region [private] (string) AssetTag: Gets a value representing the 'Asset Tag' field.
+        #region [private] (string) AssetTag: Gets a value representing the 'Asset Tag' field
         /// <summary>
         /// Gets a value representing the <c>Asset Tag</c> field.
         /// </summary>
@@ -471,13 +412,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string AssetTag
-        {
-            get { return GetString(0x21); }
-        }
+        private string AssetTag => GetString(0x21);
         #endregion
 
-        #region [private] (string) PartNumber: Gets a value representing the 'Part Number' field.
+        #region [private] (string) PartNumber: Gets a value representing the 'Part Number' field
         /// <summary>
         /// Gets a value representing the <c>Part Number</c> field.
         /// </summary>
@@ -485,13 +423,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string PartNumber
-        {
-            get { return GetString(0x22); }
-        }
+        private string PartNumber => GetString(0x22);
         #endregion
 
-        #region [private] (byte) CoreCount: Gets a value representing the 'Core Count' field.
+        #region [private] (byte) CoreCount: Gets a value representing the 'Core Count' field
         /// <summary>
         /// Gets a value representing the <c>Core Count</c> field.
         /// </summary>
@@ -499,13 +434,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CoreCount
-        {
-            get { return GetByte(0x23); }
-        }
+        private byte CoreCount => GetByte(0x23);
         #endregion
 
-        #region [private] (byte) CoreEnabled: Gets a value representing the 'Core Enabled' field.
+        #region [private] (byte) CoreEnabled: Gets a value representing the 'Core Enabled' field
         /// <summary>
         /// Gets a value representing the <c>Core Enabled</c> field.
         /// </summary>
@@ -513,13 +445,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CoreEnabled
-        {
-            get { return GetByte(0x24); }
-        }
+        private byte CoreEnabled => GetByte(0x24);
         #endregion
 
-        #region [private] (byte) ThreadCount: Gets a value representing the 'Thread Count' field.
+        #region [private] (byte) ThreadCount: Gets a value representing the 'Thread Count' field
         /// <summary>
         /// Gets a value representing the <c>Thread Count</c> field.
         /// </summary>
@@ -527,13 +456,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ThreadCount
-        {
-            get { return GetByte(0x25); }
-        }
+        private byte ThreadCount => GetByte(0x25);
         #endregion
 
-        #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field.
+        #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Characteristics</c> field.
         /// </summary>
@@ -541,13 +467,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Characteristics
-        {
-            get { return GetWord(0x26); }
-        }
+        private int Characteristics => GetWord(0x26);
         #endregion
 
-        #region [private] (bool) IsCapable64Bit: Gets a value representing the 'Is Capable 64Bit' characteristic of the 'Characteristics' field.
+        #region [private] (bool) IsCapable64Bit: Gets a value representing the 'Is Capable 64Bit' characteristic of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Is Capable 64Bit</c> characteristic of the <c>Characteristics</c> field.
         /// </summary>
@@ -555,13 +478,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsCapable64Bit
-        {
-            get { return Characteristics.CheckBit(Bits.Bit02); }
-        }
+        private bool IsCapable64Bit => Characteristics.CheckBit(Bits.Bit02);
         #endregion
 
-        #region [private] (bool) IsMultiCore: Gets a value representing the 'Is MultiCore' characteristic of the 'Characteristics' field.
+        #region [private] (bool) IsMultiCore: Gets a value representing the 'Is MultiCore' characteristic of the 'Characteristics' field
         /// <summary> 
         /// Gets a value representing the <c>Is MultiCore</c> characteristic of the <c>Characteristics</c> field.
         /// </summary>
@@ -569,13 +489,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsMultiCore
-        {
-            get { return Characteristics.CheckBit(Bits.Bit03); }
-        }
+        private bool IsMultiCore => Characteristics.CheckBit(Bits.Bit03);
         #endregion
 
-        #region [private] (bool) MultipleHardwareThreadsPerCore: Gets a value representing the 'Hardware Threads' characteristic of the 'Characteristics' field.
+        #region [private] (bool) MultipleHardwareThreadsPerCore: Gets a value representing the 'Hardware Threads' characteristic of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Multiple Hardware Threads Per Core</c> characteristic of the <c>Characteristics</c> field
         /// </summary>
@@ -583,13 +500,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool MultipleHardwareThreadsPerCore
-        {
-            get { return Characteristics.CheckBit(Bits.Bit04); }
-        }
+        private bool MultipleHardwareThreadsPerCore => Characteristics.CheckBit(Bits.Bit04);
         #endregion
 
-        #region [private] (bool) MultipleHardwareThreadsPerCore: Gets a value representing the 'Execute Protection' characteristic of the 'Characteristics' field.
+        #region [private] (bool) MultipleHardwareThreadsPerCore: Gets a value representing the 'Execute Protection' characteristic of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Execute Protection</c> characteristic of the <c>Characteristics</c> field
         /// </summary>
@@ -597,13 +511,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool ExecuteProtection
-        {
-            get { return Characteristics.CheckBit(Bits.Bit05); }
-        }
+        private bool ExecuteProtection => Characteristics.CheckBit(Bits.Bit05);
         #endregion
 
-        #region [private] (bool) EnhancedVirtualization: Gets a value representing the 'Enhanced Virtualization' characteristic of the 'Characteristics' field.
+        #region [private] (bool) EnhancedVirtualization: Gets a value representing the 'Enhanced Virtualization' characteristic of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Enhanced Virtualization</c> characteristic of the <c>Characteristics</c> field
         /// </summary>
@@ -611,13 +522,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool EnhancedVirtualization
-        {
-            get { return Characteristics.CheckBit(Bits.Bit06); }
-        }
+        private bool EnhancedVirtualization => Characteristics.CheckBit(Bits.Bit06);
         #endregion
 
-        #region [private] (bool) PowerPerformanceControl: Gets a value representing the 'Power Performance Control' characteristic of the 'Characteristics' field.
+        #region [private] (bool) PowerPerformanceControl: Gets a value representing the 'Power Performance Control' characteristic of the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <c>Power Performance Control</c> characteristic of the <c>Characteristics</c> field
         /// </summary>
@@ -625,17 +533,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool PowerPerformanceControl
-        {
-            get { return Characteristics.CheckBit(Bits.Bit07); }
-        }
+        private bool PowerPerformanceControl => Characteristics.CheckBit(Bits.Bit07);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -688,28 +594,26 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x11] - [v2.0] - [Voltage]
 
-                    #region [0x11] - [v2.0] - [LegacyMode] - [Boolean]
-                    case SmbiosType004Property.IsLegacyMode:
-                        value = IsLegacyMode;
-                        break;
-                    #endregion
+                #region [0x11] - [v2.0] - [LegacyMode] - [Boolean]
+                case SmbiosType004Property.IsLegacyMode:
+                    value = IsLegacyMode;
+                    break;
+                #endregion
 
-                    #region [0x11] - [v2.0] - [Voltage Capability] - [ReadOnlyCollection<String>]
-                    case SmbiosType004Property.VoltageCapability:
-                        var isLegacyMode = IsLegacyMode;
-                        if (!isLegacyMode)
-                        {
-                            var items = new List<string>
-                                {
-                                    VoltageValue.ToString(CultureInfo.InvariantCulture)
-                                };
-
-                            value = items.AsReadOnly();
-                        }
-                        else
-                            value = GetVoltagesCapability(VoltageCapability);
-                        break;
-                    #endregion
+                #region [0x11] - [v2.0] - [Voltage Capability] - [ReadOnlyCollection<String>]
+                case SmbiosType004Property.VoltageCapability:
+                    var isLegacyMode = IsLegacyMode;
+                    if (!isLegacyMode)
+                    {
+                        var items = new List<string> {$"{VoltageValue}"};
+                        value = items.AsReadOnly();
+                    }
+                    else
+                    {
+                        value = GetVoltagesCapability(VoltageCapability);
+                    }
+                    break;
+                #endregion
 
                 #endregion
 
@@ -720,7 +624,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     {
                         value = (int?)externakClock;
                     }
-
                     break;
                 #endregion
 
@@ -731,7 +634,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     {
                         value = (int?)maximunSpeed;
                     }
-
                     break;
                 #endregion
 
@@ -743,17 +645,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x18] - [v2.0] - [Status]
 
-                    #region [0x18] - [v2.0] - [Status -> Socket Populated] - [Boolean]
-                    case SmbiosType004Property.SocketPopulated:
-                    value = SocketPopulated;
-                        break;
-                    #endregion
+                #region [0x18] - [v2.0] - [Status -> Socket Populated] - [Boolean]
+                case SmbiosType004Property.SocketPopulated:
+                value = SocketPopulated;
+                    break;
+                #endregion
 
-                    #region [0x18] - [v2.0] - [Status -> CPU Status] - [String]
-                    case SmbiosType004Property.CpuStatus:
-                        value = GetProcessorStatus(CpuStatus);
-                        break;
-                    #endregion
+                #region [0x18] - [v2.0] - [Status -> CPU Status] - [String]
+                case SmbiosType004Property.CpuStatus:
+                    value = GetProcessorStatus(CpuStatus);
+                    break;
+                #endregion
 
                 #endregion
 
@@ -899,70 +801,64 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             value = (byte?)threadCount;
                         }
                     }
-
                     break;
                 #endregion
 
                 #region [0x26] - [v2.5] - [Processor Characteristics]
 
-                    #region [0x26] - [v2.5] - [Processor Characteristics -> Capable 64 Bits] - [Boolean?]
-                    case SmbiosType004Property.Capable64Bits:
-                        if (HeaderInfo.Lenght >= 0x27)
-                        {
-                            value = (bool?)IsCapable64Bit;
-                        }
+                #region [0x26] - [v2.5] - [Processor Characteristics -> Capable 64 Bits] - [Boolean?]
+                case SmbiosType004Property.Capable64Bits:
+                    if (HeaderInfo.Lenght >= 0x27)
+                    {
+                        value = (bool?)IsCapable64Bit;
+                    }
+                    break;
+                #endregion
 
-                        break;
-                    #endregion
+                #region [0x26] - [v2.5] - [Processor Characteristics -> Multi Core] - [Boolean?]
+                case SmbiosType004Property.MultiCore:
+                    if (HeaderInfo.Lenght >= 0x27)
+                    {
+                        value = (bool?)IsMultiCore;
+                    }
+                    break;
+                #endregion
 
-                    #region [0x26] - [v2.5] - [Processor Characteristics -> Multi Core] - [Boolean?]
-                    case SmbiosType004Property.MultiCore:
-                        if (HeaderInfo.Lenght >= 0x27)
-                        {
-                            value = (bool?)IsMultiCore;
-                        }
+                #region [0x26] - [v2.5] - [Processor Characteristics -> Hardware Thread Per Core] - [Boolean?]
+                case SmbiosType004Property.HardwareThreadPerCore:
+                    if (HeaderInfo.Lenght >= 0x27)
+                    {
+                        value = (bool?)MultipleHardwareThreadsPerCore;
+                    }
+                    break;
+                #endregion
 
-                        break;
-                    #endregion
+                #region [0x26] - [v2.5] - [Processor Characteristics -> Execute Protection Support] - [Boolean?]
+                case SmbiosType004Property.ExecuteProtectionSupport:
+                    if (HeaderInfo.Lenght >= 0x27)
+                    {
+                        value = (bool?)ExecuteProtection;
+                    }
+                    break;
+                #endregion
 
-                    #region [0x26] - [v2.5] - [Processor Characteristics -> Hardware Thread Per Core] - [Boolean?]
-                    case SmbiosType004Property.HardwareThreadPerCore:
-                        if (HeaderInfo.Lenght >= 0x27)
-                        {
-                            value = (bool?)MultipleHardwareThreadsPerCore;
-                        }
+                #region [0x26] - [v2.5] - [Processor Characteristics -> Enhanced Virtualization Instructions] - [Boolean?]
+                case SmbiosType004Property.EnhancedVirtualizationInstructions:
+                    if (HeaderInfo.Lenght >= 0x27)
+                    {
+                        value = (bool?)EnhancedVirtualization;
+                    }
+                    break;
+                #endregion
 
-                        break;
-                    #endregion
-
-                    #region [0x26] - [v2.5] - [Processor Characteristics -> Execute Protection Support] - [Boolean?]
-                    case SmbiosType004Property.ExecuteProtectionSupport:
-                        if (HeaderInfo.Lenght >= 0x27)
-                        {
-                            value = (bool?)ExecuteProtection;
-                        }
-                        break;
-                    #endregion
-
-                    #region [0x26] - [v2.5] - [Processor Characteristics -> Enhanced Virtualization Instructions] - [Boolean?]
-                    case SmbiosType004Property.EnhancedVirtualizationInstructions:
-                        if (HeaderInfo.Lenght >= 0x27)
-                        {
-                            value = (bool?)EnhancedVirtualization;
-                        }
-
-                        break;
-                    #endregion
-
-                    #region [0x26] - [v2.5] - [Processor Characteristics -> Power Performance Control Support] - [Boolean?]
-                    case SmbiosType004Property.PowerPerformanceControlSupport:
-                        if (HeaderInfo.Lenght >= 0x27)
-                        {
-                            value = (bool?)PowerPerformanceControl;
-                        }
-
-                        break;
-                    #endregion
+                #region [0x26] - [v2.5] - [Processor Characteristics -> Power Performance Control Support] - [Boolean?]
+                case SmbiosType004Property.PowerPerformanceControlSupport:
+                    if (HeaderInfo.Lenght >= 0x27)
+                    {
+                        value = (bool?)PowerPerformanceControl;
+                    }
+                    break;
+                #endregion
                     
                 #endregion
             }
@@ -971,7 +867,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -998,11 +895,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 bool isLegacyMode = IsLegacyMode;
                 if (!isLegacyMode)
                 {
-                    List<string> items = new List<string>
-                        {
-                            VoltageValue.ToString(CultureInfo.InvariantCulture)
-                        };
-
+                    List<string> items = new List<string> {$"{VoltageValue}"};
                     properties.Add(KnownDmiProperty.Processor.Voltage.SupportedVoltages, items.AsReadOnly());
                 }
                 else
@@ -1149,7 +1042,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 3.2.0 (26/04/2018)
 
-        #region [private] {static} (string) GetProcessorFamily(IList<byte>, ReadOnlyCollection<string>): Gets a string that identifies the processor family..
+        #region [private] {static} (string) GetProcessorFamily(IList<byte>, ReadOnlyCollection<string>): Gets a string that identifies the processor family
         /// <summary>
         /// Gets a string that identifies the processor family.
         /// </summary>
@@ -1457,7 +1350,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetProcessorStatus(byte): Gets a string that indicates the current state of the processor.
+        #region [private] {static} (string) GetProcessorStatus(byte): Gets a string that indicates the current state of the processor
         /// <summary>
         /// Gets a string that indicates the current state of the processor
         /// </summary>
@@ -1483,7 +1376,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetProcessorType(byte): Gets a string that identifies the type of processor.
+        #region [private] {static} (string) GetProcessorType(byte): Gets a string that identifies the type of processor
         /// <summary>
         /// Gets a string that identifies the type of processor.
         /// </summary>
@@ -1512,7 +1405,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetProcessorUpgrade(byte): Gets a string representing the socket type of the processor.
+        #region [private] {static} (string) GetProcessorUpgrade(byte): Gets a string representing the socket type of the processor
         /// <summary>
         /// Gets a string representing the socket type of the processor.
         /// </summary>
@@ -1595,7 +1488,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetVoltagesCapability(byte): Gets a collection of voltages supported by the processor.
+        #region [private] {static} (ReadOnlyCollection<string>) GetVoltagesCapability(byte): Gets a collection of voltages supported by the processor
         /// <summary>
         /// Gets a collection of voltages supported by the processor.
         /// </summary>

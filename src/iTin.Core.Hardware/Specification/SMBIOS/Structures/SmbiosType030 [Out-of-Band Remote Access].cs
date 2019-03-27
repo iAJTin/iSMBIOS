@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -44,19 +45,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                   Note: Ver InboundConnection              |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Out-of-Band Remote Access (Type 30) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Out-of-Band Remote Access (Type 30) structure.
     /// </summary>
     sealed class SmbiosType030 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType030(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType030(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType030"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType030" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType030(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -66,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) ManufacturerName: Gets a value representing the 'Manufacturer Name' field.
+        #region [private] (string) ManufacturerName: Gets a value representing the 'Manufacturer Name' field
         /// <summary>
         /// Gets a value representing the <c>Manufacturer Name</c> field.
         /// </summary>
@@ -74,13 +77,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string ManufacturerName
-        {
-            get { return GetString(0x04); }
-        }
+        private string ManufacturerName => GetString(0x04);
         #endregion
 
-        #region [private] (byte) Connections: Gets a value representing the 'Connections' field.
+        #region [private] (byte) Connections: Gets a value representing the 'Connections' field
         /// <summary>
         /// Gets a value representing the <c>Connections</c> field.
         /// </summary>
@@ -88,13 +88,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Connections
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte Connections => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) InBoundConnection: Gets a value representing the 'InBound Connection' feature of the 'Connections' field.
+        #region [private] (byte) InBoundConnection: Gets a value representing the 'InBound Connection' feature of the 'Connections' field
         /// <summary>
         /// Gets a value representing the <c>InBound Connection</c> feature of the <c>Connections</c> field
         /// </summary>
@@ -102,13 +99,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string InBoundConnection
-        {
-            get { return Connections.CheckBit(Bits.Bit00) ? "Enabled" : "Disabled"; }
-        }
+        private string InBoundConnection => Connections.CheckBit(Bits.Bit00) ? "Enabled" : "Disabled";
         #endregion
 
-        #region [private] (byte) OutBoundConnection: Gets a value representing the 'OutBound Connection' feature of the 'LConnections' field.
+        #region [private] (byte) OutBoundConnection: Gets a value representing the 'OutBound Connection' feature of the 'LConnections' field
         /// <summary>
         /// Gets a value representing the <c>OutBound Connection</c> feature of the <c>Connections</c> field
         /// </summary>
@@ -116,17 +110,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string OutBoundConnection
-        {
-            get { return Connections.CheckBit(Bits.Bit01) ? "Enabled" : "Disabled"; }
-        }
+        private string OutBoundConnection => Connections.CheckBit(Bits.Bit01) ? "Enabled" : "Disabled";
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -168,7 +160,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>

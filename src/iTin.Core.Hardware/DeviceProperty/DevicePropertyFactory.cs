@@ -7,18 +7,18 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
     using System.Reflection;
 
     /// <summary>
-    /// Factoria para la creación de objetos fuertemente tipados de tipo <strong>DeviceProperty</strong>.
+    /// Factory for the creation of strongly typed objects of type <strong>DeviceProperty</strong>.
     /// </summary>
     internal static class DevicePropertyFactory
     {
-        #region [public] {static} (IDeviceProperty) CreateTypedDeviceProperty(PropertyKey, object): Obtiene una referencia a un objeto que implementa la interfaz IDeviceProperty, representa el valor fuertemente tipado de la propiedad.
+        #region [public] {static} (IDeviceProperty) CreateTypedDeviceProperty(PropertyKey, object): Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property
         /// <summary>
-        /// Obtiene una referencia a un objeto que implementa la interfaz IDeviceProperty, representa el valor fuertemente tipado de la propiedad.
+        /// Gets a reference to an object that implements the <see cref="IDeviceProperty"/> interface, represents the strongly typed value of the property.
         /// </summary>
-        /// <param name="key">Clave de la propiedad.</param>
-        /// <param name="value">Valor de la propiedad.</param>
+        /// <param name="key">Property key</param>
+        /// <param name="value">Property value</param>
         /// <returns>
-        /// Referencia al objeto que representa el valor fuertemente tipado de la propiedad.
+        /// Reference to the object that represents the strongly typed value of the property.
         /// </returns>
         public static IDeviceProperty CreateTypedDeviceProperty(PropertyKey key, object value)
         {
@@ -33,14 +33,14 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         }
         #endregion
 
-        #region [private] {static} (Func<PropertyKey, DevicePropertyDescription, object, IDeviceProperty>) ExpressConstructor(Type, Type[]): Crea una expresión para el constructor específico del tipo dado.
+        #region [private] {static} (Func<PropertyKey, DevicePropertyDescription, object, IDeviceProperty>) ExpressConstructor(Type, Type[]): Create an expression for the specific constructor of the given type
         /// <summary>
-        /// Crea una expresión para el constructor específico del tipo dado.
+        /// Create an expression for the specific constructor of the given type.
         /// </summary>
-        /// <param name="type">Tipo que representa la clase de la que se crea la expresión.</param>
-        /// <param name="argTypes">Array de tipos que representan los tipos esperados por el constructor.</param>
+        /// <param name="type">Type that represents the class from which the expression is created</param>
+        /// <param name="argTypes">Array of types that represent the types expected by the constructor</param>
         /// <returns>
-        /// Una expresión que representa al constructor.
+        /// An expression that represents the constructor.
         /// </returns>
         private static Func<PropertyKey, DevicePropertyDescription, object, IDeviceProperty> ExpressConstructor(Type type, Type[] argTypes)
         {

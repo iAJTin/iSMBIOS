@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 018: 32-Bit Memory Error Information.
@@ -61,19 +62,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver ErrorResolution                 |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the 32-Bit Memory Error Information (Type 18) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the 32-Bit Memory Error Information (Type 18) structure.
     /// </summary>
     class SmbiosType018 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType018(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType018(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType018"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType018" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType018(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -83,7 +86,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region internal properties
 
-        #region [internal] (byte) ErrorType: Gets a value representing the 'Error Type' field.
+        #region [internal] (byte) ErrorType: Gets a value representing the 'Error Type' field
         /// <summary>
         /// Gets a value representing the <c>Error Type</c> field.
         /// </summary>
@@ -91,13 +94,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        internal byte ErrorType
-        {
-            get { return GetByte(0x04); }
-        }
+        internal byte ErrorType => GetByte(0x04);
         #endregion
 
-        #region [internal] (byte) ErrorGranularity: Gets a value representing the 'Error Granularity' field.
+        #region [internal] (byte) ErrorGranularity: Gets a value representing the 'Error Granularity' field
         /// <summary>
         /// Gets a value representing the <c>Error Granularity</c> field.
         /// </summary>
@@ -105,13 +105,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        internal byte ErrorGranularity
-        {
-            get { return GetByte(0x05); }
-        }
+        internal byte ErrorGranularity => GetByte(0x05);
         #endregion
 
-        #region [internal] (byte) ErrorOperation: Gets a value representing the 'Error Operation' field.
+        #region [internal] (byte) ErrorOperation: Gets a value representing the 'Error Operation' field
         /// <summary>
         /// Gets a value representing the <c>Error Operation</c> field.
         /// </summary>
@@ -119,13 +116,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        internal byte ErrorOperation
-        {
-            get { return GetByte(0x06); }
-        }
+        internal byte ErrorOperation => GetByte(0x06);
         #endregion
 
-        #region [internal] (long) CrcData: Gets a value representing the 'Crc Data' field.
+        #region [internal] (long) CrcData: Gets a value representing the 'Crc Data' field
         /// <summary>
         /// Gets a value representing the <c>Crc Data</c> field.
         /// </summary>
@@ -133,10 +127,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        internal long CrcData
-        {
-            get { return GetDoubleWord(0x07); }
-        }
+        internal long CrcData => GetDoubleWord(0x07);
         #endregion
 
         #endregion
@@ -145,7 +136,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (long) BusErrorAddress: Gets a value representing the 'Bus Error Address' field.
+        #region [private] (long) BusErrorAddress: Gets a value representing the 'Bus Error Address' field
         /// <summary>
         /// Gets a value representing the <c>Bus Error Address</c> field.
         /// </summary>
@@ -153,13 +144,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long BusErrorAddress
-        {
-            get { return GetDoubleWord(0x0b); }
-        }
+        private long BusErrorAddress => GetDoubleWord(0x0b);
         #endregion
 
-        #region [private] (long) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field.
+        #region [private] (long) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field
         /// <summary>
         /// Gets a value representing the <c>Device Error Address</c> field.
         /// </summary>
@@ -167,13 +155,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long DeviceErrorAddress
-        {
-            get { return GetDoubleWord(0x0f); }
-        }
+        private long DeviceErrorAddress => GetDoubleWord(0x0f);
         #endregion
 
-        #region [private] (long) ErrorResolution: Gets a value representing the 'Error Resolution' field.
+        #region [private] (long) ErrorResolution: Gets a value representing the 'Error Resolution' field
         /// <summary>
         /// Gets a value representing the <c>Error Resolution</c> field.
         /// </summary>
@@ -181,10 +166,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long ErrorResolution
-        {
-            get { return GetDoubleWord(0x13); }
-        }
+        private long ErrorResolution => GetDoubleWord(0x13);
         #endregion
 
         #endregion
@@ -193,7 +175,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -265,7 +248,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -312,7 +296,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [internal] {static} (string) GetErrorType(byte): Gets a string representing the type of error.
+        #region [internal] {static} (string) GetErrorType(byte): Gets a string representing the type of error
         /// <summary>
         /// Gets a string representing the type of error.
         /// </summary>
@@ -349,7 +333,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [internal] {static} (string) GetErrorGranularity(byte): Gets a string indicating 'Granularity'.
+        #region [internal] {static} (string) GetErrorGranularity(byte): Gets a string indicating 'Granularity'
         /// <summary>
         /// Gets a string indicating 'Granularity'.
         /// </summary>
@@ -376,7 +360,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [internal] {static} (string) GetErrorOperation(byte): Gets a string indicating which memory operation generated the error.
+        #region [internal] {static} (string) GetErrorOperation(byte): Gets a string indicating which memory operation generated the error
         /// <summary>
         /// Gets a string indicating which memory operation generated the error.
         /// </summary>

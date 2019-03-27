@@ -2,7 +2,6 @@
 namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System.Diagnostics;
-    using System.Globalization;
 
     using Helpers;
 
@@ -27,7 +26,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region constructor/s
 
-        #region [internal] SmbiosStructureHeaderInfo(byte[]): Initializes a new instance of the class.
+        #region [internal] SmbiosStructureHeaderInfo(byte[]): Initializes a new instance of the class
         /// <summary>
         /// Initializes a new instance of the <see cref="SmbiosStructureHeaderInfo"/> class.
         /// </summary>
@@ -45,7 +44,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public properties
 
-        #region public (int) Lenght: Gets the length of the formatted area of the current SMBIOS structure.
+        #region public (int) Lenght: Gets the length of the formatted area of the current SMBIOS structure
         /// <summary>
         /// Gets the length of the formatted area of the current <see cref="SMBIOS" /> structure.
         /// </summary>
@@ -59,7 +58,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         public int Lenght => _lenght;
         #endregion
 
-        #region public (int) Handle: Gets the handle of the current structure.
+        #region public (int) Handle: Gets the handle of the current structure
         /// <summary>
         /// Gets the handle of the current structure.
         /// </summary>
@@ -69,7 +68,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         public int Handle => _handle;
         #endregion
 
-        #region public (byte[]) RawData: Gets an array with the raw data.
+        #region public (byte[]) RawData: Gets an array with the raw data
         /// <summary>
         /// Gets an array with the raw data.
         /// </summary>
@@ -79,7 +78,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         public byte[] RawData => _rawData;
         #endregion
 
-        #region public (SmbiosStructure) StructureType: Gets the length of the formatted area of the current SMBIOS structure.
+        #region public (SmbiosStructure) StructureType: Gets the length of the formatted area of the current SMBIOS structure
         /// <summary>
         /// Gets the current <see cref="SMBIOS" /> structure type.
         /// </summary>
@@ -93,7 +92,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public override methods
 
-        #region [public] {override} (string) ToString(): Returns a string that represents this instance.
+        #region [public] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
         /// Returns a <see cref="T:System.String" /> that represents this instance.
         /// </summary>
@@ -103,12 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </remarks>
         public override string ToString()
         {
-            return string.Format(
-                CultureInfo.InvariantCulture, 
-                "Type = {0}, Handle = {1}, Lenght = {2}", 
-                StructureType, 
-                Handle.ToString("X", CultureInfo.InvariantCulture), 
-                Lenght);
+            return $"Type = {StructureType}, Handle = {Handle:X}, Lenght = {Lenght}";
         }
         #endregion
 

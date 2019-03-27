@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 021: Built-in Pointing Device.
@@ -32,16 +33,18 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver NumberOfButtons                 |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Built-in Pointing Device (Type 21) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Built-in Pointing Device (Type 21) structure.
     /// </summary>
     sealed class SmbiosType021 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType021(SmbiosStructureHeaderInfo, int): Inicializa una nueva instancia de la clase especificando la información de la estructura y la versión de SMBIOS.
+        #region [public] SmbiosType021(SmbiosStructureHeaderInfo, int): Inicializa una nueva instancia de la clase especificando la información de la estructura y la versión de SMBIOS
+        /// <inheritdoc />
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="SmbiosType021"/> especificando la información de la estructura y la versión de SMBIOS.
+        /// Inicializa una nueva instancia de la clase <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType021" /> especificando la información de la estructura y la versión de SMBIOS.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Información sin tratar de la estructura actual.</param>
         /// <param name="smbiosVersion">Versión actual de SMBIOS.</param>
@@ -56,7 +59,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' field.
+        #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' field
         /// <summary>
         /// Gets a value representing the <c>Device Type</c> field.
         /// </summary>
@@ -64,13 +67,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceType
-        {
-            get { return GetByte(0x04); }
-        }
+        private byte DeviceType => GetByte(0x04);
         #endregion
 
-        #region [private] (byte) Interface: Gets a value representing the 'Interface' field.
+        #region [private] (byte) Interface: Gets a value representing the 'Interface' field
         /// <summary>
         /// Gets a value representing the <c>Interface</c> field.
         /// </summary>
@@ -78,13 +78,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Interface
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte Interface => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) NumberOfButtons: Gets a value representing the 'Number Of Buttons' field.
+        #region [private] (byte) NumberOfButtons: Gets a value representing the 'Number Of Buttons' field
         /// <summary>
         /// Gets a value representing the <c>Number Of Buttons</c> field.
         /// </summary>
@@ -92,10 +89,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte NumberOfButtons
-        {
-            get { return GetByte(0x06); }
-        }
+        private byte NumberOfButtons => GetByte(0x06);
         #endregion
 
         #endregion
@@ -104,7 +98,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -142,7 +137,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -165,7 +161,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetDeviceInterface(byte): Gets a string representing the interface of the device.
+        #region [private] {static} (string) GetDeviceInterface(byte): Gets a string representing the interface of the device
         /// <summary>
         /// Gets a string representing the interface of the device.
         /// </summary>
@@ -208,7 +204,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type.
+        #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
         /// <summary>
         /// Gets a string representing the device type.
         /// </summary>

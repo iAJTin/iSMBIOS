@@ -5,7 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
     using Device.DeviceProperty;
 
-    #region [private] (emun) SmbiosType000Property: Defines the properties available for the structure type 000 [BIOS Information].
+    #region [private] (emun) SmbiosType000Property: Defines the properties available for the structure type 000 [BIOS Information]
     /// <summary>
     /// Defines the properties available for the structure type 000 [BIOS Information].
     /// </summary>
@@ -75,7 +75,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType001Property: Defines the properties available for the structure type 001 [System Information].
+    #region [private] (emun) SmbiosType001Property: Defines the properties available for the structure type 001 [System Information]
     /// <summary>
     /// Defines the properties available for the structure type 001 [System Information].
     /// </summary>
@@ -121,7 +121,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType002Property: Defines the properties available for the structure type 002 [Baseboard (or Module) Information].
+    #region [private] (emun) SmbiosType002Property: Defines the properties available for the structure type 002 [Baseboard (or Module) Information]
     /// <summary>
     /// Defines the properties available for the structure type 002 [Baseboard (or Module) Information].
     /// </summary>
@@ -189,7 +189,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType003Property: Defines the properties available for the structure type 003 [System Enclosure or Chassis].
+    #region [private] (emun) SmbiosType003Property: Defines the properties available for the structure type 003 [System Enclosure or Chassis]
     /// <summary>
     /// Defines the properties available for the structure type 003 [System Enclosure or Chassis].
     /// </summary>
@@ -262,7 +262,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType004Property: Defines the properties available for the structure type 004 [Processor Information].
+    #region [private] (emun) SmbiosType004Property: Defines the properties available for the structure type 004 [Processor Information]
     /// <summary>
     /// Defines the properties available for the structure type 004 [Processor Information].
     /// </summary>
@@ -407,7 +407,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType005Property: Defines the properties available for the structure type 005, obsolete [Memory Controller Information].
+    #region [private] (emun) SmbiosType005Property: Defines the properties available for the structure type 005, obsolete [Memory Controller Information]
     /// <summary>
     /// Defines the properties available for the structure type 005, obsolete [Memory Controller Information].
     /// </summary>
@@ -463,7 +463,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType006Property: Defines the properties available for the structure type 006, obsolete [Memory Module Information].
+    #region [private] (emun) SmbiosType006Property: Defines the properties available for the structure type 006, obsolete [Memory Module Information]
     /// <summary>
     /// Defines the properties available for the structure type 006, obsolete [Memory Module Information].
     /// </summary>
@@ -499,7 +499,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType007Property: Defines the properties available for the structure type 007 [Cache Information].
+    #region [private] (emun) SmbiosType007Property: Defines the properties available for the structure type 007 [Cache Information]
     /// <summary>
     /// Defines the properties available for the structure type 007 [Cache Information].
     /// </summary>
@@ -577,7 +577,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType008Property: Defines the properties available for the structure type 008 [Port Connector Information].
+    #region [private] (emun) SmbiosType008Property: Defines the properties available for the structure type 008 [Port Connector Information]
     /// <summary>
     /// Defines the properties available for the structure type 008 [Port Connector Information].
     /// </summary>
@@ -605,7 +605,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType009Property: Defines the properties available for the structure type 009 [System Slots].
+    #region [private] (emun) SmbiosType009Property: Defines the properties available for the structure type 009 [System Slots]
     /// <summary>
     /// Defines the properties available for the structure type 009 [System Slots].
     /// </summary>
@@ -655,7 +655,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType010Property: Defines the properties available for the structure type 010, obsolete [On Board Devices Information].
+    #region [private] (emun) SmbiosType010Property: Defines the properties available for the structure type 010, obsolete [On Board Devices Information]
     /// <summary>
     /// Defines the properties available for the structure type 010, obsolete [On Board Devices Information].
     /// </summary>
@@ -675,7 +675,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType011Property: Defines the properties available for the structure type 011 [OEM strings].
+    #region [private] (emun) SmbiosType011Property: Defines the properties available for the structure type 011 [OEM strings]
     /// <summary>
     /// Defines the properties available for the structure type 011 [OEM strings].
     /// </summary>
@@ -687,7 +687,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType012Property: Defines the properties available for the structure type 012 [System Configuration Options].
+    #region [private] (emun) SmbiosType012Property: Defines the properties available for the structure type 012 [System Configuration Options]
     /// <summary>
     /// Defines the properties available for the structure type 012 [System Configuration Options].
     /// </summary>
@@ -699,7 +699,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType013Property: Defines the properties available for the structure type 013 [BIOS Language Information].
+    #region [private] (emun) SmbiosType013Property: Defines the properties available for the structure type 013 [BIOS Language Information]
     /// <summary>
     /// Defines the properties available for the structure type 013 [BIOS Language Information].
     /// </summary>
@@ -721,7 +721,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType014Property: Defines the properties available for the structure type 014 [Group Associations].
+    #region [private] (emun) SmbiosType014Property: Defines the properties available for the structure type 014 [Group Associations]
     /// <summary>
     /// Defines the properties available for the structure type 014 [Group Associations].
     /// </summary>
@@ -745,7 +745,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType015Property: Defines the properties available for the structure type 015 [System Event Log].
+    #region [private] (emun) SmbiosType015Property: Defines the properties available for the structure type 015 [System Event Log]
     /// <summary>
     /// Defines the properties available for the structure type 015 [System Event Log].
     /// </summary>
@@ -756,7 +756,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType016Property: Defines the properties available for the structure type 016 [Physical Memory Array].
+    #region [private] (emun) SmbiosType016Property: Defines the properties available for the structure type 016 [Physical Memory Array]
     /// <summary>
     /// Defines the properties available for the structure type 016 [Physical Memory Array].
     /// </summary>
@@ -796,7 +796,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType017Property: Defines the properties available for the structure type 017 [Memory Device].
+    #region [private] (emun) SmbiosType017Property: Defines the properties available for the structure type 017 [Memory Device]
     /// <summary>
     /// Defines the properties available for the structure type 017 [Memory Device].
     /// </summary>
@@ -902,7 +902,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType018Property: Defines the properties available for the structure type 018 [32-Bit Memory Error Information].
+    #region [private] (emun) SmbiosType018Property: Defines the properties available for the structure type 018 [32-Bit Memory Error Information]
     /// <summary>
     /// Defines the properties available for the structure type 018 [32-Bit Memory Error Information].
     /// </summary>
@@ -940,7 +940,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType019Property: Defines the properties available for the structure type 019 [Memory Array Mapped Address].
+    #region [private] (emun) SmbiosType019Property: Defines the properties available for the structure type 019 [Memory Array Mapped Address]
     /// <summary>
     /// Defines the properties available for the structure type 019 [Memory Array Mapped Address].
     /// </summary>
@@ -968,7 +968,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType020Property: Defines the properties available for the structure type 020 [Memory Device Mapped Address].
+    #region [private] (emun) SmbiosType020Property: Defines the properties available for the structure type 020 [Memory Device Mapped Address]
     /// <summary>
     /// Defines the properties available for the structure type 020 [Memory Device Mapped Address].
     /// </summary>
@@ -1016,7 +1016,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType021Property: Defines the properties available for the structure type 021 [Built-in Pointing Device].
+    #region [private] (emun) SmbiosType021Property: Defines the properties available for the structure type 021 [Built-in Pointing Device]
     /// <summary>
     /// Defines the properties available for the structure type 021 [Built-in Pointing Device].
     /// </summary>
@@ -1038,7 +1038,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType022Property: Defines the properties available for the structure type 022 [Portable Battery].
+    #region [private] (emun) SmbiosType022Property: Defines the properties available for the structure type 022 [Portable Battery]
     /// <summary>
     /// Defines the properties available for the structure type 022 [Built-in Pointing Device].
     /// </summary>
@@ -1110,7 +1110,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType023Property: Defines the properties available for the structure type 023 [System Reset].
+    #region [private] (emun) SmbiosType023Property: Defines the properties available for the structure type 023 [System Reset]
     /// <summary>
     /// Defines the properties available for the structure type type 023 [System Reset].
     /// </summary>
@@ -1150,7 +1150,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType024Property: Defines the properties available for the structure type 024 [Hardware Security].
+    #region [private] (emun) SmbiosType024Property: Defines the properties available for the structure type 024 [Hardware Security]
     /// <summary>
     /// Defines the properties available for the structure type type 024 [Hardware Security].
     /// </summary>
@@ -1174,7 +1174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType025Property: Defines the properties available for the structure type 025 [System Power Controls].
+    #region [private] (emun) SmbiosType025Property: Defines the properties available for the structure type 025 [System Power Controls]
     /// <summary>
     /// Defines the properties available for the structure type type 025 [System Power Controls].
     /// </summary>
@@ -1202,7 +1202,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType026Property: Defines the properties available for the structure type 026 [Voltage Probe].
+    #region [private] (emun) SmbiosType026Property: Defines the properties available for the structure type 026 [Voltage Probe]
     /// <summary>
     /// Defines the properties available for the structure type type 026 [Voltage Probe].
     /// </summary>
@@ -1250,7 +1250,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType027Property: Defines the properties available for the structure type 027 [Cooling Device].
+    #region [private] (emun) SmbiosType027Property: Defines the properties available for the structure type 027 [Cooling Device]
     /// <summary>
     /// Defines the properties available for the structure type type 027 [Cooling Device].
     /// </summary>
@@ -1290,7 +1290,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType028Property: Defines the properties available for the structure type 028 [Temperature Probe].
+    #region [private] (emun) SmbiosType028Property: Defines the properties available for the structure type 028 [Temperature Probe]
     /// <summary>
     /// Defines the properties available for the structure type type 028 [Cooling Device].
     /// </summary>
@@ -1338,7 +1338,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType029Property: Defines the properties available for the structure type 029 [Electrical Current Probe].
+    #region [private] (emun) SmbiosType029Property: Defines the properties available for the structure type 029 [Electrical Current Probe]
     /// <summary>
     /// Defines the properties available for the structure type type 029 [Electrical Current Probe].
     /// </summary>
@@ -1386,7 +1386,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType030Property: Defines the properties available for the structure type 030 [Out-of-Band Remote Access].
+    #region [private] (emun) SmbiosType030Property: Defines the properties available for the structure type 030 [Out-of-Band Remote Access]
     /// <summary>
     /// Defines the properties available for the structure type type 030 [Electrical Current Probe].
     /// </summary>
@@ -1406,7 +1406,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType031Property: Defines the properties available for the structure type 031 [Boot Integrity Services (BIS) Entry Point].
+    #region [private] (emun) SmbiosType031Property: Defines the properties available for the structure type 031 [Boot Integrity Services (BIS) Entry Point]
     /// <summary>
     /// Defines the properties available for the structure type type 031 [Electrical Current Probe].
     /// </summary>
@@ -1426,7 +1426,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType032Property: Defines the properties available for the structure type 032 [System Boot Information].
+    #region [private] (emun) SmbiosType032Property: Defines the properties available for the structure type 032 [System Boot Information]
     /// <summary>
     /// Defines the properties available for the structure type type 032 [Electrical Current Probe].
     /// </summary>
@@ -1442,7 +1442,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType033Property: Defines the properties available for the structure type 033 [64-Bit Memory Error Information].
+    #region [private] (emun) SmbiosType033Property: Defines the properties available for the structure type 033 [64-Bit Memory Error Information]
     /// <summary>
     /// Defines the properties available for the structure type type 033 [64-Bit Memory Error Information].
     /// </summary>
@@ -1478,7 +1478,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType034Property: Defines the properties available for the structure type 034 [Management Device].
+    #region [private] (emun) SmbiosType034Property: Defines the properties available for the structure type 034 [Management Device]
     /// <summary>
     /// Defines the properties available for the structure type type 034 [Management Device].
     /// </summary>
@@ -1502,7 +1502,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType035Property: Defines the properties available for the structure type 035 [Management Device Component].
+    #region [private] (emun) SmbiosType035Property: Defines the properties available for the structure type 035 [Management Device Component]
     /// <summary>
     /// Defines the properties available for the structure type type 035 [Management Device Component].
     /// </summary>
@@ -1526,7 +1526,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType036Property: Defines the properties available for the structure type 036 [Management Device Threshold Data].
+    #region [private] (emun) SmbiosType036Property: Defines the properties available for the structure type 036 [Management Device Threshold Data]
     /// <summary>
     /// Defines the properties available for the structure type type 036 [Management Device Threshold Data].
     /// </summary>
@@ -1558,7 +1558,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType037Property: Defines the properties available for the structure type 037 [Memory Channel].
+    #region [private] (emun) SmbiosType037Property: Defines the properties available for the structure type 037 [Memory Channel]
     /// <summary>
     /// Defines the properties available for the structure type type 037 [Management Device Threshold Data].
     /// </summary>
@@ -1586,7 +1586,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType038Property: Defines the properties available for the structure type 038 [IPMI Device Information].
+    #region [private] (emun) SmbiosType038Property: Defines the properties available for the structure type 038 [IPMI Device Information]
     /// <summary>
     /// Defines the properties available for the structure type type 038 [IPMI Device Information].
     /// </summary>
@@ -1638,7 +1638,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType039Property: Defines the properties available for the structure type 039 [System Power Supply].
+    #region [private] (emun) SmbiosType039Property: Defines the properties available for the structure type 039 [System Power Supply]
     /// <summary>
     /// Defines the properties available for the structure type type 039 [System Power Supply].
     /// </summary>
@@ -1718,7 +1718,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType040Property: Defines the properties available for the structure type 040 [Additional Information].
+    #region [private] (emun) SmbiosType040Property: Defines the properties available for the structure type 040 [Additional Information]
     /// <summary>
     /// Defines the properties available for the structure type type 040 [Additional Information].
     /// </summary>
@@ -1750,7 +1750,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType041Property: Defines the properties available for the structure type 041 [Onboard Devices Extended Information].
+    #region [private] (emun) SmbiosType041Property: Defines the properties available for the structure type 041 [Onboard Devices Extended Information]
     /// <summary>
     /// Defines the properties available for the structure type type 041 [Onboard Devices Extended Information].
     /// </summary>
@@ -1770,7 +1770,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType042Property: Defines the properties available for the structure type 042 [Management Controller Host Interface].
+    #region [private] (emun) SmbiosType042Property: Defines the properties available for the structure type 042 [Management Controller Host Interface]
     /// <summary>
     /// Defines the properties available for the structure type type 042 [Management Controller Host Interface].
     /// </summary>
@@ -1782,7 +1782,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType043Property: Defines the properties available for the structure type 043 [TPM Device].
+    #region [private] (emun) SmbiosType043Property: Defines the properties available for the structure type 043 [TPM Device]
     /// <summary>
     /// Defines the properties available for the structure type type 043 [TPM Device].
     /// </summary>
@@ -1825,7 +1825,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType126Property: Defines the properties available for the structure type 126 [Inactive].
+    #region [private] (emun) SmbiosType126Property: Defines the properties available for the structure type 126 [Inactive]
     /// <summary>
     /// Defines the properties available for the structure type type 126 [Inactive].
     /// </summary>
@@ -1837,7 +1837,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     }
     #endregion
 
-    #region [private] (emun) SmbiosType127Property: Defines the properties available for the structure type 127 [End-of-Table].
+    #region [private] (emun) SmbiosType127Property: Defines the properties available for the structure type 127 [End-of-Table]
     /// <summary>
     /// Defines the properties available for the structure type type 127 [End-of-Table].
     /// </summary>

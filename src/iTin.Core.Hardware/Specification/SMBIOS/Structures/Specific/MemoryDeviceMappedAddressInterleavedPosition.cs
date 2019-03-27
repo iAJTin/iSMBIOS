@@ -2,27 +2,27 @@
 namespace iTin.Core.Hardware.Specification.Smbios
 {
     /// <summary>
-    /// Indica el tipo de interpolación de un dispositivo.
+    /// Defines the type of interpolation of a device.
     /// </summary>
     enum MemoryDeviceMappedAddressInterleavedPosition
     {
         /// <summary>
-        /// No interpolado.
+        /// Not interpolated
         /// </summary>
         NonInterleaved = 0x00,
 
         /// <summary>
-        /// Primera posición interpolada.
+        /// First interpolated position
         /// </summary>
         FirstInterleavePosition = 0x01,
 
         /// <summary>
-        /// Segunda posición interpolada.
+        /// Second interpolated position.
         /// </summary>
         SecondInterleavePosition = 0x02,
 
         /// <summary>
-        /// Desconocido.
+        /// Unknown
         /// </summary>
         Unknown = 0xff,
     }

@@ -8,6 +8,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -106,12 +107,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region constructor/s
 
-        #region [public] SmbiosType002(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType002(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType002"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType002(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -121,7 +123,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field.
+        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
         /// Gets a value representing the <c>Manufacturer</c> field.
         /// </summary>
@@ -129,13 +131,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Manufacturer
-        {
-            get { return GetString(0x04); }
-        }
+        private string Manufacturer => GetString(0x04);
         #endregion
 
-        #region [private] (string) Product: Gets a value representing the 'Product' field.
+        #region [private] (string) Product: Gets a value representing the 'Product' field
         /// <summary>
         /// Gets a value representing the <c>Product</c> field.
         /// </summary>
@@ -143,13 +142,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Product
-        {
-            get { return GetString(0x05); }
-        }
+        private string Product => GetString(0x05);
         #endregion
 
-        #region [private] (string) Version: Gets a value representing the 'Version' field.
+        #region [private] (string) Version: Gets a value representing the 'Version' field
         /// <summary>
         /// Gets a value representing the <c>Version</c> field.
         /// </summary>
@@ -157,13 +153,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Version
-        {
-            get { return GetString(0x06); }
-        }
+        private string Version => GetString(0x06);
         #endregion
 
-        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field.
+        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
         /// Gets a value representing the <c>Serial Number</c> field.
         /// </summary>
@@ -171,13 +164,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SerialNumber
-        {
-            get { return GetString(0x07); }
-        }
+        private string SerialNumber => GetString(0x07);
         #endregion
 
-        #region [private] (string) AssetTag: Gets a value representing the 'Asset Tag' field.
+        #region [private] (string) AssetTag: Gets a value representing the 'Asset Tag' field
         /// <summary>
         /// Gets a value representing the <c>Asset Tag</c> field.
         /// </summary>
@@ -185,13 +175,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string AssetTag
-        {
-            get { return GetString(0x08); } 
-        }
+        private string AssetTag => GetString(0x08);
         #endregion
 
-        #region [private] (byte) FeatureFlags: Gets a value representing the 'Feature Flags' field.
+        #region [private] (byte) FeatureFlags: Gets a value representing the 'Feature Flags' field
         /// <summary>
         /// Gets a value representing the <c>Feature Flags</c> field.
         /// </summary>
@@ -199,13 +186,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FeatureFlags
-        {
-            get { return GetByte(0x09); }
-        }
+        private byte FeatureFlags => GetByte(0x09);
         #endregion
 
-        #region [private] (bool) IsHostingBoard: Gets a value representing the 'Is Hosting Board' field.
+        #region [private] (bool) IsHostingBoard: Gets a value representing the 'Is Hosting Board' field
         /// <summary>
         /// Gets a value representing the <c>Is Hosting Board</c> field.
         /// </summary>
@@ -213,13 +197,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsHostingBoard
-        {
-            get { return FeatureFlags.CheckBit(Bits.Bit00); }
-        }
+        private bool IsHostingBoard => FeatureFlags.CheckBit(Bits.Bit00);
         #endregion
 
-        #region [private] (bool) RequiredDaughterBoard: Gets a value representing the 'Required Daughter Board' field.
+        #region [private] (bool) RequiredDaughterBoard: Gets a value representing the 'Required Daughter Board' field
         /// <summary>
         /// Gets a value representing the <c>Required Daughter Board</c> field.
         /// </summary>
@@ -227,13 +208,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool RequiredDaughterBoard
-        {
-            get { return FeatureFlags.CheckBit(Bits.Bit01); }
-        }
+        private bool RequiredDaughterBoard => FeatureFlags.CheckBit(Bits.Bit01);
         #endregion
 
-        #region [private] (bool) IsRemovable: Gets a value representing the 'Is Removable' field.
+        #region [private] (bool) IsRemovable: Gets a value representing the 'Is Removable' field
         /// <summary>
         /// Gets a value representing the <c>Is Removable</c> field.
         /// </summary>
@@ -241,13 +219,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsRemovable
-        {
-            get { return FeatureFlags.CheckBit(Bits.Bit02); }
-        }
+        private bool IsRemovable => FeatureFlags.CheckBit(Bits.Bit02);
         #endregion
 
-        #region [private] (bool) IsReplaceable: Gets a value representing the 'Is Replaceable' field.
+        #region [private] (bool) IsReplaceable: Gets a value representing the 'Is Replaceable' field
         /// <summary>
         /// Gets a value representing the <c>Is Replaceable</c> field.
         /// </summary>
@@ -255,13 +230,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsReplaceable
-        {
-            get { return FeatureFlags.CheckBit(Bits.Bit03); }
-        }
+        private bool IsReplaceable => FeatureFlags.CheckBit(Bits.Bit03);
         #endregion
 
-        #region [private] (bool) IsHotSwappable: Gets a value representing the 'Is Hot Swappable' field.
+        #region [private] (bool) IsHotSwappable: Gets a value representing the 'Is Hot Swappable' field
         /// <summary>
         /// Gets a value representing the <c>Is Hot Swappable</c> field.
         /// </summary>
@@ -269,13 +241,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsHotSwappable
-        {
-            get { return FeatureFlags.CheckBit(Bits.Bit04); }
-        }
+        private bool IsHotSwappable => FeatureFlags.CheckBit(Bits.Bit04);
         #endregion
 
-        #region [private] (string) LocationInChassis: Gets a value representing the 'Location In Chassis' field.
+        #region [private] (string) LocationInChassis: Gets a value representing the 'Location In Chassis' field
         /// <summary>
         /// Gets a value representing the <c>Location In Chassis</c> field.
         /// </summary>
@@ -283,13 +252,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string LocationInChassis
-        {
-            get { return GetString(0x0a); }
-        }
+        private string LocationInChassis => GetString(0x0a);
         #endregion
 
-        #region [private] (int) ChassisHandle: Gets a value representing the 'Chassis Handle' field.
+        #region [private] (int) ChassisHandle: Gets a value representing the 'Chassis Handle' field
         /// <summary>
         /// Gets a value representing the <c>Chassis Handle</c> field.
         /// </summary>
@@ -297,13 +263,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ChassisHandle
-        {
-            get { return GetWord(0x0b); }
-        }
+        private int ChassisHandle => GetWord(0x0b);
         #endregion
 
-        #region [private] (byte) BoardType: Gets a value representing the 'Board Type' field.
+        #region [private] (byte) BoardType: Gets a value representing the 'Board Type' field
         /// <summary>
         /// Gets a value representing the <c>Board Type</c> field.
         /// </summary>
@@ -311,13 +274,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BoardType
-        {
-            get { return GetByte(0x0d); }
-        }
+        private byte BoardType => GetByte(0x0d);
         #endregion
 
-        #region [private] (byte) NumberOfContainedObjectHandles: Gets a value representing the 'Number Of Contained Object Handles' field.
+        #region [private] (byte) NumberOfContainedObjectHandles: Gets a value representing the 'Number Of Contained Object Handles' field
         /// <summary>
         /// Gets a value representing the <c>Number Of Contained Object Handles</c> field.
         /// </summary>
@@ -325,17 +285,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte NumberOfContainedObjectHandles
-        {
-            get { return GetByte(0x0e); }
-        }
+        private byte NumberOfContainedObjectHandles => GetByte(0x0e);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -490,7 +448,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -558,7 +517,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetBoardType(byte): Gets a string that identifies the type of motherboard.
+        #region [private] {static} (string) GetBoardType(byte): Gets a string that identifies the type of motherboard
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that identifies the type of motherboard.
         /// </summary>
@@ -594,7 +553,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (IEnumerable<SmbiosStructure>) GetContainedElements(IEnumerable<byte>): Gets the list of items contained in this motherboard.
+        #region [private] {static} (IEnumerable<SmbiosStructure>) GetContainedElements(IEnumerable<byte>): Gets the list of items contained in this motherboard
         /// <summary>
         /// Gets the list of items contained in this motherboard
         /// </summary>

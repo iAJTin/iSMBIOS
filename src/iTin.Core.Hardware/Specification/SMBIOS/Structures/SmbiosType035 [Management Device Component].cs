@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 035: Management Device Component.
@@ -38,19 +39,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver ThresholdHandle                             |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Management Device Component (Type 35) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Management Device Component (Type 35) structure.
     /// </summary>
     sealed class SmbiosType035 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType035(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType035(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType035"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType035" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType035(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -60,7 +63,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) Description: Gets a value representing the 'Description' field.
+        #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
         /// Gets a value representing the <c>Description</c> field.
         /// </summary>
@@ -68,13 +71,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Description
-        {
-            get { return GetString(0x04); }
-        }
+        private string Description => GetString(0x04);
         #endregion
 
-        #region [private] (int) ManagementDeviceHandle: Gets a value representing the 'Management Device Handle' field.
+        #region [private] (int) ManagementDeviceHandle: Gets a value representing the 'Management Device Handle' field
         /// <summary>
         /// Gets a value representing the <c>Management Device Handle</c> field.
         /// </summary>
@@ -82,13 +82,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ManagementDeviceHandle
-        {
-            get { return GetWord(0x05); }
-        }
+        private int ManagementDeviceHandle => GetWord(0x05);
         #endregion
 
-        #region [private] (int) ComponentHandle: Gets a value representing the 'Component Handle' field.
+        #region [private] (int) ComponentHandle: Gets a value representing the 'Component Handle' field
         /// <summary>
         /// Gets a value representing the <c>Component Handle</c> field.
         /// </summary>
@@ -96,13 +93,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ComponentHandle
-        {
-            get { return GetWord(0x07); }
-        }
+        private int ComponentHandle => GetWord(0x07);
         #endregion
 
-        #region [private] (int) ThresholdHandle: Gets a value representing the 'Threshold Handle' field.
+        #region [private] (int) ThresholdHandle: Gets a value representing the 'Threshold Handle' field
         /// <summary>
         /// Gets a value representing the <c>Threshold Handle</c> field.
         /// </summary>
@@ -110,17 +104,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ThresholdHandle
-        {
-            get { return GetWord(0x09); }
-        }
+        private int ThresholdHandle => GetWord(0x09);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -167,7 +159,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>

@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 024: Hardware Security.
@@ -46,8 +47,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                   11b - Unknown                            |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Hardware Security (Type 24) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Hardware Security (Type 24) structure.
     /// </summary>
     sealed class SmbiosType024 : SmbiosBaseType
     {
@@ -68,7 +70,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (byte) HardwareSecuritySettings: Gets a value representing the 'Hardware Security Settings' field.
+        #region [private] (byte) HardwareSecuritySettings: Gets a value representing the 'Hardware Security Settings' field
         /// <summary>
         /// Gets a value representing the <c>Hardware Security Setting</c> field.
         /// </summary>
@@ -76,13 +78,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte HardwareSecuritySettings
-        {
-            get { return GetByte(0x04); }
-        }
+        private byte HardwareSecuritySettings => GetByte(0x04);
         #endregion
 
-        #region [private] (byte) FrontPanelResetStatus: Gets a value representing the 'Front Panel ResetS Status' hardware setting of the 'Hardware Security Setting' field.
+        #region [private] (byte) FrontPanelResetStatus: Gets a value representing the 'Front Panel ResetS Status' hardware setting of the 'Hardware Security Setting' field
         /// <summary>
         /// Gets a value representing the <c>Front Panel ResetS Status</c> hardware setting of the <c>Hardware Security Setting</c> field
         /// </summary>
@@ -90,13 +89,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Hardware setting value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FrontPanelResetStatus
-        {
-            get { return (byte) (HardwareSecuritySettings & 0x03); }
-        }
+        private byte FrontPanelResetStatus => (byte) (HardwareSecuritySettings & 0x03);
         #endregion
 
-        #region [private] (byte) AdministratorPasswordStatus: Gets a value representing the 'Administrator Password Status' hardware setting of the 'Hardware Security Setting' field.
+        #region [private] (byte) AdministratorPasswordStatus: Gets a value representing the 'Administrator Password Status' hardware setting of the 'Hardware Security Setting' field
         /// <summary>
         /// Gets a value representing the <c>Administrator Password Status</c> hardware setting of the <c>Hardware Security Setting</c> field
         /// </summary>
@@ -104,13 +100,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Hardware setting value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte AdministratorPasswordStatus
-        {
-            get { return (byte) ((HardwareSecuritySettings >> 2) & 0x03); }
-        }
+        private byte AdministratorPasswordStatus => (byte) ((HardwareSecuritySettings >> 2) & 0x03);
         #endregion
 
-        #region [private] (byte) KeyboardPasswordStatus: Gets a value representing the 'Keyboard Password Status' hardware setting of the 'Hardware Security Setting' field.
+        #region [private] (byte) KeyboardPasswordStatus: Gets a value representing the 'Keyboard Password Status' hardware setting of the 'Hardware Security Setting' field
         /// <summary>
         /// Gets a value representing the <c>Keyboard Password Status</c> hardware setting of the <c>Hardware Security Setting</c> field
         /// </summary>
@@ -118,13 +111,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Hardware setting value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte KeyboardPasswordStatus
-        {
-            get { return (byte) ((HardwareSecuritySettings >> 4) & 0x03); }
-        }
+        private byte KeyboardPasswordStatus => (byte) ((HardwareSecuritySettings >> 4) & 0x03);
         #endregion
 
-        #region [private] (byte) PowerOnPasswordStatus: Gets a value representing the 'Power-On Password Status' hardware setting of the 'Hardware Security Setting' field.
+        #region [private] (byte) PowerOnPasswordStatus: Gets a value representing the 'Power-On Password Status' hardware setting of the 'Hardware Security Setting' field
         /// <summary>
         /// Gets a value representing the <c>Power-On Password Status</c> hardware setting of the <c>Hardware Security Setting</c> field
         /// </summary>
@@ -132,17 +122,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Hardware setting value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte PowerOnPasswordStatus
-        {
-            get { return (byte) ((HardwareSecuritySettings >> 6) & 0x03); }
-        }
+        private byte PowerOnPasswordStatus => (byte) ((HardwareSecuritySettings >> 6) & 0x03);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -190,7 +178,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -214,7 +203,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetSettings(byte): Gets a string representing the set configuration.
+        #region [private] {static} (string) GetSettings(byte): Gets a string representing the set configuration
         /// <summary>
         /// Gets a string representing the set configuration.
         /// </summary>

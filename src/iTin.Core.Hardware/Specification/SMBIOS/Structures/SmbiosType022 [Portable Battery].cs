@@ -7,6 +7,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 022: Portable Battery.
@@ -142,19 +143,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver OemSpecific                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Portable Battery (Type 22) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Portable Battery (Type 22) structure.
     /// </summary>
     sealed class SmbiosType022 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType022(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType022(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType022"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType022" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType022(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -166,7 +169,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (string) Location: Gets a value representing the 'Location' field.
+        #region [private] (string) Location: Gets a value representing the 'Location' field
         /// <summary>
         /// Gets a value representing the <c>Location</c> field.
         /// </summary>
@@ -174,13 +177,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Location
-        {
-            get { return GetString(0x04); }
-        }
+        private string Location => GetString(0x04);
         #endregion
 
-        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field.
+        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
         /// Gets a value representing the <c>Manufacturer</c> field.
         /// </summary>
@@ -188,13 +188,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Manufacturer
-        {
-            get { return GetString(0x05); }
-        }
+        private string Manufacturer => GetString(0x05);
         #endregion
 
-        #region [private] (string) ManufacturerDate: Gets a value representing the 'Manufacturer Date' field.
+        #region [private] (string) ManufacturerDate: Gets a value representing the 'Manufacturer Date' field
         /// <summary>
         /// Gets a value representing the <c>Manufacturer Date</c> field.
         /// </summary>
@@ -217,7 +214,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field.
+        #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
         /// Gets a value representing the <c>Serial Number</c> field.
         /// </summary>
@@ -240,7 +237,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] (string) DeviceName: Gets a value representing the 'Device Name' field.
+        #region [private] (string) DeviceName: Gets a value representing the 'Device Name' field
         /// <summary>
         /// Gets a value representing the <c>Device Name</c> field.
         /// </summary>
@@ -248,13 +245,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string DeviceName
-        {
-            get { return GetString(0x08); }
-        }
+        private string DeviceName => GetString(0x08);
         #endregion
 
-        #region [private] (byte) DeviceChemistryValue: Gets a value representing the 'Device Chemistry Value' field.
+        #region [private] (byte) DeviceChemistryValue: Gets a value representing the 'Device Chemistry Value' field
         /// <summary>
         /// Gets a value representing the <c>Device Chemistry Value</c> field.
         /// </summary>
@@ -262,13 +256,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceChemistryValue
-        {
-            get { return GetByte(0x09); } 
-        }
+        private byte DeviceChemistryValue => GetByte(0x09);
         #endregion
 
-        #region [private] (int) DesignCapacity: Gets a value representing the 'Design Capacity' field.
+        #region [private] (int) DesignCapacity: Gets a value representing the 'Design Capacity' field
         /// <summary>
         /// Gets a value representing the <c>Design Capacity</c> field.
         /// </summary>
@@ -276,13 +267,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DesignCapacity
-        {
-            get { return GetWord(0x0a); }
-        }
+        private int DesignCapacity => GetWord(0x0a);
         #endregion
 
-        #region [private] (int) DesignVoltage: Gets a value representing the 'Design Voltage' field.
+        #region [private] (int) DesignVoltage: Gets a value representing the 'Design Voltage' field
         /// <summary>
         /// Gets a value representing the <c>Design Voltage</c> field.
         /// </summary>
@@ -290,13 +278,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DesignVoltage
-        {
-            get { return GetWord(0x0c); }
-        }
+        private int DesignVoltage => GetWord(0x0c);
         #endregion
 
-        #region [private] (string) SbdsVersionNumber: Gets a value representing the 'Sbds Version Number' field.
+        #region [private] (string) SbdsVersionNumber: Gets a value representing the 'Sbds Version Number' field
         /// <summary>
         /// Gets a value representing the <c>Sbds Version Number</c> field.
         /// </summary>
@@ -304,13 +289,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SbdsVersionNumber
-        {
-            get { return GetString(0x0e); }
-        }
+        private string SbdsVersionNumber => GetString(0x0e);
         #endregion
 
-        #region [private] (byte) MaximumErrorInBatteryData: Gets a value representing the 'Maximum Error In Battery Data' field.
+        #region [private] (byte) MaximumErrorInBatteryData: Gets a value representing the 'Maximum Error In Battery Data' field
         /// <summary>
         /// Gets a value representing the <c>Maximum Error In Battery Data</c> field.
         /// </summary>
@@ -318,17 +300,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MaximumErrorInBatteryData
-        {
-            get { return GetByte(0x0f); }
-        }
+        private byte MaximumErrorInBatteryData => GetByte(0x0f);
         #endregion
 
         #endregion
 
         #region Version 2.2+ fields
 
-        #region [private] (string) SbdsSerialNumber: Gets a value representing the 'Sbds Serial Number' field.
+        #region [private] (string) SbdsSerialNumber: Gets a value representing the 'Sbds Serial Number' field
         /// <summary>
         /// Gets a value representing the <c>Sbds Serial Number</c> field.
         /// </summary>
@@ -336,13 +315,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SbdsSerialNumber
-        {
-            get { return GetWord(0x10).ToString(CultureInfo.InvariantCulture); }
-        }
+        private string SbdsSerialNumber => GetWord(0x10).ToString(CultureInfo.InvariantCulture);
         #endregion
 
-        #region [private] (string) SbdsManufactureDate: Gets a value representing the 'Sbds Manufacture Date' field.
+        #region [private] (string) SbdsManufactureDate: Gets a value representing the 'Sbds Manufacture Date' field
         /// <summary>
         /// Gets a value representing the <c>Sbds Manufacture Date</c> field.
         /// </summary>
@@ -350,13 +326,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SbdsManufactureDate
-        {
-            get { return UnpacketBatteryDate((ushort)GetWord(0x12)); }
-        }
+        private string SbdsManufactureDate => UnpacketBatteryDate((ushort)GetWord(0x12));
         #endregion
 
-        #region [private] (string) SbdsDeviceChemistry: Gets a value representing the 'Sbds Device Chemistry' field.
+        #region [private] (string) SbdsDeviceChemistry: Gets a value representing the 'Sbds Device Chemistry' field
         /// <summary>
         /// Gets a value representing the <c>Sbds Device Chemistry</c> field.
         /// </summary>
@@ -364,13 +337,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SbdsDeviceChemistry
-        {
-            get { return GetString(0x14); }
-        }
+        private string SbdsDeviceChemistry => GetString(0x14);
         #endregion
 
-        #region [private] (byte) DesignCapacityMultiplier: Gets a value representing the 'Design Capacity Multiplier' field.
+        #region [private] (byte) DesignCapacityMultiplier: Gets a value representing the 'Design Capacity Multiplier' field
         /// <summary>
         /// Gets a value representing the <c>Design Capacity Multiplier</c> field.
         /// </summary>
@@ -378,13 +348,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DesignCapacityMultiplier
-        {
-            get { return GetByte(0x15); }
-        }
+        private byte DesignCapacityMultiplier => GetByte(0x15);
         #endregion
 
-        #region [private] (long) OemSpecific: Gets a value representing the 'Oem Specific' field.
+        #region [private] (long) OemSpecific: Gets a value representing the 'Oem Specific' field
         /// <summary>
         /// Gets a value representing the <c>Oem Specific</c> field.
         /// </summary>
@@ -392,10 +359,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemSpecific
-        {
-            get { return GetDoubleWord(0x16); }
-        }
+        private long OemSpecific => GetDoubleWord(0x16);
         #endregion
 
         #endregion
@@ -404,7 +368,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -540,7 +505,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -641,7 +607,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetDeviceChemistry(byte): Gets a string representing the battery type.
+        #region [private] {static} (string) GetDeviceChemistry(byte): Gets a string representing the battery type
         /// <summary>
         /// Gets a string representing the battery type.
         /// </summary>

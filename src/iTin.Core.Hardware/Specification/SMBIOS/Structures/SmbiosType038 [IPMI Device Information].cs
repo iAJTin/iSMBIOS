@@ -7,6 +7,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -93,14 +94,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver InterruptNumber                             |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the IPMI Device Information (Type 38) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the IPMI Device Information (Type 38) structure.
     /// </summary>
     sealed class SmbiosType038 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType038(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType038(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType038" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
@@ -116,7 +118,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (byte) InterfaceType: Gets a value representing the 'Interface Type' field.
+        #region [private] (byte) InterfaceType: Gets a value representing the 'Interface Type' field
         /// <summary>
         /// Gets a value representing the <c>Interface Type</c> field.
         /// </summary>
@@ -124,13 +126,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InterfaceType
-        {
-            get { return GetByte(0x04); }
-        }
+        private byte InterfaceType => GetByte(0x04);
         #endregion
 
-        #region [private] (string) SpecificationRevision: Gets a value representing the 'Specification Revision' field.
+        #region [private] (string) SpecificationRevision: Gets a value representing the 'Specification Revision' field
         /// <summary>
         /// Gets a value representing the <c>Specification Revision</c> field.
         /// </summary>
@@ -153,7 +152,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] (string) I2CSlaveAddress: Gets a value representing the 'I2C Slave Address' field.
+        #region [private] (string) I2CSlaveAddress: Gets a value representing the 'I2C Slave Address' field
         /// <summary>
         /// Gets a value representing the <c>I2C Slave Address</c> field.
         /// </summary>
@@ -161,13 +160,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string I2CSlaveAddress
-        {
-            get { return GetByte(0x06).ToString("X", CultureInfo.InvariantCulture); }
-        }
+        private string I2CSlaveAddress => GetByte(0x06).ToString("X", CultureInfo.InvariantCulture);
         #endregion
 
-        #region [private] (byte) NVStorageDeviceAddress: Gets a value representing the 'NV Storage Device Address' field.
+        #region [private] (byte) NVStorageDeviceAddress: Gets a value representing the 'NV Storage Device Address' field
         /// <summary>
         /// Gets a value representing the <c>NV Storage Device Address</c> field.
         /// </summary>
@@ -175,13 +171,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte NVStorageDeviceAddress
-        {
-            get { return GetByte(0x07); }
-        }
+        private byte NVStorageDeviceAddress => GetByte(0x07);
         #endregion
 
-        #region [private] (ulong) BaseAddress: Gets a value representing the 'Base Address' field.
+        #region [private] (ulong) BaseAddress: Gets a value representing the 'Base Address' field
         /// <summary>
         /// Gets a value representing the <c>Base Address</c> field.
         /// </summary>
@@ -189,13 +182,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong BaseAddress
-        {
-            get { return (ulong)GetQuadrupleWord(0x08); }
-        }
+        private ulong BaseAddress => (ulong)GetQuadrupleWord(0x08);
         #endregion
 
-        #region [private] (string) BaseAddressModifier: Gets a value representing the 'Base Address Modifier' field.
+        #region [private] (string) BaseAddressModifier: Gets a value representing the 'Base Address Modifier' field
         /// <summary>
         /// Gets a value representing the <c>Base Address Modifier</c> field.
         /// </summary>
@@ -203,13 +193,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BaseAddressModifier
-        {
-            get { return GetByte(0x10); }
-        }
+        private byte BaseAddressModifier => GetByte(0x10);
         #endregion
 
-        #region [private] (string) TriggerMode: Gets a value representing the 'Trigger Mode' feature of the 'Base Address Modifier' field.
+        #region [private] (string) TriggerMode: Gets a value representing the 'Trigger Mode' feature of the 'Base Address Modifier' field
         /// <summary>
         /// Gets a value representing the <c>Trigger Mode</c> feature of the <c>Base Address Modifier</c> field
         /// </summary>
@@ -217,13 +204,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string TriggerMode
-        {
-            get { return BaseAddressModifier.CheckBit(Bits.Bit00) ? "Level" : "Edge"; }
-        }
+        private string TriggerMode => BaseAddressModifier.CheckBit(Bits.Bit00) ? "Level" : "Edge";
         #endregion
 
-        #region [private] (string) Polarity: Gets a value representing the 'Polarity' feature of the 'Base Address Modifier' field.
+        #region [private] (string) Polarity: Gets a value representing the 'Polarity' feature of the 'Base Address Modifier' field
         /// <summary>
         /// Gets a value representing the <c>Polarity</c> feature of the <c>Base Address Modifier</c> field
         /// </summary>
@@ -231,13 +215,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Polarity
-        {
-            get { return BaseAddressModifier.CheckBit(Bits.Bit01) ? "Active High" : "Active Low"; }
-        }
+        private string Polarity => BaseAddressModifier.CheckBit(Bits.Bit01) ? "Active High" : "Active Low";
         #endregion
 
-        #region [private] (bool) SpecifiedInfo: Gets a value representing the 'Specified Info' feature of the 'Base Address Modifier' field.
+        #region [private] (bool) SpecifiedInfo: Gets a value representing the 'Specified Info' feature of the 'Base Address Modifier' field
         /// <summary>
         /// Gets a value representing the <c>Specified Info</c> feature of the <c>Base Address Modifier</c> field
         /// </summary>
@@ -245,13 +226,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool SpecifiedInfo
-        {
-            get { return BaseAddressModifier.CheckBit(Bits.Bit03); }
-        }
+        private bool SpecifiedInfo => BaseAddressModifier.CheckBit(Bits.Bit03);
         #endregion
 
-        #region [private] (bool) LsBit: Gets a value representing the 'Specified Info' feature of the 'Base Address Modifier' field.
+        #region [private] (bool) LsBit: Gets a value representing the 'Specified Info' feature of the 'Base Address Modifier' field
         /// <summary>
         /// Gets a value representing the <c>LsBit</c> feature of the <c>Base Address Modifier</c> field
         /// </summary>
@@ -259,13 +237,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte LsBit
-        {
-            get { return (byte) (BaseAddressModifier & 0x01); }
-        }
+        private byte LsBit => (byte) (BaseAddressModifier & 0x01);
         #endregion
 
-        #region [private] (byte) RegisterSpacing: Gets a value representing the 'Register Spacing' field.
+        #region [private] (byte) RegisterSpacing: Gets a value representing the 'Register Spacing' field
         /// <summary>
         /// Gets a value representing the <c>Register Spacing</c> field.
         /// </summary>
@@ -273,13 +248,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte RegisterSpacing
-        {
-            get { return (byte)((BaseAddressModifier >> 6) & 0x03); }
-        }
+        private byte RegisterSpacing => (byte)((BaseAddressModifier >> 6) & 0x03);
         #endregion
 
-        #region [private] (byte) InterruptNumber: Gets a value representing the 'Interrupt Number' field.
+        #region [private] (byte) InterruptNumber: Gets a value representing the 'Interrupt Number' field
         /// <summary>
         /// Gets a value representing the <c>Interrup tNumber</c> field.
         /// </summary>
@@ -287,17 +259,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InterruptNumber
-        {
-            get { return GetByte(0x11); }
-        }
+        private byte InterruptNumber => GetByte(0x11);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -434,7 +404,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -485,7 +456,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 3.2.0 (26/04/2018)
 
-        #region [private] {static} (string) GetInterfaceType(byte): Gets a string representing interface type.
+        #region [private] {static} (string) GetInterfaceType(byte): Gets a string representing interface type
         /// <summary>
         /// Gets a string representing interface type.
         /// </summary>
@@ -513,7 +484,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetRegisterSpacing(byte): Gets a string representing record type.
+        #region [private] {static} (string) GetRegisterSpacing(byte): Gets a string representing record type
         /// <summary>
         /// Gets a string representing record type.
         /// </summary>

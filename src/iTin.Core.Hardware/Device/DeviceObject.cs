@@ -28,22 +28,22 @@ namespace iTin.Core.Hardware.Device
 
         #region public override methods
 
-            #region [public] {override} (string) ToString(): Devuelve una cadena que representa la clase actual.
-            /// <summary>
-            /// Devuelve una cadena que representa la clase actual.
-            /// </summary>
-            /// <returns>
-            ///   <para>Tipo: <see cref="T:System.String"/></para>
-            ///   <para>Cadena que representa la clase actual.</para>
-            /// </returns>
-            /// <remarks>
-            /// Este método devuelve una cadena que contiene el nombre de este monitor.
-            /// </remarks> 
-            public override string ToString()
-            {
-                return string.Format(CultureInfo.InvariantCulture, "Name = {0}", ""); //Properties.Description.Value);
-            }
-            #endregion
+        #region [public] {override} (string) ToString(): Devuelve una cadena que representa la clase actual.
+        /// <summary>
+        /// Devuelve una cadena que representa la clase actual.
+        /// </summary>
+        /// <returns>
+        ///   <para>Tipo: <see cref="T:System.String"/></para>
+        ///   <para>Cadena que representa la clase actual.</para>
+        /// </returns>
+        /// <remarks>
+        /// Este método devuelve una cadena que contiene el nombre de este monitor.
+        /// </remarks> 
+        public override string ToString()
+        {
+            return $"Name = "; //Properties.Description.Value);
+        }
+        #endregion
 
         #endregion
 

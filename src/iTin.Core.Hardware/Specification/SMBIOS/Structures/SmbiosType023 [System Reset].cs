@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -78,19 +79,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver TimeOut                                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Reset (Type 23) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Reset (Type 23) structure.
     /// </summary>
     sealed class SmbiosType023 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType023(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType023(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType023"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType023" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType023(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -100,7 +103,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (byte) Capabilities: Gets a value representing the 'Capabilities' field.
+        #region [private] (byte) Capabilities: Gets a value representing the 'Capabilities' field
         /// <summary>
         /// Gets a value representing the <c>Capabilities</c> field.
         /// </summary>
@@ -108,13 +111,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Capabilities
-        {
-            get { return GetByte(0x04); }
-        }
+        private byte Capabilities => GetByte(0x04);
         #endregion
 
-        #region [private] (string) Status: Gets a value representing the 'Status' capability of the 'Capabilities' field.
+        #region [private] (string) Status: Gets a value representing the 'Status' capability of the 'Capabilities' field
         /// <summary>
         /// Gets a value representing the <c>Status</c> capability of the <c>Capabilities</c> field
         /// </summary>
@@ -122,13 +122,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Capability value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Status
-        {
-            get { return Capabilities.CheckBit(Bits.Bit00) ? "Enabled" : "Disabled"; }
-        }
+        private string Status => Capabilities.CheckBit(Bits.Bit00) ? "Enabled" : "Disabled";
         #endregion
 
-        #region [private] (byte) BootOption: Gets a value representing the 'Boot Option' capability of the 'Capabilities' field.
+        #region [private] (byte) BootOption: Gets a value representing the 'Boot Option' capability of the 'Capabilities' field
         /// <summary>
         /// Gets a value representing the <c>Boot Option</c> capability of the <c>Capabilities</c> field
         /// </summary>
@@ -136,13 +133,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Capability value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BootOption
-        {
-            get { return (byte) ((Capabilities >> 1) & 0x03); }
-        }
+        private byte BootOption => (byte) ((Capabilities >> 1) & 0x03);
         #endregion
 
-        #region [private] (byte) BootOptionOnLimit: Gets a value representing the 'Boot Option On Limit' capability of the 'Capabilities' field.
+        #region [private] (byte) BootOptionOnLimit: Gets a value representing the 'Boot Option On Limit' capability of the 'Capabilities' field
         /// <summary>
         /// Gets a value representing the <c>Boot Option On Limit</c> capability of the <c>Capabilities</c> field
         /// </summary>
@@ -150,13 +144,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Capability value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BootOptionOnLimit
-        {
-            get { return (byte) ((Capabilities >> 3) & 0x03); }
-        }
+        private byte BootOptionOnLimit => (byte) ((Capabilities >> 3) & 0x03);
         #endregion
 
-        #region [private] (bool) WatchdogTimer: Gets a value representing the 'Watchdog Timer' capability of the 'Capabilities' field.
+        #region [private] (bool) WatchdogTimer: Gets a value representing the 'Watchdog Timer' capability of the 'Capabilities' field
         /// <summary>
         /// Gets a value representing the <c>Watchdog Timer</c> capability of the <c>Capabilities</c> field
         /// </summary>
@@ -164,13 +155,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Capability value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool WatchdogTimer
-        {
-            get { return Capabilities.CheckBit(Bits.Bit05); }
-        }
+        private bool WatchdogTimer => Capabilities.CheckBit(Bits.Bit05);
         #endregion
 
-        #region [private] (int) ResetCount: Gets a value representing the 'Reset Count' field.
+        #region [private] (int) ResetCount: Gets a value representing the 'Reset Count' field
         /// <summary>
         /// Gets a value representing the <c>Reset Count</c> field.
         /// </summary>
@@ -178,13 +166,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ResetCount
-        {
-            get { return GetWord(0x05); }
-        }
+        private int ResetCount => GetWord(0x05);
         #endregion
 
-        #region [private] (int) ResetLimit: Gets a value representing the 'Reset Limit' field.
+        #region [private] (int) ResetLimit: Gets a value representing the 'Reset Limit' field
         /// <summary>
         /// Gets a value representing the <c>Reset Limit</c> field.
         /// </summary>
@@ -192,13 +177,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ResetLimit
-        {
-            get { return GetWord(0x07); }
-        }
+        private int ResetLimit => GetWord(0x07);
         #endregion
 
-        #region [private] (int) TimerInterval: Gets a value representing the 'Timer Interval' field.
+        #region [private] (int) TimerInterval: Gets a value representing the 'Timer Interval' field
         /// <summary>
         /// Gets a value representing the <c>Timer Interval</c> field.
         /// </summary>
@@ -206,13 +188,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TimerInterval
-        {
-            get { return GetWord(0x09); }
-        }
+        private int TimerInterval => GetWord(0x09);
         #endregion
 
-        #region [private] (int) TimeOut: Gets a value representing the 'Time Out' field.
+        #region [private] (int) TimeOut: Gets a value representing the 'Time Out' field
         /// <summary>
         /// Gets a value representing the <c>Time Out</c> field.
         /// </summary>
@@ -220,17 +199,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TimeOut
-        {
-            get { return GetWord(0x09); }
-        }
+        private int TimeOut => GetWord(0x09);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -314,7 +291,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -358,7 +336,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetBootOption(byte): Gets a string representing the boot option.
+        #region [private] {static} (string) GetBootOption(byte): Gets a string representing the boot option
         /// <summary>
         /// Gets a string representing the boot option.
         /// </summary>

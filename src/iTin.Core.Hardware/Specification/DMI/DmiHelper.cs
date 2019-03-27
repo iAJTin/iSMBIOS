@@ -4,7 +4,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using System.Diagnostics;
 
     /// <summary>
-    /// Clase de ayuda para <c>DMI</c>.
+    /// Class of help for <c>DMI </c>.
     /// </summary>
     static class DmiHelper
     {
@@ -12,10 +12,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
         private static readonly SMBIOS SMBIOS = SMBIOS.Instance;
 
         /// <summary>
-        /// Obtiene una referencia al objeto SMBIOS.
+        /// Gets a reference to the <c>SMBIOS</c> object.
         /// </summary>
         /// <value>
-        /// Objeto <see cref="SMBIOS"/> que contiene las estructuras implementadas.
+        /// Object <see cref="SMBIOS" /> that contains the implemented structures.
         /// </value>
         public static SMBIOS Smbios => SMBIOS;
     }

@@ -2,22 +2,22 @@
 namespace iTin.Core.Hardware.Device.DeviceProperty
 {
     /// <summary>
-    /// Define las propiedades usadas por una <b>DeviceProperty</b>.
+    /// Defines the properties used by a <b>DeviceProperty</b>.
     /// </summary>
     public interface IDeviceProperty
     {
         /// <summary>
-        /// Obtiene la clave que identifica la propiedad.
+        /// Gets the key that identifies the property.
         /// </summary>
         PropertyKey PropertyKey { get; }
 
         /// <summary>
-        /// Obtiene un valor que representa la descripción de la propiedad.
+        /// Gets a value that represents the description of the property.
         /// </summary>
         DevicePropertyDescription Description { get; }
 
         /// <summary>
-        /// Obtiene un valor que indica si la propiedad tiene valor disponible.
+        /// Gets a value that indicates whether the property has available value.
         /// </summary>             
         bool HasValue { get; }
     }

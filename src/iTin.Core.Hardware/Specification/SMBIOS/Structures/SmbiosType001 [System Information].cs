@@ -7,6 +7,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 001: System Information.
@@ -75,19 +76,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                 Note: Please see, Family                            |
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Information (Type 1) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Information (Type 1) structure.
     /// </summary>
     sealed class SmbiosType001 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType001(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType001(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType001"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType001(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -97,7 +100,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) Family: Gets a value representing the 'Family' field.
+        #region [private] (string) Family: Gets a value representing the 'Family' field
         /// <summary>
         /// Gets a value representing the <c>Family</c> field.
         /// </summary>
@@ -125,7 +128,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field.
+        #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
         /// Gets a value representing the <c>Family</c> field.
         /// </summary>
@@ -133,13 +136,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Manufacturer
-        {
-            get { return GetString(0x04); }
-        }
+        private string Manufacturer => GetString(0x04);
         #endregion
 
-        #region [private] (string) ProductName: Gets a value representing the 'Product name' field.
+        #region [private] (string) ProductName: Gets a value representing the 'Product name' field
         /// <summary>
         /// Gets a value representing the <c>Product name</c> field.
         /// </summary>
@@ -147,65 +147,51 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string ProductName
-        {
-            get { return GetString(0x05); }
-        }
+        private string ProductName => GetString(0x05);
         #endregion
 
-        #region [private] (string) Sku: Gets a value representing the 'Sku' field.
+        #region [private] (string) Sku: Gets a value representing the 'Sku' field
         /// <summary>
         /// Gets a value representing the <c>Sku</c> field.
         /// </summary>
         /// <value>Property value.</value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Sku
-        {
-            get { return GetString(0x19); }
-        }
+        private string Sku => GetString(0x19);
         #endregion
 
-        #region [private] (string) SerialNumber: Gets a value representing the 'Serial number' field.
+        #region [private] (string) SerialNumber: Gets a value representing the 'Serial number' field
         /// <summary>
         /// Gets a value representing the <c>Serial number</c> field.
         /// </summary>
         /// <value>Property value.</value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SerialNumber
-        {
-            get { return GetString(0x07); }
-        }
+        private string SerialNumber => GetString(0x07);
         #endregion
 
-        #region [private] (string) Version: Gets a value representing the 'Version' field.
+        #region [private] (string) Version: Gets a value representing the 'Version' field
         /// <summary>
         /// Gets a value representing the <c>Version</c> field.
         /// </summary>
         /// <value>Property value.</value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Version
-        {
-            get { return GetString(0x06); }
-        }
+        private string Version => GetString(0x06);
         #endregion
 
-        #region [private] (byte) WakeUpType: Gets a value representing the 'Wake up type' field.
+        #region [private] (byte) WakeUpType: Gets a value representing the 'Wake up type' field
         /// <summary>
         /// Gets a value representing the <c>Wake up type</c> field.
         /// </summary>
         /// <value>Property value.</value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte WakeUpType
-        {
-            get { return GetByte(0x18); }
-        }
+        private byte WakeUpType => GetByte(0x18);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -288,7 +274,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -337,7 +324,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetUUID(byte[], uint): Universal Unique ID number.
+        #region [private] {static} (string) GetUUID(byte[], uint): Universal Unique ID number
         // UUID Byte Order and RFC4122 Field Names
         // •—————————————————————————————————————————————————————————————————————————————————————————————————————•
         // | Offset     RFC 4122 Name               Length     deviceProperty        Description                 |
@@ -361,7 +348,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </summary>
         /// <param name="uuid">UUID.</param>
         /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
-        /// <returns></returns>
+        /// A <see cref="T:System.String" /> containing Universal Unique ID number.
         private static string GetUuid(byte[] uuid, int smbiosVersion)
         {
             bool only0xFF = true;
@@ -429,12 +416,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetWakeUpType(byte): Identifies the event that turns on the system.
+        #region [private] {static} (string) GetWakeUpType(byte): Identifies the event that turns on the system
         /// <summary>
         /// Identifies the event that turns on the system.
         /// </summary>
         /// <param name="code">Value to analyze</param>
-        /// <returns>A <see cref="T:System.String" /> containing the event that starts the system.</returns>
+        /// <returns>
+        /// A <see cref="T:System.String" /> containing the event that starts the system.
+        /// </returns>
         private static string GetWakeUpType(byte code)
         {
             string[] deviceProperty =

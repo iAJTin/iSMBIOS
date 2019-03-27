@@ -3,9 +3,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System.Collections;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Dmi.Property;
+
     using Helpers;
     using Helpers.Enumerations;
 
@@ -60,7 +60,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <summary>
-    /// Esta clase representa a un elemento de la estructura <see cref="SmbiosType003"/>.
+    /// This class represents an element of the structure <see cref="SmbiosType003"/>.
     /// </summary>
     public class ChassisContainedElement
     {
@@ -76,210 +76,190 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region constructor/s
 
-            #region [internal] ChassisContainedElement(byte[]): Inicializa una nueva instancia de la clase especificando la información de la estructura.
-            /// <summary>
-            /// Inicializa una nueva instancia de la clase <see cref="ChassisContainedElement"/> especificando la información de la estructura.
-            /// </summary>
-            /// <param name="chassisContainedElementsArray">Información sin tratar de la estructura actual.</param>
-            internal ChassisContainedElement(byte[] chassisContainedElementsArray)
-            {
-                _containedElementsArray = chassisContainedElementsArray;
-            }
+        #region [internal] ChassisContainedElement(byte[]): Initialize a new instance of the class specifying the structure information
+        /// <summary>
+        /// Initialize a new instance of the class <see cref="ChassisContainedElement"/> specifying the structure information.
+        /// </summary>
+        /// <param name="chassisContainedElementsArray">Untreated information of the current structure.</param>
+        internal ChassisContainedElement(byte[] chassisContainedElementsArray)
+        {
+            _containedElementsArray = chassisContainedElementsArray;
+        }
         #endregion
 
         #endregion
 
         #region public properties
 
-            #region [public] (Hashtable) Properties: Obtiene las propiedades disponibles para esta estructura.
-            /// <summary>
-            /// Obtiene las propiedades disponibles para esta estructura.
-            /// </summary>
-            /// <value>
-            /// 	<para>Tipo: <see cref="T:System.Collections.Hashtable"/></para>
-            /// 	<para>Propiedades disponibles.</para>
-            /// </value>
-            public Hashtable Properties
+        #region [public] (Hashtable) Properties: Gets the properties available for this structure
+        /// <summary>
+        /// Gets the properties available for this structure.
+        /// </summary>
+        /// <value>
+        /// Available properties.
+        /// </value>
+        public Hashtable Properties
+        {
+            get
             {
-                get
+                if (_properties == null)
                 {
-                    if (_properties == null)
-                    {
-                        _properties = new Hashtable();
-                        Parse(_properties);
-                    }
-
-                    return _properties;
+                    _properties = new Hashtable();
+                    Parse(_properties);
                 }
+
+                return _properties;
             }
+        }
         #endregion
 
         #endregion
 
         #region private properties
 
-            #region [private] (string) ItemType: Obtiene un valor que representa al campo 'Type'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>Type</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Byte"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private string ItemType
+        #region [private] (string) ItemType: Gets a value that represents the 'Type' field
+        /// <summary>
+        ///  Gets a value that represents the '<c>Type</c>' field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private string ItemType
+        {
+            get
             {
-                get
+                string ret = string.Empty;
+
+                switch (TypeSelect)
                 {
-                    string ret = string.Empty;
-
-                    switch (TypeSelect)
-                    {
-                        case ChassisContainedElementType.BaseBoardEnumeration:
-                            ret = GetBoardType(_containedElementsArray[0x00]);
-                            break;
-
-                        case ChassisContainedElementType.SmbiosStructure:
-                            int type = _containedElementsArray[0x00] & 0x7f;
-                            ret = ((SmbiosStructure)type).ToString();
+                    case ChassisContainedElementType.BaseBoardEnumeration:
+                        ret = GetBoardType(_containedElementsArray[0x00]);
                         break;
-                    }
 
-                    return ret;
+                    case ChassisContainedElementType.SmbiosStructure:
+                        int type = _containedElementsArray[0x00] & 0x7f;
+                        ret = ((SmbiosStructure)type).ToString();
+                    break;
                 }
-            }
-            #endregion
 
-            #region [private] (byte) Max: Obtiene un valor que representa al campo 'Contained Element Maximum'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>Contained Element Maximum</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Byte"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private byte Max
-            {
-                get { return _containedElementsArray[0x01]; }
+                return ret;
             }
-            #endregion
+        }
+        #endregion
 
-            #region [private] (byte) Min: Obtiene un valor que representa al campo 'Contained Element Minimun'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>Contained Element Minimun</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Byte"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private byte Min
-            {
-                get { return _containedElementsArray[0x02]; }
-            }
-            #endregion
+        #region [private] (byte) Max: Gets a value that represents the 'Contained Element Maximum' field
+        /// <summary>
+        ///  Gets a value that represents the '<c>Contained Element Maximum</c>' field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte Max => _containedElementsArray[0x01];
+        #endregion
 
-            #region [private] (ChassisContainedElementType) TypeSelect: Obtiene un valor que representa al campo 'TypeSelect'.
-            /// <summary>
-            /// Obtiene un valor que representa al campo '<c>TypeSelect</c>'.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Byte"/></para>
-            ///   <para>Valor de la propiedad.</para>
-            /// </value>
-            [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-            private ChassisContainedElementType TypeSelect
-            {
-                get { return (ChassisContainedElementType)LogicHelper.GetBit(_containedElementsArray[0x00], Bits.Bit07); }
-            }
-            #endregion
+        #region [private] (byte) Min: Gets a value that represents the 'Contained Element Minimun' field
+        /// <summary>
+        ///  Gets a value that represents the '<c>Contained Element Minimun</c>' field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte Min => _containedElementsArray[0x02];
+        #endregion
+
+        #region [private] (ChassisContainedElementType) TypeSelect: Gets a value that represents the 'TypeSelect' field
+        /// <summary>
+        ///  Gets a value that represents the '<c>TypeSelect</c>' field.
+        /// </summary>
+        /// <value>
+        /// Value of the property.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ChassisContainedElementType TypeSelect => (ChassisContainedElementType)LogicHelper.GetBit(_containedElementsArray[0x00], Bits.Bit07);
+        #endregion
 
         #endregion
 
         #region public override methods
 
-            #region [public] {override} (string) ToString(): Devuelve una clase string que representa al objeto actual.
-            /// <summary>
-            /// Devuelve una clase <see cref="T:System.String"/> que representa al objeto actual. 
-            /// </summary>
-            /// <returns>
-            ///   <para>Tipo: <see cref="T:System.String"/></para>
-            ///   <para>Objeto <see cref="T:System.String"/> que representa la clase <see cref="ChassisContainedElement"/> actual.</para>
-            /// </returns>
-            /// <remarks>
-            ///   <para>
-            ///   Este método devuelve una cadena que incluye la propiedad <see cref="ChassisContainedElement.TypeSelect"/> y 
-            ///   <see cref="ChassisContainedElement.ItemType"/>
-            ///   </para>
-            /// </remarks>                                    
-            public override string ToString()
-            {
-                return string.Format(CultureInfo.InvariantCulture, "Select = {0}, Type = {1}", TypeSelect, ItemType);
-            }
-            #endregion
+        #region [public] {override} (string) ToString(): Devuelve una clase string que representa al objeto actual.
+        /// <summary>
+        /// Returns a class <see cref="T: System.String" /> that represents the current object.
+        /// </summary>
+        /// <returns>
+        /// Object <see cref="T:System.String" /> that represents the current <see cref = "T:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry"/> class.
+        /// </returns>
+        /// <remarks>
+        /// This method returns a string that includes the property <see cref = "P:iTin.Core.Hardware.Specification.Smbios.ChassisContainedElement.TypeSelect" /> and
+        /// <see cref = "P:iTin.Core.Hardware.Specification.Smbios.ChassisContainedElement.ItemType" />.
+        /// </remarks>                                    
+        public override string ToString() => $"Select = {TypeSelect}, Type = {ItemType}";
+        #endregion
 
         #endregion
 
         #region private methods
 
-            #region [private] (void) Parse(Hashtable): Obtiene la colección de propiedades de esta estructura.
-            /// <summary>
-            /// Obtiene la colección de propiedades de esta estructura.
-            /// </summary>
-            /// <param name="properties">Colección de propiedades de esta estructura.</param>
-            private void Parse(Hashtable properties)
-            {
-                #region validate parameter/s
-                SentinelHelper.ArgumentNull(properties);
-                #endregion
-
-                #region values
-                properties.Add(KnownDmiProperty.Chassis.Elements.Min, Min);
-                properties.Add(KnownDmiProperty.Chassis.Elements.Max, Max);
-                properties.Add(KnownDmiProperty.Chassis.Elements.TypeSelect, TypeSelect);
-                properties.Add(KnownDmiProperty.Chassis.Elements.ItemType, ItemType);
-                #endregion
-            }
+        #region [private] (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <summary>
+        /// Gets the property collection for this structure.
+        /// </summary>
+        /// <param name="properties">Collection of properties of this structure.</param>
+        private void Parse(Hashtable properties)
+        {
+            #region validate parameter/s
+            SentinelHelper.ArgumentNull(properties);
             #endregion
+
+            #region values
+            properties.Add(KnownDmiProperty.Chassis.Elements.Min, Min);
+            properties.Add(KnownDmiProperty.Chassis.Elements.Max, Max);
+            properties.Add(KnownDmiProperty.Chassis.Elements.TypeSelect, TypeSelect);
+            properties.Add(KnownDmiProperty.Chassis.Elements.ItemType, ItemType);
+            #endregion
+        }
+        #endregion
             
         #endregion
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-            #region [private] {static} (string) GetBoardType(byte): Obtiene una cadena que permite identificar el tipo de placa base.
-            /// <summary>
-            /// Obtiene una cadena que permite identificar el tipo de placa base.
-            /// </summary>
-            /// <param name="code">Valor a analizar.</param>
-            /// <returns>Tipo de placa base.</returns>
-            private static string GetBoardType(byte code)
+        #region [private] {static} (string) GetBoardType(byte): Obtiene una cadena que permite identificar el tipo de placa base
+        /// <summary>
+        /// Obtiene una cadena que permite identificar el tipo de placa base.
+        /// </summary>
+        /// <param name="code">Valor a analizar.</param>
+        /// <returns>Tipo de placa base.</returns>
+        private static string GetBoardType(byte code)
+        {
+            string[] value =
             {
-                string[] value =
-                {
-                    "Unknown", // 0x01
-                    "Other",
-                    "Server Blade",
-                    "Connectivity Switch",
-                    "System Management Module",
-                    "Processor Module",
-                    "I/O Module",
-                    "Memory Module",
-                    "Daughter Board",
-                    "Motherboard",
-                    "Processor+Memory Module",
-                    "Processor+I/O Module",
-                    "Interconnect Board" // 0x0D                                      
-                };
+                "Unknown", // 0x01
+                "Other",
+                "Server Blade",
+                "Connectivity Switch",
+                "System Management Module",
+                "Processor Module",
+                "I/O Module",
+                "Memory Module",
+                "Daughter Board",
+                "Motherboard",
+                "Processor+Memory Module",
+                "Processor+I/O Module",
+                "Interconnect Board" // 0x0D                                      
+            };
 
-                if (code >= 0x01 && code <= 0x0D)
-                {
-                    return value[code - 0x01];
-                }
-
-                return SmbiosHelper.OutOfSpec;
+            if (code >= 0x01 && code <= 0x0D)
+            {
+                return value[code - 0x01];
             }
-            #endregion
+
+            return SmbiosHelper.OutOfSpec;
+        }
+        #endregion
 
         #endregion
     }

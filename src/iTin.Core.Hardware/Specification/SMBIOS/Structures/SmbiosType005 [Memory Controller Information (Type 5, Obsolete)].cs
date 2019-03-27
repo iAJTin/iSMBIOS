@@ -6,11 +6,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
-    using System.Globalization;
     using System.Linq;
 
-    using Helpers;
     using Dmi.Property;
+
+    using Helpers;
     using Helpers.Enumerations;
 
     // Type 005: Memory Controller Information.
@@ -79,19 +79,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Please see, GetErrorCorrectingCapability  |
     // •——————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Controller Information (Type 5, Obsolete) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Controller Information (Type 5, Obsolete) structure.
     /// </summary>
     sealed class SmbiosType005 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType005(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType005(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType005"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType005" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType005(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -101,7 +103,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (byte) ErrorDetectingMethod: Gets a value representing the 'Error Detecting Method' field.
+        #region [private] (byte) ErrorDetectingMethod: Gets a value representing the 'Error Detecting Method' field
         /// <summary>
         /// Gets a value representing the <c>Error Detecting Method</c> field.
         /// </summary>
@@ -109,13 +111,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorDetectingMethod
-        {
-            get { return GetByte(0x04); }
-        }
+        private byte ErrorDetectingMethod => GetByte(0x04);
         #endregion
 
-        #region [private] (byte) ErrorCorrectingCapabilities: Gets a value representing the 'Error Correcting Capabilities' field.
+        #region [private] (byte) ErrorCorrectingCapabilities: Gets a value representing the 'Error Correcting Capabilities' field
         /// <summary>
         /// Gets a value representing the <c>Error Correcting Capabilities</c> field.
         /// </summary>
@@ -123,13 +122,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorCorrectingCapabilities
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte ErrorCorrectingCapabilities => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) SupportedInterleave: Gets a value representing the 'Supported Interleave' field.
+        #region [private] (byte) SupportedInterleave: Gets a value representing the 'Supported Interleave' field
         /// <summary>
         /// Gets a value representing the <c>Supported Interleave</c> field.
         /// </summary>
@@ -137,13 +133,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SupportedInterleave
-        {
-            get { return HeaderInfo.RawData[0x06]; }
-        }
+        private byte SupportedInterleave => HeaderInfo.RawData[0x06];
         #endregion
 
-        #region [private] (byte) CurrentInterleave: Gets a value representing the 'Current Interleave' field.
+        #region [private] (byte) CurrentInterleave: Gets a value representing the 'Current Interleave' field
         /// <summary>
         /// Gets a value representing the <c>Current Interleave</c> field.
         /// </summary>
@@ -151,13 +144,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CurrentInterleave
-        {
-            get { return GetByte(0x07); }
-        }
+        private byte CurrentInterleave => GetByte(0x07);
         #endregion
 
-        #region [private] (int) MaximumMemoryModuleSize: Gets a value representing the 'Maximum Memory Module Size' field.
+        #region [private] (int) MaximumMemoryModuleSize: Gets a value representing the 'Maximum Memory Module Size' field
         /// <summary>
         /// Gets a value representing the <c>Maximum Memory Module Size</c> field.
         /// </summary>
@@ -165,13 +155,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximumMemoryModuleSize
-        {
-            get { return (int)Math.Pow(2, GetByte(0x08)); }
-        }
+        private int MaximumMemoryModuleSize => (int)Math.Pow(2, GetByte(0x08));
         #endregion
 
-        #region [private] (int) SupportedSpeeds: Gets a value representing the 'Supported Speeds' field.
+        #region [private] (int) SupportedSpeeds: Gets a value representing the 'Supported Speeds' field
         /// <summary>
         /// Gets a value representing the <c>Supported Speeds</c> field.
         /// </summary>
@@ -179,13 +166,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedSpeeds
-        {
-            get { return GetWord(0x09); }
-        }
+        private int SupportedSpeeds => GetWord(0x09);
         #endregion
 
-        #region [private] (int) SupportedMemoryTypes: Gets a value representing the 'Supported Memory Types' field.
+        #region [private] (int) SupportedMemoryTypes: Gets a value representing the 'Supported Memory Types' field
         /// <summary>
         /// Gets a value representing the <c>Supported Memory Types</c> field.
         /// </summary>
@@ -193,13 +177,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedMemoryTypes
-        {
-            get { return GetWord(0x0b); }
-        }
+        private int SupportedMemoryTypes => GetWord(0x0b);
         #endregion
 
-        #region [private] (byte) MemoryModuleVoltages: Gets a value representing the 'Memory Module Voltages' field.
+        #region [private] (byte) MemoryModuleVoltages: Gets a value representing the 'Memory Module Voltages' field
         /// <summary>
         /// Gets a value representing the <c>Memory Module Voltages</c> field.
         /// </summary>
@@ -207,32 +188,26 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MemoryModuleVoltages
-        {
-            get { return GetByte(0x0d); }
-        }
+        private byte MemoryModuleVoltages => GetByte(0x0d);
         #endregion
 
-        #region [private] (byte) NumberMemorySlots: Obtiene un valor que representa al campo 'Number Memory Slots'.
+        #region [private] (byte) NumberMemorySlots: Gets a value representing the 'Number Memory Slots' field
         /// <summary>
-        /// Obtiene un valor que representa al campo '<c>Number Memory Slots</c>'.
+        /// Gets a value representing the '<c>Number Memory Slots</c>'.
         /// </summary>
         /// <deviceProperty>
-        ///   <para>Tipo: <see cref="T:System.Byte"/></para>
-        ///   <para>Valor de la propiedad.</para>
+        /// Property value.
         /// </deviceProperty>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte NumberMemorySlots
-        {
-            get { return HeaderInfo.RawData[0x0e]; }
-        }
+        private byte NumberMemorySlots => HeaderInfo.RawData[0x0e];
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -335,7 +310,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -381,7 +357,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetControllerInterleave(byte): Gets a string representing the interpolation method.
+        #region [private] {static} (string) GetControllerInterleave(byte): Gets a string representing the interpolation method
         /// <summary>
         /// Gets a string representing the interpolation method.
         /// </summary>
@@ -411,7 +387,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (IEnumerable<int>) GetContainedMemoryModules(IList<byte>): Gets the list of memory devices that control this memory controller.
+        #region [private] {static} (IEnumerable<int>) GetContainedMemoryModules(IList<byte>): Gets the list of memory devices that control this memory controller
         /// <summary>
         /// Gets the list of memory devices that control this memory controller.
         /// </summary>
@@ -432,9 +408,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetControllerModuleVoltages(int): Gets a collection of voltages supported by the memory device.
+        #region [private] {static} (ReadOnlyCollection<string>) GetControllerModuleVoltages(int): Returns a collection of voltages supported by the memory device
         /// <summary>
-        /// Gets a collection of voltages supported by the memory device.
+        /// Returns a collection of voltages supported by the memory device.
         /// </summary>
         /// <param name="code">Value to analyze</param>
         /// <returns>
@@ -455,7 +431,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             if (isLegacyMode)
             {
                 double voltage = (double)(code & 0x7f) / 10;
-                items.Add(voltage.ToString(CultureInfo.InvariantCulture));
+                items.Add($"{voltage}");
             }
             else
             {
@@ -473,7 +449,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetControllerSupportedSpeeds(int): Gets a collection of supported speeds.
+        #region [private] {static} (ReadOnlyCollection<string>) GetControllerSupportedSpeeds(int): Gets a collection of supported speeds
         /// <summary>
         /// Gets a collection of supported speeds.
         /// </summary>
@@ -506,7 +482,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetControllerSupportedTypes(int): Gets a collection of supported memory types.
+        #region [private] {static} (ReadOnlyCollection<string>) GetControllerSupportedTypes(int): Gets a collection of supported memory types
         /// <summary>
         /// Gets a collection of supported memory types.
         /// </summary>
@@ -545,7 +521,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetErrorCorrectingCapability(byte): Gets a string representing the error correction method.
+        #region [private] {static} (string) GetErrorCorrectingCapability(byte): Gets a string representing the error correction method
         /// <summary>
         /// Gets a string representing the error correction method.
         /// </summary>
@@ -579,7 +555,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetErrorDetectingMethod(byte): Gets a string representing the error detection method.
+        #region [private] {static} (string) GetErrorDetectingMethod(byte): Gets a string representing the error detection method
         /// <summary>
         /// Gets a string representing the error detection method.
         /// </summary>

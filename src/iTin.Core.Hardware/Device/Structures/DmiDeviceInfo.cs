@@ -3,7 +3,6 @@ namespace iTin.Core.Hardware.Device
 {
     using System;
     using System.Diagnostics;
-    using System.Globalization;
 
     using Specification.Dmi;
     using Specification.Smbios;
@@ -136,22 +135,16 @@ namespace iTin.Core.Hardware.Device
 
         #region [public] {override} (string) ToString(): Devuelve una cadena que representa a la estructura actual.
         /// <summary>
-            /// Devuelve una cadena que representa la estructura <see cref="DmiDeviceInfo"/> actual.
+        /// Devuelve una cadena que representa la estructura <see cref="DmiDeviceInfo"/> actual.
         /// </summary>
         /// <returns>
         /// 	<para>Tipo: <see cref="T:System.String"/></para>
-            /// 	<para>Cadena que representa la estructura <see cref="DmiDeviceInfo"/> actual.</para>
+        /// 	<para>Cadena que representa la estructura <see cref="DmiDeviceInfo"/> actual.</para>
         /// </returns>
         /// <remarks>
-            /// El método <see cref="DmiDeviceInfo.ToString()"/> devuelve una cadena que incluye el tipo de estructura.
+        /// El método <see cref="DmiDeviceInfo.ToString()"/> devuelve una cadena que incluye el tipo de estructura.
         /// </remarks>      
-        public override string ToString()
-        {
-            return string.Format(CultureInfo.InvariantCulture, "Structure = {0}, Properties = {1}, Index = {2}"
-                                    , Structure
-                                    , 1000//Properties.Count
-                                    , Index);
-        }
+        public override string ToString() => $"Structure = {Structure}, Properties = {1000}, Index = {Index}";
         #endregion
 
         #endregion

@@ -2,7 +2,6 @@
 namespace iTin.Core.Hardware.Specification
 {
     using System.Diagnostics;
-    using System.Globalization;
 
     using Dmi;
 
@@ -26,7 +25,7 @@ namespace iTin.Core.Hardware.Specification
 
         #region constructor/s
 
-        #region [private] DMI(): Prevents a default instance of this class from being created.
+        #region [private] DMI(): Prevents a default instance of this class from being created
         /// <summary>
         /// Prevents a default instance of the <see cref="DMI"/> class from being created.
         /// </summary>
@@ -39,24 +38,24 @@ namespace iTin.Core.Hardware.Specification
 
         #region public properties
         /// <summary>
-        /// Obtiene la colección de estructuras disponibles.
+        /// Gets the collection of available structures.
         /// </summary>
         /// <value>
-        /// Objeto <see cref="DmiStructureCollection"/> que contiene la colección de objetos <see cref="DmiStructure"/> disponibles.
-        /// Si no existe ningún objeto <see cref="DmiStructure"/>, se devuelve <b>null</b>.
+        /// Object <see cref="DmiStructureCollection" /> that contains the collection of available <see cref="DmiStructure" /> objects.
+        /// If there is no object <see cref="DmiStructure" />, <b>null</b> is returned.
         /// </value>
         public DmiStructureCollection Structures => dmiStructureCollection ?? (dmiStructureCollection = new DmiStructureCollection());
         #endregion
 
         #region public static methods
         /// <summary>
-        /// Obtiene una cadena que representa el tipo de acceso.
+        /// Gets a string that represents the type of access.
         /// </summary>
         /// <value>
-        /// Una cadena que representa el tipo de acceso.
+        /// A string that represents the type of access.
         /// </value>
         /// <remarks>
-        ///Este método devuelve siempre la cadena <b>System BIOS</b>.
+        /// This method always returns the <b>System BIOS</b> string.
         /// </remarks>       
         public static string AccessType => "System BIOS";
 
@@ -83,16 +82,7 @@ namespace iTin.Core.Hardware.Specification
         /// The <see cref="T:SMBIOS.ToString ()" /> method returns a string that includes the version expresed in hexadecimal format,
         /// the number of available structures, and <see cref="SMBIOS"/> total size occupied by all structures.
         /// </remarks>
-        public override string ToString()
-        {
-            return
-                string.Format(
-                    CultureInfo.InvariantCulture,
-                    "SMBIOS={0}, Classes={1}, Size={2}",
-                    DmiHelper.Smbios.Version.ToString("x", CultureInfo.InvariantCulture),
-                    DmiHelper.Smbios.ImplementedStructures.Count,
-                    DmiHelper.Smbios.Lenght);
-        }
+        public override string ToString() => $"SMBIOS={DmiHelper.Smbios.Version:X}, Classes={DmiHelper.Smbios.ImplementedStructures.Count}, Size={DmiHelper.Smbios.Lenght}";
         #endregion
 
         #endregion

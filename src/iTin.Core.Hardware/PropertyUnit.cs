@@ -4,119 +4,141 @@ namespace iTin.Core.Hardware
     using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
-    /// Especifica la unidad de medida de una propiedad.
+    /// Define the unit of measure of a property.
     /// </summary>
     public enum PropertyUnit
     {
         /// <summary>
-        /// Adimensional.
+        /// Adimensional
         /// </summary>
         None,
+
         /// <summary>
-        /// Automático.
+        /// Auto
         /// </summary>
         Auto,
+
         /// <summary>
         /// Bits.
         /// </summary>
         Bits,
+
         /// <summary>
         /// Bytes.
         /// </summary>
         Bytes,
+
         /// <summary>
-        /// Centimétros.
+        /// Centimeters.
         /// </summary>
         cm,
+
         /// <summary>
-        /// Grados Centigrados.
+        /// Degrees Celsius
         /// </summary>
         DegreeCentigrade,
+
         /// <summary>
-        /// Puntos por pulgada.
+        ///  Dots per inch
         /// </summary>
         dpi,
+
         /// <summary>
-        /// Hercios.
+        /// Hertzs
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Hz")]
         Hz,
+
         /// <summary>
         /// Kilobyte
         /// </summary>
         KB,
+
         /// <summary>
-        /// Kilohercios
+        /// Kilohertz
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Hz")]
         KHz,
+
         /// <summary>
         /// Líneas
         /// </summary>
         Lines,
+
         /// <summary>
-        /// Miliamperios.
+        /// Milliamps
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "m")]
         mA,
+
         /// <summary>
-        /// Milimetros.
+        /// Millimiters.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "mm")]
         mm,
+
         /// <summary>
-        /// Milivoltios.
+        /// Milivolts
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "m")]
         mV,
+
         /// <summary>
-        /// Miliwatios/hora
+        /// Miliwatts/hour
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "m")]
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Wh")]
         mWh,
+
         /// <summary>
         /// Megabytes
         /// </summary>
         MB,
+
         /// <summary>
-        /// Megahercios
+        /// Megahertz
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Hz")]
         MHz,
+
         /// <summary>
-        /// Nanosegundos.
+        /// Nanoseconds
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ns")]
         ns,
+
         /// <summary>
-        /// Pixel.
+        /// Pixel
         /// </summary>
         Pixel,
+
         /// <summary>
-        /// Pixels.
+        /// Pixels
         /// </summary>
         Pixels,
+
         /// <summary>
-        /// Revoluciones por minuto.
+        /// minute
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "RPM")]
         RPM,
+
         /// <summary>
-        /// Unidad de medida standard para componentes de tipo rack o rack-mountable, 
-        /// es igual a 1.75 pulgadas o 4.445 cm
+        /// Standard unit of measure for rack-type or rack-mountable components, equals 1.75 inches or 4.445 cm
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "U")]
         U,
+
         /// <summary>
-        /// Voltios
+        /// Volts
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "V")]
         V,
+
         /// <summary>
-        /// Vatios.
+        /// Watts.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "W")]
-        W, 
+        W
     }
 }

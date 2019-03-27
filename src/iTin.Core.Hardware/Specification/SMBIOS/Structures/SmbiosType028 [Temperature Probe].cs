@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     using Dmi.Property;
+
     using Helpers;
 
     // Type 028: Voltage Probe.
@@ -64,19 +65,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver NominalValue                                |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
+    /// <inheritdoc />
     /// <summary>
-    /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Temperature Probe (Type 28) structure.
+    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Temperature Probe (Type 28) structure.
     /// </summary>
     sealed class SmbiosType028 : SmbiosBaseType
     {
         #region constructor/s
 
-        #region [public] SmbiosType028(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
+        #region [public] SmbiosType028(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
+        /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType028"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType028" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
         public SmbiosType028(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -86,7 +89,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (string) Description: Gets a value representing the 'Description' field.
+        #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
         /// Gets a value representing the <c>Description</c> field.
         /// </summary>
@@ -94,13 +97,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Description
-        {
-            get { return GetString(0x04); }
-        }
+        private string Description => GetString(0x04);
         #endregion
 
-        #region [private] (byte) LocationAndStatus: Gets a value representing the 'Location And Status' field.
+        #region [private] (byte) LocationAndStatus: Gets a value representing the 'Location And Status' field
         /// <summary>
         /// Gets a value representing the <c>Location And Status</c> field.
         /// </summary>
@@ -108,13 +108,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte LocationAndStatus
-        {
-            get { return GetByte(0x05); }
-        }
+        private byte LocationAndStatus => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) Location: Gets a value representing the 'Location' feature of the 'Location And Status' field.
+        #region [private] (byte) Location: Gets a value representing the 'Location' feature of the 'Location And Status' field
         /// <summary>
         /// Gets a value representing the <c>Location</c> feature of the <c>Location And Status</c> field
         /// </summary>
@@ -122,13 +119,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Location
-        {
-            get { return (byte)(LocationAndStatus & 0x1f); }
-        }
+        private byte Location => (byte)(LocationAndStatus & 0x1f);
         #endregion
 
-        #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Location And Status' field.
+        #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Location And Status' field
         /// <summary>
         /// Gets a value representing the <c>Status</c> feature of the <c>Location And Status</c> field
         /// </summary>
@@ -136,13 +130,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Feature value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Status
-        {
-            get { return (byte)((LocationAndStatus >> 5) & 0x07); }
-        }
+        private byte Status => (byte)((LocationAndStatus >> 5) & 0x07);
         #endregion
 
-        #region [private] (int) MaximunValue: Gets a value representing the 'Maximun Value' field.
+        #region [private] (int) MaximunValue: Gets a value representing the 'Maximun Value' field
         /// <summary>
         /// Gets a value representing the <c>Maximun Value</c> field.
         /// </summary>
@@ -150,13 +141,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunValue
-        {
-            get { return GetWord(0x06); }
-        }
+        private int MaximunValue => GetWord(0x06);
         #endregion
 
-        #region [private] (int) MinimunValue: Gets a value representing the 'Minimun Value' field.
+        #region [private] (int) MinimunValue: Gets a value representing the 'Minimun Value' field
         /// <summary>
         /// Gets a value representing the <c>Minimun Value</c> field.
         /// </summary>
@@ -164,13 +152,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MinimunValue
-        {
-            get { return GetWord(0x08); }
-        }
+        private int MinimunValue => GetWord(0x08);
         #endregion
 
-        #region [private] (int) Resolution: Gets a value representing the 'Resolution' field.
+        #region [private] (int) Resolution: Gets a value representing the 'Resolution' field
         /// <summary>
         /// Gets a value representing the <c>Resolution</c> field.
         /// </summary>
@@ -178,13 +163,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Resolution
-        {
-            get { return GetWord(0x0a); }
-        }
+        private int Resolution => GetWord(0x0a);
         #endregion
 
-        #region [private] (int) Tolerance: Gets a value representing the 'Tolerance' field.
+        #region [private] (int) Tolerance: Gets a value representing the 'Tolerance' field
         /// <summary>
         /// Gets a value representing the <c>Tolerance</c> field.
         /// </summary>
@@ -192,13 +174,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Tolerance
-        {
-            get { return GetWord(0x0c); }
-        }
+        private int Tolerance => GetWord(0x0c);
         #endregion
 
-        #region [private] (int) Accuracy: Gets a value representing the 'Accuracy' field.
+        #region [private] (int) Accuracy: Gets a value representing the 'Accuracy' field
         /// <summary>
         /// Gets a value representing the <c>Accuracy</c> field.
         /// </summary>
@@ -206,13 +185,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Accuracy
-        {
-            get { return GetWord(0x0e); }
-        }
+        private int Accuracy => GetWord(0x0e);
         #endregion.
 
-        #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field.
+        #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field
         /// <summary>
         /// Gets a value representing the <c>Oem Defined</c> field.
         /// </summary>
@@ -220,13 +196,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemDefined
-        {
-            get { return GetDoubleWord(0x10); }
-        }
+        private long OemDefined => GetDoubleWord(0x10);
         #endregion
 
-        #region [private] (int) NominalValue: Gets a value representing the 'Nominal Value field.
+        #region [private] (int) NominalValue: Gets a value representing the 'Nominal Value field
         /// <summary>
         /// Gets a value representing the <c>Nominal Value</c> field.
         /// </summary>
@@ -234,17 +207,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NominalValue
-        {
-            get { return GetWord(0x14); }
-        }
+        private int NominalValue => GetWord(0x14);
         #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the value of the specified property.
         /// </summary>
@@ -349,7 +320,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure.
+        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
@@ -413,7 +385,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (string) GetLocation(byte): Gets a string representing the location.
+        #region [private] {static} (string) GetLocation(byte): Gets a string representing the location
         /// <summary>
         /// Gets a string representing the location.
         /// </summary>
@@ -451,7 +423,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetStatus(byte): Gets a string representing the state of the test.
+        #region [private] {static} (string) GetStatus(byte): Gets a string representing the state of the test
         /// <summary>
         /// Gets a string representing the state of the test.
         /// </summary>

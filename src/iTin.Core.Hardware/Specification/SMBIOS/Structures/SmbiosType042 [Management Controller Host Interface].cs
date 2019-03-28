@@ -25,9 +25,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      (MCTP) IDs and Codes (DSP0239) for the definition of  |
     // |                                                      the Interface Type values.                            |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 05h          MC Host         n           Varies      Management Controller Host Interface Data as specified|
-    // |              Interface       BYTEs                   by the Interface Type. Refer to DSP0239 to locate the |
-    // |              Data                                    specification that corresponds to the Interface Type  |
+    // | 05h          Interface Type  BYTE        Varies                                                            |
+    // |              Specific Data                                                                                 |
+    // |              Data Length                                                                                   |
+    // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 06h          Interface Type  N           Varies      Management Controller Host Interface Data as specified|
+    // |              Specific Data   BYTEs                   by the Interface Type. Refer to DSP0239 to locate the |
     // |                                                      value.                                                |
     // |                                                      This field has a minimum of four bytes. If interface  |
     // |                                                      type = OEM then the first four bytes are the vendor   |
@@ -37,6 +40,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      assigned and maintained by IANA (www.iana.org) as the |
     // |                                                      means of identifying a particular vendor, company, or |
     // |                                                      organization.                                         |
+    // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 06h + N      Number of       N           X           X number of Protocol Records for this Host Interface  |
+    // |              Protocol                                Type                                                  |
+    // |              Records                                                                                       |
+    // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 0/h + N      Protocol        M           Varies      Protocol Records                                      |
+    // |              Records         BYTEs                                                                         |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <inheritdoc />

@@ -151,6 +151,52 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // | 28h      3.2+        Memory              BYTE        Varies      Memory technology type for this memory device.     |
     // |                      Technology                                  Note: See GetMemoryTechnology                      |
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 29h      3.2+        Memory              WORD        Bit Field   The operating modes supported by this memory       |
+    // |                      Operating                                   device.                                            |
+    // |                      Mode                                                                                           |
+    // |                      Capability                                                                                     |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 2Bh      3.2+        Firmware            BYTE        String      String number for the firmware version of this     |
+    // |                      Version                                     memory device.                                     |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 2Ch      3.2+        Module              WORD        Varies      The two-byte module manufacturer ID found in the   |
+    // |                      Manufacturer                                SPD of this memory device; LSB first               |
+    // |                      ID                                                                                             |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 2Eh      3.2+        Module              WORD        Varies      The two-byte module product ID found in the        |
+    // |                      Product                                     SPD of this memory device; LSB first               |
+    // |                      ID                                                                                             |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 30h      3.2+        Memory              WORD        Varies      The two-byte memory subsystem controller           |
+    // |                      Subsystem                                    manufacturer ID found in the SPD of this memory   |
+    // |                      Controller                                   device. LSB first.                                |
+    // |                      Manufacturer                                                                                   |
+    // |                      ID                                                                                             |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 32h      3.2+        Memory              WORD        Varies      The two-byte memory subsystem controller product   |
+    // |                      Subsystem                                    ID found in the SPD of this memory device.        |
+    // |                      Controller                                   LSB first                                         |
+    // |                      Product                                                                                        |
+    // |                      ID                                                                                             |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 34h      3.2+        Non-volatile        QWORD       Varies      Size of the Non-volatile portion of the memory     |
+    // |                      Size                                        device in Bytes, if any.                           |
+    // |                                                                  If is 0, there is no non-volatile portion.         |
+    // |                                                                  If is FFFFFFFFFFFFFFFFh, is unknown.               |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 3Ch      3.2+        Volatile Size       QWORD       Varies      Size of the Volatile portion of the memory device  |
+    // |                                                                  in Bytes, if any.                                  |
+    // |                                                                  If is 0, there is no volatile portion.             |
+    // |                                                                  If is FFFFFFFFFFFFFFFFh, is unknown.               |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 44h      3.2+        Cache Size          QWORD       Varies      Size of the cache portion of the memory device in  |
+    // |                                                                  Bytes, if any.                                     |
+    // |                                                                  If is 0, there is no volatile portion.             |
+    // |                                                                  If is FFFFFFFFFFFFFFFFh, is unknown.               |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 4Ch      3.2+        Lofical Size        QWORD       Varies      Size of the logical memory device in Bytes.        |
+    // |                                                                  If is FFFFFFFFFFFFFFFFh, is unknown.               |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <summary>
     /// Specialization of the <see cref = "T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Device (Type 17) structure.
@@ -468,13 +514,123 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MemoryTechnology: Gets a value representing the 'Memory Technology' field
         /// <summary>
-        /// Gets a value representing the <c>Memory Technology</c> field.
+        /// Gets a value representing the '<c>Memory Technology</c>' field.
         /// </summary>
         /// <value>
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private byte MemoryTechnology => GetByte(0x28);
+        #endregion
+
+        #region [private] (byte) MemoryOperatingModeCapability: Gets a value representing the 'Memory Operating Mode Capability' field
+        /// <summary>
+        /// Gets a value representing the '<c>Memory Operating Mode Capability</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int MemoryOperatingModeCapability => GetWord(0x29);
+        #endregion
+
+        #region [private] (string) FirmwareVersion: Gets a value representing the 'Firmware Version' field
+        /// <summary>
+        /// Gets a value representing the '<c>Firmware Version</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private string FirmwareVersion => GetString(0x2b);
+        #endregion
+
+        #region [private] (int) ModuleManufacturerId: Gets a value representing the 'Module Manufacturer Id' field
+        /// <summary>
+        /// Gets a value representing the '<c>Module Manufacturer Id</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int ModuleManufacturerId => GetWord(0x2c);
+        #endregion
+
+        #region [private] (int) ModuleProductId: Gets a value representing the 'Module Product Id' field
+        /// <summary>
+        /// Gets a value representing the '<c>Module Product Id</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int ModuleProductId => GetWord(0x2e);
+        #endregion
+
+        #region [private] (int) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Manufacturer Id' field
+        /// <summary>
+        /// Gets a value representing the '<c>Memory Subsystem Controller Manufacturer Id</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int MemorySubsystemControllerManufacturerId => GetWord(0x30);
+        #endregion
+
+        #region [private] (int) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Product Id' field
+        /// <summary>
+        /// Gets a value representing the '<c>Memory Subsystem Controller Product Id</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int MemorySubsystemControllerProductId => GetWord(0x32);
+        #endregion
+
+        #region [private] (ulong) NonVolatileSize: Gets a value representing the 'Non Volatile Size' field
+        /// <summary>
+        /// Gets a value representing the '<c>Non Volatile Size</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ulong NonVolatileSize => (ulong) GetQuadrupleWord(0x34);
+        #endregion
+
+        #region [private] (ulong) VolatileSize: Gets a value representing the 'Volatile Size' field
+        /// <summary>
+        /// Gets a value representing the '<c>Volatile Size</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ulong VolatileSize => (ulong)GetQuadrupleWord(0x3c);
+        #endregion
+
+        #region [private] (ulong) CacheSize: Gets a value representing the 'Cache Size' field
+        /// <summary>
+        /// Gets a value representing the '<c>Cache Size</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ulong CacheSize  => (ulong)GetQuadrupleWord(0x44);
+        #endregion
+
+        #region [private] (ulong) LogicalSize: Gets a value representing the 'Logical Size' field
+        /// <summary>
+        /// Gets a value representing the '<c>Logical Size</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ulong LogicalSize => (ulong)GetQuadrupleWord(0x4c);
         #endregion
 
         #endregion
@@ -495,7 +651,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override object GetValueTypedProperty(PropertyKey propertyKey)
         {
             object value = null;
-            SmbiosType017Property propertyId = (SmbiosType017Property)propertyKey.PropertyId;
+            var propertyId = (SmbiosType017Property)propertyKey.PropertyId;
 
             switch (propertyId)
             {
@@ -507,7 +663,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x06] - [v2.1] - [Memory Error Information Handle] - [Int32]
                 case SmbiosType017Property.MemoryErrorInformationHandle:
-                    int memoryErrorInformationHandle = MemoryErrorInformationHandle;
+                    var memoryErrorInformationHandle = MemoryErrorInformationHandle;
                     switch (memoryErrorInformationHandle)
                     {
                         case 0xffff:
@@ -527,7 +683,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x08] - [v2.1] - [Total Width] - [Int32?]
                 case SmbiosType017Property.TotalWidth:
-                    int totalWidth = TotalWidth;
+                    var totalWidth = TotalWidth;
                     if (totalWidth != 0xffff)
                     {
                         value = (int?)totalWidth;
@@ -538,7 +694,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0a] - [v2.1] - [Data Width] - [Int32?]
                 case SmbiosType017Property.DataWidth:
-                    int dataWidth = DataWidth;
+                    var dataWidth = DataWidth;
                     if (dataWidth != 0xffff)
                     {
                         value = (int?)dataWidth;
@@ -549,12 +705,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0c] - [v2.1] - [Size] - [Int32?]
                 case SmbiosType017Property.Size:
-                    int size = Size;
+                    var size = Size;
                     if (size != 0xffff)
                     {
                         if (size != 0x7fff)
                         {
-                            bool sizeIsMeasuredInKb = IsMeasuredInKb(size);
+                            var sizeIsMeasuredInKb = IsMeasuredInKb(size);
                             if (!sizeIsMeasuredInKb)
                             {
                                 size = size << 0x0a;
@@ -566,7 +722,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         {
                             if (HeaderInfo.Lenght >= 0x1d)
                             {
-                                uint extendedSize = ExtendedSize << 0x0a;
+                                var extendedSize = ExtendedSize << 0x0a;
                                 value = (int?)extendedSize;
                             }
                         }
@@ -582,15 +738,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0f] - [v2.1] - [Device Set]
 
-                    #region [0x0f] - [v2.1] - [Device Set -> Device Set] - [Byte?]
-                    case SmbiosType017Property.DeviceSet:
-                        MemoryDeviceBelongsToSet belongsToSetDevice = BelongsToSet;
-                        if (belongsToSetDevice == MemoryDeviceBelongsToSet.Yes)
-                        {
-                            value = (byte?)DeviceSet;
-                        }
-                        break;
-                    #endregion
+                #region [0x0f] - [v2.1] - [Device Set -> Device Set] - [Byte?]
+                case SmbiosType017Property.DeviceSet:
+                    var belongsToSetDevice = BelongsToSet;
+                    if (belongsToSetDevice == MemoryDeviceBelongsToSet.Yes)
+                    {
+                        value = (byte?)DeviceSet;
+                    }
+                    break;
+                #endregion
 
                 #endregion
 
@@ -622,7 +778,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 case SmbiosType017Property.MaximunSpeed:
                     if (HeaderInfo.Lenght >= 0x16)
                     {
-                        int maximunSpeed = MaximunSpeed;
+                        var maximunSpeed = MaximunSpeed;
                         if (maximunSpeed != 0)
                         {
                             value = (int?)maximunSpeed;
@@ -669,17 +825,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x1b] - [v2.6] - [Attributes]
 
-                    #region [0x1b] - [v2.6] - [Attributes -> Rank] - [Byte?]
-                    case SmbiosType017Property.Rank:
-                        if (HeaderInfo.Lenght >= 0x1c)
+                #region [0x1b] - [v2.6] - [Attributes -> Rank] - [Byte?]
+                case SmbiosType017Property.Rank:
+                    if (HeaderInfo.Lenght >= 0x1c)
+                    {
+                        if (Rank != 0)
                         {
-                            if (Rank != 0)
-                            {
-                                value = (byte?)Rank;
-                            }
+                            value = (byte?)Rank;
                         }
-                        break;
-                    #endregion
+                    }
+                    break;
+                #endregion
 
                 #endregion
 
@@ -730,6 +886,105 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     }
                     break;
                 #endregion
+
+                #region [0x28] - [v3.2] - [Memory Technologies] - [String]
+                case SmbiosType017Property.MemoryTechnology:
+                    if (HeaderInfo.Lenght >= 0x29)
+                    {
+                        value = GetMemoryTechnology(MemoryTechnology);
+                    }
+                    break;
+                #endregion
+
+                #region [0x29] - [v3.2] - [Memory Operating Mode Capability] - [ReadOnlyCollection<String>]
+                case SmbiosType017Property.MemoryOperatingModeCapability:
+                    if (HeaderInfo.Lenght >= 0x2A)
+                    {
+                        value = GetMemoryOperatingModeCapability(MemoryOperatingModeCapability);
+                    }
+                    break;
+                #endregion
+
+                #region [0x2B] - [v3.2] - [Firmware Version] - [String]
+                case SmbiosType017Property.FirmwareVersion:
+                    if (HeaderInfo.Lenght >= 0x2C)
+                    {
+                        value = FirmwareVersion;
+                    }
+                    break;
+                #endregion
+
+                #region [0x2C] - [v3.2] - [Module Manufacturer ID] - [Int32?]
+                case SmbiosType017Property.ModuleManufacturerId:
+                    if (HeaderInfo.Lenght >= 0x2D)
+                    {
+                        value = ModuleManufacturerId;
+                    }
+                    break;
+                #endregion
+
+                #region [0x2E] - [v3.2] - [Module Product ID] - [Int32?]
+                case SmbiosType017Property.ModuleProductId:
+                    if (HeaderInfo.Lenght >= 0x2F)
+                    {
+                        value = ModuleProductId;
+                    }
+                    break;
+                #endregion
+
+                #region [0x30] - [v3.2] - [Memory Subsystem Controller Manufacturer Id] - [Int32?]
+                case SmbiosType017Property.MemorySubsystemControllerManufacturerId:
+                    if (HeaderInfo.Lenght >= 0x31)
+                    {
+                        value = MemorySubsystemControllerManufacturerId;
+                    }
+                    break;
+                #endregion
+
+                #region [0x32] - [v3.2] - [Memory Subsystem Controller Product Id] - [Int32?]
+                case SmbiosType017Property.MemorySubsystemControllerProductId:
+                    if (HeaderInfo.Lenght >= 0x33)
+                    {
+                        value = MemorySubsystemControllerProductId;
+                    }
+                    break;
+                #endregion
+
+                #region [0x34] - [v3.2] - [Non Volatile Size] - [ulong?]
+                case SmbiosType017Property.NonVolatileSize:
+                    if (HeaderInfo.Lenght >= 0x35)
+                    {
+                        value = NonVolatileSize;
+                    }
+                    break;
+                #endregion
+
+                #region [0x3C] - [v3.2] - [Volatile Size] - [ulong?]
+                case SmbiosType017Property.VolatileSize:
+                    if (HeaderInfo.Lenght >= 0x3d)
+                    {
+                        value = VolatileSize;
+                    }
+                    break;
+                #endregion
+
+                #region [0x44] - [v3.2] - [Cache Size] - [ulong?]
+                case SmbiosType017Property.CacheSize:
+                    if (HeaderInfo.Lenght >= 0x45)
+                    {
+                        value = CacheSize;
+                    }
+                    break;
+                #endregion
+
+                #region [0x4C] - [v3.2] - [Logical Size] - [ulong?]
+                case SmbiosType017Property.LogicalSize:
+                    if (HeaderInfo.Lenght >= 0x4d)
+                    {
+                        value = LogicalSize;
+                    }
+                    break;
+                #endregion
             }
 
             return value;
@@ -753,7 +1008,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.1+
             properties.Add(KnownDmiProperty.MemoryDevice.PhysicalMemoryArrayHandle, PhysicalArrayMemoryHandle);
 
-            int memoryErrorInformationHandle = MemoryErrorInformationHandle;
+            var memoryErrorInformationHandle = MemoryErrorInformationHandle;
             switch (memoryErrorInformationHandle)
             {
                 case 0xffff:
@@ -769,24 +1024,24 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     break;
             }
 
-            int totalWidth = TotalWidth;
+            var totalWidth = TotalWidth;
             if (totalWidth != 0xffff)
             {
                 properties.Add(KnownDmiProperty.MemoryDevice.TotalWidth, totalWidth);
             }
 
-            int dataWidth = DataWidth;
+            var dataWidth = DataWidth;
             if (dataWidth != 0xffff)
             {
                 properties.Add(KnownDmiProperty.MemoryDevice.DataWidth, dataWidth);
             }
 
-            int size = Size;
+            var size = Size;
             if (size != 0xffff)
             {
                 if (size != 0x7fff)
                 {
-                    bool sizeIsMeasuredInKb = IsMeasuredInKb(size);
+                    var sizeIsMeasuredInKb = IsMeasuredInKb(size);
                     if (!sizeIsMeasuredInKb)
                     {
                         size = size << 0x0a;
@@ -798,7 +1053,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 {
                     if (HeaderInfo.Lenght >= 0x1d)
                     {
-                        uint extendedSize = ExtendedSize << 0x0a;
+                        var extendedSize = ExtendedSize << 0x0a;
                         properties.Add(KnownDmiProperty.MemoryDevice.Size, extendedSize);
                     }
                 }
@@ -806,7 +1061,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             properties.Add(KnownDmiProperty.MemoryDevice.FormFactor, GetFormFactor(FormFactor));
 
-            MemoryDeviceBelongsToSet belongsToSet = BelongsToSet;
+            var belongsToSet = BelongsToSet;
             if (belongsToSet.Equals(MemoryDeviceBelongsToSet.Yes))
             {
                 properties.Add(KnownDmiProperty.MemoryDevice.DeviceSet, DeviceSet);
@@ -821,7 +1076,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.3+
             if (HeaderInfo.Lenght >= 0x16)
             {
-                int maximunSpeed = MaximunSpeed;
+                var maximunSpeed = MaximunSpeed;
                 if (maximunSpeed != 0)
                 {
                     properties.Add(KnownDmiProperty.MemoryDevice.MaximunSpeed, maximunSpeed);
@@ -852,7 +1107,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.6+
             if (HeaderInfo.Lenght >= 0x1c)
             {
-                byte rank = Rank;
+                var rank = Rank;
                 if (rank != 0)
                 {
                     properties.Add(KnownDmiProperty.MemoryDevice.Rank, rank);
@@ -863,7 +1118,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.7+
             if (HeaderInfo.Lenght >= 0x21)
             {
-                int currentSpeed = CurrentSpeed;
+                var currentSpeed = CurrentSpeed;
                 if (currentSpeed != 0)
                 {
                     properties.Add(KnownDmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed, currentSpeed);
@@ -874,19 +1129,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.8+
             if (HeaderInfo.Lenght >= 0x23)
             {
-                int minimunVoltage = MinimunVoltage;
+                var minimunVoltage = MinimunVoltage;
                 if (minimunVoltage != 0)
                 {
                     properties.Add(KnownDmiProperty.MemoryDevice.MinimunVoltage, minimunVoltage);
                 }
 
-                int maximumVoltage = MaximumVoltage;
+                var maximumVoltage = MaximumVoltage;
                 if (maximumVoltage != 0)
                 {
                     properties.Add(KnownDmiProperty.MemoryDevice.MaximumVoltage, maximumVoltage);
                 }
 
-                int configuredVoltage = ConfiguredVoltage;
+                var configuredVoltage = ConfiguredVoltage;
                 if (configuredVoltage != 0)
                 {
                     properties.Add(KnownDmiProperty.MemoryDevice.ConfiguredVoltage, configuredVoltage);
@@ -897,8 +1152,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 3.2+
             if (HeaderInfo.Lenght >= 0x29)
             {
-                string memoryTechnology = GetMemoryTechnology(MemoryTechnology);
+                var memoryTechnology = GetMemoryTechnology(MemoryTechnology);
                 properties.Add(KnownDmiProperty.MemoryDevice.MemoryTechnology, memoryTechnology);
+
+                var memoryOperatingModeCapability = GetMemoryOperatingModeCapability(MemoryOperatingModeCapability);
+                properties.Add(KnownDmiProperty.MemoryDevice.MemoryOperatingModeCapability, memoryOperatingModeCapability);
+
+                properties.Add(KnownDmiProperty.MemoryDevice.FirmwareVersion, FirmwareVersion);
+                properties.Add(KnownDmiProperty.MemoryDevice.ModuleManufacturerId, ModuleManufacturerId);
+                properties.Add(KnownDmiProperty.MemoryDevice.ModuleProductId, ModuleProductId);
+                properties.Add(KnownDmiProperty.MemoryDevice.MemorySubsystemControllerManufacturerId, MemorySubsystemControllerManufacturerId);
+                properties.Add(KnownDmiProperty.MemoryDevice.MemorySubsystemControllerProductId, MemorySubsystemControllerProductId);
+                properties.Add(KnownDmiProperty.MemoryDevice.NonVolatileSize, NonVolatileSize);
+                properties.Add(KnownDmiProperty.MemoryDevice.VolatileSize, VolatileSize);
+                properties.Add(KnownDmiProperty.MemoryDevice.CacheSize, CacheSize);
+                properties.Add(KnownDmiProperty.MemoryDevice.LogicalSize, LogicalSize);
 
             }
             #endregion
@@ -1094,6 +1362,42 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private static bool IsMeasuredInKb(int code)
         {
             return code.CheckBit(Bits.Bit15);
+        }
+        #endregion
+
+        #region [private] {static} (ReadOnlyCollection<String>) GetMemoryOperatingModeCapability(int): Gets a memory operating mode capability
+        /// <summary>
+        /// Gets a memory operating mode capability.
+        /// </summary>
+        /// <param name="code">Value to analyze</param>
+        /// <returns>
+        /// A read-only collection of supported memory operating mode capabilities.
+        /// </returns>            
+        private static ReadOnlyCollection<string> GetMemoryOperatingModeCapability(int code)
+        {
+            string[] capability =
+            {
+                "Reserved", // 0x00
+                "Other",
+                "Unknown",
+                "Volatile memory",
+                "Byte-accessible persistent memory",
+                "Block-accessible persistent memory", // 0x05
+
+                // Bit 0x06 - 0x0f Reserved (0)
+            };
+
+            List<string> items = new List<string>();
+            for (byte i = 1; i <= 5; i++)
+            {
+                bool addType = code.CheckBit(i);
+                if (addType)
+                {
+                    items.Add(capability[i]);
+                }
+            }
+
+            return items.AsReadOnly();
         }
         #endregion
 

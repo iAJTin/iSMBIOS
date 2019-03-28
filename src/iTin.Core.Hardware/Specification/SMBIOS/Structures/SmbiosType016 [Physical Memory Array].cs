@@ -263,7 +263,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             properties.Add(KnownDmiProperty.PhysicalMemoryArray.MemoryErrorInformationHandle, GetErrorHandle(ErrorInformationHandle));
             properties.Add(KnownDmiProperty.PhysicalMemoryArray.NumberOfMemoryDevices, NumberOfMemoryDevices);
 
-            ulong maximumCapacity = MaximumCapacity;
+            var maximumCapacity = MaximumCapacity;
             properties.Add(
                 KnownDmiProperty.PhysicalMemoryArray.MaximumCapacity, 
                 maximumCapacity == 0x08000000 

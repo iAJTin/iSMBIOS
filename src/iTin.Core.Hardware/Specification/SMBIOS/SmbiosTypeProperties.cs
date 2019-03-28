@@ -897,7 +897,48 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region version 3.2+
         [DevicePropertyDescription("")]
         [DevicePropertyType(typeof(string))]
-        MemoryTechnology
+        MemoryTechnology,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
+        MemoryOperatingModeCapability,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(string))]
+        FirmwareVersion,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(string))]
+        ModuleManufacturerId,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(string))]
+        ModuleProductId,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(int?))]
+        MemorySubsystemControllerManufacturerId,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(int?))]
+        MemorySubsystemControllerProductId,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(ulong?))]
+        NonVolatileSize,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(ulong?))]
+        VolatileSize,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(ulong?))]
+        CacheSize,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(ulong?))]
+        LogicalSize,
+
         #endregion
     }
     #endregion

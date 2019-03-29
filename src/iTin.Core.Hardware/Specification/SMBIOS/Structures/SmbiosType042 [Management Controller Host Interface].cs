@@ -2,6 +2,8 @@
 namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System.Collections;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Diagnostics;
 
     using Dmi.Property;
@@ -45,7 +47,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              Protocol                                Type                                                  |
     // |              Records                                                                                       |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 0/h + N      Protocol        M           Varies      Protocol Records                                      |
+    // | 07h + N      Protocol        M           Varies      Protocol Records                                      |
     // |              Records         BYTEs                                                                         |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
@@ -75,13 +77,35 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) InterfaceType: Gets a value representing the 'Interface Type' field
         /// <summary>
-        /// Gets a value representing the <c>Interface Type</c> field.
+        /// Gets a value representing the '<c>Interface Type</c>' field.
         /// </summary>
         /// <value>
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private byte InterfaceType => GetByte(0x04);
+        #endregion
+
+        #region [private] (byte) InterfaceTypeSpecificDataLenght: Gets a value representing the 'Interface Type Specific Data Lenght' field
+        /// <summary>
+        /// Gets a value representing the '<c>Interface Type Specific Data Lenght</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte InterfaceTypeSpecificDataLenght => GetByte(0x05);
+        #endregion
+
+        #region [private] (ReadOnlyCollection<byte>) InterfaceTypeSpecificData: Gets a value representing the 'Interface Type Specific Data' field
+        /// <summary>
+        /// Gets a value representing the '<c>Interface Type Specific Data</c>' field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ReadOnlyCollection<byte> InterfaceTypeSpecificData => new ReadOnlyCollection<byte>(GetBytes(0x06, InterfaceTypeSpecificDataLenght));
         #endregion
 
         #endregion
@@ -109,6 +133,24 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     value = GetInterfaceType(InterfaceType);
                     break;
                 #endregion
+
+                #region [0x06] - [v3.2+] [Interface Type Specific Data] - [ReadOnlyCollection<byte>]
+                case SmbiosType042Property.InterfaceTypeSpecificData:
+                    if (HeaderInfo.Lenght >= 0x07)
+                    {
+                        value = InterfaceTypeSpecificData;
+                    }
+                    break;
+                #endregion
+
+                #region [0x07 + n] - [v3.2+] [Protocol Records] - [ManagementControllerHostInterfaceProtocolRecordsCollection]
+                case SmbiosType042Property.Protocols:
+                    if (HeaderInfo.Lenght >= 0x08 + InterfaceTypeSpecificDataLenght)
+                    {
+                        value = new ManagementControllerHostInterfaceProtocolRecordsCollection(GetProtocolRecords());
+                    }
+                    break;
+                #endregion
             }
 
             return value;
@@ -128,14 +170,68 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region versions
+
+            #region 2.0+ - 3.1.1
             properties.Add(KnownDmiProperty.ManagementControllerHostInterface.InterfaceType, GetInterfaceType(InterfaceType));
+            #endregion
+
+            #region 3.2+
+            if (HeaderInfo.RawData.Length >= 0x07)
+            {
+                properties.Add(KnownDmiProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData, InterfaceTypeSpecificData);
+            }
+
+            if (HeaderInfo.RawData.Length >= 0x08 + InterfaceTypeSpecificDataLenght)
+            {
+                properties.Add(KnownDmiProperty.ManagementControllerHostInterface.Protocols, new ManagementControllerHostInterfaceProtocolRecordsCollection(GetProtocolRecords()));
+            }
+            #endregion
+
             #endregion
         }
         #endregion
 
         #endregion
 
-        #region BIOS Specification 2.7.1 (26/01/2011)
+        #region private methods
+
+        #region [private] (IEnumerable<ManagementControllerHostInterfaceProtocolRecord>) GetProtocolRecords(): Returns a protocol records collection
+        /// <summary>
+        /// Returns a protocol records collection.
+        /// </summary>
+        /// <returns>
+        /// Protocol records collection
+        /// </returns>
+        private IEnumerable<ManagementControllerHostInterfaceProtocolRecord> GetProtocolRecords()
+        {
+            var protocolRecords = new Collection<ManagementControllerHostInterfaceProtocolRecord>();
+
+            var n = InterfaceTypeSpecificDataLenght;
+            var numberOfProtocolsRecords = GetByte((byte)(0x06 + n));
+
+            var offset = (byte)0;
+            for (var x = 0; x < numberOfProtocolsRecords ; x++)
+            {
+                var init = (byte)(0x07 + n + offset);
+                if (HeaderInfo.RawData.Length <= init + 1)
+                {
+                    break;
+                }
+
+                var m = GetByte((byte) (init + 0x01));
+                offset = (byte) (0x02 + m);
+
+                var protocolRecordsBytes = GetBytes(init, m);
+                protocolRecords.Add(new ManagementControllerHostInterfaceProtocolRecord(protocolRecordsBytes));
+            }
+
+            return protocolRecords;
+        }
+        #endregion
+
+        #endregion
+
+        #region BIOS Specification 3.2.0 (26/04/2018)
 
         #region [private] {static} (string) GetInterfaceType(byte): Gets a string representing the type of interface
         /// <summary>

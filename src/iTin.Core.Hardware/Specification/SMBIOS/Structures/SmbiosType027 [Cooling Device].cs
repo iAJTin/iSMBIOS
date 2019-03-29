@@ -211,47 +211,62 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             switch (propertyId)
             {
-                #region [0x04] - [Temperature Probe Handle] - [Int32?]
+                #region [0x04] - [v2.2+] - [Temperature Probe Handle] - [Int32?]
                 case SmbiosType027Property.TemperatureProbeHandle:
-                    if (TemperatureProbeHandle != 0xffff)
+                    if (HeaderInfo.RawData.Length >= 0x05)
                     {
-                        value = TemperatureProbeHandle;
+                        if (TemperatureProbeHandle != 0xffff)
+                        {
+                            value = TemperatureProbeHandle;
+                        }
                     }
                     break;
                 #endregion
 
-                #region [0x06] - [Device Type And Status]
+                #region [0x06] - [v2.2+] - [Device Type And Status]
 
-                    #region [0x06] - [Device Type And Status -> Status] - [String]
-                    case SmbiosType027Property.Status:
+                #region [0x06] - [Device Type And Status -> Status] - [String]
+                case SmbiosType027Property.Status:
+                    if (HeaderInfo.RawData.Length >= 0x07)
+                    {
                         value = GetStatus(Status);
-                        break;
-                    #endregion
-
-                    #region [0x06] - [Device Type And Status -> Location] - [String]
-                    case SmbiosType027Property.DeviceType:
-                        value = GetDeviceType(DeviceType);
-                        break;
-                    #endregion
-
-                #endregion
-
-                #region [0x07] - [Cooling Unit Group] - [Byte?]
-                case SmbiosType027Property.CoolingUnitGroup:
-                    if (CoolingUnitGroup != 0x00)
-                    {
-                        value = CoolingUnitGroup;
                     }
                     break;
                 #endregion
 
-                #region [0x08] - [OEM-defined] - [Int64]
-                case SmbiosType027Property.OemDefined:
-                    value = OemDefined;
+                #region [0x06] - [Device Type And Status -> Location] - [String]
+                case SmbiosType027Property.DeviceType:
+                    if (HeaderInfo.RawData.Length >= 0x07)
+                    {
+                        value = GetDeviceType(DeviceType);
+                    }
                     break;
                 #endregion
 
-                #region [0x0c] - [Nominal Speed] - [Int32?]
+                #endregion
+
+                #region [0x07] - [v2.2+] - [Cooling Unit Group] - [Byte?]
+                case SmbiosType027Property.CoolingUnitGroup:
+                    if (HeaderInfo.RawData.Length >= 0x08)
+                    {
+                        if (CoolingUnitGroup != 0x00)
+                        {
+                            value = CoolingUnitGroup;
+                        }
+                    }
+                    break;
+                #endregion
+
+                #region [0x08] - [v2.2+] - [OEM-defined] - [Int64]
+                case SmbiosType027Property.OemDefined:
+                    if (HeaderInfo.RawData.Length >= 0x09)
+                    {
+                        value = OemDefined;
+                    }
+                    break;
+                #endregion
+
+                #region [0x0c] - [v2.2+] - [Nominal Speed] - [Int32?]
                 case SmbiosType027Property.NominalSpeed:
                     if (HeaderInfo.Lenght >= 0x0d)
                     {
@@ -263,7 +278,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     break;
                 #endregion
 
-                #region [0x0e] - [Description] - [String]
+                #region [0x0e] - [v2.7+] - [Description] - [String]
                 case SmbiosType027Property.Description:
                     if (HeaderInfo.Lenght >= 0x0f)
                     {
@@ -290,20 +305,32 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            if (TemperatureProbeHandle != 0xffff)
+            if (HeaderInfo.RawData.Length >= 0x05)
             {
-                properties.Add(KnownDmiProperty.CoolingDevice.TemperatureProbeHandle, TemperatureProbeHandle);
+                if (TemperatureProbeHandle != 0xffff)
+                {
+                    properties.Add(KnownDmiProperty.CoolingDevice.TemperatureProbeHandle, TemperatureProbeHandle);
+                }
             }
 
-            properties.Add(KnownDmiProperty.CoolingDevice.DeviceTypeAndStatus.Status, GetStatus(Status));
-            properties.Add(KnownDmiProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType, GetDeviceType(DeviceType));
-
-            if (CoolingUnitGroup != 0x00)
+            if (HeaderInfo.RawData.Length >= 0x07)
             {
-                properties.Add(KnownDmiProperty.CoolingDevice.CoolingUnitGroup, CoolingUnitGroup);
+                properties.Add(KnownDmiProperty.CoolingDevice.DeviceTypeAndStatus.Status, GetStatus(Status));
+                properties.Add(KnownDmiProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType, GetDeviceType(DeviceType));
             }
 
-            properties.Add(KnownDmiProperty.CoolingDevice.OemDefined, OemDefined);
+            if (HeaderInfo.RawData.Length >= 0x08)
+            {
+                if (CoolingUnitGroup != 0x00)
+                {
+                    properties.Add(KnownDmiProperty.CoolingDevice.CoolingUnitGroup, CoolingUnitGroup);
+                }
+            }
+
+            if (HeaderInfo.RawData.Length >= 0x09)
+            {
+                properties.Add(KnownDmiProperty.CoolingDevice.OemDefined, OemDefined);
+            }
 
             if (HeaderInfo.Lenght >= 0x0d)
             {

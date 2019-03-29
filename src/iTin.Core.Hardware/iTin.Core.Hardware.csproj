@@ -125,7 +125,9 @@
     <Compile Include="Specification\SMBIOS\Structures\Specific\AdditionalInformationEntry.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\AdditionalInformationEntryCollection.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\BaseBoardContainedElementCollection.cs" />
+    <Compile Include="Specification\SMBIOS\Structures\Specific\ManagementControllerHostInterfaceProtocolRecord.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\ChassisContainedElement.cs" />
+    <Compile Include="Specification\SMBIOS\Structures\Specific\ManagementControllerHostInterfaceProtocolRecordsCollection.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\ChassisContainedElementCollection.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\ChassisContainedElementType.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\GroupAssociationElement.cs" />

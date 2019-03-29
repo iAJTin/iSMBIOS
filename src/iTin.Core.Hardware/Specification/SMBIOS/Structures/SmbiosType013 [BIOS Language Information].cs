@@ -77,17 +77,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private int Count => GetByte(0x04);
         #endregion
 
-        #region [private] (bool) IsCurrentAbbreviated: Gets a value representing the 'Is Current Abbreviated' field
-        /// <summary>
-        /// Gets a value representing the <c>Is Current Abbreviated</c> field.
-        /// </summary>
-        /// <value>
-        /// Property value.
-        /// </value>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsCurrentAbbreviated => GetByte(0x05).CheckBit(Bits.Bit00);
-        #endregion
-
         #region [private] (string) Current: Gets a value representing the 'Current' field
         /// <summary>
         /// Gets a value representing the <c>Current</c> field.
@@ -97,6 +86,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string Current => GetString(0x015);
+        #endregion
+
+        #endregion
+
+        #region Version 2.1+ fields
+
+        #region [private] (bool) IsCurrentAbbreviated: Gets a value representing the 'Is Current Abbreviated' field
+        /// <summary>
+        /// Gets a value representing the <c>Is Current Abbreviated</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private bool IsCurrentAbbreviated => GetByte(0x05).CheckBit(Bits.Bit00);
         #endregion
 
         #endregion
@@ -123,7 +127,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 #region [0x04] - [v2.0] - [Installable Languages] - [ReadOnlyCollection<string>]
                 case SmbiosType013Property.InstallableLanguages:
-                    value = GetValues(Count);
+                    if (HeaderInfo.RawData.Length >= 0x05)
+                    {
+                        value = GetValues(Count);
+                    }
                     break;
                 #endregion
 
@@ -131,7 +138,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x05] - [v2.1] - [Flags -> IsCurrentAbbreviated] - [bool]
                 case SmbiosType013Property.IsCurrentAbbreviated:
-                    value = IsCurrentAbbreviated;
+                    if (HeaderInfo.RawData.Length >= 0x06)
+                    {
+                        value = IsCurrentAbbreviated;
+                    }
                     break;
                 #endregion
 
@@ -139,7 +149,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x15] - [v2.0] - [Current Language] - [string]
                 case SmbiosType013Property.Current:
-                    value = Current;
+                    if (HeaderInfo.RawData.Length >= 0x16)
+                    {
+                        value = Current;
+                    }
                     break;
                 #endregion
             }
@@ -161,9 +174,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.BiosLanguage.InstallableLanguages, GetValues(Count));
-            properties.Add(KnownDmiProperty.BiosLanguage.IsCurrentAbbreviated, IsCurrentAbbreviated);
-            properties.Add(KnownDmiProperty.BiosLanguage.Current, Current);
+            if (HeaderInfo.RawData.Length >= 0x05)
+            {
+                properties.Add(KnownDmiProperty.BiosLanguage.InstallableLanguages, GetValues(Count));
+            }
+
+            if (HeaderInfo.RawData.Length >= 0x06)
+            {
+                properties.Add(KnownDmiProperty.BiosLanguage.IsCurrentAbbreviated, IsCurrentAbbreviated);
+            }
+
+            if (HeaderInfo.RawData.Length >= 0x16)
+            {
+                properties.Add(KnownDmiProperty.BiosLanguage.Current, Current);
+            }
             #endregion
         }
         #endregion

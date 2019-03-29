@@ -1820,6 +1820,22 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [DevicePropertyDescription("")]
         [DevicePropertyType(typeof(string))]
         InterfaceType,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(ReadOnlyCollection<byte>))]
+        InterfaceTypeSpecificData,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(ManagementControllerHostInterfaceProtocolRecordsCollection))]
+        Protocols,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(string))]
+        ProtocolType,
+
+        [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(ReadOnlyCollection<byte>))]
+        ProtocolTypeSpecificData,
     }
     #endregion
 

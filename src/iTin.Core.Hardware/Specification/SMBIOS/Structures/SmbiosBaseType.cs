@@ -4,6 +4,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
+    using System.Linq;
 
     using Device.DeviceProperty;
 
@@ -192,6 +193,29 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected byte GetByte(byte target)
         {
             return HeaderInfo.RawData[target];
+        }
+        #endregion
+
+        #region [protected] (byte) GetBytes(byte, byte): Returns the stored array from start with specified lenght
+        /// <summary>
+        /// Returns the stored array from start with specified lenght.
+        /// </summary>
+        /// <param name="start">start byte</param>
+        /// <param name="lenght">lenght</param>
+        /// <returns>
+        /// The array value stored.
+        /// </returns>
+        protected byte[] GetBytes(byte start, byte lenght)
+        {
+            var bytes = new Collection<byte>();
+
+            for (byte i = start; i <= lenght; i++)
+            {
+                bytes.Add(HeaderInfo.RawData[i]);
+            }
+
+            return bytes.ToArray();
+
         }
         #endregion
 

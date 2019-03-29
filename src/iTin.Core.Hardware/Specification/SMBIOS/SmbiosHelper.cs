@@ -14,6 +14,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     static class SmbiosHelper
     {
         #region public constants
+        public const string Reserved = "Reserved";
         public const string OutOfSpec = "<OUT OF SPEC>";
         #endregion
 

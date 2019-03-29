@@ -1269,10 +1269,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
             };
 
             var items = new List<string>();
-            for (byte i = 1; i <= 15; i++)
+            for (var i = 1; i <= 15; i++)
             {
-                byte bit = (byte)(i + 1);
-                bool addDetail = code.CheckBit(bit);
+                var bit = (byte)(i + 1);
+                var addDetail = code.CheckBit(bit);
                 if (addDetail)
                 {
                     items.Add(deviceProperty[i]);
@@ -1359,10 +1359,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// <b>true</b> if memory is measured in KB;<b>false</b> otherwise.
         /// </returns>
-        private static bool IsMeasuredInKb(int code)
-        {
-            return code.CheckBit(Bits.Bit15);
-        }
+        private static bool IsMeasuredInKb(int code) => code.CheckBit(Bits.Bit15);
         #endregion
 
         #region [private] {static} (ReadOnlyCollection<String>) GetMemoryOperatingModeCapability(int): Gets a memory operating mode capability
@@ -1387,10 +1384,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 // Bit 0x06 - 0x0f Reserved (0)
             };
 
-            List<string> items = new List<string>();
+            var items = new List<string>();
             for (byte i = 1; i <= 5; i++)
             {
-                bool addType = code.CheckBit(i);
+                var addType = code.CheckBit(i);
                 if (addType)
                 {
                     items.Add(capability[i]);

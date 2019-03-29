@@ -510,21 +510,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 long oemDefined = OemDefined;
                 if (oemDefined != 0)
+                {
                     properties.Add(KnownDmiProperty.Chassis.OemDefined, oemDefined);
+                }
             }
 
             if (HeaderInfo.Lenght >= 0x12)
             {
                 byte height = Height;
                 if (height != 0)
+                {
                     properties.Add(KnownDmiProperty.Chassis.Height, height);
+                }
             }
 
             if (HeaderInfo.Lenght >= 0x13)
             {
                 byte numberOfPowerCords = NumberOfPowerCords;
                 if (numberOfPowerCords != 0)
+                {
                     properties.Add(KnownDmiProperty.Chassis.NumberOfPowerCords, numberOfPowerCords);
+                }
             }
 
             if (HeaderInfo.Lenght >= 0x14)
@@ -547,7 +553,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             }
 
                             if (HeaderInfo.Lenght > 0x16 + (n * m))
+                            {
                                 properties.Add(KnownDmiProperty.Chassis.SkuNumber, GetEnclosureSkuNumber(n, m));
+                            }
                         }
                     }
                 }

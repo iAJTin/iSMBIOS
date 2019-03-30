@@ -355,15 +355,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 2.6+
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(byte?))]
+        [DevicePropertyType(typeof(int?))]
         CoreCount,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(byte?))]
+        [DevicePropertyType(typeof(int?))]
         CoreEnabled,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(byte?))]
+        [DevicePropertyType(typeof(int?))]
         ThreadCount,
 
         [DevicePropertyDescription("")]

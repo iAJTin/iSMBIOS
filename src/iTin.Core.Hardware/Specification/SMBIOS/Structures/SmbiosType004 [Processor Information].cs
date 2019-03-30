@@ -536,6 +536,39 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private bool PowerPerformanceControl => Characteristics.CheckBit(Bits.Bit07);
         #endregion
 
+        #region [private] (int) CoreCount2: Gets a value representing the 'Core Count 2' field
+        /// <summary>
+        /// Gets a value representing the <c>Core Count 2</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int CoreCount2 => GetWord(0x2a);
+        #endregion
+
+        #region [private] (int) CoreEnabled2: Gets a value representing the 'Core Enabled 2' field
+        /// <summary>
+        /// Gets a value representing the <c>Core Enabled 2</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int CoreEnabled2 => GetWord(0x2c);
+        #endregion
+
+        #region [private] (int) ThreadCount2: Gets a value representing the 'Thread Count 2' field
+        /// <summary>
+        /// Gets a value representing the <c>Thread Count 2</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int ThreadCount2 => GetWord(0x2e);
+        #endregion
+
         #endregion
 
         #region protected override methods
@@ -765,40 +798,91 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     break;
                 #endregion
 
-                #region [0x23] - [v2.0] - [Core Count] - [Byte?]
+                #region [0x23] - [v2.0/v3.0+] - [Core Count] - [Int32?]
                 case SmbiosType004Property.CoreCount:
                     if (HeaderInfo.Lenght >= 0x24)
                     {
                         var coreCount = CoreCount;
                         if (coreCount != 0x00)
                         {
-                            value = (byte?)coreCount;
+                            if (coreCount != 0xff)
+                            {
+                                value = (byte?) coreCount;
+                            }
+                            else
+                            {
+                                if (HeaderInfo.Lenght >= 0x2b)
+                                {
+                                    var coreCount2 = CoreCount2;
+                                    if (coreCount2 != 0x0000)
+                                    {
+                                        if (coreCount2 != 0xffff)
+                                        {
+                                            value = (int?)coreCount2;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                     break;
                 #endregion
 
-                #region [0x24] - [v2.0] - [Core Enabled] - [Byte?]
+                #region [0x24] - [v2.0/v3.0+] - [Core Enabled] - [Int32?]
                 case SmbiosType004Property.CoreEnabled:
                     if (HeaderInfo.Lenght >= 0x25)
                     {
                         var coreEnabled = CoreEnabled;
                         if (coreEnabled != 0x00)
                         {
-                            value = (byte?)coreEnabled;
+                            if (coreEnabled != 0xff)
+                            {
+                                value = (byte?)coreEnabled;
+                            }
+                            else
+                            {
+                                if (HeaderInfo.Lenght >= 0x2d)
+                                {
+                                    var coreEnabled2 = CoreEnabled2;
+                                    if (coreEnabled2 != 0x0000)
+                                    {
+                                        if (coreEnabled2 != 0xffff)
+                                        {
+                                            value = (int?)coreEnabled2;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                     break;
                 #endregion
 
-                #region [0x25] - [v2.0] - [Thread Count] - [Byte?]
+                #region [0x25] - [v2.0/v3.0+] - [Thread Count] - [Int32?]
                 case SmbiosType004Property.ThreadCount:
                     if (HeaderInfo.Lenght >= 0x26)
                     {
                         var threadCount = ThreadCount;
                         if (threadCount != 0x00)
                         {
-                            value = (byte?)threadCount;
+                            if (threadCount != 0xff)
+                            {
+                                value = (byte?)threadCount;
+                            }
+                            else
+                            {
+                                if (HeaderInfo.Lenght >= 0x2f)
+                                {
+                                    var threadCount2 = ThreadCount2;
+                                    if (threadCount2 != 0x0000)
+                                    {
+                                        if (threadCount2 != 0xffff)
+                                        {
+                                            value = (int?)threadCount2;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                     break;
@@ -998,19 +1082,53 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.5+
             if (HeaderInfo.Lenght >= 0x24)
             {
-                byte coreCount = CoreCount;
+                var coreCount = CoreCount;
                 if (coreCount != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.Processor.CoreCount, coreCount);
+                    if (coreCount != 0xff)
+                    {
+                        properties.Add(KnownDmiProperty.Processor.CoreCount, coreCount);
+                    }
+                    else
+                    {
+                        if (HeaderInfo.Lenght >= 0x2b)
+                        {
+                            var coreCount2 = CoreCount2;
+                            if (coreCount2 != 0x0000)
+                            {
+                                if (coreCount2 != 0xffff)
+                                {
+                                    properties.Add(KnownDmiProperty.Processor.CoreCount, coreCount2);
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
             if (HeaderInfo.Lenght >= 0x25)
             {
-                byte coreEnabled = CoreEnabled;
+                var coreEnabled = CoreEnabled;
                 if (coreEnabled != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.Processor.CoreEnabled, coreEnabled);
+                    if (coreEnabled != 0xff)
+                    {
+                        properties.Add(KnownDmiProperty.Processor.CoreEnabled, coreEnabled);
+                    }
+                    else
+                    {
+                        if (HeaderInfo.Lenght >= 0x2d)
+                        {
+                            var coreEnabled2 = CoreEnabled2;
+                            if (coreEnabled2 != 0x0000)
+                            {
+                                if (coreEnabled2 != 0xffff)
+                                {
+                                    properties.Add(KnownDmiProperty.Processor.CoreEnabled, coreEnabled2);
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
@@ -1019,7 +1137,24 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 byte threadCount = ThreadCount;
                 if (threadCount != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.Processor.ThreadCount, threadCount);
+                    if (threadCount != 0xff)
+                    {
+                        properties.Add(KnownDmiProperty.Processor.ThreadCount, threadCount);
+                    }
+                    else
+                    {
+                        if (HeaderInfo.Lenght >= 0x2f)
+                        {
+                            var threadCount2 = ThreadCount2;
+                            if (threadCount2 != 0x0000)
+                            {
+                                if (threadCount2 != 0xffff)
+                                {
+                                    properties.Add(KnownDmiProperty.Processor.ThreadCount, threadCount2);
+                                }
+                            }
+                        }
+                    }
                 }
             }
 

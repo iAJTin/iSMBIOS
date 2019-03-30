@@ -2255,11 +2255,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   </item>
             /// </list>
             /// </remarks>
-            public static PropertyKey SocketDesignation
-            {
-                get { return new PropertyKey(SmbiosStructure.Processor, SmbiosType004Property.SocketDesignation); }
-            }
-
+            public static PropertyKey SocketDesignation => new PropertyKey(SmbiosStructure.Processor, SmbiosType004Property.SocketDesignation);
             #endregion
 
             #region [public] {static} (PropertyKey) ProcessorType: Gets a value representing the key to retrieve the property
@@ -2989,7 +2985,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>Property: <see cref="SmbiosType004Property.CoreCount" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
             /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Nullable&lt;Byte&gt;" /></para>
+            /// <para>Type: <see cref="T:System.Nullable{Int32}" /></para>
             /// </summary>
             /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
             /// <remarks><para>Key definition:</para>
@@ -3018,7 +3014,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <item>
             ///     <term>Type</term>
             ///     <description>
-            ///       <see cref="T:System.Nullable&lt;Byte&gt;" />
+            ///       <see cref="T:System.Nullable{Int32}"" />
             ///     </description>
             ///   </item>
             /// </list>
@@ -3036,7 +3032,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>Property: <see cref="SmbiosType004Property.CoreEnabled" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
             /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Nullable&lt;Byte&gt;" /></para>
+            /// <para>Type: <see cref="T:System.Nullable{Int32}" /></para>
             /// </summary>
             /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
             /// <remarks><para>Key definition:</para>
@@ -3065,7 +3061,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <item>
             ///     <term>Type</term>
             ///     <description>
-            ///       <see cref="T:System.Nullable&lt;Byte&gt;" />
+            ///       <see cref="T:System.Nullable{Int32}" />
             ///     </description>
             ///   </item>
             /// </list>
@@ -3083,7 +3079,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>Property: <see cref="SmbiosType004Property.ThreadCount" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
             /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Nullable&lt;Byte&gt;" /></para>
+            /// <para>Type: <see cref="T:System.Nullable{Int32}" /></para>
             /// </summary>
             /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
             /// <remarks><para>Key definition:</para>
@@ -3112,7 +3108,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <item>
             ///     <term>Type</term>
             ///     <description>
-            ///       <see cref="T:System.Nullable&lt;Byte&gt;" />
+            ///       <see cref="T:System.Nullable{Int32}" />
             ///     </description>
             ///   </item>
             /// </list>

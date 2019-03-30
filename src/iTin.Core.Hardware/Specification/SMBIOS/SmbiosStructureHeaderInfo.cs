@@ -12,7 +12,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region private readonly members
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly int _lenght;
+        private readonly int _length;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly int _handle;
@@ -34,7 +34,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         internal SmbiosStructureHeaderInfo(byte[] rawData)
         {
             _structureType = (SmbiosStructure)rawData[0x00];
-            _lenght = rawData[0x01];
+            _length = rawData[0x01];
             _handle = LogicHelper.Word(rawData[0x02], rawData[0x03]);
             _rawData = rawData;
         }
@@ -44,7 +44,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public properties
 
-        #region public (int) Lenght: Gets the length of the formatted area of the current SMBIOS structure
+        #region public (int) Length: Gets the length of the formatted area of the current SMBIOS structure
         /// <summary>
         /// Gets the length of the formatted area of the current <see cref="SMBIOS" /> structure.
         /// </summary>
@@ -55,7 +55,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Specifies the length of the formatted area of the current structure. 
         /// Starting at position 0, the length of the formatted zone of strings is not taken into account.
         /// </remarks>
-        public int Lenght => _lenght;
+        public int Length => _length;
         #endregion
 
         #region public (int) Handle: Gets the handle of the current structure
@@ -98,11 +98,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </summary>
         /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
         /// <remarks>
-        /// The <see cref="T:SMBIOS.ToString ()" /> method returns a string that includes the <see cref="StructureType" /> property, <see cref="Handle" /> y <see cref="Lenght" />.
+        /// The <see cref="T:SMBIOS.ToString ()" /> method returns a string that includes the <see cref="StructureType" /> property, <see cref="Handle" /> y <see cref="Length" />.
         /// </remarks>
         public override string ToString()
         {
-            return $"Type = {StructureType}, Handle = {Handle:X}, Lenght = {Lenght}";
+            return $"Type = {StructureType}, Handle = {Handle:X}, Length = {Length}";
         }
         #endregion
 

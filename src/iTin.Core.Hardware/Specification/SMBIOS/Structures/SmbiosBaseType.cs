@@ -271,7 +271,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </returns>
         protected string GetString(byte target)
         {
-            return Strings[GetByte(target)];
+            try
+            {
+                return Strings[GetByte(target)];
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
         #endregion
 

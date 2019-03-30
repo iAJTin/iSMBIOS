@@ -1,7 +1,6 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Smbios
 {
-    using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -372,81 +371,81 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x12] - [v2.1] - [BIOS Characteristics Extension Bytes]
 
-                    #region [0x12] - [v2.1] - [BIOS Characteristics Extension Bytes -> ExtensionByte1] - [ReadOnlyCollection<String>]
-                    case SmbiosType000Property.ExtensionByte1:
-                        if (HeaderInfo.Lenght >= 0x13)
-                        {
-                            value = GetExtensionByte1(ExtensionByte1);
-                        }
-                        break;
-                    #endregion
+                #region [0x12] - [v2.1] - [BIOS Characteristics Extension Bytes -> ExtensionByte1] - [ReadOnlyCollection<String>]
+                case SmbiosType000Property.ExtensionByte1:
+                    if (HeaderInfo.Length >= 0x13)
+                    {
+                        value = GetExtensionByte1(ExtensionByte1);
+                    }
+                    break;
+                #endregion
 
-                    #region [0x13] - [v2.1] - [BIOS Characteristics Extension Bytes -> ExtensionByte2] - [ReadOnlyCollection<String>]
-                    case SmbiosType000Property.ExtensionByte2:
-                        if (HeaderInfo.Lenght >= 0x14)
-                        {
-                            value = GetExtensionByte1(ExtensionByte2);
-                        }
-                        break;
-                    #endregion
+                #region [0x13] - [v2.1] - [BIOS Characteristics Extension Bytes -> ExtensionByte2] - [ReadOnlyCollection<String>]
+                case SmbiosType000Property.ExtensionByte2:
+                    if (HeaderInfo.Length >= 0x14)
+                    {
+                        value = GetExtensionByte1(ExtensionByte2);
+                    }
+                    break;
+                #endregion
 
                 #endregion
 
                 #region [0x14] - [v2.4] - [System Bios Major Release] - [Byte?]
                 case SmbiosType000Property.SystemBiosMajorRelease:
-                    if (HeaderInfo.Lenght >= 0x15)
+                    if (HeaderInfo.Length >= 0x15)
                     {
-                        value = (Byte?)SystemBiosMajorRelease;
+                        value = (byte?)SystemBiosMajorRelease;
                     }
                     break;
                 #endregion
 
                 #region [0x15] - [v2.4] - [System Bios Minor Release] - [Byte?]
                 case SmbiosType000Property.SystemBiosMinorRelease:
-                    if (HeaderInfo.Lenght >= 0x16)
+                    if (HeaderInfo.Length >= 0x16)
                     {
-                        value = (Byte?)SystemBiosMinorRelease;
+                        value = (byte?)SystemBiosMinorRelease;
                     }
                     break;
                 #endregion
 
                 #region [0x16] - [v2.4] - [Embedded Controller Firmware Major Release] - [Byte?]
                 case SmbiosType000Property.FirmwareMajorRelease:
-                    if (HeaderInfo.Lenght >= 0x17)
+                    if (HeaderInfo.Length >= 0x17)
                     {
-                        value = (Byte?)FirmwareMajorRelease;
+                        value = (byte?)FirmwareMajorRelease;
                     }
                     break;
                 #endregion
 
                 #region [0x17] - [v2.4] - [Embedded Controller Firmware Minor Release] - [Byte?]
                 case SmbiosType000Property.FirmwareMinorRelease:
-                    if (HeaderInfo.Lenght >= 0x18)
+                    if (HeaderInfo.Length >= 0x18)
                     {
-                        value = (Byte?)FirmwareMinorRelease;
+                        value = (byte?)FirmwareMinorRelease;
                     }
                     break;
                 #endregion
 
                 #region [0x18] - [v3.1] - [Extended BIOS ROM Size]
 
-                    #region [0x18] - [v3.1] - [Extended BIOS ROM -> Size] - [Int32]
-                    case SmbiosType000Property.ExtendedBiosRomSize:
-                        if (HeaderInfo.Lenght >= 0x19)
-                        {
-                            value = ExtendedBiosRomSize;
-                        }
-                        break;
-                    #endregion
+                #region [0x18] - [v3.1] - [Extended BIOS ROM -> Size] - [Int32]
+                case SmbiosType000Property.ExtendedBiosRomSize:
+                    if (HeaderInfo.Length >= 0x19)
+                    {
+                        value = ExtendedBiosRomSize;
+                    }
+                    break;
+                #endregion
 
-                    #region [0x18] - [v3.1] - [Extended BIOS ROM -> Unit] - [MemorySizeUnit]
-                    case SmbiosType000Property.ExtendedBiosRomSizeUnit:
-                        if (HeaderInfo.Lenght >= 0x19)
-                        {
-                            value = ExtendedBiosRomSizeUnits;
-                        }
-                        break;
-                    #endregion
+                #region [0x18] - [v3.1] - [Extended BIOS ROM -> Unit] - [MemorySizeUnit]
+                case SmbiosType000Property.ExtendedBiosRomSizeUnit:
+                    if (HeaderInfo.Length >= 0x19)
+                    {
+                        value = ExtendedBiosRomSizeUnits;
+                    }
+                    break;
+                #endregion
 
                 #endregion
             }
@@ -470,7 +469,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
 
             #region 2.0
-            if (HeaderInfo.Lenght >= 0x12)
+            if (HeaderInfo.Length >= 0x12)
             {
                 properties.Add(KnownDmiProperty.Bios.Vendor, Vendor);
                 properties.Add(KnownDmiProperty.Bios.BiosVersion, BiosVersion);
@@ -482,21 +481,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1 - 2.2
-            if (HeaderInfo.Lenght >= 0x13)
+            if (HeaderInfo.Length >= 0x13)
             {
                 properties.Add(KnownDmiProperty.Bios.ExtensionByte1, GetExtensionByte1(ExtensionByte1));
             }
             #endregion
 
             #region 2.3
-            if (HeaderInfo.Lenght >= 0x14)
+            if (HeaderInfo.Length >= 0x14)
             {
                 properties.Add(KnownDmiProperty.Bios.ExtensionByte2, GetExtensionByte2(ExtensionByte2));
             }
             #endregion
 
             #region 2.4+
-            if (HeaderInfo.Lenght >= 0x14)
+            if (HeaderInfo.Length >= 0x14)
             {
                 properties.Add(KnownDmiProperty.Bios.SystemBiosMajorRelease, SystemBiosMajorRelease);
                 properties.Add(KnownDmiProperty.Bios.SystemBiosMinorRelease, SystemBiosMinorRelease);
@@ -506,7 +505,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 3.1+
-            if (HeaderInfo.Lenght >= 0x19)
+            if (HeaderInfo.Length >= 0x19)
             {
                 properties.Add(KnownDmiProperty.Bios.ExtendedBiosRomSize, ExtendedBiosRomSize);
                 properties.Add(KnownDmiProperty.Bios.ExtendedBiosRomSizeUnit, ExtendedBiosRomSizeUnits);

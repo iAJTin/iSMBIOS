@@ -485,7 +485,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x10] - [Input Voltage Probe Handle] - [Int32?]
                 case SmbiosType039Property.InputVoltageProbeHandle:
-                    if (HeaderInfo.Lenght >= 0x11)
+                    if (HeaderInfo.Length >= 0x11)
                     {
                         if (InputVoltageProbeHandle != 0xffff)
                         {
@@ -497,7 +497,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x12] - [Cooling Device Probe Handle] - [Int32?]
                 case SmbiosType039Property.CoolingDeviceHandle:
-                    if (HeaderInfo.Lenght >= 0x13)
+                    if (HeaderInfo.Length >= 0x13)
                     {
                         if (CoolingDeviceHandle != 0xffff)
                         {
@@ -509,7 +509,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x14] - [Input Current Probe Handle] - [Int32?]
                 case SmbiosType039Property.InputCurrentProbeHandle:
-                    if (HeaderInfo.Lenght >= 0x15)
+                    if (HeaderInfo.Length >= 0x15)
                     {
                         if (InputCurrentProbeHandle != 0xffff)
                         {
@@ -559,7 +559,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             properties.Add(KnownDmiProperty.SystemPowerSupply.Characteristics.IsPresent, IsPresent);
             properties.Add(KnownDmiProperty.SystemPowerSupply.Characteristics.IsHotReplaceable, IsHotReplaceable);
                                
-            if (HeaderInfo.Lenght >= 0x11)
+            if (HeaderInfo.Length >= 0x11)
             {
                 if (InputVoltageProbeHandle != 0xffff)
                 {
@@ -567,7 +567,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x13)
+            if (HeaderInfo.Length >= 0x13)
             {
                 if (CoolingDeviceHandle != 0xffff)
                 {
@@ -575,7 +575,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x15)
+            if (HeaderInfo.Length >= 0x15)
             {
                 if (InputCurrentProbeHandle != 0xffff)
                 {

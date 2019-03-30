@@ -386,7 +386,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 #region [0x04] - [v2.1] - [Location] - [String]
                 case SmbiosType022Property.Location:
-                    if (HeaderInfo.RawData.Length >= 0x05)
+                    if (HeaderInfo.Length >= 0x05)
                     {
                         value = Location;
                     }
@@ -395,7 +395,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x05] - [v2.1] - [Manufacturer] - [String]
                 case SmbiosType022Property.Manufacturer:
-                    if (HeaderInfo.RawData.Length >= 0x06)
+                    if (HeaderInfo.Length >= 0x06)
                     {
                         value = Manufacturer;
                     }
@@ -404,11 +404,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x06] - [v2.1] - [Manufacture Date] - [String]
                 case SmbiosType022Property.ManufactureDate:
-                    if (HeaderInfo.RawData.Length >= 0x07)
+                    if (HeaderInfo.Length >= 0x07)
                     {
                         if (string.IsNullOrEmpty(ManufactureDate))
                         {
-                            if (HeaderInfo.Lenght >= 0x13)
+                            if (HeaderInfo.Length >= 0x13)
                             {
                                 value = SbdsManufactureDate;
                             }
@@ -423,11 +423,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x07] - [v2.1] - [Serial Number] - [string]
                 case SmbiosType022Property.SerialNumber:
-                    if (HeaderInfo.RawData.Length >= 0x08)
+                    if (HeaderInfo.Length >= 0x08)
                     {
                         if (string.IsNullOrEmpty(SerialNumber))
                         {
-                            if (HeaderInfo.Lenght >= 0x11)
+                            if (HeaderInfo.Length >= 0x11)
                             {
                                 value = SbdsSerialNumber;
                             }
@@ -442,7 +442,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x08] - [v2.1] - [Device Name] - [String]
                 case SmbiosType022Property.DeviceName:
-                    if (HeaderInfo.RawData.Length >= 0x09)
+                    if (HeaderInfo.Length >= 0x09)
                     {
                         value = DeviceName;
                     }
@@ -451,11 +451,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x09] - [v2.1] - [Device Chemistry] - [String]
                 case SmbiosType022Property.DeviceChemistry:
-                    if (HeaderInfo.RawData.Length >= 0x0a)
+                    if (HeaderInfo.Length >= 0x0a)
                     {
                         if (DeviceChemistryValue == 0x02)
                         {
-                            if (HeaderInfo.Lenght >= 0x15)
+                            if (HeaderInfo.Length >= 0x15)
                             {
                                 value = SbdsDeviceChemistry;
                             }
@@ -470,11 +470,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0a] - [v2.1] - [Device Capacity] - [Int32?]
                 case SmbiosType022Property.DesignCapacity:
-                    if (HeaderInfo.RawData.Length >= 0x0b)
+                    if (HeaderInfo.Length >= 0x0b)
                     {
                         if (DesignCapacity != 00)
                         {
-                            if (HeaderInfo.Lenght >= 0x16)
+                            if (HeaderInfo.Length >= 0x16)
                             {
                                 int designCapacityCalculated = DesignCapacity * DesignCapacityMultiplier;
                                 value = (int?) designCapacityCalculated;
@@ -490,7 +490,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0c] - [v2.1] - [Design Voltage] - [Int32?]
                 case SmbiosType022Property.DesignVoltage:
-                    if (HeaderInfo.RawData.Length >= 0x0d)
+                    if (HeaderInfo.Length >= 0x0d)
                     {
                         if (DesignVoltage != 00)
                         {
@@ -502,7 +502,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0e] - [v2.1] - [SBDS Version Number] - [String]
                 case SmbiosType022Property.SBDSVersionNumber:
-                    if (HeaderInfo.RawData.Length >= 0x0f)
+                    if (HeaderInfo.Length >= 0x0f)
                     {
                         value = SbdsVersionNumber;
                     }
@@ -511,7 +511,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0f] - [v2.1] - [Maximum Error In Battery Data] - [Byte?]
                 case SmbiosType022Property.MaximunErrorInBatteryData:
-                    if (HeaderInfo.RawData.Length >= 0x10)
+                    if (HeaderInfo.Length >= 0x10)
                     {
                         if (MaximumErrorInBatteryData != 0xff)
                         {
@@ -523,7 +523,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x16] - [v2.2] - [OEM-specific] - [Int64?]
                 case SmbiosType022Property.OemSpecific:
-                    if (HeaderInfo.Lenght >= 0x17)
+                    if (HeaderInfo.Length >= 0x17)
                     {
                         value = (long?)OemSpecific;
                     }
@@ -548,19 +548,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            if (HeaderInfo.RawData.Length >= 0x05)
+            if (HeaderInfo.Length >= 0x05)
             {
                 properties.Add(KnownDmiProperty.PortableBattery.Location, Location);
             }
 
-            if (HeaderInfo.RawData.Length >= 0x06)
+            if (HeaderInfo.Length >= 0x06)
             {
                 properties.Add(KnownDmiProperty.PortableBattery.Manufacturer, Manufacturer);
             }
 
             if (string.IsNullOrEmpty(ManufactureDate))
             {
-                if (HeaderInfo.Lenght >= 0x13)
+                if (HeaderInfo.Length >= 0x13)
                 {
                     properties.Add(KnownDmiProperty.PortableBattery.ManufactureDate, SbdsManufactureDate);
                 }
@@ -572,7 +572,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             if (string.IsNullOrEmpty(SerialNumber))
             {
-                if (HeaderInfo.Lenght >= 0x11)
+                if (HeaderInfo.Length >= 0x11)
                 {
                     properties.Add(KnownDmiProperty.PortableBattery.SerialNumber, SbdsSerialNumber);
                 }
@@ -586,7 +586,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             if (DeviceChemistryValue == 0x02)
             {
-                if (HeaderInfo.Lenght >= 0x15)
+                if (HeaderInfo.Length >= 0x15)
                 {
                     properties.Add(KnownDmiProperty.PortableBattery.DeviceChemistry, SbdsDeviceChemistry);
                 }
@@ -598,7 +598,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             if (DesignCapacity != 00)
             {
-                if (HeaderInfo.Lenght >= 0x16)
+                if (HeaderInfo.Length >= 0x16)
                 {
                     int designCapacityCalculated = DesignCapacity * DesignCapacityMultiplier;
                     properties.Add(KnownDmiProperty.PortableBattery.DesignCapacity, designCapacityCalculated);
@@ -621,7 +621,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 properties.Add(KnownDmiProperty.PortableBattery.MaximunErrorInBatteryData, MaximumErrorInBatteryData);
             }
 
-            if (HeaderInfo.Lenght >= 0x17)
+            if (HeaderInfo.Length >= 0x17)
             {
                 properties.Add(KnownDmiProperty.PortableBattery.OemSpecific, OemSpecific);
             }

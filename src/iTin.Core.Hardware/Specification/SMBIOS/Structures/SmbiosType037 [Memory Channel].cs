@@ -151,7 +151,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     byte n = Count;
                     if (n != 0x00)
                     {
-                        if (HeaderInfo.Lenght >= 0x08)
+                        if (HeaderInfo.Length >= 0x08)
                         {
                             byte[] containedElementsArray = new byte[n * 3];
                             Array.Copy(HeaderInfo.RawData, 0x07, containedElementsArray, 0, n * 3);
@@ -187,7 +187,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             byte n = Count;
             if (n != 0x00)
             {
-                if (HeaderInfo.Lenght >= 0x08)
+                if (HeaderInfo.Length >= 0x08)
                 {
                     byte[] containedElementsArray = new byte[n * 3];
                     Array.Copy(HeaderInfo.RawData, 0x07, containedElementsArray, 0, n * 3);

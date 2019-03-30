@@ -305,7 +305,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x14] - [Nominal Value] - [Int32?]
                 case SmbiosType028Property.NominalValue:
-                    if (HeaderInfo.Lenght >= 0x15)
+                    if (HeaderInfo.Length >= 0x15)
                     {
                         if (NominalValue != 0x8000)
                         {
@@ -369,7 +369,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             properties.Add(KnownDmiProperty.TemperatureProbe.OemDefined, OemDefined);
 
-            if (HeaderInfo.Lenght >= 0x15)
+            if (HeaderInfo.Length >= 0x15)
             {
                 int nominalValue = NominalValue;
                 if (nominalValue != 0x8000)

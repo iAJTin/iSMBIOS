@@ -232,7 +232,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x08] - [v2.1] - [UUID] - [String]
                 case SmbiosType001Property.UUID:
-                    if (HeaderInfo.Lenght >= 0x09)
+                    if (HeaderInfo.Length >= 0x09)
                     {
                         var uuid = new byte[16];
                         Array.Copy(HeaderInfo.RawData, 0x08, uuid, 0, 16);
@@ -244,7 +244,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x18] - [v2.1] - [Wake-up Type] - [String]
                 case SmbiosType001Property.WakeUpType:
-                    if (HeaderInfo.Lenght >= 0x19)
+                    if (HeaderInfo.Length >= 0x19)
                     {
                         value = GetWakeUpType(WakeUpType);
                     }
@@ -253,7 +253,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x19] - [v2.4] - [SKU Number] - [String]
                 case SmbiosType001Property.SkuNumber:
-                    if (HeaderInfo.Lenght >= 0x1a)
+                    if (HeaderInfo.Length >= 0x1a)
                     {
                         value = Sku;
                     }
@@ -262,7 +262,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x1a] - [v2.4] - [Family] - [String]
                 case SmbiosType001Property.Family:
-                    if (HeaderInfo.Lenght >= 0x1b)
+                    if (HeaderInfo.Length >= 0x1b)
                     {
                         value = Family;
                     }
@@ -289,7 +289,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
 
             #region 2.0+
-            if (HeaderInfo.Lenght >= 0x08)
+            if (HeaderInfo.Length >= 0x08)
             {
                 properties.Add(KnownDmiProperty.System.Manufacturer, Manufacturer);
                 properties.Add(KnownDmiProperty.System.ProductName, ProductName);
@@ -299,7 +299,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (HeaderInfo.Lenght >= 0x19)
+            if (HeaderInfo.Length >= 0x19)
             {
                 var uuid = new byte[16];
                 Array.Copy(HeaderInfo.RawData, 0x08, uuid, 0, 16);
@@ -309,7 +309,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.4+
-            if (HeaderInfo.Lenght >= 0x1b)
+            if (HeaderInfo.Length >= 0x1b)
             {
                 properties.Add(KnownDmiProperty.System.SkuNumber, Sku);
                 properties.Add(KnownDmiProperty.System.Family, Family);

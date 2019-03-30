@@ -334,7 +334,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x08] - [Asset Tag] - [String]
                 case SmbiosType002Property.AssetTag:
-                    if (HeaderInfo.Lenght >= 0x09)
+                    if (HeaderInfo.Length >= 0x09)
                     {
                         value = AssetTag;
                     }
@@ -343,56 +343,56 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x09] - [Feature Flag]
 
-                    #region [0x09] - [Feature Flags -> Hot Swappable] - [Boolean?]
-                    case SmbiosType002Property.HotSwappable:
-                        if (HeaderInfo.Lenght >= 0x0a)
-                        {
-                            value = (bool?)IsHotSwappable;
-                        }
-                        break;
-                    #endregion
+                #region [0x09] - [Feature Flags -> Hot Swappable] - [Boolean?]
+                case SmbiosType002Property.HotSwappable:
+                    if (HeaderInfo.Length >= 0x0a)
+                    {
+                        value = (bool?)IsHotSwappable;
+                    }
+                    break;
+                #endregion
 
-                    #region [0x09] - [Feature Flags -> Is Replaceable] - [Boolean?]
-                    case SmbiosType002Property.IsReplaceable:
-                        if (HeaderInfo.Lenght >= 0x0a)
-                        {
-                            value = (bool?)IsReplaceable;
-                        }
-                        break;
-                    #endregion
+                #region [0x09] - [Feature Flags -> Is Replaceable] - [Boolean?]
+                case SmbiosType002Property.IsReplaceable:
+                    if (HeaderInfo.Length >= 0x0a)
+                    {
+                        value = (bool?)IsReplaceable;
+                    }
+                    break;
+                #endregion
 
-                    #region [0x09] - [Feature Flags -> Is Removable] - [Boolean?]
-                    case SmbiosType002Property.IsRemovable:
-                        if (HeaderInfo.Lenght >= 0x0a)
-                        {
-                            value = (bool?) IsRemovable;
-                        }
-                        break;
-                    #endregion
+                #region [0x09] - [Feature Flags -> Is Removable] - [Boolean?]
+                case SmbiosType002Property.IsRemovable:
+                    if (HeaderInfo.Length >= 0x0a)
+                    {
+                        value = (bool?) IsRemovable;
+                    }
+                    break;
+                #endregion
 
-                    #region [0x09] - [Feature Flags -> Required Daughter Board] - [Boolean?]
-                    case SmbiosType002Property.RequiredDaughterBoard:
-                        if (HeaderInfo.Lenght >= 0x0a)
-                        {
-                            value = (bool?)RequiredDaughterBoard;
-                        }
-                        break;
-                    #endregion
+                #region [0x09] - [Feature Flags -> Required Daughter Board] - [Boolean?]
+                case SmbiosType002Property.RequiredDaughterBoard:
+                    if (HeaderInfo.Length >= 0x0a)
+                    {
+                        value = (bool?)RequiredDaughterBoard;
+                    }
+                    break;
+                #endregion
 
-                    #region [0x09] - [Feature Flags -> Is Hosting Board] - [Boolean?]
-                    case SmbiosType002Property.IsHostingBoard:
-                        if (HeaderInfo.Lenght >= 0x0a)
-                        {
-                            value = (bool?)IsHostingBoard;
-                        }
-                        break;
-                    #endregion
+                #region [0x09] - [Feature Flags -> Is Hosting Board] - [Boolean?]
+                case SmbiosType002Property.IsHostingBoard:
+                    if (HeaderInfo.Length >= 0x0a)
+                    {
+                        value = (bool?)IsHostingBoard;
+                    }
+                    break;
+                #endregion
 
                 #endregion
 
                 #region [0x0a] - [Location In Chassis] - [String]
                 case SmbiosType002Property.LocationInChassis:
-                    if (HeaderInfo.Lenght >= 0x0b)
+                    if (HeaderInfo.Length >= 0x0b)
                     {
                         value = LocationInChassis;
                     }
@@ -401,7 +401,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0b] - [Chassis Handle] - [Int32?]
                 case SmbiosType002Property.ChassisHandle:
-                    if (HeaderInfo.Lenght >= 0x0c)
+                    if (HeaderInfo.Length >= 0x0c)
                     {
                         value = ChassisHandle;
                     }
@@ -410,7 +410,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0d] - [Board Type] - [String]
                 case SmbiosType002Property.BoardType:
-                    if (HeaderInfo.Lenght >= 0x0e)
+                    if (HeaderInfo.Length >= 0x0e)
                     {
                         value = GetBoardType(BoardType);
                     }
@@ -419,7 +419,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0e] - [Number Of Contained Object Handles] - [Byte?]
                 case SmbiosType002Property.NumberOfContainedObjectHandles:
-                    if (HeaderInfo.Lenght >= 0x0f)
+                    if (HeaderInfo.Length >= 0x0f)
                     {
                         value = NumberOfContainedObjectHandles;
                     }
@@ -428,10 +428,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0f] - [Number Of Contained Object Handles] - [BaseBoardContainedElementCollection]
                 case SmbiosType002Property.ContainedObjectHandles:
-                    if (HeaderInfo.Lenght >= 0x0f)
+                    if (HeaderInfo.Length >= 0x0f)
                     {
                         byte n = NumberOfContainedObjectHandles;
-                        if (n != 0x00 && HeaderInfo.Lenght >= 0x10)
+                        if (n != 0x00 && HeaderInfo.Length >= 0x10)
                         {
                             var containedElementsArray = new byte[n];
                             Array.Copy(HeaderInfo.RawData, 0x0f, containedElementsArray, 0, n);
@@ -466,12 +466,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
             properties.Add(KnownDmiProperty.BaseBoard.Version, Version);
             properties.Add(KnownDmiProperty.BaseBoard.SerialNumber, SerialNumber);
 
-            if (HeaderInfo.Lenght >= 0x09)
+            if (HeaderInfo.Length >= 0x09)
             {
                 properties.Add(KnownDmiProperty.BaseBoard.AssetTag, AssetTag);
             }
 
-            if (HeaderInfo.Lenght >= 0x0a)
+            if (HeaderInfo.Length >= 0x0a)
             {
                 properties.Add(KnownDmiProperty.BaseBoard.Features.IsHotSwappable, IsHotSwappable);
                 properties.Add(KnownDmiProperty.BaseBoard.Features.IsReplaceable, IsReplaceable);
@@ -480,27 +480,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 properties.Add(KnownDmiProperty.BaseBoard.Features.IsHostingBoard, IsHostingBoard);
             }
 
-            if (HeaderInfo.Lenght >= 0x0b)
+            if (HeaderInfo.Length >= 0x0b)
             {
                 properties.Add(KnownDmiProperty.BaseBoard.LocationInChassis, LocationInChassis);
             }
 
-            if (HeaderInfo.Lenght >= 0x0c)
+            if (HeaderInfo.Length >= 0x0c)
             {
                 properties.Add(KnownDmiProperty.BaseBoard.ChassisHandle, ChassisHandle);
             }
 
-            if (HeaderInfo.Lenght >= 0x0d)
+            if (HeaderInfo.Length >= 0x0d)
             {
                 properties.Add(KnownDmiProperty.BaseBoard.BoardType, GetBoardType(BoardType));
             }
 
-            if (HeaderInfo.Lenght >= 0x0e)
+            if (HeaderInfo.Length >= 0x0e)
             {
                 byte n = NumberOfContainedObjectHandles;
                 properties.Add(KnownDmiProperty.BaseBoard.NumberOfContainedObjectHandles, n);
 
-                if (n != 0x00 && HeaderInfo.Lenght >= 0x0f)
+                if (n != 0x00 && HeaderInfo.Length >= 0x0f)
                 {
                     var containedElementsArray = new byte[n];
                     Array.Copy(HeaderInfo.RawData, 0x0f, containedElementsArray, 0, n);

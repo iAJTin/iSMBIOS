@@ -284,7 +284,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 case SmbiosType020Property.StartingAddress:
                     if (StartingAddress == 0xffffffff)
                     {
-                        if (HeaderInfo.Lenght >= 0x14)
+                        if (HeaderInfo.Length >= 0x14)
                         {
                             ulong extendedStartingAddress = ExtendedStartingAddress;
                             value = (ulong?) extendedStartingAddress;
@@ -301,7 +301,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 case SmbiosType020Property.EndingAddress:
                     if (EndingAddress == 0xFFFFFFFF)
                     {
-                        if (HeaderInfo.Lenght >= 0x1c)
+                        if (HeaderInfo.Length >= 0x1c)
                         {
                             ulong extendedEndingAddress = ExtendedEndingAddress;
                             value = (ulong?) extendedEndingAddress;
@@ -370,7 +370,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region values
             if (StartingAddress == 0xffffffff)
             {
-                if (HeaderInfo.Lenght >= 0x14)
+                if (HeaderInfo.Length >= 0x14)
                 {
                     ulong extendedStartingAddress = ExtendedStartingAddress;
                     properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.StartingAddress, extendedStartingAddress);
@@ -383,7 +383,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             if (EndingAddress == 0xffffffff)
             {
-                if (HeaderInfo.Lenght >= 0x1c)
+                if (HeaderInfo.Length >= 0x1c)
                 {
                     ulong extendedEndingAddress = ExtendedEndingAddress;
                     properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.EndingAddress, extendedEndingAddress);

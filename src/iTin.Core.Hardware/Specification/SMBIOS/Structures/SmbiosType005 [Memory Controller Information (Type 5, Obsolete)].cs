@@ -297,7 +297,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     if (nn != 0x00)
                     {
                         int m = nn << 1;
-                        if (HeaderInfo.Lenght >= 0x10 + m)
+                        if (HeaderInfo.Length >= 0x10 + m)
                         {
                             value = GetErrorCorrectingCapability(HeaderInfo.RawData[0x0f + m]);
                         }
@@ -344,7 +344,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 IEnumerable<int> containedElements = GetContainedMemoryModules(containedElementsArray);
                 properties.Add(KnownDmiProperty.MemoryController.ContainedMemoryModules, new MemoryControllerContainedElementCollection(containedElements));
 
-                if (HeaderInfo.Lenght >= 0x10 + m)
+                if (HeaderInfo.Length >= 0x10 + m)
                 {
                     properties.Add(KnownDmiProperty.MemoryController.EnabledErrorCorrectingCapabilities, GetErrorCorrectingCapability(HeaderInfo.RawData[0x0f + m]));
                 }

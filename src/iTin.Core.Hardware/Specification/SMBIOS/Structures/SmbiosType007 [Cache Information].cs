@@ -463,7 +463,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0f] - [v2.1] - [Cache Speed] - [Byte?]
                 case SmbiosType007Property.CacheSpeed:
-                    if (HeaderInfo.Lenght >= 0x10)
+                    if (HeaderInfo.Length >= 0x10)
                     {
                         if (CacheSpeed != 0x00)
                         {
@@ -475,7 +475,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x10] - [v2.1] - [Error Correction Type] - [String]
                 case SmbiosType007Property.ErrorCorrectionType:
-                    if (HeaderInfo.Lenght >= 0x11)
+                    if (HeaderInfo.Length >= 0x11)
                     {
                         value = GetErrorCorrection(ErrorCorrectionType);
                     }
@@ -484,7 +484,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x11] - [v2.1] - [System Cache Type] - [String]
                 case SmbiosType007Property.SystemCacheType:
-                    if (HeaderInfo.Lenght >= 0x12)
+                    if (HeaderInfo.Length >= 0x12)
                     {
                         value = GetSystemCacheType(SystemCacheType);
                     }
@@ -493,7 +493,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x12] - [v2.1] - [Associativity] - [String]
                 case SmbiosType007Property.Associativity:
-                    if (HeaderInfo.Lenght >= 0x13)
+                    if (HeaderInfo.Length >= 0x13)
                     {
                         value = GetAssociativity(Associativity);
                     }
@@ -502,7 +502,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x13] - [v3.1.0] - [Maximum Cache Size 2] - [UInt32]
                 case SmbiosType007Property.MaximumCacheSize2:
-                    if (HeaderInfo.Lenght >= 0x14)
+                    if (HeaderInfo.Length >= 0x14)
                     {
                         value = GetSize(MaximumCacheSize2);
                     }
@@ -511,7 +511,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x17] - [v3.1.0] - [Installed Size 2] - [UInt32?]
                 case SmbiosType007Property.InstalledCacheSize2:
-                    if (HeaderInfo.Lenght >= 0x18)
+                    if (HeaderInfo.Length >= 0x18)
                     {
                         if (InstalledCacheSize2 != 0x0000)
                         {
@@ -541,7 +541,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
 
             #region 2.0+
-            if (HeaderInfo.Lenght >= 0x0f)
+            if (HeaderInfo.Length >= 0x0f)
             {
                 properties.Add(KnownDmiProperty.Cache.SocketDesignation, SocketDesignation);
                 properties.Add(KnownDmiProperty.Cache.CacheConfiguration.OperationalMode, GetOperationalMode(OperationalMode));
@@ -565,7 +565,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (HeaderInfo.Lenght >= 0x10)
+            if (HeaderInfo.Length >= 0x10)
             {
                 if (CacheSpeed != 0x00)
                 {
@@ -579,7 +579,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 3.1.0+
-            if (HeaderInfo.Lenght >= 0x14)
+            if (HeaderInfo.Length >= 0x14)
             {
                 properties.Add(KnownDmiProperty.Cache.MaximumCacheSize2, GetSize(MaximumCacheSize2));
 

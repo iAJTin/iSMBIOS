@@ -178,7 +178,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte EnclosureType => GetByte(0x05);
         #endregion
 
-        #region [private] (byte) EnclosureType: Gets a value representing the 'Enclosure Locked' field
+        #region [private] (byte) EnclosureLocked: Gets a value representing the 'Enclosure Locked' field
         /// <summary>
         /// Gets a value representing the <c>Enclosure Locked</c> field.
         /// </summary>
@@ -350,21 +350,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x09] - [v2.1] - [Boot-up State] - [String]
                 case SmbiosType003Property.BootUpState:                    
-                    if (HeaderInfo.Lenght >= 0x0a)
+                    if (HeaderInfo.Length >= 0x0a)
                         value = GetEnclosureState(BootUpState);                        
                     break;
                 #endregion
 
                 #region [0x0a] - [v2.1] - [Power Supply State] - [String]
                 case SmbiosType003Property.PowerSupplyState:                    
-                    if (HeaderInfo.Lenght >= 0x0b)
+                    if (HeaderInfo.Length >= 0x0b)
                         value = GetEnclosureState(PowerSupplyState);                        
                     break;
                 #endregion
 
                 #region [0x0b] - [v2.1] - [Thermal State] - [String]
                 case SmbiosType003Property.ThermalState:
-                    if (HeaderInfo.Lenght >= 0x0c)
+                    if (HeaderInfo.Length >= 0x0c)
                     {
                         value = GetEnclosureState(ThermalState);
                     }                        
@@ -373,7 +373,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0c] - [v2.1] - [Security Status] - [String]
                 case SmbiosType003Property.SecurityStatus:
-                    if (HeaderInfo.Lenght >= 0x0d)
+                    if (HeaderInfo.Length >= 0x0d)
                     {
                         value = GetEnclosureSecurityStatus(SecurityStatus);
                     }                        
@@ -382,7 +382,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0d] - [v2.3] - [OEM-defined] - [Long?]
                 case SmbiosType003Property.OemDefined:
-                    if (HeaderInfo.Lenght >= 0x0e)
+                    if (HeaderInfo.Length >= 0x0e)
                     {                          
                         long oemDefined = OemDefined;
                         if (oemDefined != 0)
@@ -395,7 +395,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x11] - [v2.3] - [Height] - [Byte?]
                 case SmbiosType003Property.Height:
-                    if (HeaderInfo.Lenght >= 0x12)
+                    if (HeaderInfo.Length >= 0x12)
                     {                          
                         byte height = Height;
                         if (height != 0)
@@ -408,7 +408,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x12] - [v2.3] - [Number Of Power Cords] - [Byte?]
                 case SmbiosType003Property.NumberOfPowerCords:
-                    if (HeaderInfo.Lenght >= 0x13)
+                    if (HeaderInfo.Length >= 0x13)
                     {                          
                         byte numberOfPowerCords = NumberOfPowerCords;
                         if (numberOfPowerCords != 0)
@@ -421,17 +421,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x15] - [v2.3] - [Contained Elements] - [ChassisContainedElementCollection]
                 case SmbiosType003Property.ContainedElements:
-                    if (HeaderInfo.Lenght >= 0x14)
+                    if (HeaderInfo.Length >= 0x14)
                     {
                         byte n = ContainedElementCount;
                         if (n != 0)
                         {
-                            if (HeaderInfo.Lenght >= 0x15)
+                            if (HeaderInfo.Length >= 0x15)
                             {
                                 byte m = ContainedElementRecordLenght;
                                 if (m != 0)
                                 {
-                                    if (HeaderInfo.Lenght >= 0x16)
+                                    if (HeaderInfo.Length >= 0x16)
                                     {
                                         var containedElementsArray = new byte[n*m];
                                         Array.Copy(HeaderInfo.RawData, 0x15, containedElementsArray, 0, n*m);
@@ -449,12 +449,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x15 + (n * m)] - [v2.3] - [Contained Elements] - [String]
                 case SmbiosType003Property.SkuNumber:
-                    if (HeaderInfo.Lenght >= 0x14)
+                    if (HeaderInfo.Length >= 0x14)
                     {
                         byte n = ContainedElementCount;
                         if (n != 0)
                         {
-                            if (HeaderInfo.Lenght >= 0x15)
+                            if (HeaderInfo.Length >= 0x15)
                             {
                                 byte m = ContainedElementRecordLenght;
                                 if (m != 0)
@@ -496,7 +496,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (HeaderInfo.Lenght >= 0x0a)
+            if (HeaderInfo.Length >= 0x0a)
             {
                 properties.Add(KnownDmiProperty.Chassis.BootUpState, GetEnclosureState(BootUpState));
                 properties.Add(KnownDmiProperty.Chassis.PowerSupplyState, GetEnclosureState(PowerSupplyState));
@@ -506,7 +506,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.3+
-            if (HeaderInfo.Lenght >= 0x0e)
+            if (HeaderInfo.Length >= 0x0e)
             {
                 long oemDefined = OemDefined;
                 if (oemDefined != 0)
@@ -515,7 +515,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x12)
+            if (HeaderInfo.Length >= 0x12)
             {
                 byte height = Height;
                 if (height != 0)
@@ -524,7 +524,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x13)
+            if (HeaderInfo.Length >= 0x13)
             {
                 byte numberOfPowerCords = NumberOfPowerCords;
                 if (numberOfPowerCords != 0)
@@ -533,17 +533,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x14)
+            if (HeaderInfo.Length >= 0x14)
             {
                 byte n = ContainedElementCount;
                 if (n != 0)
                 {
-                    if (HeaderInfo.Lenght >= 0x15)
+                    if (HeaderInfo.Length >= 0x15)
                     {
                         byte m = ContainedElementRecordLenght;
                         if (m != 0)
                         {
-                            if (HeaderInfo.Lenght >= 0x16)
+                            if (HeaderInfo.Length >= 0x16)
                             {
                                 var containedElementsArray = new byte[n * m];
                                 Array.Copy(HeaderInfo.RawData, 0x15, containedElementsArray, 0, n * m);
@@ -552,7 +552,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                                 properties.Add(KnownDmiProperty.Chassis.ContainedElements, new ChassisContainedElementCollection(containedElements));
                             }
 
-                            if (HeaderInfo.Lenght > 0x16 + (n * m))
+                            if (HeaderInfo.Length > 0x16 + (n * m))
                             {
                                 properties.Add(KnownDmiProperty.Chassis.SkuNumber, GetEnclosureSkuNumber(n, m));
                             }

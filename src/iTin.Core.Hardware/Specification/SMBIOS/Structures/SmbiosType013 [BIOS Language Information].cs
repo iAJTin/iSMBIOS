@@ -127,7 +127,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 #region [0x04] - [v2.0] - [Installable Languages] - [ReadOnlyCollection<string>]
                 case SmbiosType013Property.InstallableLanguages:
-                    if (HeaderInfo.RawData.Length >= 0x05)
+                    if (HeaderInfo.Length >= 0x05)
                     {
                         value = GetValues(Count);
                     }
@@ -138,7 +138,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x05] - [v2.1] - [Flags -> IsCurrentAbbreviated] - [bool]
                 case SmbiosType013Property.IsCurrentAbbreviated:
-                    if (HeaderInfo.RawData.Length >= 0x06)
+                    if (HeaderInfo.Length >= 0x06)
                     {
                         value = IsCurrentAbbreviated;
                     }
@@ -149,7 +149,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x15] - [v2.0] - [Current Language] - [string]
                 case SmbiosType013Property.Current:
-                    if (HeaderInfo.RawData.Length >= 0x16)
+                    if (HeaderInfo.Length >= 0x16)
                     {
                         value = Current;
                     }
@@ -174,17 +174,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            if (HeaderInfo.RawData.Length >= 0x05)
+            if (HeaderInfo.Length >= 0x05)
             {
                 properties.Add(KnownDmiProperty.BiosLanguage.InstallableLanguages, GetValues(Count));
             }
 
-            if (HeaderInfo.RawData.Length >= 0x06)
+            if (HeaderInfo.Length >= 0x06)
             {
                 properties.Add(KnownDmiProperty.BiosLanguage.IsCurrentAbbreviated, IsCurrentAbbreviated);
             }
 
-            if (HeaderInfo.RawData.Length >= 0x16)
+            if (HeaderInfo.Length >= 0x16)
             {
                 properties.Add(KnownDmiProperty.BiosLanguage.Current, Current);
             }

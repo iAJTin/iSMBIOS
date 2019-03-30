@@ -96,7 +96,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x05] - [Contained Elements] - [GroupAssociationElementCollection]
                 case SmbiosType014Property.ContainedElements:
-                    int n = (HeaderInfo.Lenght - 5) / 3;
+                    int n = (HeaderInfo.Length - 5) / 3;
                     byte[] containedElementsArray = new byte[n * 3];
                     Array.Copy(HeaderInfo.RawData, 0x05, containedElementsArray, 0, n * 3);
 
@@ -125,7 +125,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region values
             properties.Add(KnownDmiProperty.GroupAssociations.GroupName, GroupName);
 
-            int n = (HeaderInfo.Lenght - 5) / 3;
+            int n = (HeaderInfo.Length - 5) / 3;
             byte[] containedElementsArray = new byte[n * 3];
             Array.Copy(HeaderInfo.RawData, 0x05, containedElementsArray, 0, n * 3);
 

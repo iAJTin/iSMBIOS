@@ -700,7 +700,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x1a] - [v2.1] - [L1 Cache Handle] - [Int32?]
                 case SmbiosType004Property.L1CacheHandle:
-                    if (HeaderInfo.Lenght >= 0x1b)
+                    if (HeaderInfo.Length >= 0x1b)
                     {
                         var l1CacheHandle = L1CacheHandle;
                         if (l1CacheHandle == 0xffff)
@@ -725,7 +725,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x1c] - [v2.1] - [L2 Cache Handle] - [Int32?]
                 case SmbiosType004Property.L2CacheHandle:
-                    if (HeaderInfo.Lenght >= 0x1d)
+                    if (HeaderInfo.Length >= 0x1d)
                     {
                         var l2CacheHandle = L2CacheHandle;
                         if (l2CacheHandle == 0xffff)
@@ -749,7 +749,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x1e] - [v2.1] - [L3 Cache Handle] - [Int32?]
                 case SmbiosType004Property.L3CacheHandle:
-                    if (HeaderInfo.Lenght >= 0x1f)
+                    if (HeaderInfo.Length >= 0x1f)
                     {
                         var l3CacheHandle = L3CacheHandle;
                         if (l3CacheHandle == 0xffff)
@@ -773,7 +773,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x20] - [v2.3] - [Serial Number] - [String]
                 case SmbiosType004Property.SerialNumber:
-                    if (HeaderInfo.Lenght >= 0x21)
+                    if (HeaderInfo.Length >= 0x21)
                     {
                         value = SerialNumber;
                     }
@@ -782,7 +782,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x21] - [v2.3] - [Asset Tag] - [String]
                 case SmbiosType004Property.AssetTag:
-                    if (HeaderInfo.Lenght >= 0x22)
+                    if (HeaderInfo.Length >= 0x22)
                     {
                         value = AssetTag;
                     }
@@ -791,7 +791,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x22] - [v2.3] - [Part Number] - [String]
                 case SmbiosType004Property.PartNumber:
-                    if (HeaderInfo.Lenght >= 0x23)
+                    if (HeaderInfo.Length >= 0x23)
                     {
                         value = PartNumber;
                     }
@@ -800,7 +800,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x23] - [v2.0/v3.0+] - [Core Count] - [Int32?]
                 case SmbiosType004Property.CoreCount:
-                    if (HeaderInfo.Lenght >= 0x24)
+                    if (HeaderInfo.Length >= 0x24)
                     {
                         var coreCount = CoreCount;
                         if (coreCount != 0x00)
@@ -811,7 +811,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             }
                             else
                             {
-                                if (HeaderInfo.Lenght >= 0x2b)
+                                if (HeaderInfo.Length >= 0x2b)
                                 {
                                     var coreCount2 = CoreCount2;
                                     if (coreCount2 != 0x0000)
@@ -830,7 +830,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x24] - [v2.0/v3.0+] - [Core Enabled] - [Int32?]
                 case SmbiosType004Property.CoreEnabled:
-                    if (HeaderInfo.Lenght >= 0x25)
+                    if (HeaderInfo.Length >= 0x25)
                     {
                         var coreEnabled = CoreEnabled;
                         if (coreEnabled != 0x00)
@@ -841,7 +841,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             }
                             else
                             {
-                                if (HeaderInfo.Lenght >= 0x2d)
+                                if (HeaderInfo.Length >= 0x2d)
                                 {
                                     var coreEnabled2 = CoreEnabled2;
                                     if (coreEnabled2 != 0x0000)
@@ -860,7 +860,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x25] - [v2.0/v3.0+] - [Thread Count] - [Int32?]
                 case SmbiosType004Property.ThreadCount:
-                    if (HeaderInfo.Lenght >= 0x26)
+                    if (HeaderInfo.Length >= 0x26)
                     {
                         var threadCount = ThreadCount;
                         if (threadCount != 0x00)
@@ -871,7 +871,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             }
                             else
                             {
-                                if (HeaderInfo.Lenght >= 0x2f)
+                                if (HeaderInfo.Length >= 0x2f)
                                 {
                                     var threadCount2 = ThreadCount2;
                                     if (threadCount2 != 0x0000)
@@ -892,7 +892,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x26] - [v2.5] - [Processor Characteristics -> Capable 64 Bits] - [Boolean?]
                 case SmbiosType004Property.Capable64Bits:
-                    if (HeaderInfo.Lenght >= 0x27)
+                    if (HeaderInfo.Length >= 0x27)
                     {
                         value = (bool?)IsCapable64Bit;
                     }
@@ -901,7 +901,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x26] - [v2.5] - [Processor Characteristics -> Multi Core] - [Boolean?]
                 case SmbiosType004Property.MultiCore:
-                    if (HeaderInfo.Lenght >= 0x27)
+                    if (HeaderInfo.Length >= 0x27)
                     {
                         value = (bool?)IsMultiCore;
                     }
@@ -910,7 +910,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x26] - [v2.5] - [Processor Characteristics -> Hardware Thread Per Core] - [Boolean?]
                 case SmbiosType004Property.HardwareThreadPerCore:
-                    if (HeaderInfo.Lenght >= 0x27)
+                    if (HeaderInfo.Length >= 0x27)
                     {
                         value = (bool?)MultipleHardwareThreadsPerCore;
                     }
@@ -919,7 +919,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x26] - [v2.5] - [Processor Characteristics -> Execute Protection Support] - [Boolean?]
                 case SmbiosType004Property.ExecuteProtectionSupport:
-                    if (HeaderInfo.Lenght >= 0x27)
+                    if (HeaderInfo.Length >= 0x27)
                     {
                         value = (bool?)ExecuteProtection;
                     }
@@ -928,7 +928,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x26] - [v2.5] - [Processor Characteristics -> Enhanced Virtualization Instructions] - [Boolean?]
                 case SmbiosType004Property.EnhancedVirtualizationInstructions:
-                    if (HeaderInfo.Lenght >= 0x27)
+                    if (HeaderInfo.Length >= 0x27)
                     {
                         value = (bool?)EnhancedVirtualization;
                     }
@@ -937,7 +937,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x26] - [v2.5] - [Processor Characteristics -> Power Performance Control Support] - [Boolean?]
                 case SmbiosType004Property.PowerPerformanceControlSupport:
-                    if (HeaderInfo.Lenght >= 0x27)
+                    if (HeaderInfo.Length >= 0x27)
                     {
                         value = (bool?)PowerPerformanceControl;
                     }
@@ -966,7 +966,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
 
             #region 2.0+
-            if (HeaderInfo.Lenght >= 0x1a)
+            if (HeaderInfo.Length >= 0x1a)
             {
                 properties.Add(KnownDmiProperty.Processor.SocketDesignation, SocketDesignation);
                 properties.Add(KnownDmiProperty.Processor.ProcessorType, GetProcessorType(ProcessorType));
@@ -1007,7 +1007,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (HeaderInfo.Lenght >= 0x20)
+            if (HeaderInfo.Length >= 0x20)
             {
                 int l1CacheHandle = L1CacheHandle;
                 if (l1CacheHandle == 0xffff)
@@ -1063,24 +1063,24 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.3+
-            if (HeaderInfo.Lenght >= 0x21)
+            if (HeaderInfo.Length >= 0x21)
             {
                 properties.Add(KnownDmiProperty.Processor.SerialNumber, SerialNumber);
             }
 
-            if (HeaderInfo.Lenght >= 0x22)
+            if (HeaderInfo.Length >= 0x22)
             {
                 properties.Add(KnownDmiProperty.Processor.AssetTag, AssetTag);
             }
 
-            if (HeaderInfo.Lenght >= 0x23)
+            if (HeaderInfo.Length >= 0x23)
             {
                 properties.Add(KnownDmiProperty.Processor.PartNumber, PartNumber);
             }
             #endregion
 
             #region 2.5+
-            if (HeaderInfo.Lenght >= 0x24)
+            if (HeaderInfo.Length >= 0x24)
             {
                 var coreCount = CoreCount;
                 if (coreCount != 0x00)
@@ -1091,7 +1091,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     }
                     else
                     {
-                        if (HeaderInfo.Lenght >= 0x2b)
+                        if (HeaderInfo.Length >= 0x2b)
                         {
                             var coreCount2 = CoreCount2;
                             if (coreCount2 != 0x0000)
@@ -1106,7 +1106,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x25)
+            if (HeaderInfo.Length >= 0x25)
             {
                 var coreEnabled = CoreEnabled;
                 if (coreEnabled != 0x00)
@@ -1117,7 +1117,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     }
                     else
                     {
-                        if (HeaderInfo.Lenght >= 0x2d)
+                        if (HeaderInfo.Length >= 0x2d)
                         {
                             var coreEnabled2 = CoreEnabled2;
                             if (coreEnabled2 != 0x0000)
@@ -1132,7 +1132,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x26)
+            if (HeaderInfo.Length >= 0x26)
             {
                 byte threadCount = ThreadCount;
                 if (threadCount != 0x00)
@@ -1143,7 +1143,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     }
                     else
                     {
-                        if (HeaderInfo.Lenght >= 0x2f)
+                        if (HeaderInfo.Length >= 0x2f)
                         {
                             var threadCount2 = ThreadCount2;
                             if (threadCount2 != 0x0000)
@@ -1158,7 +1158,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x27)
+            if (HeaderInfo.Length >= 0x27)
             {
                 properties.Add(KnownDmiProperty.Processor.Characteristics.Capable64Bits, IsCapable64Bit);
                 properties.Add(KnownDmiProperty.Processor.Characteristics.MultiCore, IsMultiCore);

@@ -720,7 +720,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         }
                         else
                         {
-                            if (HeaderInfo.Lenght >= 0x1d)
+                            if (HeaderInfo.Length >= 0x1d)
                             {
                                 var extendedSize = ExtendedSize << 0x0a;
                                 value = (int?)extendedSize;
@@ -776,7 +776,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x15] - [v2.3] - [Maximun Speed] - [Int32?]
                 case SmbiosType017Property.MaximunSpeed:
-                    if (HeaderInfo.Lenght >= 0x16)
+                    if (HeaderInfo.Length >= 0x16)
                     {
                         var maximunSpeed = MaximunSpeed;
                         if (maximunSpeed != 0)
@@ -789,7 +789,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x17] - [v2.3] - [Manufacturer] - [String]
                 case SmbiosType017Property.Manufacturer:
-                    if (HeaderInfo.Lenght >= 0x18)
+                    if (HeaderInfo.Length >= 0x18)
                     {
                         value = Manufacturer;
                     }
@@ -798,7 +798,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x18] - [v2.3] - [Serial Number] - [String]
                 case SmbiosType017Property.SerialNumber:
-                    if (HeaderInfo.Lenght >= 0x19)
+                    if (HeaderInfo.Length >= 0x19)
                     {
                         value = SerialNumber;
                     }
@@ -807,7 +807,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x19] - [v2.3] - [Asset Tag] - [String]
                 case SmbiosType017Property.AssetTag:
-                    if (HeaderInfo.Lenght >= 0x1a)
+                    if (HeaderInfo.Length >= 0x1a)
                     {
                         value = AssetTag;
                     }
@@ -816,7 +816,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x1a] - [v2.3] - [Part Number] - [String]
                 case SmbiosType017Property.PartNumber:
-                    if (HeaderInfo.Lenght >= 0x1b)
+                    if (HeaderInfo.Length >= 0x1b)
                     {
                         value = PartNumber;
                     }
@@ -827,7 +827,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x1b] - [v2.6] - [Attributes -> Rank] - [Byte?]
                 case SmbiosType017Property.Rank:
-                    if (HeaderInfo.Lenght >= 0x1c)
+                    if (HeaderInfo.Length >= 0x1c)
                     {
                         if (Rank != 0)
                         {
@@ -841,7 +841,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x20] - [v2.7] - [Configured Memory Clock Speed] - [Int32?]
                 case SmbiosType017Property.ConfiguredMemoryClockSpeed:
-                    if (HeaderInfo.Lenght >= 0x21)
+                    if (HeaderInfo.Length >= 0x21)
                     {
                         if (CurrentSpeed != 0)
                         {
@@ -853,7 +853,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x22] - [v2.8] - [Minimum Voltage] - [Int32?]
                 case SmbiosType017Property.MinimunVoltage:
-                    if (HeaderInfo.Lenght >= 0x23)
+                    if (HeaderInfo.Length >= 0x23)
                     {
                         if (CurrentSpeed != 0)
                         {
@@ -865,7 +865,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x24] - [v2.8] - [Maximum Voltage] - [Int32?]
                 case SmbiosType017Property.MaximumVoltage:
-                    if (HeaderInfo.Lenght >= 0x25)
+                    if (HeaderInfo.Length >= 0x25)
                     {
                         if (CurrentSpeed != 0)
                         {
@@ -877,7 +877,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x26] - [v2.8] - [Configured Voltage] - [Int32?]
                 case SmbiosType017Property.ConfiguredVoltage:
-                    if (HeaderInfo.Lenght >= 0x27)
+                    if (HeaderInfo.Length >= 0x27)
                     {
                         if (CurrentSpeed != 0)
                         {
@@ -889,7 +889,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x28] - [v3.2] - [Memory Technologies] - [String]
                 case SmbiosType017Property.MemoryTechnology:
-                    if (HeaderInfo.Lenght >= 0x29)
+                    if (HeaderInfo.Length >= 0x29)
                     {
                         value = GetMemoryTechnology(MemoryTechnology);
                     }
@@ -898,7 +898,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x29] - [v3.2] - [Memory Operating Mode Capability] - [ReadOnlyCollection<String>]
                 case SmbiosType017Property.MemoryOperatingModeCapability:
-                    if (HeaderInfo.Lenght >= 0x2A)
+                    if (HeaderInfo.Length >= 0x2A)
                     {
                         value = GetMemoryOperatingModeCapability(MemoryOperatingModeCapability);
                     }
@@ -907,7 +907,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x2B] - [v3.2] - [Firmware Version] - [String]
                 case SmbiosType017Property.FirmwareVersion:
-                    if (HeaderInfo.Lenght >= 0x2C)
+                    if (HeaderInfo.Length >= 0x2C)
                     {
                         value = FirmwareVersion;
                     }
@@ -916,7 +916,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x2C] - [v3.2] - [Module Manufacturer ID] - [Int32?]
                 case SmbiosType017Property.ModuleManufacturerId:
-                    if (HeaderInfo.Lenght >= 0x2D)
+                    if (HeaderInfo.Length >= 0x2D)
                     {
                         value = ModuleManufacturerId;
                     }
@@ -925,7 +925,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x2E] - [v3.2] - [Module Product ID] - [Int32?]
                 case SmbiosType017Property.ModuleProductId:
-                    if (HeaderInfo.Lenght >= 0x2F)
+                    if (HeaderInfo.Length >= 0x2F)
                     {
                         value = ModuleProductId;
                     }
@@ -934,7 +934,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x30] - [v3.2] - [Memory Subsystem Controller Manufacturer Id] - [Int32?]
                 case SmbiosType017Property.MemorySubsystemControllerManufacturerId:
-                    if (HeaderInfo.Lenght >= 0x31)
+                    if (HeaderInfo.Length >= 0x31)
                     {
                         value = MemorySubsystemControllerManufacturerId;
                     }
@@ -943,7 +943,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x32] - [v3.2] - [Memory Subsystem Controller Product Id] - [Int32?]
                 case SmbiosType017Property.MemorySubsystemControllerProductId:
-                    if (HeaderInfo.Lenght >= 0x33)
+                    if (HeaderInfo.Length >= 0x33)
                     {
                         value = MemorySubsystemControllerProductId;
                     }
@@ -952,7 +952,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x34] - [v3.2] - [Non Volatile Size] - [ulong?]
                 case SmbiosType017Property.NonVolatileSize:
-                    if (HeaderInfo.Lenght >= 0x35)
+                    if (HeaderInfo.Length >= 0x35)
                     {
                         value = NonVolatileSize;
                     }
@@ -961,7 +961,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x3C] - [v3.2] - [Volatile Size] - [ulong?]
                 case SmbiosType017Property.VolatileSize:
-                    if (HeaderInfo.Lenght >= 0x3d)
+                    if (HeaderInfo.Length >= 0x3d)
                     {
                         value = VolatileSize;
                     }
@@ -970,7 +970,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x44] - [v3.2] - [Cache Size] - [ulong?]
                 case SmbiosType017Property.CacheSize:
-                    if (HeaderInfo.Lenght >= 0x45)
+                    if (HeaderInfo.Length >= 0x45)
                     {
                         value = CacheSize;
                     }
@@ -979,7 +979,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x4C] - [v3.2] - [Logical Size] - [ulong?]
                 case SmbiosType017Property.LogicalSize:
-                    if (HeaderInfo.Lenght >= 0x4d)
+                    if (HeaderInfo.Length >= 0x4d)
                     {
                         value = LogicalSize;
                     }
@@ -1051,7 +1051,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
                 else
                 {
-                    if (HeaderInfo.Lenght >= 0x1d)
+                    if (HeaderInfo.Length >= 0x1d)
                     {
                         var extendedSize = ExtendedSize << 0x0a;
                         properties.Add(KnownDmiProperty.MemoryDevice.Size, extendedSize);
@@ -1074,7 +1074,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.3+
-            if (HeaderInfo.Lenght >= 0x16)
+            if (HeaderInfo.Length >= 0x16)
             {
                 var maximunSpeed = MaximunSpeed;
                 if (maximunSpeed != 0)
@@ -1083,29 +1083,29 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x18)
+            if (HeaderInfo.Length >= 0x18)
             {
                 properties.Add(KnownDmiProperty.MemoryDevice.Manufacturer, Manufacturer);
             }
 
-            if (HeaderInfo.Lenght >= 0x19)
+            if (HeaderInfo.Length >= 0x19)
             {
                 properties.Add(KnownDmiProperty.MemoryDevice.SerialNumber, SerialNumber);
             }
 
-            if (HeaderInfo.Lenght >= 0x1a)
+            if (HeaderInfo.Length >= 0x1a)
             {
                 properties.Add(KnownDmiProperty.MemoryDevice.AssetTag, AssetTag);
             }
 
-            if (HeaderInfo.Lenght >= 0x1b)
+            if (HeaderInfo.Length >= 0x1b)
             {
                 properties.Add(KnownDmiProperty.MemoryDevice.PartNumber, PartNumber);
             }
             #endregion
 
             #region 2.6+
-            if (HeaderInfo.Lenght >= 0x1c)
+            if (HeaderInfo.Length >= 0x1c)
             {
                 var rank = Rank;
                 if (rank != 0)
@@ -1116,7 +1116,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.7+
-            if (HeaderInfo.Lenght >= 0x21)
+            if (HeaderInfo.Length >= 0x21)
             {
                 var currentSpeed = CurrentSpeed;
                 if (currentSpeed != 0)
@@ -1127,7 +1127,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.8+
-            if (HeaderInfo.Lenght >= 0x23)
+            if (HeaderInfo.Length >= 0x23)
             {
                 var minimunVoltage = MinimunVoltage;
                 if (minimunVoltage != 0)
@@ -1150,7 +1150,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 3.2+
-            if (HeaderInfo.Lenght >= 0x29)
+            if (HeaderInfo.Length >= 0x29)
             {
                 var memoryTechnology = GetMemoryTechnology(MemoryTechnology);
                 properties.Add(KnownDmiProperty.MemoryDevice.MemoryTechnology, memoryTechnology);

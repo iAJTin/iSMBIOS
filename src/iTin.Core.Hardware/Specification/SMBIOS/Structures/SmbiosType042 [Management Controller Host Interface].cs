@@ -136,7 +136,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x06] - [v3.2+] [Interface Type Specific Data] - [ReadOnlyCollection<byte>]
                 case SmbiosType042Property.InterfaceTypeSpecificData:
-                    if (HeaderInfo.Lenght >= 0x07)
+                    if (HeaderInfo.Length >= 0x07)
                     {
                         value = InterfaceTypeSpecificData;
                     }
@@ -145,7 +145,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x07 + n] - [v3.2+] [Protocol Records] - [ManagementControllerHostInterfaceProtocolRecordsCollection]
                 case SmbiosType042Property.Protocols:
-                    if (HeaderInfo.Lenght >= 0x08 + InterfaceTypeSpecificDataLenght)
+                    if (HeaderInfo.Length >= 0x08 + InterfaceTypeSpecificDataLenght)
                     {
                         value = new ManagementControllerHostInterfaceProtocolRecordsCollection(GetProtocolRecords());
                     }
@@ -176,12 +176,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 3.2+
-            if (HeaderInfo.RawData.Length >= 0x07)
+            if (HeaderInfo.Length >= 0x07)
             {
                 properties.Add(KnownDmiProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData, InterfaceTypeSpecificData);
             }
 
-            if (HeaderInfo.RawData.Length >= 0x08 + InterfaceTypeSpecificDataLenght)
+            if (HeaderInfo.Length >= 0x08 + InterfaceTypeSpecificDataLenght)
             {
                 properties.Add(KnownDmiProperty.ManagementControllerHostInterface.Protocols, new ManagementControllerHostInterfaceProtocolRecordsCollection(GetProtocolRecords()));
             }
@@ -213,7 +213,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             for (var x = 0; x < numberOfProtocolsRecords ; x++)
             {
                 var init = (byte)(0x07 + n + offset);
-                if (HeaderInfo.RawData.Length <= init + 1)
+                if (HeaderInfo.Length <= init + 1)
                 {
                     break;
                 }

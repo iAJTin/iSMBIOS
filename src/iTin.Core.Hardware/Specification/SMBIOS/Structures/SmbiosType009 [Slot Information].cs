@@ -310,7 +310,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0b] - [v2.0 - v2.1] - [Slot Characteristics] - [ReadOnlyCollection<string>]
                 case SmbiosType009Property.SlotCharacteristics:
-                    if (HeaderInfo.Lenght >= 0x0d)
+                    if (HeaderInfo.Length >= 0x0d)
                     {
                         value = GetCharacteristics(Characteristics1, Characteristics2);
                     }
@@ -323,7 +323,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x0d] - [v2.6] - [Segment Group Number] - [String]
                 case SmbiosType009Property.SegmentBusFunction:
-                    if (HeaderInfo.Lenght >= 0x0e)
+                    if (HeaderInfo.Length >= 0x0e)
                     {
                         value = GetSegmentBusFunction(SegmentBusFunction);
                     }
@@ -332,7 +332,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x10] - [v2.6] - [Device/Function Number] - [String]
                 case SmbiosType009Property.BusDeviceFunction:
-                    if (HeaderInfo.Lenght >= 0x11)
+                    if (HeaderInfo.Length >= 0x11)
                     {
                         value = GetBusDeviceFunction(Bus, Device, Function);
                     }
@@ -359,7 +359,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
 
             #region 2.0+
-            if (HeaderInfo.Lenght >= 0x0c)
+            if (HeaderInfo.Length >= 0x0c)
             {
                 properties.Add(KnownDmiProperty.SystemSlots.SlotDesignation, SlotDesignation);
                 properties.Add(KnownDmiProperty.SystemSlots.SlotType, GetSlotType(SlotType));
@@ -372,14 +372,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (HeaderInfo.Lenght >= 0x0d)
+            if (HeaderInfo.Length >= 0x0d)
             {
                 properties[KnownDmiProperty.SystemSlots.Characteristics] = GetCharacteristics(Characteristics1, Characteristics2);
             }
             #endregion
 
             #region 2.6+
-            if (HeaderInfo.Lenght >= 0x11)
+            if (HeaderInfo.Length >= 0x11)
             {
                 properties.Add(KnownDmiProperty.SystemSlots.SegmentBusFunction, GetSegmentBusFunction(SegmentBusFunction));
                 properties.Add(KnownDmiProperty.SystemSlots.BusDeviceFunction, GetBusDeviceFunction(Bus, Device, Function));

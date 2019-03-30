@@ -317,79 +317,79 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x10] - [Base Address Modifier / Interrupt Info]
 
-                    #region [0x10] - [Base Address Modifier]
+                #region [0x10] - [Base Address Modifier]
 
-                        #region [0x10] - [Base Address Modifier -> Base Address -> Register Spacing] - [String]
-                        case SmbiosType038Property.RegisterSpacing:
-                            if (HeaderInfo.Lenght >= 0x11)
-                            {
-                                if (BaseAddressModifier != 0x00)
-                                {
-                                    value = GetRegisterSpacing(RegisterSpacing);
-                                }
-                            }
-                            break;
-                        #endregion
-
-                        #region [0x10] - [Base Address Modifier -> Base Address -> LsBit] - [Byte?]
-                        case SmbiosType038Property.LSBit:
-                            if (HeaderInfo.Lenght >= 0x11)
-                            {
-                                if (BaseAddressModifier != 0x00)
-                                {
-                                    value = (Byte?) LsBit;
-                                }
-                            }
-                            break;
-                        #endregion
-
-                    #endregion
-
-                    #region [0x10] - [Interrupt Info]
-
-                        #region [0x10] - [Base Address Modifier -> Interrupt Info -> Specified Info] - [Boolean?]
-                        case SmbiosType038Property.SpecifiedInfo:
-                        if (HeaderInfo.Lenght >= 0x11)
+                #region [0x10] - [Base Address Modifier -> Base Address -> Register Spacing] - [String]
+                case SmbiosType038Property.RegisterSpacing:
+                    if (HeaderInfo.Length >= 0x11)
+                    {
+                        if (BaseAddressModifier != 0x00)
                         {
-                            if (BaseAddressModifier != 0x00)
-                            {
-                                value = (bool?) SpecifiedInfo;
-                            }
+                            value = GetRegisterSpacing(RegisterSpacing);
                         }
-                        break;
-                        #endregion
+                    }
+                    break;
+                #endregion
 
-                        #region [0x10] - [Base Address Modifier -> Interrupt Info -> Polarity] - [String]
-                        case SmbiosType038Property.Polarity:
-                            if (HeaderInfo.Lenght >= 0x11)
-                            {
-                                if (BaseAddressModifier != 0x00)
-                                {
-                                    value = Polarity;
-                                }
-                            }
-                            break;
-                        #endregion
+                #region [0x10] - [Base Address Modifier -> Base Address -> LsBit] - [Byte?]
+                case SmbiosType038Property.LSBit:
+                    if (HeaderInfo.Length >= 0x11)
+                    {
+                        if (BaseAddressModifier != 0x00)
+                        {
+                            value = (Byte?) LsBit;
+                        }
+                    }
+                    break;
+                #endregion
 
-                        #region [0x10] - [Base Address Modifier -> Interrupt Info -> Trigger Mode] - [String]
-                        case SmbiosType038Property.TriggerMode:
-                            if (HeaderInfo.Lenght >= 0x11)
-                            {
-                                if (BaseAddressModifier != 0x00)
-                                {
-                                    value = TriggerMode;
-                                }
-                            }
-                            break;
-                        #endregion
+                #endregion
 
-                    #endregion
+                #region [0x10] - [Interrupt Info]
+
+                #region [0x10] - [Base Address Modifier -> Interrupt Info -> Specified Info] - [Boolean?]
+                case SmbiosType038Property.SpecifiedInfo:
+                if (HeaderInfo.Length >= 0x11)
+                {
+                    if (BaseAddressModifier != 0x00)
+                    {
+                        value = (bool?) SpecifiedInfo;
+                    }
+                }
+                break;
+                #endregion
+
+                #region [0x10] - [Base Address Modifier -> Interrupt Info -> Polarity] - [String]
+                case SmbiosType038Property.Polarity:
+                    if (HeaderInfo.Length >= 0x11)
+                    {
+                        if (BaseAddressModifier != 0x00)
+                        {
+                            value = Polarity;
+                        }
+                    }
+                    break;
+                #endregion
+
+                #region [0x10] - [Base Address Modifier -> Interrupt Info -> Trigger Mode] - [String]
+                case SmbiosType038Property.TriggerMode:
+                    if (HeaderInfo.Length >= 0x11)
+                    {
+                        if (BaseAddressModifier != 0x00)
+                        {
+                            value = TriggerMode;
+                        }
+                    }
+                    break;
+                #endregion
+
+                #endregion
 
                 #endregion
 
                 #region [0x11] - [Interrupt Number] - [Byte?]
                 case SmbiosType038Property.InterruptNumber:
-                    if (HeaderInfo.Lenght >= 0x12)
+                    if (HeaderInfo.Length >= 0x12)
                     {
                         if (InterruptNumber != 0x00)
                         {
@@ -428,7 +428,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             properties.Add(KnownDmiProperty.IpmiDevice.BaseAdress, BaseAddress);
 
-            if (HeaderInfo.Lenght >= 0x11)
+            if (HeaderInfo.Length >= 0x11)
             {
                 if (BaseAddressModifier != 0x00)
                 {
@@ -441,7 +441,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
             }
 
-            if (HeaderInfo.Lenght >= 0x12)
+            if (HeaderInfo.Length >= 0x12)
             {
                 if (InterruptNumber != 0x00)
                 {

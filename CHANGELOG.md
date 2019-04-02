@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - This CHANGELOG file
+- Memory Technology field to Structure Type 17 [Memory Device].
 
 ### Changed
 - Full support for Structure Type 42 [Management Controller Host Interface]. 
@@ -12,7 +13,7 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Fixes an error that occurs when trying to retrieve the ExtendedMaximumCapacity field of structure 16 [Physical Memory Array] 
-  when running on a virtualized computer with Parallels ( MacOS ).
+  when running on a virtualized computer with Parallels (MacOS).
 
 ## [1.0.1] - 2019-03-29
 ### Fixed

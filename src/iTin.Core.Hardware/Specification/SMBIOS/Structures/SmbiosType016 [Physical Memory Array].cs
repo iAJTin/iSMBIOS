@@ -222,8 +222,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 #endregion
 
                 #region [0x07] - [v2.1 - v2.7] - [Maximum Capacity] - [ulong]
-                case SmbiosType016Property.MaximumCapacity:                
-                    value = MaximumCapacity == 0x08000000 ? ExtendedMaximumCapacity : MaximumCapacity;
+                case SmbiosType016Property.MaximumCapacity:
+                    var maximumCapacity = MaximumCapacity;
+                    if (maximumCapacity != 0x08000000)
+                    {
+                        value = maximumCapacity;
+                    }
+                    else
+                    {
+                        if (HeaderInfo.Length == 0x17)
+                        {
+                            value = ExtendedMaximumCapacity;
+                        }
+                    }
+
                     break;
                 #endregion
 
@@ -264,11 +276,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
             properties.Add(KnownDmiProperty.PhysicalMemoryArray.NumberOfMemoryDevices, NumberOfMemoryDevices);
 
             var maximumCapacity = MaximumCapacity;
-            properties.Add(
-                KnownDmiProperty.PhysicalMemoryArray.MaximumCapacity, 
-                maximumCapacity == 0x08000000 
-                    ? ExtendedMaximumCapacity 
-                    : maximumCapacity);
+            if (maximumCapacity != 0x08000000)
+            {
+                properties.Add(KnownDmiProperty.PhysicalMemoryArray.MaximumCapacity, maximumCapacity);
+            }
+            else
+            {
+                if (HeaderInfo.Length == 0x17)
+                {
+                    properties.Add(KnownDmiProperty.PhysicalMemoryArray.MaximumCapacity, ExtendedMaximumCapacity);
+                }
+            }
             #endregion
         }
         #endregion

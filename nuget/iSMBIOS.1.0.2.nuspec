@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>iSMBIOS</id>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <title>iSMBIOS</title>
         <authors>iAJTin</authors>
         <owners>iAJTin</owners>
         <license type="expression">MIT</license>
         <projectUrl>https://github.com/iAJTin/iSMBIOS</projectUrl>
-        <iconUrl>https://raw.githubusercontent.com/iAJTin/iExportEngine/master/nuget/iTin.Export.png</iconUrl>
+        <iconUrl>https://github.com/iAJTin/iSMBIOS/blob/master/nuget/iSMBIOS.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>iSMBIOS is a lightweight implementation that allows us to obtain SMBIOS information</description>
         <copyright>Copyright © 2018 iAJTin</copyright>

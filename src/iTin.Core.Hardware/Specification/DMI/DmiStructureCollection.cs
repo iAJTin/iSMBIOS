@@ -30,6 +30,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
         }
         #endregion
 
+        internal DmiStructureCollection(DMI dmi) : base(new List<DmiStructure>())
+        {
+            //DmiHelper.Smbios.Parse(dmi.)
+        }
         #endregion
 
         #region public indexers

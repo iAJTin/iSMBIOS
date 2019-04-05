@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace iTin.Core.Hardware.Specification
 {
     using System.Diagnostics;
@@ -34,7 +36,22 @@ namespace iTin.Core.Hardware.Specification
         }
         #endregion
 
+        private DMI(byte[] data)
+        {
+        }
         #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DmiStructureCollection Parse(byte[] data)
+        {
+            //var dmi = new DMI(data);
+            //new DmiStructureCollection(dmi);
+            return new DmiStructureCollection();
+        }
 
         #region public properties
         /// <summary>

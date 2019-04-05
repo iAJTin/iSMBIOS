@@ -15,7 +15,7 @@ iSMBIOS is a lightweight implementation that allows us to obtain the SMBIOS info
 
 This library fully implements DMTF Specification 3.2.0 and olders versions
 
-For more information, please see https://www.dmtf.org/standards/smbios
+For more information, please see [https://www.dmtf.org/standards/smbios](https://www.dmtf.org/standards/smbios)
 
 # Install via NuGet
 

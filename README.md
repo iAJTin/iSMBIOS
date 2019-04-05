@@ -63,68 +63,88 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 3. Prints all **SMBIOS** structures properties
 
 
-            DmiStructureCollection structures = DMI.Instance.Structures;
             foreach (DmiStructure structure in structures)
             {
-                Console.WriteLine($"{(int)structure.Class:D3}-{structure.Class} structure detail:");
-                Console.WriteLine(@"—————————————————————————————————————————————————————————————");
+                Console.WriteLine();
+                Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+                Console.WriteLine($@" {(int)structure.Class:D3}-{structure.Class} structure detail");
+                Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
                 DmiClassCollection elements = structure.Elements;
                 foreach (DmiClass element in elements)
                 {
-                    var elementProperties = element.Properties;
+                    Hashtable elementProperties = element.Properties;
                     foreach (DictionaryEntry property in elementProperties)
                     {
                         var value = property.Value;
+
+                        var key = (PropertyKey)property.Key;
+                        var id = key.PropertyId;
+
+                        var valueUnit = key.PropertyUnit;
+                        var unit =
+                            valueUnit == PropertyUnit.None
+                                ? string.Empty
+                                : valueUnit.ToString();
+
                         if (value == null)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> NULL");
+                            Console.WriteLine($@"{id} -> NULL");
                             continue;
                         }
 
                         if (value is string)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value}");
+                            Console.WriteLine($@"   > {id} > {value}{unit}");
                         }
                         else if (value is byte)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value} [{property.Value:X2}h]");
+                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X2}h]");
                         }
                         else if (value is short)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value} [{property.Value:X4}h]");
+                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
                         }
                         else if (value is ushort)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value} [{property.Value:X4}h]");
+                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
                         }
                         else if (value is int)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value} [{property.Value:X4}h]");
+                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
                         }
                         else if (value is uint)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value} [{property.Value:X4}h]");
+                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
                         }
                         else if (value is long)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value} [{property.Value:X8}h]");
+                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X8}h]");
                         }
                         else if (value is ulong)
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value} [{property.Value:X8}h]");
+                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X8}h]");
                         }
                         else if (value.GetType() == typeof(ReadOnlyCollection<string>))
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId}");
-                            ReadOnlyCollection<string> collection = (ReadOnlyCollection<string>)value;
-                            foreach (string entry in collection)
+                            Console.WriteLine($@"   > {id}");
+                            var collection = (ReadOnlyCollection<string>) value;
+                            foreach (var entry in collection)
                             {
-                                Console.WriteLine(string.Format(CultureInfo.InvariantCulture, "\t-> {0}", entry));
+                                Console.WriteLine($@"     > {entry}");
+                            }
+                        }
+                        else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
+                        {
+                            Console.WriteLine($@"   > {id}");
+                            var collection = (ReadOnlyCollection<byte>)value;
+                            foreach (var entry in collection)
+                            {
+                                Console.WriteLine($@"     > {entry} [{entry:X2}h]");
                             }
                         }
                         else
                         {
-                            Console.WriteLine($"{((PropertyKey)property.Key).PropertyId} -> {property.Value}");
+                            Console.WriteLine($@"   > {id} > {value}{unit}");
                         }
                     }
                 }

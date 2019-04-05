@@ -224,9 +224,9 @@ namespace iTin.Core.Hardware.ConsoleApp
         {
             //DmiStructureCollection hp = DMI.Parse(hp255G6NotebookSmbios);
 
-            Console.WriteLine(@" ————————————————————————————————————————————————————————————————————————");
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine(" Availables structures");
-            Console.WriteLine(@" ————————————————————————————————————————————————————————————————————————");
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             DmiStructureCollection structures = DMI.Instance.Structures;
             foreach (DmiStructure structure in structures)
             {
@@ -236,22 +236,25 @@ namespace iTin.Core.Hardware.ConsoleApp
             foreach (DmiStructure structure in structures)
             {
                 Console.WriteLine();
-                Console.WriteLine(@" ————————————————————————————————————————————————————————————————————————");
+                Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
                 Console.WriteLine($@" {(int)structure.Class:D3}-{structure.Class} structure detail");
-                Console.WriteLine(@" ————————————————————————————————————————————————————————————————————————");
+                Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
                 DmiClassCollection elements = structure.Elements;
                 foreach (DmiClass element in elements)
                 {
                     Hashtable elementProperties = element.Properties;
                     foreach (DictionaryEntry property in elementProperties)
                     {
-                        object value = property.Value;
+                        var value = property.Value;
 
-                        PropertyKey key = (PropertyKey)property.Key;
-                        Enum id = key.PropertyId;
+                        var key = (PropertyKey)property.Key;
+                        var id = key.PropertyId;
 
                         var valueUnit = key.PropertyUnit;
-                        string unit = valueUnit == PropertyUnit.None ? string.Empty : valueUnit.ToString();
+                        var unit =
+                            valueUnit == PropertyUnit.None
+                                ? string.Empty
+                                : valueUnit.ToString();
 
                         if (value == null)
                         {
@@ -294,8 +297,8 @@ namespace iTin.Core.Hardware.ConsoleApp
                         else if (value.GetType() == typeof(ReadOnlyCollection<string>))
                         {
                             Console.WriteLine($@"   > {id}");
-                            ReadOnlyCollection<string> collection = (ReadOnlyCollection<string>) value;
-                            foreach (string entry in collection)
+                            var collection = (ReadOnlyCollection<string>) value;
+                            foreach (var entry in collection)
                             {
                                 Console.WriteLine($@"     > {entry}");
                             }
@@ -303,8 +306,8 @@ namespace iTin.Core.Hardware.ConsoleApp
                         else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
                         {
                             Console.WriteLine($@"   > {id}");
-                            ReadOnlyCollection<byte> collection = (ReadOnlyCollection<byte>)value;
-                            foreach (byte entry in collection)
+                            var collection = (ReadOnlyCollection<byte>)value;
+                            foreach (var entry in collection)
                             {
                                 Console.WriteLine($@"     > {entry} [{entry:X2}h]");
                             }

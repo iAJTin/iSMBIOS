@@ -16,7 +16,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         #region constructor/s
 
-        #region [internal] DmiStructureCollection(bool): Initialize a new instance of the class
+        #region [internal] DmiStructureCollection(): Initialize a new instance of the class
         /// <inheritdoc />
         /// <summary>
         /// Initialize a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructureCollection" /> class.
@@ -30,10 +30,6 @@ namespace iTin.Core.Hardware.Specification.Dmi
         }
         #endregion
 
-        internal DmiStructureCollection(DMI dmi) : base(new List<DmiStructure>())
-        {
-            //DmiHelper.Smbios.Parse(dmi.)
-        }
         #endregion
 
         #region public indexers

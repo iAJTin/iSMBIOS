@@ -27,13 +27,6 @@ namespace iTin.Core.Hardware.Specification
         private readonly byte minorVersion;
         #endregion
 
-        #region public static readonly members
-        /// <summary>
-        /// Gets a unique instance of this class.
-        /// </summary>
-        public static readonly SMBIOS Instance = new SMBIOS();
-        #endregion
-
         #region constructor/s
 
         #region [private] SMBIOS(): Initializes a new instance of the SMBIOS class. Retrieves the SMBIOS information by WMI
@@ -60,6 +53,13 @@ namespace iTin.Core.Hardware.Specification
         }
         #endregion
 
+        #endregion
+
+        #region public static readonly properties
+        /// <summary>
+        /// Gets a unique instance of this class.
+        /// </summary>
+        public static readonly SMBIOS Instance = new SMBIOS();
         #endregion
 
         #region public properties

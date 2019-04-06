@@ -5765,7 +5765,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   </item>
             /// </list>
             /// </remarks>
-            public static PropertyKey SlotDataBusWidth => new PropertyKey(SmbiosStructure.SystemSlots, SmbiosType009Property.SlotDataBusWidth, PropertyUnit.Bits);
+            public static PropertyKey SlotDataBusWidth => new PropertyKey(SmbiosStructure.SystemSlots, SmbiosType009Property.SlotDataBusWidth, PropertyUnit.None);
             #endregion
 
             #region [public] {static} (PropertyKey) CurrentUsage: Gets a value representing the key to retrieve the property

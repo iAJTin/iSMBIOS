@@ -63,7 +63,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region public static methods
+        #region public static methods        
 
         #region [public] {static} (ReadOnlyCollection<SmbiosStructure>) GetImplementedStructureKeys: Returns the list with the keys of implemented structures
         /// <summary>
@@ -74,7 +74,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </value>
         public static ReadOnlyCollection<SmbiosStructure> GetImplementedStructureKeys()
         {
-            return 
+            return
                 RawStructures
                     .OrderBy(structure => structure.Key)
                     .Select(rawStructure => rawStructure.Key)
@@ -121,7 +121,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 int firstByte = i;
                 for (i = firstByte + rawSMBIOSTable[i + 1]; i < rawSMBIOSTable.Length; i++)
                 {
-                    if ((rawSMBIOSTable[i] == 0x00) && (rawSMBIOSTable[i + 1] == 0x00))
+                    if (rawSMBIOSTable[i] == 0x00 && rawSMBIOSTable[i + 1] == 0x00)
                     {
                         i += 2;
                         int lastByte = i;

@@ -1,6 +1,4 @@
 ﻿
-using System;
-
 namespace iTin.Core.Hardware.Specification
 {
     using System.Diagnostics;
@@ -18,13 +16,6 @@ namespace iTin.Core.Hardware.Specification
         private DmiStructureCollection dmiStructureCollection;
         #endregion
 
-        #region public static members
-        /// <summary>
-        /// Gets a unique instance of this class.
-        /// </summary>
-        public static readonly DMI Instance = new DMI();
-        #endregion
-
         #region constructor/s
 
         #region [private] DMI(): Prevents a default instance of this class from being created
@@ -36,35 +27,16 @@ namespace iTin.Core.Hardware.Specification
         }
         #endregion
 
-        private DMI(byte[] data)
-        {
-        }
         #endregion
 
+        #region public static readonly properties
         /// <summary>
-        /// 
+        /// Gets a unique instance of this class.
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static DmiStructureCollection Parse(byte[] data)
-        {
-            //var dmi = new DMI(data);
-            //new DmiStructureCollection(dmi);
-            return new DmiStructureCollection();
-        }
-
-        #region public properties
-        /// <summary>
-        /// Gets the collection of available structures.
-        /// </summary>
-        /// <value>
-        /// Object <see cref="DmiStructureCollection" /> that contains the collection of available <see cref="DmiStructure" /> objects.
-        /// If there is no object <see cref="DmiStructure" />, <b>null</b> is returned.
-        /// </value>
-        public DmiStructureCollection Structures => dmiStructureCollection ?? (dmiStructureCollection = new DmiStructureCollection());
+        public static readonly DMI Instance = new DMI();
         #endregion
 
-        #region public static methods
+        #region public static properties
         /// <summary>
         /// Gets a string that represents the type of access.
         /// </summary>
@@ -86,6 +58,17 @@ namespace iTin.Core.Hardware.Specification
         ///Este método devuelve siempre la cadena <b>DMI</b>.
         /// </remarks>       
         public static string Identificationmethod => "<DMI>";
+        #endregion
+
+        #region public properties
+        /// <summary>
+        /// Gets the collection of available structures.
+        /// </summary>
+        /// <value>
+        /// Object <see cref="DmiStructureCollection" /> that contains the collection of available <see cref="DmiStructure" /> objects.
+        /// If there is no object <see cref="DmiStructure" />, <b>null</b> is returned.
+        /// </value>
+        public DmiStructureCollection Structures => dmiStructureCollection ?? (dmiStructureCollection = new DmiStructureCollection());
         #endregion
 
         #region public overrides methods

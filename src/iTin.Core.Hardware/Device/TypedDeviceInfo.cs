@@ -199,51 +199,51 @@ namespace iTin.Core.Hardware.Device
 
         #region internal static methods
 
-            #region [internal] (T) GetTypedRegistryValue<T>(string, RegistryKey): Obtiene un valor fuertemenente tipado que representa al valor de la clave del registro especificada.
-            /// <summary>
-            /// Obtiene un valor fuertemenente tipado que representa al valor de la clave del registro especificada.
-            /// </summary>
-            /// <typeparam name="T"></typeparam>
-            /// <param name="entryKey">Entrada que contiene el valor a recuperar.</param>
-            /// <param name="registryKey">Clave del registro que contiene la entrada a recuperar.</param>
-            /// <returns>
-            /// Valor fuertemente tipado que corresponde al valor de la entrada especificada.
-            /// </returns>
-            internal T GetTypedRegistryValue<T>(string entryKey, RegistryKey registryKey)
+        #region [internal] (T) GetTypedRegistryValue<T>(string, RegistryKey): Obtiene un valor fuertemenente tipado que representa al valor de la clave del registro especificada.
+        /// <summary>
+        /// Obtiene un valor fuertemenente tipado que representa al valor de la clave del registro especificada.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entryKey">Entrada que contiene el valor a recuperar.</param>
+        /// <param name="registryKey">Clave del registro que contiene la entrada a recuperar.</param>
+        /// <returns>
+        /// Valor fuertemente tipado que corresponde al valor de la entrada especificada.
+        /// </returns>
+        internal T GetTypedRegistryValue<T>(string entryKey, RegistryKey registryKey)
+        {
+            var existKey = registryEntryKeysCollection.Contains(entryKey);
+            if (!existKey)
             {
-                var existKey = registryEntryKeysCollection.Contains(entryKey);
-                if (!existKey)
-                {
-                    return default(T);
-                }
-
-                object typedResult;
-                var keyValue = registryKey.GetValue(entryKey);
-
-                RegistryValueKind valueKind = registryKey.GetValueKind(entryKey);
-                switch (valueKind)
-                {
-                    case RegistryValueKind.Binary:
-                        var keyValueArray = (byte[])keyValue;
-
-                        if (typeof(T) == typeof(int?))
-                        {
-                            typedResult = LogicHelper.ADWord(keyValueArray, 0);
-                        }
-                        else
-                        {
-                            typedResult = Encoding.Unicode.GetString(keyValueArray, 0, (keyValueArray).Length - 2);
-                        }                    
-                        break;
-
-                    default:
-                        typedResult = keyValue;
-                        break;
-                }
-
-                return (T)typedResult;
+                return default;
             }
-            #endregion
+
+            object typedResult;
+            var keyValue = registryKey.GetValue(entryKey);
+
+            RegistryValueKind valueKind = registryKey.GetValueKind(entryKey);
+            switch (valueKind)
+            {
+                case RegistryValueKind.Binary:
+                    var keyValueArray = (byte[])keyValue;
+
+                    if (typeof(T) == typeof(int?))
+                    {
+                        typedResult = LogicHelper.ADWord(keyValueArray, 0);
+                    }
+                    else
+                    {
+                        typedResult = Encoding.Unicode.GetString(keyValueArray, 0, (keyValueArray).Length - 2);
+                    }                    
+                    break;
+
+                default:
+                    typedResult = keyValue;
+                    break;
+            }
+
+            return (T)typedResult;
+        }
+        #endregion
 
         #endregion
 

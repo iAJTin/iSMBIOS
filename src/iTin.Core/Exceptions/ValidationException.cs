@@ -12,6 +12,9 @@ namespace iTin.Core.Exceptions
     /// <seealso cref="Exception" />
     public class ValidationException : Exception
     {
+        /// <summary>
+        /// Error list.
+        /// </summary>
         public List<Error> Errors = new List<Error>();
 
         #region constructor/s

@@ -146,7 +146,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override object GetValueTypedProperty(PropertyKey propertyKey)
         {
             object value = null;
-            SmbiosType042Property propertyId = (SmbiosType042Property)propertyKey.PropertyId;
+            SmbiosType043Property propertyId = (SmbiosType043Property)propertyKey.PropertyId;
 
             //switch (propertyId)
             //{

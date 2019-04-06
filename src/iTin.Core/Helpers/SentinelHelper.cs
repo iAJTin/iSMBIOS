@@ -332,7 +332,7 @@ namespace iTin.Core.Helpers
         {
             if (string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException("El argumento 'value' no puede estar vacio");
+                throw new ArgumentException("El argumento 'value' no puede estar vacio", parameterName);
             }
 
             return value;

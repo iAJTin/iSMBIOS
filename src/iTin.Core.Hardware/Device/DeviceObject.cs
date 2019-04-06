@@ -2,7 +2,6 @@
 namespace iTin.Core.Hardware.Device
 {
     using System.Diagnostics;
-    using System.Globalization;
 
     public abstract class DeviceObject
     {

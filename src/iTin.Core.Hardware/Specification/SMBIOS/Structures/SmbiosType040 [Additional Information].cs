@@ -149,7 +149,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             int m = rawValueArray.Length / n;
             Collection<AdditionalInformationEntry> containedElements = new Collection<AdditionalInformationEntry>();
 
-            for (int i = 0; i < rawValueArray.Length; i = i + m)
+            for (int i = 0; i < rawValueArray.Length; i += m)
             {
                 byte[] value = new byte[m];
                 Array.Copy(rawValueArray, i, value, 0, m);

@@ -3014,7 +3014,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <item>
             ///     <term>Type</term>
             ///     <description>
-            ///       <see cref="T:System.Nullable{Int32}"" />
+            ///       <see cref="T:System.Nullable{Int32}" />
             ///     </description>
             ///   </item>
             /// </list>

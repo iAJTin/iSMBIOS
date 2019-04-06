@@ -713,7 +713,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             var sizeIsMeasuredInKb = IsMeasuredInKb(size);
                             if (!sizeIsMeasuredInKb)
                             {
-                                size = size << 0x0a;
+                                size <<= 0x0a;
                             }
 
                             value = (int?)size;
@@ -1044,7 +1044,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     var sizeIsMeasuredInKb = IsMeasuredInKb(size);
                     if (!sizeIsMeasuredInKb)
                     {
-                        size = size << 0x0a;
+                        size <<= 0x0a;
                     }
 
                     properties.Add(KnownDmiProperty.MemoryDevice.Size, size);

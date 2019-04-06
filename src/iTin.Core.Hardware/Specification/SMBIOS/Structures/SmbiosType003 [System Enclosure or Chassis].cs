@@ -604,7 +604,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             int m = rawdevicePropertyArray.Length / n;
             Collection<ChassisContainedElement> containedElements = new Collection<ChassisContainedElement>();
 
-            for (int i = 0; i < rawdevicePropertyArray.Length; i = i + m)
+            for (int i = 0; i < rawdevicePropertyArray.Length; i += m)
             {
                 var deviceProperty = new byte[m];
                 Array.Copy(rawdevicePropertyArray, i, deviceProperty, 0, m);

@@ -182,7 +182,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region private properties
+        #region private readonly properties
 
         #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field
         /// <summary>
@@ -573,10 +573,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods
 
-        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
+        #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Returns a value that represents the value of the specified property
         /// <inheritdoc />
         /// <summary>
-        /// Gets a value that represents the value of the specified property.
+        /// Returns a value that represents the value of the specified property.
         /// </summary>
         /// <param name="propertyKey">Property key to be obtained.</param>
         /// <returns>
@@ -951,12 +951,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        #region [protected] {override} (void) Parse(Hashtable): Populates the property collection for this structure
         /// <inheritdoc />
         /// <summary>
-        /// Gets the property collection for this structure.
+        /// Populates the property collection for this structure.
         /// </summary>
-        /// <param name="properties">Collection of properties of this structure.</param>
+        /// <param name="properties">Collection of properties of this structure</param>
         protected override void Parse(Hashtable properties)
         {
             #region validate parameter/s

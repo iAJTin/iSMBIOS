@@ -3,9 +3,11 @@ namespace iTin.Core.Hardware.Specification
 {
     using System.Collections.ObjectModel;
     using System.Diagnostics;
+    using System.Linq;
     using System.Management;
 
     using Helpers;
+    using Interop.Windows.Development.SystemServices.SystemInformation.Firmware;
     using Smbios;
 
     /// <summary>
@@ -18,7 +20,7 @@ namespace iTin.Core.Hardware.Specification
     {
         #region private readonly members
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly uint length;
+        private readonly int length;
         
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly byte majorVersion;
@@ -38,16 +40,30 @@ namespace iTin.Core.Hardware.Specification
         /// </remarks>
         private SMBIOS()
         {
-            using (var wmi = new ManagementObjectSearcher("root\\WMI", "SELECT * FROM MSSmBios_RawSMBiosTables"))
+            string[] tableNames = FirmwareTable.EnumerateTables(KnownProvider.RSMB);
+            if (tableNames.Any())
             {
-                foreach (var o in wmi.Get())
-                {
-                    var queryObj = (ManagementObject) o;
-                    length = (uint)queryObj["Size"];
-                    majorVersion = (byte)queryObj["SmbiosMajorVersion"];
-                    minorVersion = (byte)queryObj["SmbiosMinorVersion"];
+                byte[] rawSmbiosTable = FirmwareTable.GetTable(KnownProvider.RSMB, tableNames[0]);
+                majorVersion = rawSmbiosTable[0x01];
+                minorVersion = rawSmbiosTable[0x02];
+                length = rawSmbiosTable.Length - 0x08;
 
-                    SmbiosHelper.ToRawTables((byte[])queryObj["SMBiosData"]);
+                var smBiosData = rawSmbiosTable.Extract(0x08, length); 
+                SmbiosHelper.ToRawTables(smBiosData);
+            }
+            else
+            {
+                using (var wmi = new ManagementObjectSearcher("root\\WMI", "SELECT * FROM MSSmBios_RawSMBiosTables"))
+                {
+                    foreach (var o in wmi.Get())
+                    {
+                        var queryObj = (ManagementObject)o;
+                        length = (int) (uint) queryObj["Size"];
+                        majorVersion = (byte)queryObj["SmbiosMajorVersion"];
+                        minorVersion = (byte)queryObj["SmbiosMinorVersion"];
+
+                        SmbiosHelper.ToRawTables((byte[])queryObj["SMBiosData"]);
+                    }
                 }
             }
         }
@@ -71,14 +87,14 @@ namespace iTin.Core.Hardware.Specification
         public ReadOnlyCollection<SmbiosStructure> ImplementedStructures => SmbiosHelper.GetImplementedStructureKeys();
         #endregion
 
-        #region [public] (uint) Lenght: Gets a value that contains the length of all SMBIOS tables
+        #region [public] (int) Lenght: Gets a value that contains the length of all SMBIOS tables
         /// <summary>
         /// Gets a value that contains the length of all <b>SMBIOS</b> tables.
         /// </summary>
         /// <value>
         /// Length of all <b>SMBIOS</b> tables
         /// </value>
-        public uint Lenght => length;
+        public int Lenght => length;
         #endregion
 
         #region [public] (int) Version: Gets a value that contains the version of SMBIOS

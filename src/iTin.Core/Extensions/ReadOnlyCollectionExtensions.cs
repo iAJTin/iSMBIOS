@@ -66,9 +66,9 @@ namespace iTin.Core
         }
         #endregion
 
-        #region [public] {static} (ReadOnlyCollection<byte>) Extract(this ReadOnlyCollection<byte>, byte, byte): Returns an array of bytes by exchanging bytes
+        #region [public] {static} (ReadOnlyCollection<byte>) Extract(this ReadOnlyCollection<byte>, byte, byte): Returns a byte array as a result of extracting n bytes of the specified array from a position
         /// <summary>
-        /// Returns an array of bytes by exchanging bytes.
+        /// Returns a byte array as a result of extracting n bytes of the specified array from a position.
         /// </summary>
         /// <param name="data">Target data.</param>
         /// <param name="start">Start byte</param>

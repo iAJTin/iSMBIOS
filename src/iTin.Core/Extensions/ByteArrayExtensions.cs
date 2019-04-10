@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace iTin.Core
 {
     using Helpers;
@@ -8,6 +10,25 @@ namespace iTin.Core
     /// </summary> 
     public static class ByteArrayExtensions
     {
+        #region [public] {static} (byte[]) Extract(this byte[], int, int): Returns a byte array as a result of extracting n bytes of the specified array from a position
+        /// <summary>
+        /// Returns a byte array as a result of extracting n bytes of the specified array from a position.
+        /// </summary>
+        /// <param name="data">Target data.</param>
+        /// <param name="start">Start byte</param>
+        /// <param name="lenght">Lenght to extract</param>
+        /// <returns>
+        /// A <see cref="T:T:System.Collections.ObjectModel.ReadOnlyCollection{byte}" /> that contains the result.
+        /// </returns>
+        public static byte[] Extract(this byte[] data, int start, int lenght)
+        {
+            var subArray = new byte[lenght];
+            Array.Copy(data, start, subArray, 0x00, lenght);
+
+            return subArray;
+        }
+        #endregion
+
         #region [public] {static} (int) GetDoubleWord(this byte[], byte): Returns a double Word from this array of bytes starting in start
         /// <summary>
         /// Gets a <b>Double Word</b> from this array of bytes.

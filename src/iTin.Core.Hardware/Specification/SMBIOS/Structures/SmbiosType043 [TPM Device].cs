@@ -3,9 +3,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System.Collections;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Diagnostics;
-    using System.Linq;
+    using System.Text;
 
+    using Dmi.Property;
     using Helpers;
 
     // Type 043: TPM Device.
@@ -86,7 +88,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 3.1.0+ fields
 
-        #region [private] (string) VendorId: Gets a value representing the 'Vendor ID' field
+        #region [private] (byte[]) VendorId: Gets a value representing the 'Vendor ID' field
         /// <summary>
         ///  Gets a value representing the <c>Vendor ID</c> field.
         /// </summary>
@@ -94,7 +96,51 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string VendorId => GetBytes(HeaderInfo.RawData, 4, 4).ToString();
+        private byte[] RawVendorId => GetBytes(0x04, 0x04);
+        #endregion
+
+        #region [private] (byte) MajorSpecVersion: Gets a value representing the 'Major Spec Version' field
+        /// <summary>
+        ///  Gets a value representing the <c>Major Spec Version</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte MajorSpecVersion => GetByte(0x08);
+        #endregion
+
+        #region [private] (byte) MinorSpecVersion: Gets a value representing the 'Minor Spec Version' field
+        /// <summary>
+        ///  Gets a value representing the <c>Minor Spec Version</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte MinorSpecVersion => GetByte(0x09);
+        #endregion
+
+        #region [private] (int) FirmwareVersion1: Gets a value representing the 'Firmware Version 1' field
+        /// <summary>
+        ///  Gets a value representing the <c>Firmware Version 1</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int FirmwareVersion1 => GetDoubleWord(0x0a);
+        #endregion
+
+        #region [private] (int) FirmwareVersion2: Gets a value representing the 'Firmware Version 2' field
+        /// <summary>
+        ///  Gets a value representing the <c>Firmware Version 2</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int FirmwareVersion2 => GetDoubleWord(0x0a);
         #endregion
 
         #region [private] (string) DescriptionVersion2: Gets a value representing the 'Description Version 2' field
@@ -125,7 +171,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Property value.
         /// </value>
-        private int OemDefined => GetDoubleWord(0x18);
+        private int OemDefined => GetDoubleWord(0x1b);
         #endregion
 
         #endregion
@@ -148,14 +194,44 @@ namespace iTin.Core.Hardware.Specification.Smbios
             object value = null;
             SmbiosType043Property propertyId = (SmbiosType043Property)propertyKey.PropertyId;
 
-            //switch (propertyId)
-            //{
-            //    #region [0x04] - [Interface Type] - [String]
-            //    case SmbiosType042Property.InterfaceType:
-            //        value = GetInterfaceType(InterfaceType);
-            //        break;
-            //    #endregion
-            //}
+            switch (propertyId)
+            {
+                #region [0x04] - [Vendor Id] - [string]
+                case SmbiosType043Property.VendorId:
+                    value = PopulatesVendorId(RawVendorId);
+                    break;
+                #endregion
+
+                #region [0x08] - [Major Spec Version] - [byte]
+                case SmbiosType043Property.MajorSpecVersion:
+                    value = MajorSpecVersion;
+                    break;
+                #endregion
+
+                #region [0x09] - [Minor Spec Version] - [byte]
+                case SmbiosType043Property.MinorSpecVersion:
+                    value = MinorSpecVersion;
+                    break;
+                #endregion
+
+                #region [0x12] - [Description Version 2] - [string]
+                case SmbiosType043Property.Description:
+                    value = DescriptionVersion2;
+                    break;
+                #endregion
+
+                #region [0x13] - [Characteristics] - [ReadOnlyCollection<string>]
+                case SmbiosType043Property.Characteristics:
+                    value = GetTpmCharacteristics(Characteristics);
+                    break;
+                #endregion
+
+                #region [0x1b] - [OEM Defined] - [int]
+                case SmbiosType043Property.OemDefined:
+                    value = OemDefined;
+                    break;
+                #endregion
+            }
 
             return value;
         }
@@ -174,7 +250,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region versions
-            //properties.Add(KnownDmiProperty.ManagementControllerHostInterface.InterfaceType, GetInterfaceType(InterfaceType));
+            properties.Add(KnownDmiProperty.TpmDevice.VendorId, PopulatesVendorId(RawVendorId));
+            properties.Add(KnownDmiProperty.TpmDevice.MajorSpecVersion, MajorSpecVersion);
+            properties.Add(KnownDmiProperty.TpmDevice.MinorSpecVersion, MinorSpecVersion);
+            properties.Add(KnownDmiProperty.TpmDevice.Description, DescriptionVersion2);
+            properties.Add(KnownDmiProperty.TpmDevice.Characteristics, GetTpmCharacteristics(Characteristics));
+            properties.Add(KnownDmiProperty.TpmDevice.OemDefined, OemDefined);
             #endregion
         }
         #endregion
@@ -183,12 +264,63 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 3.1.0 (21/11/2016)
 
-        private static byte[] GetBytes(byte[] sequence, byte start, byte len)
-        {            
-            IEnumerable<byte> query = sequence.TakeWhile((item, index) => index >= start && index <= len);
+        #region [private] {static} (string) PopulatesVendorId(IEnumerable<byte>): Returns a string that contains vendor id field
+        /// <summary>
+        /// Returns a string that contains vendor id field.
+        /// </summary>
+        /// <param name="data">Vendor Id raw data</param>
+        /// <returns>
+        /// A <see cref="T:System.String" /> containing vendor id field.
+        /// </returns>
+        private static string PopulatesVendorId(IEnumerable<byte> data)
+        {
+            var builder = new StringBuilder(); 
 
-           return query.ToArray();
+            foreach (var item in data)
+            {
+                if (item == 0x00)
+                {
+                    continue;
+                }
+
+                builder.Append((char) item);
+            }
+
+            return builder.ToString();
         }
+        #endregion
+
+        #region [private] {static} (ReadOnlyCollection<string>) GetTpmCharacteristics(byte): Gets a collection of TPM characteristics
+        /// <summary>
+        /// Gets a collection of <c>TPM</c> characteristics.
+        /// </summary>
+        /// <param name="target">Value to analyze</param>
+        /// <returns>
+        /// Collection of <c>TPM</c> characteristics.
+        /// </returns>            
+        private static ReadOnlyCollection<string> GetTpmCharacteristics(ulong target)
+        {
+            string[] value =
+            {
+                "TPM Device Characteristics are not supported",                          // 0x02           
+                "Family configurable via firmware update",
+                "Family configurable via platform software support, such as BIOS Setup",
+                "Family configurable via OEM proprietary mechanism"                      // 0x05                                    
+            };
+
+            List<string> items = new List<string>();
+            for (byte i = 2; i < 6; i++)
+            {
+                bool addCharacteristic = target.CheckBit(i);
+                if (addCharacteristic)
+                {
+                    items.Add(value[i - 0x02]);
+                }
+            }
+
+            return items.AsReadOnly();
+        }
+        #endregion
 
         #endregion
     }

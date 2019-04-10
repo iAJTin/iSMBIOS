@@ -16616,7 +16616,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <para>Property: <see cref="SmbiosType043Property.MajorSpecVersion" /></para>
             ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
             ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
+            ///   <para>Type: <see cref="T:System.Byte" /></para>
             /// </summary>
             /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
             /// <remarks>
@@ -16639,7 +16639,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <list type="table">
             ///     <item>
             ///       <term>Type</term>
-            ///       <description><see cref="T:System.String" /></description>
+            ///       <description><see cref="T:System.Byte" /></description>
             ///     </item>
             ///   </list>            
             /// </remarks>
@@ -16654,7 +16654,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <para>Property: <see cref="SmbiosType043Property.MinorSpecVersion" /></para>
             ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
             ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
+            ///   <para>Type: <see cref="T:System.Byte" /></para>
             /// </summary>
             /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
             /// <remarks>
@@ -16677,7 +16677,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <list type="table">
             ///     <item>
             ///       <term>Type</term>
-            ///       <description><see cref="T:System.String" /></description>
+            ///       <description><see cref="T:System.Byte" /></description>
             ///     </item>
             ///   </list>            
             /// </remarks>
@@ -16806,7 +16806,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <para>Property: <see cref="SmbiosType043Property.Characteristics" /></para>
             ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
             ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:ReadOnlyCollection{String}" /></para>
+            ///   <para>Type: <see cref="T:System.Collections.ObjectModel.ReadOnlyColletion{String}" /></para>
             /// </summary>
             /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
             /// <remarks>
@@ -16829,7 +16829,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <list type="table">
             ///     <item>
             ///       <term>Type</term>
-            ///       <description><see cref="T:System.Collections.ObjectModel.ReadOnly{String}" /></description>
+            ///       <description><see cref="T:System.Collections.ObjectModel.ReadOnlyColletion{String}" /></description>
             ///     </item>
             ///   </list>            
             /// </remarks>

@@ -151,6 +151,9 @@
     <None Include="Documents\SMBIOS\SMBIOS 3.0.0d.pdf" />
     <None Include="Documents\SMBIOS\SMBIOS 3.1.0.pdf" />
     <None Include="Documents\SMBIOS\SMBIOS 3.1.1.pdf" />
+    <None Include="Documents\TPM\TCG-TPM-Vendor-ID-Registry-Version-1.01-Revision-1.00.pdf" />
+    <None Include="Documents\TPM\TPM-Main-Part-2-TPM-Structures_v1.2_rev116_01032011.pdf" />
+    <None Include="Documents\TPM\TPM-Rev-2.0-Part-2-Structures-01.38.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

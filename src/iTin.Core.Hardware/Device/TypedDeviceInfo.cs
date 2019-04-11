@@ -214,7 +214,7 @@ namespace iTin.Core.Hardware.Device
             var existKey = registryEntryKeysCollection.Contains(entryKey);
             if (!existKey)
             {
-                return default;
+                return default(T);
             }
 
             object typedResult;

@@ -34,13 +34,13 @@ namespace iTin.Core.Hardware.ConsoleApp
                     Hashtable elementProperties = element.Properties;
                     foreach (DictionaryEntry property in elementProperties)
                     {
-                        var value = property.Value;
+                        object value = property.Value;
 
-                        var key = (PropertyKey)property.Key;
-                        var id = key.PropertyId;
+                        PropertyKey key = (PropertyKey)property.Key;
+                        Enum id = key.PropertyId;
 
-                        var valueUnit = key.PropertyUnit;
-                        var unit =
+                        PropertyUnit valueUnit = key.PropertyUnit;
+                        string unit =
                             valueUnit == PropertyUnit.None
                                 ? string.Empty
                                 : valueUnit.ToString();
@@ -83,6 +83,10 @@ namespace iTin.Core.Hardware.ConsoleApp
                         {
                             Console.WriteLine($@"   > {id} > {value}{unit} [{value:X8}h]");
                         }
+                        else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
+                        {
+                            Console.WriteLine($@"   > {id} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
+                        }
                         else if (value.GetType() == typeof(ReadOnlyCollection<string>))
                         {
                             Console.WriteLine($@"   > {id}");
@@ -90,15 +94,6 @@ namespace iTin.Core.Hardware.ConsoleApp
                             foreach (var entry in collection)
                             {
                                 Console.WriteLine($@"     > {entry}");
-                            }
-                        }
-                        else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
-                        {
-                            Console.WriteLine($@"   > {id}");
-                            var collection = (ReadOnlyCollection<byte>)value;
-                            foreach (var entry in collection)
-                            {
-                                Console.WriteLine($@"     > {entry} [{entry:X2}h]");
                             }
                         }
                         else

@@ -16608,6 +16608,44 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             public static PropertyKey VendorId => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.VendorId);
             #endregion
 
+            #region [public] {static} (PropertyKey) VendorIdDescription: Gets a value representing the key to retrieve the property
+            /// <summary>
+            ///   <para>Gets a value representing the key to retrieve the property.</para>
+            ///   <para>— Key Composition ——————————————</para>
+            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            ///   <para>Property: <see cref="SmbiosType043Property.VendorIdDescription" /></para>
+            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
+            ///   <para>— Return Value ———————————————— </para>
+            ///   <para>Type: <see cref="T:System.String" /></para>
+            /// </summary>
+            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
+            /// <remarks>
+            ///   <para>Key definition:</para>
+            ///   <list type="table">
+            ///     <item>
+            ///       <term>Structure</term>
+            ///       <description><see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.TpmDevice" /></description>
+            ///     </item>
+            ///     <item>
+            ///       <term>Property</term>
+            ///       <description><see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType043Property.VendorIdDescription" /></description>
+            ///     </item>
+            ///     <item>
+            ///       <term>Unit</term>
+            ///       <description><see cref="T:iTin.Core.Hardware.PropertyUnit.None" /></description>
+            ///     </item>
+            ///   </list>
+            ///   <para>Returns:</para>
+            ///   <list type="table">
+            ///     <item>
+            ///       <term>Type</term>
+            ///       <description><see cref="T:System.String" /></description>
+            ///     </item>
+            ///   </list>            
+            /// </remarks>
+            public static PropertyKey VendorIdDescription => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.VendorIdDescription);
+            #endregion
+
             #region [public] {static} (PropertyKey) MajorSpecVersion: Gets a value representing the key to retrieve the property
             /// <summary>
             ///   <para>Gets a value representing the key to retrieve the property.</para>

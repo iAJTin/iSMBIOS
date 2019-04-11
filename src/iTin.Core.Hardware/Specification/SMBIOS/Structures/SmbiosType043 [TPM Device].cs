@@ -5,6 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
+    using System.Linq;
     using System.Text;
 
     using Dmi.Property;
@@ -85,8 +86,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
 
         #region private properties
-
-        #region Version 3.1.0+ fields
 
         #region [private] (byte[]) VendorId: Gets a value representing the 'Vendor ID' field
         /// <summary>
@@ -176,8 +175,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #endregion
-
         #region protected override methods
 
         #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property
@@ -196,10 +193,26 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             switch (propertyId)
             {
-                #region [0x04] - [Vendor Id] - [string]
+                #region [0x04] - [Vendor Id]
+
+                #region [0x04] - [Vendor Id] - [Code] - [string]
                 case SmbiosType043Property.VendorId:
-                    value = PopulatesVendorId(RawVendorId);
-                    break;
+                {
+                    var tpmCapabilityVendorIdEntry = GetTpmCapabilityVendorId(RawVendorId);
+                    value = tpmCapabilityVendorIdEntry.ASCII;
+                }
+                break;
+                #endregion
+
+                #region [0x04] - [Vendor Id] - [Description] - [string]
+                case SmbiosType043Property.VendorIdDescription:
+                {
+                    var tpmCapabilityVendorIdEntry = GetTpmCapabilityVendorId(RawVendorId);
+                    value = tpmCapabilityVendorIdEntry.Description;
+                }
+                break;
+                #endregion
+
                 #endregion
 
                 #region [0x08] - [Major Spec Version] - [byte]
@@ -250,7 +263,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region versions
-            properties.Add(KnownDmiProperty.TpmDevice.VendorId, PopulatesVendorId(RawVendorId));
+            var tpmCapabilityVendorIdEntry = GetTpmCapabilityVendorId(RawVendorId);
+            properties.Add(KnownDmiProperty.TpmDevice.VendorId, tpmCapabilityVendorIdEntry.ASCII);
+            properties.Add(KnownDmiProperty.TpmDevice.VendorIdDescription, tpmCapabilityVendorIdEntry.Description);
             properties.Add(KnownDmiProperty.TpmDevice.MajorSpecVersion, MajorSpecVersion);
             properties.Add(KnownDmiProperty.TpmDevice.MinorSpecVersion, MinorSpecVersion);
             properties.Add(KnownDmiProperty.TpmDevice.Description, DescriptionVersion2);
@@ -263,32 +278,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
 
         #region BIOS Specification 3.1.0 (21/11/2016)
-
-        #region [private] {static} (string) PopulatesVendorId(IEnumerable<byte>): Returns a string that contains vendor id field
-        /// <summary>
-        /// Returns a string that contains vendor id field.
-        /// </summary>
-        /// <param name="data">Vendor Id raw data</param>
-        /// <returns>
-        /// A <see cref="T:System.String" /> containing vendor id field.
-        /// </returns>
-        private static string PopulatesVendorId(IEnumerable<byte> data)
-        {
-            var builder = new StringBuilder(); 
-
-            foreach (var item in data)
-            {
-                if (item == 0x00)
-                {
-                    continue;
-                }
-
-                builder.Append((char) item);
-            }
-
-            return builder.ToString();
-        }
-        #endregion
 
         #region [private] {static} (ReadOnlyCollection<string>) GetTpmCharacteristics(byte): Gets a collection of TPM characteristics
         /// <summary>
@@ -322,6 +311,114 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
+        #region [private] {static} (string) PopulatesVendorId(IEnumerable<byte>): Returns a string that contains vendor id field
+        /// <summary>
+        /// Returns a string that contains vendor id field.
+        /// </summary>
+        /// <param name="data">Vendor Id raw data</param>
+        /// <returns>
+        /// A <see cref="T:System.String" /> containing vendor id field.
+        /// </returns>
+        private static string PopulatesVendorId(IEnumerable<byte> data)
+        {
+            var builder = new StringBuilder(); 
+
+            foreach (var item in data)
+            {
+                if (item == 0x00)
+                {
+                    continue;
+                }
+
+                builder.Append((char) item);
+            }
+
+            return builder.ToString();
+        }
         #endregion
+
+        #endregion
+
+        #region TPM Vendor ID Registry 1.01 (18/10/2017), for more info please see, TpmCapabilityVendorId class
+
+        #region [private] {static} (TpmCapabilityVendorId) GetTpmCapabilityVendorId(byte[]): Returns TPM vendor information from hexadecimal vendor data
+        /// <summary>
+        /// Returns <c>TPM vendor information</c> from hexadecimal vendor data. For more info please see, <see cref="TpmCapabilityVendorId"/> class.
+        /// </summary>
+        /// <param name="data">target vendor id data</param>
+        /// <returns>
+        /// A <see cref="TpmCapabilityVendorId" /> thats contains vendor information.
+        /// </returns>
+        private static TpmCapabilityVendorId GetTpmCapabilityVendorId(byte[] data)
+        {
+            var knownTpmCapabilityVendors = new Collection<TpmCapabilityVendorId>
+            {
+                TpmCapabilityVendorId.AMD,
+                TpmCapabilityVendorId.Atmel,
+                TpmCapabilityVendorId.Broadcom,
+                TpmCapabilityVendorId.HPE,
+                TpmCapabilityVendorId.IBM,
+                TpmCapabilityVendorId.Infineon,
+                TpmCapabilityVendorId.Intel,
+                TpmCapabilityVendorId.Lenovo,
+                TpmCapabilityVendorId.Microsoft,
+                TpmCapabilityVendorId.NationalSemiconductor,
+                TpmCapabilityVendorId.Nationz,
+                TpmCapabilityVendorId.NuvotonTechnology,
+                TpmCapabilityVendorId.Qualcomm,
+                TpmCapabilityVendorId.SMSC,
+                TpmCapabilityVendorId.STMicroelectronics,
+                TpmCapabilityVendorId.Samsung,
+                TpmCapabilityVendorId.Sinosun,
+                TpmCapabilityVendorId.TexasInstruments,
+                TpmCapabilityVendorId.Winbond,
+                TpmCapabilityVendorId.FuzhouRockchip,
+                TpmCapabilityVendorId.Google
+            };
+
+            var cadidateEntry = knownTpmCapabilityVendors.FirstOrDefault(entry => entry.Hex.SequenceEqual(data));
+            if (cadidateEntry != null)
+            {
+                return cadidateEntry;
+            }
+
+            var newEntry = PopulatesVendorId(data);
+            return new TpmCapabilityVendorId
+            {
+                Hex = data,
+                ASCII = newEntry,
+                Description = newEntry
+            };
+        }
+        #endregion
+
+        #endregion
+
+        #region TPM Main Specification, Part 2
+
+        //If Major Spec Version = 0x01
+        //typedef struct tdTPM_VERSION
+        //{
+        //    TPM_VERSION_BYTE major;
+        //    TPM_VERSION_BYTE minor;
+        //    BYTE revMajor;
+        //    BYTE revMinor;
+        //}
+
+        //Type              Name        Description        
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+        //TPM_VERSION_BYTE  Major       This SHALL indicate the major version of the TPM, mostSigVer MUST be 0x01, leastSigVer MUST be 0x00 
+        //TPM_VERSION_BYTE  Minor       This SHALL indicate the minor version of the TPM, mostSigVer MUST be 0x01 or 0x02, leastSigVer MUST be 0x00 
+        //BYTE              revMajor    This SHALL be the value of the TPM_PERMANENT_DATA -> revMajor
+        //BYTE              revMinor    This SHALL be the value of the TPM_PERMANENT_DATA -> revMinor
+        //-------------------------------------------------------------------------------------------------------------------------------------------
+
+        //Descriptions
+        //1. The major and minor fields indicate the specification version the TPM was designed for
+        //2. The revMajor and revMinor fields indicate the manufacturer’s revision of the TPM
+        //   a.Most challengers of the TPM MAY ignore the revMajor and revMinor fields
+
+        #endregion
+
     }
 }

@@ -1851,6 +1851,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         VendorId,
 
         [DevicePropertyDescription("")]
+        [DevicePropertyType(typeof(string))]
+        VendorIdDescription,
+
+        [DevicePropertyDescription("")]
         [DevicePropertyType(typeof(byte))]
         MajorSpecVersion,
 

@@ -16760,44 +16760,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             public static PropertyKey FirmwareVersion => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.FirmwareVersion);
             #endregion
 
-            #region [public] {static} (PropertyKey) FirmwareVersion2: Gets a value representing the key to retrieve the property
-            /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.FirmwareVersion2" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
-            /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks>
-            ///   <para>Key definition:</para>
-            ///   <list type="table">
-            ///     <item>
-            ///       <term>Structure</term>
-            ///       <description><see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.TpmDevice" /></description>
-            ///     </item>
-            ///     <item>
-            ///       <term>Property</term>
-            ///       <description><see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType043Property.FirmwareVersion2" /></description>
-            ///     </item>
-            ///     <item>
-            ///       <term>Unit</term>
-            ///       <description><see cref="T:iTin.Core.Hardware.PropertyUnit.None" /></description>
-            ///     </item>
-            ///   </list>
-            ///   <para>Returns:</para>
-            ///   <list type="table">
-            ///     <item>
-            ///       <term>Type</term>
-            ///       <description><see cref="T:System.String" /></description>
-            ///     </item>
-            ///   </list>            
-            /// </remarks>
-            public static PropertyKey FirmwareVersion2 => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.FirmwareVersion2);
-            #endregion
-
             #region [public] {static} (PropertyKey) Description: Gets a value representing the key to retrieve the property
             /// <summary>
             ///   <para>Gets a value representing the key to retrieve the property.</para>

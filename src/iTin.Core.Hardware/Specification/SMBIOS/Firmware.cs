@@ -9,6 +9,7 @@ namespace iTin.Core.Hardware.Specification
 
     /// <summary>
     /// Methods for handle system firmware tables.
+    /// Based on <c>open-hardware-monitor</c> project, for more info, please see: https://searchcode.com/codesearch/view/3147305/ [Michael Möller].
     /// </summary>
     public static class FirmwareTable
     {

@@ -5,7 +5,7 @@ namespace iTin.Core.Hardware.Interop.Windows.Development.SystemServices.SystemIn
     using System.Runtime.InteropServices;
 
     /// <summary>
-    /// Functions to handle system firmware tables.
+    /// Functions to handle system firmware tables. Based on <c>open-hardware-monitor</c> project, for more info, please see: https://searchcode.com/codesearch/view/3147305/ [Michael Möller]
     /// </summary>
     internal static class NativeMethods
     {

@@ -1,6 +1,14 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2019-04-11
+
+### Added
+- Added support for Type 43 [TPM Device].
+- Added native interop functions for handle the firmware tables.
+- Now first we try to get the BIOS data through a native call, if this fails, the call will be made through **WMI**.
+- Minor changes.
+
 ## [1.0.2] - 2019-04-03
 
 ### Added
@@ -23,6 +31,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Create project and first commit
 
+[1.0.3]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.3
 [1.0.2]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.2
 [1.0.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.1
 [1.0.0]: https://github.com/iAJTin/iSMBIOS

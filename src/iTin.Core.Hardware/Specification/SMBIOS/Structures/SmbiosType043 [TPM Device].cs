@@ -120,7 +120,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte MinorSpecVersion => GetByte(0x09);
         #endregion
 
-        #region [private] (int) FirmwareVersion1: Gets a value representing the 'Firmware Version 1' field
+        #region [private] (byte[]) RawFirmwareVersion1: Gets a value representing the 'Firmware Version 1' field
         /// <summary>
         ///  Gets a value representing the <c>Firmware Version 1</c> field.
         /// </summary>
@@ -128,10 +128,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int FirmwareVersion1 => GetDoubleWord(0x0a);
+        private byte[] RawFirmwareVersion1 => GetBytes(0x0a, 0x04);
         #endregion
 
-        #region [private] (int) FirmwareVersion2: Gets a value representing the 'Firmware Version 2' field
+        #region [private] (byte[]) RawFirmwareVersion2: Gets a value representing the 'Firmware Version 2' field
         /// <summary>
         ///  Gets a value representing the <c>Firmware Version 2</c> field.
         /// </summary>
@@ -139,7 +139,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int FirmwareVersion2 => GetDoubleWord(0x0a);
+        private byte[] RawFirmwareVersion2 => GetBytes(0x0e, 0x04);
         #endregion
 
         #region [private] (string) DescriptionVersion2: Gets a value representing the 'Description Version 2' field
@@ -227,6 +227,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     break;
                 #endregion
 
+                #region [0x0a] - [Firmware Version] - [TpmFirmwareVersion]
+                case SmbiosType043Property.FirmwareVersion:
+                    var firmwareVersion = TpmFirmwareVersion.Unknown;
+                    if (MajorSpecVersion >= 0x01 && MajorSpecVersion <= 0x02)
+                    {
+                        firmwareVersion =
+                            MajorSpecVersion == 0x01
+                                ? TpmFirmwareVersion.Parse(RawFirmwareVersion1)
+                                : new TpmFirmwareVersion { MajorVersion = GetDoubleWord(0x0a), MinorVersion = GetDoubleWord(0x0e) };
+                    }
+
+                    value = firmwareVersion;
+                    break;
+                #endregion
+
                 #region [0x12] - [Description Version 2] - [string]
                 case SmbiosType043Property.Description:
                     value = DescriptionVersion2;
@@ -268,6 +283,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
             properties.Add(KnownDmiProperty.TpmDevice.VendorIdDescription, tpmCapabilityVendorIdEntry.Description);
             properties.Add(KnownDmiProperty.TpmDevice.MajorSpecVersion, MajorSpecVersion);
             properties.Add(KnownDmiProperty.TpmDevice.MinorSpecVersion, MinorSpecVersion);
+
+            var firmwareVersion = TpmFirmwareVersion.Unknown;
+            if (MajorSpecVersion >= 0x01 && MajorSpecVersion <= 0x02)
+            {
+                firmwareVersion =
+                    MajorSpecVersion == 0x01
+                        ? TpmFirmwareVersion.Parse(RawFirmwareVersion1)
+                        : new TpmFirmwareVersion { MajorVersion = GetDoubleWord(0x0a), MinorVersion = GetDoubleWord(0x0e) };
+            }
+
+            properties.Add(KnownDmiProperty.TpmDevice.FirmwareVersion, firmwareVersion);
             properties.Add(KnownDmiProperty.TpmDevice.Description, DescriptionVersion2);
             properties.Add(KnownDmiProperty.TpmDevice.Characteristics, GetTpmCharacteristics(Characteristics));
             properties.Add(KnownDmiProperty.TpmDevice.OemDefined, OemDefined);
@@ -393,32 +419,5 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
 
         #endregion
-
-        #region TPM Main Specification, Part 2
-
-        //If Major Spec Version = 0x01
-        //typedef struct tdTPM_VERSION
-        //{
-        //    TPM_VERSION_BYTE major;
-        //    TPM_VERSION_BYTE minor;
-        //    BYTE revMajor;
-        //    BYTE revMinor;
-        //}
-
-        //Type              Name        Description        
-        //-------------------------------------------------------------------------------------------------------------------------------------------
-        //TPM_VERSION_BYTE  Major       This SHALL indicate the major version of the TPM, mostSigVer MUST be 0x01, leastSigVer MUST be 0x00 
-        //TPM_VERSION_BYTE  Minor       This SHALL indicate the minor version of the TPM, mostSigVer MUST be 0x01 or 0x02, leastSigVer MUST be 0x00 
-        //BYTE              revMajor    This SHALL be the value of the TPM_PERMANENT_DATA -> revMajor
-        //BYTE              revMinor    This SHALL be the value of the TPM_PERMANENT_DATA -> revMinor
-        //-------------------------------------------------------------------------------------------------------------------------------------------
-
-        //Descriptions
-        //1. The major and minor fields indicate the specification version the TPM was designed for
-        //2. The revMajor and revMinor fields indicate the manufacturer’s revision of the TPM
-        //   a.Most challengers of the TPM MAY ignore the revMajor and revMinor fields
-
-        #endregion
-
     }
 }

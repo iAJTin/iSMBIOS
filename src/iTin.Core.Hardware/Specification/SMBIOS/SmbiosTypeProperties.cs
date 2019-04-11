@@ -1863,12 +1863,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         MinorSpecVersion,
 
         [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(string))]
-        FirmwareVersion1,
-
-        [DevicePropertyDescription("")]
-        [DevicePropertyType(typeof(string))]
-        FirmwareVersion2,
+        [DevicePropertyType(typeof(TpmFirmwareVersion))]
+        FirmwareVersion,
 
         [DevicePropertyDescription("")]
         [DevicePropertyType(typeof(string))]

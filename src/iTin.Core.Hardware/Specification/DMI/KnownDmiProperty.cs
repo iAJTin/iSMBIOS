@@ -16722,15 +16722,15 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             public static PropertyKey MinorSpecVersion => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.MinorSpecVersion);
             #endregion
 
-            #region [public] {static} (PropertyKey) FirmwareVersion1: Gets a value representing the key to retrieve the property
+            #region [public] {static} (PropertyKey) FirmwareVersion: Gets a value representing the key to retrieve the property
             /// <summary>
             ///   <para>Gets a value representing the key to retrieve the property.</para>
             ///   <para>— Key Composition ——————————————</para>
             ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.FirmwareVersion1" /></para>
+            ///   <para>Property: <see cref="SmbiosType043Property.FirmwareVersion" /></para>
             ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
             ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
+            ///   <para>Type: <see cref="T:iTin.Core.Hardware.Specification.Smbios.TpmFirmwareVersion" /></para>
             /// </summary>
             /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
             /// <remarks>
@@ -16742,7 +16742,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///     </item>
             ///     <item>
             ///       <term>Property</term>
-            ///       <description><see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType043Property.FirmwareVersion1" /></description>
+            ///       <description><see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType043Property.FirmwareVersion" /></description>
             ///     </item>
             ///     <item>
             ///       <term>Unit</term>
@@ -16753,11 +16753,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             ///   <list type="table">
             ///     <item>
             ///       <term>Type</term>
-            ///       <description><see cref="T:System.String" /></description>
+            ///       <description><see cref="T:iTin.Core.Hardware.Specification.Smbios.TpmFirmwareVersion" /></description>
             ///     </item>
             ///   </list>            
             /// </remarks>
-            public static PropertyKey FirmwareVersion1 => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.FirmwareVersion1);
+            public static PropertyKey FirmwareVersion => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.FirmwareVersion);
             #endregion
 
             #region [public] {static} (PropertyKey) FirmwareVersion2: Gets a value representing the key to retrieve the property

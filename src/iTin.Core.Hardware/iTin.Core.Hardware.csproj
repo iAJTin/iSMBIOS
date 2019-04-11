@@ -121,6 +121,7 @@
     <Compile Include="Specification\SMBIOS\Structures\SmbiosType042 [Management Controller Host Interface].cs" />
     <Compile Include="Specification\SMBIOS\Structures\SmbiosType126 [Inactive].cs" />
     <Compile Include="Specification\SMBIOS\Structures\SmbiosType127 [End-Of-Table].cs" />
+    <Compile Include="Specification\SMBIOS\Structures\Specific\TpmFirmwareVersion.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\TpmCapabilityVendorId.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\AdditionalInformationEntry.cs" />
     <Compile Include="Specification\SMBIOS\Structures\Specific\AdditionalInformationEntryCollection.cs" />

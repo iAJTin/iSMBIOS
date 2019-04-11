@@ -153,13 +153,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T: System.String" /> that represents the current object.
+        /// Returns a class <see cref="T:System.String" /> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref = "T:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry"/> class.
+        /// Object <see cref="T:System.String" /> that represents the current <see cref="T:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry" /> class.
         /// </returns>
         /// <remarks>
-        /// This method returns a string that includes the property <see cref = "P:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry.Value" />.
+        /// This method returns a string that includes the property <see cref="P:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry.Value" />.
         /// </remarks>                                    
         public override string ToString() => $"Value = {Value}";
         #endregion

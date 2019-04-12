@@ -2,7 +2,6 @@
 namespace iTin.Core.Hardware.Device.DeviceProperty
 {
     using System;
-    using System.Diagnostics;
 
     /// <inheritdoc />
     /// <summary>
@@ -11,27 +10,23 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class DevicePropertyTypeAttribute : Attribute
     {
-        #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly Type _propertyType;
-        #endregion
-
         #region constructor/s
 
         #region [public] DevicePropertyTypeAttribute(Type): Initialize a new instance of the class by setting the type of property value
+        /// <inheritdoc />
         /// <summary>
-        /// Initialize a new instance of the <see cref="DevicePropertyTypeAttribute"/> class by setting the type of property value.
+        /// Initialize a new instance of the <see cref="T:iTin.Core.Hardware.Device.DeviceProperty.DevicePropertyTypeAttribute" /> class by setting the type of property value.
         /// </summary>
         /// <param name="propertyType">Type of property value.</param>
         public DevicePropertyTypeAttribute(Type propertyType)
         {
-            _propertyType = propertyType;
+            PropertyType = propertyType;
         }
         #endregion
 
         #endregion
 
-        #region public properties
+        #region public readonly properties
 
         #region [public] (Type) PropertyType: Gets an object that represents the type of property value
         /// <summary>
@@ -40,7 +35,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <value>
         /// Type of property value.
         /// </value>
-        public Type PropertyType => _propertyType;
+        public Type PropertyType { get; }
         #endregion
 
         #endregion

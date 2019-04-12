@@ -11,8 +11,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
     public class DevicePropertyDescription
     {
         #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly PropertyKey _propertyKey;
+
         #endregion
 
         #region constructor/s
@@ -24,7 +23,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <param name="propertyKey">Unique property code</param>
         internal DevicePropertyDescription(PropertyKey propertyKey)
         {
-            _propertyKey = propertyKey;
+            PropertyKey = propertyKey;
         }
         #endregion
 
@@ -66,7 +65,8 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <value>
         /// Unique key that identifies a property.
         /// </value>
-        public PropertyKey PropertyKey => _propertyKey;
+        public PropertyKey PropertyKey { get; }
+
         #endregion
 
         #region [public] (Type) ValueType: Gets a value that represents the type of the value assigned to the property

@@ -112,6 +112,8 @@ namespace iTin.Core.Hardware.ConsoleApp
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine($@" Gets a single property directly");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+
+            IDeviceProperty ss = structures.GetProperty(KnownDmiProperty.Bios.BiosVersion);
             DeviceProperty<string> biosVersion = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Bios.BiosVersion);
             if (biosVersion != null)
             {

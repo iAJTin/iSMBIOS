@@ -14,12 +14,6 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
     {
         #region private readonly properties
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly PropertyKey propertykey;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly DevicePropertyDescription description;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly object value;
         #endregion
 
@@ -35,8 +29,8 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         internal DeviceProperty(PropertyKey propertykey, DevicePropertyDescription description, object value)
         {
             this.value = value;
-            this.description = description;
-            this.propertykey = propertykey;
+            Description = description;
+            PropertyKey = propertykey;
         }
         #endregion
 
@@ -45,14 +39,14 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         #region public properties
 
         #region [public] (DevicePropertyDescription) Description: Gets an object that represents the description of the property
+        /// <inheritdoc />
         /// <summary>
         /// Gets an object that represents the description of the property.
         /// </summary>
         /// <value>
         /// Description of a property.
         /// </value>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public DevicePropertyDescription Description => description;
+        public DevicePropertyDescription Description { get; }
         #endregion
 
         #region [public] (bool) HasValue: Gets a value that indicates if there is a value available for the property
@@ -65,16 +59,45 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public bool HasValue => Value != null;
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Returns property value.
+        /// </summary>
+        /// <returns>
+        /// Property value.
+        /// </returns>
+        public object GetValue()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <inheritdoc />
+        /// <summary>
+        /// Returns property value.
+        /// </summary>
+        /// <typeparam name="T">Property type</typeparam>
+        /// <returns>
+        /// Property value.
+        /// </returns>
+        public T1 GetValue<T1>()
+        {
+            throw new System.NotImplementedException();
+        }
+
         #endregion
 
         #region [public] (PropertyKey) PropertyKey: Gets a value that represents the unique key that identifies this property
+        /// <inheritdoc />
         /// <summary>
         /// Gets a value that represents the unique key that identifies this property.
         /// </summary>
         /// <value>
         /// Unique key that identifies this property.
         /// </value>
-        public PropertyKey PropertyKey => propertykey;
+        [field: DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public PropertyKey PropertyKey { get; }
+
         #endregion
 
         #region [public] (T) Value: Gets the strongly typed value of this property
@@ -88,6 +111,9 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         #endregion
 
         #endregion
+
+
+
 
         #region public override methods
 

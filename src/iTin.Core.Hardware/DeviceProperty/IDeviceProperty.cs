@@ -20,5 +20,23 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// Gets a value that indicates whether the property has available value.
         /// </summary>             
         bool HasValue { get; }
+
+
+        /// <summary>
+        /// Returns property value.
+        /// </summary>
+        /// <returns>
+        /// Property value.
+        /// </returns>
+        object GetValue();
+
+        /// <summary>
+        /// Returns property value.
+        /// </summary>
+        /// <typeparam name="T">Property type</typeparam>
+        /// <returns>
+        /// Property value.
+        /// </returns>
+        T GetValue<T>();
     }
 }

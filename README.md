@@ -82,7 +82,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
            Console.WriteLine($" CPU Manufacturer > {processorManufacturer.Value}");
        }
 
-4. Gets a **multiple properties** directly.
+4. Gets a property in **multiple** elements directly.
 
 
        DmiStructureCollection structures = DMI.Instance.Structures;

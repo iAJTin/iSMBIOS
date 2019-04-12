@@ -38,9 +38,7 @@ namespace iTin.Core.Hardware.Specification
 
             IntPtr nativeBuffer = Marshal.AllocHGlobal(size);
             NativeMethods.EnumSystemFirmwareTables(provider, nativeBuffer, size);
-            byte[] buffer = new byte[size];
-            Marshal.Copy(nativeBuffer, buffer, 0, size);
-            Marshal.FreeHGlobal(nativeBuffer);
+            byte[] buffer = nativeBuffer.ToByteArray(0, size);
 
             string[] result = new string[size / 4];
             for (int i = 0; i < result.Length; i++)
@@ -99,16 +97,9 @@ namespace iTin.Core.Hardware.Specification
             IntPtr nativeBuffer = Marshal.AllocHGlobal(size);
             NativeMethods.GetSystemFirmwareTable(provider, table, nativeBuffer, size);
 
-            if (Marshal.GetLastWin32Error() != 0)
-            {
-                return null;
-            }
-
-            byte[] buffer = new byte[size];
-            Marshal.Copy(nativeBuffer, buffer, 0, size);
-            Marshal.FreeHGlobal(nativeBuffer);
-
-            return buffer;
+            return Marshal.GetLastWin32Error() != 0 
+                ? null 
+                : nativeBuffer.ToByteArray(0, size);
         }
     }
 }

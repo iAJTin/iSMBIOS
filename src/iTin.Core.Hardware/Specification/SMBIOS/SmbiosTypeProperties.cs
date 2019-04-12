@@ -12,11 +12,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType000Property
     {
         #region version 2.0+
-        [DevicePropertyDescription("Vendedor de esta bios")]
+        [DevicePropertyDescription("Bios Vendor")]
         [DevicePropertyType(typeof(string))]
         Vendor,
 
-        [DevicePropertyDescription("Version de esta bios")]
+        [DevicePropertyDescription("Bios Version")]
         [DevicePropertyType(typeof(string))]
         BiosVersion,
 
@@ -24,51 +24,51 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [DevicePropertyType(typeof(string))]
         BiosStartingAddressSegment,
 
-        [DevicePropertyDescription("Fecha de la versión esta bios")]
+        [DevicePropertyDescription("Date of the version is bios")]
         [DevicePropertyType(typeof(string))]
         BiosReleaseDate,
 
-        [DevicePropertyDescription("Tamaño de esta bios")]
+        [DevicePropertyDescription("Bios size")]
         [DevicePropertyType(typeof(int))]
         BiosRomSize,
 
-        [DevicePropertyDescription("Colección de funciones compatibles con esta bios")]
+        [DevicePropertyDescription("Collection of functions compatible with this bios")]
         [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         Characteristics,
         #endregion
 
         #region version 2.4+
-        [DevicePropertyDescription("Colección de funciones compatibles con esta bios")]
+        [DevicePropertyDescription("Collection of functions compatible with this bios")]
         [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         ExtensionByte1,
 
-        [DevicePropertyDescription("Colección de funciones compatibles con esta bios")]
+        [DevicePropertyDescription("Collection of functions compatible with this bios")]
         [DevicePropertyType(typeof(ReadOnlyCollection<string>))]
         ExtensionByte2,
 
-        [DevicePropertyDescription("Número de versión de esta bios")]
+        [DevicePropertyDescription("Version number of this bios")]
         [DevicePropertyType(typeof(byte?))]
         SystemBiosMajorRelease,
 
-        [DevicePropertyDescription("Número de revisión de esta bios")]
+        [DevicePropertyDescription("Revision number of this bios")]
         [DevicePropertyType(typeof(byte?))]
         SystemBiosMinorRelease,
 
-        [DevicePropertyDescription("Número de versión del firmware del controlador de esta bios")]
+        [DevicePropertyDescription("Controller firmware version number for this bios")]
         [DevicePropertyType(typeof(byte?))]
         FirmwareMajorRelease,
 
-        [DevicePropertyDescription("Número de revisón del firmware del controlador de esta bios")]
+        [DevicePropertyDescription("Controller firmware revision number for this bios")]
         [DevicePropertyType(typeof(byte?))]
         FirmwareMinorRelease,
         #endregion
 
         #region version 3.1.0+
-        [DevicePropertyDescription("Tamaño extendido de la ROM")]
+        [DevicePropertyDescription("Extended ROM size")]
         [DevicePropertyType(typeof(int))]
         ExtendedBiosRomSize,
 
-        [DevicePropertyDescription("Tamaño extendido de la ROM (undades)")]
+        [DevicePropertyDescription("Extended ROM size (units)")]
         [DevicePropertyType(typeof(MemorySizeUnit))]
         ExtendedBiosRomSizeUnit,
         #endregion

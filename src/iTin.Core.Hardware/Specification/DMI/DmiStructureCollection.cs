@@ -1,11 +1,13 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Dmi
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
 
+    using Device.DeviceProperty;
     using Helpers;
     using Smbios;
 
@@ -90,6 +92,53 @@ namespace iTin.Core.Hardware.Specification.Dmi
             DmiStructure block = Items.FirstOrDefault(item => item.Class == valueKey);
 
             return Items.Contains(block);
+        }
+        #endregion
+
+        #region [public] (IDeviceProperty) GetProperty(PropertyKey): Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property. Always returns the first appearance of the property.
+        /// <summary>
+        /// Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// </summary>
+        /// <param name="propertyKey">Key to the property to obtain</param>
+        /// <returns>
+        /// Reference to the object that represents the strongly typed value of the property. Always returns the first appearance of the property.
+        /// </returns>
+        public IDeviceProperty GetProperty(PropertyKey propertyKey)
+        {
+            Enum propertyId = propertyKey.StructureId;            
+            DmiStructure structure = this[(SmbiosStructure)propertyId];
+
+            return structure?.Elements[0].GetProperty(propertyKey);
+        }
+        #endregion
+
+        #region [public] (Dictionary<int, IDeviceProperty>) GetProperties(PropertyKey): Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property
+        /// <summary>
+        /// Gets a reference to an object list that implements the IDeviceProperty interface, represents the strongly typed value of the property. If it does not exist, returns an empty collection.
+        /// </summary>
+        /// <param name="propertyKey">Key to the property to obtain</param>
+        /// <returns>
+        /// Reference to the object list that represents the strongly typed value of the property
+        /// </returns>
+        public IDictionary<int, IDeviceProperty> GetProperties(PropertyKey propertyKey)
+        {
+            Enum propertyId = propertyKey.StructureId;
+            Dictionary<int, IDeviceProperty> properties = new Dictionary<int, IDeviceProperty>();
+            DmiStructure structure = this[(SmbiosStructure) propertyId];
+            if (structure == null)
+            {
+                return properties;
+            }
+
+            int i = 0;
+            DmiClassCollection elements = structure.Elements;
+            foreach (var element in elements)
+            {
+                properties.Add(i, element.GetProperty(propertyKey));
+                i++;
+            }
+
+            return properties;
         }
         #endregion
 

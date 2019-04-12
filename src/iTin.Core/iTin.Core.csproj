@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\ByteArrayExtensions.cs" />
+    <Compile Include="Extensions\IntPtrExtensions.cs" />
     <Compile Include="Extensions\ReadOnlyCollectionExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\UInt32Extensions.cs" />

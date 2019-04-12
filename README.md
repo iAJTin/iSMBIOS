@@ -60,7 +60,41 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
            /// structure exist!!!
        }
 
-3. Prints all **SMBIOS** structures properties
+3. Gets a **single property** directly.
+
+
+       DmiStructureCollection structures = DMI.Instance.Structures;
+       DeviceProperty<string> biosVersion = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Bios.BiosVersion);
+       if (biosVersion != null)
+       {
+           Console.WriteLine($" BIOS Version > {biosVersion.Value}");
+       }
+
+       DeviceProperty<string> processorFamily = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Processor.Family);
+       if (processorFamily != null)
+       {
+           Console.WriteLine($" CPU Family > {processorFamily.Value}");
+       }
+
+       DeviceProperty<string> processorManufacturer = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Processor.ProcessorManufacturer);
+       if (processorManufacturer != null)
+       {
+           Console.WriteLine($" CPU Manufacturer > {processorManufacturer.Value}");
+       }
+
+4. Gets a **multiple properties** directly.
+
+
+       DmiStructureCollection structures = DMI.Instance.Structures;
+       IDictionary<int, IDeviceProperty> systemSlots = structures.GetProperties(KnownDmiProperty.SystemSlots.SlotId);
+       foreach (KeyValuePair<int, IDeviceProperty> systemSlot in systemSlots)
+       {
+           int element = systemSlot.Key;
+           DeviceProperty<string> property = (DeviceProperty<string>) systemSlot.Value;
+           Console.WriteLine($" System Slot Id ({element}) > {property.Value}");
+       }
+
+5. Prints all **SMBIOS** structures properties
 
 
        foreach (DmiStructure structure in structures)

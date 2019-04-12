@@ -2,24 +2,12 @@
 namespace iTin.Core.Hardware
 {
     using System;
-    using System.Diagnostics;
 
     /// <summary>
     /// Defines a value that contains the detailed information of a writer.
     /// </summary>
     public struct PropertyKey : IEquatable<PropertyKey>
     {
-        #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly Enum propertyId;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly PropertyUnit propertyUnit;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly Enum structureId;
-        #endregion
-
         #region constructor/s
 
         #region [public] PropertyKey(Enum, Enum): IInitialize a new instance of the structure specifying the structure and property
@@ -43,9 +31,9 @@ namespace iTin.Core.Hardware
         /// <param name="propertyUnit">Unit identifier.</param>
         public PropertyKey(Enum structureId, Enum propertyId, PropertyUnit propertyUnit)
         {
-            this.propertyId = propertyId;
-            this.structureId = structureId;
-            this.propertyUnit = propertyUnit;
+            PropertyId = propertyId;
+            StructureId = structureId;
+            PropertyUnit = propertyUnit;
         }
         #endregion
 
@@ -67,6 +55,34 @@ namespace iTin.Core.Hardware
 
         #endregion
 
+        #region public operators
+
+        #region [public] {static} (bool) operator ==(PropertyKey, PropertyKey): Implements the equality operator (==)
+        /// <summary>
+        /// Implements the equality operator (==).
+        /// </summary>
+        /// <param name="propertyKey1">Operand 1.</param>
+        /// <param name="propertyKey2">Operand 2.</param>
+        /// <returns>
+        /// Returns <strong>true</strong> if <c>propertyKey1</c> is equal to <c>propertyKey2</c>; <strong>false</strong> otherwise.
+        /// </returns>
+        public static bool operator ==(PropertyKey propertyKey1, PropertyKey propertyKey2) => propertyKey1.Equals(propertyKey2);
+        #endregion
+
+        #region [public] {static} (bool) operator !=(PropertyKey, PropertyKey): Implements the inequality operator (!=)
+        /// <summary>
+        /// Implements the inequality operator (!=).
+        /// </summary>
+        /// <param name="propertyKey1">Operando 1.</param>
+        /// <param name="propertyKey2">Operando 2.</param>
+        /// <returns>
+        /// Returns <strong>true</strong> if <c>propertyKey1</c> it is not equal to <c>propertyKey2</c>; <strong>false</strong> otherwise.
+        /// </returns>
+        public static bool operator !=(PropertyKey propertyKey1, PropertyKey propertyKey2) => !propertyKey1.Equals(propertyKey2);
+        #endregion
+
+        #endregion
+
         #region public properties
 
         #region [public] (Enum) PropertyId: Gets a value that represents a StructureId field from which the value is to be retrieved
@@ -79,7 +95,8 @@ namespace iTin.Core.Hardware
         /// <remarks>
         /// The value of the attribute represents the type of the value linked to this property.
         /// </remarks>
-        public Enum PropertyId => propertyId;
+        public Enum PropertyId { get; }
+
         #endregion
 
         #region [public] (PropertyUnit) PropertyUnit: Gets a value that represents the unit in which the property is measured
@@ -89,7 +106,8 @@ namespace iTin.Core.Hardware
         /// <value>
         /// Unidad en que se mide la propiedad.
         /// </value>
-        public PropertyUnit PropertyUnit => propertyUnit;
+        public PropertyUnit PropertyUnit { get; }
+
         #endregion
 
         #region [public] (Enum) StructureId: Gets a value that represents the structure from which the value is to be retrieved
@@ -99,7 +117,7 @@ namespace iTin.Core.Hardware
         /// <value>
         /// Structure from which the value will be recovered.
         /// </value>
-        public Enum StructureId => structureId;
+        public Enum StructureId { get; }
         #endregion
 
         #endregion
@@ -149,34 +167,6 @@ namespace iTin.Core.Hardware
         /// A <see cref="T:System.String" /> that represents this instance.
         /// </returns>
         public override string ToString() => $"Structure = {StructureId}, Property = {PropertyId}, Unit = {PropertyUnit}";
-        #endregion
-
-        #endregion
-
-        #region opertors
-
-        #region [public] {static} (bool) operator ==(PropertyKey, PropertyKey): Implements the equality operator (==)
-        /// <summary>
-        /// Implements the equality operator (==).
-        /// </summary>
-        /// <param name="propertyKey1">Operand 1.</param>
-        /// <param name="propertyKey2">Operand 2.</param>
-        /// <returns>
-        /// Returns <strong>true</strong> if <c>propertyKey1</c> is equal to <c>propertyKey2</c>; <strong>false</strong> otherwise.
-        /// </returns>
-        public static bool operator ==(PropertyKey propertyKey1, PropertyKey propertyKey2) => propertyKey1.Equals(propertyKey2);
-        #endregion
-
-        #region [public] {static} (bool) operator !=(PropertyKey, PropertyKey): Implements the inequality operator (!=)
-        /// <summary>
-        /// Implements the inequality operator (!=).
-        /// </summary>
-        /// <param name="propertyKey1">Operando 1.</param>
-        /// <param name="propertyKey2">Operando 2.</param>
-        /// <returns>
-        /// Returns <strong>true</strong> if <c>propertyKey1</c> it is not equal to <c>propertyKey2</c>; <strong>false</strong> otherwise.
-        /// </returns>
-        public static bool operator !=(PropertyKey propertyKey1, PropertyKey propertyKey2) => !propertyKey1.Equals(propertyKey2);
         #endregion
 
         #endregion

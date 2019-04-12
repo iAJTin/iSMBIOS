@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - Added support for Type 43 [TPM Device].
 - Added native interop functions for handle the firmware tables.
 - Now first we try to get the BIOS data through a native call, if this fails, the call will be made through **WMI**.
+- Added two new methods to **DmiStructureCollection** class that allow you to consult a property directly. For more information, please see GetProperty and GetProperties.
 - Minor changes.
 
 ## [1.0.2] - 2019-04-03

@@ -25,11 +25,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
 
         #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly int _smbiosVersion;
 
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly SmbiosStructureHeaderInfo _smbiosStructureHeaderInfo;
         #endregion
 
         #region constructor/s
@@ -42,8 +38,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="smbiosVersion">Current SMBIOS version.</param>
         protected SmbiosBaseType(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion)
         {
-            _smbiosVersion = smbiosVersion;
-            _smbiosStructureHeaderInfo = smbiosStructureHeaderInfo;
+            SmbiosVersion = smbiosVersion;
+            HeaderInfo = smbiosStructureHeaderInfo;
         }
         #endregion
 
@@ -51,13 +47,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public properties
 
-        #region [public] (Hashtable) Content: Obtiene las propiedades disponibles para este dispositivo.
+        #region [public] (Hashtable) Content: Gets the properties available for this device
         /// <summary>
-        /// Obtiene las propiedades disponibles para este dispositivo.
+        /// Gets the properties available for this device.
         /// </summary>
         /// <value>
-        /// 	<para>Tipo: <see cref="T:System.Collections.Hashtable"/></para>
-        /// 	<para>Propiedades disponibles.</para>
+        /// Available properties.
         /// </value>
         public Hashtable Content
         {
@@ -66,7 +61,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 if (_content == null)
                 {
                     _content = new Hashtable();
-                    _strings = SmbiosHelper.ParseStrings(_smbiosStructureHeaderInfo.RawData);
+                    _strings = SmbiosHelper.ParseStrings(HeaderInfo.RawData);
                 }
 
                 return _content;
@@ -81,7 +76,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// A <see cref="SmbiosStructureHeaderInfo"/> object that contains the information.
         /// </value>
-        public SmbiosStructureHeaderInfo HeaderInfo => _smbiosStructureHeaderInfo;
+        public SmbiosStructureHeaderInfo HeaderInfo { get; }
         #endregion
 
         #region [public] (Hashtable) Properties: Gets the properties available for this structure
@@ -101,7 +96,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 }
 
                 _properties = new Hashtable();
-                _strings = SmbiosHelper.ParseStrings(_smbiosStructureHeaderInfo.RawData);
+                _strings = SmbiosHelper.ParseStrings(HeaderInfo.RawData);
                 Parse(_properties);
 
                 return _properties;
@@ -120,7 +115,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Value representing the current version of <see cref="SMBIOS" />.
         /// </value>
-        protected int SmbiosVersion => _smbiosVersion;
+        protected int SmbiosVersion { get; }
         #endregion
 
         #region [protected] (ReadOnlyCollection<string>) Strings: Gets the strings associated with this structure
@@ -132,7 +127,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         protected ReadOnlyCollection<string> Strings => new ReadOnlyCollection<string>(_strings);
-
         #endregion
 
         #endregion
@@ -172,10 +166,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <remarks>
         /// This method returns a string that includes the property <see cref="SmbiosStructureHeaderInfo.StructureType" />.
         /// </remarks> 
-        public override string ToString()
-        {
-            return $"Type = {HeaderInfo.StructureType}";
-        }
+        public override string ToString() => $"Type = {HeaderInfo.StructureType}";
         #endregion
 
         #endregion
@@ -190,10 +181,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// The value stored in the indicated byte.
         /// </returns>
-        protected byte GetByte(byte target)
-        {
-            return HeaderInfo.RawData[target];
-        }
+        protected byte GetByte(byte target) => HeaderInfo.RawData[target];
         #endregion
 
         #region [protected] (byte) GetBytes(byte, byte): Returns the stored array from start with specified lenght
@@ -208,7 +196,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected byte[] GetBytes(byte start, byte lenght)
         {
             var bytes = new Collection<byte>();
-
             for (byte i = start; i <= lenght; i++)
             {
                 bytes.Add(HeaderInfo.RawData[i]);
@@ -227,10 +214,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// The value stored in the indicated byte.
         /// </returns>
-        protected int GetWord(byte start)
-        {
-            return HeaderInfo.RawData.GetWord(start);
-        }
+        protected int GetWord(byte start) => HeaderInfo.RawData.GetWord(start);
         #endregion
 
         #region [protected] (int) GetDoubleWord(byte): Returns the stored value from the specified byte
@@ -241,10 +225,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// The value stored in the indicated byte.
         /// </returns>
-        protected int GetDoubleWord(byte start)
-        {
-            return HeaderInfo.RawData.GetDoubleWord(start);
-        }
+        protected int GetDoubleWord(byte start) => HeaderInfo.RawData.GetDoubleWord(start);
         #endregion
 
         #region [protected] (long) GetQuadrupleWord(byte): Returns the stored value from the specified byte
@@ -255,10 +236,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// The value stored in the indicated byte.
         /// </returns>
-        protected long GetQuadrupleWord(byte start)
-        {
-            return HeaderInfo.RawData.GetQuadrupleWord(start);
-        }
+        protected long GetQuadrupleWord(byte start) => HeaderInfo.RawData.GetQuadrupleWord(start);
         #endregion
 
         #region [protected] (string) GetString(byte): Returns the stored string from the specified byte
@@ -286,23 +264,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected virtual methods
 
-        #region [protected] {virtual} (object) GetValueTypedProperty(PropertyKey): Gets a value that represents the value of the specified property.
+        #region [protected] {virtual} (object) GetValueTypedProperty(PropertyKey): Returns a value that represents the value of the specified property.
         /// <summary>
-        /// Gets a value that represents the value of the specified property.
+        /// Returns a value that represents the value of the specified property.
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
         /// An <see cref="T:System.Object"/> that contains property.
         /// </returns>
-        protected virtual object GetValueTypedProperty(PropertyKey propertyKey)
-        {
-            return null;
-        }
+        protected virtual object GetValueTypedProperty(PropertyKey propertyKey) => null;
         #endregion
 
-        #region [protected] {virtual} (void) Parse(Hashtable): Gets the property collection for this structure
+        #region [protected] {virtual} (void) Parse(Hashtable): Populates the property collection for this structure
         /// <summary>
-        /// Gets the property collection for this structure.
+        /// Populates the property collection for this structure.
         /// </summary>
         /// <param name="properties">Collection of properties of this structure.</param>
         protected virtual void Parse(Hashtable properties)
@@ -314,9 +289,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private members
 
-        #region [private] (IDeviceProperty) GetTypedProperty(PropertyKey): Gets a reference to an object that implements the interface IDeviceProperty, represents the value of the property specified by its key by the parameter propertyKey.
+        #region [private] (IDeviceProperty) GetTypedProperty(PropertyKey): Returns a reference to an object that implements the interface IDeviceProperty, represents the value of the property specified by its key by the parameter propertyKey.
         /// <summary>
-        /// Gets a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
+        /// Returns a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>

@@ -117,7 +117,7 @@ namespace iTin.Core.Hardware.Device
             /// </summary>
             /// <param name="propertyKey">Clave de la propiedad a recuperar.</param>
             /// <returns>Referencia al objeto que representa el valor fuertemente tipado de la propiedad</returns>
-            public IDeviceProperty GetProperty(PropertyKey propertyKey)
+            public IDeviceProperty GetProperty<T>(PropertyKey propertyKey)
             {
                 if (CanUseRegistry)
                 {
@@ -287,128 +287,101 @@ namespace iTin.Core.Hardware.Device
     /// </summary>
     sealed class TypedDeviceDmiInfo : TypedDeviceInfoBase
     {
-        #region Declaraciones
+        #region private readonly members
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly DmiDeviceInfo _nativeDeviceData;
         #endregion
 
-        #region Constructor/es
+        #region constructor/s
 
         #region [public] TypedDeviceDmiInfo(DmiDeviceInfo): Inicializa una nueva instancia de la clase.
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="TypedDeviceDmiInfo"/>.
         /// </summary>
         /// <param name="nativeDeviceData">Estructura <see cref="DmiDeviceInfo"/> con la información nativa del dispositivo.</param>
-        public TypedDeviceDmiInfo(DmiDeviceInfo nativeDeviceData)
-        {
-            _nativeDeviceData = nativeDeviceData;
-        }
+        public TypedDeviceDmiInfo(DmiDeviceInfo nativeDeviceData) => _nativeDeviceData = nativeDeviceData;
         #endregion
 
         #endregion
 
-        #region Propiedades
+        #region public readonly properties
 
-        #region [public] (SmbiosStructure) Structure: Obtiene un valor que representa la clase DMI.
+        #region [public] (SmbiosStructure) Structure: Obtiene un valor que representa la clase DMI
         /// <summary>
         /// Obtiene un valor que representa la clase <see cref="iTin.Core.Hardware.Specification.DMI"/>.
         /// </summary>
         /// <value>
-        /// 	<para>Tipo: <see cref="SmbiosStructure"/></para>
-        /// 	<para>Uno de los valores de la enumeración <see cref="SmbiosStructure"/> que representa la clase <see cref="iTin.Core.Hardware.Specification.DMI"/>.</para>
+        /// Uno de los valores de la enumeración <see cref="SmbiosStructure"/> que representa la clase <see cref="iTin.Core.Hardware.Specification.DMI"/>.
         /// </value>
-        public SmbiosStructure Structure
-        {
-            get { return _nativeDeviceData.Structure; }
-        }
+        public SmbiosStructure Structure => _nativeDeviceData.Structure;
         #endregion
 
         #endregion
 
-        #region Overrides
+        #region public override methods
 
-        #region [public] {override} (string) ToString(): Devuelve una cadena que representa la clase actual.
+        #region [public] {override} (string) ToString(): Devuelve una cadena que representa la clase actual
         /// <summary>
         /// Devuelve una cadena que representa la clase actual.
         /// </summary>
         /// <returns>
-        /// 	<para>Tipo: <see cref="T:System.String"/></para>
-        /// 	<para>Una cadena que representa la clase <see cref="TypedDeviceDmiInfo"/> actual.</para>
+        /// Una cadena que representa la clase <see cref="TypedDeviceDmiInfo"/> actual.
         /// </returns>
         /// <remarks>
         /// El método <see cref="TypedDeviceDmiInfo.ToString()"/> devuelve una cadena que identifica a este dispositivo.
         /// </remarks>
-        public override string ToString()
-        {
-            return _nativeDeviceData.ToString();
-        }
+        public override string ToString() => _nativeDeviceData.ToString();
         #endregion
 
         #endregion
 
-        #region Miembros protegidos
-
-        #region Propiedades
+        #region protected override readonly properties
 
         #region [protected] {override} (bool) CanUseRegistry: Obtiene la clave del registro que corresponde a este dispositivo.
+        /// <inheritdoc />
         /// <summary>
         /// Obtiene un valor que indica si se va a usar el registro para recuperar las propiedades.
         /// </summary>
         /// <value>
-        /// 	<para>Tipo: <see cref="T:System.Boolean"/></para>
-        /// 	<para><strong>true</strong> si se va utilizar el registro para recuperar las propiedades; <strong>false</strong> en caso contrario.</para>
+        /// <strong>true</strong> si se va utilizar el registro para recuperar las propiedades; <strong>false</strong> en caso contrario.
         /// </value>
-        protected override bool CanUseRegistry
-        {
-            get { return false; }
-        }
+        protected override bool CanUseRegistry => false;
         #endregion
 
         #region [protected] {override} (bool) DmiDataProvider: Obtiene la clave del registro que corresponde a este dispositivo.
+        /// <inheritdoc />
         /// <summary>
         /// Obtiene un valor que representa la clase DMI que suministra las propiedades.
         /// </summary>
         /// <value>
-        /// 	<para>Tipo: <see cref="DmiClass"/></para>
-        /// 	<para>Objeto <see cref="DmiClass"/> que hace de proveedor de propiedades para el dispositivo.</para>
+        /// Objeto <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiClass" /> que hace de proveedor de propiedades para el dispositivo.
         /// </value>
-        protected override DmiClass DmiDataProvider
-        {
-            get { return _nativeDeviceData.Class; }
-        }
+        protected override DmiClass DmiDataProvider => _nativeDeviceData.Class;
         #endregion
 
         #region [protected] {override} (bool) IsDmiDeviceType: Obtiene un valor que indica si es un dispositivo de tipo DMI.
+        /// <inheritdoc />
         /// <summary>
         /// Obtiene un valor que indica si es un dispositivo de tipo DMI.
         /// </summary>
         /// <value>
-        /// 	<para>Tipo: <see cref="T:System.Boolean"/></para>
-        /// 	<para><strong>true</strong> si es un dispositivo DMI; <strong>false</strong> en caso contrario.</para>
+        /// <strong>true</strong> si es un dispositivo DMI; <strong>false</strong> en caso contrario.
         /// </value>
-        protected override bool IsDmiDeviceType
-        {
-            get { return true; }
-        }
+        protected override bool IsDmiDeviceType => true;
         #endregion
 
         #endregion
 
-        #endregion
-
-        #region Miembros internos
+        #region internal methods
 
         #region [internal] (DmiDeviceInfo) GetNativeDeviceData: Recupera la información DMI para este dispositivo.
         /// <summary>
-            /// Recupera la información <see cref="iTin.Core.Hardware.Specification.DMI"/> para este dispositivo.
+        /// Recupera la información <see cref="iTin.Core.Hardware.Specification.DMI"/> para este dispositivo.
         /// </summary>
         /// <returns>
-            /// Estructura <see cref="DmiDeviceInfo"/> que contiene la información <see cref="iTin.Core.Hardware.Specification.DMI"/> para este dispositivo de memoria.
+        /// Estructura <see cref="DmiDeviceInfo"/> que contiene la información <see cref="iTin.Core.Hardware.Specification.DMI"/> para este dispositivo de memoria.
         /// </returns> 
-        internal DmiDeviceInfo GetNativeDeviceData()
-        {
-            return _nativeDeviceData;
-        }
+        internal DmiDeviceInfo GetNativeDeviceData() => _nativeDeviceData;
         #endregion
 
         #endregion

@@ -23,6 +23,6 @@ namespace iTin.Core.Hardware.Device
         /// <returns>
         /// Referencia al objeto que representa el valor fuertemente tipado de la propiedad
         /// </returns>
-        IDeviceProperty GetProperty(PropertyKey propertyKey);
+        IDeviceProperty GetProperty<T>(PropertyKey propertyKey);
     }
 }

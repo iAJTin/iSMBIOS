@@ -14,13 +14,6 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         private readonly IDictionary<PropertyKey, DevicePropertyDescription> _propsDictionary;
         #endregion
 
-        #region public static readonly members
-        /// <summary>
-        /// Gets a reference to the cache of available descriptions.
-        /// </summary>
-        public static readonly DevicePropertyDescriptionsCache Cache = new DevicePropertyDescriptionsCache();
-        #endregion
-
         #region constructor/s
 
         #region [private] DevicePropertyDescriptionsCache(): Initialize a new instance of the class
@@ -33,6 +26,13 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         }
         #endregion
 
+        #endregion
+
+        #region public static readonly members
+        /// <summary>
+        /// Gets a reference to the cache of available descriptions.
+        /// </summary>
+        public static readonly DevicePropertyDescriptionsCache Cache = new DevicePropertyDescriptionsCache();
         #endregion
 
         #region public methods

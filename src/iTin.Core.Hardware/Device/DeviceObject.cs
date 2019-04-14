@@ -12,16 +12,16 @@ namespace iTin.Core.Hardware.Device
 
         #region constructor/s
 
-            #region [internal] DeviceObject(TypedDeviceInfoBase): Inicializa una nueva instancia de la clase.
-            /// <summary>
-            /// Inicializa una nueva instancia de la clase <see cref="DeviceObject"/>.
-            /// </summary>
-            /// <param name="typedDeviceData">Información fuertemente tipada del dispositivo.</param>
-            internal DeviceObject(TypedDeviceInfoBase typedDeviceData)
-            {
-                this.typedDeviceData = typedDeviceData;
-            }
-            #endregion
+        #region [internal] DeviceObject(TypedDeviceInfoBase): Inicializa una nueva instancia de la clase.
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="DeviceObject"/>.
+        /// </summary>
+        /// <param name="typedDeviceData">Información fuertemente tipada del dispositivo.</param>
+        internal DeviceObject(TypedDeviceInfoBase typedDeviceData)
+        {
+            this.typedDeviceData = typedDeviceData;
+        }
+        #endregion
 
         #endregion
 
@@ -48,21 +48,21 @@ namespace iTin.Core.Hardware.Device
 
         #region internal methods
 
-            #region [internal] (TypedDeviceInfoBase) GetTypedDeviceData(): Referencia a la información fuertemente tipada de este dispositivo.
-            /// <summary>
-            /// Referencia a la información fuertemente tipada de este dispositivo.
-            /// </summary>
-            /// <returns>
-            /// Información fuertemente tipada de este dispositivo.
-            /// </returns>
-            /// <remarks>
-            /// Implementa la interfaz <see cref="IDeviceInfo"/>.
-            /// </remarks>
-            internal TypedDeviceInfoBase GetTypedDeviceData()
-            {
-                return typedDeviceData;
-            }
-            #endregion
+        #region [internal] (TypedDeviceInfoBase) GetTypedDeviceData(): Referencia a la información fuertemente tipada de este dispositivo.
+        /// <summary>
+        /// Referencia a la información fuertemente tipada de este dispositivo.
+        /// </summary>
+        /// <returns>
+        /// Información fuertemente tipada de este dispositivo.
+        /// </returns>
+        /// <remarks>
+        /// Implementa la interfaz <see cref="IDeviceInfo"/>.
+        /// </remarks>
+        internal TypedDeviceInfoBase GetTypedDeviceData()
+        {
+            return typedDeviceData;
+        }
+        #endregion
 
         #endregion
     }

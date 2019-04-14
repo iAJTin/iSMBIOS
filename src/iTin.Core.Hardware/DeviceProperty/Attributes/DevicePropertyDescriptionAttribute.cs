@@ -3,6 +3,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
 {
     using System;
 
+    /// <inheritdoc />
     /// <summary>
     /// Attribute that allows you to add a description to a property.
     /// </summary>

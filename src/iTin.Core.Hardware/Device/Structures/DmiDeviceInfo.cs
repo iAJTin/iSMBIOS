@@ -2,7 +2,6 @@
 namespace iTin.Core.Hardware.Device
 {
     using System;
-    using System.Diagnostics;
 
     using Specification.Dmi;
     using Specification.Smbios;
@@ -12,17 +11,6 @@ namespace iTin.Core.Hardware.Device
     /// </summary>
     struct DmiDeviceInfo : IEquatable<DmiDeviceInfo>
     {
-        #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly int _index;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly DmiClass _dmiClass;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly SmbiosStructure _structure;
-        #endregion
-
         #region constructor/s
 
         #region [public] DmiDeviceInfo(SmbiosStructure, DmiClass, int): Inicializa una nueva instancia de la estructura.
@@ -34,47 +22,38 @@ namespace iTin.Core.Hardware.Device
         /// <param name="index">Índice de la clase.</param>
         public DmiDeviceInfo(SmbiosStructure structure, DmiClass dmiClass, int index)
         {
-            _index = index;
-            _dmiClass = dmiClass;
-            _structure = structure;
+            Index = index;
+            Class = dmiClass;
+            Structure = structure;
         }
         #endregion
 
         #endregion
 
-        #region public properties
+        #region public operators
 
-        #region [public] (int) Index:
+        #region [public] {static} (bool) operator ==(DmiDeviceInfo, DmiDeviceInfo): Implementa el operador de igualdad (==).
         /// <summary>
-        /// Gets the index.
+        /// Implementa el operador de igualdad (==).
         /// </summary>
-        /// <value>The index.</value>
-        public int Index
-        {
-            get { return _index; }
-        }
+        /// <param name="deviceInfo1">Operando 1.</param>
+        /// <param name="deviceInfo2">Operando 2.</param>
+        /// <returns>
+        /// Devuelve <strong>true</strong> si <c>deviceInfo1</c> es igual a <c>deviceInfo2</c>; <strong>false</strong> en caso contrario.
+        /// </returns>
+        public static bool operator ==(DmiDeviceInfo deviceInfo1, DmiDeviceInfo deviceInfo2) => deviceInfo1.Equals(deviceInfo2);
         #endregion
 
-        #region [public] (SmbiosStructure) Structure:
+        #region [public] {static} (bool) operator !=(DmiDeviceInfo, DmiDeviceInfo): Implementa el operador de desigualdad (!=).
         /// <summary>
-        /// Gets the properties.
+        /// Implementa el operador de desigualdad (!=).
         /// </summary>
-        /// <value>The properties.</value>
-        public SmbiosStructure Structure
-        {
-            get { return _structure; }
-        }
-        #endregion
-
-        #region [public] (DmiClass) Class:
-        /// <summary>
-        /// Gets the properties.
-        /// </summary>
-        /// <value>The properties.</value>
-        public DmiClass Class
-        {
-            get { return _dmiClass; }
-        }
+        /// <param name="deviceInfo1">Operando 1.</param>
+        /// <param name="deviceInfo2">Operando 2.</param>
+        /// <returns>
+        /// Devuelve <strong>true</strong> si <c>deviceInfo1</c> no es igual a <c>deviceInfo2</c>; <strong>false</strong> en caso contrario.
+        /// </returns>
+        public static bool operator !=(DmiDeviceInfo deviceInfo1, DmiDeviceInfo deviceInfo2) => !deviceInfo1.Equals(deviceInfo2);
         #endregion
 
         #endregion
@@ -89,10 +68,35 @@ namespace iTin.Core.Hardware.Device
         /// <returns>
         /// Devuelve <strong>true</strong> si las estructuras son iguales; en caso contrario, <strong>false</strong>.
         /// </returns>
-            public bool Equals(DmiDeviceInfo other)
-        {
-            return other.Equals((object)this);
-        }
+        public bool Equals(DmiDeviceInfo other) => other.Equals((object)this);
+        #endregion
+
+        #endregion
+
+        #region public properties
+
+        #region [public] (int) Index:
+        /// <summary>
+        /// Gets the index.
+        /// </summary>
+        /// <value>The index.</value>
+        public int Index { get; }
+        #endregion
+
+        #region [public] (SmbiosStructure) Structure:
+        /// <summary>
+        /// Gets the properties.
+        /// </summary>
+        /// <value>The properties.</value>
+        public SmbiosStructure Structure { get; }
+        #endregion
+
+        #region [public] (DmiClass) Class:
+        /// <summary>
+        /// Gets the properties.
+        /// </summary>
+        /// <value>The properties.</value>
+        public DmiClass Class { get; }
         #endregion
 
         #endregion
@@ -145,40 +149,6 @@ namespace iTin.Core.Hardware.Device
         /// El método <see cref="DmiDeviceInfo.ToString()"/> devuelve una cadena que incluye el tipo de estructura.
         /// </remarks>      
         public override string ToString() => $"Structure = {Structure}, Properties = {1000}, Index = {Index}";
-        #endregion
-
-        #endregion
-
-        #region public operators
-
-        #region [public] {static} (bool) operator ==(DmiDeviceInfo, DmiDeviceInfo): Implementa el operador de igualdad (==).
-        /// <summary>
-        /// Implementa el operador de igualdad (==).
-        /// </summary>
-        /// <param name="deviceInfo1">Operando 1.</param>
-        /// <param name="deviceInfo2">Operando 2.</param>
-        /// <returns>
-        /// Devuelve <strong>true</strong> si <c>deviceInfo1</c> es igual a <c>deviceInfo2</c>; <strong>false</strong> en caso contrario.
-        /// </returns>
-            public static bool operator ==(DmiDeviceInfo deviceInfo1, DmiDeviceInfo deviceInfo2)
-        {
-            return deviceInfo1.Equals(deviceInfo2);
-        }
-        #endregion
-
-        #region [public] {static} (bool) operator !=(DmiDeviceInfo, DmiDeviceInfo): Implementa el operador de desigualdad (!=).
-        /// <summary>
-        /// Implementa el operador de desigualdad (!=).
-        /// </summary>
-        /// <param name="deviceInfo1">Operando 1.</param>
-        /// <param name="deviceInfo2">Operando 2.</param>
-        /// <returns>
-        /// Devuelve <strong>true</strong> si <c>deviceInfo1</c> no es igual a <c>deviceInfo2</c>; <strong>false</strong> en caso contrario.
-        /// </returns>
-        public static bool operator !=(DmiDeviceInfo deviceInfo1, DmiDeviceInfo deviceInfo2)
-        {
-            return !deviceInfo1.Equals(deviceInfo2);
-        }
         #endregion
 
         #endregion

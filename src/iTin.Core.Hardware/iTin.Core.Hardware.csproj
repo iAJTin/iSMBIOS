@@ -11,6 +11,7 @@
     <AssemblyName>iTin.Core.Hardware</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <DocumentationFile>bin\Debug\iTin.Core.Hardware.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -38,26 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeviceProperty\Attributes\DevicePropertyDescriptionAttribute.cs" />
+    <Compile Include="DeviceProperty\Attributes\DevicePropertyTypeAttribute.cs" />
+    <Compile Include="DeviceProperty\Base\IDeviceProperty.cs" />
     <Compile Include="DeviceProperty\DeviceProperty.cs" />
     <Compile Include="DeviceProperty\DevicePropertyDescription.cs" />
-    <Compile Include="DeviceProperty\DevicePropertyDescriptionAttribute.cs" />
     <Compile Include="DeviceProperty\DevicePropertyDescriptionCache.cs" />
     <Compile Include="DeviceProperty\DevicePropertyFactory.cs" />
-    <Compile Include="DeviceProperty\DevicePropertyTypeAttribute.cs" />
-    <Compile Include="DeviceProperty\IDeviceProperty.cs" />
-    <Compile Include="Device\DeviceObject.cs" />
-    <Compile Include="Device\DeviceObjectProperties.cs" />
-    <Compile Include="Device\DeviceObjectPropertiesBase.cs" />
-    <Compile Include="Device\IDeviceInfo.cs" />
-    <Compile Include="Device\Structures\DmiDeviceInfo.cs" />
-    <Compile Include="Device\TypedDeviceInfo.cs" />
+    <Compile Include="Property\PropertyKey.cs" />
+    <Compile Include="Property\PropertyUnit.cs" />
     <Compile Include="Specification\SMBIOS\Firmware.cs" />
     <Compile Include="Interop\Shared\ExternDll.cs" />
     <Compile Include="Interop\Windows\Development\SystemServices\SystemInformation\Firmware\Enumerations\KnownProvider.cs" />
     <Compile Include="Interop\Windows\Development\SystemServices\SystemInformation\Firmware\NativeMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyKey.cs" />
-    <Compile Include="PropertyUnit.cs" />
     <Compile Include="Specification\DMI.cs" />
     <Compile Include="Specification\DMI\DmiClass.cs" />
     <Compile Include="Specification\DMI\DmiClassCollection.cs" />

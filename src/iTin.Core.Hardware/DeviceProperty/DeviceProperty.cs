@@ -1,20 +1,21 @@
 ﻿
 namespace iTin.Core.Hardware.Device.DeviceProperty
 {
+    using System;
     using System.Diagnostics;
 
+    /// <inheritdoc />
     /// <summary>
     /// Defines an object that represents a strongly typed property.
     /// </summary>
     /// <typeparam name="T">
-    /// The type of value of this property. Because the property value can be empty, only types that are
-    /// accept values<c>null</c>.
+    /// The type of value of this property. Because the property value can be empty, only types that are accept values<c>null</c>.
     /// </typeparam>
     public sealed class DeviceProperty<T> : IDeviceProperty
     {
-        #region private readonly properties
+        #region private readonly members
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly object value;
+        private readonly object _value;
         #endregion
 
         #region constructor/es
@@ -28,7 +29,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <param name="value">Valor de la propiedad.</param>
         internal DeviceProperty(PropertyKey propertykey, DevicePropertyDescription description, object value)
         {
-            this.value = value;
+            _value = value;
             Description = description;
             PropertyKey = propertykey;
         }
@@ -36,7 +37,11 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
 
         #endregion
 
-        #region public properties
+        #region interfaces
+
+        #region IDeviceProperty
+
+        #region public readonly properties
 
         #region [public] (DevicePropertyDescription) Description: Gets an object that represents the description of the property
         /// <inheritdoc />
@@ -57,34 +62,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <value>
         /// <strong>true</strong> if this property has value; otherwise, <strong>false</strong>.
         /// </value>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public bool HasValue => Value != null;
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Returns property value.
-        /// </summary>
-        /// <returns>
-        /// Property value.
-        /// </returns>
-        public object GetValue()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /// <inheritdoc />
-        /// <summary>
-        /// Returns property value.
-        /// </summary>
-        /// <typeparam name="T">Property type</typeparam>
-        /// <returns>
-        /// Property value.
-        /// </returns>
-        public T1 GetValue<T1>()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        public bool HasValue => _value != null;
         #endregion
 
         #region [public] (PropertyKey) PropertyKey: Gets a value that represents the unique key that identifies this property
@@ -95,25 +73,56 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <value>
         /// Unique key that identifies this property.
         /// </value>
-        [field: DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public PropertyKey PropertyKey { get; }
+        #endregion
 
         #endregion
 
+        #region public methods
+
+        #region [public] (object) GetValue(): Returns property value
+        /// <inheritdoc />
+        /// <summary>
+        /// Returns property value.
+        /// </summary>
+        /// <returns>
+        /// Property value.
+        /// </returns>
+        public object GetValue() => _value;
+        #endregion
+
+        #region [public] (T) GetValue<T>(): Returns the value of the strongly typed property
+        /// <inheritdoc />
+        /// <summary>
+        /// Returns the value of the strongly typed property.
+        /// </summary>
+        /// <typeparam name="T">The type of value of this property</typeparam>
+        /// <returns>
+        /// Strongly typed property value.
+        /// </returns>
+        public T GetValue<T>() => (T) GetValue();
+        #endregion
+
+        #endregion
+
+        #endregion
+
+        #endregion
+
+        #region public readonly properties
+
         #region [public] (T) Value: Gets the strongly typed value of this property
         /// <summary>
-        /// Gets the strongly typed value of this property
+        /// Gets the strongly typed value of this property.
         /// </summary>
         /// <value>
         /// Value of this property
         /// </value>
-        public T Value => (T)value;
+        [Obsolete("Please use IDeviceProperty.GetValue() or IDeviceProperty.GetValue<T>() generic call instead")]
+        public T Value => (T)_value;
         #endregion
 
         #endregion
-
-
-
 
         #region public override methods
 
@@ -127,7 +136,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <remarks>
         /// This method returns a string that identifies the device.
         /// </remarks> 
-        public override string ToString() => $"HasValue = {HasValue}";
+        public override string ToString() => $"HasValue={HasValue}";
         #endregion
 
         #endregion

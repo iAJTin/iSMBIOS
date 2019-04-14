@@ -113,23 +113,25 @@ namespace iTin.Core.Hardware.ConsoleApp
             Console.WriteLine($@" Gets a single property directly");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
 
-            IDeviceProperty ss = structures.GetProperty(KnownDmiProperty.Bios.BiosVersion);
-            DeviceProperty<string> biosVersion = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Bios.BiosVersion);
+            IDeviceProperty biosVersion = structures.GetProperty(KnownDmiProperty.Bios.BiosVersion);
             if (biosVersion != null)
             {
-                Console.WriteLine($" BIOS Version > {biosVersion.Value}");
+                string value = biosVersion.GetValue<string>();
+                Console.WriteLine($" BIOS Version > {value}");
             }
 
-            DeviceProperty<string> processorFamily = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Processor.Family);
+            DeviceProperty<int?> processorFamily = (DeviceProperty<int?>)structures.GetProperty(KnownDmiProperty.Processor.CoreEnabled);
             if (processorFamily != null)
             {
-                Console.WriteLine($" CPU Family > {processorFamily.Value}");
+                int? value = processorFamily.Value;
+                Console.WriteLine($" CPU Family > {value}");
             }
 
-            DeviceProperty<string> processorManufacturer = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Processor.ProcessorManufacturer);
+            IDeviceProperty processorManufacturer = structures.GetProperty(KnownDmiProperty.Processor.ProcessorManufacturer);
             if (processorManufacturer != null)
             {
-                Console.WriteLine($" CPU Manufacturer > {processorManufacturer.Value}");
+                string value = processorManufacturer.GetValue<string>();
+                Console.WriteLine($" CPU Manufacturer > {value}");
             }
 
             Console.WriteLine();
@@ -140,8 +142,9 @@ namespace iTin.Core.Hardware.ConsoleApp
             foreach (KeyValuePair<int, IDeviceProperty> systemSlot in systemSlots)
             {
                 int element = systemSlot.Key;
-                DeviceProperty<string> property = (DeviceProperty<string>) systemSlot.Value;
-                Console.WriteLine($" System Slot Id ({element}) > {property.Value}");
+                IDeviceProperty property = systemSlot.Value;
+                object propertyValue = property.GetValue<string>();
+                Console.WriteLine($" System Slot Id ({element}) > {propertyValue}");
             }
 
             Console.ReadLine();

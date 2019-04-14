@@ -2,7 +2,6 @@
 namespace iTin.Core.Hardware.Device.DeviceProperty
 {
     using System;
-    using System.Diagnostics;
     using System.Reflection;
 
     /// <summary>
@@ -10,10 +9,6 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
     /// </summary>
     public class DevicePropertyDescription
     {
-        #region private readonly members
-
-        #endregion
-
         #region constructor/s
 
         #region [internal] DevicePropertyDescription(PropertyKey): Initialize a new instance of the class with the property key
@@ -31,15 +26,14 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
 
         #region public properties
 
-        #region [public] (string) Name: Obtiene una cadena que identifica la descripción.
+        #region [public] (string) PropertyName: Gets a string that contains the description of the property
         /// <summary> 
-        /// Obtiene una cadena que identifica la descripción.
+        /// Gets a string that contains the description of the property.
         /// </summary>
         /// <value>
-        ///   <para>Tipo: <see cref="T:System.String"/></para>
-        ///   <para>Cadena que identifica la descripción.</para>
+        /// Description of the property.
         /// </value>
-        public string Name
+        public string PropertyName
         {
             get
             {
@@ -69,7 +63,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
 
         #endregion
 
-        #region [public] (Type) ValueType: Gets a value that represents the type of the value assigned to the property
+        #region [public] (Type) PropertyType: Gets a value that represents the type of the value assigned to the property
         /// <summary>
         /// Gets a value that represents the type of the value assigned to the property.
         /// </summary>
@@ -79,7 +73,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <remarks>
         /// The type of the property is obtained by reflection from the <see cref="PropertyKey" />.
         /// </remarks>
-        public Type ValueType
+        public Type PropertyType
         {
             get
             {
@@ -112,7 +106,7 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <remarks>
         /// This method returns a string that identifies the device.
         /// </remarks> 
-        public override string ToString() => $"Name = {Name}; Type = {ValueType.Name}";
+        public override string ToString() => $"Name=\"{PropertyName}\"; Type=\"{PropertyType.Name}\"";
         #endregion
 
         #endregion

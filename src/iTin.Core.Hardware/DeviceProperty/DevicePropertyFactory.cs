@@ -20,10 +20,10 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <returns>
         /// Reference to the object that represents the strongly typed value of the property.
         /// </returns>
-        public static IDeviceProperty CreateTypedDeviceProperty(PropertyKey key, object value)
+        public static IDeviceProperty CreateTypedDeviceProperty<T>(PropertyKey key, T value)
         {
             DevicePropertyDescription description = DevicePropertyDescriptionsCache.Cache.GetPropertyDescription(key);
-            Type propertyTypeValue = description.ValueType;
+            Type propertyTypeValue = description.PropertyType;
             Type type = typeof(DeviceProperty<>).MakeGenericType(propertyTypeValue);
 
             Type[] argTypes = { typeof(PropertyKey), typeof(DevicePropertyDescription), propertyTypeValue };

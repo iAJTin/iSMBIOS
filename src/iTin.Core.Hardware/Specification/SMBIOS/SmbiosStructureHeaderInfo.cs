@@ -1,8 +1,6 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-
     using Helpers;
 
     /// <summary>
@@ -10,20 +8,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// </summary>
     public class SmbiosStructureHeaderInfo
     {
-        #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly int _length;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly int _handle;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly byte[] _rawData;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly SmbiosStructure _structureType;
-        #endregion
-
         #region constructor/s
 
         #region [internal] SmbiosStructureHeaderInfo(byte[]): Initializes a new instance of the class
@@ -33,10 +17,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="rawData">The raw data.</param>
         internal SmbiosStructureHeaderInfo(byte[] rawData)
         {
-            _structureType = (SmbiosStructure)rawData[0x00];
-            _length = rawData[0x01];
-            _handle = LogicHelper.Word(rawData[0x02], rawData[0x03]);
-            _rawData = rawData;
+            StructureType = (SmbiosStructure)rawData[0x00];
+            Length = rawData[0x01];
+            Handle = LogicHelper.Word(rawData[0x02], rawData[0x03]);
+            RawData = rawData;
         }
         #endregion
 
@@ -55,7 +39,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Specifies the length of the formatted area of the current structure. 
         /// Starting at position 0, the length of the formatted zone of strings is not taken into account.
         /// </remarks>
-        public int Length => _length;
+        public int Length { get; }
         #endregion
 
         #region public (int) Handle: Gets the handle of the current structure
@@ -65,7 +49,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Handle of the current structure.
         /// </value>
-        public int Handle => _handle;
+        public int Handle { get; }
         #endregion
 
         #region public (byte[]) RawData: Gets an array with the raw data
@@ -75,7 +59,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Array with raw data.
         /// </value>
-        public byte[] RawData => _rawData;
+        public byte[] RawData { get; }
         #endregion
 
         #region public (SmbiosStructure) StructureType: Gets the length of the formatted area of the current SMBIOS structure
@@ -85,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// One of the <see cref="SmbiosStructure" /> values representing the current struct
         /// </value>
-        public SmbiosStructure StructureType => _structureType;
+        public SmbiosStructure StructureType { get; }
         #endregion
 
         #endregion
@@ -100,10 +84,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <remarks>
         /// The <see cref="T:SMBIOS.ToString ()" /> method returns a string that includes the <see cref="StructureType" /> property, <see cref="Handle" /> y <see cref="Length" />.
         /// </remarks>
-        public override string ToString()
-        {
-            return $"Type = {StructureType}, Handle = {Handle:X}, Length = {Length}";
-        }
+        public override string ToString() => $"Type = {StructureType}, Handle = {Handle:X}, Length = {Length}";
         #endregion
 
         #endregion

@@ -2,7 +2,6 @@
 namespace iTin.Core.Hardware.ConsoleApp
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
@@ -35,12 +34,12 @@ namespace iTin.Core.Hardware.ConsoleApp
                 DmiClassCollection elements = structure.Elements;
                 foreach (DmiClass element in elements)
                 {
-                    Hashtable elementProperties = element.Properties;
-                    foreach (DictionaryEntry property in elementProperties)
+                    PropertiesTable elementProperties = element.Properties;
+                    foreach (KeyValuePair<PropertyKey, object> property in elementProperties)
                     {
                         object value = property.Value;
 
-                        PropertyKey key = (PropertyKey)property.Key;
+                        PropertyKey key = property.Key;
                         Enum id = key.PropertyId;
 
                         PropertyUnit valueUnit = key.PropertyUnit;

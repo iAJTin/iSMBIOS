@@ -22,10 +22,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private Hashtable _properties;
-        #endregion
 
-        #region private readonly members
-
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private PropertiesTable _propertiesTable;
         #endregion
 
         #region constructor/s
@@ -45,7 +44,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region public properties
+        #region public readonly properties
 
         #region [public] (Hashtable) Content: Gets the properties available for this device
         /// <summary>
@@ -86,20 +85,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Availables properties.
         /// </value>
-        public Hashtable Properties
+        public PropertiesTable Properties
         {
             get
             {
-                if (_properties != null)
+                if (_propertiesTable != null)
                 {
-                    return _properties;
+                    return _propertiesTable;
                 }
 
-                _properties = new Hashtable();
+                _propertiesTable = new PropertiesTable();
                 _strings = SmbiosHelper.ParseStrings(HeaderInfo.RawData);
-                Parse(_properties);
+                Parse(_propertiesTable);
 
-                return _properties;
+                return _propertiesTable;
             }
         }
         #endregion
@@ -275,12 +274,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected virtual object GetValueTypedProperty(PropertyKey propertyKey) => null;
         #endregion
 
-        #region [protected] {virtual} (void) Parse(Hashtable): Populates the property collection for this structure
+        #region [protected] {virtual} (void) Parse(PropertiesTable): Populates the property collection for this structure
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>
         /// <param name="properties">Collection of properties of this structure.</param>
-        protected virtual void Parse(Hashtable properties)
+        protected virtual void Parse(PropertiesTable properties)
         {
         }
         #endregion

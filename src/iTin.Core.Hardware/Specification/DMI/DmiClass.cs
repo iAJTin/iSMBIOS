@@ -1,7 +1,6 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Dmi
 {
-    using System.Collections;
     using System.Diagnostics;
 
     using Device.DeviceProperty;
@@ -35,29 +34,19 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public properties
 
-        #region [public] (Hashtable) Properties: Gets a value that represents the available properties
+        #region [public] (PropertiesTable) Properties: Gets a value that represents the available properties
         /// <summary>
         /// Gets a value that represents the available properties.
         /// </summary>
         /// <value>
         /// Available properties.
         /// </value>
-        public Hashtable Properties => smbiosTable.Properties;
+        public PropertiesTable Properties => smbiosTable.Properties;
         #endregion
 
         #endregion
 
         #region public methods
-
-        #region [public] (Hashtable) GetTypedProperties(): Gets a value that represents the available properties
-        /// <summary>
-        /// Gets a value that represents the available properties.
-        /// </summary>
-        /// <returns>
-        /// Available properties.
-        /// </returns>
-        public Hashtable GetAllProperties() => smbiosTable.Properties;
-        #endregion
 
         #region [public] (IDeviceProperty) GetProperty(PropertyKey): Gets a reference to an object that implements the interface IDeviceProperty represents the strongly typed value of the property
         /// <summary>

@@ -5,8 +5,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.ObjectModel;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Represents a collection of objects <see cref="AdditionalInformationEntry"/>.
+    /// Represents a collection of objects <see cref="T:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry" />.
     /// </summary>
     sealed class AdditionalInformationEntryCollection : ReadOnlyCollection<AdditionalInformationEntry>
     {

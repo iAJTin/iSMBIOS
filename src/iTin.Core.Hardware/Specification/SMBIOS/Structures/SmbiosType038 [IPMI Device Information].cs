@@ -2,7 +2,6 @@
 namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System;
-    using System.Collections;
     using System.Diagnostics;
     using System.Globalization;
 
@@ -404,13 +403,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        #region [protected] {override} (void) Parse(PropertiesTable): Gets the property collection for this structure
         /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
         /// <param name="properties">Collection of properties of this structure.</param>
-        protected override void Parse(Hashtable properties)
+        protected override void Parse(PropertiesTable properties)
         {
             #region validate parameter/s
             SentinelHelper.ArgumentNull(properties);

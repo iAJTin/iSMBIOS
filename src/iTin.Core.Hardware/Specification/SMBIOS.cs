@@ -16,12 +16,9 @@ namespace iTin.Core.Hardware.Specification
     /// where information about system components such as memory, peripheral devices, expansion cards, inventory label
     /// and operating system is collected.
     /// </summary>
-    sealed class SMBIOS
+    internal sealed class SMBIOS
     {
         #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly int length;
-        
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly byte majorVersion;
         
@@ -46,9 +43,9 @@ namespace iTin.Core.Hardware.Specification
                 byte[] rawSmbiosTable = FirmwareTable.GetTable(KnownProvider.RSMB, tableNames[0]);
                 majorVersion = rawSmbiosTable[0x01];
                 minorVersion = rawSmbiosTable[0x02];
-                length = rawSmbiosTable.Length - 0x08;
+                Lenght = rawSmbiosTable.Length - 0x08;
 
-                var smBiosData = rawSmbiosTable.Extract(0x08, length); 
+                var smBiosData = rawSmbiosTable.Extract(0x08, Lenght); 
                 SmbiosHelper.ToRawTables(smBiosData);
             }
             else
@@ -58,7 +55,7 @@ namespace iTin.Core.Hardware.Specification
                     foreach (var o in wmi.Get())
                     {
                         var queryObj = (ManagementObject)o;
-                        length = (int) (uint) queryObj["Size"];
+                        Lenght = (int) (uint) queryObj["Size"];
                         majorVersion = (byte)queryObj["SmbiosMajorVersion"];
                         minorVersion = (byte)queryObj["SmbiosMinorVersion"];
 
@@ -78,7 +75,7 @@ namespace iTin.Core.Hardware.Specification
         public static readonly SMBIOS Instance = new SMBIOS();
         #endregion
 
-        #region public properties
+        #region public readonly properties
 
         #region [public] (IEnumerable<SmbiosBaseType>) ImplementedStructures: Gets the list of implemented structures
         /// <summary>
@@ -94,7 +91,8 @@ namespace iTin.Core.Hardware.Specification
         /// <value>
         /// Length of all <b>SMBIOS</b> tables
         /// </value>
-        public int Lenght => length;
+        public int Lenght { get; }
+
         #endregion
 
         #region [public] (int) Version: Gets a value that contains the version of SMBIOS

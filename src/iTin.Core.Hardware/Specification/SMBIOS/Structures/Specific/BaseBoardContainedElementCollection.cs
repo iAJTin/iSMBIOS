@@ -5,8 +5,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.ObjectModel;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Represents a collection of objects <see cref="SmbiosStructure"/> available on a motherboard.
+    /// Represents a collection of objects <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure" /> available on a motherboard.
     /// </summary>
     public sealed class BaseBoardContainedElementCollection : ReadOnlyCollection<SmbiosStructure>
     {

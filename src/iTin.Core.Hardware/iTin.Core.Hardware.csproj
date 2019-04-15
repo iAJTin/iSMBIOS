@@ -48,6 +48,7 @@
     <Compile Include="DeviceProperty\DevicePropertyDescription.cs" />
     <Compile Include="DeviceProperty\DevicePropertyDescriptionCache.cs" />
     <Compile Include="DeviceProperty\DevicePropertyFactory.cs" />
+    <Compile Include="Property\PropertiesTable.cs" />
     <Compile Include="Property\PropertyKey.cs" />
     <Compile Include="Property\PropertyUnit.cs" />
     <Compile Include="Specification\SMBIOS\Firmware.cs" />

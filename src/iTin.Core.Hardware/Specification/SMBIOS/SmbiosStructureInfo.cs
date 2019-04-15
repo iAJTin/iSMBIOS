@@ -3,21 +3,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics;
 
     /// <summary>
     /// Defines the contents of a structure type.
     /// </summary>
     internal struct SmbiosStructureInfo : IEquatable<SmbiosStructureInfo>
     {
-        #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly int smbiosVersion;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly SmbiosStructure structureType;
-        #endregion
-
         #region constructor/s
 
         #region [public] SmbiosStructureInfo(SmbiosStructure, int): Initializes a new instance of the struct
@@ -28,8 +19,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="smbiosVersion">The <see cref="SMBIOS"/> version.</param>
         public SmbiosStructureInfo(SmbiosStructure structureType, int smbiosVersion)
         {
-            this.structureType = structureType;
-            this.smbiosVersion = smbiosVersion;
+            StructureType = structureType;
+            SmbiosVersion = smbiosVersion;
         }
         #endregion
 
@@ -44,7 +35,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// <see cref="SMBIOS" /> versión.
         /// </value>
-        public int SmbiosVersion => smbiosVersion;
+        public int SmbiosVersion { get; }
         #endregion
 
         #region [public] (SmbiosStructure) StructureType: Gets the type of structure
@@ -52,7 +43,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Gets the type of structure.
         /// </summary>
         /// <value>Type of structure.</value>
-        public SmbiosStructure StructureType => structureType;
+        public SmbiosStructure StructureType { get; }
         #endregion
 
         #region [public] (SmbiosStructureCollection) Structures: Gets collection of available structures
@@ -74,20 +65,46 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
+        #region public operators
+
+        #region [public] {operator} (bool) operator ==(SmbiosStructureInfo, SmbiosStructureInfo): Implements the == operator
+        /// <summary>
+        /// Implements the == operator.
+        /// </summary>
+        /// <param name="structureInfo1">The structure info1.</param>
+        /// <param name="structureInfo2">The structure info2.</param>
+        /// <returns>
+        /// Returns <b>true</b> if <c>structureInfo1</c> is equal to <c>structureInfo2</c>; <b>false</b> otherwise.
+        /// </returns>
+        public static bool operator ==(SmbiosStructureInfo structureInfo1, SmbiosStructureInfo structureInfo2) => structureInfo1.Equals(structureInfo2);
+        #endregion
+
+        #region [public] {operator} (bool) operator !=(SmbiosStructureInfo, SmbiosStructureInfo): Implements the != operator
+        /// <summary>
+        /// Implements the != operator.
+        /// </summary>
+        /// <param name="structureInfo1">The structure info1.</param>
+        /// <param name="structureInfo2">The structure info2.</param>
+        /// <returns>
+        /// Returns <b>true</b> if <c>structureInfo1</c> is not equal to <c>structureInfo2</c>; <b>false</b> otherwise.
+        /// </returns>
+        public static bool operator !=(SmbiosStructureInfo structureInfo1, SmbiosStructureInfo structureInfo2) => !structureInfo1.Equals(structureInfo2);
+        #endregion
+
+        #endregion
+
         #region public methods
 
         #region [public] (bool) Equals(SmbiosStructureInfo): Indicates whether the current object is equal to another object of the same type
+        /// <inheritdoc />
         /// <summary>
         /// Indicates whether the current object is equal to another object of the same type.
         /// </summary>
         /// <param name="other">Object to be compared to this object.</param>
         /// <returns>
-        /// <c>true</c> if the current object is equal to the parameter <paramref name = "other" />; Otherwise, <c>false</c>.
+        /// <c>true</c> if the current object is equal to the parameter <paramref name="other" />; Otherwise, <c>false</c>.
         /// </returns>
-        public bool Equals(SmbiosStructureInfo other)
-        {
-            return other.Equals((object)this);
-        }
+        public bool Equals(SmbiosStructureInfo other) => other.Equals((object)this);
         #endregion
 
         #endregion
@@ -101,10 +118,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
         /// </returns>
-        public override int GetHashCode()
-        {
-            return structureType.GetHashCode() ^ smbiosVersion;
-        }
+        public override int GetHashCode() => StructureType.GetHashCode() ^ SmbiosVersion;
         #endregion
 
         #region [public] {override} (bool) Equals(object): Determines whether the specified object is equal to this instance
@@ -142,44 +156,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <remarks>
         /// The <see cref="T:SmbiosStructureInfo.ToString ()" /> method returns a string that includes the <see cref="StructureType" />.
         /// </remarks>
-        public override string ToString()
-        {
-            return $"SMBIOS = {SmbiosVersion:X}, Type = {StructureType}, Structures = {Structures.Count}";
-        }
-        #endregion
-
-        #endregion
-
-        #region public operators
-
-        #region [public] {operator} (bool) operator ==(SmbiosStructureInfo, SmbiosStructureInfo): Implements the == operator
-        /// <summary>
-        /// Implements the == operator.
-        /// </summary>
-        /// <param name="structureInfo1">The structure info1.</param>
-        /// <param name="structureInfo2">The structure info2.</param>
-        /// <returns>
-        /// Returns <b>true</b> if <c>structureInfo1</c> is equal to <c>structureInfo2</c>; <b>false</b> otherwise.
-        /// </returns>
-        public static bool operator ==(SmbiosStructureInfo structureInfo1, SmbiosStructureInfo structureInfo2)
-        {
-            return structureInfo1.Equals(structureInfo2);
-        }
-        #endregion
-
-        #region [public] {operator} (bool) operator !=(SmbiosStructureInfo, SmbiosStructureInfo): Implements the != operator
-        /// <summary>
-        /// Implements the != operator.
-        /// </summary>
-        /// <param name="structureInfo1">The structure info1.</param>
-        /// <param name="structureInfo2">The structure info2.</param>
-        /// <returns>
-        /// Returns <b>true</b> if <c>structureInfo1</c> is not equal to <c>structureInfo2</c>; <b>false</b> otherwise.
-        /// </returns>
-        public static bool operator !=(SmbiosStructureInfo structureInfo1, SmbiosStructureInfo structureInfo2)
-        {
-            return !structureInfo1.Equals(structureInfo2);
-        }
+        public override string ToString() => $"SMBIOS = {SmbiosVersion:X}, Type = {StructureType}, Structures = {Structures.Count}";
         #endregion
 
         #endregion

@@ -11,8 +11,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Helpers;
     using Smbios;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Represents a collection of <see cref="DmiStructure" /> objects implemented in <see cref="DMI" />.
+    /// Represents a collection of <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructure" /> objects implemented in <see cref="T:iTin.Core.Hardware.Specification.DMI" />.
     /// </summary>
     public sealed class DmiStructureCollection : ReadOnlyCollection<DmiStructure>
     {
@@ -112,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         }
         #endregion
 
-        #region [public] (Dictionary<int, IDeviceProperty>) GetProperties(PropertyKey): Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property
+        #region [public] (IDictionary<int, IDeviceProperty>) GetProperties(PropertyKey): Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property
         /// <summary>
         /// Gets a reference to an object list that implements the IDeviceProperty interface, represents the strongly typed value of the property. If it does not exist, returns an empty collection.
         /// </summary>

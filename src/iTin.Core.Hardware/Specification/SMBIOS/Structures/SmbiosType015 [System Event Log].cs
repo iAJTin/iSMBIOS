@@ -1,8 +1,8 @@
 ﻿
+using iTin.Core.Hardware.Specification.Dmi.Property;
+
 namespace iTin.Core.Hardware.Specification.Smbios
 {
-    using System.Collections;
-
     using Helpers;
 
     // Type 015: System Event Log.
@@ -161,20 +161,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected override methods.
 
-        #region [protected] {override} (void) Parse(Hashtable): Gets the property collection for this structure
+        #region [protected] {override} (void) Parse(PropertiesTable): Gets the property collection for this structure
         /// <inheritdoc />
         /// <summary>
         /// Gets the property collection for this structure.
         /// </summary>
         /// <param name="properties">Collection of properties of this structure.</param>
-        protected override void Parse(Hashtable properties)
+        protected override void Parse(PropertiesTable properties)
         {
             #region validate parameter/s
             SentinelHelper.ArgumentNull(properties);
             #endregion
 
             #region values
-            properties.Add(SmbiosType015Property.SystemEventLog, string.Empty);
+            properties.Add(KnownDmiProperty.SystemEventLog.SystemEventLogs, string.Empty);
             #endregion
         }
         #endregion

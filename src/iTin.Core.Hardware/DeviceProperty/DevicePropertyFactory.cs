@@ -26,10 +26,10 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
             Type propertyTypeValue = description.PropertyType;
             Type type = typeof(DeviceProperty<>).MakeGenericType(propertyTypeValue);
 
-            Type[] argTypes = { typeof(PropertyKey), typeof(DevicePropertyDescription), propertyTypeValue };
-            Func<PropertyKey, DevicePropertyDescription, object, IDeviceProperty> ctor = ExpressConstructor(type, argTypes);
+            Type[] argTypes = { typeof(PropertyKey), propertyTypeValue };
+            Func<PropertyKey, object, IDeviceProperty> ctor = ExpressConstructor(type, argTypes);
 
-            return ctor(key, description, value);
+            return ctor(key, value);
         }
         #endregion
 
@@ -42,16 +42,15 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// <returns>
         /// An expression that represents the constructor.
         /// </returns>
-        private static Func<PropertyKey, DevicePropertyDescription, object, IDeviceProperty> ExpressConstructor(Type type, Type[] argTypes)
+        private static Func<PropertyKey, object, IDeviceProperty> ExpressConstructor(Type type, Type[] argTypes)
         {
             ConstructorInfo ctorInfo = type.GetConstructors(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).First();
 
             ParameterExpression key = Expression.Parameter(argTypes[0], "propertykey");
-            ParameterExpression desc = Expression.Parameter(argTypes[1], "description");
             ParameterExpression value = Expression.Parameter(typeof(object), "value");
-            NewExpression create = Expression.New(ctorInfo, key, desc, value);
+            NewExpression create = Expression.New(ctorInfo, key, value);
 
-            return Expression.Lambda<Func<PropertyKey, DevicePropertyDescription, object, IDeviceProperty>>(create, key, desc, value).Compile();
+            return Expression.Lambda<Func<PropertyKey, object, IDeviceProperty>>(create, key, value).Compile();
         }
         #endregion
     }

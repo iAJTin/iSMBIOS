@@ -6,7 +6,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// <summary>
     /// The static class <see cref="SmbiosStructureFactory" /> creates the <see cref="SMBIOS" /> structures.
     /// </summary>
-    static class SmbiosStructureFactory
+    internal static class SmbiosStructureFactory
     {
         /// <summary>
         /// Create list of available structures.

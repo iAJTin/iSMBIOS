@@ -11,7 +11,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// <summary>
     /// Helper class for <see cref="SMBIOS" />.
     /// </summary>
-    static class SmbiosHelper
+    internal static class SmbiosHelper
     {
         #region public constants
         public const string Reserved = "Reserved";

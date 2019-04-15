@@ -14,7 +14,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private readonly Dictionary<SmbiosStructure, SmbiosStructureCollection> structureDictionary;
         #endregion
 
-        #region public static readonly members
+        #region public static readonly memebrs
         /// <summary>
         /// Gets a reference to the available structures cache.
         /// </summary>

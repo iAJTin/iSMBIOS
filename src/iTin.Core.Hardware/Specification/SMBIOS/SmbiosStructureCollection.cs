@@ -5,8 +5,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.ObjectModel;
     using System.Linq;
 
+    /// <inheritdoc />
     /// <summary>
-    /// Represents a read-only collection of objects <see cref="SmbiosBaseType" />.
+    /// Represents a read-only collection of objects <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" />.
     /// </summary>
     public sealed class SmbiosStructureCollection : ReadOnlyCollection<SmbiosBaseType>
     {

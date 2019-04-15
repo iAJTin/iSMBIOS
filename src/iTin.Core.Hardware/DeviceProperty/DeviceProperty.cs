@@ -25,13 +25,12 @@ namespace iTin.Core.Hardware.Device.DeviceProperty
         /// Initialize a new instance of the <see cref="DeviceProperty"/> class.
         /// </summary>
         /// <param name="propertykey">Key to the property to be recovered.</param>
-        /// <param name="description">Descripción de la propiedad.</param>
         /// <param name="value">Valor de la propiedad.</param>
-        internal DeviceProperty(PropertyKey propertykey, DevicePropertyDescription description, object value)
+        internal DeviceProperty(PropertyKey propertykey, object value)
         {
             _value = value;
-            Description = description;
             PropertyKey = propertykey;
+            Description = DevicePropertyDescriptionsCache.Cache.GetPropertyDescription(propertykey);
         }
         #endregion
 

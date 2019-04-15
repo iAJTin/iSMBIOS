@@ -15,11 +15,6 @@ namespace iTin.Core.Hardware.Specification.Dmi
         private DmiClassCollection elementsCollection;
         #endregion
 
-        #region private readonly members
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly SmbiosStructure smbiosStructure;
-        #endregion
-
         #region constructor/s
 
         #region [internal] DmiStructure(SmbiosStructure): Initialize a new instance of the class DmiStructure
@@ -29,13 +24,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="smbiosStructure">Estructura.</param>
         internal DmiStructure(SmbiosStructure smbiosStructure)
         {
-            this.smbiosStructure = smbiosStructure;
+            Class = smbiosStructure;
         }
         #endregion
 
         #endregion
 
-        #region public properties
+        #region public readonly properties
 
         #region [public] (SmbiosStructure) Class: Gets a value that represents the class implemented
         /// <summary>
@@ -44,7 +39,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <value>
         /// One of the values of the enumeration <see cref="SmbiosStructure" /> that represents the implemented class.
         /// </value>
-        public SmbiosStructure Class => smbiosStructure;
+        public SmbiosStructure Class { get; }
         #endregion
 
         #region [public] (DmiClassCollection) Elements: Gets the collection of available items

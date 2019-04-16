@@ -34,14 +34,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public properties
 
-        #region [public] (PropertiesTable) Properties: Gets a value that represents the available properties
+        #region [public] (SmbiosPropertiesTable) Properties: Gets a value that represents the available properties
         /// <summary>
         /// Gets a value that represents the available properties.
         /// </summary>
         /// <value>
         /// Available properties.
         /// </value>
-        public PropertiesTable Properties => smbiosTable.Properties;
+        public SmbiosPropertiesTable Properties => smbiosTable.Properties;
         #endregion
 
         #endregion

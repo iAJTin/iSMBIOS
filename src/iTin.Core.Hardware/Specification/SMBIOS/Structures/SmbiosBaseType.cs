@@ -24,7 +24,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private Hashtable _properties;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private PropertiesTable _propertiesTable;
+        private SmbiosPropertiesTable _SmbiosPropertiesTable;
         #endregion
 
         #region constructor/s
@@ -85,20 +85,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Availables properties.
         /// </value>
-        public PropertiesTable Properties
+        public SmbiosPropertiesTable Properties
         {
             get
             {
-                if (_propertiesTable != null)
+                if (_SmbiosPropertiesTable != null)
                 {
-                    return _propertiesTable;
+                    return _SmbiosPropertiesTable;
                 }
 
-                _propertiesTable = new PropertiesTable();
+                _SmbiosPropertiesTable = new SmbiosPropertiesTable();
                 _strings = SmbiosHelper.ParseStrings(HeaderInfo.RawData);
-                Parse(_propertiesTable);
+                Parse(_SmbiosPropertiesTable);
 
-                return _propertiesTable;
+                return _SmbiosPropertiesTable;
             }
         }
         #endregion
@@ -274,12 +274,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected virtual object GetValueTypedProperty(PropertyKey propertyKey) => null;
         #endregion
 
-        #region [protected] {virtual} (void) Parse(PropertiesTable): Populates the property collection for this structure
+        #region [protected] {virtual} (void) Parse(SmbiosPropertiesTable): Populates the property collection for this structure
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>
         /// <param name="properties">Collection of properties of this structure.</param>
-        protected virtual void Parse(PropertiesTable properties)
+        protected virtual void Parse(SmbiosPropertiesTable properties)
         {
         }
         #endregion

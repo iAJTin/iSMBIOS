@@ -48,7 +48,6 @@
     <Compile Include="DeviceProperty\DevicePropertyDescription.cs" />
     <Compile Include="DeviceProperty\DevicePropertyDescriptionCache.cs" />
     <Compile Include="DeviceProperty\DevicePropertyFactory.cs" />
-    <Compile Include="Property\PropertiesTable.cs" />
     <Compile Include="Property\PropertyKey.cs" />
     <Compile Include="Property\PropertyUnit.cs" />
     <Compile Include="Specification\SMBIOS\Firmware.cs" />
@@ -64,6 +63,7 @@
     <Compile Include="Specification\DMI\DmiStructureCollection.cs" />
     <Compile Include="Specification\DMI\KnownDmiProperty.cs" />
     <Compile Include="Specification\SMBIOS.cs" />
+    <Compile Include="Specification\SMBIOS\SmbiosPropertiesTable.cs" />
     <Compile Include="Specification\SMBIOS\SmbiosHelper.cs" />
     <Compile Include="Specification\SMBIOS\SmbiosStructureCollection.cs" />
     <Compile Include="Specification\SMBIOS\SmbiosStructureFactory.cs" />

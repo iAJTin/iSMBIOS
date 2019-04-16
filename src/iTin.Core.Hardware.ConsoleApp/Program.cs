@@ -34,7 +34,7 @@ namespace iTin.Core.Hardware.ConsoleApp
                 DmiClassCollection elements = structure.Elements;
                 foreach (DmiClass element in elements)
                 {
-                    PropertiesTable elementProperties = element.Properties;
+                    SmbiosPropertiesTable elementProperties = element.Properties;
                     foreach (KeyValuePair<PropertyKey, object> property in elementProperties)
                     {
                         object value = property.Value;

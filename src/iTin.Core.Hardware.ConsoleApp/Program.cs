@@ -119,7 +119,7 @@ namespace iTin.Core.Hardware.ConsoleApp
                 Console.WriteLine($" BIOS Vendor > {value}");
             }
 
-            DeviceProperty<string> processorFamily = (DeviceProperty<string>)structures.GetProperty(DmiProperty.Chassis.ContainedElements);
+            DeviceProperty<string> processorFamily = (DeviceProperty<string>)structures.GetProperty(DmiProperty.Processor.Family);
             if (processorFamily != null)
             {
                 string value = processorFamily.Value;

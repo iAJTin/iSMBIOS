@@ -186,11 +186,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.SystemPowerControls.Month, Month);
-            properties.Add(KnownDmiProperty.SystemPowerControls.Day, Day);
-            properties.Add(KnownDmiProperty.SystemPowerControls.Hour, Hour);
-            properties.Add(KnownDmiProperty.SystemPowerControls.Minute, Minute);
-            properties.Add(KnownDmiProperty.SystemPowerControls.Second, Second);
+            properties.Add(DmiProperty.SystemPowerControls.Month, Month);
+            properties.Add(DmiProperty.SystemPowerControls.Day, Day);
+            properties.Add(DmiProperty.SystemPowerControls.Hour, Hour);
+            properties.Add(DmiProperty.SystemPowerControls.Minute, Minute);
+            properties.Add(DmiProperty.SystemPowerControls.Second, Second);
             #endregion
         }
         #endregion

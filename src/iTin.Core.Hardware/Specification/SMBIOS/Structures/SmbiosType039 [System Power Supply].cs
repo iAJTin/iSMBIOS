@@ -536,33 +536,33 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.SystemPowerSupply.IsRedundant, IsRedundant);
+            properties.Add(DmiProperty.SystemPowerSupply.IsRedundant, IsRedundant);
                                
-            properties.Add(KnownDmiProperty.SystemPowerSupply.Location, Location);
-            properties.Add(KnownDmiProperty.SystemPowerSupply.DeviceName, DeviceName);
-            properties.Add(KnownDmiProperty.SystemPowerSupply.Manufacturer, Manufacturer);
-            properties.Add(KnownDmiProperty.SystemPowerSupply.SerialNumber, SerialNumber);
-            properties.Add(KnownDmiProperty.SystemPowerSupply.AssetTagNumber, AssetTagNumber);
-            properties.Add(KnownDmiProperty.SystemPowerSupply.ModelPartNumber, ModelPartNumber);
-            properties.Add(KnownDmiProperty.SystemPowerSupply.RevisionLevel, RevisionLevel);
+            properties.Add(DmiProperty.SystemPowerSupply.Location, Location);
+            properties.Add(DmiProperty.SystemPowerSupply.DeviceName, DeviceName);
+            properties.Add(DmiProperty.SystemPowerSupply.Manufacturer, Manufacturer);
+            properties.Add(DmiProperty.SystemPowerSupply.SerialNumber, SerialNumber);
+            properties.Add(DmiProperty.SystemPowerSupply.AssetTagNumber, AssetTagNumber);
+            properties.Add(DmiProperty.SystemPowerSupply.ModelPartNumber, ModelPartNumber);
+            properties.Add(DmiProperty.SystemPowerSupply.RevisionLevel, RevisionLevel);
 
             if (MaxPowerCapacity != 0x8000)
             {
-                properties.Add(KnownDmiProperty.SystemPowerSupply.MaxPowerCapacity, MaxPowerCapacity);
+                properties.Add(DmiProperty.SystemPowerSupply.MaxPowerCapacity, MaxPowerCapacity);
             }
 
-            properties.Add(KnownDmiProperty.SystemPowerSupply.Characteristics.SupplyType, GetSupplyType(SupplyType));
-            properties.Add(KnownDmiProperty.SystemPowerSupply.Characteristics.Status, GetStatus(Status));
-            properties.Add(KnownDmiProperty.SystemPowerSupply.Characteristics.InputVoltageRange, GetInputVoltageRange(InputVoltageRange));
-            properties.Add(KnownDmiProperty.SystemPowerSupply.Characteristics.IsPlugged, IsPlugged);
-            properties.Add(KnownDmiProperty.SystemPowerSupply.Characteristics.IsPresent, IsPresent);
-            properties.Add(KnownDmiProperty.SystemPowerSupply.Characteristics.IsHotReplaceable, IsHotReplaceable);
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.SupplyType, GetSupplyType(SupplyType));
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.Status, GetStatus(Status));
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.InputVoltageRange, GetInputVoltageRange(InputVoltageRange));
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsPlugged, IsPlugged);
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsPresent, IsPresent);
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsHotReplaceable, IsHotReplaceable);
                                
             if (HeaderInfo.Length >= 0x11)
             {
                 if (InputVoltageProbeHandle != 0xffff)
                 {
-                    properties.Add(KnownDmiProperty.SystemPowerSupply.InputVoltageProbeHandle, InputVoltageProbeHandle);
+                    properties.Add(DmiProperty.SystemPowerSupply.InputVoltageProbeHandle, InputVoltageProbeHandle);
                 }
             }
 
@@ -570,7 +570,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 if (CoolingDeviceHandle != 0xffff)
                 {
-                    properties.Add(KnownDmiProperty.SystemPowerSupply.CoolingDeviceHandle, CoolingDeviceHandle);
+                    properties.Add(DmiProperty.SystemPowerSupply.CoolingDeviceHandle, CoolingDeviceHandle);
                 }
             }
 
@@ -578,7 +578,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 if (InputCurrentProbeHandle != 0xffff)
                 {
-                    properties.Add(KnownDmiProperty.SystemPowerSupply.InputCurrentProbeHandle, InputCurrentProbeHandle);
+                    properties.Add(DmiProperty.SystemPowerSupply.InputCurrentProbeHandle, InputCurrentProbeHandle);
                 }
             }
             #endregion

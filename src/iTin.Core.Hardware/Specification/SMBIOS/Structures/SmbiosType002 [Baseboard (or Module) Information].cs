@@ -460,44 +460,44 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.BaseBoard.Manufacturer, Manufacturer);
-            properties.Add(KnownDmiProperty.BaseBoard.Product, Product);
-            properties.Add(KnownDmiProperty.BaseBoard.Version, Version);
-            properties.Add(KnownDmiProperty.BaseBoard.SerialNumber, SerialNumber);
+            properties.Add(DmiProperty.BaseBoard.Manufacturer, Manufacturer);
+            properties.Add(DmiProperty.BaseBoard.Product, Product);
+            properties.Add(DmiProperty.BaseBoard.Version, Version);
+            properties.Add(DmiProperty.BaseBoard.SerialNumber, SerialNumber);
 
             if (HeaderInfo.Length >= 0x09)
             {
-                properties.Add(KnownDmiProperty.BaseBoard.AssetTag, AssetTag);
+                properties.Add(DmiProperty.BaseBoard.AssetTag, AssetTag);
             }
 
             if (HeaderInfo.Length >= 0x0a)
             {
-                properties.Add(KnownDmiProperty.BaseBoard.Features.IsHotSwappable, IsHotSwappable);
-                properties.Add(KnownDmiProperty.BaseBoard.Features.IsReplaceable, IsReplaceable);
-                properties.Add(KnownDmiProperty.BaseBoard.Features.IsRemovable, IsRemovable);
-                properties.Add(KnownDmiProperty.BaseBoard.Features.RequiredDaughterBoard, RequiredDaughterBoard);
-                properties.Add(KnownDmiProperty.BaseBoard.Features.IsHostingBoard, IsHostingBoard);
+                properties.Add(DmiProperty.BaseBoard.Features.IsHotSwappable, IsHotSwappable);
+                properties.Add(DmiProperty.BaseBoard.Features.IsReplaceable, IsReplaceable);
+                properties.Add(DmiProperty.BaseBoard.Features.IsRemovable, IsRemovable);
+                properties.Add(DmiProperty.BaseBoard.Features.RequiredDaughterBoard, RequiredDaughterBoard);
+                properties.Add(DmiProperty.BaseBoard.Features.IsHostingBoard, IsHostingBoard);
             }
 
             if (HeaderInfo.Length >= 0x0b)
             {
-                properties.Add(KnownDmiProperty.BaseBoard.LocationInChassis, LocationInChassis);
+                properties.Add(DmiProperty.BaseBoard.LocationInChassis, LocationInChassis);
             }
 
             if (HeaderInfo.Length >= 0x0c)
             {
-                properties.Add(KnownDmiProperty.BaseBoard.ChassisHandle, ChassisHandle);
+                properties.Add(DmiProperty.BaseBoard.ChassisHandle, ChassisHandle);
             }
 
             if (HeaderInfo.Length >= 0x0d)
             {
-                properties.Add(KnownDmiProperty.BaseBoard.BoardType, GetBoardType(BoardType));
+                properties.Add(DmiProperty.BaseBoard.BoardType, GetBoardType(BoardType));
             }
 
             if (HeaderInfo.Length >= 0x0e)
             {
                 byte n = NumberOfContainedObjectHandles;
-                properties.Add(KnownDmiProperty.BaseBoard.NumberOfContainedObjectHandles, n);
+                properties.Add(DmiProperty.BaseBoard.NumberOfContainedObjectHandles, n);
 
                 if (n != 0x00 && HeaderInfo.Length >= 0x0f)
                 {
@@ -505,7 +505,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     Array.Copy(HeaderInfo.RawData, 0x0f, containedElementsArray, 0, n);
 
                     IEnumerable<SmbiosStructure> containedElements = GetContainedElements(containedElementsArray);
-                    properties.Add(KnownDmiProperty.BaseBoard.ContainedElements, new BaseBoardContainedElementCollection(containedElements));
+                    properties.Add(DmiProperty.BaseBoard.ContainedElements, new BaseBoardContainedElementCollection(containedElements));
                 }
             }
             #endregion

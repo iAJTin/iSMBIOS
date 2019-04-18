@@ -122,14 +122,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.GroupAssociations.GroupName, GroupName);
+            properties.Add(DmiProperty.GroupAssociations.GroupName, GroupName);
 
             int n = (HeaderInfo.Length - 5) / 3;
             byte[] containedElementsArray = new byte[n * 3];
             Array.Copy(HeaderInfo.RawData, 0x05, containedElementsArray, 0, n * 3);
 
             IEnumerable<GroupAssociationElement> containedElements = GetContainedElements(containedElementsArray, n);
-            properties.Add(KnownDmiProperty.GroupAssociations.ContainedElements, new GroupAssociationElementCollection(containedElements));
+            properties.Add(DmiProperty.GroupAssociations.ContainedElements, new GroupAssociationElementCollection(containedElements));
             #endregion
         }
         #endregion

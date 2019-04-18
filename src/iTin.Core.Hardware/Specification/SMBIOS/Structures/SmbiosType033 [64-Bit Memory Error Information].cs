@@ -204,28 +204,28 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.BitMemoryErrorInformation64.ErrorType, GetErrorType(ErrorType));
-            properties.Add(KnownDmiProperty.BitMemoryErrorInformation64.ErrorGranularity, GetErrorGranularity(ErrorGranularity));
-            properties.Add(KnownDmiProperty.BitMemoryErrorInformation64.ErrorOperation, GetErrorOperation(ErrorOperation));
+            properties.Add(DmiProperty.BitMemoryErrorInformation64.ErrorType, GetErrorType(ErrorType));
+            properties.Add(DmiProperty.BitMemoryErrorInformation64.ErrorGranularity, GetErrorGranularity(ErrorGranularity));
+            properties.Add(DmiProperty.BitMemoryErrorInformation64.ErrorOperation, GetErrorOperation(ErrorOperation));
 
             if (CrcData != 0x00000000)
             {
-                properties.Add(KnownDmiProperty.BitMemoryErrorInformation64.VendorSyndrome, CrcData);
+                properties.Add(DmiProperty.BitMemoryErrorInformation64.VendorSyndrome, CrcData);
             }
 
             if (MemoryArrayErrorAddress != 0x8000000000000000)
             {
-                properties.Add(KnownDmiProperty.BitMemoryErrorInformation64.BusErrorAddress, MemoryArrayErrorAddress);
+                properties.Add(DmiProperty.BitMemoryErrorInformation64.BusErrorAddress, MemoryArrayErrorAddress);
             }
 
             if (DeviceErrorAddress != 0x8000000000000000)
             {
-                properties.Add(KnownDmiProperty.BitMemoryErrorInformation64.DeviceErrorAddress, DeviceErrorAddress);
+                properties.Add(DmiProperty.BitMemoryErrorInformation64.DeviceErrorAddress, DeviceErrorAddress);
             }
 
             if (ErrorResolution != 0x80000000)
             {
-                properties.Add(KnownDmiProperty.BitMemoryErrorInformation64.ErrorResolution, ErrorResolution);
+                properties.Add(DmiProperty.BitMemoryErrorInformation64.ErrorResolution, ErrorResolution);
             }
             #endregion
         }

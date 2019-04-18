@@ -303,29 +303,29 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.SystemReset.Capabilities.Status, Status);
-            properties.Add(KnownDmiProperty.SystemReset.Capabilities.BootOption, GetBootOption(BootOption));
-            properties.Add(KnownDmiProperty.SystemReset.Capabilities.BootOptionOnLimit, GetBootOption(BootOptionOnLimit));
-            properties.Add(KnownDmiProperty.SystemReset.Capabilities.WatchdogTimer, WatchdogTimer);
+            properties.Add(DmiProperty.SystemReset.Capabilities.Status, Status);
+            properties.Add(DmiProperty.SystemReset.Capabilities.BootOption, GetBootOption(BootOption));
+            properties.Add(DmiProperty.SystemReset.Capabilities.BootOptionOnLimit, GetBootOption(BootOptionOnLimit));
+            properties.Add(DmiProperty.SystemReset.Capabilities.WatchdogTimer, WatchdogTimer);
 
             if (ResetCount != 0xffff)
             {
-                properties.Add(KnownDmiProperty.SystemReset.ResetCount, ResetCount);
+                properties.Add(DmiProperty.SystemReset.ResetCount, ResetCount);
             }
 
             if (ResetLimit != 0xffff)
             {
-                properties.Add(KnownDmiProperty.SystemReset.ResetLimit, ResetLimit);
+                properties.Add(DmiProperty.SystemReset.ResetLimit, ResetLimit);
             }
 
             if (TimerInterval != 0xffff)
             {
-                properties.Add(KnownDmiProperty.SystemReset.TimerInterval, TimerInterval);
+                properties.Add(DmiProperty.SystemReset.TimerInterval, TimerInterval);
             }
 
             if (TimeOut != 0xffff)
             {
-                properties.Add(KnownDmiProperty.SystemReset.Timeout, TimeOut);
+                properties.Add(DmiProperty.SystemReset.Timeout, TimeOut);
             }
             #endregion
         }

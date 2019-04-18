@@ -34,7 +34,7 @@ namespace iTin.Core.Hardware.ConsoleApp
                 DmiClassCollection elements = structure.Elements;
                 foreach (DmiClass element in elements)
                 {
-                    SmbiosPropertiesTable elementProperties = element.Properties;
+                    DmiClassPropertiesTable elementProperties = element.Properties;
                     foreach (KeyValuePair<PropertyKey, object> property in elementProperties)
                     {
                         object value = property.Value;
@@ -112,38 +112,38 @@ namespace iTin.Core.Hardware.ConsoleApp
             Console.WriteLine($@" Gets a single property directly");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
 
-            IDeviceProperty biosVersion = structures.GetProperty(KnownDmiProperty.Bios.BiosVersion);
+            IDeviceProperty biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
             if (biosVersion != null)
             {
                 string value = biosVersion.GetValue<string>();
-                Console.WriteLine($" BIOS Version > {value}");
+                Console.WriteLine($" BIOS Vendor > {value}");
             }
 
-            DeviceProperty<int?> processorFamily = (DeviceProperty<int?>)structures.GetProperty(KnownDmiProperty.Processor.CoreEnabled);
+            DeviceProperty<string> processorFamily = (DeviceProperty<string>)structures.GetProperty(DmiProperty.Chassis.ContainedElements);
             if (processorFamily != null)
             {
-                int? value = processorFamily.Value;
-                Console.WriteLine($" CPU Family > {value}");
+                string value = processorFamily.Value;
+                Console.WriteLine($" Processor Family > {value}");
             }
 
-            IDeviceProperty processorManufacturer = structures.GetProperty(KnownDmiProperty.Processor.ProcessorManufacturer);
+            IDeviceProperty processorManufacturer = structures.GetProperty(DmiProperty.Processor.ProcessorManufacturer);
             if (processorManufacturer != null)
             {
                 string value = processorManufacturer.GetValue<string>();
-                Console.WriteLine($" CPU Manufacturer > {value}");
+                Console.WriteLine($" Processor Manufacturer > {value}");
             }
 
             Console.WriteLine();
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine($@" Gets a multiple properties directly");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-            IDictionary<int, IDeviceProperty> systemSlots = structures.GetProperties(KnownDmiProperty.SystemSlots.SlotId);
+            IDictionary<int, IDeviceProperty> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
             foreach (KeyValuePair<int, IDeviceProperty> systemSlot in systemSlots)
             {
                 int element = systemSlot.Key;
                 IDeviceProperty property = systemSlot.Value;
                 object propertyValue = property.GetValue<string>();
-                Console.WriteLine($" System Slot Id ({element}) > {propertyValue}");
+                Console.WriteLine($" System Slot ({element}) > {propertyValue}");
             }
 
             Console.ReadLine();

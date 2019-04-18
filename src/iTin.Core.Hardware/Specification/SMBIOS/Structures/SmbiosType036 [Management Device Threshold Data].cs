@@ -227,32 +227,32 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
             if (LowerNonCritical != 0x8000)
             {
-                properties.Add(KnownDmiProperty.ManagementDeviceThresholdData.LowerNonCritical, LowerNonCritical);
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerNonCritical, LowerNonCritical);
             }
 
             if (UpperNonCritical != 0x8000)
             {
-                properties.Add(KnownDmiProperty.ManagementDeviceThresholdData.UpperNonCritical, UpperNonCritical);
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperNonCritical, UpperNonCritical);
             }
 
             if (LowerCritical != 0x8000)
             {
-                properties.Add(KnownDmiProperty.ManagementDeviceThresholdData.LowerCritical, LowerCritical);
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerCritical, LowerCritical);
             }
 
             if (UpperCritical != 0x8000)
             {
-                properties.Add(KnownDmiProperty.ManagementDeviceThresholdData.UpperCritical, UpperCritical);
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperCritical, UpperCritical);
             }
 
             if (LowerNonRecoverable != 0x8000)
             {
-                properties.Add(KnownDmiProperty.ManagementDeviceThresholdData.LowerNonRecoverable, LowerNonRecoverable);
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerNonRecoverable, LowerNonRecoverable);
             }
 
             if (UpperNonRecoverable != 0x8000)
             {
-                properties.Add(KnownDmiProperty.ManagementDeviceThresholdData.UpperNonRecoverable, UpperNonRecoverable);
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperNonRecoverable, UpperNonRecoverable);
             }
             #endregion
         }

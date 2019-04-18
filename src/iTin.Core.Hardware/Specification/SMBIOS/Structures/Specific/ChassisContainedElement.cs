@@ -215,10 +215,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.Chassis.Elements.Min, Min);
-            properties.Add(KnownDmiProperty.Chassis.Elements.Max, Max);
-            properties.Add(KnownDmiProperty.Chassis.Elements.TypeSelect, TypeSelect);
-            properties.Add(KnownDmiProperty.Chassis.Elements.ItemType, ItemType);
+            properties.Add(DmiProperty.Chassis.Elements.Min, Min);
+            properties.Add(DmiProperty.Chassis.Elements.Max, Max);
+            properties.Add(DmiProperty.Chassis.Elements.TypeSelect, TypeSelect);
+            properties.Add(DmiProperty.Chassis.Elements.ItemType, ItemType);
             #endregion
         }
         #endregion

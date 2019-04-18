@@ -163,9 +163,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.OnBoardDevices.Enabled, IsEnabled);
-            properties.Add(KnownDmiProperty.OnBoardDevices.DeviceType, GetDeviceType(DeviceType));
-            properties.Add(KnownDmiProperty.OnBoardDevices.Description, Description);
+            properties.Add(DmiProperty.OnBoardDevices.Enabled, IsEnabled);
+            properties.Add(DmiProperty.OnBoardDevices.DeviceType, GetDeviceType(DeviceType));
+            properties.Add(DmiProperty.OnBoardDevices.Description, Description);
             #endregion
         }
         #endregion

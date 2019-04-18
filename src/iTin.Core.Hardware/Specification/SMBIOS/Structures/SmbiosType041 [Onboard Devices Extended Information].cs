@@ -217,9 +217,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.OnBoardDevicesExtended.ReferenceDesignation, ReferenceDesignation);
-            properties.Add(KnownDmiProperty.OnBoardDevicesExtended.Element.DeviceStatus, DeviceStatus);
-            properties.Add(KnownDmiProperty.OnBoardDevicesExtended.Element.DeviceType, GetDeviceType(DeviceType));
+            properties.Add(DmiProperty.OnBoardDevicesExtended.ReferenceDesignation, ReferenceDesignation);
+            properties.Add(DmiProperty.OnBoardDevicesExtended.Element.DeviceStatus, DeviceStatus);
+            properties.Add(DmiProperty.OnBoardDevicesExtended.Element.DeviceType, GetDeviceType(DeviceType));
             #endregion
         }
         #endregion

@@ -278,10 +278,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             #region versions
             var tpmCapabilityVendorIdEntry = GetTpmCapabilityVendorId(RawVendorId);
-            properties.Add(KnownDmiProperty.TpmDevice.VendorId, tpmCapabilityVendorIdEntry.ASCII);
-            properties.Add(KnownDmiProperty.TpmDevice.VendorIdDescription, tpmCapabilityVendorIdEntry.Description);
-            properties.Add(KnownDmiProperty.TpmDevice.MajorSpecVersion, MajorSpecVersion);
-            properties.Add(KnownDmiProperty.TpmDevice.MinorSpecVersion, MinorSpecVersion);
+            properties.Add(DmiProperty.TpmDevice.VendorId, tpmCapabilityVendorIdEntry.ASCII);
+            properties.Add(DmiProperty.TpmDevice.VendorIdDescription, tpmCapabilityVendorIdEntry.Description);
+            properties.Add(DmiProperty.TpmDevice.MajorSpecVersion, MajorSpecVersion);
+            properties.Add(DmiProperty.TpmDevice.MinorSpecVersion, MinorSpecVersion);
 
             var firmwareVersion = TpmFirmwareVersion.Unknown;
             if (MajorSpecVersion >= 0x01 && MajorSpecVersion <= 0x02)
@@ -292,10 +292,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         : new TpmFirmwareVersion { MajorVersion = GetDoubleWord(0x0a), MinorVersion = GetDoubleWord(0x0e) };
             }
 
-            properties.Add(KnownDmiProperty.TpmDevice.FirmwareVersion, firmwareVersion);
-            properties.Add(KnownDmiProperty.TpmDevice.Description, DescriptionVersion2);
-            properties.Add(KnownDmiProperty.TpmDevice.Characteristics, GetTpmCharacteristics(Characteristics));
-            properties.Add(KnownDmiProperty.TpmDevice.OemDefined, OemDefined);
+            properties.Add(DmiProperty.TpmDevice.FirmwareVersion, firmwareVersion);
+            properties.Add(DmiProperty.TpmDevice.Description, DescriptionVersion2);
+            properties.Add(DmiProperty.TpmDevice.Characteristics, GetTpmCharacteristics(Characteristics));
+            properties.Add(DmiProperty.TpmDevice.OemDefined, OemDefined);
             #endregion
         }
         #endregion

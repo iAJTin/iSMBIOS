@@ -160,9 +160,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.BootIntegrityServicesEntryPoint.Checksum, Checksum);
-            properties.Add(KnownDmiProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress16, BisEntryPointAddress16);
-            properties.Add(KnownDmiProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress32, BisEntryPointAddress32);
+            properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.Checksum, Checksum);
+            properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress16, BisEntryPointAddress16);
+            properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress32, BisEntryPointAddress32);
             #endregion
         }
         #endregion

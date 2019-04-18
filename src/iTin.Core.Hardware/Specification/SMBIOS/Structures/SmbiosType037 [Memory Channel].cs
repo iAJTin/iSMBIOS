@@ -180,8 +180,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.MemoryChannel.ChannelType, GetChannelType(ChannelType));
-            properties.Add(KnownDmiProperty.MemoryChannel.MaximunChannelLoad, MaximunChannelLoad);
+            properties.Add(DmiProperty.MemoryChannel.ChannelType, GetChannelType(ChannelType));
+            properties.Add(DmiProperty.MemoryChannel.MaximunChannelLoad, MaximunChannelLoad);
 
             byte n = Count;
             if (n != 0x00)
@@ -192,7 +192,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     Array.Copy(HeaderInfo.RawData, 0x07, containedElementsArray, 0, n * 3);
 
                     IEnumerable<MemoryChannelElement> containedElements = GetContainedElements(containedElementsArray, n);
-                    properties.Add(KnownDmiProperty.MemoryChannel.Devices, new MemoryChannelElementCollection(containedElements));
+                    properties.Add(DmiProperty.MemoryChannel.Devices, new MemoryChannelElementCollection(containedElements));
                 }
             }
 

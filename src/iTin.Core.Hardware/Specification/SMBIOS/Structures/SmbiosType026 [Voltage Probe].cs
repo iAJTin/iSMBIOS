@@ -332,42 +332,42 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.VoltageProbe.Description, Description);
-            properties.Add(KnownDmiProperty.VoltageProbe.LocationAndStatus.Status, GetStatus(Status));
-            properties.Add(KnownDmiProperty.VoltageProbe.LocationAndStatus.Location, GetLocation(Location));
+            properties.Add(DmiProperty.VoltageProbe.Description, Description);
+            properties.Add(DmiProperty.VoltageProbe.LocationAndStatus.Status, GetStatus(Status));
+            properties.Add(DmiProperty.VoltageProbe.LocationAndStatus.Location, GetLocation(Location));
 
             if (MaximunValue != 0x8000)
             {
-                properties.Add(KnownDmiProperty.VoltageProbe.MaximunValue, MaximunValue);
+                properties.Add(DmiProperty.VoltageProbe.MaximunValue, MaximunValue);
             }
 
             if (MinimunValue != 0x8000)
             {
-                properties.Add(KnownDmiProperty.VoltageProbe.MinimunValue, MinimunValue);
+                properties.Add(DmiProperty.VoltageProbe.MinimunValue, MinimunValue);
             }
 
             if (Resolution != 0x8000)
             {
-                properties.Add(KnownDmiProperty.VoltageProbe.Resolution, Resolution);
+                properties.Add(DmiProperty.VoltageProbe.Resolution, Resolution);
             }
 
             if (Tolerance != 0x8000)
             {
-                properties.Add(KnownDmiProperty.VoltageProbe.Tolerance, Tolerance);
+                properties.Add(DmiProperty.VoltageProbe.Tolerance, Tolerance);
             }
 
             if (Accuracy != 0x8000)
             {
-                properties.Add(KnownDmiProperty.VoltageProbe.Accuracy, Accuracy);
+                properties.Add(DmiProperty.VoltageProbe.Accuracy, Accuracy);
             }
 
-            properties.Add(KnownDmiProperty.VoltageProbe.OemDefined, OemDefined);
+            properties.Add(DmiProperty.VoltageProbe.OemDefined, OemDefined);
 
             if (HeaderInfo.Length >= 0x15)
             {
                 if (NominalValue != 0x8000)
                 {
-                    properties.Add(KnownDmiProperty.VoltageProbe.NominalValue, NominalValue);
+                    properties.Add(DmiProperty.VoltageProbe.NominalValue, NominalValue);
                 }
             }
             #endregion

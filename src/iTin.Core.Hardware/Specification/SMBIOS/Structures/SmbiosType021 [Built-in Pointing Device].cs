@@ -149,9 +149,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.BuiltInPointingDevice.NumberOfButtons, NumberOfButtons);
-            properties.Add(KnownDmiProperty.BuiltInPointingDevice.Type, GetDeviceType(DeviceType));
-            properties.Add(KnownDmiProperty.BuiltInPointingDevice.Interface, GetDeviceInterface(Interface));
+            properties.Add(DmiProperty.BuiltInPointingDevice.NumberOfButtons, NumberOfButtons);
+            properties.Add(DmiProperty.BuiltInPointingDevice.Type, GetDeviceType(DeviceType));
+            properties.Add(DmiProperty.BuiltInPointingDevice.Interface, GetDeviceInterface(Interface));
             #endregion
         }
         #endregion

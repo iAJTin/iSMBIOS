@@ -416,27 +416,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.IpmiDevice.InterfaceType, GetInterfaceType(InterfaceType));
-            properties.Add(KnownDmiProperty.IpmiDevice.SpecificationRevision, SpecificationRevision);
-            properties.Add(KnownDmiProperty.IpmiDevice.I2CSlaveAddress, I2CSlaveAddress);
+            properties.Add(DmiProperty.IpmiDevice.InterfaceType, GetInterfaceType(InterfaceType));
+            properties.Add(DmiProperty.IpmiDevice.SpecificationRevision, SpecificationRevision);
+            properties.Add(DmiProperty.IpmiDevice.I2CSlaveAddress, I2CSlaveAddress);
 
             if (NVStorageDeviceAddress != 0x00)
             {
-                properties.Add(KnownDmiProperty.IpmiDevice.NVStorageDeviceAddress, NVStorageDeviceAddress);
+                properties.Add(DmiProperty.IpmiDevice.NVStorageDeviceAddress, NVStorageDeviceAddress);
             }
 
-            properties.Add(KnownDmiProperty.IpmiDevice.BaseAdress, BaseAddress);
+            properties.Add(DmiProperty.IpmiDevice.BaseAdress, BaseAddress);
 
             if (HeaderInfo.Length >= 0x11)
             {
                 if (BaseAddressModifier != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.IpmiDevice.BaseAdressModifier.RegisterSpacing, GetRegisterSpacing(RegisterSpacing));
-                    properties.Add(KnownDmiProperty.IpmiDevice.BaseAdressModifier.LsBit, LsBit);
+                    properties.Add(DmiProperty.IpmiDevice.BaseAdressModifier.RegisterSpacing, GetRegisterSpacing(RegisterSpacing));
+                    properties.Add(DmiProperty.IpmiDevice.BaseAdressModifier.LsBit, LsBit);
 
-                    properties.Add(KnownDmiProperty.IpmiDevice.Interrupt.SpecifiedInfo, SpecifiedInfo);
-                    properties.Add(KnownDmiProperty.IpmiDevice.Interrupt.Polarity, Polarity);
-                    properties.Add(KnownDmiProperty.IpmiDevice.Interrupt.TriggerMode, TriggerMode);
+                    properties.Add(DmiProperty.IpmiDevice.Interrupt.SpecifiedInfo, SpecifiedInfo);
+                    properties.Add(DmiProperty.IpmiDevice.Interrupt.Polarity, Polarity);
+                    properties.Add(DmiProperty.IpmiDevice.Interrupt.TriggerMode, TriggerMode);
                 }
             }
 
@@ -444,7 +444,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 if (InterruptNumber != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.IpmiDevice.InterruptNumber, InterruptNumber);
+                    properties.Add(DmiProperty.IpmiDevice.InterruptNumber, InterruptNumber);
                 }
             }
             #endregion

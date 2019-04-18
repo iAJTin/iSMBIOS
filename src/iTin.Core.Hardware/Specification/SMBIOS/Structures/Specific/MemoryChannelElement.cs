@@ -135,8 +135,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.MemoryChannel.MemoryDevices.Load, Load);
-            properties.Add(KnownDmiProperty.MemoryChannel.MemoryDevices.Handle, Handle);
+            properties.Add(DmiProperty.MemoryChannel.MemoryDevices.Load, Load);
+            properties.Add(DmiProperty.MemoryChannel.MemoryDevices.Handle, Handle);
             #endregion
         }
         #endregion

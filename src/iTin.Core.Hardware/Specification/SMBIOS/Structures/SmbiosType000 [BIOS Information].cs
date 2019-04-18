@@ -470,44 +470,44 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.0
             if (HeaderInfo.Length >= 0x12)
             {
-                properties.Add(KnownDmiProperty.Bios.Vendor, Vendor);
-                properties.Add(KnownDmiProperty.Bios.BiosVersion, BiosVersion);
-                properties.Add(KnownDmiProperty.Bios.BiosStartingAddressSegment, BiosStartingAddressSegment);
-                properties.Add(KnownDmiProperty.Bios.BiosReleaseDate, BiosReleaseDate);
-                properties.Add(KnownDmiProperty.Bios.BiosRomSize, RomSize);
-                properties.Add(KnownDmiProperty.Bios.Characteristics, GetCharacteristics(Characteristics));
+                properties.Add(DmiProperty.Bios.Vendor, Vendor);
+                properties.Add(DmiProperty.Bios.BiosVersion, BiosVersion);
+                properties.Add(DmiProperty.Bios.BiosStartingAddressSegment, BiosStartingAddressSegment);
+                properties.Add(DmiProperty.Bios.BiosReleaseDate, BiosReleaseDate);
+                properties.Add(DmiProperty.Bios.BiosRomSize, RomSize);
+                properties.Add(DmiProperty.Bios.Characteristics, GetCharacteristics(Characteristics));
             }
             #endregion
 
             #region 2.1 - 2.2
             if (HeaderInfo.Length >= 0x13)
             {
-                properties.Add(KnownDmiProperty.Bios.ExtensionByte1, GetExtensionByte1(ExtensionByte1));
+                properties.Add(DmiProperty.Bios.ExtensionByte1, GetExtensionByte1(ExtensionByte1));
             }
             #endregion
 
             #region 2.3
             if (HeaderInfo.Length >= 0x14)
             {
-                properties.Add(KnownDmiProperty.Bios.ExtensionByte2, GetExtensionByte2(ExtensionByte2));
+                properties.Add(DmiProperty.Bios.ExtensionByte2, GetExtensionByte2(ExtensionByte2));
             }
             #endregion
 
             #region 2.4+
             if (HeaderInfo.Length >= 0x14)
             {
-                properties.Add(KnownDmiProperty.Bios.SystemBiosMajorRelease, SystemBiosMajorRelease);
-                properties.Add(KnownDmiProperty.Bios.SystemBiosMinorRelease, SystemBiosMinorRelease);
-                properties.Add(KnownDmiProperty.Bios.FirmwareMajorRelease, FirmwareMajorRelease);
-                properties.Add(KnownDmiProperty.Bios.FirmwareMinorRelease, FirmwareMinorRelease);
+                properties.Add(DmiProperty.Bios.SystemBiosMajorRelease, SystemBiosMajorRelease);
+                properties.Add(DmiProperty.Bios.SystemBiosMinorRelease, SystemBiosMinorRelease);
+                properties.Add(DmiProperty.Bios.FirmwareMajorRelease, FirmwareMajorRelease);
+                properties.Add(DmiProperty.Bios.FirmwareMinorRelease, FirmwareMinorRelease);
             }
             #endregion
 
             #region 3.1+
             if (HeaderInfo.Length >= 0x19)
             {
-                properties.Add(KnownDmiProperty.Bios.ExtendedBiosRomSize, ExtendedBiosRomSize);
-                properties.Add(KnownDmiProperty.Bios.ExtendedBiosRomSizeUnit, ExtendedBiosRomSizeUnits);
+                properties.Add(DmiProperty.Bios.ExtendedBiosRomSize, ExtendedBiosRomSize);
+                properties.Add(DmiProperty.Bios.ExtendedBiosRomSizeUnit, ExtendedBiosRomSizeUnits);
             }
             #endregion
 

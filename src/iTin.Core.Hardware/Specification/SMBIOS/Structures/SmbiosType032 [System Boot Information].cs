@@ -103,7 +103,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.SystemBoot.BootStatus, GetBootStatus(BootStatus));
+            properties.Add(DmiProperty.SystemBoot.BootStatus, GetBootStatus(BootStatus));
             #endregion
         }
         #endregion

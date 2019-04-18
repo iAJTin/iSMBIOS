@@ -486,21 +486,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
 
             #region 2.0+
-            properties.Add(KnownDmiProperty.Chassis.Manufacturer, Manufacturer);
-            properties.Add(KnownDmiProperty.Chassis.ChassisType, GetEnclosureType(EnclosureType));
-            properties.Add(KnownDmiProperty.Chassis.Locked, GetEnclosureLocked(EnclosureLocked));
-            properties.Add(KnownDmiProperty.Chassis.Version, Version);
-            properties.Add(KnownDmiProperty.Chassis.SerialNumber, SerialNumber);
-            properties.Add(KnownDmiProperty.Chassis.AssetTagNumber, AssetTagNumber);
+            properties.Add(DmiProperty.Chassis.Manufacturer, Manufacturer);
+            properties.Add(DmiProperty.Chassis.ChassisType, GetEnclosureType(EnclosureType));
+            properties.Add(DmiProperty.Chassis.Locked, GetEnclosureLocked(EnclosureLocked));
+            properties.Add(DmiProperty.Chassis.Version, Version);
+            properties.Add(DmiProperty.Chassis.SerialNumber, SerialNumber);
+            properties.Add(DmiProperty.Chassis.AssetTagNumber, AssetTagNumber);
             #endregion
 
             #region 2.1+
             if (HeaderInfo.Length >= 0x0a)
             {
-                properties.Add(KnownDmiProperty.Chassis.BootUpState, GetEnclosureState(BootUpState));
-                properties.Add(KnownDmiProperty.Chassis.PowerSupplyState, GetEnclosureState(PowerSupplyState));
-                properties.Add(KnownDmiProperty.Chassis.ThermalState, GetEnclosureState(ThermalState));
-                properties.Add(KnownDmiProperty.Chassis.SecurityStatus, GetEnclosureSecurityStatus(SecurityStatus));
+                properties.Add(DmiProperty.Chassis.BootUpState, GetEnclosureState(BootUpState));
+                properties.Add(DmiProperty.Chassis.PowerSupplyState, GetEnclosureState(PowerSupplyState));
+                properties.Add(DmiProperty.Chassis.ThermalState, GetEnclosureState(ThermalState));
+                properties.Add(DmiProperty.Chassis.SecurityStatus, GetEnclosureSecurityStatus(SecurityStatus));
             }
             #endregion
 
@@ -510,7 +510,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 long oemDefined = OemDefined;
                 if (oemDefined != 0)
                 {
-                    properties.Add(KnownDmiProperty.Chassis.OemDefined, oemDefined);
+                    properties.Add(DmiProperty.Chassis.OemDefined, oemDefined);
                 }
             }
 
@@ -519,7 +519,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 byte height = Height;
                 if (height != 0)
                 {
-                    properties.Add(KnownDmiProperty.Chassis.Height, height);
+                    properties.Add(DmiProperty.Chassis.Height, height);
                 }
             }
 
@@ -528,7 +528,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 byte numberOfPowerCords = NumberOfPowerCords;
                 if (numberOfPowerCords != 0)
                 {
-                    properties.Add(KnownDmiProperty.Chassis.NumberOfPowerCords, numberOfPowerCords);
+                    properties.Add(DmiProperty.Chassis.NumberOfPowerCords, numberOfPowerCords);
                 }
             }
 
@@ -548,12 +548,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
                                 Array.Copy(HeaderInfo.RawData, 0x15, containedElementsArray, 0, n * m);
 
                                 IEnumerable<ChassisContainedElement> containedElements = GetContainedElements(containedElementsArray, n);
-                                properties.Add(KnownDmiProperty.Chassis.ContainedElements, new ChassisContainedElementCollection(containedElements));
+                                properties.Add(DmiProperty.Chassis.ContainedElements, new ChassisContainedElementCollection(containedElements));
                             }
 
                             if (HeaderInfo.Length > 0x16 + (n * m))
                             {
-                                properties.Add(KnownDmiProperty.Chassis.SkuNumber, GetEnclosureSkuNumber(n, m));
+                                properties.Add(DmiProperty.Chassis.SkuNumber, GetEnclosureSkuNumber(n, m));
                             }
                         }
                     }

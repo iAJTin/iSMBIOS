@@ -165,10 +165,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region versions
-            properties.Add(KnownDmiProperty.ManagementDevice.Description, Description);
-            properties.Add(KnownDmiProperty.ManagementDevice.Type, GetDeviceType(Type));
-            properties.Add(KnownDmiProperty.ManagementDevice.Address, Address);
-            properties.Add(KnownDmiProperty.ManagementDevice.AddressType, GetDeviceAddressType(AddressType));
+            properties.Add(DmiProperty.ManagementDevice.Description, Description);
+            properties.Add(DmiProperty.ManagementDevice.Type, GetDeviceType(Type));
+            properties.Add(DmiProperty.ManagementDevice.Address, Address);
+            properties.Add(DmiProperty.ManagementDevice.AddressType, GetDeviceAddressType(AddressType));
             #endregion
         }
 

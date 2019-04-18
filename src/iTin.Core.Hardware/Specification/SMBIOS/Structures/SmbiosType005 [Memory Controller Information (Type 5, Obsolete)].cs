@@ -322,17 +322,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.MemoryController.ErrorDetectingMethod, GetErrorDetectingMethod(ErrorDetectingMethod));
-            properties.Add(KnownDmiProperty.MemoryController.ErrorCorrectingCapabilities, GetErrorCorrectingCapability(ErrorCorrectingCapabilities));
-            properties.Add(KnownDmiProperty.MemoryController.SupportedInterleave, GetControllerInterleave(SupportedInterleave));
-            properties.Add(KnownDmiProperty.MemoryController.CurrentInterleave, GetControllerInterleave(CurrentInterleave));
-            properties.Add(KnownDmiProperty.MemoryController.MaximumMemoryModuleSize, MaximumMemoryModuleSize);
-            properties.Add(KnownDmiProperty.MemoryController.SupportedSpeeds, GetControllerSupportedSpeeds(SupportedSpeeds));
-            properties.Add(KnownDmiProperty.MemoryController.SupportedMemoryTypes, GetControllerSupportedTypes(SupportedMemoryTypes));
-            properties.Add(KnownDmiProperty.MemoryController.MemoryModuleVoltages, GetControllerModuleVoltages(MemoryModuleVoltages));
+            properties.Add(DmiProperty.MemoryController.ErrorDetectingMethod, GetErrorDetectingMethod(ErrorDetectingMethod));
+            properties.Add(DmiProperty.MemoryController.ErrorCorrectingCapabilities, GetErrorCorrectingCapability(ErrorCorrectingCapabilities));
+            properties.Add(DmiProperty.MemoryController.SupportedInterleave, GetControllerInterleave(SupportedInterleave));
+            properties.Add(DmiProperty.MemoryController.CurrentInterleave, GetControllerInterleave(CurrentInterleave));
+            properties.Add(DmiProperty.MemoryController.MaximumMemoryModuleSize, MaximumMemoryModuleSize);
+            properties.Add(DmiProperty.MemoryController.SupportedSpeeds, GetControllerSupportedSpeeds(SupportedSpeeds));
+            properties.Add(DmiProperty.MemoryController.SupportedMemoryTypes, GetControllerSupportedTypes(SupportedMemoryTypes));
+            properties.Add(DmiProperty.MemoryController.MemoryModuleVoltages, GetControllerModuleVoltages(MemoryModuleVoltages));
 
             byte n = NumberMemorySlots;
-            properties.Add(KnownDmiProperty.MemoryController.NumberMemorySlots, n);
+            properties.Add(DmiProperty.MemoryController.NumberMemorySlots, n);
 
             if (n != 0x00)
             {
@@ -341,11 +341,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 Array.Copy(HeaderInfo.RawData, 0x0f, containedElementsArray, 0, m);
 
                 IEnumerable<int> containedElements = GetContainedMemoryModules(containedElementsArray);
-                properties.Add(KnownDmiProperty.MemoryController.ContainedMemoryModules, new MemoryControllerContainedElementCollection(containedElements));
+                properties.Add(DmiProperty.MemoryController.ContainedMemoryModules, new MemoryControllerContainedElementCollection(containedElements));
 
                 if (HeaderInfo.Length >= 0x10 + m)
                 {
-                    properties.Add(KnownDmiProperty.MemoryController.EnabledErrorCorrectingCapabilities, GetErrorCorrectingCapability(HeaderInfo.RawData[0x0f + m]));
+                    properties.Add(DmiProperty.MemoryController.EnabledErrorCorrectingCapabilities, GetErrorCorrectingCapability(HeaderInfo.RawData[0x0f + m]));
                 }
             }
             #endregion

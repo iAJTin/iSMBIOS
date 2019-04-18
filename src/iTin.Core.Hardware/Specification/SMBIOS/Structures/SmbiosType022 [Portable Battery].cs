@@ -549,50 +549,50 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region values
             if (HeaderInfo.Length >= 0x05)
             {
-                properties.Add(KnownDmiProperty.PortableBattery.Location, Location);
+                properties.Add(DmiProperty.PortableBattery.Location, Location);
             }
 
             if (HeaderInfo.Length >= 0x06)
             {
-                properties.Add(KnownDmiProperty.PortableBattery.Manufacturer, Manufacturer);
+                properties.Add(DmiProperty.PortableBattery.Manufacturer, Manufacturer);
             }
 
             if (string.IsNullOrEmpty(ManufactureDate))
             {
                 if (HeaderInfo.Length >= 0x13)
                 {
-                    properties.Add(KnownDmiProperty.PortableBattery.ManufactureDate, SbdsManufactureDate);
+                    properties.Add(DmiProperty.PortableBattery.ManufactureDate, SbdsManufactureDate);
                 }
             }
             else
             {
-                properties.Add(KnownDmiProperty.PortableBattery.ManufactureDate, ManufactureDate);
+                properties.Add(DmiProperty.PortableBattery.ManufactureDate, ManufactureDate);
             }
 
             if (string.IsNullOrEmpty(SerialNumber))
             {
                 if (HeaderInfo.Length >= 0x11)
                 {
-                    properties.Add(KnownDmiProperty.PortableBattery.SerialNumber, SbdsSerialNumber);
+                    properties.Add(DmiProperty.PortableBattery.SerialNumber, SbdsSerialNumber);
                 }
             }
             else
             {
-                properties.Add(KnownDmiProperty.PortableBattery.SerialNumber, SerialNumber);
+                properties.Add(DmiProperty.PortableBattery.SerialNumber, SerialNumber);
             }
 
-            properties.Add(KnownDmiProperty.PortableBattery.DeviceName, DeviceName);
+            properties.Add(DmiProperty.PortableBattery.DeviceName, DeviceName);
 
             if (DeviceChemistryValue == 0x02)
             {
                 if (HeaderInfo.Length >= 0x15)
                 {
-                    properties.Add(KnownDmiProperty.PortableBattery.DeviceChemistry, SbdsDeviceChemistry);
+                    properties.Add(DmiProperty.PortableBattery.DeviceChemistry, SbdsDeviceChemistry);
                 }
             }
             else
             {
-                properties.Add(KnownDmiProperty.PortableBattery.DeviceChemistry, GetDeviceChemistry(DeviceChemistryValue));
+                properties.Add(DmiProperty.PortableBattery.DeviceChemistry, GetDeviceChemistry(DeviceChemistryValue));
             }
 
             if (DesignCapacity != 00)
@@ -600,29 +600,29 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 if (HeaderInfo.Length >= 0x16)
                 {
                     int designCapacityCalculated = DesignCapacity * DesignCapacityMultiplier;
-                    properties.Add(KnownDmiProperty.PortableBattery.DesignCapacity, designCapacityCalculated);
+                    properties.Add(DmiProperty.PortableBattery.DesignCapacity, designCapacityCalculated);
                 }
                 else
                 {
-                    properties.Add(KnownDmiProperty.PortableBattery.DesignCapacity, DesignCapacity);
+                    properties.Add(DmiProperty.PortableBattery.DesignCapacity, DesignCapacity);
                 }
             }
 
             if (DesignVoltage != 00)
             {
-                properties.Add(KnownDmiProperty.PortableBattery.DesignVoltage, DesignVoltage);
+                properties.Add(DmiProperty.PortableBattery.DesignVoltage, DesignVoltage);
             }
 
-            properties.Add(KnownDmiProperty.PortableBattery.SBDSVersionNumber, SbdsVersionNumber);
+            properties.Add(DmiProperty.PortableBattery.SBDSVersionNumber, SbdsVersionNumber);
 
             if (MaximumErrorInBatteryData != 0xff)
             {
-                properties.Add(KnownDmiProperty.PortableBattery.MaximunErrorInBatteryData, MaximumErrorInBatteryData);
+                properties.Add(DmiProperty.PortableBattery.MaximunErrorInBatteryData, MaximumErrorInBatteryData);
             }
 
             if (HeaderInfo.Length >= 0x17)
             {
-                properties.Add(KnownDmiProperty.PortableBattery.OemSpecific, OemSpecific);
+                properties.Add(DmiProperty.PortableBattery.OemSpecific, OemSpecific);
             }
             #endregion
         }

@@ -180,11 +180,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.EntryLength, EntryLength);
-            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.ReferencedHandle, ReferencedHandle);
-            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.ReferencedOffset, ReferencedOffset);
-            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.StringValue, StringValue);
-            properties.Add(KnownDmiProperty.AdditionalInformation.Entry.Value, Value);
+            properties.Add(DmiProperty.AdditionalInformation.Entry.EntryLength, EntryLength);
+            properties.Add(DmiProperty.AdditionalInformation.Entry.ReferencedHandle, ReferencedHandle);
+            properties.Add(DmiProperty.AdditionalInformation.Entry.ReferencedOffset, ReferencedOffset);
+            properties.Add(DmiProperty.AdditionalInformation.Entry.StringValue, StringValue);
+            properties.Add(DmiProperty.AdditionalInformation.Entry.Value, Value);
             #endregion
         }
         #endregion

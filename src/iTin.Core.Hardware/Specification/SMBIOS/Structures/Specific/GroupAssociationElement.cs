@@ -131,8 +131,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.GroupAssociations.Items.Structure, ItemType);
-            properties.Add(KnownDmiProperty.GroupAssociations.Items.Handle, Handle);
+            properties.Add(DmiProperty.GroupAssociations.Items.Structure, ItemType);
+            properties.Add(DmiProperty.GroupAssociations.Items.Handle, Handle);
             #endregion
         }
         #endregion

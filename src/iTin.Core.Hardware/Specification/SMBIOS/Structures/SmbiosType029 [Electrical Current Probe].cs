@@ -331,48 +331,48 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.TemperatureProbe.Description, Description);
-            properties.Add(KnownDmiProperty.TemperatureProbe.LocationAndStatus.Status, GetStatus(Status));
-            properties.Add(KnownDmiProperty.TemperatureProbe.LocationAndStatus.Location, GetLocation(Location));
+            properties.Add(DmiProperty.TemperatureProbe.Description, Description);
+            properties.Add(DmiProperty.TemperatureProbe.LocationAndStatus.Status, GetStatus(Status));
+            properties.Add(DmiProperty.TemperatureProbe.LocationAndStatus.Location, GetLocation(Location));
 
             int maximunValue = MaximunValue;
             if (maximunValue != 0x8000)
             {
-                properties.Add(KnownDmiProperty.TemperatureProbe.MaximunValue, maximunValue);
+                properties.Add(DmiProperty.TemperatureProbe.MaximunValue, maximunValue);
             }
 
             int minimunValue = MinimunValue;
             if (minimunValue != 0x8000)
             {
-                properties.Add(KnownDmiProperty.TemperatureProbe.MinimunValue, minimunValue);
+                properties.Add(DmiProperty.TemperatureProbe.MinimunValue, minimunValue);
             }
 
             int resolution = Resolution;
             if (resolution != 0x8000)
             {
-                properties.Add(KnownDmiProperty.TemperatureProbe.Resolution, resolution);
+                properties.Add(DmiProperty.TemperatureProbe.Resolution, resolution);
             }
 
             int tolerance = Tolerance;
             if (tolerance != 0x8000)
             {
-                properties.Add(KnownDmiProperty.TemperatureProbe.Tolerance, tolerance);
+                properties.Add(DmiProperty.TemperatureProbe.Tolerance, tolerance);
             }
 
             int accuracy = Accuracy;
             if (accuracy != 0x8000)
             {
-                properties.Add(KnownDmiProperty.TemperatureProbe.Accuracy, accuracy);
+                properties.Add(DmiProperty.TemperatureProbe.Accuracy, accuracy);
             }
 
-            properties.Add(KnownDmiProperty.TemperatureProbe.OemDefined, OemDefined);
+            properties.Add(DmiProperty.TemperatureProbe.OemDefined, OemDefined);
 
             if (HeaderInfo.Length >= 0x15)
             {
                 int nominalValue = NominalValue;
                 if (nominalValue != 0x8000)
                 {
-                    properties.Add(KnownDmiProperty.TemperatureProbe.NominalValue, nominalValue);
+                    properties.Add(DmiProperty.TemperatureProbe.NominalValue, nominalValue);
                 }
             }
             #endregion

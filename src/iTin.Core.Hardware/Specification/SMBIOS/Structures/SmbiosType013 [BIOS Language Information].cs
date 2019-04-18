@@ -175,17 +175,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region values
             if (HeaderInfo.Length >= 0x05)
             {
-                properties.Add(KnownDmiProperty.BiosLanguage.InstallableLanguages, GetValues(Count));
+                properties.Add(DmiProperty.BiosLanguage.InstallableLanguages, GetValues(Count));
             }
 
             if (HeaderInfo.Length >= 0x06)
             {
-                properties.Add(KnownDmiProperty.BiosLanguage.IsCurrentAbbreviated, IsCurrentAbbreviated);
+                properties.Add(DmiProperty.BiosLanguage.IsCurrentAbbreviated, IsCurrentAbbreviated);
             }
 
             if (HeaderInfo.Length >= 0x16)
             {
-                properties.Add(KnownDmiProperty.BiosLanguage.Current, Current);
+                properties.Add(DmiProperty.BiosLanguage.Current, Current);
             }
             #endregion
         }

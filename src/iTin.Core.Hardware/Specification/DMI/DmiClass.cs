@@ -1,6 +1,7 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Dmi
 {
+    using System.Collections.Generic;
     using System.Diagnostics;
 
     using Device.DeviceProperty;
@@ -34,14 +35,26 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public properties
 
-        #region [public] (SmbiosPropertiesTable) Properties: Gets a value that represents the available properties
+        #region [public] (DmiClassPropertiesTable) Properties: Gets a value that represents the available properties
         /// <summary>
         /// Gets a value that represents the available properties.
         /// </summary>
         /// <value>
         /// Available properties.
         /// </value>
-        public SmbiosPropertiesTable Properties => smbiosTable.Properties;
+        public DmiClassPropertiesTable Properties
+        {
+            get
+            {
+                var dmiProperties = new DmiClassPropertiesTable();
+                foreach (KeyValuePair<PropertyKey, object> property in smbiosTable.Properties)
+                {
+                    dmiProperties.Add(property);                    
+                }
+
+                return dmiProperties;
+            }
+        }
         #endregion
 
         #endregion

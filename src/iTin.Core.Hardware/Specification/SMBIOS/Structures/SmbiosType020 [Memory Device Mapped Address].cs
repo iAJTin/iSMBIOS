@@ -372,12 +372,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 if (HeaderInfo.Length >= 0x14)
                 {
                     ulong extendedStartingAddress = ExtendedStartingAddress;
-                    properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.StartingAddress, extendedStartingAddress);
+                    properties.Add(DmiProperty.MemoryDeviceMappedAddress.StartingAddress, extendedStartingAddress);
                 }
             }
             else
             {
-                properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.StartingAddress, StartingAddress);
+                properties.Add(DmiProperty.MemoryDeviceMappedAddress.StartingAddress, StartingAddress);
             }
 
             if (EndingAddress == 0xffffffff)
@@ -385,27 +385,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 if (HeaderInfo.Length >= 0x1c)
                 {
                     ulong extendedEndingAddress = ExtendedEndingAddress;
-                    properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.EndingAddress, extendedEndingAddress);
+                    properties.Add(DmiProperty.MemoryDeviceMappedAddress.EndingAddress, extendedEndingAddress);
                 }
             }
             else
             {
-                properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.EndingAddress, EndingAddress);
+                properties.Add(DmiProperty.MemoryDeviceMappedAddress.EndingAddress, EndingAddress);
             }
 
-            properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.MemoryDeviceHandle, MemoryDeviceHandle);
-            properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.MemoryArrayMappedAddressHandle, MappedAddressHandle);
+            properties.Add(DmiProperty.MemoryDeviceMappedAddress.MemoryDeviceHandle, MemoryDeviceHandle);
+            properties.Add(DmiProperty.MemoryDeviceMappedAddress.MemoryArrayMappedAddressHandle, MappedAddressHandle);
 
             if (PartitionRowPosition != 0xff)
             {
-                properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.PartitionRowPosition, PartitionRowPosition);
+                properties.Add(DmiProperty.MemoryDeviceMappedAddress.PartitionRowPosition, PartitionRowPosition);
             }
 
-            properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.InterleavePosition, InterleavePosition);
+            properties.Add(DmiProperty.MemoryDeviceMappedAddress.InterleavePosition, InterleavePosition);
 
             if (InterleavedDataDepth != 0xff)
             {
-                properties.Add(KnownDmiProperty.MemoryDeviceMappedAddress.InterleavedDataDepth, InterleavedDataDepth);
+                properties.Add(DmiProperty.MemoryDeviceMappedAddress.InterleavedDataDepth, InterleavedDataDepth);
             }
             #endregion
         }

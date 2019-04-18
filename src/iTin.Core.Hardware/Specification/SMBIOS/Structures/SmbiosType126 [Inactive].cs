@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region versions
-            properties.Add(KnownDmiProperty.Inactive.Description, "Inactive");
+            properties.Add(DmiProperty.Inactive.Description, "Inactive");
             #endregion
         }
         #endregion

@@ -268,22 +268,22 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.PhysicalMemoryArray.Location, GetLocation(Location));
-            properties.Add(KnownDmiProperty.PhysicalMemoryArray.Use, GetUse(Use));
-            properties.Add(KnownDmiProperty.PhysicalMemoryArray.MemoryErrorCorrection, GetErrorCorrectionTypes(ErrorCorrection));
-            properties.Add(KnownDmiProperty.PhysicalMemoryArray.MemoryErrorInformationHandle, GetErrorHandle(ErrorInformationHandle));
-            properties.Add(KnownDmiProperty.PhysicalMemoryArray.NumberOfMemoryDevices, NumberOfMemoryDevices);
+            properties.Add(DmiProperty.PhysicalMemoryArray.Location, GetLocation(Location));
+            properties.Add(DmiProperty.PhysicalMemoryArray.Use, GetUse(Use));
+            properties.Add(DmiProperty.PhysicalMemoryArray.MemoryErrorCorrection, GetErrorCorrectionTypes(ErrorCorrection));
+            properties.Add(DmiProperty.PhysicalMemoryArray.MemoryErrorInformationHandle, GetErrorHandle(ErrorInformationHandle));
+            properties.Add(DmiProperty.PhysicalMemoryArray.NumberOfMemoryDevices, NumberOfMemoryDevices);
 
             var maximumCapacity = MaximumCapacity;
             if (maximumCapacity != 0x08000000)
             {
-                properties.Add(KnownDmiProperty.PhysicalMemoryArray.MaximumCapacity, maximumCapacity);
+                properties.Add(DmiProperty.PhysicalMemoryArray.MaximumCapacity, maximumCapacity);
             }
             else
             {
                 if (HeaderInfo.Length == 0x17)
                 {
-                    properties.Add(KnownDmiProperty.PhysicalMemoryArray.MaximumCapacity, ExtendedMaximumCapacity);
+                    properties.Add(DmiProperty.PhysicalMemoryArray.MaximumCapacity, ExtendedMaximumCapacity);
                 }
             }
             #endregion

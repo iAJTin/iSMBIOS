@@ -186,11 +186,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.PortConnector.InternalReferenceDesignator, InternalReference);
-            properties.Add(KnownDmiProperty.PortConnector.InternalConnectorType, GetConnectorType(InternalConnectorType));
-            properties.Add(KnownDmiProperty.PortConnector.ExternalReferenceDesignator, ExternalReference);
-            properties.Add(KnownDmiProperty.PortConnector.ExternalConnectorType, GetConnectorType(ExternalConnectorType));
-            properties.Add(KnownDmiProperty.PortConnector.PortType, GetPortType(PortType));
+            properties.Add(DmiProperty.PortConnector.InternalReferenceDesignator, InternalReference);
+            properties.Add(DmiProperty.PortConnector.InternalConnectorType, GetConnectorType(InternalConnectorType));
+            properties.Add(DmiProperty.PortConnector.ExternalReferenceDesignator, ExternalReference);
+            properties.Add(DmiProperty.PortConnector.ExternalConnectorType, GetConnectorType(ExternalConnectorType));
+            properties.Add(DmiProperty.PortConnector.PortType, GetPortType(PortType));
             #endregion
         }
         #endregion

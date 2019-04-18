@@ -1005,34 +1005,34 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
 
             #region 2.1+
-            properties.Add(KnownDmiProperty.MemoryDevice.PhysicalMemoryArrayHandle, PhysicalArrayMemoryHandle);
+            properties.Add(DmiProperty.MemoryDevice.PhysicalMemoryArrayHandle, PhysicalArrayMemoryHandle);
 
             var memoryErrorInformationHandle = MemoryErrorInformationHandle;
             switch (memoryErrorInformationHandle)
             {
                 case 0xffff:
-                    properties.Add(KnownDmiProperty.MemoryDevice.MemoryErrorInformationHandle, -1);
+                    properties.Add(DmiProperty.MemoryDevice.MemoryErrorInformationHandle, -1);
                     break;
 
                 case 0xfffe:
-                    properties.Add(KnownDmiProperty.MemoryDevice.MemoryErrorInformationHandle, -2);
+                    properties.Add(DmiProperty.MemoryDevice.MemoryErrorInformationHandle, -2);
                     break;
 
                 default:
-                    properties.Add(KnownDmiProperty.MemoryDevice.MemoryErrorInformationHandle, memoryErrorInformationHandle);
+                    properties.Add(DmiProperty.MemoryDevice.MemoryErrorInformationHandle, memoryErrorInformationHandle);
                     break;
             }
 
             var totalWidth = TotalWidth;
             if (totalWidth != 0xffff)
             {
-                properties.Add(KnownDmiProperty.MemoryDevice.TotalWidth, totalWidth);
+                properties.Add(DmiProperty.MemoryDevice.TotalWidth, totalWidth);
             }
 
             var dataWidth = DataWidth;
             if (dataWidth != 0xffff)
             {
-                properties.Add(KnownDmiProperty.MemoryDevice.DataWidth, dataWidth);
+                properties.Add(DmiProperty.MemoryDevice.DataWidth, dataWidth);
             }
 
             var size = Size;
@@ -1046,30 +1046,30 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         size <<= 0x0a;
                     }
 
-                    properties.Add(KnownDmiProperty.MemoryDevice.Size, size);
+                    properties.Add(DmiProperty.MemoryDevice.Size, size);
                 }
                 else
                 {
                     if (HeaderInfo.Length >= 0x1d)
                     {
                         var extendedSize = ExtendedSize << 0x0a;
-                        properties.Add(KnownDmiProperty.MemoryDevice.Size, extendedSize);
+                        properties.Add(DmiProperty.MemoryDevice.Size, extendedSize);
                     }
                 }
             }
 
-            properties.Add(KnownDmiProperty.MemoryDevice.FormFactor, GetFormFactor(FormFactor));
+            properties.Add(DmiProperty.MemoryDevice.FormFactor, GetFormFactor(FormFactor));
 
             var belongsToSet = BelongsToSet;
             if (belongsToSet.Equals(MemoryDeviceBelongsToSet.Yes))
             {
-                properties.Add(KnownDmiProperty.MemoryDevice.DeviceSet, DeviceSet);
+                properties.Add(DmiProperty.MemoryDevice.DeviceSet, DeviceSet);
             }
 
-            properties.Add(KnownDmiProperty.MemoryDevice.DeviceLocator, DeviceLocator);
-            properties.Add(KnownDmiProperty.MemoryDevice.BankLabel, BankLocator);
-            properties.Add(KnownDmiProperty.MemoryDevice.MemoryType, GetDeviceType(MemoryType));
-            properties.Add(KnownDmiProperty.MemoryDevice.TypeDetail, GetDeviceTypeDetail(TypeDetail));
+            properties.Add(DmiProperty.MemoryDevice.DeviceLocator, DeviceLocator);
+            properties.Add(DmiProperty.MemoryDevice.BankLabel, BankLocator);
+            properties.Add(DmiProperty.MemoryDevice.MemoryType, GetDeviceType(MemoryType));
+            properties.Add(DmiProperty.MemoryDevice.TypeDetail, GetDeviceTypeDetail(TypeDetail));
             #endregion
 
             #region 2.3+
@@ -1078,28 +1078,28 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 var maximunSpeed = MaximunSpeed;
                 if (maximunSpeed != 0)
                 {
-                    properties.Add(KnownDmiProperty.MemoryDevice.MaximunSpeed, maximunSpeed);
+                    properties.Add(DmiProperty.MemoryDevice.MaximunSpeed, maximunSpeed);
                 }
             }
 
             if (HeaderInfo.Length >= 0x18)
             {
-                properties.Add(KnownDmiProperty.MemoryDevice.Manufacturer, Manufacturer);
+                properties.Add(DmiProperty.MemoryDevice.Manufacturer, Manufacturer);
             }
 
             if (HeaderInfo.Length >= 0x19)
             {
-                properties.Add(KnownDmiProperty.MemoryDevice.SerialNumber, SerialNumber);
+                properties.Add(DmiProperty.MemoryDevice.SerialNumber, SerialNumber);
             }
 
             if (HeaderInfo.Length >= 0x1a)
             {
-                properties.Add(KnownDmiProperty.MemoryDevice.AssetTag, AssetTag);
+                properties.Add(DmiProperty.MemoryDevice.AssetTag, AssetTag);
             }
 
             if (HeaderInfo.Length >= 0x1b)
             {
-                properties.Add(KnownDmiProperty.MemoryDevice.PartNumber, PartNumber);
+                properties.Add(DmiProperty.MemoryDevice.PartNumber, PartNumber);
             }
             #endregion
 
@@ -1109,7 +1109,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 var rank = Rank;
                 if (rank != 0)
                 {
-                    properties.Add(KnownDmiProperty.MemoryDevice.Rank, rank);
+                    properties.Add(DmiProperty.MemoryDevice.Rank, rank);
                 }
             }
             #endregion
@@ -1120,7 +1120,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 var currentSpeed = CurrentSpeed;
                 if (currentSpeed != 0)
                 {
-                    properties.Add(KnownDmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed, currentSpeed);
+                    properties.Add(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed, currentSpeed);
                 }
             }
             #endregion
@@ -1131,19 +1131,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 var minimunVoltage = MinimunVoltage;
                 if (minimunVoltage != 0)
                 {
-                    properties.Add(KnownDmiProperty.MemoryDevice.MinimunVoltage, minimunVoltage);
+                    properties.Add(DmiProperty.MemoryDevice.MinimunVoltage, minimunVoltage);
                 }
 
                 var maximumVoltage = MaximumVoltage;
                 if (maximumVoltage != 0)
                 {
-                    properties.Add(KnownDmiProperty.MemoryDevice.MaximumVoltage, maximumVoltage);
+                    properties.Add(DmiProperty.MemoryDevice.MaximumVoltage, maximumVoltage);
                 }
 
                 var configuredVoltage = ConfiguredVoltage;
                 if (configuredVoltage != 0)
                 {
-                    properties.Add(KnownDmiProperty.MemoryDevice.ConfiguredVoltage, configuredVoltage);
+                    properties.Add(DmiProperty.MemoryDevice.ConfiguredVoltage, configuredVoltage);
                 }
             }
             #endregion
@@ -1152,20 +1152,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
             if (HeaderInfo.Length >= 0x29)
             {
                 var memoryTechnology = GetMemoryTechnology(MemoryTechnology);
-                properties.Add(KnownDmiProperty.MemoryDevice.MemoryTechnology, memoryTechnology);
+                properties.Add(DmiProperty.MemoryDevice.MemoryTechnology, memoryTechnology);
 
                 var memoryOperatingModeCapability = GetMemoryOperatingModeCapability(MemoryOperatingModeCapability);
-                properties.Add(KnownDmiProperty.MemoryDevice.MemoryOperatingModeCapability, memoryOperatingModeCapability);
+                properties.Add(DmiProperty.MemoryDevice.MemoryOperatingModeCapability, memoryOperatingModeCapability);
 
-                properties.Add(KnownDmiProperty.MemoryDevice.FirmwareVersion, FirmwareVersion);
-                properties.Add(KnownDmiProperty.MemoryDevice.ModuleManufacturerId, ModuleManufacturerId);
-                properties.Add(KnownDmiProperty.MemoryDevice.ModuleProductId, ModuleProductId);
-                properties.Add(KnownDmiProperty.MemoryDevice.MemorySubsystemControllerManufacturerId, MemorySubsystemControllerManufacturerId);
-                properties.Add(KnownDmiProperty.MemoryDevice.MemorySubsystemControllerProductId, MemorySubsystemControllerProductId);
-                properties.Add(KnownDmiProperty.MemoryDevice.NonVolatileSize, NonVolatileSize);
-                properties.Add(KnownDmiProperty.MemoryDevice.VolatileSize, VolatileSize);
-                properties.Add(KnownDmiProperty.MemoryDevice.CacheSize, CacheSize);
-                properties.Add(KnownDmiProperty.MemoryDevice.LogicalSize, LogicalSize);
+                properties.Add(DmiProperty.MemoryDevice.FirmwareVersion, FirmwareVersion);
+                properties.Add(DmiProperty.MemoryDevice.ModuleManufacturerId, ModuleManufacturerId);
+                properties.Add(DmiProperty.MemoryDevice.ModuleProductId, ModuleProductId);
+                properties.Add(DmiProperty.MemoryDevice.MemorySubsystemControllerManufacturerId, MemorySubsystemControllerManufacturerId);
+                properties.Add(DmiProperty.MemoryDevice.MemorySubsystemControllerProductId, MemorySubsystemControllerProductId);
+                properties.Add(DmiProperty.MemoryDevice.NonVolatileSize, NonVolatileSize);
+                properties.Add(DmiProperty.MemoryDevice.VolatileSize, VolatileSize);
+                properties.Add(DmiProperty.MemoryDevice.CacheSize, CacheSize);
+                properties.Add(DmiProperty.MemoryDevice.LogicalSize, LogicalSize);
 
             }
             #endregion

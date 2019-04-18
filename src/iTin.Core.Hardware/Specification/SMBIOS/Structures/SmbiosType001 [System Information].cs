@@ -290,10 +290,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.0+
             if (HeaderInfo.Length >= 0x08)
             {
-                properties.Add(KnownDmiProperty.System.Manufacturer, Manufacturer);
-                properties.Add(KnownDmiProperty.System.ProductName, ProductName);
-                properties.Add(KnownDmiProperty.System.Version, Version);
-                properties.Add(KnownDmiProperty.System.SerialNumber, SerialNumber);
+                properties.Add(DmiProperty.System.Manufacturer, Manufacturer);
+                properties.Add(DmiProperty.System.ProductName, ProductName);
+                properties.Add(DmiProperty.System.Version, Version);
+                properties.Add(DmiProperty.System.SerialNumber, SerialNumber);
             }
             #endregion
 
@@ -302,16 +302,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 var uuid = new byte[16];
                 Array.Copy(HeaderInfo.RawData, 0x08, uuid, 0, 16);
-                properties.Add(KnownDmiProperty.System.WakeUpType, GetWakeUpType(WakeUpType));
-                properties.Add(KnownDmiProperty.System.UUID, GetUuid(uuid, SmbiosVersion));
+                properties.Add(DmiProperty.System.WakeUpType, GetWakeUpType(WakeUpType));
+                properties.Add(DmiProperty.System.UUID, GetUuid(uuid, SmbiosVersion));
             }
             #endregion
 
             #region 2.4+
             if (HeaderInfo.Length >= 0x1b)
             {
-                properties.Add(KnownDmiProperty.System.SkuNumber, Sku);
-                properties.Add(KnownDmiProperty.System.Family, Family);
+                properties.Add(DmiProperty.System.SkuNumber, Sku);
+                properties.Add(DmiProperty.System.Family, Family);
             }
             #endregion
 

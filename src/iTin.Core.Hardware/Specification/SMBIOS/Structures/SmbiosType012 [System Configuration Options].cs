@@ -108,7 +108,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             int count = Count;
             if (count != 0)
             {
-                properties.Add(KnownDmiProperty.SystemConfigurationOptions.Values, GetValues(count));
+                properties.Add(DmiProperty.SystemConfigurationOptions.Values, GetValues(count));
             }
             #endregion
         }

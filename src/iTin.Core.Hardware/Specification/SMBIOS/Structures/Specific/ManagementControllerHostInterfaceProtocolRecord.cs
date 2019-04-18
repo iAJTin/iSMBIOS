@@ -147,8 +147,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.ManagementControllerHostInterface.Protocol.ProtocolType, ProtocolType);
-            properties.Add(KnownDmiProperty.ManagementControllerHostInterface.Protocol.ProtocolTypeSpecificData, ProtocolTypeSpecificData);
+            properties.Add(DmiProperty.ManagementControllerHostInterface.Protocol.ProtocolType, ProtocolType);
+            properties.Add(DmiProperty.ManagementControllerHostInterface.Protocol.ProtocolTypeSpecificData, ProtocolTypeSpecificData);
             #endregion
         }
         #endregion

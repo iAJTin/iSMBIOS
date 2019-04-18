@@ -124,7 +124,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 Array.Copy(HeaderInfo.RawData, 0x05, containedElementsArray, 0, n * 6);
 
                 IEnumerable<AdditionalInformationEntry> containedElements = GetContainedElements(containedElementsArray, n);
-                properties.Add(KnownDmiProperty.AdditionalInformation.Entries, new AdditionalInformationEntryCollection(containedElements));
+                properties.Add(DmiProperty.AdditionalInformation.Entries, new AdditionalInformationEntryCollection(containedElements));
             }
             #endregion
         }

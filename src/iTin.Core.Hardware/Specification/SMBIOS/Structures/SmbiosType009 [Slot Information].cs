@@ -360,28 +360,28 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.0+
             if (HeaderInfo.Length >= 0x0c)
             {
-                properties.Add(KnownDmiProperty.SystemSlots.SlotDesignation, SlotDesignation);
-                properties.Add(KnownDmiProperty.SystemSlots.SlotType, GetSlotType(SlotType));
-                properties.Add(KnownDmiProperty.SystemSlots.SlotDataBusWidth, GetDataBusWidth(DataWidth));
-                properties.Add(KnownDmiProperty.SystemSlots.CurrentUsage, GetCurrentUsage(CurrentUsage));
-                properties.Add(KnownDmiProperty.SystemSlots.SlotLength, GetLength(Length));
-                properties.Add(KnownDmiProperty.SystemSlots.SlotId, GetId(SlotType, Adapter, Socket));
-                properties.Add(KnownDmiProperty.SystemSlots.Characteristics, GetCharacteristics(Characteristics1, 0xff));
+                properties.Add(DmiProperty.SystemSlots.SlotDesignation, SlotDesignation);
+                properties.Add(DmiProperty.SystemSlots.SlotType, GetSlotType(SlotType));
+                properties.Add(DmiProperty.SystemSlots.SlotDataBusWidth, GetDataBusWidth(DataWidth));
+                properties.Add(DmiProperty.SystemSlots.CurrentUsage, GetCurrentUsage(CurrentUsage));
+                properties.Add(DmiProperty.SystemSlots.SlotLength, GetLength(Length));
+                properties.Add(DmiProperty.SystemSlots.SlotId, GetId(SlotType, Adapter, Socket));
+                properties.Add(DmiProperty.SystemSlots.Characteristics, GetCharacteristics(Characteristics1, 0xff));
             }
             #endregion
 
             #region 2.1+
             if (HeaderInfo.Length >= 0x0d)
             {
-                properties[KnownDmiProperty.SystemSlots.Characteristics] = GetCharacteristics(Characteristics1, Characteristics2);
+                properties[DmiProperty.SystemSlots.Characteristics] = GetCharacteristics(Characteristics1, Characteristics2);
             }
             #endregion
 
             #region 2.6+
             if (HeaderInfo.Length >= 0x11)
             {
-                properties.Add(KnownDmiProperty.SystemSlots.SegmentBusFunction, GetSegmentBusFunction(SegmentBusFunction));
-                properties.Add(KnownDmiProperty.SystemSlots.BusDeviceFunction, GetBusDeviceFunction(Bus, Device, Function));
+                properties.Add(DmiProperty.SystemSlots.SegmentBusFunction, GetSegmentBusFunction(SegmentBusFunction));
+                properties.Add(DmiProperty.SystemSlots.BusDeviceFunction, GetBusDeviceFunction(Bus, Device, Function));
             }
             #endregion
 

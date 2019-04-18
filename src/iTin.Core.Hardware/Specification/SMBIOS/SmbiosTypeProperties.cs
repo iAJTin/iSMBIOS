@@ -12,11 +12,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType000Property
     {
         #region version 2.0+
-        [DevicePropertyDescription("Bios Vendor")]
+        [DevicePropertyDescription("BIOS Vendor")]
         [DevicePropertyType(typeof(string))]
         Vendor,
 
-        [DevicePropertyDescription("Bios Version")]
+        [DevicePropertyDescription("BIOS Version")]
         [DevicePropertyType(typeof(string))]
         BiosVersion,
 

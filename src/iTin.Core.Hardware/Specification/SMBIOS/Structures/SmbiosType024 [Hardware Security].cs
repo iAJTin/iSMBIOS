@@ -190,10 +190,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.HardwareSecurity.HardwareSecuritySettings.FrontPanelResetStatus, GetSettings(FrontPanelResetStatus));
-            properties.Add(KnownDmiProperty.HardwareSecurity.HardwareSecuritySettings.AdministratorPasswordStatus, GetSettings(AdministratorPasswordStatus));
-            properties.Add(KnownDmiProperty.HardwareSecurity.HardwareSecuritySettings.KeyboardPasswordStatus, GetSettings(KeyboardPasswordStatus));
-            properties.Add(KnownDmiProperty.HardwareSecurity.HardwareSecuritySettings.PowerOnPasswordStatus, GetSettings(PowerOnPasswordStatus));
+            properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.FrontPanelResetStatus, GetSettings(FrontPanelResetStatus));
+            properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.AdministratorPasswordStatus, GetSettings(AdministratorPasswordStatus));
+            properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.KeyboardPasswordStatus, GetSettings(KeyboardPasswordStatus));
+            properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.PowerOnPasswordStatus, GetSettings(PowerOnPasswordStatus));
             #endregion
         }
         #endregion

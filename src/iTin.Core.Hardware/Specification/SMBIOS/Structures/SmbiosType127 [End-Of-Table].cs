@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region versions
-            properties.Add(KnownDmiProperty.EndOfTable.Status, "End Of Table Structures");
+            properties.Add(DmiProperty.EndOfTable.Status, "End Of Table Structures");
             #endregion
         }
         #endregion

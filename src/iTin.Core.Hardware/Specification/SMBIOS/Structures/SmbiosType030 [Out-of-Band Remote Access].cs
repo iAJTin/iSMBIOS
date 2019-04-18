@@ -172,9 +172,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.OutOfBandRemote.Manufacturer, ManufacturerName);
-            properties.Add(KnownDmiProperty.OutOfBandRemote.Connections.OutBoundConnection, OutBoundConnection);
-            properties.Add(KnownDmiProperty.OutOfBandRemote.Connections.InBoundConnection, InBoundConnection);
+            properties.Add(DmiProperty.OutOfBandRemote.Manufacturer, ManufacturerName);
+            properties.Add(DmiProperty.OutOfBandRemote.Connections.OutBoundConnection, OutBoundConnection);
+            properties.Add(DmiProperty.OutOfBandRemote.Connections.InBoundConnection, InBoundConnection);
             #endregion
         }
         #endregion

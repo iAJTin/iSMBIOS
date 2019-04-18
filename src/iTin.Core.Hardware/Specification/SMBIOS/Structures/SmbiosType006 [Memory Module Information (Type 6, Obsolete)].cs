@@ -247,19 +247,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.MemoryModule.SocketDesignation, SocketDesignation);
-            properties.Add(KnownDmiProperty.MemoryModule.BankConnections, GetBankConnections(BankConnections));
+            properties.Add(DmiProperty.MemoryModule.SocketDesignation, SocketDesignation);
+            properties.Add(DmiProperty.MemoryModule.BankConnections, GetBankConnections(BankConnections));
 
             byte currentSpeed = CurrentSpeed;
             if (currentSpeed != 0x00)
             {
-                properties.Add(KnownDmiProperty.MemoryModule.CurrentSpeed, GetMemorySpeeds(currentSpeed));
+                properties.Add(DmiProperty.MemoryModule.CurrentSpeed, GetMemorySpeeds(currentSpeed));
             }
 
-            properties.Add(KnownDmiProperty.MemoryModule.CurrentMemoryType, GetCurrentMemoryTypes(CurrentMemoryType));
-            properties.Add(KnownDmiProperty.MemoryModule.InstalledSize, GetSize(InstalledSize));
-            properties.Add(KnownDmiProperty.MemoryModule.EnabledSize, GetSize(EnabledSize));
-            properties.Add(KnownDmiProperty.MemoryModule.ErrorStatus, GetErrorStatus(ErrorStatus));
+            properties.Add(DmiProperty.MemoryModule.CurrentMemoryType, GetCurrentMemoryTypes(CurrentMemoryType));
+            properties.Add(DmiProperty.MemoryModule.InstalledSize, GetSize(InstalledSize));
+            properties.Add(DmiProperty.MemoryModule.EnabledSize, GetSize(EnabledSize));
+            properties.Add(DmiProperty.MemoryModule.ErrorStatus, GetErrorStatus(ErrorStatus));
             #endregion
         }
         #endregion

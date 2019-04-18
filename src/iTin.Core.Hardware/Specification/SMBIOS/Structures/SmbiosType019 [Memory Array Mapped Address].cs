@@ -272,12 +272,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 if (HeaderInfo.Length >= 0x10)
                 {
                     ulong extendedStartingAddress = ExtendedStartingAddress;
-                    properties.Add(KnownDmiProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, extendedStartingAddress);
+                    properties.Add(DmiProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, extendedStartingAddress);
                 }
             }
             else
             {
-                properties.Add(KnownDmiProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, StartingAddress);
+                properties.Add(DmiProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, StartingAddress);
             }
 
             if (EndingAddress == 0xffffffff)
@@ -285,16 +285,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 if (HeaderInfo.Length >= 0x18)
                 {
                     ulong extendedEndingAddress = ExtendedEndingAddress;
-                    properties.Add(KnownDmiProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, extendedEndingAddress);
+                    properties.Add(DmiProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, extendedEndingAddress);
                 }
             }
             else
             {
-                properties.Add(KnownDmiProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, EndingAddress);
+                properties.Add(DmiProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, EndingAddress);
             }
 
-            properties.Add(KnownDmiProperty.MemoryArrayMappedAddress.MemoryArrayHandle, MemoryArrayHandle);
-            properties.Add(KnownDmiProperty.MemoryArrayMappedAddress.PartitionWidth, PartitionWidth);
+            properties.Add(DmiProperty.MemoryArrayMappedAddress.MemoryArrayHandle, MemoryArrayHandle);
+            properties.Add(DmiProperty.MemoryArrayMappedAddress.PartitionWidth, PartitionWidth);
             #endregion
         }
         #endregion

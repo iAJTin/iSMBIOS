@@ -542,24 +542,24 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.0+
             if (HeaderInfo.Length >= 0x0f)
             {
-                properties.Add(KnownDmiProperty.Cache.SocketDesignation, SocketDesignation);
-                properties.Add(KnownDmiProperty.Cache.CacheConfiguration.OperationalMode, GetOperationalMode(OperationalMode));
-                properties.Add(KnownDmiProperty.Cache.CacheConfiguration.CacheEnabled, Enabled);
-                properties.Add(KnownDmiProperty.Cache.CacheConfiguration.Location, GetLocation(Location));
-                properties.Add(KnownDmiProperty.Cache.CacheConfiguration.CacheSocketed, CacheSocketed);
-                properties.Add(KnownDmiProperty.Cache.CacheConfiguration.Level, CacheLevel);
-                properties.Add(KnownDmiProperty.Cache.MaximumCacheSize, GetSize(MaximumCacheSize));
+                properties.Add(DmiProperty.Cache.SocketDesignation, SocketDesignation);
+                properties.Add(DmiProperty.Cache.CacheConfiguration.OperationalMode, GetOperationalMode(OperationalMode));
+                properties.Add(DmiProperty.Cache.CacheConfiguration.CacheEnabled, Enabled);
+                properties.Add(DmiProperty.Cache.CacheConfiguration.Location, GetLocation(Location));
+                properties.Add(DmiProperty.Cache.CacheConfiguration.CacheSocketed, CacheSocketed);
+                properties.Add(DmiProperty.Cache.CacheConfiguration.Level, CacheLevel);
+                properties.Add(DmiProperty.Cache.MaximumCacheSize, GetSize(MaximumCacheSize));
 
                 if (InstalledSize != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.Cache.InstalledCacheSize, (int?)GetSize(InstalledSize));
+                    properties.Add(DmiProperty.Cache.InstalledCacheSize, (int?)GetSize(InstalledSize));
                 }
 
-                properties.Add(KnownDmiProperty.Cache.SupportedSramTypes, GetTypes(SupportedSramType));
+                properties.Add(DmiProperty.Cache.SupportedSramTypes, GetTypes(SupportedSramType));
 
                 ReadOnlyCollection<string> types = GetTypes(CurrentSramType);
                 string currentType = types[0];
-                properties.Add(KnownDmiProperty.Cache.CurrentSramType, currentType);
+                properties.Add(DmiProperty.Cache.CurrentSramType, currentType);
             }
             #endregion
 
@@ -568,23 +568,23 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 if (CacheSpeed != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.Cache.CacheSpeed, CacheSpeed);
+                    properties.Add(DmiProperty.Cache.CacheSpeed, CacheSpeed);
                 }
 
-                properties.Add(KnownDmiProperty.Cache.ErrorCorrectionType, GetErrorCorrection(ErrorCorrectionType));
-                properties.Add(KnownDmiProperty.Cache.SystemCacheType, GetSystemCacheType(SystemCacheType));
-                properties.Add(KnownDmiProperty.Cache.Associativity, GetAssociativity(Associativity));
+                properties.Add(DmiProperty.Cache.ErrorCorrectionType, GetErrorCorrection(ErrorCorrectionType));
+                properties.Add(DmiProperty.Cache.SystemCacheType, GetSystemCacheType(SystemCacheType));
+                properties.Add(DmiProperty.Cache.Associativity, GetAssociativity(Associativity));
             }
             #endregion
 
             #region 3.1.0+
             if (HeaderInfo.Length >= 0x14)
             {
-                properties.Add(KnownDmiProperty.Cache.MaximumCacheSize2, GetSize(MaximumCacheSize2));
+                properties.Add(DmiProperty.Cache.MaximumCacheSize2, GetSize(MaximumCacheSize2));
 
                 if (InstalledCacheSize2 != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.Cache.InstalledCacheSize2, (int?)GetSize(InstalledCacheSize2));
+                    properties.Add(DmiProperty.Cache.InstalledCacheSize2, (int?)GetSize(InstalledCacheSize2));
                 }
             }
             #endregion

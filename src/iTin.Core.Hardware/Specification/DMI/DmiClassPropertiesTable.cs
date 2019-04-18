@@ -1,5 +1,5 @@
 ﻿
-namespace iTin.Core.Hardware
+namespace iTin.Core.Hardware.Specification.Dmi
 {
     using System;
     using System.Collections;
@@ -9,9 +9,9 @@ namespace iTin.Core.Hardware
 
     /// <inheritdoc />
     /// <summary>
-    /// Defines a value that contains the detailed information of a writer.
+    /// Representa una colección de propiedades <c>DMI</c>, contiene pares clave (PropertyKey)-valor.
     /// </summary>
-    public class SmbiosPropertiesTable : IDictionary<PropertyKey, object>
+    public class DmiClassPropertiesTable : IDictionary<PropertyKey, object>
     {
         #region private readonly members
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -23,9 +23,9 @@ namespace iTin.Core.Hardware
         #region [public] SmbiosPropertiesTable(): Initialize a new instance of the class
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosPropertiesTable" /> class.
+        /// Initializes a new instance of the <see cref="DmiClassPropertiesTable" /> class.
         /// </summary>
-        public SmbiosPropertiesTable() => _table = new Dictionary<PropertyKey, object>();
+        public DmiClassPropertiesTable() => _table = new Dictionary<PropertyKey, object>();
         #endregion
 
         #endregion

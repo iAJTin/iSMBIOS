@@ -8,7 +8,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
     /// <summary>
     /// Defines available keys for the available devices of a system.
     /// </summary>
-    public static partial class KnownDmiProperty
+    public static partial class DmiProperty
     {
         #region [public] {static} (class) Bios: Contains the key definitions available for a type 000 [Bios Information] structure
         /// <summary>
@@ -21,11 +21,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Vendor: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.Vendor" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey Vendor => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.Vendor);
@@ -34,11 +34,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BiosVersion: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosVersion" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey BiosVersion => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.BiosVersion);
@@ -47,11 +47,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BiosStartingAddressSegment: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosStartingAddressSegment" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey BiosStartingAddressSegment => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.BiosStartingAddressSegment);
@@ -60,11 +60,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BiosReleaseDate: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosReleaseDate" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey BiosReleaseDate => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.BiosReleaseDate);
@@ -73,11 +73,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BiosRomSize: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosRomSize" /></para>
             /// <para>Unit: <see cref="PropertyUnit.Bytes" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.Int32" /></para>
             /// </summary>
             public static PropertyKey BiosRomSize => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.BiosRomSize, PropertyUnit.Bytes);
@@ -86,11 +86,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Characteristics: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.Characteristics" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
             /// </summary>
             public static PropertyKey Characteristics => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.Characteristics);
@@ -103,11 +103,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ExtensionByte1: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.ExtensionByte1" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
             /// </summary>
             public static PropertyKey ExtensionByte1 => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.ExtensionByte1);
@@ -116,11 +116,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ExtensionByte2: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.ExtensionByte2" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
             /// </summary>
             public static PropertyKey ExtensionByte2 => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.ExtensionByte2);
@@ -129,11 +129,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SystemBiosMajorRelease: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.SystemBiosMajorRelease" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.Byte" />?</para>
             /// </summary>
             public static PropertyKey SystemBiosMajorRelease => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.SystemBiosMajorRelease);
@@ -142,11 +142,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SystemBiosMinorRelease: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.SystemBiosMinorRelease" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.Byte" />?</para>
             /// </summary>
             public static PropertyKey SystemBiosMinorRelease => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.SystemBiosMinorRelease);
@@ -155,11 +155,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) FirmwareMajorRelease: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.FirmwareMajorRelease" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.Byte" />?</para>
             /// </summary>
             public static PropertyKey FirmwareMajorRelease => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.FirmwareMajorRelease);
@@ -168,11 +168,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) FirmwareMinorRelease: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.FirmwareMinorRelease" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.Byte" />?</para>
             /// </summary>
             public static PropertyKey FirmwareMinorRelease => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.FirmwareMinorRelease);
@@ -185,11 +185,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ExtendedBiosRomSize: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.ExtendedBiosRomSize" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.Int32" /></para>
             /// </summary>
             public static PropertyKey ExtendedBiosRomSize => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.ExtendedBiosRomSize);
@@ -198,11 +198,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ExtendedBiosRomSizeUnit: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.ExtendedBiosRomSizeUnit" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="MemorySizeUnit" /></para>
             /// </summary>
             public static PropertyKey ExtendedBiosRomSizeUnit => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.ExtendedBiosRomSizeUnit);
@@ -230,38 +230,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001Property.Manufacturer" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection&lt;String&gt;" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey Manufacturer => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.Manufacturer);
             #endregion
 
@@ -275,38 +243,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001Property.ProductName" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey ProductName => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.ProductName);
             #endregion
 
@@ -320,38 +256,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001Property.SystemVersion" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey Version => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.Version);
             #endregion
 
@@ -365,38 +269,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001Property.SerialNumber" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey SerialNumber => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.SerialNumber);
             #endregion
 
@@ -414,39 +286,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001Property.UUID" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
-            [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "UUID")]
             public static PropertyKey UUID => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.UUID);
             #endregion
 
@@ -460,38 +299,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001Property.WakeUpType" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey WakeUpType => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.WakeUpType);
             #endregion
 
@@ -509,38 +316,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001Property.SkuNumber" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey SkuNumber => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.SkuNumber);
             #endregion
 
@@ -554,38 +329,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.System" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType001Property.Family" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey Family => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.Family);
             #endregion
 
@@ -609,38 +352,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.Manufacturer" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey Manufacturer => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.Manufacturer);
             #endregion
 
@@ -654,38 +365,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.Product" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey Product => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.Product);
             #endregion
 
@@ -699,38 +378,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.Version" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey Version => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.Version);
             #endregion
 
@@ -744,38 +391,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.SerialNumber" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey SerialNumber => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.SerialNumber);
             #endregion
 
@@ -789,38 +404,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.AssetTag" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey AssetTag => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.AssetTag);
             #endregion
 
@@ -834,38 +417,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.LocationInChassis" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey LocationInChassis => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.LocationInChassis);
             #endregion
 
@@ -879,38 +430,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.Int32" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.ChassisHandle" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.Int32" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey ChassisHandle => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.ChassisHandle);
             #endregion
 
@@ -924,38 +443,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.BoardType" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey BoardType => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.BoardType);
             #endregion
 
@@ -969,38 +456,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.Byte" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.NumberOfContainedObjectHandles" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.Byte" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey NumberOfContainedObjectHandles => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.NumberOfContainedObjectHandles);
             #endregion
 
@@ -1014,38 +469,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="BaseBoardContainedElementCollection" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002Property.ContainedElements" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.BaseBoardContainedElementCollection" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey ContainedElements => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.ContainedObjectHandles);
             #endregion
 
@@ -1070,38 +493,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:System.Boolean" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType007Property.IsHostingBoard" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.Boolean" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey IsHostingBoard => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.IsHostingBoard);
                 #endregion
 
@@ -1117,38 +508,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:System.Boolean" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType007Property.IsHotSwappable" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.Boolean" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey IsHotSwappable => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.HotSwappable);
                 #endregion
 
@@ -1164,38 +523,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:System.Boolean" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType007Property.IsRemovable" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.Boolean" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey IsRemovable => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.IsRemovable);
                 #endregion
 
@@ -1211,38 +538,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:System.Boolean" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType007Property.IsReplaceable" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.Boolean" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey IsReplaceable => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.IsReplaceable);
                 #endregion
 
@@ -1258,38 +553,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:System.Boolean" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.BaseBoard" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType007Property.RequiredDaughterBoard" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.Boolean" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey RequiredDaughterBoard => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.RequiredDaughterBoard);
                 #endregion
             }
@@ -1573,38 +836,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:System.String" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.Chassis" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType003Property.ItemType" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.String" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey ItemType => new PropertyKey(SmbiosStructure.SystemEnclosure, SmbiosType003Property.ContainedType);
                 #endregion
 
@@ -1620,38 +851,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:System.Byte" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.Chassis" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType003Property.Min" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.Byte" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey Min => new PropertyKey(SmbiosStructure.SystemEnclosure, SmbiosType003Property.ContainedElementMinimum);
                 #endregion
 
@@ -1667,38 +866,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:System.Byte" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.Chassis" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType003Property.Max" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.Byte" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey Max => new PropertyKey(SmbiosStructure.SystemEnclosure, SmbiosType003Property.ContainedElementMaximun);
                 #endregion
 
@@ -1714,38 +881,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="ChassisContainedElementType" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.Chassis" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType003Property.TypeSelect" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.ChassisContainedElementType" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey TypeSelect => new PropertyKey(SmbiosStructure.SystemEnclosure, SmbiosType003Property.ContainedTypeSelect);
                 #endregion
             }
@@ -14721,38 +13856,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Return Value ———————————————— </para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-            /// <remarks><para>Key definition:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Structure</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.OnBoardDevicesExtended" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Property</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType041Property.ReferenceDesignation" />
-            ///     </description>
-            ///   </item>
-            ///   <item>
-            ///     <term>Unit</term>
-            ///     <description>
-            ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// <para>Returns:</para>
-            /// <list type="table">
-            ///   <item>
-            ///     <term>Type</term>
-            ///     <description>
-            ///       <see cref="T:System.String" />
-            ///     </description>
-            ///   </item>
-            /// </list>
-            /// </remarks>
             public static PropertyKey ReferenceDesignation => new PropertyKey(SmbiosStructure.OnBoardDevicesExtended, SmbiosType041Property.ReferenceDesignation);
             #endregion
 
@@ -14768,44 +13871,13 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (PropertyKey) DeviceType: Gets a value representing the key to retrieve the property
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
+                /// <para>— Key Composition —————————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.OnBoardDevicesExtended" /></para>
                 /// <para>Property: <see cref="SmbiosType041Property.DeviceType" /></para>
                 /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
+                /// <para>— Value ——————————————————————</para>
                 /// <para>Type: <see cref="T:System.String" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.OnBoardDevicesExtended" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType041Property.DeviceType" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.String" />
-                ///     </description>
-                ///   </item>
-                /// </list>
                 /// </remarks>
                 public static PropertyKey DeviceType => new PropertyKey(SmbiosStructure.OnBoardDevicesExtended, SmbiosType041Property.DeviceType);
                 #endregion
@@ -14813,45 +13885,13 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (PropertyKey) DeviceStatus: Gets a value representing the key to retrieve the property
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
+                /// <para>— Key Composition —————————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.OnBoardDevicesExtended" /></para>
                 /// <para>Property: <see cref="SmbiosType041Property.DeviceStatus" /></para>
                 /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
+                /// <para>— Value ——————————————————————</para>
                 /// <para>Type: <see cref="T:System.String" /></para>
                 /// </summary>
-                /// <value>A <see cref="T:iTin.Core.Hardware.ProperyKey" /> structure containing the property recovery key</value>
-                /// <remarks><para>Key definition:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Structure</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.OnBoardDevicesExtended" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Property</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType041Property.DeviceStatus" />
-                ///     </description>
-                ///   </item>
-                ///   <item>
-                ///     <term>Unit</term>
-                ///     <description>
-                ///       <see cref="T:iTin.Core.Hardware.PropertyUnit.None" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// <para>Returns:</para>
-                /// <list type="table">
-                ///   <item>
-                ///     <term>Type</term>
-                ///     <description>
-                ///       <see cref="T:System.String" />
-                ///     </description>
-                ///   </item>
-                /// </list>
-                /// </remarks>
                 public static PropertyKey DeviceStatus => new PropertyKey(SmbiosStructure.OnBoardDevicesExtended, SmbiosType041Property.DeviceStatus);
                 #endregion
             }
@@ -14869,26 +13909,26 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         {
             #region [public] {static} (PropertyKey) InterfaceType: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.ManagementControllerHostInterface" /></para>
-            ///   <para>Property: <see cref="SmbiosType042Property.InterfaceType" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.ManagementControllerHostInterface" /></para>
+            /// <para>Property: <see cref="SmbiosType042Property.InterfaceType" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey InterfaceType => new PropertyKey(SmbiosStructure.ManagementControllerHostInterface, SmbiosType042Property.InterfaceType);
             #endregion
 
             #region [public] {static} (PropertyKey) InterfaceTypeSpecificData: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.ManagementControllerHostInterface" /></para>
-            ///   <para>Property: <see cref="SmbiosType042Property.InterfaceTypeSpecificData" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:ReadOnlyCollection{Byte}" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.ManagementControllerHostInterface" /></para>
+            /// <para>Property: <see cref="SmbiosType042Property.InterfaceTypeSpecificData" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:ReadOnlyCollection{Byte}" /></para>
             /// </summary>
             public static PropertyKey InterfaceTypeSpecificData => new PropertyKey(SmbiosStructure.ManagementControllerHostInterface, SmbiosType042Property.InterfaceTypeSpecificData);
             #endregion
@@ -14896,11 +13936,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Protocols: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Composición ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.ManagementControllerHostInterface" /></para>
             /// <para>Property: <see cref="SmbiosType042Property.Protocols" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Valor —————————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="ManagementControllerHostInterfaceProtocolRecordsCollection" /></para>
             /// </summary>
             public static PropertyKey Protocols => new PropertyKey(SmbiosStructure.ManagementControllerHostInterface, SmbiosType042Property.Protocols);
@@ -14920,11 +13960,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>
                 /// Gets a value representing the key to retrieve the property.
                 /// </para>
-                /// <para>— Key Composition ——————————————</para>
+                /// <para>— Key Composition —————————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.ManagementControllerHostInterface" /></para>
                 /// <para>Property: <see cref="SmbiosType042Property.ProtocolType" /></para>
                 /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
+                /// <para>— Value ——————————————————————</para>
                 /// <para>Type: <see cref="T:System.String" /></para>
                 /// </summary>
                 public static PropertyKey ProtocolType => new PropertyKey(SmbiosStructure.ManagementControllerHostInterface, SmbiosType042Property.ProtocolType);
@@ -14933,11 +13973,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (PropertyKey) ProtocolTypeSpecificData: Gets a value representing the key to retrieve the property
                 /// <summary>
                 ///   <para>Gets a value representing the key to retrieve the property.</para>
-                ///   <para>— Key Composition ——————————————</para>
+                /// <para>— Key Composition —————————————————</para>
                 ///   <para>Structure: <see cref="SmbiosStructure.ManagementControllerHostInterface" /></para>
                 ///   <para>Property: <see cref="SmbiosType042Property.ProtocolTypeSpecificData" /></para>
                 ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-                ///   <para>— Return Value ———————————————— </para>
+                /// <para>— Value ——————————————————————</para>
                 ///   <para>Type: <see cref="T:ReadOnlyCollection{Byte}" /></para>
                 /// </summary>
                 public static PropertyKey ProtocolTypeSpecificData => new PropertyKey(SmbiosStructure.ManagementControllerHostInterface, SmbiosType042Property.ProtocolTypeSpecificData);
@@ -14958,104 +13998,104 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         {
             #region [public] {static} (PropertyKey) VendorId: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.VendorId" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType043Property.VendorId" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey VendorId => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.VendorId);
             #endregion
 
             #region [public] {static} (PropertyKey) VendorIdDescription: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.VendorIdDescription" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType043Property.VendorIdDescription" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey VendorIdDescription => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.VendorIdDescription);
             #endregion
 
             #region [public] {static} (PropertyKey) MajorSpecVersion: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.MajorSpecVersion" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.Byte" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType043Property.MajorSpecVersion" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Byte" /></para>
             /// </summary>
             public static PropertyKey MajorSpecVersion => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.MajorSpecVersion);
             #endregion
 
             #region [public] {static} (PropertyKey) MinorSpecVersion: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.MinorSpecVersion" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.Byte" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType043Property.MinorSpecVersion" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Byte" /></para>
             /// </summary>
             public static PropertyKey MinorSpecVersion => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.MinorSpecVersion);
             #endregion
 
             #region [public] {static} (PropertyKey) FirmwareVersion: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.FirmwareVersion" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:iTin.Core.Hardware.Specification.Smbios.TpmFirmwareVersion" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType043Property.FirmwareVersion" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:iTin.Core.Hardware.Specification.Smbios.TpmFirmwareVersion" /></para>
             /// </summary>
             public static PropertyKey FirmwareVersion => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.FirmwareVersion);
             #endregion
 
             #region [public] {static} (PropertyKey) Description: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.Description" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType043Property.Description" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey Description => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.Description);
             #endregion
 
             #region [public] {static} (PropertyKey) Characteristics: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.Characteristics" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.Collections.ObjectModel.ReadOnlyColletion{String}" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType043Property.Characteristics" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Collections.ObjectModel.ReadOnlyColletion{String}" /></para>
             /// </summary>
             public static PropertyKey Characteristics => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.Characteristics);
             #endregion
 
             #region [public] {static} (PropertyKey) OemDefined: Gets a value representing the key to retrieve the property
             /// <summary>
-            ///   <para>Gets a value representing the key to retrieve the property.</para>
-            ///   <para>— Key Composition ——————————————</para>
-            ///   <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
-            ///   <para>Property: <see cref="SmbiosType043Property.OemDefined" /></para>
-            ///   <para>Unit: <see cref="PropertyUnit.None" /></para>
-            ///   <para>— Return Value ———————————————— </para>
-            ///   <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.TpmDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType043Property.OemDefined" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey OemDefined => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.OemDefined);
             #endregion
@@ -15071,11 +14111,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Description: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Inactive" /></para>
             /// <para>Property: <see cref="SmbiosType126Property.Description" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey Description => new PropertyKey(SmbiosStructure.Inactive, SmbiosType126Property.Description);
@@ -15091,14 +14131,12 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         {
             #region [public] {static} (PropertyKey) Status: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>
-            /// Gets a value representing the key to retrieve the property.
-            /// </para>
-            /// <para>— Key Composition ——————————————</para>
+            /// <para> Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.EndOfTable" /></para>
             /// <para>Property: <see cref="SmbiosType127Property.Status" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
+            /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey Status => new PropertyKey(SmbiosStructure.EndOfTable, SmbiosType127Property.Status);

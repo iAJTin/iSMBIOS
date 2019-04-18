@@ -171,18 +171,18 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region versions
 
             #region 2.0+ - 3.1.1
-            properties.Add(KnownDmiProperty.ManagementControllerHostInterface.InterfaceType, GetInterfaceType(InterfaceType));
+            properties.Add(DmiProperty.ManagementControllerHostInterface.InterfaceType, GetInterfaceType(InterfaceType));
             #endregion
 
             #region 3.2+
             if (HeaderInfo.Length >= 0x07)
             {
-                properties.Add(KnownDmiProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData, InterfaceTypeSpecificData);
+                properties.Add(DmiProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData, InterfaceTypeSpecificData);
             }
 
             if (HeaderInfo.Length >= 0x08 + InterfaceTypeSpecificDataLenght)
             {
-                properties.Add(KnownDmiProperty.ManagementControllerHostInterface.Protocols, new ManagementControllerHostInterfaceProtocolRecordsCollection(GetProtocolRecords()));
+                properties.Add(DmiProperty.ManagementControllerHostInterface.Protocols, new ManagementControllerHostInterfaceProtocolRecordsCollection(GetProtocolRecords()));
             }
             #endregion
 

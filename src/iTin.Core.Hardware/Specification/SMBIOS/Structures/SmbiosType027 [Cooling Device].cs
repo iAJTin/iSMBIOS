@@ -308,40 +308,40 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 if (TemperatureProbeHandle != 0xffff)
                 {
-                    properties.Add(KnownDmiProperty.CoolingDevice.TemperatureProbeHandle, TemperatureProbeHandle);
+                    properties.Add(DmiProperty.CoolingDevice.TemperatureProbeHandle, TemperatureProbeHandle);
                 }
             }
 
             if (HeaderInfo.Length >= 0x07)
             {
-                properties.Add(KnownDmiProperty.CoolingDevice.DeviceTypeAndStatus.Status, GetStatus(Status));
-                properties.Add(KnownDmiProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType, GetDeviceType(DeviceType));
+                properties.Add(DmiProperty.CoolingDevice.DeviceTypeAndStatus.Status, GetStatus(Status));
+                properties.Add(DmiProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType, GetDeviceType(DeviceType));
             }
 
             if (HeaderInfo.Length >= 0x08)
             {
                 if (CoolingUnitGroup != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.CoolingDevice.CoolingUnitGroup, CoolingUnitGroup);
+                    properties.Add(DmiProperty.CoolingDevice.CoolingUnitGroup, CoolingUnitGroup);
                 }
             }
 
             if (HeaderInfo.Length >= 0x09)
             {
-                properties.Add(KnownDmiProperty.CoolingDevice.OemDefined, OemDefined);
+                properties.Add(DmiProperty.CoolingDevice.OemDefined, OemDefined);
             }
 
             if (HeaderInfo.Length >= 0x0d)
             {
                 if (NominalSpeed != 0x8000)
                 {
-                    properties.Add(KnownDmiProperty.CoolingDevice.NominalSpeed, NominalSpeed);
+                    properties.Add(DmiProperty.CoolingDevice.NominalSpeed, NominalSpeed);
                 }
             }
 
             if (HeaderInfo.Length >= 0x0f)
             {
-                properties.Add(KnownDmiProperty.CoolingDevice.Description, Description);
+                properties.Add(DmiProperty.CoolingDevice.Description, Description);
             }
             #endregion
         }

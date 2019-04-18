@@ -171,13 +171,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.ManagementDeviceComponent.Description, Description);
-            properties.Add(KnownDmiProperty.ManagementDeviceComponent.ManagementDeviceHandle, ManagementDeviceHandle);
-            properties.Add(KnownDmiProperty.ManagementDeviceComponent.ComponentHandle, ComponentHandle);
+            properties.Add(DmiProperty.ManagementDeviceComponent.Description, Description);
+            properties.Add(DmiProperty.ManagementDeviceComponent.ManagementDeviceHandle, ManagementDeviceHandle);
+            properties.Add(DmiProperty.ManagementDeviceComponent.ComponentHandle, ComponentHandle);
 
             if (ThresholdHandle != 0xffff)
             {
-                properties.Add(KnownDmiProperty.ManagementDeviceComponent.ThresholdHandle, ThresholdHandle);
+                properties.Add(DmiProperty.ManagementDeviceComponent.ThresholdHandle, ThresholdHandle);
             }
             #endregion
         }

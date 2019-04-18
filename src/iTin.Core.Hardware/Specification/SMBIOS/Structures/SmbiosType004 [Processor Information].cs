@@ -807,7 +807,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         {
                             if (coreCount != 0xff)
                             {
-                                value = (byte?) coreCount;
+                                value = (int?) coreCount;
                             }
                             else
                             {
@@ -837,7 +837,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         {
                             if (coreEnabled != 0xff)
                             {
-                                value = (byte?)coreEnabled;
+                                value = (int?)coreEnabled;
                             }
                             else
                             {
@@ -867,7 +867,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         {
                             if (threadCount != 0xff)
                             {
-                                value = (byte?)threadCount;
+                                value = (int?)threadCount;
                             }
                             else
                             {
@@ -968,41 +968,41 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.0+
             if (HeaderInfo.Length >= 0x1a)
             {
-                properties.Add(KnownDmiProperty.Processor.SocketDesignation, SocketDesignation);
-                properties.Add(KnownDmiProperty.Processor.ProcessorType, GetProcessorType(ProcessorType));
-                properties.Add(KnownDmiProperty.Processor.ProcessorVersion, Version);
-                properties.Add(KnownDmiProperty.Processor.Family, GetProcessorFamily(HeaderInfo.RawData, Strings));
-                properties.Add(KnownDmiProperty.Processor.ProcessorManufacturer, Manufacturer);
-                properties.Add(KnownDmiProperty.Processor.ProcessorId, ProcessorId);
-                properties.Add(KnownDmiProperty.Processor.Voltage.IsLegacyMode, IsLegacyMode);
+                properties.Add(DmiProperty.Processor.SocketDesignation, SocketDesignation);
+                properties.Add(DmiProperty.Processor.ProcessorType, GetProcessorType(ProcessorType));
+                properties.Add(DmiProperty.Processor.ProcessorVersion, Version);
+                properties.Add(DmiProperty.Processor.Family, GetProcessorFamily(HeaderInfo.RawData, Strings));
+                properties.Add(DmiProperty.Processor.ProcessorManufacturer, Manufacturer);
+                properties.Add(DmiProperty.Processor.ProcessorId, ProcessorId);
+                properties.Add(DmiProperty.Processor.Voltage.IsLegacyMode, IsLegacyMode);
 
                 bool isLegacyMode = IsLegacyMode;
                 if (!isLegacyMode)
                 {
                     List<string> items = new List<string> {$"{VoltageValue}"};
-                    properties.Add(KnownDmiProperty.Processor.Voltage.SupportedVoltages, items.AsReadOnly());
+                    properties.Add(DmiProperty.Processor.Voltage.SupportedVoltages, items.AsReadOnly());
                 }
                 else
                 {
-                    properties.Add(KnownDmiProperty.Processor.Voltage.SupportedVoltages, GetVoltagesCapability(VoltageCapability));
+                    properties.Add(DmiProperty.Processor.Voltage.SupportedVoltages, GetVoltagesCapability(VoltageCapability));
                 }
 
                 int externakClock = ExternalClock;
                 if (externakClock != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.Processor.ExternalClock, externakClock);
+                    properties.Add(DmiProperty.Processor.ExternalClock, externakClock);
                 }
 
                 int maxSpeed = MaximunSpeed;
                 if (maxSpeed != 0x00)
                 {
-                    properties.Add(KnownDmiProperty.Processor.MaximunSpeed, maxSpeed);
+                    properties.Add(DmiProperty.Processor.MaximunSpeed, maxSpeed);
                 }
 
-                properties.Add(KnownDmiProperty.Processor.CurrentSpeed, CurrentSpeed);
-                properties.Add(KnownDmiProperty.Processor.Status.CpuStatus, GetProcessorStatus(CpuStatus));
-                properties.Add(KnownDmiProperty.Processor.Status.SocketPopulated, SocketPopulated);
-                properties.Add(KnownDmiProperty.Processor.UpgradeMethod, GetProcessorUpgrade(UpgradeMethod));
+                properties.Add(DmiProperty.Processor.CurrentSpeed, CurrentSpeed);
+                properties.Add(DmiProperty.Processor.Status.CpuStatus, GetProcessorStatus(CpuStatus));
+                properties.Add(DmiProperty.Processor.Status.SocketPopulated, SocketPopulated);
+                properties.Add(DmiProperty.Processor.UpgradeMethod, GetProcessorUpgrade(UpgradeMethod));
             }
             #endregion
 
@@ -1014,16 +1014,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 {
                     if (SmbiosVersion >= 0x0203)
                     {
-                        properties.Add(KnownDmiProperty.Processor.L1CacheHandle, 0); // Structure not provided
+                        properties.Add(DmiProperty.Processor.L1CacheHandle, 0); // Structure not provided
                     }
                     else
                     {
-                        properties.Add(KnownDmiProperty.Processor.L1CacheHandle, -1); // Cache not installed                            
+                        properties.Add(DmiProperty.Processor.L1CacheHandle, -1); // Cache not installed                            
                     }
                 }
                 else
                 {
-                    properties.Add(KnownDmiProperty.Processor.L1CacheHandle, l1CacheHandle);
+                    properties.Add(DmiProperty.Processor.L1CacheHandle, l1CacheHandle);
                 }
 
                 int l2CacheHandle = L2CacheHandle;
@@ -1031,16 +1031,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 {
                     if (SmbiosVersion >= 0x0203)
                     {
-                        properties.Add(KnownDmiProperty.Processor.L2CacheHandle, 0); // Structure not provided
+                        properties.Add(DmiProperty.Processor.L2CacheHandle, 0); // Structure not provided
                     }
                     else
                     {
-                        properties.Add(KnownDmiProperty.Processor.L2CacheHandle, -1); // Cache not installed                            
+                        properties.Add(DmiProperty.Processor.L2CacheHandle, -1); // Cache not installed                            
                     }
                 }
                 else
                 {
-                    properties.Add(KnownDmiProperty.Processor.L2CacheHandle, L2CacheHandle);
+                    properties.Add(DmiProperty.Processor.L2CacheHandle, L2CacheHandle);
                 }
 
                 int l3CacheHandle = L3CacheHandle;
@@ -1048,16 +1048,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 {
                     if (SmbiosVersion >= 0x0203)
                     {
-                        properties.Add(KnownDmiProperty.Processor.L3CacheHandle, 0); // Structure not provided
+                        properties.Add(DmiProperty.Processor.L3CacheHandle, 0); // Structure not provided
                     }
                     else
                     {
-                        properties.Add(KnownDmiProperty.Processor.L3CacheHandle, -1); // Cache not installed
+                        properties.Add(DmiProperty.Processor.L3CacheHandle, -1); // Cache not installed
                     }
                 }
                 else
                 {
-                    properties.Add(KnownDmiProperty.Processor.L3CacheHandle, L3CacheHandle);
+                    properties.Add(DmiProperty.Processor.L3CacheHandle, L3CacheHandle);
                 }
             }
             #endregion
@@ -1065,17 +1065,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.3+
             if (HeaderInfo.Length >= 0x21)
             {
-                properties.Add(KnownDmiProperty.Processor.SerialNumber, SerialNumber);
+                properties.Add(DmiProperty.Processor.SerialNumber, SerialNumber);
             }
 
             if (HeaderInfo.Length >= 0x22)
             {
-                properties.Add(KnownDmiProperty.Processor.AssetTag, AssetTag);
+                properties.Add(DmiProperty.Processor.AssetTag, AssetTag);
             }
 
             if (HeaderInfo.Length >= 0x23)
             {
-                properties.Add(KnownDmiProperty.Processor.PartNumber, PartNumber);
+                properties.Add(DmiProperty.Processor.PartNumber, PartNumber);
             }
             #endregion
 
@@ -1087,7 +1087,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 {
                     if (coreCount != 0xff)
                     {
-                        properties.Add(KnownDmiProperty.Processor.CoreCount, coreCount);
+                        properties.Add(DmiProperty.Processor.CoreCount, coreCount);
                     }
                     else
                     {
@@ -1098,7 +1098,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             {
                                 if (coreCount2 != 0xffff)
                                 {
-                                    properties.Add(KnownDmiProperty.Processor.CoreCount, coreCount2);
+                                    properties.Add(DmiProperty.Processor.CoreCount, coreCount2);
                                 }
                             }
                         }
@@ -1113,7 +1113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 {
                     if (coreEnabled != 0xff)
                     {
-                        properties.Add(KnownDmiProperty.Processor.CoreEnabled, coreEnabled);
+                        properties.Add(DmiProperty.Processor.CoreEnabled, coreEnabled);
                     }
                     else
                     {
@@ -1124,7 +1124,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             {
                                 if (coreEnabled2 != 0xffff)
                                 {
-                                    properties.Add(KnownDmiProperty.Processor.CoreEnabled, coreEnabled2);
+                                    properties.Add(DmiProperty.Processor.CoreEnabled, coreEnabled2);
                                 }
                             }
                         }
@@ -1139,7 +1139,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 {
                     if (threadCount != 0xff)
                     {
-                        properties.Add(KnownDmiProperty.Processor.ThreadCount, threadCount);
+                        properties.Add(DmiProperty.Processor.ThreadCount, threadCount);
                     }
                     else
                     {
@@ -1150,7 +1150,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                             {
                                 if (threadCount2 != 0xffff)
                                 {
-                                    properties.Add(KnownDmiProperty.Processor.ThreadCount, threadCount2);
+                                    properties.Add(DmiProperty.Processor.ThreadCount, threadCount2);
                                 }
                             }
                         }
@@ -1160,12 +1160,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             if (HeaderInfo.Length >= 0x27)
             {
-                properties.Add(KnownDmiProperty.Processor.Characteristics.Capable64Bits, IsCapable64Bit);
-                properties.Add(KnownDmiProperty.Processor.Characteristics.MultiCore, IsMultiCore);
-                properties.Add(KnownDmiProperty.Processor.Characteristics.HardwareThreadPerCore, MultipleHardwareThreadsPerCore);
-                properties.Add(KnownDmiProperty.Processor.Characteristics.ExecuteProtectionSupport, ExecuteProtection);
-                properties.Add(KnownDmiProperty.Processor.Characteristics.EnhancedVirtualizationInstructions, EnhancedVirtualization);
-                properties.Add(KnownDmiProperty.Processor.Characteristics.PowerPerformanceControlSupport, PowerPerformanceControl);
+                properties.Add(DmiProperty.Processor.Characteristics.Capable64Bits, IsCapable64Bit);
+                properties.Add(DmiProperty.Processor.Characteristics.MultiCore, IsMultiCore);
+                properties.Add(DmiProperty.Processor.Characteristics.HardwareThreadPerCore, MultipleHardwareThreadsPerCore);
+                properties.Add(DmiProperty.Processor.Characteristics.ExecuteProtectionSupport, ExecuteProtection);
+                properties.Add(DmiProperty.Processor.Characteristics.EnhancedVirtualizationInstructions, EnhancedVirtualization);
+                properties.Add(DmiProperty.Processor.Characteristics.PowerPerformanceControlSupport, PowerPerformanceControl);
             }
             #endregion
 

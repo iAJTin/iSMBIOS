@@ -174,7 +174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region values
-            properties.Add(KnownDmiProperty.SystemEventLog.SystemEventLogs, string.Empty);
+            properties.Add(DmiProperty.SystemEventLog.SystemEventLogs, string.Empty);
             #endregion
         }
         #endregion

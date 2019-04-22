@@ -41,13 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeviceProperty\Attributes\DevicePropertyDescriptionAttribute.cs" />
-    <Compile Include="DeviceProperty\Attributes\DevicePropertyTypeAttribute.cs" />
-    <Compile Include="DeviceProperty\Base\IDeviceProperty.cs" />
-    <Compile Include="DeviceProperty\DeviceProperty.cs" />
-    <Compile Include="DeviceProperty\DevicePropertyDescription.cs" />
-    <Compile Include="DeviceProperty\DevicePropertyDescriptionCache.cs" />
-    <Compile Include="DeviceProperty\DevicePropertyFactory.cs" />
+    <Compile Include="Property\Attributes\PropertyNameAttribute.cs" />
+    <Compile Include="Property\Attributes\PropertyDescriptionAttribute.cs" />
+    <Compile Include="Property\Attributes\PropertyTypeAttribute.cs" />
     <Compile Include="Property\PropertyKey.cs" />
     <Compile Include="Property\PropertyUnit.cs" />
     <Compile Include="Specification\DMI\DmiClassPropertiesTable.cs" />
@@ -71,7 +67,7 @@
     <Compile Include="Specification\SMBIOS\SmbiosStructureHeaderInfo.cs" />
     <Compile Include="Specification\SMBIOS\SmbiosStructureInfo.cs" />
     <Compile Include="Specification\SMBIOS\SmbiosStructuresCache.cs" />
-    <Compile Include="Specification\SMBIOS\SmbiosTypeProperties.cs" />
+    <Compile Include="Specification\SMBIOS\SmbiosTypeProperty.cs" />
     <Compile Include="Specification\SMBIOS\Structures\SmbiosBaseType.cs" />
     <Compile Include="Specification\SMBIOS\Structures\SmbiosStructure.cs" />
     <Compile Include="Specification\SMBIOS\Structures\SmbiosType000 [BIOS Information].cs" />

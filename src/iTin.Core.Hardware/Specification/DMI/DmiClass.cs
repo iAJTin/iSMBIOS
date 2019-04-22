@@ -4,8 +4,6 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using System.Collections.Generic;
     using System.Diagnostics;
 
-    using Device.DeviceProperty;
-
     using Smbios;
 
     /// <summary>
@@ -61,15 +59,26 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public methods
 
-        #region [public] (IDeviceProperty) GetProperty(PropertyKey): Gets a reference to an object that implements the interface IDeviceProperty represents the strongly typed value of the property
+        #region [public] (object) GetProperty(PropertyKey): Returns the value of specified property. Always returns the first appearance of the property
         /// <summary>
-        /// Gets a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the strongly typed value of the property.
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
         /// </summary>
-        /// <param name="propertyKey">Key to the property to be recovered.</param>
+        /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
-        /// Reference to the object that represents the strongly typed value of the property.
+        /// Reference to the object that represents the value of the property. Always returns the first appearance of the property.
         /// </returns>
-        public IDeviceProperty GetProperty(PropertyKey propertyKey) => smbiosTable.GetProperty(propertyKey);
+        public object GetProperty(PropertyKey propertyKey) => smbiosTable.Properties[propertyKey];
+        #endregion
+
+        #region [public] (T) GetProperty<T>(PropertyKey): Returns the the strongly typed value of specified property
+        /// <summary>
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// </summary>
+        /// <param name="propertyKey">Key to the property to obtain</param>
+        /// <returns>
+        /// Reference to the object that represents the strongly typed value of the property. Always returns the first appearance of the property.
+        /// </returns>
+        public T GetProperty<T>(PropertyKey propertyKey) => (T)GetProperty(propertyKey);
         #endregion
 
         #endregion

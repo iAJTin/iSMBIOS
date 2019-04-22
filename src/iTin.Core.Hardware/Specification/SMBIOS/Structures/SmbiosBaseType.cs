@@ -6,8 +6,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
     using System.Linq;
 
-    using Device.DeviceProperty;
-
     /// <summary>
     /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="SMBIOS" />.
     /// </summary>
@@ -78,7 +76,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         public SmbiosStructureHeaderInfo HeaderInfo { get; }
         #endregion
 
-        #region [public] (Hashtable) Properties: Gets the properties available for this structure
+        #region [public] (SmbiosPropertiesTable) Properties: Gets the properties available for this structure
         /// <summary>
         /// Gets the properties available for this structure.
         /// </summary>
@@ -132,23 +130,26 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public methods
 
-        #region [public] (IDeviceProperty) GetProperty(PropertyKey): Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property
+        #region [public] (object) GetProperty(PropertyKey): Returns the value of specified property. Always returns the first appearance of the property
         /// <summary>
-        /// Gets a reference to an object that implements the IDeviceProperty interface, represents the strongly typed value of the property.
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
-        /// Reference to the object that represents the strongly typed value of the property
+        /// Reference to the object that represents the value of the property. Always returns the first appearance of the property.
         /// </returns>
-        public IDeviceProperty GetProperty(PropertyKey propertyKey)
-        {
-            if (!Content.Contains(propertyKey))
-            {
-                Content.Add(propertyKey, GetTypedProperty(propertyKey));
-            }
+        public object GetProperty(PropertyKey propertyKey) => Properties[propertyKey];
+        #endregion
 
-            return (IDeviceProperty)Content[propertyKey];
-        }
+        #region [public] (T) GetProperty<T>(PropertyKey): Returns the the strongly typed value of specified property
+        /// <summary>
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// </summary>
+        /// <param name="propertyKey">Key to the property to obtain</param>
+        /// <returns>
+        /// Reference to the object that represents the strongly typed value of the property. Always returns the first appearance of the property.
+        /// </returns>
+        public T GetProperty<T>(PropertyKey propertyKey) => (T)GetProperty(propertyKey);
         #endregion
 
         #endregion
@@ -288,22 +289,22 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private members
 
-        #region [private] (IDeviceProperty) GetTypedProperty(PropertyKey): Returns a reference to an object that implements the interface IDeviceProperty, represents the value of the property specified by its key by the parameter propertyKey.
-        /// <summary>
-        /// Returns a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
-        /// </summary>
-        /// <param name="propertyKey">Key to the property to obtain</param>
-        /// <returns>
-        /// Interface that represents the value of the property.
-        /// </returns>
-        private IDeviceProperty GetTypedProperty(PropertyKey propertyKey)
-        {
-            object propertyValue = GetValueTypedProperty(propertyKey);
-            IDeviceProperty newTypedProperty = DevicePropertyFactory.CreateTypedDeviceProperty(propertyKey, propertyValue);
+        //#region [private] (IDeviceProperty) GetTypedProperty(PropertyKey): Returns a reference to an object that implements the interface IDeviceProperty, represents the value of the property specified by its key by the parameter propertyKey.
+        ///// <summary>
+        ///// Returns a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
+        ///// </summary>
+        ///// <param name="propertyKey">Key to the property to obtain</param>
+        ///// <returns>
+        ///// Interface that represents the value of the property.
+        ///// </returns>
+        //private IDeviceProperty GetTypedProperty(PropertyKey propertyKey)
+        //{
+        //    object propertyValue = GetValueTypedProperty(propertyKey);
+        //    IDeviceProperty newTypedProperty = DevicePropertyFactory.CreateTypedDeviceProperty(propertyKey, propertyValue);
 
-            return newTypedProperty;
-        }
-        #endregion
+        //    return newTypedProperty;
+        //}
+        //#endregion
 
         #endregion
     }

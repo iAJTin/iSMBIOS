@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DMI\DmiClassPropertiesTable.cs" />
-    <Compile Include="SMBIOS\Firmware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DMI.cs" />
     <Compile Include="DMI\DmiClass.cs" />
@@ -60,8 +59,8 @@
     <Compile Include="SMBIOS\SmbiosStructureInfo.cs" />
     <Compile Include="SMBIOS\SmbiosStructuresCache.cs" />
     <Compile Include="SMBIOS\SmbiosTypeProperty.cs" />
-    <Compile Include="SMBIOS\Structures\SmbiosBaseType.cs" />
-    <Compile Include="SMBIOS\Structures\SmbiosStructure.cs" />
+    <Compile Include="SMBIOS\Structures\Base\SmbiosBaseType.cs" />
+    <Compile Include="SMBIOS\SmbiosStructure.cs" />
     <Compile Include="SMBIOS\Structures\SmbiosType000 [BIOS Information].cs" />
     <Compile Include="SMBIOS\Structures\SmbiosType001 [System Information].cs" />
     <Compile Include="SMBIOS\Structures\SmbiosType002 [Baseboard %28or Module%29 Information].cs" />
@@ -136,6 +135,17 @@
       <Project>{a1fc8e7e-8a01-4456-bf5c-14c40981befa}</Project>
       <Name>iTin.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="%40Documents\SMBIOS\SMBIOS 2.7.1.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 2.8.0.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 3.0.0d.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 3.1.0.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 3.1.1.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 3.2.0.pdf" />
+    <None Include="%40Documents\TPM\TCG-TPM-Vendor-ID-Registry-Version-1.01-Revision-1.00.pdf" />
+    <None Include="%40Documents\TPM\TPM Main Part 2 TPM Structures 1.2.pdf" />
+    <None Include="%40Documents\TPM\TPM-Rev-2.0-Part-2-Structures-01.38.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

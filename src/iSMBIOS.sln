@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTin.Core.Hardware", "iTin.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTin.Core.Hardware.Specification", "iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.csproj", "{91FF7ED0-1230-4865-A589-28928623E537}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTin.Core.Hardware.ConsoleApp", "..\test\iTin.Core.Hardware.ConsoleApp\iTin.Core.Hardware.ConsoleApp.csproj", "{914E05E4-3BAA-47C6-BB9F-D7F47B006237}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSMBIOS.ConsoleApp", "..\test\iSMBIOS.ConsoleApp\iSMBIOS.ConsoleApp.csproj", "{914E05E4-3BAA-47C6-BB9F-D7F47B006237}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,5 @@
 ﻿
-namespace iTin.Core.Hardware.Specification
+namespace iTin.Core.Hardware
 {
     using System;
     using System.Runtime.InteropServices;

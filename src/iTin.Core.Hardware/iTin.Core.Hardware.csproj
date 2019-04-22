@@ -36,6 +36,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Firmware.cs" />
     <Compile Include="Interop\Shared\ExternDll.cs" />
     <Compile Include="Interop\Windows\Development\SystemServices\SystemInformation\Firmware\Enumerations\KnownProvider.cs" />
     <Compile Include="Interop\Windows\Development\SystemServices\SystemInformation\Firmware\NativeMethods.cs" />
@@ -45,6 +46,12 @@
     <Compile Include="Property\Attributes\PropertyTypeAttribute.cs" />
     <Compile Include="Property\PropertyKey.cs" />
     <Compile Include="Property\PropertyUnit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iTin.Core\iTin.Core.csproj">
+      <Project>{a1fc8e7e-8a01-4456-bf5c-14c40981befa}</Project>
+      <Name>iTin.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,8 +7,8 @@
     <ProjectGuid>{914E05E4-3BAA-47C6-BB9F-D7F47B006237}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>iTin.Core.Hardware.ConsoleApp</RootNamespace>
-    <AssemblyName>iTin.Core.Hardware.ConsoleApp</AssemblyName>
+    <RootNamespace>iSMBIOS.ConsoleApp</RootNamespace>
+    <AssemblyName>iSMBIOS.ConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>

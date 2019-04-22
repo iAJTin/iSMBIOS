@@ -1,5 +1,5 @@
 ﻿
-namespace iTin.Core.Hardware
+namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System;
     using System.Collections;

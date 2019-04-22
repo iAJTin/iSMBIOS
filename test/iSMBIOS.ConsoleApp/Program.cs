@@ -1,13 +1,14 @@
 ﻿
-namespace iTin.Core.Hardware.ConsoleApp
+namespace iSMBIOS.ConsoleApp
 {
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    using Specification;
-    using Specification.Dmi;
-    using Specification.Dmi.Property;
+    using iTin.Core.Hardware;
+    using iTin.Core.Hardware.Specification;
+    using iTin.Core.Hardware.Specification.Dmi;
+    using iTin.Core.Hardware.Specification.Dmi.Property;
 
     class Program
     {

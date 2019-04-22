@@ -136,9 +136,8 @@ namespace iTin.Core.Hardware.ConsoleApp
             foreach (KeyValuePair<int, object> systemSlot in systemSlots)
             {
                 int element = systemSlot.Key;
-                //object property = systemSlot.Value;
-                //object propertyValue = property.GetValue<string>();
-                //Console.WriteLine($" System Slot ({element}) > {propertyValue}");
+                object property = systemSlot.Value;
+                Console.WriteLine($" System Slot ({element}) > {property}");
             }
             
             Console.ReadLine();

@@ -1,0 +1,45 @@
+﻿
+namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskManagement
+{
+    using System;
+
+    // -------------------------------------------------------------------------------
+    // | Control Code Format = (type << 16) | function << 2 | method | access << 14) |
+    // -------------------------------------------------------------------------------
+
+    /// <summary>
+    /// Control codes.
+    /// </summary>
+    [Flags]
+    public enum FsctlDirectoryControlCodes : uint
+    {
+        /// <summary>
+        /// Base code for control codes of the file system.
+        /// </summary>
+        FSCTL_FILE_BASE = DeviceType.FileSystem,
+
+        /// <summary>
+        /// Deletes a reparse point from the specified file or directory.
+        /// </summary>
+        /// <remarks>
+        /// For more information, please see http://msdn.microsoft.com/en-us/library/aa364560%28v=VS.85%29.aspx
+        /// </remarks>            
+        FSCTL_DELETE_REPARSE_POINT = (FSCTL_FILE_BASE << 16) | (0x002b << 2) | DeviceMethod.Buffered | (DeviceAccess.Any << 14),
+
+        /// <summary>
+        /// Retrieves the reparse point data associated with the file or directory identified by the specified handle.
+        /// </summary>
+        /// <remarks>
+        /// For more information, please see http://msdn.microsoft.com/en-us/library/aa364571%28v=VS.85%29.aspx
+        /// </remarks>            
+        FSCTL_GET_REPARSE_POINT = (FSCTL_FILE_BASE << 16) | (0x002a << 2) | DeviceMethod.Buffered | (DeviceAccess.Any << 14),
+
+        /// <summary>
+        /// Sets a reparse point on a file or directory.
+        /// </summary>
+        /// <remarks>
+        /// For more information, please see http://msdn.microsoft.com/en-us/library/aa364595%28v=VS.85%29.aspx
+        /// </remarks>            
+        FSCTL_SET_REPARSE_POINT = (FSCTL_FILE_BASE << 16) | (0x0029 << 2) | DeviceMethod.Buffered | (DeviceAccess.Any << 14),
+    }
+}

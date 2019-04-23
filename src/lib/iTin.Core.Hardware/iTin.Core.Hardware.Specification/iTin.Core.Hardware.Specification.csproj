@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{91FF7ED0-1230-4865-A589-28928623E537}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iTin.Core.Hardware.Specification</RootNamespace>
+    <AssemblyName>iTin.Core.Hardware.Specification</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\iTin.Core.Hardware.Specification.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DMI\DmiClassPropertiesTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DMI.cs" />
+    <Compile Include="DMI\DmiClass.cs" />
+    <Compile Include="DMI\DmiClassCollection.cs" />
+    <Compile Include="DMI\DmiHelper.cs" />
+    <Compile Include="DMI\DmiStructure.cs" />
+    <Compile Include="DMI\DmiStructureCollection.cs" />
+    <Compile Include="DMI\DmiProperty.cs" />
+    <Compile Include="SMBIOS.cs" />
+    <Compile Include="SMBIOS\SmbiosPropertiesTable.cs" />
+    <Compile Include="SMBIOS\SmbiosHelper.cs" />
+    <Compile Include="SMBIOS\SmbiosStructureCollection.cs" />
+    <Compile Include="SMBIOS\SmbiosStructureFactory.cs" />
+    <Compile Include="SMBIOS\SmbiosStructureHeaderInfo.cs" />
+    <Compile Include="SMBIOS\SmbiosStructureInfo.cs" />
+    <Compile Include="SMBIOS\SmbiosStructuresCache.cs" />
+    <Compile Include="SMBIOS\SmbiosTypeProperty.cs" />
+    <Compile Include="SMBIOS\Structures\Base\SmbiosBaseType.cs" />
+    <Compile Include="SMBIOS\SmbiosStructure.cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType000 [BIOS Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType001 [System Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType002 [Baseboard %28or Module%29 Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType003 [System Enclosure or Chassis].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType004 [Processor Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType005 [Memory Controller Information %28Type 5, Obsolete%29].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType006 [Memory Module Information %28Type 6, Obsolete%29].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType007 [Cache Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType008 [Port Connector Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType009 [Slot Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType010 [On Board Devices].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType011 [OEM Strings].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType012 [System Configuration Options].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType013 [BIOS Language Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType014 [Group Associations].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType015 [System Event Log].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType016 [Physical Memory Array].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType017 [Memory Device].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType018 [32-Bit Memory Error Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType019 [Memory Array Mapped Address].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType020 [Memory Device Mapped Address].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType021 [Built-in Pointing Device].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType022 [Portable Battery].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType023 [System Reset].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType024 [Hardware Security].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType025 [System Power Controls].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType026 [Voltage Probe].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType027 [Cooling Device].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType028 [Temperature Probe].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType029 [Electrical Current Probe].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType030 [Out-of-Band Remote Access].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType031 [Boot Integrity Services %28BIS%29 Entry Point].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType032 [System Boot Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType033 [64-Bit Memory Error Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType034 [Management Device].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType035 [Management Device Component].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType036 [Management Device Threshold Data].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType037 [Memory Channel].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType038 [IPMI Device Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType039 [System Power Supply].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType040 [Additional Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType041 [Onboard Devices Extended Information].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType043 [TPM Device].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType042 [Management Controller Host Interface].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType126 [Inactive].cs" />
+    <Compile Include="SMBIOS\Structures\SmbiosType127 [End-Of-Table].cs" />
+    <Compile Include="SMBIOS\Structures\Specific\TpmFirmwareVersion.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\TpmCapabilityVendorId.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\AdditionalInformationEntry.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\AdditionalInformationEntryCollection.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\BaseBoardContainedElementCollection.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\ManagementControllerHostInterfaceProtocolRecord.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\ChassisContainedElement.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\ManagementControllerHostInterfaceProtocolRecordsCollection.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\ChassisContainedElementCollection.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\ChassisContainedElementType.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\GroupAssociationElement.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\GroupAssociationElementCollection.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\MemoryChannelElement.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\MemoryChannelElementCollection.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\MemoryControllerContainedElementCollection.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\MemorySizeUnit.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\MemoryDeviceBelongsToSet.cs" />
+    <Compile Include="SMBIOS\Structures\Specific\MemoryDeviceMappedAddressInterleavedPosition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="%40Documents\SMBIOS\SMBIOS 2.7.1.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 2.8.0.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 3.0.0d.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 3.1.0.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 3.1.1.pdf" />
+    <None Include="%40Documents\SMBIOS\SMBIOS 3.2.0.pdf" />
+    <None Include="%40Documents\TPM\TCG-TPM-Vendor-ID-Registry-Version-1.01-Revision-1.00.pdf" />
+    <None Include="%40Documents\TPM\TPM Main Part 2 TPM Structures 1.2.pdf" />
+    <None Include="%40Documents\TPM\TPM-Rev-2.0-Part-2-Structures-01.38.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\iTin.Core\iTin.Core\iTin.Core.csproj">
+      <Project>{a1fc8e7e-8a01-4456-bf5c-14c40981befa}</Project>
+      <Name>iTin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTin.Core.Hardware\iTin.Core.Hardware.csproj">
+      <Project>{712177ab-3598-4d8b-b8b8-888928dafa7d}</Project>
+      <Name>iTin.Core.Hardware</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

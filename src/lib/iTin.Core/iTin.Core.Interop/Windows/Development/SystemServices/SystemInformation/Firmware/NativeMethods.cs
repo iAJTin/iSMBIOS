@@ -19,7 +19,7 @@ namespace iTin.Core.Interop.Windows.Development.SystemServices.SystemInformation
         /// Enumerates all system firmware tables of the specified type. For more inforation, see https://docs.microsoft.com/es-es/windows/desktop/api/sysinfoapi/nf-sysinfoapi-enumsystemfirmwaretables.
         /// </summary>
         [DllImport(ExternDll.Kernel32, CallingConvention = CallingConvention.Winapi, SetLastError = true)]
-        public static extern int EnumSystemFirmwareTables(byte firmwareTableProviderSignature, IntPtr firmwareTableBuffer, int bufferSize);
+        public static extern int EnumSystemFirmwareTables(uint firmwareTableProviderSignature, IntPtr firmwareTableBuffer, int bufferSize);
 
         /// <summary>
         /// Retrieves the specified firmware table from the firmware table provider. For more inforation, see https://docs.microsoft.com/es-es/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getsystemfirmwaretable.
@@ -31,6 +31,6 @@ namespace iTin.Core.Interop.Windows.Development.SystemServices.SystemInformation
         /// Retrieves the specified firmware table from the firmware table provider. For more inforation, see https://docs.microsoft.com/es-es/windows/desktop/api/sysinfoapi/nf-sysinfoapi-getsystemfirmwaretable.
         /// </summary>
         [DllImport(ExternDll.Kernel32, CallingConvention = CallingConvention.Winapi, SetLastError = true)]
-        public static extern int GetSystemFirmwareTable(byte firmwareTableProviderSignature, int firmwareTableId, IntPtr firmwareTableBuffer, int bufferSize);
+        public static extern int GetSystemFirmwareTable(uint firmwareTableProviderSignature, int firmwareTableId, IntPtr firmwareTableBuffer, int bufferSize);
     }
 }

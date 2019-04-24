@@ -25,7 +25,7 @@ namespace iTin.Core.Hardware.Interop
             int size;
             try
             {
-                size = NativeMethods.EnumSystemFirmwareTables((byte)provider, IntPtr.Zero, 0);
+                size = NativeMethods.EnumSystemFirmwareTables((uint)provider, IntPtr.Zero, 0);
             }
             catch (DllNotFoundException)
             {
@@ -37,7 +37,7 @@ namespace iTin.Core.Hardware.Interop
             }
 
             IntPtr nativeBuffer = Marshal.AllocHGlobal(size);
-            NativeMethods.EnumSystemFirmwareTables((byte)provider, nativeBuffer, size);
+            NativeMethods.EnumSystemFirmwareTables((uint)provider, nativeBuffer, size);
             byte[] buffer = nativeBuffer.ToByteArray(0, size);
 
             string[] result = new string[size / 4];
@@ -78,7 +78,7 @@ namespace iTin.Core.Hardware.Interop
 
             try
             {
-                size = NativeMethods.GetSystemFirmwareTable((byte)provider, table, IntPtr.Zero, 0);
+                size = NativeMethods.GetSystemFirmwareTable((uint)provider, table, IntPtr.Zero, 0);
             }
             catch (DllNotFoundException)
             {
@@ -95,7 +95,7 @@ namespace iTin.Core.Hardware.Interop
             }
 
             IntPtr nativeBuffer = Marshal.AllocHGlobal(size);
-            NativeMethods.GetSystemFirmwareTable((byte)provider, table, nativeBuffer, size);
+            NativeMethods.GetSystemFirmwareTable((uint)provider, table, nativeBuffer, size);
 
             return Marshal.GetLastWin32Error() != 0 
                 ? null 

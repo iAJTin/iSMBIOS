@@ -138,7 +138,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// Reference to the object that represents the value of the property. Always returns the first appearance of the property.
         /// </returns>
-        public object GetProperty(PropertyKey propertyKey) => Properties[propertyKey];
+        public object GetProperty(PropertyKey propertyKey) => GetValueTypedProperty(propertyKey);
         #endregion
 
         #region [public] (T) GetProperty<T>(PropertyKey): Returns the the strongly typed value of specified property

@@ -67,7 +67,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <returns>
         /// Reference to the object that represents the value of the property. Always returns the first appearance of the property.
         /// </returns>
-        public object GetProperty(PropertyKey propertyKey) => smbiosTable.Properties[propertyKey];
+        public object GetProperty(PropertyKey propertyKey) => smbiosTable.GetProperty(propertyKey);
         #endregion
 
         #region [public] (T) GetProperty<T>(PropertyKey): Returns the the strongly typed value of specified property

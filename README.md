@@ -65,22 +65,22 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
        DmiStructureCollection structures = DMI.Instance.Structures;
        object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
-		if (biosVersion != null)
-		{
-			Console.WriteLine($" BIOS Vendor > {biosVersion}");
-		}
+       if (biosVersion != null)
+       {
+           Console.WriteLine($" BIOS Vendor > {biosVersion}");
+       }
 
-		string processorFamily = structures.GetProperty<string>(DmiProperty.Processor.Family);
-		if (processorFamily != null)
-		{
-			Console.WriteLine($" Processor Family > {processorFamily}");
-		}
+	   string processorFamily = structures.GetProperty<string>(DmiProperty.Processor.Family);
+	   if (processorFamily != null)
+	   {
+		   Console.WriteLine($" Processor Family > {processorFamily}");
+	   }
 
-		string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
-		if (processorManufacturer != null)
-		{
-			Console.WriteLine($" Processor Manufacturer > {processorManufacturer}");
-		}
+	   string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
+	   if (processorManufacturer != null)
+	   {
+          Console.WriteLine($" Processor Manufacturer > {processorManufacturer}");
+	   }
 
 4. Gets a property in **multiple** elements directly.
 

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>iSMBIOS</id>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
         <title>iSMBIOS</title>
         <authors>iAJTin</authors>
         <owners>iAJTin</owners>
@@ -16,7 +16,7 @@
     </metadata>
     <files>
         <file src="..\src\lib\iTin.Core\iTin.Core\bin\Debug\iTin.Core.dll" target="lib\net40\iTin.Core.dll" />
-        <file src="..\src\lib\iTin.Core\iTin.Core.Interop\bin\Debug\iTin.Core.dll" target="lib\net40\iTin.Core.dll" />
+        <file src="..\src\lib\iTin.Core\iTin.Core.Interop\bin\Debug\iTin.Core.Interop.dll" target="lib\net40\iTin.Core.Interop.dll" />
         <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware\bin\Debug\iTin.Core.Hardware.dll" target="lib\net40\iTin.Core.Hardware.dll" />
         <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\bin\Debug\iTin.Core.Hardware.Specification.dll" target="lib\net40\iTin.Core.Hardware.Specification.dll" />
     </files>

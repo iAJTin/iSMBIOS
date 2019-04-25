@@ -1,7 +1,10 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.0.4] - 2019-04-25
+## [1.0.5] - 2019-04-25
+- Equals to v1.0.4 but without errors in nuget package. 
+
+## 1.0.4 - 2019-04-25
 
 ### Added
 - Added **iTin.Core.Interop** project for interop calls 
@@ -57,7 +60,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
-[1.0.4]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.4
+[1.0.5]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.5
 [1.0.3]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.3
 [1.0.2]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.2
 [1.0.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.1

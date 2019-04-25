@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 ## [1.0.5] - 2019-04-25
-- Equals to 1.0.4 but without errors in nuget package. 
+- Equals to v1.0.4 but without errors in nuget package. 
 
 ## 1.0.4 - 2019-04-25
 

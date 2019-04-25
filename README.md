@@ -64,34 +64,34 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
 
        DmiStructureCollection structures = DMI.Instance.Structures;
-       DeviceProperty<string> biosVersion = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Bios.BiosVersion);
-       if (biosVersion != null)
-       {
-           Console.WriteLine($" BIOS Version > {biosVersion.Value}");
-       }
+       object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
+		if (biosVersion != null)
+		{
+			Console.WriteLine($" BIOS Vendor > {biosVersion}");
+		}
 
-       DeviceProperty<string> processorFamily = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Processor.Family);
-       if (processorFamily != null)
-       {
-           Console.WriteLine($" CPU Family > {processorFamily.Value}");
-       }
+		string processorFamily = structures.GetProperty<string>(DmiProperty.Processor.Family);
+		if (processorFamily != null)
+		{
+			Console.WriteLine($" Processor Family > {processorFamily}");
+		}
 
-       DeviceProperty<string> processorManufacturer = (DeviceProperty<string>)structures.GetProperty(KnownDmiProperty.Processor.ProcessorManufacturer);
-       if (processorManufacturer != null)
-       {
-           Console.WriteLine($" CPU Manufacturer > {processorManufacturer.Value}");
-       }
+		string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
+		if (processorManufacturer != null)
+		{
+			Console.WriteLine($" Processor Manufacturer > {processorManufacturer}");
+		}
 
 4. Gets a property in **multiple** elements directly.
 
-
+       // Requires that the Slot Information structure exists in your system
        DmiStructureCollection structures = DMI.Instance.Structures;
-       IDictionary<int, IDeviceProperty> systemSlots = structures.GetProperties(KnownDmiProperty.SystemSlots.SlotId);
-       foreach (KeyValuePair<int, IDeviceProperty> systemSlot in systemSlots)
+       IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
+       foreach (KeyValuePair<int, object> systemSlot in systemSlots)
        {
            int element = systemSlot.Key;
-           DeviceProperty<string> property = (DeviceProperty<string>) systemSlot.Value;
-           Console.WriteLine($" System Slot Id ({element}) > {property.Value}");
+           object property = systemSlot.Value;
+           Console.WriteLine($" System Slot ({element}) > {property}");
        }
 
 5. Prints all **SMBIOS** structures properties

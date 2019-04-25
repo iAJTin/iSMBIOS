@@ -1,6 +1,31 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2019-04-25
+
+### Added
+- Added **iTin.Core.Interop** project for interop calls 
+- The **GetProperty** method was added in the class **DmiClass**, to directly recover a property, this allows us to consider a specification as a bag of consultable properties, 
+for more information, please see how to use it in the example project. On the other hand later when there are more implemented specifications the use of the **DeviceProperty** type will allow us to and consult properties in different "bags".
+- Minor changes.
+
+### Changed
+- Solution structure, prepare solution structure to add future new specifications.
+
+      \root
+        - lib
+          - iTin.Core             
+            - iTin.Core                         [common calls] 
+            - iTin.Core.Interop                 [interop calls]
+          - iTin.Core.Hardware    
+            - iTin.Core.Hardware                [hardware interop calls]
+            - iTin.Core.Hardware.Specification  [hardware specification(s) implementation(s)] 
+        - test
+            - iSMBIOS.ConsoleApp                [console test app]
+
+### Removed
+- **DeviceProperty** data type. This type of data is not going to be eliminated but its use will change, later it can be used as a receiver of the different types of data returned by the different specifications
+
 ## [1.0.3] - 2019-04-11
 
 ### Added
@@ -32,6 +57,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Create project and first commit
 
+[1.0.4]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.4
 [1.0.3]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.3
 [1.0.2]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.2
 [1.0.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.1

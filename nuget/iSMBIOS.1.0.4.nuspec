@@ -8,15 +8,16 @@
         <owners>iAJTin</owners>
         <license type="expression">MIT</license>
         <projectUrl>https://github.com/iAJTin/iSMBIOS</projectUrl>
-        <iconUrl>https://github.com/iAJTin/iSMBIOS/blob/master/nuget/iSMBIOS.png</iconUrl>
+        <iconUrl>https://raw.githubusercontent.com/iAJTin/iSMBIOS/master/nuget/iSMBIOS.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>iSMBIOS is a lightweight implementation that allows us to obtain SMBIOS information</description>
         <copyright>Copyright © 2018 iAJTin</copyright>
         <tags>SMBIOS DMI BIOS hardware iTin</tags>
     </metadata>
     <files>
-        <file src="..\src\iTin.Core\bin\Debug\iTin.Core.dll" target="lib\net40\iTin.Core.dll" />
-        <file src="..\src\iTin.Core.Hardware\bin\Debug\iTin.Core.Hardware.dll" target="lib\net40\iTin.Core.Hardware.dll" />
-        <file src="..\src\iTin.Core.Hardware.Specification\bin\Debug\iTin.Core.Hardware.Specification.dll" target="lib\net40\iTin.Core.Hardware.Specification.dll" />
+        <file src="..\src\lib\iTin.Core\iTin.Core\bin\Debug\iTin.Core.dll" target="lib\net40\iTin.Core.dll" />
+        <file src="..\src\lib\iTin.Core\iTin.Core.Interop\bin\Debug\iTin.Core.dll" target="lib\net40\iTin.Core.dll" />
+        <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware\bin\Debug\iTin.Core.Hardware.dll" target="lib\net40\iTin.Core.Hardware.dll" />
+        <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\bin\Debug\iTin.Core.Hardware.Specification.dll" target="lib\net40\iTin.Core.Hardware.Specification.dll" />
     </files>
 </package>

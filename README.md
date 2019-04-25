@@ -71,16 +71,10 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        }
 
 	   string processorFamily = structures.GetProperty<string>(DmiProperty.Processor.Family);
-	   if (processorFamily != null)
-	   {
-		   Console.WriteLine($" Processor Family > {processorFamily}");
-	   }
+       Console.WriteLine($" Processor Family > {processorFamily}");
 
 	   string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
-	   if (processorManufacturer != null)
-	   {
-          Console.WriteLine($" Processor Manufacturer > {processorManufacturer}");
-	   }
+       Console.WriteLine($" Processor Manufacturer > {processorManufacturer}");
 
 4. Gets a property in **multiple** elements directly.
 

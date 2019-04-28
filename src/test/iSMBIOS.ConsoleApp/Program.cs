@@ -49,58 +49,58 @@ namespace iSMBIOS.ConsoleApp
 
                         if (value == null)
                         {
-                            Console.WriteLine($@"   > {id} > NULL");
+                            Console.WriteLine($@" > {id} > NULL");
                             continue;
                         }
 
                         if (value is string)
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit}");
+                            Console.WriteLine($@" > {id} > {value}{unit}");
                         }
                         else if (value is byte)
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X2}h]");
+                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X2}h]");
                         }
                         else if (value is short)
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X4}h]");
                         }
                         else if (value is ushort)
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X4}h]");
                         }
                         else if (value is int)
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X4}h]");
                         }
                         else if (value is uint)
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X4}h]");
                         }
                         else if (value is long)
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X8}h]");
+                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X8}h]");
                         }
                         else if (value is ulong)
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit} [{value:X8}h]");
+                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X8}h]");
                         }
                         else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
                         {
-                            Console.WriteLine($@"   > {id} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
+                            Console.WriteLine($@" > {id} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
                         }
                         else if (value.GetType() == typeof(ReadOnlyCollection<string>))
                         {
-                            Console.WriteLine($@"   > {id}");
+                            Console.WriteLine($@" > {id}");
                             var collection = (ReadOnlyCollection<string>) value;
                             foreach (var entry in collection)
                             {
-                                Console.WriteLine($@"     > {entry}");
+                                Console.WriteLine($@"   > {entry}");
                             }
                         }
                         else
                         {
-                            Console.WriteLine($@"   > {id} > {value}{unit}");
+                            Console.WriteLine($@" > {id} > {value}{unit}");
                         }
                     }
                 }
@@ -114,14 +114,14 @@ namespace iSMBIOS.ConsoleApp
             object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
             if (biosVersion != null)
             {
-                Console.WriteLine($" BIOS Vendor > {biosVersion}");
+                Console.WriteLine($" > BIOS Vendor > {biosVersion}");
             }
 
             string processorFamily = structures.GetProperty<string>(DmiProperty.Processor.Family);
-            Console.WriteLine($" Processor Family > {processorFamily}");
+            Console.WriteLine($" > Processor Family > {processorFamily}");
 
             string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
-            Console.WriteLine($" Processor Manufacturer > {processorManufacturer}");
+            Console.WriteLine($" > Processor Manufacturer > {processorManufacturer}");
 
             Console.WriteLine();
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
@@ -132,7 +132,7 @@ namespace iSMBIOS.ConsoleApp
             {
                 int element = systemSlot.Key;
                 object property = systemSlot.Value;
-                Console.WriteLine($" System Slot ({element}) > {property}");
+                Console.WriteLine($" > System Slot ({element}) > {property}");
             }
             
             Console.ReadLine();

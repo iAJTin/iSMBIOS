@@ -65,10 +65,7 @@ namespace iTin.Core.Helpers
         /// </summary>
         /// <param name="register">Máscara.</param>
         /// <returns></returns>
-        public static int[] GetWords(int register)
-        {
-            return GetWords((ulong)register);
-        }
+        public static int[] GetWords(int register) => GetWords((ulong)register);
 
         /// <summary>
         /// Devuelve el word seleccionado.
@@ -76,10 +73,7 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="word">word a devolver.</param>
         /// <returns></returns>
-        public static int GetWord(ulong register, Words word)
-        {
-            return GetWords(register)[(int)word];
-        }
+        public static int GetWord(ulong register, Words word) => GetWords(register)[(int)word];
 
         /// <summary>
         /// Devuelve el word seleccionado.
@@ -87,10 +81,7 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="word">word a devolver.</param>
         /// <returns></returns>
-        public static int GetWord(int register, Words word)
-        {
-            return GetWord((ulong)register, word);
-        }
+        public static int GetWord(int register, Words word) => GetWord((ulong)register, word);
 
         /// <summary>
         /// Devuelve array con 16 bytes.
@@ -126,10 +117,7 @@ namespace iTin.Core.Helpers
         /// </summary>
         /// <param name="register">Máscara.</param>
         /// <returns></returns>
-        public static byte[] GetBytes(int register)
-        {
-            return GetBytes((ulong)register);
-        }
+        public static byte[] GetBytes(int register) => GetBytes((ulong)register);
 
         /// <summary>
         /// Devuelve el byte seleccionado.
@@ -137,10 +125,7 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="onebyte">Byte a devolver.</param>
         /// <returns></returns>
-        public static byte GetByte(ulong register, Bytes onebyte)
-        {
-            return GetBytes(register)[(int)onebyte];
-        }
+        public static byte GetByte(ulong register, Bytes onebyte) => GetBytes(register)[(int)onebyte];
 
         /// <summary>
         /// Devuelve el byte seleccionado.
@@ -148,37 +133,28 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="onebyte">Byte a devolver.</param>
         /// <returns></returns>
-        public static byte GetByte(int register, Bytes onebyte)
-        {
-            return GetByte((ulong)register, onebyte);
-        }
+        public static byte GetByte(int register, Bytes onebyte) => GetByte((ulong)register, onebyte);
 
         /// <summary>
         /// Convertir int en string.
         /// </summary>
         /// <param name="value">Valor a convertir.</param>
         /// <returns></returns>
-        public static string Word2Str(int value)
-        {
-            return
-                string.Format(
-                    CultureInfo.InvariantCulture,
-                    "{0}{1}{2}{3}",
-                    (char) value & 0xff,
-                    (char) (value & 0xff00) >> 8,
-                    (char) (value & 0xff0000) >> 16,
-                    (char) (value & 0xff000000) >> 24);
-        }
+        public static string Word2Str(int value) =>
+            string.Format(
+                CultureInfo.InvariantCulture,
+                "{0}{1}{2}{3}",
+                (char)(value & 0xff),
+                (char)((value & 0xff00) >> 8),
+                (char)((value & 0xff0000) >> 16),
+                (char)((value & 0xff000000) >> 24));
 
         /// <summary>
         /// Convertir byte en string
         /// </summary>
         /// <param name="value">Valor a convertir.</param>
         /// <returns></returns>
-        public static string Byte2Str(byte value)
-        {
-            return ((char)(value & 0x0f)).ToString();
-        }
+        public static string Byte2Str(byte value) => ((char)(value & 0x0f)).ToString();
 
         /// <summary>
         /// Obtiene el estado de un bit.
@@ -186,10 +162,7 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="bit">bit a devolver.</param>
         /// <returns></returns> 
-        public static bool CheckBit(Int64 register, Bits bit)
-        {
-            return BitBit(register, (byte)bit);// ((register & (ulong)bit) == (ulong)bit) ? true : false;
-        }
+        public static bool CheckBit(long register, Bits bit) => BitBit(register, (byte)bit); // ((register & (ulong)bit) == (ulong)bit) ? true : false;
 
         /// <summary>
         /// Obtiene el estado de un bit.
@@ -197,10 +170,7 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="bit">bit a devolver.</param>
         /// <returns></returns>
-        public static bool CheckBit(byte register, Bits bit)
-        {
-            return CheckBit((long)register, bit);
-        }
+        public static bool CheckBit(byte register, Bits bit) => CheckBit((long)register, bit);
 
         /// <summary>
         /// Obtiene el estado de un bit.
@@ -208,10 +178,7 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="bit">bit a devolver.</param>
         /// <returns></returns>
-        public static bool CheckBit(int register, Bits bit)
-        {
-            return CheckBit((long)register, bit);
-        }
+        public static bool CheckBit(int register, Bits bit) => CheckBit((long)register, bit);
 
         /// <summary>
         /// Devuelve el estado del bit seleccionado.
@@ -219,10 +186,7 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="bit">bit a devolver.</param>
         /// <returns></returns>
-        public static int GetBit(ulong register, Bits bit)
-        {
-            return (register & (ulong)bit) == (ulong)bit ? 1 : 0;
-        }
+        public static int GetBit(ulong register, Bits bit) => (register & (ulong)bit) == (ulong)bit ? 1 : 0;
 
         /// <summary>
         /// Devuelve el estado del bit seleccionado.
@@ -230,10 +194,8 @@ namespace iTin.Core.Helpers
         /// <param name="register">Máscara.</param>
         /// <param name="bit">bit a comprobar.</param>
         /// <returns></returns>
-        public static int GetBit(int register, Bits bit)
-        {
-            return GetBit((ulong)register, bit);
-        }
+        public static int GetBit(int register, Bits bit) => GetBit((ulong)register, bit);
+
         #endregion
 
         #region private static methods
@@ -241,7 +203,6 @@ namespace iTin.Core.Helpers
         /// Obtiene un valor que indica si el bit indicado está activado.
         /// </summary>
         private static readonly Func<long, int, bool> BitBit = (a, b) => (a & (1 << b)) == 1 << b;
-
         #endregion
     }
 }

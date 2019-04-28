@@ -108,7 +108,7 @@ namespace iSMBIOS.ConsoleApp
 
             Console.WriteLine();
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-            Console.WriteLine($@" Gets a single property directly");
+            Console.WriteLine(@" Gets a single property directly");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
 
             object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
@@ -125,7 +125,7 @@ namespace iSMBIOS.ConsoleApp
 
             Console.WriteLine();
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-            Console.WriteLine($@" Gets a multiple properties directly");
+            Console.WriteLine(@" Gets a multiple properties directly");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
             foreach (KeyValuePair<int, object> systemSlot in systemSlots)

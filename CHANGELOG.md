@@ -1,6 +1,11 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.6] - 
+
+### Fixed
+- Fix an error in the Processor structure. Now the Voltage property returns the correct value.
+
 ## [1.0.5] - 2019-04-25
 - Equals to v1.0.4 but without errors in nuget package. 
 

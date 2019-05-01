@@ -122,7 +122,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
                    if (value is string)
                    {
-                       Console.WriteLine($@"   > {id} > {value}{unit}");
+                       Console.WriteLine($@"   > {id} > {value} {unit}");
                    }
                    else if (value is byte)
                    {
@@ -138,19 +138,19 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
                    }
                    else if (value is int)
                    {
-                       Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
+                       Console.WriteLine($@"   > {id} > {value} {unit} [{value:X4}h]");
                    }
                    else if (value is uint)
                    {
-                       Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
+                       Console.WriteLine($@"   > {id} > {value} {unit} [{value:X4}h]");
                    }
                    else if (value is long)
                    {
-                       Console.WriteLine($@"   > {id} > {value}{unit} [{value:X8}h]");
+                       Console.WriteLine($@"   > {id} > {value} {unit} [{value:X8}h]");
                    }
                    else if (value is ulong)
                    {
-                       Console.WriteLine($@"   > {id} > {value}{unit} [{value:X8}h]");
+                       Console.WriteLine($@"   > {id} > {value} {unit} [{value:X8}h]");
                    }
                    else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
                    {
@@ -162,12 +162,12 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
                        var collection = (ReadOnlyCollection<string>) value;
                        foreach (var entry in collection)
                        {
-                           Console.WriteLine($@"     > {entry}");
+                           Console.WriteLine($@"     > {entry} {unit}");
                        }
                    }
                    else
                    {
-                       Console.WriteLine($@"   > {id} > {value}{unit}");
+                       Console.WriteLine($@"   > {id} > {value} {unit}");
                    }
                }
            }

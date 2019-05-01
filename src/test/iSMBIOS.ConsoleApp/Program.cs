@@ -55,35 +55,35 @@ namespace iSMBIOS.ConsoleApp
 
                         if (value is string)
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit}");
+                            Console.WriteLine($@" > {id} > {value} {unit}");
                         }
                         else if (value is byte)
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X2}h]");
+                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X2}h]");
                         }
                         else if (value is short)
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is ushort)
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is int)
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is uint)
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is long)
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X8}h]");
+                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X8}h]");
                         }
                         else if (value is ulong)
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit} [{value:X8}h]");
+                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X8}h]");
                         }
                         else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
                         {
@@ -95,12 +95,12 @@ namespace iSMBIOS.ConsoleApp
                             var collection = (ReadOnlyCollection<string>) value;
                             foreach (var entry in collection)
                             {
-                                Console.WriteLine($@"   > {entry}");
+                                Console.WriteLine($@"   > {entry} {unit}");
                             }
                         }
                         else
                         {
-                            Console.WriteLine($@" > {id} > {value}{unit}");
+                            Console.WriteLine($@" > {id} > {value} {unit}");
                         }
                     }
                 }

@@ -1306,7 +1306,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// <para>— Key Composition ——————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.Processor" /></para>
                 /// <para>Property: <see cref="SmbiosType004Property.VoltageCapability" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+                /// <para>Unit: <see cref="PropertyUnit.V" /></para>
                 /// <para>— Return Value ———————————————— </para>
                 /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
                 /// </summary>

@@ -280,7 +280,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsLegacyMode => Voltages.CheckBit(Bits.Bit07);
+        private bool IsLegacyMode => !Voltages.CheckBit(Bits.Bit07);
         #endregion
 
         #region [private] (int) ExternalClock: Gets a value representing the 'External Clock' field

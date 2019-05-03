@@ -76,11 +76,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosRomSize" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.Bytes" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" />, please see <see cref="BiosRomSizeUnit" /> for known bios rom size unit</para>
             /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.Int32" /></para>
             /// </summary>
-            public static PropertyKey BiosRomSize => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.BiosRomSize, PropertyUnit.Bytes);
+            public static PropertyKey BiosRomSize => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.BiosRomSize, PropertyUnit.None);
             #endregion
 
             #region [public] {static} (PropertyKey) Characteristics: Gets a value representing the key to retrieve the property
@@ -195,17 +195,17 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             public static PropertyKey ExtendedBiosRomSize => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.ExtendedBiosRomSize);
             #endregion
 
-            #region [public] {static} (PropertyKey) ExtendedBiosRomSizeUnit: Gets a value representing the key to retrieve the property
+            #region [public] {static} (PropertyKey) BiosRomSizeUnit: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
-            /// <para>Property: <see cref="SmbiosType000Property.ExtendedBiosRomSizeUnit" /></para>
+            /// <para>Property: <see cref="SmbiosType000Property.BiosRomSizeUnit" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
             /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="MemorySizeUnit" /></para>
             /// </summary>
-            public static PropertyKey ExtendedBiosRomSizeUnit => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.ExtendedBiosRomSizeUnit);
+            public static PropertyKey BiosRomSizeUnit => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.BiosRomSizeUnit);
             #endregion
 
             #endregion

@@ -7,6 +7,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
     public enum MemorySizeUnit
     {
         /// <summary>
+        /// Memory expressed in kilobytes
+        /// </summary>
+        KB = -1,
+
+        /// <summary>
         /// Memory expressed in megabytes
         /// </summary>
         MB,

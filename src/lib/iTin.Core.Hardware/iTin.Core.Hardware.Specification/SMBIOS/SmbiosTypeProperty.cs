@@ -68,9 +68,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyType(typeof(int))]
         ExtendedBiosRomSize,
 
-        [PropertyDescription("Extended ROM size (units)")]
+        [PropertyDescription("BIOS ROM size (units)")]
         [PropertyType(typeof(MemorySizeUnit))]
-        ExtendedBiosRomSizeUnit,
+        BiosRomSizeUnit,
         #endregion
     }
     #endregion

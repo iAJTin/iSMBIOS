@@ -302,7 +302,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             get
             {
                 int value = ExtendedBiosRomSizeRawInfo & 0xc000;
-                byte unit = value.GetByte(Bytes.Byte03);
+                byte unit = (byte)(value.GetByte(Bytes.Byte03) >> 2);
 
                 return
                     unit >= 2 
@@ -356,9 +356,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     break;
                 #endregion
 
-                #region [0x09] - [v2.0] - [Bios Rom Size] - [Int32]
+                #region [0x09] - [0x18] - [v2.0] - [v3.1] - [Bios Rom Size / Extended Bios Rom Size] - [Int32]
                 case SmbiosType000Property.BiosRomSize:
-                    value = RomSize;
+                    if (RomSize == 0xff)
+                    {
+                        if(HeaderInfo.Length >= 0x19)
+                        {
+                            value = ExtendedBiosRomSize;
+                        }
+                    }
+                    else
+                    {
+                        value = RomSize;
+                    }
                     break;
                 #endregion
 
@@ -428,20 +438,18 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                 #region [0x18] - [v3.1] - [Extended BIOS ROM Size]
 
-                #region [0x18] - [v3.1] - [Extended BIOS ROM -> Size] - [Int32]
-                case SmbiosType000Property.ExtendedBiosRomSize:
-                    if (HeaderInfo.Length >= 0x19)
+                #region [0x18] - [v2.0] - [v3.1] - [Extended BIOS ROM -> Unit] - [MemorySizeUnit]
+                case SmbiosType000Property.BiosRomSizeUnit:
+                    if (RomSize == 0xff)
                     {
-                        value = ExtendedBiosRomSize;
+                        if (HeaderInfo.Length >= 0x19)
+                        {
+                            value = ExtendedBiosRomSizeUnits;
+                        }
                     }
-                    break;
-                #endregion
-
-                #region [0x18] - [v3.1] - [Extended BIOS ROM -> Unit] - [MemorySizeUnit]
-                case SmbiosType000Property.ExtendedBiosRomSizeUnit:
-                    if (HeaderInfo.Length >= 0x19)
+                    else
                     {
-                        value = ExtendedBiosRomSizeUnits;
+                        value = MemorySizeUnit.KB;
                     }
                     break;
                 #endregion
@@ -474,7 +482,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 properties.Add(DmiProperty.Bios.BiosVersion, BiosVersion);
                 properties.Add(DmiProperty.Bios.BiosStartingAddressSegment, BiosStartingAddressSegment);
                 properties.Add(DmiProperty.Bios.BiosReleaseDate, BiosReleaseDate);
-                properties.Add(DmiProperty.Bios.BiosRomSize, RomSize);
                 properties.Add(DmiProperty.Bios.Characteristics, GetCharacteristics(Characteristics));
             }
             #endregion
@@ -506,8 +513,22 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 3.1+
             if (HeaderInfo.Length >= 0x19)
             {
-                properties.Add(DmiProperty.Bios.ExtendedBiosRomSize, ExtendedBiosRomSize);
-                properties.Add(DmiProperty.Bios.ExtendedBiosRomSizeUnit, ExtendedBiosRomSizeUnits);
+            }
+            #endregion
+
+            #region RomSize
+            if (RomSize == 0xff)
+            {
+                if (HeaderInfo.Length >= 0x19)
+                {
+                    properties.Add(DmiProperty.Bios.BiosRomSize, ExtendedBiosRomSize);
+                    properties.Add(DmiProperty.Bios.BiosRomSizeUnit, ExtendedBiosRomSizeUnits);
+                }
+            }
+            else
+            {
+                properties.Add(DmiProperty.Bios.BiosRomSize, RomSize);
+                properties.Add(DmiProperty.Bios.BiosRomSizeUnit, MemorySizeUnit.KB);
             }
             #endregion
 

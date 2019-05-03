@@ -3,8 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.6] - 
 
+### Changed
+- Type 0 - BIOS Information structure
+  - Unify the BIOS Rom Size and Extended BIOS Rom Size properties in the Rom Size BIOS property.
+  - Modify the property BIOS Rom Size Unit to display values in order of KB.
+
 ### Fixed
-- Fix an error in the Processor structure. Now the Voltage property returns the correct value.
+- Type 4 - Processor structure
+  - Fix an error in the Processor structure. Now the Voltage property returns the correct value.
 
 ## [1.0.5] - 2019-04-25
 - Equals to v1.0.4 but without errors in nuget package. 

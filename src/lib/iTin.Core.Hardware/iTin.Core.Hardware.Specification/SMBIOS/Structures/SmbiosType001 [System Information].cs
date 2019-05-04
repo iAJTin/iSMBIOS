@@ -376,7 +376,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 smbiosVersion >= 0x0206 
                     ? string.Format(
                         CultureInfo.InvariantCulture, 
-                        "{0}{1}{2}{3}-{4}{5}-{6}{7}-{8}{9}-{10}{11}{12}{13}{14}{15}",
+                        "{{{0}{1}{2}{3}-{4}{5}-{6}{7}-{8}{9}-{10}{11}{12}{13}{14}{15}}}",                        
                         uuid[3].ToString("X2", CultureInfo.InvariantCulture),
                         uuid[2].ToString("X2", CultureInfo.InvariantCulture),
                         uuid[1].ToString("X2", CultureInfo.InvariantCulture),
@@ -395,7 +395,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         uuid[15].ToString("X2", CultureInfo.InvariantCulture))
                     : string.Format(
                         CultureInfo.InvariantCulture, 
-                        "{0}{1}{2}{3}-{4}{5}-{6}{7}-{8}{9}-{10}{11}{12}{13}{14}{15}",
+                        "{{{0}{1}{2}{3}-{4}{5}-{6}{7}-{8}{9}-{10}{11}{12}{13}{14}{15}}}",
                         uuid[0].ToString("X2", CultureInfo.InvariantCulture),
                         uuid[1].ToString("X2", CultureInfo.InvariantCulture),
                         uuid[2].ToString("X2", CultureInfo.InvariantCulture),

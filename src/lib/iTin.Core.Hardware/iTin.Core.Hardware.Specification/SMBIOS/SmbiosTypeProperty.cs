@@ -20,55 +20,62 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyType(typeof(string))]
         BiosVersion,
 
-        [PropertyDescription("Ubicación del segmento de dirección inicial de esta bios")]
+        [PropertyName("BIOS Start Segment")]
+        [PropertyDescription("Segment location of BIOS starting address")]
         [PropertyType(typeof(string))]
         BiosStartingAddressSegment,
 
-        [PropertyDescription("Date of the version is bios")]
+        [PropertyName("BIOS Release Date")]
+        [PropertyDescription("BIOS Release Date")]
         [PropertyType(typeof(string))]
         BiosReleaseDate,
 
-        [PropertyDescription("Bios size")]
+        [PropertyName("BIOS Size")]
+        [PropertyDescription("Size of the physical device containing the BIOS")]
         [PropertyType(typeof(int))]
         BiosRomSize,
 
-        [PropertyDescription("Collection of functions compatible with this bios")]
+        [PropertyName("BIOS Characteristics")]
+        [PropertyDescription("Defines which functions the BIOS supports")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         Characteristics,
         #endregion
 
         #region version 2.4+
+        [PropertyName("BIOS Characteristics Extension Byte 1")]
         [PropertyDescription("Collection of functions compatible with this bios")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         ExtensionByte1,
 
+        [PropertyName("BIOS Characteristics Extension Byte 2")]
         [PropertyDescription("Collection of functions compatible with this bios")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         ExtensionByte2,
 
-        [PropertyDescription("Version number of this bios")]
+        [PropertyName("System BIOS Major Release")]
+        [PropertyDescription("Major release of the System BIOS")]
         [PropertyType(typeof(byte?))]
         SystemBiosMajorRelease,
 
-        [PropertyDescription("Revision number of this bios")]
+        [PropertyName("System BIOS Minor Release")]
+        [PropertyDescription("Minor release of the System BIOS")]
         [PropertyType(typeof(byte?))]
         SystemBiosMinorRelease,
 
-        [PropertyDescription("Controller firmware version number for this bios")]
+        [PropertyName("Embedded Controller Firmware Major Version")]
+        [PropertyDescription("Identifies the major release of the embedded controller firmware")]
         [PropertyType(typeof(byte?))]
         FirmwareMajorRelease,
 
-        [PropertyDescription("Controller firmware revision number for this bios")]
+        [PropertyName("Embedded Controller Firmware Minor Version")]
+        [PropertyDescription("Identifies the minor release of the embedded controller firmware")]
         [PropertyType(typeof(byte?))]
         FirmwareMinorRelease,
         #endregion
 
         #region version 3.1.0+
-        [PropertyDescription("Extended ROM size")]
-        [PropertyType(typeof(int))]
-        ExtendedBiosRomSize,
-
-        [PropertyDescription("BIOS ROM size (units)")]
+        [PropertyName("BIOS ROM Size Units")]
+        [PropertyDescription("Size of the physical device(s) containing the BIOS")]
         [PropertyType(typeof(MemorySizeUnit))]
         BiosRomSizeUnit,
         #endregion
@@ -82,39 +89,47 @@ namespace iTin.Core.Hardware.Specification.Smbios
     enum SmbiosType001Property
     {
         #region version 2.0+
-        [PropertyDescription("")]
+        [PropertyName("System Manufacturer")]
+        [PropertyDescription("System Manufacturer")]
         [PropertyType(typeof(string))]
         Manufacturer,
 
-        [PropertyDescription("")]
+        [PropertyName("Product Name")]
+        [PropertyDescription("Product Name")]
         [PropertyType(typeof(string))]
         ProductName,
 
-        [PropertyDescription("")]
+        [PropertyName("Product Version")]
+        [PropertyDescription("Product Version")]
         [PropertyType(typeof(string))]
         Version,
 
-        [PropertyDescription("")]
+        [PropertyName("Product Serial Number")]
+        [PropertyDescription("Product Serial Number")]
         [PropertyType(typeof(string))]
         SerialNumber,
         #endregion
 
         #region version 2.1+
-        [PropertyDescription("")]
+        [PropertyName("UUID")]
+        [PropertyDescription("Universal unique ID number (UUID)")]
         [PropertyType(typeof(string))]
         UUID,
 
-        [PropertyDescription("")]
+        [PropertyName("Wake Up Type")]
+        [PropertyDescription("Identifies the event that caused the system to power up")]
         [PropertyType(typeof(string))]
         WakeUpType,
         #endregion
 
         #region version 2.4+
-        [PropertyDescription("")]
+        [PropertyName("SKU Number")]
+        [PropertyDescription("This text string identifies a particular computer configuration for sale")]
         [PropertyType(typeof(string))]
         SkuNumber,
 
-        [PropertyDescription("")]
+        [PropertyName("Family")]
+        [PropertyDescription("This text string identifies the family to which a particular computer belongs")]
         [PropertyType(typeof(string))]
         Family,
         #endregion
@@ -127,63 +142,78 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// </summary>
     enum SmbiosType002Property
     {
-        [PropertyDescription("")]
+        [PropertyName("Mainboard Manufacturer")]
+        [PropertyDescription("Mainboard Manufacturer")]
         [PropertyType(typeof(string))]
         Manufacturer,
 
-        [PropertyDescription("")]
+        [PropertyName("Mainboard Name")]
+        [PropertyDescription("Mainboard Name")]
         [PropertyType(typeof(string))]
         Product,
 
-        [PropertyDescription("")]
+        [PropertyName("Mainboard Version")]
+        [PropertyDescription("Mainboard version")]
         [PropertyType(typeof(string))]
         Version,
 
-        [PropertyDescription("")]
+        [PropertyName("Mainboard Serial Number")]
+        [PropertyDescription("Mainboard Serial Number")]
         [PropertyType(typeof(string))]
         SerialNumber,
 
-        [PropertyDescription("")]
+        [PropertyName("Asset Tag")]
+        [PropertyDescription("Asset Tag")]
         [PropertyType(typeof(string))]
         AssetTag,
 
-        [PropertyDescription("")]
+        [PropertyName("Hot Swappable")]
+        [PropertyDescription("The mainboard is hot swappable")]
         [PropertyType(typeof(bool?))]
         HotSwappable,
 
-        [PropertyDescription("")]
+        [PropertyName("Replaceable")]
+        [PropertyDescription("The mainboard is replaceable")]
         [PropertyType(typeof(bool?))]
         IsReplaceable,
 
-        [PropertyDescription("")]
+        [PropertyName("Removable")]
+        [PropertyDescription("The mainboard is removable")]
         [PropertyType(typeof(bool?))]
         IsRemovable,
 
-        [PropertyDescription("")]
+        [PropertyName("Required Daughter Board")]
+        [PropertyDescription("The mainboard required daughter board")]
         [PropertyType(typeof(bool?))]
         RequiredDaughterBoard,
 
-        [PropertyDescription("")]
+        [PropertyName("Hosting Board")]
+        [PropertyDescription("Determines if is hosting board")]
         [PropertyType(typeof(bool?))]
         IsHostingBoard,
 
-        [PropertyDescription("")]
+        [PropertyName("Location In Chassis")]
+        [PropertyDescription("String that describes this board's location")]
         [PropertyType(typeof(string))]
         LocationInChassis,
 
-        [PropertyDescription("")]
+        [PropertyName("Chassis Handle")]
+        [PropertyDescription("Handle, or instance number, associated with the chassis in which this board resides")]
         [PropertyType(typeof(int?))]
         ChassisHandle,
 
-        [PropertyDescription("")]
+        [PropertyName("Mainboard Type")]
+        [PropertyDescription("Type of board")]
         [PropertyType(typeof(string))]
         BoardType,
 
-        [PropertyDescription("")]
+        [PropertyName("Mainboard Number Of Contained Object Handles")]
+        [PropertyDescription("Number (0 to 255) of contained Object Handles that follow")]
         [PropertyType(typeof(byte?))]
         NumberOfContainedObjectHandles,
 
-        [PropertyDescription("")]
+        [PropertyName("Mainboard Contained Object Handles")]
+        [PropertyDescription("List of handles of other structures (for examples, Baseboard, Processor, Port, System Slots, Memory Device) that are contained by this baseboard")]
         [PropertyType(typeof(BaseBoardContainedElementCollection))]
         ContainedObjectHandles,
     }
@@ -195,70 +225,100 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// </summary>
     enum SmbiosType003Property
     {
-        [PropertyDescription("")]
+        [PropertyName("Manufacturer")]
+        [PropertyDescription("Manufacturer")]
         [PropertyType(typeof(string))]
         Manufacturer,
 
-        [PropertyDescription("")]
+        [PropertyName("Chassis Type")]
+        [PropertyDescription("Chassis Type")]
         [PropertyType(typeof(string))]
         ChassisType,
 
-        [PropertyDescription("")]
+        [PropertyName("Locked")]
+        [PropertyDescription("Indicates if chassis lock is present")]
         [PropertyType(typeof(string))]
         Locked,
 
-        [PropertyDescription("")]
+        [PropertyName("Version")]
+        [PropertyDescription("Version")]
         [PropertyType(typeof(string))]
         Version,
 
-        [PropertyDescription("")]
+        [PropertyName("Serial Number")]
+        [PropertyDescription("Serial Number")]
         [PropertyType(typeof(string))]
         SerialNumber,
 
-        [PropertyDescription("")]
+        [PropertyName("Asset Tag Number")]
+        [PropertyDescription("Asset Tag Number")]
         [PropertyType(typeof(string))]
         AssetTagNumber,
 
-        [PropertyDescription("")]
+        [PropertyName("Boot Up State")]
+        [PropertyDescription("State of the enclosure when it was last booted")]
         [PropertyType(typeof(string))]
         BootUpState,
 
-        [PropertyDescription("")]
+        [PropertyName("Power Supply State")]
+        [PropertyDescription("State of the enclosure’s power supply (or supplies) when last booted")]
         [PropertyType(typeof(string))]
         PowerSupplyState,
 
-        [PropertyDescription("")]
+        [PropertyName("Thermal State")]
+        [PropertyDescription("Thermal state of the enclosure when last booted")]
         [PropertyType(typeof(string))]
         ThermalState,
 
-        [PropertyDescription("")]
+        [PropertyName("Thermal State")]
+        [PropertyDescription("Physical security status of the enclosure when last booted")]
         [PropertyType(typeof(string))]
         SecurityStatus,
 
-        [PropertyDescription("")]
+        [PropertyName("OEM Information")]
+        [PropertyDescription("OEM or BIOS vendor-specific information")]
         [PropertyType(typeof(long?))]
         OemDefined,
 
-        [PropertyDescription("")]
+        [PropertyName("Height")]
+        [PropertyDescription("Height of the enclosure, in 'U's  A U is a standard unit of measure for the height of a rack or rack-mountable component")]
         [PropertyType(typeof(byte?))]
         Height,
 
-        [PropertyDescription("")]
+        [PropertyName("Number Of Power Cords")]
+        [PropertyDescription("Number of power cords associated with the enclosure or chassis")]
         [PropertyType(typeof(byte?))]
         NumberOfPowerCords,
 
-        [PropertyDescription("")]
+        [PropertyName("Contained Elements")]
+        [PropertyDescription("Number of contained Element records that follow, in the range 0 to 255")]
         [PropertyType(typeof(ChassisContainedElementCollection))]
         ContainedElements,
 
-        [PropertyDescription("")]
+        [PropertyName("SKU Number")]
+        [PropertyDescription("String describing the chassis or enclosure SKU number")]
         [PropertyType(typeof(string))]
         SkuNumber,
 
-        ContainedElementMinimum,
-        ContainedElementMaximun,
-        ContainedTypeSelect,
+        [PropertyName("Contained Type")]
+        [PropertyDescription("Type of element associated")]
+        [PropertyType(typeof(string))]
         ContainedType,
+
+        [PropertyName("Contained Type Select")]
+        [PropertyDescription("Type of selected element associated")]
+        [PropertyType(typeof(ChassisContainedElementType))]
+        ContainedTypeSelect,
+
+        [PropertyName("Contained Type Select")]
+        [PropertyDescription("Specifies the maximum number of the element type that can be installed in the chassis, in the range 1 to 255")]
+        [PropertyType(typeof(byte))]
+        ContainedElementMaximun,
+
+        [PropertyName("Contained Type Select")]
+        [PropertyDescription("Specifies the minimum number of the element type that can be installed in the chassis for the chassis to properly operate, in the range 0 to 254")]
+        [PropertyType(typeof(byte))]
+        ContainedElementMinimum
     }
     #endregion
 

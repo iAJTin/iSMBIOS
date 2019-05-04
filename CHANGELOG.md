@@ -8,6 +8,18 @@ All notable changes to this project will be documented in this file.
   - Unify the BIOS Rom Size and Extended BIOS Rom Size properties in the Rom Size BIOS property.
   - Modify the property BIOS Rom Size Unit to display values in order of KB.
 
+- Type 1 - System Information structure
+  - Modified the UUID property for start with '\{' and end with '\}'.
+    - Example:
+    
+          Before
+           7DFF2AF0-F6B9-4946-9AF6-4E10B59D5106
+
+          After
+           {7DFF2AF0-F6B9-4946-9AF6-4E10B59D5106}
+
+- Minor changes.
+
 ### Fixed
 - Type 4 - Processor structure
   - Fix an error in the Processor structure. Now the Voltage property returns the correct value.

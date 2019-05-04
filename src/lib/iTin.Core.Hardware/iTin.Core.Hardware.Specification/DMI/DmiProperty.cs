@@ -21,6 +21,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Vendor: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>BIOS Vendor’s Name.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.Vendor" /></para>
@@ -34,6 +35,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BiosVersion: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>BIOS Version.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosVersion" /></para>
@@ -47,6 +49,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BiosStartingAddressSegment: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Segment location of BIOS starting address.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosStartingAddressSegment" /></para>
@@ -60,6 +63,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BiosReleaseDate: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>BIOS release date.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosReleaseDate" /></para>
@@ -73,10 +77,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BiosRomSize: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Size of the physical device containing the BIOS. For check measured unit, please see <see cref="BiosRomSizeUnit" />.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosRomSize" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" />, please see <see cref="BiosRomSizeUnit" /> for known bios rom size unit</para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
             /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.Int32" /></para>
             /// </summary>
@@ -86,12 +91,13 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Characteristics: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Defines which functions the BIOS supports: <c>PCI</c>, <c>PCMCIA</c>, <c>Flash</c>, etc.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.Characteristics" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
             /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
+            /// <para>Type: <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection&lt;String&gt;" /></para>
             /// </summary>
             public static PropertyKey Characteristics => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.Characteristics);
             #endregion
@@ -103,6 +109,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ExtensionByte1: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>BIOS characteristics byte 1 supports: <c>ACPI</c>, <c>USB</c>, <c>ATAPI ZIP</c>, etc.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.ExtensionByte1" /></para>
@@ -116,6 +123,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ExtensionByte2: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>BIOS characteristics byte 2 supports: <c>BIOS Boot Specification</c>, <c>UEFI</c>, etc.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.ExtensionByte2" /></para>
@@ -129,6 +137,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SystemBiosMajorRelease: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Major release of the System BIOS.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.SystemBiosMajorRelease" /></para>
@@ -142,6 +151,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SystemBiosMinorRelease: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Minor release of the System BIOS.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.SystemBiosMinorRelease" /></para>
@@ -155,6 +165,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) FirmwareMajorRelease: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Identifies the major release of the embedded controller firmware.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.FirmwareMajorRelease" /></para>
@@ -168,6 +179,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) FirmwareMinorRelease: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Identifies the minor release of the embedded controller firmware.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.FirmwareMinorRelease" /></para>
@@ -182,22 +194,10 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region version 3.1+
 
-            #region [public] {static} (PropertyKey) ExtendedBiosRomSize: Gets a value representing the key to retrieve the property
-            /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
-            /// <para>Property: <see cref="SmbiosType000Property.ExtendedBiosRomSize" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32" /></para>
-            /// </summary>
-            public static PropertyKey ExtendedBiosRomSize => new PropertyKey(SmbiosStructure.Bios, SmbiosType000Property.ExtendedBiosRomSize);
-            #endregion
-
             #region [public] {static} (PropertyKey) BiosRomSizeUnit: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Size of the physical device(s) containing the BIOS.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.Bios" /></para>
             /// <para>Property: <see cref="SmbiosType000Property.BiosRomSizeUnit" /></para>
@@ -223,12 +223,13 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Manufacturer: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>System Manufacturer.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.System" /></para>
             /// <para>Property: <see cref="SmbiosType001Property.Manufacturer" /></para>
             /// <para>Unit: <see cref="PropertyUnit.None" /></para>
             /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
+            /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static PropertyKey Manufacturer => new PropertyKey(SmbiosStructure.System, SmbiosType001Property.Manufacturer);
             #endregion
@@ -236,6 +237,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ProductName: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Product Name.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.System" /></para>
             /// <para>Property: <see cref="SmbiosType001Property.ProductName" /></para>
@@ -249,6 +251,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Version: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Product Version.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.System" /></para>
             /// <para>Property: <see cref="SmbiosType001Property.Version" /></para>
@@ -262,6 +265,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SerialNumber: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Product Serial Number.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.System" /></para>
             /// <para>Property: <see cref="SmbiosType001Property.SerialNumber" /></para>
@@ -279,6 +283,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) UUID: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Universal unique ID number (UUID).</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.System" /></para>
             /// <para>Property: <see cref="SmbiosType001Property.UUID" /></para>
@@ -292,6 +297,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) WakeUpType: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Identifies the event that caused the system to power up.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.System" /></para>
             /// <para>Property: <see cref="SmbiosType001Property.WakeUpType" /></para>
@@ -309,6 +315,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SkuNumber: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>This text string identifies a particular computer configuration for sale.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.System" /></para>
             /// <para>Property: <see cref="SmbiosType001Property.SkuNumber" /></para>
@@ -322,6 +329,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Family: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>This text string identifies the family to which a particular computer belongs.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.System" /></para>
             /// <para>Property: <see cref="SmbiosType001Property.Family" /></para>
@@ -345,6 +353,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Manufacturer: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Mainboard Manufacturer.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.Manufacturer" /></para>
@@ -358,6 +367,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Product: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Mainboard Name.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.Product" /></para>
@@ -371,6 +381,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Version: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Mainboard Version.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.Version" /></para>
@@ -384,6 +395,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SerialNumber: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Mainboard Serial Number.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.SerialNumber" /></para>
@@ -397,6 +409,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) AssetTag: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Mainboard Asset Tag.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.AssetTag" /></para>
@@ -410,6 +423,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) LocationInChassis: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>String that describes this board's location.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.LocationInChassis" /></para>
@@ -423,6 +437,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ChassisHandle: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Handle, or instance number, associated with the chassis in which this board resides.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.ChassisHandle" /></para>
@@ -436,6 +451,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BoardType: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Mainboard Type.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.BoardType" /></para>
@@ -449,6 +465,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) NumberOfContainedObjectHandles: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Number (0 to 255) of contained Object Handles that follow.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.NumberOfContainedObjectHandles" /></para>
@@ -459,9 +476,10 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             public static PropertyKey NumberOfContainedObjectHandles => new PropertyKey(SmbiosStructure.BaseBoard, SmbiosType002Property.NumberOfContainedObjectHandles);
             #endregion
 
-            #region [public] {static} (PropertyKey) NumberOfContainedObjectHandles: Gets a value representing the key to retrieve the property
+            #region [public] {static} (PropertyKey) ContainedElements: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>List of handles of other structures (for examples, Baseboard, Processor, Port, System Slots, Memory Device) that are contained by this baseboard.</para>
             /// <para>— Key Composition ——————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
             /// <para>Property: <see cref="SmbiosType002Property.ContainedObjectHandles" /></para>
@@ -483,9 +501,8 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             {
                 #region [public] {static} (PropertyKey) IsHostingBoard: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>
-                /// Gets a value representing the key to retrieve the property.
-                /// </para>
+                /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Indicates if is hosting board.</para>
                 /// <para>— Key Composition ——————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
                 /// <para>Property: <see cref="SmbiosType002Property.IsHostingBoard" /></para>
@@ -498,9 +515,8 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
                 #region [public] {static} (PropertyKey) IsHotSwappable: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>
-                /// Gets a value representing the key to retrieve the property.
-                /// </para>
+                /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Indicates if mainboard is hot swappable.</para>
                 /// <para>— Key Composition ——————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
                 /// <para>Property: <see cref="SmbiosType002Property.IsHostingBoard" /></para>
@@ -513,9 +529,8 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
                 #region [public] {static} (PropertyKey) IsRemovable: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>
-                /// Gets a value representing the key to retrieve the property.
-                /// </para>
+                /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Indicates if mainboard is removable.</para>
                 /// <para>— Key Composition ——————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
                 /// <para>Property: <see cref="SmbiosType002Property.IsRemovable" /></para>
@@ -528,9 +543,8 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
                 #region [public] {static} (PropertyKey) IsReplaceable: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>
-                /// Gets a value representing the key to retrieve the property.
-                /// </para>
+                /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Indicates if mainboard is replaceable.</para>
                 /// <para>— Key Composition ——————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
                 /// <para>Property: <see cref="SmbiosType002Property.IsReplaceable" /></para>
@@ -543,9 +557,8 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
                 #region [public] {static} (PropertyKey) RequiredDaughterBoard: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>
-                /// Gets a value representing the key to retrieve the property.
-                /// </para>
+                /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Indicates if mainboard required a daughter board.</para>
                 /// <para>— Key Composition ——————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.BaseBoard" /></para>
                 /// <para>Property: <see cref="SmbiosType002Property.RequiredDaughterBoard" /></para>
@@ -573,6 +586,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Manufacturer: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Mainboard Manufacturer.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.Manufacturer" /></para>
@@ -586,6 +600,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Locked: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Indicates if chassis lock is present.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.Locked" /></para>
@@ -599,6 +614,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ChassisType: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Chassis Type.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.ChassisType" /></para>
@@ -612,6 +628,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Version: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Chassis Version.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.Version" /></para>
@@ -625,6 +642,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SerialNumber: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Chassis Serial Number.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.SerialNumber" /></para>
@@ -632,12 +650,13 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>— Value ——————————————————————</para>
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
-            public static PropertyKey SerialNumber => new PropertyKey(SmbiosStructure.SystemEnclosure, SmbiosType003Property.SerialNumber); 
+            public static PropertyKey SerialNumber => new PropertyKey(SmbiosStructure.SystemEnclosure, SmbiosType003Property.SerialNumber);
             #endregion
 
             #region [public] {static} (PropertyKey) AssetTagNumber: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Asset Tag Number.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.AssetTagNumber" /></para>
@@ -655,6 +674,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) BootUpState: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>State of the enclosure when it was last booted.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.BootUpState" /></para>
@@ -668,6 +688,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) PowerSupplyState: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>State of the enclosure’s power supply (or supplies) when last booted.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.PowerSupplyState" /></para>
@@ -681,6 +702,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ThermalState: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Thermal state of the enclosure when last booted.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.ThermalState" /></para>
@@ -694,6 +716,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SecurityStatus: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Physical security status of the enclosure when last booted.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.SecurityStatus" /></para>
@@ -711,6 +734,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) OemDefined: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>OEM or BIOS vendor-specific information.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.OemDefined" /></para>
@@ -724,6 +748,8 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) Height: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Height of the enclosure, in 'U's  A U is a standard unit of measure for the height of a rack or rack-mountable 
+            /// component and is equal to 1.75 inches or 4.445 cm. A value of 00h indicates that the enclosure height is unspecified.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.Height" /></para>
@@ -737,6 +763,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) NumberOfPowerCords: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Number of power cords associated with the enclosure or chassis.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.NumberOfPowerCords" /></para>
@@ -750,6 +777,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) ContainedElements: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Number of contained Element records that follow, in the range 0 to 255.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.ContainedElements" /></para>
@@ -767,6 +795,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (PropertyKey) SkuNumber: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>String describing the chassis or enclosure SKU number.</para>
             /// <para>— Key Composition —————————————————</para>
             /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
             /// <para>Property: <see cref="SmbiosType003Property.SkuNumber" /></para>
@@ -791,6 +820,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (PropertyKey) ItemType: Gets a value representing the key to retrieve the property
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Type of element associated.</para>
                 /// <para>— Key Composition —————————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
                 /// <para>Property: <see cref="SmbiosType003Property.ChassisType" /></para>
@@ -804,6 +834,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (PropertyKey) Min: Gets a value representing the key to retrieve the property
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Specifies the minimum number of the element type that can be installed in the chassis for the chassis to properly operate, in the range 0 to 254.</para>
                 /// <para>— Key Composition —————————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
                 /// <para>Property: <see cref="SmbiosType003Property.ContainedElementMinimum" /></para>
@@ -817,6 +848,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (PropertyKey) Max: Gets a value representing the key to retrieve the property
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Specifies the maximum number of the element type that can be installed in the chassis, in the range 1 to 255.</para>
                 /// <para>— Key Composition —————————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
                 /// <para>Property: <see cref="SmbiosType003Property.ContainedElementMaximun" /></para>
@@ -830,6 +862,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (PropertyKey) TypeSelect: Gets a value representing the key to retrieve the property
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property.</para>
+                /// <para>Type of select element associated.</para>
                 /// <para>— Key Composition —————————————————</para>
                 /// <para>Structure: <see cref="SmbiosStructure.SystemEnclosure" /></para>
                 /// <para>Property: <see cref="SmbiosType003Property.ContainedTypeSelect" /></para>

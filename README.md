@@ -67,8 +67,11 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
        if (biosVersion != null)
        {
-           Console.WriteLine($" BIOS Vendor > {biosVersion}");
+           Console.WriteLine($" BIOS Version > {biosVersion}");
        }
+
+       string biosVendor = structures.GetProperty<string>(DmiProperty.Bios.Vendor);
+       Console.WriteLine($" > BIOS Vendor > {biosVendor}");
 
 	   string processorFamily = structures.GetProperty<string>(DmiProperty.Processor.Family);
        Console.WriteLine($" Processor Family > {processorFamily}");

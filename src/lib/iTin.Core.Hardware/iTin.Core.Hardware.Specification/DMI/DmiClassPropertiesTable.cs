@@ -20,7 +20,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region constructor/s
 
-        #region [public] SmbiosPropertiesTable(): Initialize a new instance of the class
+        #region [public] DmiClassPropertiesTable(): Initialize a new instance of the class
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="DmiClassPropertiesTable" /> class.

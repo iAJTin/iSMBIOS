@@ -5,8 +5,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Type 0 - BIOS Information structure
-  - Unify the BIOS Rom Size and Extended BIOS Rom Size properties in the Rom Size BIOS property.
-  - Modify the property BIOS Rom Size Unit to display values in order of KB.
+  - Unified the BIOS Rom Size and Extended BIOS Rom Size properties in the Rom Size BIOS property.
+  - Modified the property BIOS Rom Size Unit to display values in order of KB.
 
 - Type 1 - System Information structure
   - Modified the UUID property for start with '\{' and end with '\}'.

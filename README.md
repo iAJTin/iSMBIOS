@@ -97,9 +97,9 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        foreach (DmiStructure structure in structures)
        {
            Console.WriteLine();
-           Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-           Console.WriteLine($@" {(int)structure.Class:D3}-{structure.Class} structure detail");
-           Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+           Console.WriteLine($" ——————————————————————————————————————————————————————————————");
+           Console.WriteLine($" {(int)structure.Class:D3}-{structure.Class} structure detail");
+           Console.WriteLine($" ——————————————————————————————————————————————————————————————");
            DmiClassCollection elements = structure.Elements;
            foreach (DmiClass element in elements)
            {
@@ -119,58 +119,58 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
                    if (value == null)
                    {
-                       Console.WriteLine($@"{id} -> NULL");
+                       Console.WriteLine($"{id} -> NULL");
                        continue;
                    }
 
                    if (value is string)
                    {
-                       Console.WriteLine($@"   > {id} > {value} {unit}");
+                       Console.WriteLine($"   > {id} > {value} {unit}");
                    }
                    else if (value is byte)
                    {
-                       Console.WriteLine($@"   > {id} > {value}{unit} [{value:X2}h]");
+                       Console.WriteLine($"   > {id} > {value}{unit} [{value:X2}h]");
                    }
                    else if (value is short)
                    {
-                       Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
+                       Console.WriteLine($"   > {id} > {value}{unit} [{value:X4}h]");
                    }
                    else if (value is ushort)
                    {
-                        Console.WriteLine($@"   > {id} > {value}{unit} [{value:X4}h]");
+                        Console.WriteLine($"   > {id} > {value}{unit} [{value:X4}h]");
                    }
                    else if (value is int)
                    {
-                       Console.WriteLine($@"   > {id} > {value} {unit} [{value:X4}h]");
+                       Console.WriteLine($"   > {id} > {value} {unit} [{value:X4}h]");
                    }
                    else if (value is uint)
                    {
-                       Console.WriteLine($@"   > {id} > {value} {unit} [{value:X4}h]");
+                       Console.WriteLine($"   > {id} > {value} {unit} [{value:X4}h]");
                    }
                    else if (value is long)
                    {
-                       Console.WriteLine($@"   > {id} > {value} {unit} [{value:X8}h]");
+                       Console.WriteLine($"   > {id} > {value} {unit} [{value:X8}h]");
                    }
                    else if (value is ulong)
                    {
-                       Console.WriteLine($@"   > {id} > {value} {unit} [{value:X8}h]");
+                       Console.WriteLine($"   > {id} > {value} {unit} [{value:X8}h]");
                    }
                    else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
                    {
-                       Console.WriteLine($@"   > {id} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
+                       Console.WriteLine($"   > {id} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
                    }
                    else if (value.GetType() == typeof(ReadOnlyCollection<string>))
                    {
-                       Console.WriteLine($@"   > {id}");
+                       Console.WriteLine($"   > {id}");
                        var collection = (ReadOnlyCollection<string>) value;
                        foreach (var entry in collection)
                        {
-                           Console.WriteLine($@"     > {entry} {unit}");
+                           Console.WriteLine($"     > {entry} {unit}");
                        }
                    }
                    else
                    {
-                       Console.WriteLine($@"   > {id} > {value} {unit}");
+                       Console.WriteLine($"   > {id} > {value} {unit}");
                    }
                }
            }

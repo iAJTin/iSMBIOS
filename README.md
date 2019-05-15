@@ -96,9 +96,11 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        DmiStructureCollection structures = DMI.Instance.Structures;
        foreach (DmiStructure structure in structures)
        {
+           DmiStructureClass currentClass = structure.Class;
+	   
            Console.WriteLine();
-           Console.WriteLine($" ——————————————————————————————————————————————————————————————");
-           Console.WriteLine($" {(int)structure.Class:D3}-{structure.Class} structure detail");
+           Console.WriteLine($" —————————————————————————————————————————— DMI ({DMI.AccessType}) —");
+           Console.WriteLine($" {(int)currentClass:D3}-{currentClass} structure detail");
            Console.WriteLine($" ——————————————————————————————————————————————————————————————");
            DmiClassCollection elements = structure.Elements;
            foreach (DmiClass element in elements)
@@ -119,7 +121,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
                    if (value == null)
                    {
-                       Console.WriteLine($"{id} -> NULL");
+                       Console.WriteLine($"{id} > NULL");
                        continue;
                    }
 

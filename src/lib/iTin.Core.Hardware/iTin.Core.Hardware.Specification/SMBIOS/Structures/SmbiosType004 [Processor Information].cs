@@ -258,7 +258,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private double VoltageValue => (double) (Voltages & 0x7f) / 10;
+        private double VoltageValue => (double)(Voltages & 0x7f) / 10;
         #endregion
 
         #region [private] (byte) VoltageCapability: Gets a value representing the 'Voltage Capability' characteristic of the 'Voltages' field
@@ -269,7 +269,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte VoltageCapability => Voltages.GetBit(Bits.Bit07);
+        private byte VoltageCapability => (byte)(Voltages & 0x0f);
         #endregion
 
         #region [private] (bool) IsLegacyMode: Gets a value representing the 'Is Legacy Mode' characteristic of the 'Voltages' field
@@ -346,7 +346,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CpuStatus => Status.GetBit(Bits.Bit07);
+        private byte CpuStatus => (byte)(Status & 0x07);
         #endregion
 
         #region [private] (byte) UpgradeMethod: Gets a value representing the 'Upgrade Method' field
@@ -570,8 +570,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
 
         #endregion
-
-        #region protected override methods
 
         #region [protected] {override} (object) GetValueTypedProperty(PropertyKey): Returns a value that represents the value of the specified property
         /// <inheritdoc />
@@ -1171,8 +1169,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             #endregion
         }
-        #endregion
-
         #endregion
 
         #region BIOS Specification 3.2.0 (26/04/2018)

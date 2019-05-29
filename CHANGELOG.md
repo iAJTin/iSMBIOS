@@ -1,7 +1,7 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.0.6] - 2019-03-30 
+## [1.0.6] - 2019-04-30 
 
 ### Changed
 - Type 0 - BIOS Information structure

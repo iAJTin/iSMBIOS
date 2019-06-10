@@ -156,7 +156,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public override methods
 
-        #region [protected] {override} (string) ToString(): Gets the property collection for this structure
+        #region [protected] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
         /// Returns a <see cref="T:System.String" /> that represents this instance.
         /// </summary>

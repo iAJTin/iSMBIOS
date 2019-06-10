@@ -37,6 +37,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collections\NameObjectCollection.cs" />
     <Compile Include="Extensions\ByteArrayExtensions.cs" />
     <Compile Include="Extensions\IntPtrExtensions.cs" />
     <Compile Include="Extensions\ReadOnlyCollectionExtensions.cs" />

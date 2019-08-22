@@ -4,10 +4,10 @@ All notable changes to this project will be documented in this file.
 ## 1.0.8 - 
 
 ### Changed
-- Minor changes.
+- Minor changes
 
 ### Removed
-- Unused variables.
+- Unused variables
 
 ## [1.0.7] - 2019-08-13
 
@@ -35,10 +35,10 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Type 4 - Processor structure
-  - Fix an error in the Processor structure. Now the Voltage property returns the correct value.
+  - Fix an error in the Processor structure. Now the Voltage property returns the correct value
 
 ## [1.0.5] - 2019-04-25
-- Equals to v1.0.4 but without errors in nuget package. 
+- Equals to v1.0.4 but without errors in nuget package
 
 ## 1.0.4 - 2019-04-25
 

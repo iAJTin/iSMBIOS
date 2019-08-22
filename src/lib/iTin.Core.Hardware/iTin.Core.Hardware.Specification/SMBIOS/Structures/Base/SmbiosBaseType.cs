@@ -19,9 +19,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private Hashtable _content;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private Hashtable _properties;
-
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private SmbiosPropertiesTable _SmbiosPropertiesTable;
         #endregion
 

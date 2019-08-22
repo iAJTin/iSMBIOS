@@ -4,15 +4,15 @@ All notable changes to this project will be documented in this file.
 ## 1.0.8 - 
 
 ### Changed
-- Minor changes
+- Minor changes.
 
 ### Removed
-- Unused variables
+- Unused variables.
 
 ## [1.0.7] - 2019-08-13
 
-### Fixed
-- Nuget Package in Release mode
+### Changed
+- Changes nuget package for work in release mode.
 
 ## [1.0.6] - 2019-04-30 
 
@@ -35,15 +35,15 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 - Type 4 - Processor structure
-  - Fix an error in the Processor structure. Now the Voltage property returns the correct value
+  - Fix an error in the Processor structure. Now the Voltage property returns the correct value.
 
 ## [1.0.5] - 2019-04-25
-- Equals to v1.0.4 but without errors in nuget package
+- Equals to v1.0.4 but without errors in nuget package.
 
 ## 1.0.4 - 2019-04-25
 
 ### Added
-- Added **iTin.Core.Interop** project for interop calls 
+- Added **iTin.Core.Interop** project for interop calls.
 - The **GetProperty** method was added in the class **DmiClass**, to directly recover a property, this allows us to consider a specification as a bag of consultable properties, 
 for more information, please see how to use it in the example project. On the other hand later when there are more implemented specifications the use of the **DeviceProperty** type will allow us to and consult properties in different "bags".
 - Minor changes.
@@ -63,7 +63,7 @@ for more information, please see how to use it in the example project. On the ot
             - iSMBIOS.ConsoleApp                [console test app]
 
 ### Removed
-- **DeviceProperty** data type. This type of data is not going to be eliminated but its use will change, later it can be used as a receiver of the different types of data returned by the different specifications
+- **DeviceProperty** data type. This type of data is not going to be eliminated but its use will change, later it can be used as a receiver of the different types of data returned by the different specifications.
 
 ## [1.0.3] - 2019-04-11
 
@@ -77,7 +77,7 @@ for more information, please see how to use it in the example project. On the ot
 ## [1.0.2] - 2019-04-03
 
 ### Added
-- This CHANGELOG file
+- This CHANGELOG file.
 - Memory Technology field to Structure Type 17 [Memory Device].
 
 ### Changed

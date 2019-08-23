@@ -93,12 +93,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
 5. Prints all **SMBIOS** structures properties
 
-        DmiStructureCollection structures = DMI.Instance.Structures;
-        foreach (DmiStructure structure in structures)
-        {
-            Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
-        }
-
+        DmiStructureCollection structures = DMI.Instance.Structures;      
         foreach (DmiStructure structure in structures)
         {
             Console.WriteLine();

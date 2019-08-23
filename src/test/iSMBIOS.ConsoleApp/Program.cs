@@ -4,6 +4,7 @@ namespace iSMBIOS.ConsoleApp
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
 
     using iTin.Core.Hardware;
     using iTin.Core.Hardware.Specification;
@@ -133,11 +134,19 @@ namespace iSMBIOS.ConsoleApp
             Console.WriteLine(@" Gets a multiple properties directly");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
-            foreach (KeyValuePair<int, object> systemSlot in systemSlots)
+            bool hasSystemSlots = systemSlots.Any();
+            if (!hasSystemSlots)
             {
-                int element = systemSlot.Key;
-                object property = systemSlot.Value;
-                Console.WriteLine($" > System Slot ({element}) > {property}");
+                Console.WriteLine($" > There is no system slots information structure in this computer");
+            }
+            else
+            {
+                foreach (KeyValuePair<int, object> systemSlot in systemSlots)
+                {
+                    int element = systemSlot.Key;
+                    object property = systemSlot.Value;
+                    Console.WriteLine($" > System Slot ({element}) > {property}");
+                }
             }
 
             Console.ReadLine();
@@ -145,11 +154,11 @@ namespace iSMBIOS.ConsoleApp
 
         private static string GetFriendlyName(IPropertyKey value)
         {
-            string friendlyName = value.GetPropertyName();
+            string name = value.GetPropertyName();
 
-            return string.IsNullOrEmpty(friendlyName)
+            return string.IsNullOrEmpty(name)
                 ? value.PropertyId.ToString()
-                : friendlyName;
+                : name;
         }
     }
 }

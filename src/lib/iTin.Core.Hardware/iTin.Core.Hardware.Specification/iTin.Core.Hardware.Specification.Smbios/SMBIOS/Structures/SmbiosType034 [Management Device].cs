@@ -36,7 +36,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// <summary>
     /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Management Device (Type 34) structure.
     /// </summary>
-    sealed class SmbiosType034 : SmbiosBaseType
+    internal sealed class SmbiosType034 : SmbiosBaseType
     {
         #region Constructor/es
 

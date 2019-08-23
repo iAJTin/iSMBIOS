@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -125,6 +131,7 @@
     <None Include="%40Documents\SMBIOS\SMBIOS 3.1.0.pdf" />
     <None Include="%40Documents\SMBIOS\SMBIOS 3.1.1.pdf" />
     <None Include="%40Documents\SMBIOS\SMBIOS 3.2.0.pdf" />
+    <None Include="key.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\iTin.Core\iTin.Core\iTin.Core.csproj">

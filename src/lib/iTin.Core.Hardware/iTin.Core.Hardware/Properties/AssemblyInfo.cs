@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("iTin.Core.Hardware")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Hardware Interop Calls")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("iTin")]
 [assembly: AssemblyProduct("iTin.Core.Hardware")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright © 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

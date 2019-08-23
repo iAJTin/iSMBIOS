@@ -84,11 +84,19 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        // Requires that the Slot Information structure exists in your system
        DmiStructureCollection structures = DMI.Instance.Structures;
        IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
-       foreach (KeyValuePair<int, object> systemSlot in systemSlots)
+       bool hasSystemSlots = systemSlots.Any();       
+       if (!hasSystemSlots)
        {
-           int element = systemSlot.Key;
-           object property = systemSlot.Value;
-           Console.WriteLine($" System Slot ({element}) > {property}");
+           Console.WriteLine($" > There is no system slots information structure in this computer");
+       }
+       else
+       {
+           foreach (KeyValuePair<int, object> systemSlot in systemSlots)
+           {
+               int element = systemSlot.Key;
+               object property = systemSlot.Value;
+               Console.WriteLine($" System Slot ({element}) > {property}");
+           }
        }
 
 5. Prints all **SMBIOS** structures properties
@@ -181,10 +189,10 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
         private static string GetFriendlyName(IPropertyKey value)
         {
-            string friendlyName = value.GetPropertyName();
-            return string.IsNullOrEmpty(friendlyName)
+            string name = value.GetPropertyName();
+            return string.IsNullOrEmpty(name)
                 ? value.PropertyId.ToString()
-                : friendlyName;
+                : name;
         }
 
 # How can I send feedback!!!

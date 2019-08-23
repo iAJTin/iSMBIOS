@@ -100,7 +100,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// <summary>
     /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Enclosure or Chassis (Type 3) structure.
     /// </summary>
-    sealed class SmbiosType003 : SmbiosBaseType
+    internal sealed class SmbiosType003 : SmbiosBaseType
     {
         #region constructor/s
 

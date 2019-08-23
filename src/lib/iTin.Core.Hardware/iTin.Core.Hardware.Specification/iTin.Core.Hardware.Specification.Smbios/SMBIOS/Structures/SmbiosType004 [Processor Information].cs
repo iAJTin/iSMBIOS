@@ -162,7 +162,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// <summary>
     /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Processor Information (Type 4) structure.
     /// </summary>
-    sealed class SmbiosType004 : SmbiosBaseType
+    internal sealed class SmbiosType004 : SmbiosBaseType
     {
         #region constructor/s
 

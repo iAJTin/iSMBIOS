@@ -1,14 +1,14 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## 1.0.8 - 
+## [1.0.8] - 2019-08-23
 
 ### Added
 - Added **iTin.Core.Hardware.Specification.Smbios** project for **SMBIOS** calls. 
  
-  - Implements the full specification.
+  - Implements the fully specification(s).
   
-  - Now you can directly access the Smbios properties, to do this make the following call.
+  - Now you can directly access the SMBIOS properties, to do this make the following call.
 
         var smbios = SMBIOS.Instance.ImplementedStructures;
 
@@ -26,9 +26,9 @@ All notable changes to this project will be documented in this file.
         · Dmi will have one property available:
           > DmiProperty.Bios.BiosRomSize
     
-
 - Added **iTin.Core.Hardware.Specification.Tpm** project. 
     - Includes TPM (Trusted Platform Module), used in SmbiosType043 [TPM Device] class.
+
 
 - Minor changes. 
 
@@ -48,6 +48,8 @@ All notable changes to this project will be documented in this file.
             - iTin.Core.Hardware.Specification.Tpm     [TPM Specification Implementation] 
         - test
             - iSMBIOS.ConsoleApp                       [Console Test App]
+
+- Assemblies with strong naming.
 
 ### Removed
 - Unused variables.

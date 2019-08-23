@@ -34,6 +34,12 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +55,7 @@
     <None Include="%40Documents\TPM\TCG-TPM-Vendor-ID-Registry-Version-1.01-Revision-1.00.pdf" />
     <None Include="%40Documents\TPM\TPM Main Part 2 TPM Structures 1.2.pdf" />
     <None Include="%40Documents\TPM\TPM-Rev-2.0-Part-2-Structures-01.38.pdf" />
+    <None Include="key.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\iTin.Core\iTin.Core\iTin.Core.csproj">

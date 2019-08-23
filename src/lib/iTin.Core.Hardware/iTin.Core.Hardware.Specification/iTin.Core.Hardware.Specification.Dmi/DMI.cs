@@ -6,8 +6,8 @@ namespace iTin.Core.Hardware.Specification
     using Dmi;
 
     /// <summary>
-    /// The Desktop Management Interface (DMI) ó La interfaz de administración de escritorio, marco estándar para la gestión y
-    /// seguimiento de componentes en un ordenador de sobremesa, portátil o servidor.
+    /// The Desktop Management Interface (DMI) or the desktop management interface, standard framework for management and
+    /// component tracking on a desktop, laptop or server.
     /// </summary>
     public sealed class DMI
     {

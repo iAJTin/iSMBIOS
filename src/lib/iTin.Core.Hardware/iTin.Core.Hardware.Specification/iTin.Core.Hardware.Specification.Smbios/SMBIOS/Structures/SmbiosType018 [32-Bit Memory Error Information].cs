@@ -63,7 +63,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// <summary>
     /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the 32-Bit Memory Error Information (Type 18) structure.
     /// </summary>
-    class SmbiosType018 : SmbiosBaseType
+    internal class SmbiosType018 : SmbiosBaseType
     {
         #region constructor/s
 

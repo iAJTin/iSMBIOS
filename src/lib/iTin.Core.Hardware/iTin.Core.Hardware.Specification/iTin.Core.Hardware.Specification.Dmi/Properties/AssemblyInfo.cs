@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("iTin.Core.Hardware.Specification.Dmi")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The Desktop Management Interface (DMI) or the desktop management interface, standard framework for management and component tracking on a desktop, laptop or server.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("iTin")]
 [assembly: AssemblyProduct("iTin.Core.Hardware.Specification.Dmi")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

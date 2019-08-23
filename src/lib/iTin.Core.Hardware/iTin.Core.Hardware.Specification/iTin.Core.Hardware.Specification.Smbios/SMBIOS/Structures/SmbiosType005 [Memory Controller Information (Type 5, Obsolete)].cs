@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// <summary>
     /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Controller Information (Type 5, Obsolete) structure.
     /// </summary>
-    sealed class SmbiosType005 : SmbiosBaseType
+    internal sealed class SmbiosType005 : SmbiosBaseType
     {
         #region constructor/s
 

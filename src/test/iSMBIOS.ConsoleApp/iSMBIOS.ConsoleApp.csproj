@@ -50,6 +50,12 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="key.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\iTin.Core.Hardware.Specification.Dmi.csproj">

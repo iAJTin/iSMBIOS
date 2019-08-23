@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("iTin.Core.Interop")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Generic Win32 Interop Calls")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("iTin")]
 [assembly: AssemblyProduct("iTin.Core.Interop")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -6,7 +6,7 @@ namespace iTin.Core.Hardware
     /// <summary>
     /// Defines a value that contains the detailed information of a writer.
     /// </summary>
-    public struct PropertyKey : IEquatable<PropertyKey>
+    public struct PropertyKey : IPropertyKey, IEquatable<PropertyKey>
     {
         #region constructor/s
 
@@ -41,6 +41,10 @@ namespace iTin.Core.Hardware
 
         #region interfaces
 
+        #region IEquatable
+
+        #region public properties
+
         #region [public] (bool) Equals(PropertyKey): Indicates whether the current structure is equal to another structure of the same type
         /// <inheritdoc />
         /// <summary>
@@ -51,6 +55,99 @@ namespace iTin.Core.Hardware
         /// Returns <strong>true</strong> if the current structure is equal to the <c>other</c> parameter; otherwise, <strong>false</strong>.
         /// </returns>
         public bool Equals(PropertyKey other) => other.Equals((object)this);
+        #endregion
+
+        #endregion
+
+        #endregion
+
+        #region IPropertyKey
+
+        #region public properties
+
+        #region [public] (Enum) PropertyId: Gets a value that represents a StructureId field from which the value is to be retrieved
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets a value that represents a <see cref="P:iTin.Core.Hardware.PropertyKey.StructureId" /> field from which the value is to be retrieved.
+        /// </summary>
+        /// <value>
+        /// Field of <see cref="P:iTin.Core.Hardware.PropertyKey.StructureId" /> from which the value will be retrieved.
+        /// </value>
+        /// <remarks>
+        /// The value of the attribute represents the type of the value linked to this property.
+        /// </remarks>
+        public Enum PropertyId { get; }
+
+        #endregion
+
+        #region [public] (PropertyUnit) PropertyUnit: Gets a value that represents the unit in which the property is measured
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets a value that represents the unit in which the property is measured.
+        /// </summary>
+        /// <value>
+        /// Unidad en que se mide la propiedad.
+        /// </value>
+        public PropertyUnit PropertyUnit { get; }
+
+        #endregion
+
+        #region [public] (Enum) StructureId: Gets a value that represents the structure from which the value is to be retrieved
+        /// <inheritdoc />
+        /// <summary>
+        /// Gets a value that represents the structure from which the value is to be retrieved.
+        /// </summary>
+        /// <value>
+        /// Structure from which the value will be recovered.
+        /// </value>
+        public Enum StructureId { get; }
+        #endregion
+
+        #endregion
+
+        #region public methods
+
+        #region [public] (string) GetPropertyDescription: Returns the property description      
+        /// <summary>
+        /// Returns the property description.
+        /// </summary>
+        /// <returns>
+        /// Property description.
+        /// </returns>
+        public string GetPropertyDescription()
+        {
+            return PropertyId.GetPropertyDescription();
+        }
+        #endregion
+
+        #region [public] (string) GetPropertyName: Returns the property name
+        /// <summary>
+        /// Returns the property name.
+        /// </summary>
+        /// <returns>
+        /// Property name.
+        /// </returns>
+        public string GetPropertyName()
+        {
+            return PropertyId.GetPropertyName();
+        }
+        #endregion
+
+        #region [public] (Type) GetPropertyType: Returns the property type   
+        /// <summary>
+        /// Returns the property type.
+        /// </summary>
+        /// <returns>
+        /// Property type.
+        /// </returns>
+        public Type GetPropertyType()
+        {
+            return PropertyId.GetPropertyType();
+        }
+        #endregion
+
+        #endregion
+
         #endregion
 
         #endregion
@@ -79,45 +176,6 @@ namespace iTin.Core.Hardware
         /// Returns <strong>true</strong> if <c>propertyKey1</c> it is not equal to <c>propertyKey2</c>; <strong>false</strong> otherwise.
         /// </returns>
         public static bool operator !=(PropertyKey propertyKey1, PropertyKey propertyKey2) => !propertyKey1.Equals(propertyKey2);
-        #endregion
-
-        #endregion
-
-        #region public properties
-
-        #region [public] (Enum) PropertyId: Gets a value that represents a StructureId field from which the value is to be retrieved
-        /// <summary>
-        /// Gets a value that represents a <see cref="StructureId"/> field from which the value is to be retrieved.
-        /// </summary>
-        /// <value>
-        /// Field of <see cref="StructureId" /> from which the value will be retrieved.
-        /// </value>
-        /// <remarks>
-        /// The value of the attribute represents the type of the value linked to this property.
-        /// </remarks>
-        public Enum PropertyId { get; }
-
-        #endregion
-
-        #region [public] (PropertyUnit) PropertyUnit: Gets a value that represents the unit in which the property is measured
-        /// <summary>
-        /// Gets a value that represents the unit in which the property is measured.
-        /// </summary>
-        /// <value>
-        /// Unidad en que se mide la propiedad.
-        /// </value>
-        public PropertyUnit PropertyUnit { get; }
-
-        #endregion
-
-        #region [public] (Enum) StructureId: Gets a value that represents the structure from which the value is to be retrieved
-        /// <summary>
-        /// Gets a value that represents the structure from which the value is to be retrieved.
-        /// </summary>
-        /// <value>
-        /// Structure from which the value will be recovered.
-        /// </value>
-        public Enum StructureId { get; }
         #endregion
 
         #endregion
@@ -155,7 +213,10 @@ namespace iTin.Core.Hardware
             }
 
             var other = (PropertyKey)obj;
-            return other.GetHashCode() == GetHashCode();
+            return
+                PropertyId.Equals(other.PropertyId) &&
+                StructureId.Equals(other.StructureId) &&
+                PropertyUnit.Equals(other.PropertyUnit);
         }
         #endregion
 

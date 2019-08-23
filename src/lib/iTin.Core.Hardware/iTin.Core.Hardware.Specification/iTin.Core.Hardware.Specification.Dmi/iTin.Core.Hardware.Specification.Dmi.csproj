@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E5C80AB1-7A76-4E82-B8F1-208CE66796B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iTin.Core.Hardware.Specification.Dmi</RootNamespace>
+    <AssemblyName>iTin.Core.Hardware.Specification.Dmi</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DMI.cs" />
+    <Compile Include="DMI\DmiClass.cs" />
+    <Compile Include="DMI\DmiClassCollection.cs" />
+    <Compile Include="DMI\DmiClassPropertiesTable.cs" />
+    <Compile Include="DMI\DmiHelper.cs" />
+    <Compile Include="DMI\DmiProperty.cs" />
+    <Compile Include="DMI\DmiPropertyEnum.cs" />
+    <Compile Include="DMI\DmiStructure.cs" />
+    <Compile Include="DMI\DmiStructureClass.cs" />
+    <Compile Include="DMI\DmiStructureCollection.cs" />
+    <Compile Include="DMI\DmiStructureFactory.cs" />
+    <Compile Include="DMI\Structures\Base\DmiBaseType.cs" />
+    <Compile Include="DMI\Structures\Base\IDmiType.cs" />
+    <Compile Include="DMI\Structures\DmiType000 [BIOS Information].cs" />
+    <Compile Include="DMI\Structures\DmiType001 [System Information].cs" />
+    <Compile Include="DMI\Structures\DmiType002 [Baseboard %28or Module%29 Information].cs" />
+    <Compile Include="DMI\Structures\DmiType003 [System Enclosure or Chassis].cs" />
+    <Compile Include="DMI\Structures\DmiType004 [Processor Information].cs" />
+    <Compile Include="DMI\Structures\DmiType005 [Memory Controller Information %28Type 5, Obsolete%29].cs" />
+    <Compile Include="DMI\Structures\DmiType006 [Memory Module Information %28Type 6, Obsolete%29].cs" />
+    <Compile Include="DMI\Structures\DmiType007 [Cache Information].cs" />
+    <Compile Include="DMI\Structures\DmiType008 [Port Connector Information].cs" />
+    <Compile Include="DMI\Structures\DmiType009 [Slot Information].cs" />
+    <Compile Include="DMI\Structures\DmiType010 [On Board Devices].cs" />
+    <Compile Include="DMI\Structures\DmiType011 [OEM Strings].cs" />
+    <Compile Include="DMI\Structures\DmiType012 [System Configuration Options].cs" />
+    <Compile Include="DMI\Structures\DmiType013 [BIOS Language Information].cs" />
+    <Compile Include="DMI\Structures\DmiType014 [Group Associations].cs" />
+    <Compile Include="DMI\Structures\DmiType015 [System Event Log].cs" />
+    <Compile Include="DMI\Structures\DmiType016 [Physical Memory Array].cs" />
+    <Compile Include="DMI\Structures\DmiType017 [Memory Device].cs" />
+    <Compile Include="DMI\Structures\DmiType018 [32-Bit Memory Error Information].cs" />
+    <Compile Include="DMI\Structures\DmiType019 [Memory Array Mapped Address].cs" />
+    <Compile Include="DMI\Structures\DmiType020 [Memory Device Mapped Address].cs" />
+    <Compile Include="DMI\Structures\DmiType021 [Built-in Pointing Device].cs" />
+    <Compile Include="DMI\Structures\DmiType022 [Portable Battery].cs" />
+    <Compile Include="DMI\Structures\DmiType023 [System Reset].cs" />
+    <Compile Include="DMI\Structures\DmiType024 [Hardware Security].cs" />
+    <Compile Include="DMI\Structures\DmiType025 [System Power Controls].cs" />
+    <Compile Include="DMI\Structures\DmiType026 [Voltage Probe].cs" />
+    <Compile Include="DMI\Structures\DmiType027 [Cooling Device].cs" />
+    <Compile Include="DMI\Structures\DmiType028 [Temperature Probe].cs" />
+    <Compile Include="DMI\Structures\DmiType029 [Electrical Current Probe].cs" />
+    <Compile Include="DMI\Structures\DmiType030 [Out-of-Band Remote Access].cs" />
+    <Compile Include="DMI\Structures\DmiType031 [Boot Integrity Services %28BIS%29 Entry Point].cs" />
+    <Compile Include="DMI\Structures\DmiType032 [System Boot Information].cs" />
+    <Compile Include="DMI\Structures\DmiType033 [64-Bit Memory Error Information].cs" />
+    <Compile Include="DMI\Structures\DmiType034 [Management Device].cs" />
+    <Compile Include="DMI\Structures\DmiType035 [Management Device Component].cs" />
+    <Compile Include="DMI\Structures\DmiType036 [Management Device Threshold Data].cs" />
+    <Compile Include="DMI\Structures\DmiType037 [Memory Channel].cs" />
+    <Compile Include="DMI\Structures\DmiType038 [IPMI Device Information].cs" />
+    <Compile Include="DMI\Structures\DmiType039 [System Power Supply].cs" />
+    <Compile Include="DMI\Structures\DmiType040 [Additional Information].cs" />
+    <Compile Include="DMI\Structures\DmiType041 [Onboard Devices Extended Information].cs" />
+    <Compile Include="DMI\Structures\DmiType042 [Management Controller Host Interface].cs" />
+    <Compile Include="DMI\Structures\DmiType043 [TPM Device].cs" />
+    <Compile Include="DMI\Structures\DmiType126 [Inactive].cs" />
+    <Compile Include="DMI\Structures\DmiType127 [End-Of-Table].cs" />
+    <Compile Include="DMI\Structures\Specific\DmiAdditionalInformationEntry.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiAdditionalInformationEntryCollection.cs" />
+    <Compile Include="DMI\Structures\Specific\BaseBoardContainedElementCollection.cs" />
+    <Compile Include="DMI\Structures\Specific\Base\SpecificDmiBaseType.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiChassisContainedElement.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiChassisContainedElementCollection.cs" />
+    <Compile Include="DMI\Structures\Specific\Enums\ChassisContainedElementType.cs" />
+    <Compile Include="DMI\Structures\Specific\Enums\MemoryDeviceBelongsToSet.cs" />
+    <Compile Include="DMI\Structures\Specific\Enums\MemoryDeviceMappedAddressInterleavedPosition.cs" />
+    <Compile Include="DMI\Structures\Specific\Enums\MemorySizeUnit.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiGroupAssociationElement.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiGroupAssociationElementCollection.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiManagementControllerHostInterfaceProtocolRecord.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiManagementControllerHostInterfaceProtocolRecordsCollection.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiMemoryChannelElement.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiMemoryChannelElementCollection.cs" />
+    <Compile Include="DMI\Structures\Specific\DmiMemoryControllerContainedElementCollection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\iTin.Core\iTin.Core\iTin.Core.csproj">
+      <Project>{a1fc8e7e-8a01-4456-bf5c-14c40981befa}</Project>
+      <Name>iTin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\iTin.Core.Hardware\iTin.Core.Hardware.csproj">
+      <Project>{712177ab-3598-4d8b-b8b8-888928dafa7d}</Project>
+      <Name>iTin.Core.Hardware</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTin.Core.Hardware.Specification.Smbios\iTin.Core.Hardware.Specification.Smbios.csproj">
+      <Project>{91ff7ed0-1230-4865-a589-28928623e537}</Project>
+      <Name>iTin.Core.Hardware.Specification.Smbios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTin.Core.Hardware.Specification.Tpm\iTin.Core.Hardware.Specification.Tpm.csproj">
+      <Project>{0db7bde0-07d1-48d4-85ba-ee3b5044b01b}</Project>
+      <Name>iTin.Core.Hardware.Specification.Tpm</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

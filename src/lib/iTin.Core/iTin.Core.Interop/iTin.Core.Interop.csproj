@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windows\Development\DocumentsAndPrinting\Printing\GdiPrint\Structures\DEVMODE.cs" />
-    <Compile Include="Windows\Development\Extern\Device\CPUID\SafeNativeMethods.cs" />
     <Compile Include="Windows\Development\Graphics\Legacy\Gdi\DeviceContext\NativeMethods.cs" />
     <Compile Include="Windows\Development\Graphics\Legacy\Gdi\DeviceContext\Structures\DISPLAY_DEVICE.cs" />
     <Compile Include="Windows\Development\Graphics\Legacy\Gdi\Metafiles\Structures\POINTL.cs" />
@@ -54,6 +53,7 @@
     <Compile Include="Windows\Development\Graphics\Legacy\Gdi\Rectangles\NativeMethods.cs" />
     <Compile Include="Windows\Development\Graphics\Legacy\Gdi\Rectangles\Structures\POINT.cs" />
     <Compile Include="Windows\Development\Graphics\Legacy\Gdi\Rectangles\Structures\RECT.cs" />
+    <Compile Include="Windows\Development\Hardware\uProcessor\CPUID\NativeMethods.cs" />
     <Compile Include="Windows\Development\NativeMethods.cs" />
     <Compile Include="Windows\Development\Storage\LocalFileSystems\DirectoryManagement\Enums\FsctlDirectoryControlCodes.cs" />
     <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Enums\IoctlDiskControlCode.cs" />

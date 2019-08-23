@@ -70,9 +70,13 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.csproj">
-      <Project>{91FF7ED0-1230-4865-A589-28928623E537}</Project>
-      <Name>iTin.Core.Hardware.Specification</Name>
+    <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\iTin.Core.Hardware.Specification.Dmi.csproj">
+      <Project>{e5c80ab1-7a76-4e82-b8f1-208ce66796b4}</Project>
+      <Name>iTin.Core.Hardware.Specification.Dmi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Smbios\iTin.Core.Hardware.Specification.Smbios.csproj">
+      <Project>{91ff7ed0-1230-4865-a589-28928623e537}</Project>
+      <Name>iTin.Core.Hardware.Specification.Smbios</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware\iTin.Core.Hardware.csproj">
       <Project>{712177ab-3598-4d8b-b8b8-888928dafa7d}</Project>

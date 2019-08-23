@@ -3,8 +3,51 @@ All notable changes to this project will be documented in this file.
 
 ## 1.0.8 - 
 
+### Added
+- Added **iTin.Core.Hardware.Specification.Smbios** project for **SMBIOS** calls. 
+ 
+  - Implements the full specification.
+  
+  - Now you can directly access the Smbios properties, to do this make the following call.
+
+        var smbios = SMBIOS.Instance.ImplementedStructures;
+
+- Added **iTin.Core.Hardware.Specification.Dmi** project for **DMI** calls.
+
+  - Simplify access to properties, that is, it is sometimes possible for the specification to define a property for a specific version, and in another version add a new property that extends the previous one, the **Smbios library**, will return both properties separately     each with its own corresponding key, however the **Dmi library** with a single key will return the value of the property either normal or extended.
+
+        Example:
+        SmbiosType000 [BIOS Information], contains BIOS ROM Size and Extended BIOS ROM Size properties if your version allows.
+
+        · Smbios will have both properties available:
+          > SmbiosProperty.Bios.BiosRomSize
+          > SmbiosProperty.Bios.ExtendedBiosRomSize
+
+        · Dmi will have one property available:
+          > DmiProperty.Bios.BiosRomSize
+    
+
+- Added **iTin.Core.Hardware.Specification.Tpm** project. 
+    - Includes TPM (Trusted Platform Module), used in SmbiosType043 [TPM Device] class.
+
+- Minor changes. 
+
 ### Changed
-- Minor changes.
+- Solution structure, prepare solution structure to add future new specifications.
+
+      \root
+        - lib
+          - iTin.Core             
+            - iTin.Core                                [Common Calls] 
+            - iTin.Core.Interop                        [Interop Calls]
+          - iTin.Core.Hardware    
+            - iTin.Core.Hardware                       [Hardware Interop Calls]
+          - iTin.Core.Hardware.Specification   
+            - iTin.Core.Hardware.Specification.Dmi     [DMI Specification Implementation] 
+            - iTin.Core.Hardware.Specification.Smbios  [SMBIOS Specification Implementation] 
+            - iTin.Core.Hardware.Specification.Tpm     [TPM Specification Implementation] 
+        - test
+            - iSMBIOS.ConsoleApp                       [Console Test App]
 
 ### Removed
 - Unused variables.
@@ -54,13 +97,13 @@ for more information, please see how to use it in the example project. On the ot
       \root
         - lib
           - iTin.Core             
-            - iTin.Core                         [common calls] 
-            - iTin.Core.Interop                 [interop calls]
+            - iTin.Core                         [Common Calls] 
+            - iTin.Core.Interop                 [Interop Calls]
           - iTin.Core.Hardware    
-            - iTin.Core.Hardware                [hardware interop calls]
-            - iTin.Core.Hardware.Specification  [hardware specification(s) implementation(s)] 
+            - iTin.Core.Hardware                [Hardware Interop Calls]
+            - iTin.Core.Hardware.Specification  [Hardware Specification(s) Implementation(s)] 
         - test
-            - iSMBIOS.ConsoleApp                [console test app]
+            - iSMBIOS.ConsoleApp                [Console Test App]
 
 ### Removed
 - **DeviceProperty** data type. This type of data is not going to be eliminated but its use will change, later it can be used as a receiver of the different types of data returned by the different specifications.

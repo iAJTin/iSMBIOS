@@ -17,30 +17,28 @@ namespace iSMBIOS.ConsoleApp
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine(" Availables structures");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-
             DmiStructureCollection structures = DMI.Instance.Structures;
             foreach (DmiStructure structure in structures)
             {
-                Console.WriteLine($@" {(int) structure.Class:D3}-{structure.Class}");
+                Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
             }
 
             foreach (DmiStructure structure in structures)
             {
                 Console.WriteLine();
                 Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-                Console.WriteLine($@" {(int)structure.Class:D3}-{structure.Class} structure detail");
+                Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName} structure detail");
                 Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
                 DmiClassCollection elements = structure.Elements;
                 foreach (DmiClass element in elements)
                 {
                     DmiClassPropertiesTable elementProperties = element.Properties;
-                    foreach (KeyValuePair<PropertyKey, object> property in elementProperties)
+                    foreach (KeyValuePair<IPropertyKey, object> property in elementProperties)
                     {
                         object value = property.Value;
 
-                        PropertyKey key = property.Key;
-                        Enum id = key.PropertyId;
-
+                        IPropertyKey key = property.Key;
+                        string friendlyName = GetFriendlyName(key);
                         PropertyUnit valueUnit = key.PropertyUnit;
                         string unit =
                             valueUnit == PropertyUnit.None
@@ -49,50 +47,54 @@ namespace iSMBIOS.ConsoleApp
 
                         if (value == null)
                         {
-                            Console.WriteLine($@" > {id} > NULL");
+                            Console.WriteLine($@" > {friendlyName} > NULL");
                             continue;
                         }
 
                         if (value is string)
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit}");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit}");
                         }
                         else if (value is byte)
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X2}h]");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X2}h]");
                         }
                         else if (value is short)
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is ushort)
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is int)
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is uint)
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X4}h]");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is long)
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X8}h]");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X8}h]");
                         }
                         else if (value is ulong)
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit} [{value:X8}h]");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X8}h]");
                         }
                         else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
                         {
-                            Console.WriteLine($@" > {id} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
+                            Console.WriteLine($@" > {friendlyName} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
+                        }
+                        else if (value.GetType() == typeof(DmiGroupAssociationElementCollection))
+                        {
+                            // prints elements
                         }
                         else if (value.GetType() == typeof(ReadOnlyCollection<string>))
                         {
-                            Console.WriteLine($@" > {id}");
-                            var collection = (ReadOnlyCollection<string>) value;
+                            Console.WriteLine($@" > {friendlyName}");
+                            var collection = (ReadOnlyCollection<string>)value;
                             foreach (var entry in collection)
                             {
                                 Console.WriteLine($@"   > {entry} {unit}");
@@ -100,7 +102,7 @@ namespace iSMBIOS.ConsoleApp
                         }
                         else
                         {
-                            Console.WriteLine($@" > {id} > {value} {unit}");
+                            Console.WriteLine($@" > {friendlyName} > {value} {unit}");
                         }
                     }
                 }
@@ -120,8 +122,8 @@ namespace iSMBIOS.ConsoleApp
             string biosVendor = structures.GetProperty<string>(DmiProperty.Bios.Vendor);
             Console.WriteLine($" > BIOS Vendor > {biosVendor}");
 
-            string processorFamily = structures.GetProperty<string>(DmiProperty.Processor.Family);
-            Console.WriteLine($" > Processor Family > {processorFamily}");
+            int currentSpeed = structures.GetProperty<int>(DmiProperty.Processor.CurrentSpeed);
+            Console.WriteLine($" > Current Speed > {currentSpeed:N0} {DmiProperty.Processor.CurrentSpeed.PropertyUnit}");
 
             string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
             Console.WriteLine($" > Processor Manufacturer > {processorManufacturer}");
@@ -137,8 +139,17 @@ namespace iSMBIOS.ConsoleApp
                 object property = systemSlot.Value;
                 Console.WriteLine($" > System Slot ({element}) > {property}");
             }
-            
+
             Console.ReadLine();
+        }
+
+        private static string GetFriendlyName(IPropertyKey value)
+        {
+            string friendlyName = value.GetPropertyName();
+
+            return string.IsNullOrEmpty(friendlyName)
+                ? value.PropertyId.ToString()
+                : friendlyName;
         }
     }
 }

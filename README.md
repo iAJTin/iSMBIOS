@@ -73,10 +73,10 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        string biosVendor = structures.GetProperty<string>(DmiProperty.Bios.Vendor);
        Console.WriteLine($" > BIOS Vendor > {biosVendor}");
 
-	   string processorFamily = structures.GetProperty<string>(DmiProperty.Processor.Family);
-       Console.WriteLine($" Processor Family > {processorFamily}");
+       int currentSpeed = structures.GetProperty<int>(DmiProperty.Processor.CurrentSpeed);
+       Console.WriteLine($" > Current Speed > {currentSpeed:N0} {DmiProperty.Processor.CurrentSpeed.PropertyUnit}");
 
-	   string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
+	    string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
        Console.WriteLine($" Processor Manufacturer > {processorManufacturer}");
 
 4. Gets a property in **multiple** elements directly.
@@ -94,89 +94,90 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 5. Prints all **SMBIOS** structures properties
 
        DmiStructureCollection structures = DMI.Instance.Structures;
-       foreach (DmiStructure structure in structures)
-       {
-           DmiStructureClass currentClass = structure.Class;
-	   
-           Console.WriteLine();
-           Console.WriteLine($" —————————————————————————————————————————— DMI ({DMI.AccessType}) —");
-           Console.WriteLine($" {(int)currentClass:D3}-{currentClass} structure detail");
-           Console.WriteLine($" ——————————————————————————————————————————————————————————————");
-           DmiClassCollection elements = structure.Elements;
-           foreach (DmiClass element in elements)
-           {
-               Hashtable elementProperties = element.Properties;
-               foreach (DictionaryEntry property in elementProperties)
-               {
-                   object value = property.Value;
+        foreach (DmiStructure structure in structures)
+        {
+            Console.WriteLine();
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName} structure detail");
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            DmiClassCollection elements = structure.Elements;
+            foreach (DmiClass element in elements)
+            {
+                DmiClassPropertiesTable elementProperties = element.Properties;
+                foreach (KeyValuePair<IPropertyKey, object> property in elementProperties)
+                {
+                    object value = property.Value;
 
-                   PropertyKey key = (PropertyKey)property.Key;
-                   Enum id = key.PropertyId;
+                    IPropertyKey key = property.Key;
+                    string friendlyName = GetFriendlyName(key);
+                    PropertyUnit valueUnit = key.PropertyUnit;
+                    string unit = 
+                        valueUnit == PropertyUnit.None
+                            ? string.Empty
+                            : valueUnit.ToString();
 
-                   PropertyUnit valueUnit = key.PropertyUnit;
-                   string unit =
-                       valueUnit == PropertyUnit.None
-                           ? string.Empty
-                           : valueUnit.ToString();
+                    if (value == null)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > NULL");
+                        continue;
+                    }
 
-                   if (value == null)
-                   {
-                       Console.WriteLine($"{id} > NULL");
-                       continue;
-                   }
-
-                   if (value is string)
-                   {
-                       Console.WriteLine($"   > {id} > {value} {unit}");
-                   }
-                   else if (value is byte)
-                   {
-                       Console.WriteLine($"   > {id} > {value}{unit} [{value:X2}h]");
-                   }
-                   else if (value is short)
-                   {
-                       Console.WriteLine($"   > {id} > {value}{unit} [{value:X4}h]");
-                   }
-                   else if (value is ushort)
-                   {
-                        Console.WriteLine($"   > {id} > {value}{unit} [{value:X4}h]");
-                   }
-                   else if (value is int)
-                   {
-                       Console.WriteLine($"   > {id} > {value} {unit} [{value:X4}h]");
-                   }
-                   else if (value is uint)
-                   {
-                       Console.WriteLine($"   > {id} > {value} {unit} [{value:X4}h]");
-                   }
-                   else if (value is long)
-                   {
-                       Console.WriteLine($"   > {id} > {value} {unit} [{value:X8}h]");
-                   }
-                   else if (value is ulong)
-                   {
-                       Console.WriteLine($"   > {id} > {value} {unit} [{value:X8}h]");
-                   }
-                   else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
-                   {
-                       Console.WriteLine($"   > {id} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
-                   }
-                   else if (value.GetType() == typeof(ReadOnlyCollection<string>))
-                   {
-                       Console.WriteLine($"   > {id}");
-                       var collection = (ReadOnlyCollection<string>) value;
-                       foreach (var entry in collection)
-                       {
-                           Console.WriteLine($"     > {entry} {unit}");
-                       }
-                   }
-                   else
-                   {
-                       Console.WriteLine($"   > {id} > {value} {unit}");
-                   }
-               }
-           }
-       }
+                    if (value is string)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit}");
+                    }
+                    else if (value is byte)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X2}h]");
+                    }
+                    else if (value is short)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
+                    }
+                    else if (value is ushort)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
+                    }
+                    else if (value is int)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
+                    }
+                    else if (value is uint)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
+                    }
+                    else if (value is long)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X8}h]");
+                    }
+                    else if (value is ulong)
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X8}h]");
+                    }
+                    else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
+                    }
+                    else if (value.GetType() == typeof(DmiGroupAssociationElementCollection))
+                    {
+                        // prints elements
+                    }
+                    else if (value.GetType() == typeof(ReadOnlyCollection<string>))
+                    {
+                        Console.WriteLine($@" > {friendlyName}");
+                        var collection = (ReadOnlyCollection<string>)value;
+                        foreach (var entry in collection)
+                        {
+                            Console.WriteLine($@"   > {entry} {unit}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($@" > {friendlyName} > {value} {unit}");
+                    }
+                }
+            }
+        }
 
 # How can I send feedback!!!
 

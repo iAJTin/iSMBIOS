@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>iSMBIOS</id>
+        <version>1.0.8</version>
+        <title>iSMBIOS</title>
+        <authors>iAJTin</authors>
+        <owners>iAJTin</owners>
+        <license type="expression">MIT</license>
+        <projectUrl>https://github.com/iAJTin/iSMBIOS</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/iAJTin/iSMBIOS/master/nuget/iSMBIOS.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>iSMBIOS is a lightweight implementation that allows us to obtain SMBIOS information</description>
+        <copyright>Copyright © 2018 iAJTin</copyright>
+        <tags>SMBIOS DMI BIOS hardware iTin</tags>
+    </metadata>
+    <files>
+        <file src="..\src\lib\iTin.Core\iTin.Core\bin\Release\iTin.Core.dll" target="lib\net40\iTin.Core.dll" />
+        <file src="..\src\lib\iTin.Core\iTin.Core.Interop\bin\Release\iTin.Core.Interop.dll" target="lib\net40\iTin.Core.Interop.dll" />
+        <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware\bin\Release\iTin.Core.Hardware.dll" target="lib\net40\iTin.Core.Hardware.dll" />
+        <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\bin\Release\iTin.Core.Hardware.Specification.Dmi.dll" target="lib\net40\iTin.Core.Hardware.Specification.Dmi.dll" />
+        <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\bin\Release\iTin.Core.Hardware.Specification.Smbios.dll" target="lib\net40\iTin.Core.Hardware.Specification.Smbios.dll" />
+        <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\bin\Release\iTin.Core.Hardware.Specification.Tpm.dll" target="lib\net40\iTin.Core.Hardware.Specification.Tpm.dll" />
+    </files>
+</package>

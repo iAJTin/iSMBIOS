@@ -93,7 +93,12 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
 5. Prints all **SMBIOS** structures properties
 
-       DmiStructureCollection structures = DMI.Instance.Structures;
+        DmiStructureCollection structures = DMI.Instance.Structures;
+        foreach (DmiStructure structure in structures)
+        {
+            Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+        }
+
         foreach (DmiStructure structure in structures)
         {
             Console.WriteLine();
@@ -111,7 +116,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
                     IPropertyKey key = property.Key;
                     string friendlyName = GetFriendlyName(key);
                     PropertyUnit valueUnit = key.PropertyUnit;
-                    string unit = 
+                    string unit =
                         valueUnit == PropertyUnit.None
                             ? string.Empty
                             : valueUnit.ToString();
@@ -177,6 +182,14 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
                     }
                 }
             }
+        }
+
+        private static string GetFriendlyName(IPropertyKey value)
+        {
+            string friendlyName = value.GetPropertyName();
+            return string.IsNullOrEmpty(friendlyName)
+                ? value.PropertyId.ToString()
+                : friendlyName;
         }
 
 # How can I send feedback!!!

@@ -84,7 +84,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        // Requires that the Slot Information structure exists in your system
        DmiStructureCollection structures = DMI.Instance.Structures;
        IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
-       bool hasSystemSlots = systemSlots.Any();       
+       bool hasSystemSlots = systemSlots.Any();
        if (!hasSystemSlots)
        {
            Console.WriteLine($" > There is no system slots information structure in this computer");

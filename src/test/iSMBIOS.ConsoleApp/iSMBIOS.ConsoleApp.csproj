@@ -4,31 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{914E05E4-3BAA-47C6-BB9F-D7F47B006237}</ProjectGuid>
+    <ProjectGuid>{768A3709-640D-40D8-B286-59F3AF8A6AC4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>iSMBIOS.ConsoleApp</RootNamespace>
     <AssemblyName>iSMBIOS.ConsoleApp</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -39,6 +25,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,18 +34,14 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -66,28 +49,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
-    <None Include="key.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\iTin.Core.Hardware.Specification.Dmi.csproj">
-      <Project>{e5c80ab1-7a76-4e82-b8f1-208ce66796b4}</Project>
+      <Project>{c081b25a-8eb2-46f8-8b03-40e215e986e5}</Project>
       <Name>iTin.Core.Hardware.Specification.Dmi</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Smbios\iTin.Core.Hardware.Specification.Smbios.csproj">
-      <Project>{91ff7ed0-1230-4865-a589-28928623e537}</Project>
-      <Name>iTin.Core.Hardware.Specification.Smbios</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware\iTin.Core.Hardware.csproj">
       <Project>{712177ab-3598-4d8b-b8b8-888928dafa7d}</Project>
       <Name>iTin.Core.Hardware</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\lib\iTin.Core\iTin.Core\iTin.Core.csproj">
+      <Project>{a1fc8e7e-8a01-4456-bf5c-14c40981befa}</Project>
+      <Name>iTin.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

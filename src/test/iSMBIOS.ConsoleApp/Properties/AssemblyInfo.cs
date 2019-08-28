@@ -4,13 +4,13 @@ using System.Runtime.InteropServices;
 
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
-// asociada con un ensamblado.
+// asociada a un ensamblado.
 [assembly: AssemblyTitle("iSMBIOS.ConsoleApp")]
-[assembly: AssemblyDescription("SMBIOS Console Test App")]
+[assembly: AssemblyDescription("iSMBIOS Sample App")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("iTin")]
 [assembly: AssemblyProduct("iSMBIOS.ConsoleApp")]
-[assembly: AssemblyCopyright("Copyright © 2017")]
+[assembly: AssemblyCopyright("Copyright © 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("914e05e4-3baa-47c6-bb9f-d7f47b006237")]
+[assembly: Guid("768a3709-640d-40d8-b286-59f3af8a6ac4")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
@@ -29,8 +29,8 @@ using System.Runtime.InteropServices;
 //      Número de compilación
 //      Revisión
 //
-// Puede especificar todos los valores o usar los números de compilación y de revisión predeterminados
-// mediante el carácter "*", como se muestra a continuación:
+// Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión
+// utilizando el carácter "*", como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

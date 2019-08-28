@@ -1,0 +1,1627 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>iTin.Core</name>
+    </assembly>
+    <members>
+        <member name="T:iTin.Core.Collections.NameObjectCollection">
+            <summary>
+            Especialización de la clase <see cref="T:System.Collections.Specialized.NameObjectCollectionBase"/> que define una colección de claves de <see cref="T:System.String"/>
+            y valores de <see cref="T:System.Object"/> asociados a los que se puede obtener acceso con la clave o con el índice.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.#ctor">
+            <inheritdoc />
+            <summary>
+            Initialize a new instance of the <see cref="T:Syntec.Core.Collections.NameObjectCollection" /> class.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc />
+            <summary>
+            Initialize a new instance of the <see cref="T:Syntec.Core.Collections.NameObjectCollection" /> class.
+            </summary>
+            <param name="info">Object <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that contains the information needed to serialize the new instance of <see cref="T:System.Collections.Specialized.NameObjectCollectionBase" /> class.</param>
+            <param name="context">Object <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains the origin and destination of the serialized sequence associated with the new instance <see cref="T:System.Collections.Specialized.NameObjectCollectionBase" />.</param>
+        </member>
+        <member name="P:iTin.Core.Collections.NameObjectCollection.Item(System.Int32)">
+            <summary>
+              Inicializa una nueva instancia de la clase <see cref="T:System.Collections.Specialized.NameObjectCollectionBase" /> que es serializable y usa las clases <see cref="T:System.Runtime.Serialization.SerializationInfo" /> y <see cref="T:System.Runtime.Serialization.StreamingContext" /> especificadas.
+            </summary>
+            <summary>
+            Obtiene el par clave-valor usando el indice.
+            </summary>
+            <value>
+            Objeto <see cref="T:System.Collections.DictionaryEntry"/> que contiene el par clave-valor.
+            </value>
+        </member>
+        <member name="P:iTin.Core.Collections.NameObjectCollection.Item(System.String)">
+            <summary>
+            Obtiene o establece el <see cref="T:System.Object"/> asociado con la clave especificada.
+            </summary>
+            <value>
+            Objeto <see cref="T:System.Object"/> asociado con la clave especificada.
+            </value>
+        </member>
+        <member name="P:iTin.Core.Collections.NameObjectCollection.AllKeys">
+            <summary>
+            Obtiene un array de string que contiene todas las claves de la colección.
+            </summary>
+            <value>
+            <see cref="T:System.Array"/> de <see cref="T:System.String"/> que contiene todas las claves de la colección.
+            </value>
+        </member>
+        <member name="P:iTin.Core.Collections.NameObjectCollection.AllStringValues">
+            <summary>
+            Obtiene un array de string que contiene todas los valores de la colección.
+            </summary>
+            <value>
+            	<para>Tipo: <see cref="T:System.String"/></para>
+            	<para><see cref="T:System.Array"/> de <see cref="T:System.String"/> que contiene todas los valores de la colección.</para>
+            </value>
+        </member>
+        <member name="P:iTin.Core.Collections.NameObjectCollection.HasKeys">
+            <summary>
+            Obtiene un valor que indica si la colección contiene no nulas.
+            </summary>
+            <value><c>true</c> if this instance has keys; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:iTin.Core.Collections.NameObjectCollection.AllValues">
+            <summary>
+            Obtiene un array que contiene todos los valores de la colección.
+            </summary>
+            <value>
+            <see cref="T:System.Array"/> que contiene todos los valores de la colección.
+            </value>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.Add(System.String,System.Object)">
+            <summary>
+            Añadir una entrada a la colección.
+            </summary>
+            <param name="key">Clave.</param>
+            <param name="value">Valor.</param>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.Clear">
+            <summary>
+            Borrar todos los elementos de la colección.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.Remove(System.Int32)">
+            <summary>
+            Eliminar de la colección la entrada con el índice especificado.
+            </summary>
+            <param name="index">Índice de la entrada.</param>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.Remove(System.String)">
+            <summary>
+            Eliminar de la colección la entrada con la clave especificada.
+            </summary>
+            <param name="key">Clave.</param>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.Find(System.String)">
+            <summary>
+            Borrar todos los elementos de la colección.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.ToArrayList">
+            <summary>
+            Convertir colección a ArrayList.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.ContainsKey(System.String)">
+            <summary>
+            Determina si la clave especificada existe.
+            </summary>
+            <param name="key">Clave a comprobar.</param>
+            <returns>
+            	<b>true</b> si la clave especificada existe; <b>false</b> en caso contrario.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.Collections.NameObjectCollection.ToString">
+            <summary>
+            Devuelve una cadena que representa la clase <see cref="T:iTin.Core.Collections.NameObjectCollection"/> actual.
+            </summary>
+            <returns>
+              <para>Tipo: <see cref="T:System.String"/></para>
+              <para>Una cadena que representa la clase <see cref="T:iTin.Core.Collections.NameObjectCollection"/> actual.</para>
+            </returns>
+            <remarks>
+            El método <see cref="M:iTin.Core.Collections.NameObjectCollection.ToString"/> devuelve una cadena con el total de 
+            valores en la colección.
+            </remarks>   
+        </member>
+        <member name="T:iTin.Core.ComponentModel.Error">
+            <summary>
+            Class Error.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Error.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.ComponentModel.Error" /> class.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="code">The code.</param>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Error.#ctor(System.String,System.String,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.ComponentModel.Error"/> class.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="code">The code.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Error.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.ComponentModel.Error"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="P:iTin.Core.ComponentModel.Error.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:iTin.Core.ComponentModel.Error.Code">
+            <summary>
+            Gets or sets the code.
+            </summary>
+            <value>The code.</value>
+        </member>
+        <member name="P:iTin.Core.ComponentModel.Error.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="T:iTin.Core.ComponentModel.Messages">
+            <summary>
+            Class Messages.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Messages.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.ComponentModel.Messages"/> class.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Messages.Add(System.String)">
+            <summary>
+            Adds the specified message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Messages.Add(iTin.Core.ComponentModel.Messages)">
+            <summary>
+            Adds the specified messages.
+            </summary>
+            <param name="messages">The messages.</param>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Messages.Count">
+            <summary>
+            Counts this instance.
+            </summary>
+            <returns>System.Int32.</returns>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Messages.GetMessages">
+            <summary>
+            Gets the messages.
+            </summary>
+            <returns>IEnumerable&lt;System.String&gt;.</returns>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Messages.ToHtml">
+            <summary>
+            To the HTML.
+            </summary>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:iTin.Core.ComponentModel.Messages.ToHtml(System.String)">
+            <summary>
+            To the HTML.
+            </summary>
+            <param name="ccsClass">The class.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:iTin.Core.Exceptions.Exception">
+            <summary>
+            Class Exception.
+            </summary>
+            <seealso cref="T:System.Exception" />
+        </member>
+        <member name="M:iTin.Core.Exceptions.Exception.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.Exceptions.Exception"/> class.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Exceptions.Exception.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.Exceptions.Exception"/> class.
+            </summary>
+            <param name="code">The code.</param>
+        </member>
+        <member name="M:iTin.Core.Exceptions.Exception.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.Exceptions.Exception"/> class.
+            </summary>
+            <param name="resourceFile">The resource file.</param>
+            <param name="resourceKey">The resource key.</param>
+        </member>
+        <member name="P:iTin.Core.Exceptions.Exception.ResourceKey">
+            <summary>
+            Gets or sets the resource key.
+            </summary>
+            <value>The resource key.</value>
+        </member>
+        <member name="P:iTin.Core.Exceptions.Exception.ResourceFile">
+            <summary>
+            Gets or sets the resource file.
+            </summary>
+            <value>The resource file.</value>
+        </member>
+        <member name="P:iTin.Core.Exceptions.Exception.Message">
+            <summary>
+            Obtiene un mensaje que describe la excepción actual.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="M:iTin.Core.Exceptions.Exception.GetMessage">
+            <summary>
+            Gets the message.
+            </summary>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:iTin.Core.Exceptions.Exception.GetMessage(System.String)">
+            <summary>
+            Gets the message.
+            </summary>
+            <param name="language">The language.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:iTin.Core.Exceptions.NotAllowedException">
+            <summary>
+            Class NotAllowedException.
+            </summary>
+            <seealso cref="T:iTin.Core.Exceptions.Exception" />
+        </member>
+        <member name="M:iTin.Core.Exceptions.NotAllowedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.Exceptions.NotAllowedException"/> class.
+            </summary>
+            <param name="resourceKey">The resource key.</param>
+        </member>
+        <member name="M:iTin.Core.Exceptions.NotAllowedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.Exceptions.NotAllowedException"/> class.
+            </summary>
+        </member>
+        <member name="T:iTin.Core.Exceptions.ValidationException">
+            <summary>
+            Class ValidationException.
+            </summary>
+            <seealso cref="T:iTin.Core.Exceptions.Exception" />
+        </member>
+        <member name="F:iTin.Core.Exceptions.ValidationException.Errors">
+            <summary>
+            Error list.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.Exceptions.ValidationException"/> class.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.Exceptions.ValidationException"/> class.
+            </summary>
+            <param name="resourceFile">The resource file.</param>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:iTin.Core.Exceptions.ValidationException"/> class.
+            </summary>
+            <param name="resourceFile">The resource file.</param>
+            <param name="resourceKey">The resource key.</param>
+        </member>
+        <member name="P:iTin.Core.Exceptions.ValidationException.Message">
+            <summary>
+            Returns the list of Errors as an string with line breaks
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Exceptions.ValidationException.Html">
+            <summary>
+            Returns the list of Errors as an HTML to display on a website
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.AddError(System.String)">
+            <summary>
+            Adds the error.
+            </summary>
+            <param name="resourceKey">The resource key.</param>
+            <returns>ValidationException.</returns>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.AddError(System.String,System.String)">
+            <summary>
+            Adds the error.
+            </summary>
+            <param name="resourceFile">The resource file.</param>
+            <param name="resourceKey">The resource key.</param>
+            <returns>ValidationException.</returns>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.AddFormattedError(System.String,System.Object[])">
+            <summary>
+            Adds the error formatted.
+            </summary>
+            <param name="resourceKey">The resource key.</param>
+            <param name="args">The arguments.</param>
+            <returns>ValidationException.</returns>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.AddMessage(System.String)">
+            <summary>
+            Adds the message.
+            </summary>
+            <param name="message">The message.</param>
+            <returns>ValidationException.</returns>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+            <returns>ValidationException.</returns>
+        </member>
+        <member name="M:iTin.Core.Exceptions.ValidationException.ToMessages">
+            <summary>
+            Returns the list of Errors as an Messages object
+            </summary>
+        </member>
+        <member name="T:iTin.Core.ByteArrayExtensions">
+            <summary>
+            Static class than contains extension methods for objects <see cref="T:System.Array" /> of type <see cref="T:System.Byte" />.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.ByteArrayExtensions.Extract(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Returns a byte array as a result of extracting n bytes of the specified array from a position.
+            </summary>
+            <param name="data">Target data.</param>
+            <param name="start">Start byte</param>
+            <param name="lenght">Lenght to extract</param>
+            <returns>
+            A <see cref="T:T:System.Collections.ObjectModel.ReadOnlyCollection{byte}" /> that contains the result.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ByteArrayExtensions.GetDoubleWord(System.Byte[],System.Byte)">
+            <summary>
+            Gets a <b>Double Word</b> from this array of bytes.
+            </summary>
+            <param name="data">Target data.</param>
+            <param name="start">Start byte.</param>
+            <returns>
+            A <see cref="T:System.Int32" /> containing the value.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ByteArrayExtensions.GetQuadrupleWord(System.Byte[],System.Byte)">
+            <summary>
+            Returns a <b>Quadriple Word</b> from this array of bytes starting in <paramref name="start"/>.
+            </summary>
+            <param name="data">Target data.</param>
+            <param name="start">Start byte.</param>
+            <returns>
+            A <see cref="T:System.Int64" /> containing the value.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ByteArrayExtensions.GetWord(System.Byte[],System.Byte)">
+            <summary>
+            Gets a <b>Word</b> from this array of bytes. ( { a, b, n, n + 1, ...}, n ) => (n + 1, n)
+            </summary>
+            <param name="data">Target data.</param>
+            <param name="start">Start byte.</param>
+            <returns>
+            A <see cref="T:System.Int32" /> containing the value.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ByteArrayExtensions.Swap(System.Byte[])">
+            <summary>
+            Returns an array of bytes by exchanging bytes.
+            </summary>
+            <param name="value">Byte to analyze.</param>
+            <returns>
+            A byte <see cref="T:System.Array"/> that contains the result.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.ByteExtensions">
+            <summary>
+            Static class than contains extension methods for structure <see cref="T:System.Byte" />.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.ByteExtensions.CheckBit(System.Byte,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.ByteExtensions.CheckBit(System.Byte,System.Byte)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.ByteExtensions.GetBit(System.Byte,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ByteExtensions.GetBit(System.Byte,System.Byte)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ByteExtensions.ToArray(System.Byte)">
+            <summary>
+            Returns reference value splitted into bytes as a 2 byte array
+            </summary>
+            <param name="value">Reference value.</param>
+            <returns>
+            A byte <see cref="T:System.Array"/> that contains the result.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ByteExtensions.ToNibbles(System.Byte)">
+            <summary>
+            Returns an array of bytes that contains the nibbles of this <see cref = "T:System.Byte" />.
+            </summary>
+            <param name="value">Byte to analyze.</param>
+            <returns>
+            A byte <see cref="T:System.Array"/> that contains the result.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.Int32Extensions">
+            <summary>
+            Static class than contains extension methods for structure <see cref="T:System.Int32" />.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.Int32Extensions.CheckBit(System.Int32,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.Int32Extensions.CheckBit(System.Int32,System.Byte)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.Int32Extensions.GetBit(System.Int32,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.Int32Extensions.GetBit(System.Int32,System.Byte)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.Int32Extensions.GetByte(System.Int32,iTin.Core.Helpers.Enumerations.Bytes)">
+            <summary>
+            Returns the specified byte.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="onebyte">Byte to retrieve.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Int32Extensions.GetByte(System.Int32,System.Byte)">
+            <summary>
+            Returns the specified byte.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="onebyte">Byte to retrieve.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Int32Extensions.ToArray(System.Int32)">
+            <summary>
+            Returns reference value splitted into bytes as a 2 byte array
+            </summary>
+            <param name="value">Reference value.</param>
+            <returns>
+            A byte <see cref="T:System.Array"/> that contains the result.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.Int64Extensions">
+            <summary>
+            Static class than contains extension methods for structure <see cref="T:System.Int64" />.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.Int64Extensions.CheckBit(System.Int64,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.Int64Extensions.CheckBit(System.Int64,System.Byte)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.Int64Extensions.GetBit(System.Int64,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to retrieve.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.Int64Extensions.GetBit(System.Int64,System.Byte)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.Int64Extensions.GetByte(System.Int64,iTin.Core.Helpers.Enumerations.Bytes)">
+            <summary>
+            Returns the specified byte.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="onebyte">Byte to retrieve.</param>
+            <returns>
+            A <see cref="T:System.Byte"/> that contains the result.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.Int64Extensions.GetByte(System.Int64,System.Byte)">
+            <summary>
+            Returns the specified byte.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="onebyte">Byte to retrieve.</param>
+            <returns>
+            A <see cref="T:System.Byte"/> that contains the result.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.Int64Extensions.ToArray(System.Int64)">
+            <summary>
+            Returns reference value splitted into bytes as a 16 byte array
+            </summary>
+            <param name="value">Reference value.</param>
+            <returns>
+            A byte <see cref="T:System.Array"/> that contains the result.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.IntPtrExtensions">
+            <summary>
+            Static class than contains extension methods for <see cref="T:System.IntPtr" /> type.
+            </summary> 
+        </member>
+        <member name="T:iTin.Core.ListExtensions">
+            <summary>
+            Static class than contains extension methods for generic List.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.ListExtensions.MoveElementToPosition``1(System.Collections.Generic.List{``0},``0,System.Int32)">
+            <summary>
+            Moves specified item to new position
+            </summary>
+            <param name="items">Target list</param>
+            <param name="item">Item to move</param>
+            <param name="newPosition">New position into list</param>
+            <typeparam name="T">Element type</typeparam>
+            <returns>
+            Returns the same list with item in new position
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ListExtensions.GetNext``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            Returns the next item on the list from the specified current
+            <para>Will return null if the current is the last</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.ListExtensions.GetPrev``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            Returns the previous item on the list from the specified current
+            <para>Will return null if the current is the first</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.ListExtensions.GetNextObject``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            Returns the next item on the list from the specified current
+            <para>Will return null if the current is the last</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.ListExtensions.GetPrevObject``1(System.Collections.Generic.List{``0},``0)">
+            <summary>
+            Returns the previous item on the list from the specified current
+            <para>Will return null if the current is the first</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="items"></param>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.ListExtensions.GetValidIndex``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            Returns a valid index to use in this List.
+            </summary>
+            <typeparam name="T">Type element</typeparam>
+            <param name="items">Target list</param>
+            <param name="index">Reference index</param>
+            <returns>
+            A valid index.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ListExtensions.IsValidIndex``1(System.Collections.Generic.IList{``0},System.Int32)">
+            <summary>
+            Determines if specified value is a valid index in list
+            </summary>
+            <typeparam name="T">Type element</typeparam>
+            <param name="items">Target list</param>
+            <param name="index">Value to test</param>
+            <returns>
+            <c>true</c> if is a valid index; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ListExtensions.TryGetValue``1(System.Collections.Generic.List{``0},System.Int32,``0@)">
+            <summary>
+            Try returns item in specified index. If index is not valid value is <c>null</c> (<c>Nothing</c> in Visual Basic)
+            </summary>
+            <typeparam name="T">Type element</typeparam>
+            <param name="items">Target list</param>
+            <param name="index">Reference index</param>
+            <param name="value">Item</param>
+            <returns></returns>
+        </member>
+        <member name="T:iTin.Core.ReadOnlyCollectionExtensions">
+            <summary>
+            Static class than contains extension methods for objects <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection{T}" /> of type <see cref="T:System.Byte" />.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.ReadOnlyCollectionExtensions.GetDoubleWord(System.Collections.ObjectModel.ReadOnlyCollection{System.Byte},System.Byte)">
+            <summary>
+            Gets a <b>Double Word</b> from this array of bytes.
+            </summary>
+            <param name="data">Target data.</param>
+            <param name="start">Start byte.</param>
+            <returns>
+            A <see cref="T:System.Int32" /> containing the value.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ReadOnlyCollectionExtensions.GetQuadrupleWord(System.Collections.ObjectModel.ReadOnlyCollection{System.Byte},System.Byte)">
+            <summary>
+            Returns a <b>Quadriple Word</b> from this array of bytes starting in <paramref name="start"/>.
+            </summary>
+            <param name="data">Target data.</param>
+            <param name="start">Start byte.</param>
+            <returns>
+            A <see cref="T:System.Int64" /> containing the value.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ReadOnlyCollectionExtensions.GetWord(System.Collections.ObjectModel.ReadOnlyCollection{System.Byte},System.Byte)">
+            <summary>
+            Gets a <b>Word</b> from this array of bytes. ( { a, b, n, n + 1, ...}, n ) => (n + 1, n)
+            </summary>
+            <param name="data">Target data.</param>
+            <param name="start">Start byte.</param>
+            <returns>
+            A <see cref="T:System.Int32" /> containing the value.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.ReadOnlyCollectionExtensions.Extract(System.Collections.ObjectModel.ReadOnlyCollection{System.Byte},System.Byte,System.Byte)">
+            <summary>
+            Returns a byte array as a result of extracting n bytes of the specified array from a position.
+            </summary>
+            <param name="data">Target data.</param>
+            <param name="start">Start byte</param>
+            <param name="lenght">Lenght to extract</param>
+            <returns>
+            A <see cref="T:T:System.Collections.ObjectModel.ReadOnlyCollection{byte}" /> that contains the result.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.StringExtensions">
+            <summary>
+            Static class than contains extension methods for objects of type <see cref="T:System.String" />.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.StringExtensions.Left(System.String,System.Int32)">
+            <summary>
+            Devuelve una cadena que contiene un número especificado de caracteres a partir del lado izquierdo de una cadena.
+            </summary>
+            <param name="str">Expresión de tipo <see cref="T:System.String"/> de la que se devuelven los caracteres que están más a la izquierda.</param>
+            <param name="length">Expresión númerica de tipo <see cref="T:System.Int32"/> que indica cuántos caracteres se van a devolver.</param>
+            <returns>
+            	<para>Tipo: <see cref="T:System.String"/></para>
+            	<para><see cref="T:System.String"/> con el resultado.</para>
+            </returns>
+        </member>
+        <member name="M:iTin.Core.StringExtensions.Right(System.String,System.Int32)">
+            <summary>
+            Devuelve una cadena que contiene un número especificado de caracteres a partir del lado derecho de una cadena.
+            </summary>
+            <param name="str">Expresión de tipo <see cref="T:System.String"/> de la que se devuelven los caracteres que están más a la derecha.</param>
+            <param name="length">Expresión númerica de tipo <see cref="T:System.Int32"/> que indica cuántos caracteres se van a devolver.</param>
+            <returns>
+            	<para>Tipo: <see cref="T:System.String"/></para>
+            	<para><see cref="T:System.String"/> con el resultado.</para>
+            </returns>
+        </member>
+        <member name="M:iTin.Core.StringExtensions.Mid(System.String,System.Int32,System.Int32)">
+            <summary>
+            Devuelve una cadena que contiene un número especificado de caracteres a partir de la posición especificada.
+            </summary>
+            <param name="str">Nombre de la variable <see cref="T:System.String"/> que se va a modificar.</param>
+            <param name="start">Posición del carácter donde se inicia la extracción.</param>
+            <param name="length">Número de caracteres que se van a extraer.</param>
+            <returns>
+            	<para>Tipo: <see cref="T:System.String"/></para>
+            	<para><see cref="T:System.String"/> con el resultado.</para>
+            </returns>
+        </member>
+        <member name="T:iTin.Core.UInt32Extensions">
+            <summary>
+            Static class than contains extension methods for structure <see cref="T:System.UInt32" />.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.UInt32Extensions.CheckBit(System.UInt32,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.UInt32Extensions.CheckBit(System.UInt32,System.Byte)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.UInt32Extensions.GetBit(System.UInt32,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.UInt32Extensions.GetBit(System.UInt32,System.Byte)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.UInt32Extensions.GetByte(System.UInt32,iTin.Core.Helpers.Enumerations.Bytes)">
+            <summary>
+            Returns the specified byte.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="onebyte">Byte to retrieve.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.UInt32Extensions.GetByte(System.UInt32,System.Byte)">
+            <summary>
+            Returns the specified byte.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="onebyte">Byte to retrieve.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.UInt32Extensions.ToArray(System.UInt32)">
+            <summary>
+            Returns reference value splitted into bytes as a 2 byte array
+            </summary>
+            <param name="value">Reference value.</param>
+            <returns>
+            A byte <see cref="T:System.Array"/> that contains the result.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.UInt64Extensions">
+            <summary>
+            Static class than contains extension methods for structure <see cref="T:System.UInt64" />.
+            </summary> 
+        </member>
+        <member name="M:iTin.Core.UInt64Extensions.CheckBit(System.UInt64,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if specified <paramref name="bit" /> is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.UInt64Extensions.CheckBit(System.UInt64,System.Byte)">
+            <summary>
+            Returns a value indicating whether the specified bit is enabled.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            <b>true</b> if bit specified in <paramref name="bit" /> parameter is enabled; otherwise, <b>false</b>.
+            </returns> 
+        </member>
+        <member name="M:iTin.Core.UInt64Extensions.GetBit(System.UInt64,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to retrieve.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.UInt64Extensions.GetBit(System.UInt64,System.Byte)">
+            <summary>
+            Returns the current state of the specified bit.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="bit">Bit to check.</param>
+            <returns>
+            Returns <c>1</c> if specified bit is active; otherwise <c>0</c>.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.UInt64Extensions.GetByte(System.UInt64,iTin.Core.Helpers.Enumerations.Bytes)">
+            <summary>
+            Returns the specified byte.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="onebyte">Byte to retrieve.</param>
+            <returns>
+            A <see cref="T:System.Byte"/> that contains the result.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.UInt64Extensions.GetByte(System.UInt64,System.Byte)">
+            <summary>
+            Returns the specified byte.
+            </summary>
+            <param name="value">Reference value.</param>
+            <param name="onebyte">Byte to retrieve.</param>
+            <returns>
+            A <see cref="T:System.Byte"/> that contains the result.
+            </returns>
+        </member>
+        <member name="M:iTin.Core.UInt64Extensions.ToArray(System.UInt64)">
+            <summary>
+            Returns reference value splitted into bytes as a 8 byte array
+            </summary>
+            <param name="value">Reference value.</param>
+            <returns>
+            A byte <see cref="T:System.Array"/> that contains the result.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.Helpers.Enumerations.Bits">
+            <summary>
+            Bits enumeration
+            </summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit00">
+            <summary>bit 0</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit01">
+            <summary>bit 1</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit02">
+            <summary>bit 2</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit03">
+            <summary>bit 3</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit04">
+            <summary>bit 4</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit05">
+            <summary>bit 5</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit06">
+            <summary>bit 6</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit07">
+            <summary>bit 7</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit08">
+            <summary>bit 8</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit09">
+            <summary>bit 9</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit10">
+            <summary>bit 10</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit11">
+            <summary>bit 11</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit12">
+            <summary>bit 12</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit13">
+            <summary>bit 13</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit14">
+            <summary>bit 14</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit15">
+            <summary>bit 15</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit16">
+            <summary>bit 16</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit17">
+            <summary>bit 17</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit18">
+            <summary>bit 18</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit19">
+            <summary>bit 19</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit20">
+            <summary>bit 20</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit21">
+            <summary>bit 21</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit22">
+            <summary>bit 22</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit23">
+            <summary>bit 23</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit24">
+            <summary>bit 24</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit25">
+            <summary>bit 25</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit26">
+            <summary>bit 26</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit27">
+            <summary>bit 27</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit28">
+            <summary>bit 28</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit29">
+            <summary>bit 29</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit30">
+            <summary>bit 30</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit31">
+            <summary>bit 31</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit32">
+            <summary>bit 32</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit33">
+            <summary>bit 33</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit34">
+            <summary>bit 34</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit35">
+            <summary>bit 35</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit36">
+            <summary>bit 36</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit37">
+            <summary>bit 37</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit38">
+            <summary>bit 38</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit39">
+            <summary>bit 39</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit40">
+            <summary>bit 40</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit41">
+            <summary>bit 41</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit42">
+            <summary>bit 42</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit43">
+            <summary>bit 43</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit44">
+            <summary>bit 44</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit45">
+            <summary>bit 45</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit46">
+            <summary>bit 46</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit47">
+            <summary>bit 47</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit48">
+            <summary>bit 48</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit49">
+            <summary>bit 49</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit50">
+            <summary>bit 50</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit51">
+            <summary>bit 51</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit52">
+            <summary>bit 52</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit53">
+            <summary>bit 53</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit54">
+            <summary>bit 54</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit55">
+            <summary>bit 55</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit56">
+            <summary>bit 56</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit57">
+            <summary>bit 57</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit58">
+            <summary>bit 58</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit59">
+            <summary>bit 59</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit60">
+            <summary>bit 60</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit61">
+            <summary>bit 61</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit62">
+            <summary>bit 62</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bits.Bit63">
+            <summary>bit 63</summary>
+        </member>
+        <member name="T:iTin.Core.Helpers.Enumerations.Bytes">
+            <summary>
+            Bytes enumeration
+            </summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte00">
+            <summary>byte 0</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte01">
+            <summary>byte 1</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte02">
+            <summary>byte 2</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte03">
+            <summary>byte 3</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte04">
+            <summary>byte 4</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte05">
+            <summary>byte 5</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte06">
+            <summary>byte 6</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte07">
+            <summary>byte 7</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte08">
+            <summary>byte 8</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte09">
+            <summary>byte 9</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte10">
+            <summary>byte 10</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte11">
+            <summary>byte 11</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte12">
+            <summary>byte 12</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte13">
+            <summary>byte 13</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte14">
+            <summary>byte 14</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Bytes.Byte15">
+            <summary>byte 15</summary>
+        </member>
+        <member name="T:iTin.Core.Helpers.Enumerations.Words">
+            <summary>
+            Word enumeration
+            </summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Words.Word00">
+            <summary>word 0</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Words.Word01">
+            <summary>word 1</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Words.Word02">
+            <summary>word 2</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Words.Word03">
+            <summary>word 3</summary>            
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Words.Word04">
+            <summary>word 4</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Words.Word05">
+            <summary>word 5</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Words.Word06">
+            <summary>word 6</summary>
+        </member>
+        <member name="F:iTin.Core.Helpers.Enumerations.Words.Word07">
+            <summary>word 7</summary>
+        </member>
+        <member name="T:iTin.Core.Helpers.LogicHelper">
+            <summary>
+            La clase estática <b>Logical</b> proporciona métodos estáticos y expresiones Lambda para manipular expresiones lógicas.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Helpers.LogicHelper.Word">
+            <summary>
+            Obtiene un valor Word a partir de dos bytes de referencia. (a, b) => (b, a).
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Helpers.LogicHelper.AWord">
+            <summary>
+            Obtiene un valor Word a partir de la posición indicada en el array. { (a, b, n, n + 1,...), n } => (n + 1, n).
+            </summary>
+            <value>A word.</value>
+        </member>
+        <member name="P:iTin.Core.Helpers.LogicHelper.ADWord">
+            <summary>
+            Obtiene un valor DoubleWord a partir de la posición indicada en el array.
+            </summary>
+            <value>A word.</value>
+        </member>
+        <member name="P:iTin.Core.Helpers.LogicHelper.AQWord">
+            <summary>
+            Obtiene un valor QuadripleWord a partir de la posición indicada en el array.
+            </summary>
+            <value>A word.</value>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetWords(System.UInt64)">
+            <summary>
+            Devuelve array con 7 words.
+            </summary>
+            <param name="register">Máscara.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetWords(System.Int32)">
+            <summary>
+            Devuelve array con 7 words donde 4 últimos a 0.
+            </summary>
+            <param name="register">Máscara.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetWord(System.UInt64,iTin.Core.Helpers.Enumerations.Words)">
+            <summary>
+            Devuelve el word seleccionado.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="word">word a devolver.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetWord(System.Int32,iTin.Core.Helpers.Enumerations.Words)">
+            <summary>
+            Devuelve el word seleccionado.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="word">word a devolver.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetBytes(System.UInt64)">
+            <summary>
+            Devuelve array con 16 bytes.
+            </summary>
+            <param name="register">Máscara.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetBytes(System.Int32)">
+            <summary>
+            Devuelve array con 14 bytes, 7 últimos a 0.
+            </summary>
+            <param name="register">Máscara.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetByte(System.UInt64,iTin.Core.Helpers.Enumerations.Bytes)">
+            <summary>
+            Devuelve el byte seleccionado.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="onebyte">Byte a devolver.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetByte(System.Int32,iTin.Core.Helpers.Enumerations.Bytes)">
+            <summary>
+            Devuelve el byte seleccionado.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="onebyte">Byte a devolver.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.Word2Str(System.Int32)">
+            <summary>
+            Convertir int en string.
+            </summary>
+            <param name="value">Valor a convertir.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.Byte2Str(System.Byte)">
+            <summary>
+            Convertir byte en string
+            </summary>
+            <param name="value">Valor a convertir.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.CheckBit(System.Int64,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Obtiene el estado de un bit.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="bit">bit a devolver.</param>
+            <returns></returns> 
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.CheckBit(System.Byte,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Obtiene el estado de un bit.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="bit">bit a devolver.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.CheckBit(System.Int32,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Obtiene el estado de un bit.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="bit">bit a devolver.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetBit(System.UInt64,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Devuelve el estado del bit seleccionado.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="bit">bit a devolver.</param>
+            <returns></returns>
+        </member>
+        <member name="M:iTin.Core.Helpers.LogicHelper.GetBit(System.Int32,iTin.Core.Helpers.Enumerations.Bits)">
+            <summary>
+            Devuelve el estado del bit seleccionado.
+            </summary>
+            <param name="register">Máscara.</param>
+            <param name="bit">bit a comprobar.</param>
+            <returns></returns>
+        </member>
+        <member name="F:iTin.Core.Helpers.LogicHelper.BitBit">
+            <summary>
+            Obtiene un valor que indica si el bit indicado está activado.
+            </summary>
+        </member>
+        <member name="T:iTin.Core.Helpers.SentinelHelper">
+            <summary>
+            Static class than contains methods for perform tests and validate data types and parameters.
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.ArgumentNull``1(``0)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.ArgumentNullException" /> if is <strong>null</strong>.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked</typeparam>
+            <param name="argument">Argument value.</param>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.ArgumentNull``1(``0,System.String)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.ArgumentNullException" /> with specified error message if is <strong>null</strong>.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked</typeparam>
+            <param name="argument">Argument value.</param>
+            <param name="message">Error message.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="argument" /> is <strong>null</strong>.</exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.ArgumentLessThan``1(System.String,``0,``0)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.ArgumentOutOfRangeException" /> if less than the specified threshold.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked.</typeparam>
+            <param name="parameter">Parameter name.</param>
+            <param name="argument">Argument value.</param>
+            <param name="threshold">Threshold value.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">If <paramref name="argument" /> is less than the specified threshold.</exception>
+            <remarks>
+            The value of the <paramref name="argument" /> must be greater or equal to the threshold indicated.
+            </remarks>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.ArgumentGreaterThan``1(System.String,``0,``0)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.ArgumentOutOfRangeException" /> if greater than the specified threshold.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked.</typeparam>
+            <param name="parameter">Parameter name.</param>
+            <param name="argument">Argument value.</param>
+            <param name="threshold">Threshold value.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">If <paramref name="argument" /> is greater than the specified threshold.</exception>
+            <remarks>
+            The argument value must be less than or equal to the specified threshold.
+            </remarks>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.ArgumentOutOfRange``1(System.String,``0,``0,``0)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.ArgumentOutOfRangeException" />
+            if is over the maximum specified, or is less than the specified minimum value.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked.</typeparam>
+            <param name="parameter">Parameter name.</param>
+            <param name="argument">Argument value.</param>
+            <param name="min">Value Minimum permitted.</param>
+            <param name="max">Value Maximum permitted.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">If <paramref name="argument" /> is over the maximum specified, or is less than the specified minimum value.</exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.ArgumentOutOfRange``1(System.String,``0,``0,``0,System.String)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.ArgumentOutOfRangeException" />
+            if is over the maximum specified, or is less than the specified minimum value.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked.</typeparam>
+            <param name="parameter">Parameter name.</param>
+            <param name="argument">Argument value.</param>
+            <param name="min">Value Minimum permitted.</param>
+            <param name="max">Value Maximum permitted.</param>
+            <param name="message">Error message.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">If <paramref name="argument" /> is over the maximum specified, or is less than the specified minimum value.</exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.IsEnumValid``1(``0)">
+            <summary>
+            Performs a test on the method argument.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked.</typeparam>
+            <param name="value">Check value</param>
+            <returns>
+            <strong>true</strong> if <paramref name="value" /> is a valid enum; otherwise, <strong>false</strong>.
+            </returns>
+            <exception cref="T:System.ArgumentException">If <paramref name="value" /> isn't an enumerated type.</exception>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">If <paramref name="value" /> not part of the enumeration.</exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.IsEnumValid``1(``0,System.Boolean)">
+            <summary>
+            Performs a test on the method argument, if <paramref name="testOnly" /> is <strong>false</strong> throws an exception of type <exception cref="T:System.ComponentModel.InvalidEnumArgumentException" /> if the specified value doesn't belong to enumeration.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked.</typeparam>
+            <param name="value">Check value</param>
+            <param name="testOnly"><strong>true</strong> for performs only a test.</param>
+            <returns>
+            <strong>true</strong> if <paramref name="value" /> is a valid enum; otherwise, <strong>false</strong>.
+            </returns>
+            <exception cref="T:System.ArgumentException">If <paramref name="value" /> isn't an enumerated type.</exception>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">If <paramref name="value" /> not part of the enumeration.</exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.IsFalse(System.Boolean)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.InvalidOperationException" /> if the specified expression is <strong>false</strong>.
+            </summary>
+            <param name="expression">Expression to evaluate.</param>
+            <exception cref="T:System.InvalidOperationException">If the result is <strong>false</strong></exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.IsFalse(System.Boolean,System.String)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.InvalidOperationException" /> if the specified expression is <strong>false</strong>.
+            </summary>
+            <param name="expression">Expression to evaluate.</param>
+            <param name="message">Error message.</param>
+            <exception cref="T:System.InvalidOperationException">If the result is <strong>false</strong></exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.IsFalse(System.Boolean,System.Exception)">
+            <summary>
+            Performs a test on the method argument, and throws an specified exception if the specified expression is <strong>false</strong>.
+            </summary>
+            <param name="expression">Expression to evaluate.</param>
+            <param name="exception">Error message.</param>
+            <exception cref="T:System.InvalidOperationException">If the <paramref name="exception"/> is <strong>null</strong>.</exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.IsTrue(System.Boolean)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.InvalidOperationException" /> if the specified expression is <strong>true</strong>.
+            </summary>
+            <param name="expression">Expression to evaluate.</param>
+            <exception cref="T:System.InvalidOperationException">If the result is <strong>true</strong></exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.IsTrue(System.Boolean,System.String)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type <exception cref="T:System.InvalidOperationException" /> if the specified expression is <strong>true</strong>.
+            </summary>
+            <param name="expression">Expression to evaluate.</param>
+            <param name="message">Error message.</param>
+            <exception cref="T:System.InvalidOperationException">If the result is <strong>true</strong></exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.IsTrue(System.Boolean,System.Exception)">
+            <summary>
+            Performs a test on the method argument, and throws an specified exception if the specified expression is <strong>true</strong>.
+            </summary>
+            <param name="expression">Expression to evaluate.</param>
+            <param name="exception">Error message.</param>
+            <exception cref="T:System.InvalidOperationException">If the <paramref name="exception"/> is <strong>null</strong>.</exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.NotEmpty(System.String,System.String)">
+            <summary>
+            Performs a test on the method argument, and throws an exception of type ArgumentException if the specified value is empty.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="parameterName">Name of the parameter.</param>
+            <returns>System.String.</returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:iTin.Core.Helpers.SentinelHelper.PassThroughNonNull``1(``0)">
+            <summary>
+            Performs a test on the method argument, if not null is returned, otherwise throws an <exception cref="T:System.ArgumentNullException" /> type.
+            </summary>
+            <typeparam name="T">Type of the argument to be checked</typeparam>
+            <param name="argument">Argument value.</param>
+            <returns>
+            Original object.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.Helpers.WmiHelper">
+            <summary>
+            WMI helper methods
+            </summary>
+        </member>
+        <member name="M:iTin.Core.Helpers.WmiHelper.WmiDateToDateTime(System.String)">
+            <summary>
+            Converts <c>WMI</c> date format into <see cref="T:System.DateTime"/>.
+            </summary>              
+            <param name="date"><c>WMI</c> date format.</param>
+            <returns>
+            A <see cref="T:System.DateTime"/> equivalent.
+            </returns>
+        </member>
+        <member name="T:iTin.Core.Localization.Exceptions.Exception">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.Exception.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.Exception.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.Exception.EnumArgumentException">
+            <summary>
+              Busca una cadena traducida similar a T must be an enumerated type.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.Exception.InvalidEnumArgumentException">
+            <summary>
+              Busca una cadena traducida similar a The value of argument  &apos;value&apos; ({0}) is invalid for Enum type &apos;{1}.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.Exception.UNKNOWN_ERROR">
+            <summary>
+              Busca una cadena traducida similar a Error desconocido.
+            </summary>
+        </member>
+        <member name="T:iTin.Core.Localization.Exceptions.NotAllowedException">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.NotAllowedException.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.NotAllowedException.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.NotAllowedException.DELETE_NOT_ALLOWED">
+            <summary>
+              Busca una cadena traducida similar a No está permitido eliminar el elemento.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.NotAllowedException.MODIFY_NOT_ALLOWED">
+            <summary>
+              Busca una cadena traducida similar a No está permitido modificar el elemento.
+            </summary>
+        </member>
+        <member name="P:iTin.Core.Localization.Exceptions.NotAllowedException.NOT_ALLOWED">
+            <summary>
+              Busca una cadena traducida similar a Operación no permitida.
+            </summary>
+        </member>
+    </members>
+</doc>

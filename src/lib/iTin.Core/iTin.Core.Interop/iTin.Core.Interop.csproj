@@ -1,104 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F8F097DA-4171-4E3F-BF8F-59D37B2BE72F}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>iTin.Core.Interop</RootNamespace>
-    <AssemblyName>iTin.Core.Interop</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\iTin.Core.Interop.xml</DocumentationFile>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
+    <TargetFrameworks>net35;netstandard2.0;netcoreapp2.0;netcoreapp2.1</TargetFrameworks>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <Version>1.0.0</Version>
+    <Description>Generic Win32 Interop Calls</Description>
+    <Copyright>Copyright © 2019</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageId>iTin.Core.Interop</PackageId>
+    <Company>iTin</Company>
+    <Product>iTin.Core.Interop</Product>
+    <SignAssembly>true</SignAssembly>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Windows\Development\DocumentsAndPrinting\Printing\GdiPrint\Structures\DEVMODE.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\DeviceContext\NativeMethods.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\DeviceContext\Structures\DISPLAY_DEVICE.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\Metafiles\Structures\POINTL.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\MultipleDisplayMonitors\NativeMethods.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\MultipleDisplayMonitors\Structures\MONITORINFO.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\MultipleDisplayMonitors\Structures\MONITORINFOEX.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\Rectangles\NativeMethods.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\Rectangles\Structures\POINT.cs" />
-    <Compile Include="Windows\Development\Graphics\Legacy\Gdi\Rectangles\Structures\RECT.cs" />
-    <Compile Include="Windows\Development\Hardware\uProcessor\CPUID\NativeMethods.cs" />
-    <Compile Include="Windows\Development\NativeMethods.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DirectoryManagement\Enums\FsctlDirectoryControlCodes.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Enums\IoctlDiskControlCode.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Enums\MEDIA_TYPE.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Enums\PARTITION_STYLE.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Enums\PARTITION_TYPE.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Enums\STORAGE_BUS_TYPE.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\NativeMethods.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Structures\DISK_GEOMETRY.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Structures\DRIVE_LAYOUT_INFORMATION_EX.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Structures\DRIVE_LAYOUT_INFORMATION_GPT.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Structures\DRIVE_LAYOUT_INFORMATION_MBR.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Structures\PARTITION_INFORMATION_EX.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Structures\PARTITION_INFORMATION_GPT.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\DiskManagement\Structures\PARTITION_INFORMATION_MBR.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\FileManagement\Enums\FsctlFileControlCodes.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\FileManagement\NativeMethods.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\VolumeManagement\Enums\FsctlVolumeControlCodes.cs" />
-    <Compile Include="Windows\Development\Storage\LocalFileSystems\VolumeManagement\NativeMethods.cs" />
-    <Compile Include="Windows\Development\SystemServices\SystemInformation\Firmware\Enumerations\KnownProvider.cs" />
-    <Compile Include="Windows\Development\UI\WindowsAndMessages\configuration\NativeMethods.cs" />
-    <Compile Include="Windows\Shared\Constants.cs" />
-    <Compile Include="Windows\Shared\Enums.cs" />
-    <Compile Include="Windows\Shared\ExternDll.cs" />
-    <Compile Include="Windows\Development\SystemServices\SystemInformation\Firmware\NativeMethods.cs" />
-    <Compile Include="Windows\Shared\SystemErrorCodes.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\iTin.Core\iTin.Core.csproj">
-      <Project>{a1fc8e7e-8a01-4456-bf5c-14c40981befa}</Project>
-      <Name>iTin.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="key.snk" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\iTin.Core\iTin.Core.csproj" />
+  </ItemGroup>
+
 </Project>

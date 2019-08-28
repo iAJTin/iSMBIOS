@@ -1,5 +1,5 @@
 ﻿
-namespace iSMBIOS.ConsoleApp
+namespace iSMBIOS.ConsoleAppCore
 {
     using System;
     using System.Collections.Generic;

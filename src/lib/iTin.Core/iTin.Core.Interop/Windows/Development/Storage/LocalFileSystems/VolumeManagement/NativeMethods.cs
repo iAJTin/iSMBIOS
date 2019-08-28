@@ -1,9 +1,10 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Text;
-
+﻿
 namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.VolumeManagement
 {
+    using System;
+    using System.Runtime.InteropServices;
+    using System.Text;
+
     /// <summary>  
     /// El nivel más alto de organización en el sistema de archivos es el volumen.
     /// Un sistema de archivos reside en un volumen.
@@ -136,52 +137,38 @@ namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.VolumeM
 
         #region P/Invoke
 
-            #region [public] {static} (extern} (long) GetDriveType(string): Determina si una unidad de disco es extraíble, fijo, CD-ROM, disco RAM, o unidad de red.
-            /// <summary>
-            /// Determina si una unidad de disco es extraíble, fijo, CD-ROM, disco RAM, o unidad de red.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/aa364939%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.Kernel32, SetLastError = true)]
-            public static extern long GetDriveType(string driveLetter);
-            #endregion
+        #region [public] {static} (extern} (long) GetDriveType(string): Determina si una unidad de disco es extraíble, fijo, CD-ROM, disco RAM, o unidad de red.
+        /// <summary>
+        /// Determina si una unidad de disco es extraíble, fijo, CD-ROM, disco RAM, o unidad de red.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/aa364939%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.Kernel32, SetLastError = true)]
+        public static extern long GetDriveType(string driveLetter);
+        #endregion
 
-            #region [public] {static} (extern} (bool) GetVolumeInformation(string, StringBuilder, uint, [Out] uint, [Out] uint, [Out] FileSystemFlags, StringBuilder, uint): Recupera información sobre el sistema de archivos y el volumen asociado con el directorio raíz especificado.
-            /// <summary>
-            /// Recupera información sobre el sistema de archivos y el volumen asociado con el directorio raíz especificado.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/aa364993%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.Kernel32, SetLastError = true)]
-            public static extern bool GetVolumeInformation(  string rootPathName
-                                                           , StringBuilder volumeNameBuffer
-                                                           , uint volumeNameSize
-                                                           , out uint volumeSerialNumber
-                                                           , out uint maximumComponentLength
-                                                           , out FileSystemFlags fileSystemFlags
-                                                           , StringBuilder fileSystemNameBuffer
-                                                           , uint fileSystemNameSize);
-            #endregion
+        #region [public] {static} (extern} (bool) GetVolumeInformation(string, StringBuilder, uint, [Out] uint, [Out] uint, [Out] FileSystemFlags, StringBuilder, uint): Recupera información sobre el sistema de archivos y el volumen asociado con el directorio raíz especificado.
+        /// <summary>
+        /// Recupera información sobre el sistema de archivos y el volumen asociado con el directorio raíz especificado.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/aa364993%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.Kernel32, SetLastError = true)]
+        public static extern bool GetVolumeInformation(string rootPathName, StringBuilder volumeNameBuffer, uint volumeNameSize, out uint volumeSerialNumber, out uint maximumComponentLength, out FileSystemFlags fileSystemFlags, StringBuilder fileSystemNameBuffer, uint fileSystemNameSize);
+        #endregion
 
-            #region [public] {static} (extern} (bool) GetVolumeInformation(string, IntPtr, uint, [Out] uint, [Out] uint, [Out] uint, IntPtr, uint): Recupera información sobre el sistema de archivos y el volumen asociado con el directorio raíz especificado.
-            /// <summary>
-            /// Recupera información sobre el sistema de archivos y el volumen asociado con el directorio raíz especificado.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/aa364993%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.Kernel32, SetLastError = true)]
-            public static extern bool GetVolumeInformation(  string rootPathName
-                                                           , IntPtr volumeNameBuffer
-                                                           , uint volumeNameSize
-                                                           , [Out] uint volumeSerialNumber
-                                                           , [Out] uint maximumComponentLength
-                                                           , [Out] uint fileSystemFlags
-                                                           , IntPtr fileSystemNameBuffer
-                                                           , uint fileSystemNameSize);
-            #endregion
+        #region [public] {static} (extern} (bool) GetVolumeInformation(string, IntPtr, uint, [Out] uint, [Out] uint, [Out] uint, IntPtr, uint): Recupera información sobre el sistema de archivos y el volumen asociado con el directorio raíz especificado.
+        /// <summary>
+        /// Recupera información sobre el sistema de archivos y el volumen asociado con el directorio raíz especificado.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/aa364993%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.Kernel32, SetLastError = true)]
+        public static extern bool GetVolumeInformation(string rootPathName, IntPtr volumeNameBuffer, uint volumeNameSize, [Out] uint volumeSerialNumber, [Out] uint maximumComponentLength, [Out] uint fileSystemFlags, IntPtr fileSystemNameBuffer, uint fileSystemNameSize);
+        #endregion
 
         #endregion
     }

@@ -13,6 +13,8 @@ namespace iTin.Core.Helpers
     /// </summary>
     public static class SentinelHelper
     {
+        #region public static methods
+
         #region [public] {static} (void) ArgumentNull<T>(T): Performs a test on the method argument, and throws an exception of type ArgumentNullException if is null.
         /// <summary>
         /// Performs a test on the method argument, and throws an exception of type <exception cref="ArgumentNullException" /> if is <strong>null</strong>.
@@ -330,11 +332,17 @@ namespace iTin.Core.Helpers
         /// <exception cref="ArgumentException"></exception>
         public static string NotEmpty(string value, string parameterName)
         {
+#if NET35
+            if (IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("El argumento 'value' no puede estar vacio", parameterName);
+            }
+#else
             if (string.IsNullOrWhiteSpace(value))
             {
                 throw new ArgumentException("El argumento 'value' no puede estar vacio", parameterName);
             }
-
+#endif
             return value;
         }
         #endregion
@@ -353,6 +361,30 @@ namespace iTin.Core.Helpers
             ArgumentNull(argument);
             return argument;
         }
-        #endregion      
+        #endregion
+
+        #endregion
+
+        #region private static methods
+
+        private static bool IsNullOrWhiteSpace(string value)
+        {
+            if (value == null)
+            {
+                return true;
+            }
+
+            foreach (var t in value)
+            {
+                if (!char.IsWhiteSpace(t))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        #endregion
     }
 }

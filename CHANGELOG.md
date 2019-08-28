@@ -1,6 +1,38 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.9] - 2019-08-28
+
+### Added
+
+- Added **iSMBIOS.ConsoleAppCore** netcoreapp console app project. 
+
+      \root
+        - lib
+          - iTin.Core             
+            - iTin.Core                                [Common Calls] 
+            - iTin.Core.Interop                        [Interop Calls]
+          - iTin.Core.Hardware    
+            - iTin.Core.Hardware                       [Hardware Interop Calls]
+          - iTin.Core.Hardware.Specification   
+            - iTin.Core.Hardware.Specification.Dmi     [DMI Specification Implementation] 
+            - iTin.Core.Hardware.Specification.Smbios  [SMBIOS Specification Implementation] 
+            - iTin.Core.Hardware.Specification.Tpm     [TPM Specification Implementation] 
+        - test
+            - iSMBIOS.ConsoleApp                       [Console Test App]
+            - iSMBIOS.ConsoleAppCore                   [NetCoreApp Console Test App]
+
+- Minor changes. 
+
+### Changed
+- The solution has been migrated to **.NetStandard**.
+
+  - The supported targets are:
+
+        .NetFramework > = 4.5
+        .NetStandard > = 2.0
+        .NetCoreapp > = 2.0
+
 ## [1.0.8] - 2019-08-23
 
 ### Added
@@ -28,7 +60,6 @@ All notable changes to this project will be documented in this file.
     
 - Added **iTin.Core.Hardware.Specification.Tpm** project. 
     - Includes TPM (Trusted Platform Module), used in SmbiosType043 [TPM Device] class.
-
 
 - Minor changes. 
 
@@ -141,6 +172,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.0.9]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.9
 [1.0.8]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.8
 [1.0.7]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.7
 [1.0.6]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.6

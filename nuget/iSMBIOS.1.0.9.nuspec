@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <id>iSMBIOS</id>
+        <version>1.0.9</version>
+        <title>iSMBIOS</title>
+        <authors>iAJTin</authors>
+        <owners>iAJTin</owners>
+        <license type="expression">MIT</license>
+        <projectUrl>https://github.com/iAJTin/iSMBIOS</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/iAJTin/iSMBIOS/master/nuget/iSMBIOS.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>iSMBIOS is a lightweight implementation that allows us to obtain SMBIOS information</description>
+        <copyright>Copyright © 2019 iAJTin</copyright>
+        <tags>SMBIOS DMI BIOS DMTF smbios-information hardware iTin</tags>
+        <repository type="git" url="https://github.com/iAJTin/iSMBIOS" commit="7f344b4cb10a30cb71667dc5bc71c614569e3b44" />
+        <dependencies>
+          <group targetFramework="net45">
+          </group>
+          <group targetFramework=".NETStandard2.0">
+            <dependency id="System.Management" version="4.5.0" exclude="Build,Analyzers" />
+          </group>
+          <group targetFramework=".NETCoreApp2.0">
+            <dependency id="System.Management" version="4.5.0" exclude="Build,Analyzers" />
+          </group>
+          <group targetFramework=".NETCoreApp2.1">
+            <dependency id="System.Management" version="4.5.0" exclude="Build,Analyzers" />
+          </group>
+        </dependencies>
+        <frameworkAssemblies>
+          <frameworkAssembly assemblyName="System.Management" targetFramework="net45" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+      <file src="..\README.txt" target="." />
+      <file src="..\src\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\bin\Release\**" target="lib" exclude="**\*.deps.json;**\*.pdb;" />
+    </files>
+</package>

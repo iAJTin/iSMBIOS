@@ -114,6 +114,7 @@ namespace iTin.Core.Exceptions
         #endregion
 
         #region internal static methods
+
         internal static string GetMessage(string type, string code)
         {
             return GetMessage(CultureInfo.CurrentUICulture.Name, type, code);
@@ -129,11 +130,17 @@ namespace iTin.Core.Exceptions
 
             ResourceManager resourceManager = new ResourceManager(resourceType);
             string message = resourceManager.GetString(resourceKey, CultureInfo.GetCultureInfo(language));
-
-            return 
+#if NET35
+            return
+                !IsNullOrWhiteSpace(message) 
+                ? message 
+                : GetUnknowErrorMessage(language);
+#else
+            return
                 !string.IsNullOrWhiteSpace(message) 
                 ? message 
                 : GetUnknowErrorMessage(language);
+#endif
         }
 
         internal static string GetUnknowErrorMessage(string language)
@@ -150,11 +157,41 @@ namespace iTin.Core.Exceptions
 
             string message = GeneralExceptionResourceManager.GetString("UNKNOWN_ERROR", CultureInfo.GetCultureInfo(language));
 
-            return 
+#if NET35
+            return
+                !IsNullOrWhiteSpace(message)
+                    ? message
+                    : Localization.Exceptions.Exception.UNKNOWN_ERROR;
+#else
+            return
                 !string.IsNullOrWhiteSpace(message) 
                     ? message 
                     : Localization.Exceptions.Exception.UNKNOWN_ERROR;
+#endif
         }
+
+        #endregion
+
+        #region private static methods
+
+        private static bool IsNullOrWhiteSpace(string value)
+        {
+            if (value == null)
+            {
+                return true;
+            }
+
+            foreach (var t in value)
+            {
+                if (!char.IsWhiteSpace(t))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         #endregion
     }
 }

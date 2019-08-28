@@ -14,7 +14,7 @@ namespace iTin.Core.Interop.Windows.Development.Hardware.uProcessor.CPUID
         /// <returns>
         /// Returns <b>true</b> in case the <c>CPUID</c> instruction is supported; <b>false</b> otherwise.
         /// </returns>
-        [DllImport(ExternDll.Cpuid, SetLastError = true, CharSet = CharSet.Auto)]
+        [DllImport(ExternDll.ThirdParty.Cpuid, SetLastError = true, CharSet = CharSet.Auto)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool CpuidIsSupported();
 
@@ -29,7 +29,7 @@ namespace iTin.Core.Interop.Windows.Development.Hardware.uProcessor.CPUID
         /// <returns>
         /// Returns <b>true</b> in case the call is valid; <b>false</b> otherwise.
         /// </returns>
-        [DllImport(ExternDll.Cpuid, SetLastError = true, CharSet = CharSet.Auto)]
+        [DllImport(ExternDll.ThirdParty.Cpuid, SetLastError = true, CharSet = CharSet.Auto)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern unsafe bool __cpuid(uint level, int* eax, int* ebx, int* ecx, int* edx);
     }

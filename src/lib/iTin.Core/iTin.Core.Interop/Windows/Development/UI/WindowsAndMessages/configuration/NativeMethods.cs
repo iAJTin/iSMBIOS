@@ -1,9 +1,10 @@
-﻿using System;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-
+﻿
 namespace iTin.Core.Interop.Windows.Development.UI.WindowsAndMessages.Configuration
 {
+    using System;
+    using System.ComponentModel;
+    using System.Runtime.InteropServices;
+
     /// <summary>
     /// Funciones que se pueden utilizar para controlar la configuración de parámetros del sistema y los diversos atributos del sistema, como el tiempo del doble clic,
     /// el tiempo de espera del protector de pantalla, el ancho del borde de las ventanas.
@@ -1678,97 +1679,82 @@ namespace iTin.Core.Interop.Windows.Development.UI.WindowsAndMessages.Configurat
 
         #region P/Invoke
 
-            #region [public] {static} (int) GetSystemMetrics(SystemMetricIndex): Recupera un valor de configuración ó una característica del sistema.
-            /// <summary>
-            /// Recupera un valor de configuración ó una característica del sistema.
-            /// Todas las valores de medida obtenidos por <strong>GetSystemMetrics</strong> están en píxeles.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724385%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.User32, ExactSpelling = true)]
-            public static extern int GetSystemMetrics(SystemMetricIndex smIndex);
-            #endregion
+        #region [public] {static} (int) GetSystemMetrics(SystemMetricIndex): Recupera un valor de configuración ó una característica del sistema.
+        /// <summary>
+        /// Recupera un valor de configuración ó una característica del sistema.
+        /// Todas las valores de medida obtenidos por <strong>GetSystemMetrics</strong> están en píxeles.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724385%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.User32, ExactSpelling = true)]
+        public static extern int GetSystemMetrics(SystemMetricIndex smIndex);
+        #endregion
 
-            #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, IntPtr, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
-            /// <summary>
-            /// Recupera o establece el valor de uno de los parámetros del sistema.
-            /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true)]
-            [return: MarshalAs(UnmanagedType.Bool)]
-            public static extern bool SystemParametersInfo(SPI uiAction,
-                                                           UInt32 uiParam, 
-                                                           IntPtr pvParam, 
-                                                           SPIF fWinIni);
-            #endregion
+        #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, IntPtr, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
+        /// <summary>
+        /// Recupera o establece el valor de uno de los parámetros del sistema.
+        /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.User32, CharSet = CharSet.Unicode, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SystemParametersInfo(SPI uiAction, UInt32 uiParam, IntPtr pvParam, SPIF fWinIni);
+        #endregion
 
-            #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, ref Boolean, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
-            /// <summary>
-            /// Recupera o establece el valor de uno de los parámetros del sistema.
-            /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true)]
-            [return: MarshalAs(UnmanagedType.Bool)]
-            public static extern bool SystemParametersInfo(SPI uiAction,
-                                                           UInt32 uiParam,
-                                                           [MarshalAs(UnmanagedType.Bool)] ref Boolean pvParam,
-                                                           SPIF fWinIni);
-            #endregion
+        #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, ref Boolean, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
+        /// <summary>
+        /// Recupera o establece el valor de uno de los parámetros del sistema.
+        /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.User32, CharSet = CharSet.Unicode, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SystemParametersInfo(SPI uiAction, UInt32 uiParam, [MarshalAs(UnmanagedType.Bool)] ref Boolean pvParam, SPIF fWinIni);
+        #endregion
 
-            #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, Boolean, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
-            /// <summary>
-            /// Recupera o establece el valor de uno de los parámetros del sistema.
-            /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true)]
-            [return: MarshalAs(UnmanagedType.Bool)]
-            public static extern bool SystemParametersInfo(SPI uiAction,
-                                                           UInt32 uiParam,
-                                                           [MarshalAs(UnmanagedType.Bool)] Boolean pvParam,
-                                                           SPIF fWinIni);
-            #endregion
+        #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, Boolean, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
+        /// <summary>
+        /// Recupera o establece el valor de uno de los parámetros del sistema.
+        /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.User32, CharSet = CharSet.Unicode, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SystemParametersInfo(SPI uiAction, UInt32 uiParam, [MarshalAs(UnmanagedType.Bool)] Boolean pvParam, SPIF fWinIni);
+        #endregion
 
-            #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, String, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
-            /// <summary>
-            /// Recupera o establece el valor de uno de los parámetros del sistema.
-            /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true)]
-            [return: MarshalAs(UnmanagedType.Bool)]
-            public static extern bool SystemParametersInfo(SPI uiAction,
-                                                           UInt32 uiParam, 
-                                                           String pvParam, 
-                                                           SPIF fWinIni);
-            #endregion
+        #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, String, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
+        /// <summary>
+        /// Recupera o establece el valor de uno de los parámetros del sistema.
+        /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.User32, CharSet = CharSet.Unicode, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SystemParametersInfo(SPI uiAction, UInt32 uiParam, String pvParam, SPIF fWinIni);
+        #endregion
 
-            #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, ref ANIMATIONINFO, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
-            /// <summary>
-            /// Recupera o establece el valor de uno de los parámetros del sistema.
-            /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
-            /// </summary>
-            /// <remarks>
-            /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
-            /// </remarks>
-            [DllImport(ExternDll.User32, ExactSpelling = true)]
-            [return: MarshalAs(UnmanagedType.Bool)]
-            public static extern bool SystemParametersInfo(SPI uiAction,
-                                                           UInt32 uiParam, 
-                                                           ref ANIMATIONINFO pvParam, 
-                                                           SPIF fWinIni);
-            #endregion
+        #region [public] {static} (bool) SystemParametersInfo(SPI, UInt32, ref ANIMATIONINFO, SPIF): Recupera o establece el valor de uno de los parámetros del sistema.
+        /// <summary>
+        /// Recupera o establece el valor de uno de los parámetros del sistema.
+        /// Esta función también puede actualizar el perfil de usuario al establecer un parámetro.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver http://msdn.microsoft.com/en-us/library/ms724947%28v=VS.85%29.aspx
+        /// </remarks>
+        [DllImport(ExternDll.Win.User32, ExactSpelling = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool SystemParametersInfo(SPI uiAction, UInt32 uiParam, ref ANIMATIONINFO pvParam, SPIF fWinIni);
+        #endregion
 
         #endregion
     }

@@ -47,7 +47,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        DmiStructureCollection structures = DMI.Instance.Structures;
        foreach (DmiStructure structure in structures)
        {
-           Console.WriteLine($"{(int) structure.Class:D3}-{structure.Class}");
+           Console.WriteLine($@"{(int) structure.Class:D3}-{structure.Class}");
        }
 
 2. Gets a specific **SMBIOS** structure.
@@ -67,17 +67,17 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
        if (biosVersion != null)
        {
-           Console.WriteLine($" BIOS Version > {biosVersion}");
+           Console.WriteLine($@" BIOS Version > {biosVersion}");
        }
 
        string biosVendor = structures.GetProperty<string>(DmiProperty.Bios.Vendor);
-       Console.WriteLine($" > BIOS Vendor > {biosVendor}");
+       Console.WriteLine($@" > BIOS Vendor > {biosVendor}");
 
        int currentSpeed = structures.GetProperty<int>(DmiProperty.Processor.CurrentSpeed);
-       Console.WriteLine($" > Current Speed > {currentSpeed:N0} {DmiProperty.Processor.CurrentSpeed.PropertyUnit}");
+       Console.WriteLine($@" > Current Speed > {currentSpeed:N0} {DmiProperty.Processor.CurrentSpeed.PropertyUnit}");
 
-	    string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
-       Console.WriteLine($" Processor Manufacturer > {processorManufacturer}");
+       string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
+       Console.WriteLine($@" Processor Manufacturer > {processorManufacturer}");
 
 4. Gets a property in **multiple** elements directly.
 
@@ -95,7 +95,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
            {
                int element = systemSlot.Key;
                object property = systemSlot.Value;
-               Console.WriteLine($" System Slot ({element}) > {property}");
+               Console.WriteLine($@" System Slot ({element}) > {property}");
            }
        }
 

@@ -1,12 +1,12 @@
 ﻿
-namespace iTin.Core.Hardware.Interop.Cpuid
+namespace iTin.Core.Hardware.Interop
 {
     using iTin.Core.Interop.Windows.Development.Hardware.uProcessor.CPUID;
 
     /// <summary>
     /// Methods for handle CPUID microprocessor features.
     /// </summary>
-    public static class SafeNativeMethods
+    public static class SafeCpuidNativeMethods
     {
         /// <summary>
         /// Call <c>CPUID</c> with the specified function.

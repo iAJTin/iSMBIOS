@@ -7,7 +7,7 @@ namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskMan
     /// <remarks>
     /// Para más información ver: http://msdn.microsoft.com/en-us/library/aa365231%28v=VS.85%29.aspx
     /// </remarks>
-    enum MEDIA_TYPE : uint
+    public enum MEDIA_TYPE : uint
     {
         /// <summary>
         /// Formato desconocido.

@@ -1,18 +1,15 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
+﻿
 namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskManagement
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// Representa los tipos de bus.
     /// </summary>
     /// <remarks>
     /// Para más información ver: http://msdn.microsoft.com/en-us/library/ff800833%28v=VS.85%29.aspx.
     /// </remarks>
-    [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "STORAGE")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "BUS")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "TYPE")]
-    enum STORAGE_BUS_TYPE
+    public enum STORAGE_BUS_TYPE
     {
         /// <summary>
         /// Tipo de bus desconocido.

@@ -1,175 +1,162 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Runtime.InteropServices;
-
+﻿
 namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskManagement
 {
+    using System;
+    using System.Runtime.InteropServices;
+
     /// <summary>
-    /// La estructura de datos <strong>DISK_GEOMETRY</strong> contiene información del escritorio asociado a un determinado monitor.    
+    /// Describes the geometry of disk devices and media.
     /// </summary>
+    /// <remarks>
+    /// For more information, please see https://docs.microsoft.com/en-us/windows/win32/api/winioctl/ns-winioctl-disk_geometry.
+    /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
-    [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DISK")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "GEOMETRY")]
-    struct DISK_GEOMETRY : IEquatable<DISK_GEOMETRY>
+    public struct DISK_GEOMETRY : IEquatable<DISK_GEOMETRY>
     {
-        #region Atributos
+        #region public members
         /// <summary>
-        /// Número de cilindros.
+        /// Number of cylinders
         /// </summary>
         public long Cylinders;
+
         /// <summary>
-        /// Tipo de media. Más información ver <see cref="MEDIA_TYPE"/>.
+        /// Media Type. For more information, please see <see cref="MEDIA_TYPE"/>.
         /// </summary>
         public MEDIA_TYPE MediaType;
+
         /// <summary>
-        /// Número de pistas por cilindro.
+        /// Number of tracks per cylinder.
         /// </summary>
         public int TracksPerCylinder;
+
         /// <summary>
-        /// Número de sectores por pista.
+        /// Number of sectors per track.
         /// </summary>
         public int SectorsPerTrack;
+
         /// <summary>
-        /// Número de bytes por sector.
+        /// Number of bytes per sector.
         /// </summary>
         public int BytesPerSector;
         #endregion
 
-        #region Propiedades
+        #region interfaces
 
-            #region [public] (long) DiskSize: Obtiene un valor que representa el tamaño del disco, se mide en bytes.
-            /// <summary>
-            /// Obtiene un valor que representa el tamaño del disco, se mide en bytes.
-            /// </summary>
-            /// <value>
-            ///   <para>Tipo: <see cref="T:System.Int64"/></para>
-            ///   <para>Tamaño del disco en bytes.</para>
-            /// </value>
-            public long DiskSize
-            {
-                get { return Cylinders * TracksPerCylinder * SectorsPerTrack * BytesPerSector; }
-            }
-            #endregion
-
-        #endregion        
-
-        #region Interfaces
-
-            #region [public] (bool) Equals(DISK_GEOMETRY): Indica si la estructura actual es igual a otra estructura del mismo tipo.
-            /// <summary>
-            /// Indica si la estructura actual es igual a otra estructura del mismo tipo.
-            /// </summary>
-            /// <param name="other">Estructura que se va a comparar con esta estructura.</param>
-            /// <returns>
-            /// Devuelve <strong>true</strong> si la estructura actual es igual al parámetro <c>other</c>; en caso contrario, <strong>false</strong>.
-            /// </returns>
-            public bool Equals(DISK_GEOMETRY other)
-            {
-                return other.Equals((object)this);
-            }
-            #endregion
-
-        #endregion
-
-        #region Overrides
-
-            #region [public] {override} (int) GetHashCode(): Devuelve un valor que repesenta al código hash de esta estructura.
-            /// <summary>
-            /// Devuelve un valor que repesenta al código hash de esta estructura.
-            /// </summary>
-            /// <returns>
-            /// 	<para>Tipo: <see cref="T:System.Int32"/></para>
-            /// 	<para>Código Hash de esta estructura.</para>
-            /// </returns>
-            public override int GetHashCode()
-            {
-                return ToString().GetHashCode();
-            }
-            #endregion
-
-            #region [public] {override} (bool) Equals(object): Devuelve un valor que indica si esta estructutra es igual a otra.
-            /// <summary>
-            /// Devuelve un valor que indica si esta estructutra es igual a otra.
-            /// </summary>
-            /// <param name="obj">Estructura con la que comparar.</param>
-            /// <returns>Resultado de la comparación de igualdad.</returns>
-            public override bool Equals(object obj)
-            {
-                if (obj == null)
-                    return false;
-
-                if (!(obj is DISK_GEOMETRY))
-                    return false;
-
-                var other = (DISK_GEOMETRY)obj;
-                return (other.Cylinders == Cylinders) &&
-                       (other.MediaType == MediaType) &&
-                       (other.TracksPerCylinder == TracksPerCylinder) &&
-                       (other.SectorsPerTrack == SectorsPerTrack) &&
-                       (other.BytesPerSector == BytesPerSector);
-            }
-            #endregion
-
-            #region [public] {override} (string) ToString(): Devuelve una cadena que representa a la estructura actual.
-            /// <summary>
-            /// Devuelve una cadena que representa la estructura <see cref="DISK_GEOMETRY"/> actual.
-            /// </summary>
-            /// <returns>
-            /// 	<para>Tipo: <see cref="T:System.String"/></para>
-            /// 	<para>Cadena que representa la estructura <see cref="DISK_GEOMETRY"/> actual.</para>
-            /// </returns>
-            /// <remarks>
-            /// El método <see cref="DISK_GEOMETRY.ToString()"/> devuelve una cadena que incluye el tamaño.
-            /// </remarks>
-            public override string ToString()
-            {
-                return String.Format(CultureInfo.InvariantCulture, "{0}", DiskSize);
-            }
-            #endregion
-
-        #endregion
-
-        #region Operadores
-
-            #region [public] {static} (bool) operator ==(DISK_GEOMETRY, DISK_GEOMETRY): Implementa el operador de igualdad (==).
-            /// <summary>
-            /// Implementa el operador de igualdad (==).
-            /// </summary>
-            /// <param name="operator1">Operando 1.</param>
-            /// <param name="operator2">Operando 2.</param>
-            /// <returns>
-            /// Devuelve <strong>true</strong> si <c>operator1</c> es igual a <c>operator2</c>; <strong>false</strong> en caso contrario.
-            /// </returns>
-            public static bool operator ==(DISK_GEOMETRY operator1, DISK_GEOMETRY operator2)
-            {
-                return operator1.Equals(operator2);
-            }
-            #endregion
-
-            #region [public] {static} (bool) operator !=(DISK_GEOMETRY, DISK_GEOMETRY): Implementa el operador de desigualdad (!=).
-            /// <summary>
-            /// Implementa el operador de desigualdad (!=).
-            /// </summary>
-            /// <param name="operator1">Operando 1.</param>
-            /// <param name="operator2">Operando 2.</param>
-            /// <returns>
-            /// Devuelve <strong>true</strong> si <c>operator1</c> no es igual a <c>operator2</c>; <strong>false</strong> en caso contrario.
-            /// </returns>
-            public static bool operator !=(DISK_GEOMETRY operator1, DISK_GEOMETRY operator2)
-            {
-                return !operator1.Equals(operator2);
-            }
-            #endregion
-
-        #endregion
-
-        #region Miembros estáticos
+        #region [public] (bool) Equals(DISK_GEOMETRY): Indicates whether the current object is the same as another object of the same type
         /// <summary>
-        /// Estructura vacía.
+        /// Indicates whether the current object is the same as another object of the same type.
+        /// </summary>
+        /// <param name="other">Object to be compared with this object.</param>
+        /// <returns>
+        /// Returns <b>true</b> if the current object is equal to the <c>other</c> parameter; otherwise, <b>false</b>.
+        /// </returns>
+        public bool Equals(DISK_GEOMETRY other) => other.Equals((object)this);
+        #endregion
+
+        #endregion
+
+        #region public static members
+        /// <summary>
+        /// Empty structure
         /// </summary>
         public static readonly DISK_GEOMETRY Empty;
+        #endregion
+
+        #region public properties
+
+        #region [public] (long) DiskSize:  Gets a value that represents the size of the disk, it is measured in bytes
+        /// <summary>
+        /// Gets a value that represents the size of the disk, it is measured in bytes.
+        /// </summary>
+        /// <value>
+        /// Disk size in bytes.
+        /// </value>
+        public long DiskSize => Cylinders * TracksPerCylinder * SectorsPerTrack * BytesPerSector;
+        #endregion
+
+        #endregion
+
+        #region public override methods
+
+        #region [public] {override} (int) GetHashCode(): Returns the hash code of the structure
+        /// <summary>
+        /// Returns the hash code of the structure.
+        /// </summary>
+        /// <returns>
+        /// Hash code.
+        /// </returns>
+        public override int GetHashCode() => ToString().GetHashCode();
+        #endregion
+
+        #region [public] {override} (bool) Equals(object obj): Returns a value that indicates whether this object is equal to another
+        /// <summary>
+        /// Returns a value that indicates whether this object is equal to another.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>
+        /// Equality result.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            if (!(obj is DISK_GEOMETRY))
+            {
+                return false;
+            }
+
+            var other = (DISK_GEOMETRY)obj;
+
+            return 
+                other.Cylinders == Cylinders &&
+                other.MediaType == MediaType &&
+                other.TracksPerCylinder == TracksPerCylinder &&
+                other.SectorsPerTrack == SectorsPerTrack &&
+                other.BytesPerSector == BytesPerSector;
+        }
+        #endregion
+
+        #region [public] {override} (string) ToString(): Returns a string that represents the current object
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>
+        /// Returns a string that represents the current object.
+        /// </returns>
+        public override string ToString() => $"{DiskSize}";
+        #endregion
+
+        #endregion
+
+        #region public operators
+
+        #region [public] {static} (bool) operator ==(DISPLAY_DEVICE, DISPLAY_DEVICE): Implement the equality operator (==)
+        /// <summary>
+        /// Implement the equality operator (==).
+        /// </summary>
+        /// <param name="left">Operand 1.</param>
+        /// <param name="right">Operand 2.</param>
+        /// <returns>
+        /// Returns <b>true</b> if <c>deviceInfo1</c> is equal to <c>deviceInfo2</c>; <b>false</b> otherwise.
+        /// </returns>
+        public static bool operator ==(DISK_GEOMETRY left, DISK_GEOMETRY right) => left.Equals(right);
+        #endregion
+
+        #region [public] {static} (bool) operator !=(DISK_GEOMETRY, DISK_GEOMETRY): Implementa el operador de desigualdad (!=).
+        /// <summary>
+        /// Implements the inequality operator (!=).
+        /// </summary>
+        /// <param name="left">Operand 1.</param>
+        /// <param name="right">Operand 2.</param>
+        /// <returns>
+        /// Returns <b>true</b> if <c>deviceInfo1</c> is not equal to <c>deviceInfo2</c>; <b>false</b> otherwise.
+        /// </returns>
+        public static bool operator !=(DISK_GEOMETRY left, DISK_GEOMETRY right) => !left.Equals(right);
+        #endregion
+
         #endregion
     }
 }

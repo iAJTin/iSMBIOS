@@ -1,13 +1,14 @@
-﻿using System;
-
+﻿
 namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskManagement
 {
+    using System;
+
     // -------------------------------------------------------------------------------
     // | Control Code Format = (type << 16) | function << 2 | method | access << 14) |
     // -------------------------------------------------------------------------------
 
     /// <summary>
-    /// Códigos de control.
+    /// Control codes
     /// </summary>
     [Flags]
     public enum FsctlDirectoryControlCodes : uint

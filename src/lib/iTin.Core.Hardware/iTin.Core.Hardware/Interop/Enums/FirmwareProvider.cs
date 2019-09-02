@@ -1,5 +1,5 @@
 ﻿
-namespace iTin.Core.Hardware.Interop.Smbios
+namespace iTin.Core.Hardware.Interop
 {
     /// <summary>
     /// Defines firmware tables

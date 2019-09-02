@@ -1,184 +1,176 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.InteropServices;
-
-using iTin.Core.Interop.Windows.Development.Graphics.Legacy.Gdi.Rectangles;
-
+﻿
 namespace iTin.Core.Interop.Windows.Development.Graphics.Legacy.Gdi.MultipleDisplayMonitors
 {
+    using System;
+    using System.Runtime.InteropServices;
+
+    using Rectangles;
+
     /// <summary>
-    /// La estructura <strongs>MONITORINFO</strongs> contiene información acerca de un monitor.
-    /// La estructura <strongs>MONITORINFO</strongs> es un subconjunto de la estructura <see cref="MONITORINFOEX"/>. La estructura <see cref="MONITORINFOEX"/> agrega un miembro que contiene el nombre para el monitor.
-    /// Para más información, ver http://msdn.microsoft.com/es-es/library/dd145065.
+    /// The <strongs>MONITORINFO</strongs> structure contains information about a monitor.
+    /// The <strongs>MONITORINFO</strongs> structure is a subset of the <see cref="MONITORINFOEX"/> structure. The <see cref="MONITORINFOEX"/> structure adds a member that contains the name for the monitor.
+    /// For more information, please see http://msdn.microsoft.com/es-es/library/dd145065.
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    internal struct MONITORINFO : IEquatable<MONITORINFO>
+    public struct MONITORINFO : IEquatable<MONITORINFO>
     {
-        #region Atributos.
+        #region public memebrs
         /// <summary>
-        /// Especifica el tamaño, en bytes, de la estructura <strong>MONITORINFO</strong>.
-        /// Se debe inicializar antes de llamar a una función <strong>Api</strong>.
+        /// Specifies the size, in bytes, of the <strong>MONITORINFO</strong> structure.
+        /// Must be initialized before calling a <strong>Api</strong> function.
         /// </summary>
         public int Size;
 
         /// <summary>
-        /// Una estructura <see cref="RECT"/> que especifica el rectángulo del área total del monitor.
+        /// A structure <see cref="RECT"/> that specifies the rectangle of the total area of the monitor.
         /// </summary>
         public RECT Monitor;
 
         /// <summary>
-        /// Una estructura <see cref="RECT"/> que especifica el rectángulo del área de trabajo del monitor útil 
-        /// que puede ser utilizado por las aplicaciones, expresada en coordenadas de pantalla virtual.
-        /// Windows utiliza este rectángulo para maximizar una aplicación en el monitor.
-        /// Se excluye barras de herramientas, de estado, etc.
+        /// A structure <see cref="RECT"/> that specifies the rectangle of the working area of the useful monitor
+        /// that can be used by applications, expressed in virtual screen coordinates.
+        /// Windows uses this rectangle to maximize an application on the monitor.
+        /// Toolbars, status bars, etc. are excluded.
         /// </summary>
         public RECT WorkArea;
 
         /// <summary>
-        /// Atributos del monitor.
+        /// Attributes of the monitor.
         /// </summary>
         public uint Flags;
         #endregion
 
-        #region Interfaces.
+        #region interfaces
 
-            #region [public] (bool) Equals(MONITORINFO): Indica si el objeto actual es igual a otro objeto del mismo tipo.
-            /// <summary>
-            /// Indica si el objeto actual es igual a otro objeto del mismo tipo.
-            /// </summary>
-            /// <param name="other">Objeto que se va a comparar con este objeto.</param>
-            /// <returns>Devuelve <b>true</b> si el objeto actual es igual al parámetro <c>other</c>; en caso contrario, <b>false</b>.</returns>
-            public bool Equals(MONITORINFO other)
-            {
-                return other.Equals((object)this);
-            }
-            #endregion
+        #region [public] (bool) Equals(MONITORINFO): Indicates whether the current object is the same as another object of the same type
+        /// <summary>
+        /// Indicates whether the current object is the same as another object of the same type.
+        /// </summary>
+        /// <param name="other">Object to be compared with this object.</param>
+        /// <returns>
+        /// Returns <b>true</b> if the current object is equal to the <c>other</c> parameter; otherwise, <b>false</b>.
+        /// </returns>
+        public bool Equals(MONITORINFO other) => other.Equals((object)this);
+        #endregion
 
         #endregion
 
-        #region Overrides.
+        #region public operators
 
-            #region [public] {override} (int) GetHashCode(): Devuelve el código hash del objeto.
-            /// <summary>
-            /// Devuelve el código hash del objeto.
-            /// </summary>
-            /// <returns>
-            /// 	<para>Tipo: <see cref="T:System.Int32"/></para>
-            /// 	<para>Código Hash.</para>
-            /// </returns>
-            public override int GetHashCode()
-            {
-                return WorkArea.GetHashCode() ^ (int)Flags;
-            }
-            #endregion
+        #region [public] {static} (bool) operator ==(MONITORINFO, MONITORINFO): Implement the equality operator (==)
+        /// <summary>
+        /// Implement the equality operator (==).
+        /// </summary>
+        /// <param name="deviceInfo1">Operand 1.</param>
+        /// <param name="deviceInfo2">Operand 2.</param>
+        /// <returns>
+        /// Returns <b>true</b> if <c>deviceInfo1</c> is equal to <c>deviceInfo2</c>; <b>false</b> otherwise.
+        /// </returns>
+        public static bool operator ==(MONITORINFO deviceInfo1, MONITORINFO deviceInfo2) => deviceInfo1.Equals(deviceInfo2);
+        #endregion
 
-            #region [public] {override} (bool) Equals(object obj): Devuelve un valor que indica si este objeto es igual a otro.
-            /// <summary>
-            /// Devuelve un valor que indica si este objeto es igual a otro.
-            /// </summary>
-            /// <param name="obj">Objeto con el que comparar.</param>
-            /// <returns>Resultado de igualdad.</returns>
-            public override bool Equals(object obj)
-            {
-                if (obj == null)
-                    return false;
-
-                if (!(obj is MONITORINFO))
-                    return false;
-
-                MONITORINFO other = (MONITORINFO)obj;
-                return (other.WorkArea == WorkArea) && (other.Monitor == Monitor) && (other.Flags == Flags);
-            }
-            #endregion
-
-            #region [public] {override} (string) ToString(): Devuelve una cadena que representa al objeto actual.
-            /// <summary>
-            /// Devuelve una cadena que representa al objeto <see cref="MONITORINFO"/> actual.
-            /// </summary>
-            /// <returns>
-            ///   <para>Tipo: <see cref="T:System.String"/></para>
-            ///   <para>Cadena que representa al objeto <see cref="MONITORINFO"/> actual.</para>
-            /// </returns>
-            /// <remarks>
-            /// El método <see cref="MONITORINFO.ToString()"/> devuelve una cadena que incluye el tipo de estructura.
-            /// </remarks>        
-            public override string ToString()
-            {
-                return WorkArea.ToString();
-            }
-            #endregion
+        #region [public] {static} (bool) operator !=(MONITORINFO, MONITORINFO): Implements the inequality operator (!=)
+        /// <summary>
+        /// Implements the inequality operator (!=).
+        /// </summary>
+        /// <param name="deviceInfo1">Operand 1.</param>
+        /// <param name="deviceInfo2">Operand 2.</param>
+        /// <returns>
+        /// Returns <b>true</b> if <c>deviceInfo1</c> is not equal to <c>deviceInfo2</c>; <b>false</b> otherwise.
+        /// </returns>
+        public static bool operator !=(MONITORINFO deviceInfo1, MONITORINFO deviceInfo2) => !deviceInfo1.Equals(deviceInfo2);
+        #endregion
 
         #endregion
 
-        #region Operadores.
+        #region public static properties
 
-            #region [public] {static} (bool) operator ==(MONITORINFO, MONITORINFO): Implementa el operador de igualdad (==).
-            /// <summary>
-            /// Implementa el operador de igualdad (==).
-            /// </summary>
-            /// <param name="deviceInfo1">Operando 1.</param>
-            /// <param name="deviceInfo2">Operando 2.</param>
-            /// <returns>Devuelve <b>true</b> si <c>deviceInfo1</c> es igual a <c>deviceInfo2</c>; <b>false</b> en caso contrario.</returns>
-            public static bool operator ==(MONITORINFO deviceInfo1, MONITORINFO deviceInfo2)
+        #region [public] {static} (MONITORINFO) Create: Create a new instance of this structure
+        /// <summary>
+        /// Create a new instance of this structure.
+        /// </summary>
+        /// <value>
+        /// New instance of the structure.
+        /// </value>
+        public static MONITORINFO Create
+        {
+            get
             {
-                return deviceInfo1.Equals(deviceInfo2);
-            }
-            #endregion
+                MONITORINFO instance = new MONITORINFO();
+                instance.Init();
 
-            #region [public] {static} (bool) operator !=(MONITORINFO, MONITORINFO): Implementa el operador de desigualdad (!=).
-            /// <summary>
-            /// Implementa el operador de desigualdad (!=).
-            /// </summary>
-            /// <param name="deviceInfo1">Operando 1.</param>
-            /// <param name="deviceInfo2">Operando 2.</param>
-            /// <returns>Devuelve <b>true</b> si <c>deviceInfo1</c> no es igual a <c>deviceInfo2</c>; <b>false</b> en caso contrario.</returns>
-            public static bool operator !=(MONITORINFO deviceInfo1, MONITORINFO deviceInfo2)
-            {
-                return !deviceInfo1.Equals(deviceInfo2);
+                return instance;
             }
-            #endregion
+        }
+        #endregion
 
         #endregion
 
-        #region Miembros privados.
+        #region public override methods
 
-            #region Métodos.
+        #region [public] {override} (int) GetHashCode(): Returns the hash code of the object
+        /// <summary>
+        /// Returns the hash code of the object.
+        /// </summary>
+        /// <returns>
+        /// Hash code.
+        /// </returns>
+        public override int GetHashCode() => WorkArea.GetHashCode() ^ (int)Flags;
+        #endregion
 
-                #region [private] (void) Init(): Inicializar internamente la estructura, llamar siempre antes de usar en una llamada API.
-                /// <summary>
-                /// Inicializar internamente la estructura, llamar <strong>siempre</strong> antes de usar en una llamada API.
-                /// </summary>
-                [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-                private void Init()
-                {
-                    Size = Marshal.SizeOf(this);
-                }
-                #endregion
+        #region [public] {override} (bool) Equals(object obj):Returns a value that indicates whether this object is equal to another
+        /// <summary>
+        /// Returns a value that indicates whether this object is equal to another.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>
+        /// Equality result.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
 
-            #endregion
+            if (!(obj is MONITORINFO))
+            {
+                return false;
+            }
+
+            var other = (MONITORINFO)obj;
+
+            return 
+                other.WorkArea == WorkArea && 
+                other.Monitor == Monitor && 
+                other.Flags == Flags;
+        }
+        #endregion
+
+        #region [public] {override} (string) ToString(): Returns a string that represents the current object
+        /// <summary>
+        /// Returns a string that represents the current <see cref="MONITORINFO"/> object.
+        /// </summary>
+        /// <returns>
+        /// String representing the current object.
+        /// </returns>
+        public override string ToString() => WorkArea.ToString();
+        #endregion
+
+        #endregion
+
+        #region private members
+
+        #region [private] (void) Init(): Initialize the structure internally, call always before using in an API call
+        /// <summary>
+        /// Initialize the structure internally, call <strong>always</strong> before using in an API call.
+        /// </summary>
+        private void Init()
+        {
+            Size = Marshal.SizeOf(this);
+        }
+        #endregion
 
         #endregion    
-
-        #region Miembros estáticos
-
-            #region [public] {static} (MONITORINFO) Create: Crea una instancia nueva de esta estructura.
-            /// <summary>
-            /// Crea una instancia nueva de esta estructura.
-            /// </summary>
-            /// <value>Nueva instancia de la estructura.</value>
-            [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-            public static MONITORINFO Create
-            {
-                get
-                {
-                    MONITORINFO instance = new MONITORINFO();
-                    instance.Init();
-
-                    return instance;
-                }
-            }
-            #endregion
-
-        #endregion
     }
 }

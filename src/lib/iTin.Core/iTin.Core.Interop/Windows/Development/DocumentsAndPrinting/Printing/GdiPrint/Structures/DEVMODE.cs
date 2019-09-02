@@ -1,13 +1,11 @@
 ﻿
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Runtime.InteropServices;
-
-using iTin.Core.Interop.Windows.Development.Graphics.Legacy.Gdi.Metafiles;
-
 namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.GdiPrint
 {
+    using System;
+    using System.Runtime.InteropServices;
+
+    using Graphics.Legacy.Gdi.Metafiles;
+
     /// <summary>
     /// La estructura de datos <strong>DEVMODE</strong> contiene información para la inicialización de una impresora o un dispositivo de visualización.
     /// </summary>
@@ -15,223 +13,212 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
     /// Para más información, ver http://msdn.microsoft.com/es-es/library/dd183565.aspx.
     /// </remarks>
     [StructLayout(LayoutKind.Explicit, CharSet = CharSet.Ansi)]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DEVMODE")]
-    struct DEVMODE : IEquatable<DEVMODE>
+    public struct DEVMODE : IEquatable<DEVMODE>
     {
         #region Constantes
         /// <summary>
         /// Indica que se va a recuperar la configuración actual para el dispositivo de pantalla.
         /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ENUM")] 
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "CURRENT")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SETTINGS")]
         public const int ENUM_CURRENT_SETTINGS = -1;
 
         /// <summary>
         /// Indica que se va a recuperar la configuración del dispositivo de visualización que está almacenada en el registro.
         /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ENUM")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "REGISTRY")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "SETTINGS")]
         public const int ENUM_REGISTRY_SETTINGS = -2;
         #endregion
 
         #region Enumeraciones
 
-            #region [public] (enum) DM: Enumeración de miembros de una estructura de tipo DEVMODE.
+        #region [public] (enum) DM: Enumeración de miembros de una estructura de tipo DEVMODE.
+        /// <summary>
+        /// Enumeración de miembros de una estructura de tipo <see cref="DEVMODE"/>.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver sección <strong>dmFields</strong> de http://msdn.microsoft.com/es-es/library/dd183565.aspx.
+        /// </remarks>
+        [Flags]
+        public enum DM
+        {
             /// <summary>
-            /// Enumeración de miembros de una estructura de tipo <see cref="DEVMODE"/>.
+            /// Para más información ver <see cref="DEVMODE.dmOrientation"/>.
             /// </summary>
-            /// <remarks>
-            /// Para más información, ver sección <strong>dmFields</strong> de http://msdn.microsoft.com/es-es/library/dd183565.aspx.
-            /// </remarks>
-            [Flags]
-            public enum DM
-            {
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmOrientation"/>.
-                /// </summary>
-                Orientation = 0x1,
+            Orientation = 0x1,
 
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmPaperSize"/>.
-                /// </summary>
-                PaperSize = 0x2,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmPaperLength"/>.
-                /// </summary>
-                PaperLength = 0x4,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmPaperWidth"/>.
-                /// </summary>
-                PaperWidth = 0x8,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmScale"/>.
-                /// </summary>
-                Scale = 0x10,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmPosition"/>.
-                /// </summary>
-                Position = 0x20,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmNup"/>.
-                /// </summary>
-                Nup = 0x40,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmDisplayOrientation"/>.
-                /// </summary>
-                DisplayOrientation = 0x80,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmCopies"/>.
-                /// </summary>
-                Copies = 0x100,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmDefaultSource"/>.
-                /// </summary>
-                DefaultSource = 0x200,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmPrintQuality"/>.
-                /// </summary>
-                PrintQuality = 0x400,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmColor"/>.
-                /// </summary>
-                Color = 0x800,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmDuplex"/>.
-                /// </summary>
-                Duplex = 0x1000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmYResolution"/>.
-                /// </summary>
-                YResolution = 0x2000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmTTOption"/>.
-                /// </summary>
-                TTOption = 0x4000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmCollate"/>.
-                /// </summary>
-                Collate = 0x8000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmFormName"/>.
-                /// </summary>
-                FormName = 0x10000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmLogPixels"/>.
-                /// </summary>
-                LogPixels = 0x20000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmBitsPerPel"/>.
-                /// </summary>
-                BitsPerPixel = 0x40000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmPelsWidth"/>.
-                /// </summary>
-                PelsWidth = 0x80000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmPelsHeight"/>.
-                /// </summary>
-                PelsHeight = 0x100000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmDisplayFlags"/>.
-                /// </summary>
-                [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")] DisplayFlags =
-                    0x200000,
-
-                /// <summary>
-                /// Para más información ver <see cref="DEVMODE.dmDisplayFrequency"/>.
-                /// </summary>
-                DisplayFrequency = 0x400000,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                ///// Para más información ver <see cref="DEVMODE.dmIcmMethod"/>.
-                IcmMethod = 0x800000,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                ///// Para más información ver <see cref="DEVMODE.dmIcmIntent"/>.
-                IcmIntent = 0x1000000,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                ///// Para más información ver <see cref="DEVMODE.dmMediaType"/>.
-                MediaType = 0x2000000,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                ///// Para más información ver <see cref="DEVMODE.dmDitherType"/>.
-                DitherType = 0x4000000,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                ///// Para más información ver <see cref="DEVMODE.dmPanningWidth"/>.
-                PanningWidth = 0x8000000,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                ///// Para más información ver <see cref="DEVMODE.dmPanningHeight"/>.
-                PanningHeight = 0x10000000,
-
-                /// <summary>
-                /// 
-                /// </summary>
-                ///// Para más información ver <see cref="DEVMODE.dmDisplayFixedOutput"/>.
-                DisplayFixedOutput = 0x20000000
-            }
-            #endregion
-
-            #region [public] (enum) DisplayFlags: Enumeración de miembros de una estructura de tipo DEVMODE.
             /// <summary>
-            /// Enumeración de atributos de estado de una estructura <see cref="DEVMODE"/>.
+            /// Para más información ver <see cref="DEVMODE.dmPaperSize"/>.
             /// </summary>
-            /// <remarks>
-            /// Para más información, ver sección <strong>StateFlags</strong> de http://msdn.microsoft.com/es-es/library/dd183569.aspx.
-            /// </remarks>
-            [Flags]
-            [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")]
-            public enum DisplayFlags
-            {
-                /// <summary>
-                /// Escala de grises.
-                /// </summary>
-                GrayScale = 0x01,
+            PaperSize = 0x2,
 
-                /// <summary>
-                /// Entrelazado.
-                /// </summary>
-                Interlaced = 0x02
-            }
-            #endregion
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmPaperLength"/>.
+            /// </summary>
+            PaperLength = 0x4,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmPaperWidth"/>.
+            /// </summary>
+            PaperWidth = 0x8,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmScale"/>.
+            /// </summary>
+            Scale = 0x10,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmPosition"/>.
+            /// </summary>
+            Position = 0x20,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmNup"/>.
+            /// </summary>
+            Nup = 0x40,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmDisplayOrientation"/>.
+            /// </summary>
+            DisplayOrientation = 0x80,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmCopies"/>.
+            /// </summary>
+            Copies = 0x100,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmDefaultSource"/>.
+            /// </summary>
+            DefaultSource = 0x200,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmPrintQuality"/>.
+            /// </summary>
+            PrintQuality = 0x400,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmColor"/>.
+            /// </summary>
+            Color = 0x800,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmDuplex"/>.
+            /// </summary>
+            Duplex = 0x1000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmYResolution"/>.
+            /// </summary>
+            YResolution = 0x2000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmTTOption"/>.
+            /// </summary>
+            TTOption = 0x4000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmCollate"/>.
+            /// </summary>
+            Collate = 0x8000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmFormName"/>.
+            /// </summary>
+            FormName = 0x10000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmLogPixels"/>.
+            /// </summary>
+            LogPixels = 0x20000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmBitsPerPel"/>.
+            /// </summary>
+            BitsPerPixel = 0x40000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmPelsWidth"/>.
+            /// </summary>
+            PelsWidth = 0x80000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmPelsHeight"/>.
+            /// </summary>
+            PelsHeight = 0x100000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmDisplayFlags"/>.
+            /// </summary>
+            DisplayFlags = 0x200000,
+
+            /// <summary>
+            /// Para más información ver <see cref="DEVMODE.dmDisplayFrequency"/>.
+            /// </summary>
+            DisplayFrequency = 0x400000,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            ///// Para más información ver <see cref="DEVMODE.dmIcmMethod"/>.
+            IcmMethod = 0x800000,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            ///// Para más información ver <see cref="DEVMODE.dmIcmIntent"/>.
+            IcmIntent = 0x1000000,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            ///// Para más información ver <see cref="DEVMODE.dmMediaType"/>.
+            MediaType = 0x2000000,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            ///// Para más información ver <see cref="DEVMODE.dmDitherType"/>.
+            DitherType = 0x4000000,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            ///// Para más información ver <see cref="DEVMODE.dmPanningWidth"/>.
+            PanningWidth = 0x8000000,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            ///// Para más información ver <see cref="DEVMODE.dmPanningHeight"/>.
+            PanningHeight = 0x10000000,
+
+            /// <summary>
+            /// 
+            /// </summary>
+            ///// Para más información ver <see cref="DEVMODE.dmDisplayFixedOutput"/>.
+            DisplayFixedOutput = 0x20000000
+        }
+        #endregion
+
+        #region [public] (enum) DisplayFlags: Enumeración de miembros de una estructura de tipo DEVMODE.
+        /// <summary>
+        /// Enumeración de atributos de estado de una estructura <see cref="DEVMODE"/>.
+        /// </summary>
+        /// <remarks>
+        /// Para más información, ver sección <strong>StateFlags</strong> de http://msdn.microsoft.com/es-es/library/dd183569.aspx.
+        /// </remarks>
+        [Flags]
+        public enum DisplayFlags
+        {
+            /// <summary>
+            /// Escala de grises.
+            /// </summary>
+            GrayScale = 0x01,
+
+            /// <summary>
+            /// Entrelazado.
+            /// </summary>
+            Interlaced = 0x02
+        }
+        #endregion
 
         #endregion
 
@@ -241,8 +228,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// por ejemplo, "pcl/HP LaserJet" en el caso de PCL/HP LaserJet. Esta cadena es única entre los controladores de dispositivos.
         /// </summary>
         [FieldOffset(0)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCHDEVICENAME)] 
         public string dmDeviceName;
 
@@ -251,16 +236,12 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Para asegurarse de que utiliza la versión correcta para cualquier sistema operativo, utilice DM_SPECVERSION.
         /// </summary>
         [FieldOffset(32)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public Int16 dmSpecVersion;
 
         /// <summary>
         /// Número de versión del controlador establecido por el fabricante del mismo.
         /// </summary>
         [FieldOffset(34)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public Int16 dmDriverVersion;
 
         /// <summary>
@@ -268,8 +249,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// del controlador privados que podrían seguir a los miembros públicos de la estructura. 
         /// </summary>
         [FieldOffset(36)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public Int16 dmSize;
 
         /// <summary>
@@ -277,8 +256,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Si un controlador de dispositivo no utiliza información específica del dispositivo, este campo ha de ser 0.
         /// </summary>
         [FieldOffset(38)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public Int16 dmDriverExtra;
 
         /// <summary>
@@ -288,8 +265,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Para más información ver <see cref="DM"/>.
         /// </summary>
         [FieldOffset(40)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public DM dmFields;
 
         /// <summary>
@@ -297,7 +272,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Este miembro puede ser <strong>DMORIENT_PORTRAIT</strong> (1) o <strong>DMORIENT_LANDSCAPE</strong> (2).
         /// </summary>
         [FieldOffset(44)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
         private Int16 dmOrientation;
 
         /// <summary>
@@ -308,7 +282,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DMPAPER_USER</strong> o a uno de los siguientes valores predefinidos.
         /// </summary>
         [FieldOffset(46)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
         private Int16 dmPaperSize;
 
         /// <summary>
@@ -318,14 +291,12 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Estos valores, junto con los demás valores de esta estructura que especifican una longitud física, son en décimas de milímetro
         /// </summary>
         [FieldOffset(48)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
         private Int16 dmPaperLength;
 
         /// <summary>
         /// Sólo para dispositivos de impresión, reemplaza el ancho del papel especificado por el campo <strong>dmPaperSize</strong>
         /// </summary>
         [FieldOffset(50)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
         private Int16 dmPaperWidth;
 
         /// <summary>
@@ -334,14 +305,12 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// el texto y los gráficos sería la mitad de su altura y ancho.
         /// </summary>
         [FieldOffset(52)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
         private Int16 dmScale;
 
         /// <summary>
         /// Número de copias, si el dispositivo acepta multicopias.
         /// </summary>
         [FieldOffset(54)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
         private Int16 dmCopies;
 
         /// <summary>
@@ -350,14 +319,12 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Este miembro puede ser uno de los siguientes valores, o puede ser un valor específico del dispositivo mayor o igual a <strong>DMBIN_USER</strong>.
         /// </summary>
         [FieldOffset(56)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
         private Int16 dmDefaultSource;
 
         /// <summary>
         /// Especifica la resolución de la impresora.
         /// </summary>
         [FieldOffset(58)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         private Int16 dmPrintQuality;
 
         /// <summary>
@@ -365,7 +332,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// a la zona de escritorio. El dispositivo de pantalla principal siempre está situado en las coordenadas (0,0).
         /// </summary>
         [FieldOffset(44)] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public POINTL dmPosition;
 
         /// <summary>
@@ -378,8 +344,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DMDO_270</strong>, la orientación de la pantalla se rota 270 grados. (en sentido de las agujas del reloj) desde su posición natural.
         /// </summary>
         [FieldOffset(52)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public Int32 dmDisplayOrientation;
 
         /// <summary>
@@ -394,8 +358,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DMDFO_STRETCH</strong>, la imagen de baja resolución se estira para rellenar el espacio de pantalla más grande
         /// </summary>
         [FieldOffset(56)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public Int32 dmDisplayFixedOutput;
 
         /// <summary>
@@ -404,8 +366,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DMCOLOR_MONOCHROME </strong>.
         /// </summary>
         [FieldOffset(60)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public short dmColor;
 
         /// <summary>
@@ -415,8 +375,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DMDUP_VERTICAL</strong>, el lado largo de la página es vertical.
         /// </summary>
         [FieldOffset(62)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public short dmDuplex;
 
         /// <summary>
@@ -424,8 +382,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Si la impresora inicializa este miembro, el campo <strong>dmPrintQuality</strong> especifica la resolución x, en puntos por pulgada, de la impresora.
         /// </summary>
         [FieldOffset(64)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public short dmYResolution;
 
         /// <summary>
@@ -437,8 +393,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DMTT_SUBDEV</strong>, sustituto para fuentes TrueType. Se trata de la acción predeterminada para las impresoras PostScript.
         /// </summary>
         [FieldOffset(66)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public short dmTTOption;
 
         /// <summary>
@@ -448,8 +402,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DMCOLLATE_FALSE</strong>. no intercalar al imprimir varias copias.
         /// </summary>
         [FieldOffset(68)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public short dmCollate;
 
         /// <summary>
@@ -458,16 +410,12 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// </summary>
         [FieldOffset(72)] 
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCHFORMNAME)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public string dmFormName;
 
         /// <summary>
         /// Número de píxeles por pulgada. Los controladores de impresora no deben utilizar este campo.
         /// </summary>
         [FieldOffset(102)] 
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public Int16 dmLogPixels;
 
         /// <summary>
@@ -476,7 +424,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Los controladores de impresora no deben utilizar este campo.
         /// </summary>
         [FieldOffset(104)] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public Int32 dmBitsPerPel;
 
         /// <summary>
@@ -485,7 +432,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Los controladores de impresora no deben utilizar este campo.
         /// </summary>
         [FieldOffset(108)] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
         public Int32 dmPelsWidth;
 
         /// <summary>
@@ -494,7 +440,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// Los controladores de impresora no deben utilizar este campo.
         /// </summary>
         [FieldOffset(112)]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public Int32 dmPelsHeight;
 
         /// <summary>
@@ -503,9 +448,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DM_INTERLACED</strong>, especifica que el modo de visualización es entrelazado. Si no se establece este indicador, se asume que es no entrelazado.
         /// </summary>
         [FieldOffset(116)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")] 
-        [SuppressMessage("Microsoft.Naming", "CA1726:UsePreferredTerms", MessageId = "Flags")]
         public DisplayFlags dmDisplayFlags;
 
         /// <summary>
@@ -514,8 +456,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// <strong>DMNUP_ONEUP</strong>, la aplicación hace NUP.
         /// </summary>
         [FieldOffset(116)]
-        [SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public Int32 dmNup;
 
         /// <summary>
@@ -529,7 +469,6 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
         /// o por un programa de configuración que no utilizan funciones de visualización como <strong>ChangeDisplaySettings</strong>.
         /// </summary>
         [FieldOffset(120)] 
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public Int32 dmDisplayFrequency;
         #endregion
 
@@ -553,56 +492,52 @@ namespace iTin.Core.Interop.Windows.Development.DocumentAndPrinting.Printing.Gdi
 
         #region Overrides
 
-            #region [public] {override} (int) GetHashCode(): Devuelve un valor que repesenta al código hash de esta estructura.
-            /// <summary>
-            /// Devuelve un valor que repesenta al código hash de esta estructura.
-            /// </summary>
-            /// <returns>
-            /// 	<para>Tipo: <see cref="T:System.Int32"/></para>
-            /// 	<para>Código Hash de esta estructura.</para>
-            /// </returns>
-            public override int GetHashCode()
-            {
-                return dmPelsWidth ^ dmPelsHeight ^ dmBitsPerPel ^ dmDisplayFrequency;
-            }
-            #endregion
+        #region [public] {override} (int) GetHashCode(): Devuelve un valor que repesenta al código hash de esta estructura.
+        /// <summary>
+        /// Devuelve un valor que repesenta al código hash de esta estructura.
+        /// </summary>
+        /// <returns>
+        /// 	<para>Tipo: <see cref="T:System.Int32"/></para>
+        /// 	<para>Código Hash de esta estructura.</para>
+        /// </returns>
+        public override int GetHashCode()
+        {
+            return dmPelsWidth ^ dmPelsHeight ^ dmBitsPerPel ^ dmDisplayFrequency;
+        }
+        #endregion
 
-            #region [public] {override} (bool) Equals(object): Devuelve un valor que indica si esta estructutra es igual a otra.
-            /// <summary>
-            /// Devuelve un valor que indica si esta estructutra es igual a otra.
-            /// </summary>
-            /// <param name="obj">Estructura con la que comparar.</param>
-            /// <returns>Resultado de la comparación de igualdad.</returns>
-            public override bool Equals(object obj)
-            {
-                if (obj == null)
-                    return false;
+        #region [public] {override} (bool) Equals(object): Devuelve un valor que indica si esta estructutra es igual a otra.
+        /// <summary>
+        /// Devuelve un valor que indica si esta estructutra es igual a otra.
+        /// </summary>
+        /// <param name="obj">Estructura con la que comparar.</param>
+        /// <returns>Resultado de la comparación de igualdad.</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
 
-                if (!(obj is DEVMODE))
-                    return false;
+            if (!(obj is DEVMODE))
+                return false;
 
-                DEVMODE other = (DEVMODE) obj;
-                return (other.dmPelsWidth == dmPelsWidth) && (other.dmPelsHeight == dmPelsHeight) &&
-                        (other.dmBitsPerPel == dmBitsPerPel) && (other.dmDisplayFrequency == dmDisplayFrequency);
-            }
-            #endregion
+            DEVMODE other = (DEVMODE) obj;
+            return (other.dmPelsWidth == dmPelsWidth) && (other.dmPelsHeight == dmPelsHeight) &&
+                    (other.dmBitsPerPel == dmBitsPerPel) && (other.dmDisplayFrequency == dmDisplayFrequency);
+        }
+        #endregion
 
-            #region [public] {override} (string) ToString(): Devuelve una cadena que representa a la estructura actual.
-            /// <summary>
-            /// Devuelve una cadena que representa la estructura <see cref="DEVMODE"/> actual.
-            /// </summary>
-            /// <returns>
-            /// 	<para>Tipo: <see cref="T:System.String"/></para>
-            /// 	<para>Cadena que representa la estructura <see cref="DEVMODE"/> actual.</para>
-            /// </returns>
-            /// <remarks>
-            /// El método <see cref="DEVMODE.ToString()"/> devuelve una cadena que incluye la resolución, profundidad de color y velocidad de refresco actual.
-            /// </remarks>
-            public override string ToString()
-            {
-                return String.Format(CultureInfo.InvariantCulture, "{0} x {1}, {2} bits, {3}hz", dmPelsWidth, dmPelsHeight, dmBitsPerPel, dmDisplayFrequency);
-            }
-            #endregion
+        #region [public] {override} (string) ToString(): Devuelve una cadena que representa a la estructura actual.
+        /// <summary>
+        /// Devuelve una cadena que representa la estructura <see cref="DEVMODE"/> actual.
+        /// </summary>
+        /// <returns>
+        /// Cadena que representa la estructura <see cref="DEVMODE"/> actual.
+        /// </returns>
+        /// <remarks>
+        /// El método <see cref="DEVMODE.ToString()"/> devuelve una cadena que incluye la resolución, profundidad de color y velocidad de refresco actual.
+        /// </remarks>
+        public override string ToString() => $"{dmPelsWidth} x {dmPelsHeight}, {dmBitsPerPel} bits, {dmDisplayFrequency}hz";
+        #endregion
 
         #endregion
 

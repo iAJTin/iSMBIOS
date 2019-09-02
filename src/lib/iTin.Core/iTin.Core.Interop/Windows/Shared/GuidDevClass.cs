@@ -3,7 +3,7 @@ namespace iTin.Core.Interop.Windows
 {
     using System;
 
-    public static class GUID_DEVCLASS
+    public static class GuidDevClass
     {
         public static readonly Guid GUID_DEVCLASS_1394 = new Guid("{0x6bdd1fc1, 0x810f, 0x11d0, {0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f}}");
         public static readonly Guid GUID_DEVCLASS_1394DEBUG = new Guid("{0x66f250d6, 0x7801, 0x4a64, {0xb1, 0x39, 0xee, 0xa8, 0x0a, 0x45, 0x0b, 0x24}}");

@@ -1,7 +1,7 @@
 ﻿
 namespace iTin.Core.Interop.Windows
 {
-    static class SystemErrorCode
+    public static class Win32ErrorCode
     {
         public const int INVALID_HANDLE_VALUE = -1;
         public const int ERROR_ACCESS_DENIED = 5;

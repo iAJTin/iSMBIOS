@@ -1,6 +1,7 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Smbios
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
@@ -114,6 +115,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region public methods
 
         #region [public] (object) GetPropertyValue(IPropertyKey): Returns the value of specified property. Always returns the first appearance of the property
+
         /// <summary>
         /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
         /// </summary>
@@ -121,7 +123,30 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// Reference to the object that represents the value of the property. Always returns the first appearance of the property.
         /// </returns>
-        public object GetPropertyValue(IPropertyKey propertyKey) => Properties.ContainsKey(propertyKey) ? Properties[propertyKey] : null;
+        public object GetPropertyValue(IPropertyKey propertyKey)
+        {
+            Type propertyType = propertyKey.GetPropertyType();
+            
+            object result = Properties[propertyKey];
+            if (!(result is List<KeyValuePair<IPropertyKey, object>> itemList))
+            {
+                return result;
+            }
+
+            bool hasItems = itemList.Any();
+            if (!hasItems)
+            {
+                return propertyType.GetDefaultValue();
+            }
+
+            bool onlyOneItem = itemList.Count == 1;
+            if (onlyOneItem)
+            {
+                return itemList.FirstOrDefault().Value;
+            }
+
+            return propertyType.GetDefaultValue();
+        }
         #endregion
 
         #region [public] (T) GetPropertyValue<T>(IPropertyKey): Returns the the strongly typed value of specified property

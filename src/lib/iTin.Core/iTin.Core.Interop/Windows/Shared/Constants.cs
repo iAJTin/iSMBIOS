@@ -1,7 +1,7 @@
 ﻿
 namespace iTin.Core.Interop.Windows
 {
-    internal static class Constants
+    public static class Constants
     {
         public const int MAX_PATH = 260;
 

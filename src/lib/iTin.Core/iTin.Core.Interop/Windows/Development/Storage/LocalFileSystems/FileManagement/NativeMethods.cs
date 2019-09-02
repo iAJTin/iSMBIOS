@@ -11,7 +11,7 @@ namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.FileMan
     /// Funciones para la gestión del sistema de archivos.
     /// Un archivo es la representación de un recurso (ya sea un dispositivo físico o un recurso ubicado en un dispositivo físico) que pueden ser manejados por el sistema de E/S.
     /// </summary>
-    internal static class NativeMethods
+    public static class NativeMethods
     {
         #region Enums
         [StructLayout(LayoutKind.Sequential)]

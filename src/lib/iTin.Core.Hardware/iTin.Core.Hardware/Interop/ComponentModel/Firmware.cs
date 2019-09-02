@@ -1,5 +1,5 @@
 ﻿
-namespace iTin.Core.Hardware.Interop.Smbios
+namespace iTin.Core.Hardware.Interop.ComponentModel
 {
     using System;
     using System.Runtime.InteropServices;

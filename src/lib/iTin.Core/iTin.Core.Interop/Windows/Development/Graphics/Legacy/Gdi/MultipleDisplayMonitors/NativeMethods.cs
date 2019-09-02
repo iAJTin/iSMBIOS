@@ -2,99 +2,93 @@
 namespace iTin.Core.Interop.Windows.Development.Graphics.Legacy.Gdi.MultipleDisplayMonitors
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Runtime.InteropServices;
 
     using Rectangles;
 
     /// <summary>
-    /// Funciones que se pueden utilizar para controlar la configuración de parámetros del sistema y los diversos atributos del sistema, como el tiempo del doble clic,
-    /// el tiempo de espera del protector de pantalla, el ancho del borde de las ventanas.
+    /// Functions that can be used to control the configuration of system parameters and various system attributes, such as double click time, the screen saver timeout, the width of the window border.
     /// </summary>
-    internal static class NativeMethods
+    public static class NativeMethods
     {
-        #region Enums
+        #region public enumerations
 
-            #region [internal] (enum) MonitorOptions: Determina el valor devuelto por la función si el punto no se encuentra dentro de ningún monitor del sistema.
-            /// <summary>
-            /// Determina el valor devuelto por la función si el punto no se encuentra dentro de ningún monitor del sistema.
-            /// Para más información, ver sección <strong>dwFlags</strong> de http://msdn.microsoft.com/es-es/library/dd145062.
-            /// </summary>
-            internal enum MonitorOptions : uint
-            {
-                MONITOR_DEFAULTTONULL = 0x00000000,
-                MONITOR_DEFAULTTOPRIMARY = 0x00000001,
-                MONITOR_DEFAULTTONEAREST = 0x00000002
-            }
-            #endregion
+        #region [internal] (enum) MonitorOptions: Determine the value returned by the function if the point is not within any system monitor
+        /// <summary>
+        /// Determine the value returned by the function if the point is not within any system monitor.
+        /// For more information, please see section <strong>dwFlags</strong> of http://msdn.microsoft.com/es-es/library/dd145062.
+        /// </summary>
+        public enum MonitorOptions : uint
+        {
+            MONITOR_DEFAULTTONULL = 0x00000000,
+
+            MONITOR_DEFAULTTOPRIMARY = 0x00000001,
+
+            MONITOR_DEFAULTTONEAREST = 0x00000002
+        }
+        #endregion
 
         #endregion
 
-        #region Delegados
+        #region public delegates
         /// <summary>
-        /// Callback de la función <see cref="EnumDisplayMonitors"/>.
+        /// Callback of the <see cref="EnumDisplayMonitors"/> function.
         /// </summary>
         public delegate bool MonitorEnumCallBack(IntPtr hMonitor, IntPtr hdcMonitor, ref RECT lprcMonitor, IntPtr dwData);
         #endregion
 
         #region P/Invoke
 
-        #region [public] {static} (extern bool) EnumDisplayMonitors(IntPtr, IntPtr, MonitorEnumCallBack, IntPtr): Enumera los monitores (incluyendo los pseudo-monitores invisibles). Llama a una función de callback (MonitorEnumCallBack).
+        #region [public] {static} (extern bool) EnumDisplayMonitors(IntPtr, IntPtr, MonitorEnumCallBack, IntPtr): List the monitors (including invisible pseudo-monitors). Call a callback function (MonitorEnumCallBack)
         /// <summary>
-        /// Enumera los monitores (incluyendo los pseudo-monitores invisibles). Llama a una función de callback (MonitorEnumCallBack).
+        /// List the monitors (including invisible pseudo-monitors). Call a callback function (MonitorEnumCallBack).
+        /// For more information, see http://msdn.microsoft.com/en-us/library/dd162610%28v=VS.85%29.aspx
         /// </summary>
-        /// <remarks>
-        /// Para más información, ver http://msdn.microsoft.com/en-us/library/dd162610%28v=VS.85%29.aspx
-        /// </remarks>
         [DllImport(ExternDll.Win.User32, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool EnumDisplayMonitors(IntPtr hdc, IntPtr lprcClip, MonitorEnumCallBack lpfnEnum, IntPtr dwData);
         #endregion
 
-        #region [public] {static} (extern bool) GetMonitorInfo(IntPtr, ref MONITORINFO): Obtiene información de un monitor.
+        #region [public] {static} (extern bool) GetMonitorInfo(IntPtr, ref MONITORINFO): Get information from a monitor
         /// <summary>
-        /// Obtiene información de un monitor. Para más información, ver http://msdn.microsoft.com/es-es/library/dd144901.
+        /// Get information from a monitor. For more information, please see http://msdn.microsoft.com/es-es/library/dd144901.
         /// </summary>
         [return: MarshalAs(UnmanagedType.Bool)]
         [DllImport(ExternDll.Win.User32, CharSet = CharSet.Auto, SetLastError = true)]
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFO lpmi);
         #endregion
 
-        #region [public] {static} (extern bool) GetMonitorInfo(IntPtr, ref MONITORINFOEX): Obtiene información de un monitor.
+        #region [public] {static} (extern bool) GetMonitorInfo(IntPtr, ref MONITORINFOEX): Get information from a monitor
         /// <summary>
-        /// Obtiene información de un monitor. Para más información, ver http://msdn.microsoft.com/es-es/library/dd144901.
+        /// Get information from a monitor. For more information, please see http://msdn.microsoft.com/es-es/library/dd144901.
         /// </summary>
         [DllImport(ExternDll.Win.User32, CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
         #endregion
 
-        #region [public] {static} (extern IntPtr) MonitorFromPoint(POINT, MonitorOptions): Obtiene el identificador del monitor que contiene el punto especificado.
+        #region [public] {static} (extern IntPtr) MonitorFromPoint(POINT, MonitorOptions): Get the monitor ID that contains the specified point.
         /// <summary>
-        /// Obtiene el identificador del monitor que contiene el punto especificado. Para más información, ver http://msdn.microsoft.com/es-es/library/dd145062.
+        /// Get the monitor ID that contains the specified point. For more information, please see http://msdn.microsoft.com/es-es/library/dd145062.
         /// </summary>
         [DllImport(ExternDll.Win.User32, SetLastError = true)]
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static extern IntPtr MonitorFromPoint(POINT pt, MonitorOptions dwFlags);
         #endregion
 
-        #region [public] {static} (extern IntPtr) MonitorFromRect(ref RECT, MonitorOptions): Obtiene el identificador del monitor que tiene la mayor área de intersección con el rectángulo especificado.
+        #region [public] {static} (extern IntPtr) MonitorFromRect(ref RECT, MonitorOptions): Get the identifier of the monitor that has the largest area of intersection with the specified rectangle
         /// <summary>
-        /// Obtiene el identificador del monitor que tiene la mayor área de intersección con el rectángulo especificado, ver http://msdn.microsoft.com/es-es/library/dd145062.
+        /// Get the identifier of the monitor that has the largest area of intersection with the specified rectangle. For more information, please see http://msdn.microsoft.com/es-es/library/dd145062.
         /// </summary>
         [DllImport(ExternDll.Win.User32, SetLastError = true)]
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static extern IntPtr MonitorFromRect([In]ref RECT lprc, [In]MonitorOptions dwFlags);
         #endregion
 
-        #region [public] {static} (extern IntPtr) MonitorFromWindow(IntPtr, MonitorOptions): Obtiene el identificador del monitor que tiene la mayor área de intersección con el rectángulo de la ventana especificada.
+        #region [public] {static} (extern IntPtr) MonitorFromWindow(IntPtr, MonitorOptions): Get the identifier of the monitor that has the largest area of intersection with the rectangle of the specified window
         /// <summary>
-        /// Obtiene el identificador del monitor que tiene la mayor área de intersección con el rectángulo de la ventana especificada.
-        /// Para más información ver http://msdn.microsoft.com/es-es/library/dd145064.
+        /// Get the identifier of the monitor that has the largest area of intersection with the rectangle of the specified window.
+        /// For more information, please see http://msdn.microsoft.com/es-es/library/dd145064.
         /// </summary>
         [DllImport(ExternDll.Win.User32, SetLastError = true)]
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public static extern IntPtr MonitorFromWindow([In]IntPtr hwnd, [In]MonitorOptions dwFlags);
         #endregion
 

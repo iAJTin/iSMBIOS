@@ -1,270 +1,235 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Runtime.InteropServices;
-
+﻿
 namespace iTin.Core.Interop.Windows.Development.Graphics.Legacy.Gdi.DeviceContext
 {
+    using System;
+    using System.Runtime.InteropServices;
+
     /// <summary>
-    /// La estructura <strong>DISPLAY_DEVICE</strong> recibe la información del dispositivo de pantalla especificado por el
-    /// parámetro <c>iDevNum</c> de la función <see cref="NativeMethods.EnumDisplayDevices"/>.
+    /// The <strong>DISPLAY_DEVICE</strong> structure receives the information from the display device specified by the parameter <c> iDevNum </c> of function <see cref="NativeMethods.EnumDisplayDevices"/>.
+    /// For more information, please see http://msdn.microsoft.com/es-es/library/dd183569.aspx.
     /// </summary>
-    /// <remarks>
-    /// Para más información, ver http://msdn.microsoft.com/es-es/library/dd183569.aspx.
-    /// </remarks>
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-    [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DISPLAY")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DEVICE")]
     public struct DISPLAY_DEVICE : IEquatable<DISPLAY_DEVICE>
     {
-        #region Constantes
+        #region public constants
         /// <summary>
-        /// Indica que el campo DeviceId va a contener la clave del registro de este monitor.
+        /// Indicates that the DeviceId field will contain the registry key of this monitor.
         /// </summary>
-        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "EDD")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "GET")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DEVICE")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "INTERFACE")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "NAME")]
         public const uint EDD_GET_DEVICE_INTERFACE_NAME = 0x01;
         #endregion
 
-        #region Enums
+        #region public enumerations
 
-            #region [public] (enum) KnownDisplayDeviceStates: Enumeración de atributos de estado de una estructura DISPLAY_DEVICE.
+        #region [public] (enum) KnownDisplayDeviceStates: Enumeration of status attributes of a DISPLAY_DEVICE structure
+        /// <summary>
+        /// Enumeration of status attributes of a <see cref="DISPLAY_DEVICE"/> structure. For more information, please see http://msdn.microsoft.com/es-es/library/dd183569.aspx.
+        /// </summary>
+        [Flags]
+        public enum KnownDisplayDeviceStates
+        {
             /// <summary>
-            /// Enumeración de atributos de estado de una estructura <see cref="DISPLAY_DEVICE"/>.
+            /// Indicates that the device shows the desktop.
             /// </summary>
-            /// <remarks>
-            /// Para más información, ver sección <strong>StateFlags</strong> de http://msdn.microsoft.com/es-es/library/dd183569.aspx
-            /// </remarks>
-            [Flags]
-            public enum KnownDisplayDeviceStates
-            {
-                /// <summary>
-                /// Indica que el dispositivo muestra el escritorio.
-                /// </summary>
-                AttachedToDesktop = 0x00000001,
+            AttachedToDesktop = 0x00000001,
 
-                /// <summary>
-                /// 
-                /// </summary>
-                MultiDriver = 0x00000002,
+            /// <summary>
+            /// 
+            /// </summary>
+            MultiDriver = 0x00000002,
 
-                /// <summary>
-                /// Indica que és el escritorio principal.
-                /// Para un sistema con un adaptador de video, siempre se establece. 
-                /// Para un sistema con varias tarjetas de vídeo, solo una puede tener este flag activo.
-                /// </summary>
-                PrimaryDevice = 0x00000004, 
+            /// <summary>
+            /// Indicates that it is the main desktop.
+            /// For a system with a video adapter, it is always set.
+            /// For a system with several video cards, only one can have this flag active.
+            /// </summary>
+            PrimaryDevice = 0x00000004,
 
-                /// <summary>
-                /// Representa un pseudo dispositivo para reflejar la aplicación de dibujo para la interacción remota o con otros fines.
-                /// Un pseudo monitor invisible está asociado con este dispositivo. Por ejemplo, NetMeeting lo utiliza. 
-                /// </summary>
-                MirroringDriver = 0x00000008,
+            /// <summary>
+            /// It represents a pseudo device to reflect the drawing application for remote interaction or for other purposes.
+            /// A pseudo invisible monitor is associated with this device. For example, NetMeeting uses it.
+            /// </summary>
+            MirroringDriver = 0x00000008,
 
-                /// <summary>
-                /// El dispositivo es compatible con VGA.
-                /// </summary>
-                VgaCompatible = 0x00000010,
+            /// <summary>
+            /// The device is compatible with VGA.
+            /// </summary>
+            VgaCompatible = 0x00000010,
 
-                /// <summary>
-                /// El dispositivo es extraíble; no puede ser la pantalla principal.
-                /// </summary>
-                Removable = 0x00000020,
+            /// <summary>
+            /// The device is removable; It cannot be the main screen.
+            /// </summary>
+            Removable = 0x00000020,
 
-                /// <summary>
-                /// 
-                /// </summary>
-                [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Un")]
-                UnSafeModesOn = 0x00080000,
+            /// <summary>
+            /// 
+            /// </summary>
+            UnSafeModesOn = 0x00080000,
 
-                /// <summary>
-                /// 
-                /// </summary>
-                [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Ts")]
-                TsCompatible = 0x00200000,
+            /// <summary>
+            /// 
+            /// </summary>
+            TsCompatible = 0x00200000,
 
-                /// <summary>
-                /// 
-                /// </summary>
-                Disconnect = 0x02000000,
+            /// <summary>
+            /// 
+            /// </summary>
+            Disconnect = 0x02000000,
 
-                /// <summary>
-                /// 
-                /// </summary>
-                Remote = 0x04000000,
+            /// <summary>
+            /// 
+            /// </summary>
+            Remote = 0x04000000,
 
-                /// <summary>
-                /// El dispositivo tiene más modos de vídeo.
-                /// </summary>
-                ModesPruned = 0x08000000,
-            }
-            #endregion
+            /// <summary>
+            /// The device has more video modes.
+            /// </summary>
+            ModesPruned = 0x08000000,
+        }
+        #endregion
 
         #endregion
 
-        #region Atributos
+        #region public members
         ///<summary>
-        /// Especifica el tamaño, en bytes, de la estructura <strong>DISPLAY_DEVICE</strong>.
-        /// Se debe inicializar antes de llamar a una función <strong>Api</strong>.
+        /// Specify the size, in bytes, of the <strong>DISPLAY_DEVICE</strong> structure.
+        /// Must be initialized before calling a <strong>Api</strong> function.
         ///</summary>
         [MarshalAs(UnmanagedType.U4)]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public int cb;
 
         ///<summary>
-        /// Una cadena que identifica el nombre de dispositivo. 
-        /// Este es el dispositivo del adaptador o el dispositivo de monitor.
+        /// A string that identifies the device name.
+        /// This is the adapter device or the monitor device.
         ///</summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public string DeviceName;
 
         ///<summary>
-        /// Una cadena que contiene el contexto de dispositivo.
-        /// Esto es tanto una descripción del adaptador de vídeo o del monitor de pantalla.
+        /// A string that contains the device context.
+        /// This is both a description of the video adapter or the screen monitor.
         ///</summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public string DeviceString;
 
         ///<summary>
-        /// Indicadores de estado.
+        /// Status indicators.
         ///</summary>
         [MarshalAs(UnmanagedType.U4)]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public KnownDisplayDeviceStates State;
 
         ///<summary>
-        /// Identificador del dispositivo.
+        /// Device identifier.
         ///</summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public string DeviceID;
 
         ///<summary>
-        /// Una cadena que contiene la ruta del registro de windows a la información del dispositivo.
+        /// A string containing the windows registry path to the device information.
         ///</summary>
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-        [SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]
         public string DeviceKey;
         #endregion
 
-        #region Interfaces
+        #region interfaces
 
-            #region [public] (bool) Equals(DISPLAY_DEVICE): Indica si el objeto actual es igual a otro objeto del mismo tipo.
-            /// <summary>
-            /// Indica si el objeto actual es igual a otro objeto del mismo tipo.
-            /// </summary>
-            /// <param name="other">Objeto que se va a comparar con este objeto.</param>
-            /// <returns>
-            /// Devuelve <strong>true</strong> si el objeto actual es igual al parámetro <c>other</c>; en caso contrario, <strong>false</strong>.
-            /// </returns>
-            public bool Equals(DISPLAY_DEVICE other)
-            {
-                return other.Equals((object)this);
-            }
-            #endregion
-
-        #endregion
-
-        #region Overrides
-
-            #region [public] {override} (int) GetHashCode(): Devuelve el código hash del objeto.
-            /// <summary>
-            /// Devuelve el código hash del objeto.
-            /// </summary>
-            /// <returns>
-            /// 	<para>Tipo: <see cref="T:System.Int32"/></para>
-            /// 	<para>Código Hash.</para>
-            /// </returns>
-            public override int GetHashCode()
-            {
-                return DeviceName.GetHashCode() ^ (int)State;
-            }
-            #endregion
-
-            #region [public] {override} (bool) Equals(object obj): Devuelve un valor que indica si este objeto es igual a otro.
-            /// <summary>
-            /// Devuelve un valor que indica si este objeto es igual a otro.
-            /// </summary>
-            /// <param name="obj">Objeto con el que comparar.</param>
-            /// <returns>Resultado de igualdad.</returns>
-            public override bool Equals(object obj)
-            {
-                if (obj == null)
-                    return false;
-
-                if (!(obj is DISPLAY_DEVICE))
-                    return false;
-
-                DISPLAY_DEVICE other = (DISPLAY_DEVICE)obj;
-                return (other.DeviceName == DeviceName) && (other.State == State);
-            }
-            #endregion
-
-            #region [public] {override} (string) ToString(): Devuelve una cadena que representa al objeto actual.
-            /// <summary>
-            /// Devuelve una cadena que representa al objeto <see cref="DISPLAY_DEVICE"/> actual.
-            /// </summary>
-            /// <returns>
-            /// 	<para>Tipo: <see cref="T:System.String"/></para>
-            /// 	<para>Cadena que representa al objeto <see cref="DISPLAY_DEVICE"/> actual.</para>
-            /// </returns>
-            /// <remarks>
-            /// El método <see cref="DISPLAY_DEVICE.ToString()"/> devuelve una cadena que incluye el tipo de estructura.
-            /// </remarks>
-            public override string ToString()
-            {
-                return string.Format(CultureInfo.InvariantCulture, "DeviceName = {0}", DeviceName);
-            }
-            #endregion
-
-        #endregion
-
-        #region Operadores
-
-            #region [public] {static} (bool) operator ==(DISPLAY_DEVICE, DISPLAY_DEVICE): Implementa el operador de igualdad (==).
-            /// <summary>
-            /// Implementa el operador de igualdad (==).
-            /// </summary>
-            /// <param name="deviceInfo1">Operando 1.</param>
-            /// <param name="deviceInfo2">Operando 2.</param>
-            /// <returns>
-            /// Devuelve <strong>true</strong> si <c>deviceInfo1</c> es igual a <c>deviceInfo2</c>; <strong>false</strong> en caso contrario.
-            /// </returns>
-            public static bool operator ==(DISPLAY_DEVICE deviceInfo1, DISPLAY_DEVICE deviceInfo2)
-            {
-                return deviceInfo1.Equals(deviceInfo2);
-            }
-            #endregion
-
-            #region [public] {static} (bool) operator !=(DISPLAY_DEVICE, DISPLAY_DEVICE): Implementa el operador de desigualdad (!=).
-            /// <summary>
-            /// Implementa el operador de desigualdad (!=).
-            /// </summary>
-            /// <param name="deviceInfo1">Operando 1.</param>
-            /// <param name="deviceInfo2">Operando 2.</param>
-            /// <returns>
-            /// Devuelve <strong>true</strong> si <c>deviceInfo1</c> no es igual a <c>deviceInfo2</c>; <strong>false</strong> en caso contrario.
-            /// </returns>
-            public static bool operator !=(DISPLAY_DEVICE deviceInfo1, DISPLAY_DEVICE deviceInfo2)
-            {
-                return !deviceInfo1.Equals(deviceInfo2);
-            }
-            #endregion
-
-        #endregion
-
-        #region Miembros estáticos
+        #region [public] (bool) Equals(DISPLAY_DEVICE): Indicates whether the current object is the same as another object of the same type
         /// <summary>
-        /// Nueva estructura vacía.
+        /// Indicates whether the current object is the same as another object of the same type.
+        /// </summary>
+        /// <param name="other">Object to be compared with this object.</param>
+        /// <returns>
+        /// Returns <b>true</b> if the current object is equal to the <c>other</c> parameter; otherwise, <b>false</b>.
+        /// </returns>
+        public bool Equals(DISPLAY_DEVICE other) => other.Equals((object)this);
+        #endregion
+
+        #endregion
+
+        #region public operators
+
+        #region [public] {static} (bool) operator ==(DISPLAY_DEVICE, DISPLAY_DEVICE): Implement the equality operator (==)
+        /// <summary>
+        /// Implement the equality operator (==).
+        /// </summary>
+        /// <param name="left">Operand 1.</param>
+        /// <param name="right">Operand 2.</param>
+        /// <returns>
+        /// Returns <b>true</b> if <c>deviceInfo1</c> is equal to <c>deviceInfo2</c>; <b>false</b> otherwise.
+        /// </returns>
+        public static bool operator ==(DISPLAY_DEVICE left, DISPLAY_DEVICE right) => left.Equals(right);
+        #endregion
+
+        #region [public] {static} (bool) operator !=(DISPLAY_DEVICE, DISPLAY_DEVICE): Implements the inequality operator (!=)
+        /// <summary>
+        /// Implements the inequality operator (!=).
+        /// </summary>
+        /// <param name="left">Operand 1.</param>
+        /// <param name="right">Operand 2.</param>
+        /// <returns>
+        /// Returns <b>true</b> if <c>deviceInfo1</c> is not equal to <c>deviceInfo2</c>; <b>false</b> otherwise.
+        /// </returns>
+        public static bool operator !=(DISPLAY_DEVICE left, DISPLAY_DEVICE right) => !left.Equals(right);
+        #endregion
+
+        #endregion
+
+        #region public static methods
+        /// <summary>
+        /// New empty structure.
         /// </summary>
         public static readonly DISPLAY_DEVICE Empty = new DISPLAY_DEVICE { cb = Marshal.SizeOf(typeof(DISPLAY_DEVICE)) };
+        #endregion
+
+        #region public override methods
+
+        #region [public] {override} (int) GetHashCode(): Returns the hash code of the structure
+        /// <summary>
+        /// Returns the hash code of the structure.
+        /// </summary>
+        /// <returns>
+        /// Hash code.
+        /// </returns>
+        public override int GetHashCode() => DeviceName.GetHashCode() ^ (int)State;
+        #endregion
+
+        #region [public] {override} (bool) Equals(object obj): Returns a value that indicates whether this object is equal to another
+        /// <summary>
+        /// Returns a value that indicates whether this object is equal to another.
+        /// </summary>
+        /// <param name="obj">Object to compare.</param>
+        /// <returns>
+        /// Equality result.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            if (!(obj is DISPLAY_DEVICE))
+            {
+                return false;
+            }
+
+            var other = (DISPLAY_DEVICE)obj;
+
+            return 
+                other.DeviceName == DeviceName && 
+                other.State == State;
+        }
+        #endregion
+
+        #region [public] {override} (string) ToString(): Returns a string that represents the current object
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>
+        /// Returns a string that represents the current object.
+        /// </returns>
+        public override string ToString() => $"DeviceName = {DeviceName}";
+        #endregion
+
         #endregion
     }
 }

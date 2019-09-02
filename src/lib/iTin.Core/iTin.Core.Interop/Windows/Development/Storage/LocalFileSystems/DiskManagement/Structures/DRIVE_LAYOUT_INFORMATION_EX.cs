@@ -1,22 +1,18 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Runtime.InteropServices;
-
+﻿
 namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskManagement
 {
+    using System;
+    using System.Globalization;
+    using System.Runtime.InteropServices;
+
     /// <summary>
-    /// Proporciona información ampliada acerca de las particiones del disco.
+    /// Contains extended information about a drive's partitions.
     /// </summary>
     /// <remarks>
-    /// Para más información ver: http://msdn.microsoft.com/en-us/library/aa364001%28v=VS.85%29.aspx
+    /// For more information, please see https://docs.microsoft.com/en-us/windows/win32/api/winioctl/ns-winioctl-drive_layout_information_ex.
     /// </remarks>
     [StructLayout(LayoutKind.Explicit)]
-    [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "LAYOUT")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "DRIVE")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "INFORMATION")]
-    struct DRIVE_LAYOUT_INFORMATION_EX : IEquatable<DRIVE_LAYOUT_INFORMATION_EX>
+    public struct DRIVE_LAYOUT_INFORMATION_EX : IEquatable<DRIVE_LAYOUT_INFORMATION_EX>
     {
         #region Atributos
         /// <summary>

@@ -8,10 +8,7 @@ namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskMan
     /// <remarks>
     /// Para más información ver: http://msdn.microsoft.com/en-us/library/aa365452%28v=VS.85%29.aspx
     /// </remarks>
-    [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "PARTITION")]
-    [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "STYLE")]
-    enum PARTITION_STYLE
+    public enum PARTITION_STYLE
     {
         /// <summary>
         /// Formato de Master Boot Record (MBR). Corresponde al estándar de particiones MBR.

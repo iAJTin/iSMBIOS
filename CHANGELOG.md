@@ -1,6 +1,20 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2019-09-02
+
+### Added
+
+- **iTin.Core.Interop**: Adds binary compability with iEEDID, iCPUID, iScreen (comming soon)
+  - Many structures, enumerations, win32 native methods have been added to project, for video cards, video modes, monitors, storage, etc ...
+
+- Minor changes. 
+
+### Changed
+
+- **iTin.Core.Hardware**: 
+- Due to a problem with duplicate properties of the same type, the data type for storing the properties has been changed.
+
 ## [1.0.9] - 2019-08-28
 
 ### Added
@@ -172,6 +186,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.1.0]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.0
 [1.0.9]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.9
 [1.0.8]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.8
 [1.0.7]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.7

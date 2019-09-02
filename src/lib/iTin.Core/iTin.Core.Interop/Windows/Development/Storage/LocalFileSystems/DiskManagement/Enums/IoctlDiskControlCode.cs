@@ -10,7 +10,7 @@ namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskMan
     /// Códigos de control.
     /// </summary>
     [Flags]
-    enum IoctlDiskControlCode : uint
+    public enum IoctlDiskControlCode : uint
     {
         /// <summary>
         /// Código base para los códigos de control de disco.

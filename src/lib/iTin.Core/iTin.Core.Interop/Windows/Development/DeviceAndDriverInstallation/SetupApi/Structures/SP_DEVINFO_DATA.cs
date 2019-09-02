@@ -15,13 +15,13 @@ namespace iTin.Core.Interop.Windows.Development.DeviceAndDriverInstallation.Setu
     {
         #region interface/s
 
-        #region [public] (bool) Equals(SP_DEVINFO_DATA): Indica si el objeto actual es igual a otro objeto del mismo tipo.
+        #region [public] (bool) Equals(SP_DEVINFO_DATA): Indicates whether the current object is the same as another object of the same type
         /// <summary>
-        /// Indica si el objeto actual es igual a otro objeto del mismo tipo.
+        /// Indicates whether the current object is the same as another object of the same type.
         /// </summary>
-        /// <param name="other">Objeto que se va a comparar con este objeto.</param>
+        /// <param name="other">Object to be compared with this object.</param>
         /// <returns>
-        /// Devuelve <strong>true</strong> si el objeto actual es igual al parámetro <c>other</c>; en caso contrario, <strong>false</strong>.
+        /// Returns <b>true</b> if the current object is equal to the <c>other</c> parameter; otherwise, <b>false</b>.
         /// </returns>
         public bool Equals(SP_DEVINFO_DATA other)
         {
@@ -62,26 +62,26 @@ namespace iTin.Core.Interop.Windows.Development.DeviceAndDriverInstallation.Setu
 
         #region public operators
 
-        #region [public] {static} (bool) operator ==(SP_DEVINFO_DATA, SP_DEVINFO_DATA): Implementa el operador de igualdad (==).
+        #region [public] {static} (bool) operator ==(DISPLAY_DEVICE, DISPLAY_DEVICE): Implement the equality operator (==)
         /// <summary>
-        /// Implementa el operador de igualdad (==).
+        /// Implement the equality operator (==).
         /// </summary>
-        /// <param name="left">Operando 1.</param>
-        /// <param name="right">Operando 2.</param>
+        /// <param name="left">Operand 1.</param>
+        /// <param name="right">Operand 2.</param>
         /// <returns>
-        /// Devuelve <strong>true</strong> si <c>deviceInfo1</c> es igual a <c>deviceInfo2</c>; <strong>false</strong> en caso contrario.
+        /// Returns <b>true</b> if <c>deviceInfo1</c> is equal to <c>deviceInfo2</c>; <b>false</b> otherwise.
         /// </returns>
         public static bool operator ==(SP_DEVINFO_DATA left, SP_DEVINFO_DATA right) => left.Equals(right);
         #endregion
 
-        #region [public] {static} (bool) operator !=(SP_DEVINFO_DATA, SP_DEVINFO_DATA): Implementa el operador de desigualdad (!=).
+        #region [public] {static} (bool) operator !=(DISPLAY_DEVICE, DISPLAY_DEVICE): Implements the inequality operator (!=)
         /// <summary>
-        /// Implementa el operador de desigualdad (!=).
+        /// Implements the inequality operator (!=).
         /// </summary>
-        /// <param name="left">Operando 1.</param>
-        /// <param name="right">Operando 2.</param>
+        /// <param name="left">Operand 1.</param>
+        /// <param name="right">Operand 2.</param>
         /// <returns>
-        /// Devuelve <strong>true</strong> si <c>deviceInfo1</c> no es igual a <c>deviceInfo2</c>; <strong>false</strong> en caso contrario.
+        /// Returns <b>true</b> if <c>deviceInfo1</c> is not equal to <c>deviceInfo2</c>; <b>false</b> otherwise.
         /// </returns>
         public static bool operator !=(SP_DEVINFO_DATA left, SP_DEVINFO_DATA right) => left.Equals(right);
         #endregion
@@ -90,23 +90,23 @@ namespace iTin.Core.Interop.Windows.Development.DeviceAndDriverInstallation.Setu
 
         #region public override methods
 
-        #region [public] {override} (int) GetHashCode(): Devuelve el código hash del objeto
+        #region [public] {override} (int) GetHashCode(): Returns the hash code of the structure
         /// <summary>
-        /// Devuelve el código hash del objeto.
+        /// Returns the hash code of the structure.
         /// </summary>
         /// <returns>
-        /// Código Hash.
+        /// Hash code.
         /// </returns>
-        public override int GetHashCode() => cbSize.GetHashCode() ^ classGuid.GetHashCode() ^ devInst.GetHashCode() ^ reserved.GetHashCode();        
+        public override int GetHashCode() => cbSize.GetHashCode() ^ classGuid.GetHashCode() ^ devInst.GetHashCode() ^ reserved.GetHashCode();
         #endregion
 
-        #region [public] {override} (bool) Equals(object obj): Devuelve un valor que indica si este objeto es igual a otro
+        #region [public] {override} (bool) Equals(object obj): Returns a value that indicates whether this object is equal to another
         /// <summary>
-        /// Devuelve un valor que indica si este objeto es igual a otro.
+        /// Returns a value that indicates whether this object is equal to another.
         /// </summary>
-        /// <param name="obj">Objeto con el que comparar.</param>
+        /// <param name="obj">Object to compare.</param>
         /// <returns>
-        /// Resultado de igualdad.
+        /// Equality result.
         /// </returns>
         public override bool Equals(object obj)
         {
@@ -129,16 +129,13 @@ namespace iTin.Core.Interop.Windows.Development.DeviceAndDriverInstallation.Setu
         }
         #endregion
 
-        #region [public] {override} (string) ToString(): Devuelve una cadena que representa al objeto actual
+        #region [public] {override} (string) ToString(): Returns a string that represents the current object
         /// <summary>
-        /// Devuelve una cadena que representa al objeto <see cref="SP_DEVINFO_DATA"/> actual.
+        /// Returns a string that represents the current object.
         /// </summary>
         /// <returns>
-        /// Cadena que representa al objeto <see cref="SP_DEVINFO_DATA"/> actual.
+        /// Returns a string that represents the current object.
         /// </returns>
-        /// <remarks>
-        /// El método <see cref="SP_DEVINFO_DATA.ToString()"/> devuelve una cadena que incluye el tipo de estructura.
-        /// </remarks>
         public override string ToString() => $"ClassGuid = {classGuid}";        
         #endregion
 

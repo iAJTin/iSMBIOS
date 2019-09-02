@@ -144,8 +144,8 @@ namespace iSMBIOS.ConsoleAppCore
                 foreach (KeyValuePair<int, object> systemSlot in systemSlots)
                 {
                     int element = systemSlot.Key;
-                    object property = systemSlot.Value;
-                    Console.WriteLine($@" > System Slot ({element}) > {property}");
+                    var property = ((IEnumerable<KeyValuePair<IPropertyKey, object>>) systemSlot.Value).FirstOrDefault();
+                    Console.WriteLine($@" > System Slot ({element}) > {property.Value}");
                 }
             }
 

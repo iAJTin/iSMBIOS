@@ -4,14 +4,12 @@ namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskMan
     using System.Runtime.InteropServices;
 
     /// <summary>    
-    /// Funciones para la gestión del espacio de un disco duro.
-    /// Un disco duro es un disco rígido que almacena y proporciona acceso relativamente rápido a grandes cantidades de datos.
-    /// Es el tipo de almacenamiento más utilizados en Windows.
+    /// Functions for managing hard disk space.
+    /// A hard disk is a hard disk that stores and provides relatively fast access to large amounts of data.
+    /// It is the most used type of storage in Windows.
     /// </summary>
-    internal static class NativeMethods
+    public static class NativeMethods
     {
-        #region P/Invoke
-
         #region [public] {static} {extern} (bool) GetDiskFreeSpace(string, out uint, out uint, out uint, out uint): Recupera información sobre el disco especificado, incluyendo la cantidad de espacio libre en el disco.
         /// <summary>
         /// Recupera información sobre el disco especificado, incluyendo la cantidad de espacio libre en el disco.
@@ -19,11 +17,7 @@ namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskMan
         /// </summary>
         [DllImport(ExternDll.Win.Kernel32, CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool GetDiskFreeSpace(string lpRootPathName
-                                                    , out uint lpSectorsPerCluster
-                                                    , out uint lpBytesPerSector
-                                                    , out uint lpNumberOfFreeClusters
-                                                    , out uint lpTotalNumberOfClusters); 
+        public static extern bool GetDiskFreeSpace(string lpRootPathName, out uint lpSectorsPerCluster, out uint lpBytesPerSector, out uint lpNumberOfFreeClusters, out uint lpTotalNumberOfClusters); 
         #endregion
 
         #region [public] {static} {extern} (bool) GetDiskFreeSpaceEx(string, out ulong, out ulong, out ulong): Recupera información sobre la cantidad de espacio que está disponible en un volumen de disco, la cantidad total de espacio, la cantidad total de espacio libre, y la cantidad total de espacio libre disponible para el usuario que está asociado con el subproceso de llamada.
@@ -33,12 +27,7 @@ namespace iTin.Core.Interop.Windows.Development.Storage.LocalFileSystems.DiskMan
         /// </summary>
         [DllImport(ExternDll.Win.Kernel32, CharSet = CharSet.Auto, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool GetDiskFreeSpaceEx(  string lpDirectoryName
-                                                        , out ulong lpFreeBytesAvailable
-                                                        , out ulong lpTotalNumberOfBytes
-                                                        , out ulong lpTotalNumberOfFreeBytes);
-        #endregion
-
+        public static extern bool GetDiskFreeSpaceEx(string lpDirectoryName, out ulong lpFreeBytesAvailable, out ulong lpTotalNumberOfBytes, out ulong lpTotalNumberOfFreeBytes);
         #endregion
     }
 }

@@ -82,7 +82,7 @@ namespace iTin.Core
             var subArray = new byte[lenght];
             Array.Copy(dataArray, start, subArray, 0x00, lenght);
 
-            return new ReadOnlyCollection<byte>(subArray);
+            return new ReadOnlyCollection<byte>((byte[])subArray.Clone());
         }
         #endregion
 

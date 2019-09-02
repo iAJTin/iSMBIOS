@@ -1,31 +1,30 @@
 ﻿
 namespace iTin.Core.Hardware.ComponentModel
 {
-    using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Diagnostics;
-    using System.Linq;
 
     /// <inheritdoc />
     /// <summary>
     /// Define a suitable generic dictionary to store properties and their value.
     /// </summary>
-    public class BasePropertiesTable : IDictionary<IPropertyKey, object>
+    public class BasePropertiesTable : IList<KeyValuePair<IPropertyKey, object>>
     {
         #region private readonly members
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly Dictionary<IPropertyKey, object> _table;
+        private readonly List<KeyValuePair<IPropertyKey, object>> _table;
         #endregion
 
         #region constructor/s
 
-        #region [public] BasePropertiesTable(): Initialize a new instance of the class
+        #region [protected] BasePropertiesTable(): Initialize a new instance of the class
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="BasePropertiesTable" /> class.
         /// </summary>
-        public BasePropertiesTable() => _table = new Dictionary<IPropertyKey, object>();
+        protected BasePropertiesTable() => _table = new List<KeyValuePair<IPropertyKey, object>>();
         #endregion
 
         #endregion
@@ -34,8 +33,22 @@ namespace iTin.Core.Hardware.ComponentModel
 
         #region public indexers
 
+        #region [public] (KeyValuePair<IPropertyKey, object>) this[index]: Gets or sets the element with the specified index
+        /// <summary>
+        /// Gets or sets the element with the specified index.
+        /// </summary>
+        /// <param name="index">The index of the element that is obtained or established.</param>
+        /// <returns>
+        /// The element with the specified index.
+        /// </returns>
+        public KeyValuePair<IPropertyKey, object> this[int index]
+        {
+            get => _table[index];
+            set => _table[index] = value;
+        }
+        #endregion
+
         #region [public] (object) this[IPropertyKey]: Gets or sets the element with the specified key
-        /// <inheritdoc />
         /// <summary>
         /// Gets or sets the element with the specified key.
         /// </summary>
@@ -48,8 +61,8 @@ namespace iTin.Core.Hardware.ComponentModel
         /// <exception cref="T:System.NotSupportedException">The property is set and <see cref="T:System.Collections.Generic.IDictionary`2" /> is read-only.</exception>
         public object this[IPropertyKey key]
         {
-            get => _table[key];
-            set => _table[key] = value;
+            get => _table.FindAll(p => p.Key.Equals(key));
+            set => _table.Add(new KeyValuePair<IPropertyKey, object>(key, value));
         }
         #endregion
 
@@ -79,31 +92,74 @@ namespace iTin.Core.Hardware.ComponentModel
         public bool IsReadOnly => true;
         #endregion
 
-        #region [public] (ICollection<IPropertyKey>) Keys: Gets an interface collection that contains the keys for the dictionary interface
-        /// <inheritdoc />
+        #region [public] (ICollection<IPropertyKey>) Keys: Gets an interface collection that contains the keys
         /// <summary>
-        /// Gets an interface <see cref="T:System.Collections.Generic.ICollection`1" /> that contains the keys for the <see cref="T: System.Collections.Generic.IDictionary`2" /> interface.
+        /// Gets an interface <see cref="T:System.Collections.Generic.ICollection`1" /> that contains the keys.
         /// </summary>
         /// <returns>
-        /// <see cref="T:System.Collections.Generic.ICollection`1" /> that contains the keys of the object that implements the <see cref="T:System.Collections.Generic.IDictionary`2" />.
+        /// <see cref="T:System.Collections.Generic.ICollection`1" /> that contains the keys of the object.
         /// </returns>
-        public ICollection<IPropertyKey> Keys => _table.Keys;
+        public ICollection<IPropertyKey> Keys
+        {
+            get
+            {
+                var keys = new Collection<IPropertyKey>();
+                foreach (var item in _table)
+                {
+                    var exist = keys.Contains(item.Key);
+                    if (exist)
+                    {
+                        continue;
+                    }
+
+                    keys.Add(item.Key);
+                }
+
+                return keys;
+            }
+        }
         #endregion
 
-        #region [public] (ICollection<object>) Values: Gets a value that indicates whether collection is read-only
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets an interface <see cref="T:System.Collections.Generic.ICollection`1" /> that contains the values for the <see cref="T: System.Collections.Generic.IDictionary`2" /> interface.
-        /// </summary>
-        /// <returns>
-        /// <see cref="T:System.Collections.Generic.ICollection`1" /> that contains the values of the object that implements the <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </returns>
-        public ICollection<object> Values => _table.Values;
-        #endregion
+        //#region [public] (ICollection<object>) Values: Gets a value that indicates whether collection is read-only
+        ///// <inheritdoc />
+        ///// <summary>
+        ///// Gets an interface <see cref="T:System.Collections.Generic.ICollection`1" /> that contains the values for the <see cref="T: System.Collections.Generic.IDictionary`2" /> interface.
+        ///// </summary>
+        ///// <returns>
+        ///// <see cref="T:System.Collections.Generic.ICollection`1" /> that contains the values of the object that implements the <see cref="T:System.Collections.Generic.IDictionary`2" />.
+        ///// </returns>
+        //public ICollection<object> Values => _table.Values;
+        //#endregion
 
         #endregion
 
         #region public methods
+
+        #region [public] (int) IndexOf(KeyValuePair<IPropertyKey, object>): 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public int IndexOf(KeyValuePair<IPropertyKey, object> item) => _table.IndexOf(item);
+        #endregion
+
+        #region [public] (void) Insert(int, KeyValuePair<IPropertyKey, object>): 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="item"></param>
+        public void Insert(int index, KeyValuePair<IPropertyKey, object> item) => _table.Insert(index, item);
+        #endregion
+
+        #region [public] (void) RemoveAt(int): 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        public void RemoveAt(int index) => _table.RemoveAt(index);
+        #endregion
 
         #region [public] (void) Add(KeyValuePair<IPropertyKey, object>): Add an element to collection
         /// <inheritdoc />
@@ -114,14 +170,10 @@ namespace iTin.Core.Hardware.ComponentModel
         /// Object to be added to <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </param>
         /// <exception cref="T:System.NotSupportedException"><see cref="T:System.Collections.Generic.ICollection`1" /> is read only.</exception>
-        public void Add(KeyValuePair<IPropertyKey, object> item)
-        {
-            _table.Add(item.Key, item.Value);
-        }
+        public void Add(KeyValuePair<IPropertyKey, object> item) => _table.Add(item);
         #endregion
 
         #region [public] (void) Add(IPropertyKey, object>): Add an element with the key and value provided to dictionary
-        /// <inheritdoc />
         /// <summary>
         /// Add an element with the key and value provided to <see cref="T:System.Collections.Generic.IDictionary`2" />.
         /// </summary>
@@ -130,10 +182,7 @@ namespace iTin.Core.Hardware.ComponentModel
         /// <exception cref="T:System.ArgumentNullException">The value of <paramref name="key" /> is <see langword="null" />.</exception>
         /// <exception cref="T:System.ArgumentException">An element with the same key already exists in <see cref="T:System.Collections.Generic.IDictionary`2" />.</exception>
         /// <exception cref="T:System.NotSupportedException"><see cref="T:System.Collections.Generic.IDictionary`2" /> is read only.</exception>
-        public void Add(IPropertyKey key, object value)
-        {
-            _table.Add(key, value);
-        }
+        public void Add(IPropertyKey key, object value) => Add(new KeyValuePair<IPropertyKey, object>(key, value));
         #endregion
 
         #region [public] (void) Clear(): Remove all the elements of collection
@@ -142,10 +191,7 @@ namespace iTin.Core.Hardware.ComponentModel
         /// Remove all the elements of <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </summary>
         /// <exception cref="T:System.NotSupportedException"><see cref="T:System.Collections.Generic.ICollection`1" /> is read only.</exception>
-        public void Clear()
-        {
-            _table.Clear();
-        }
+        public void Clear() => _table.Clear();
         #endregion
 
         #region [public] (bool) Contains(KeyValuePair<IPropertyKey, object>): Determines whether collection contains a specific value
@@ -161,7 +207,6 @@ namespace iTin.Core.Hardware.ComponentModel
         #endregion
 
         #region [public] (bool) ContainsKey(IPropertyKey): Determines whether dictionary contains an element with the specified key
-        /// <inheritdoc />
         /// <summary>
         /// Determines whether <see cref="T:System.Collections.Generic.IDictionary`2" /> contains an element with the specified key.
         /// </summary>
@@ -170,10 +215,11 @@ namespace iTin.Core.Hardware.ComponentModel
         /// Is <see langword="true" /> if <see cref="T:System.Collections.Generic.IDictionary`2" /> contains an element with the key; otherwise, it is <see langword="false" />.
         /// </returns>
         /// <exception cref="T:System.ArgumentNullException">The value of <paramref name="key" /> is <see langword="null" />.</exception>
-        public bool ContainsKey(IPropertyKey key) => _table.ContainsKey(key);
+        public bool ContainsKey(IPropertyKey key) => Keys.Contains(key);
         #endregion
 
         #region [public] (void) CopyTo(KeyValuePair<IPropertyKey, object>[], int): Copy the elements of collection into array, starting with a given index of array
+
         /// <inheritdoc />
         /// <summary>
         /// Copy the elements of <see cref="T:System.Collections.Generic.ICollection`1" /> into <see cref="T:System.Array" />, starting with a given index of <see cref="T:System.Array "/>.
@@ -186,10 +232,7 @@ namespace iTin.Core.Hardware.ComponentModel
         /// <exception cref="T:System.ArgumentNullException">The value of <paramref name="array" /> is <see langword="null" />.</exception>
         /// <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="arrayIndex" /> is less than 0.</exception>
         /// <exception cref="T:System.ArgumentException">The number of elements at the origin of <see cref="T:System.Collections.Generic.ICollection`1" /> is greater than the available space from <paramref name="arrayIndex" /> to the end of the destination of <paramref name="array" />.</exception>
-        public void CopyTo(KeyValuePair<IPropertyKey, object>[] array, int arrayIndex)
-        {
-            throw new NotImplementedException();
-        }
+        public void CopyTo(KeyValuePair<IPropertyKey, object>[] array, int arrayIndex) => _table.CopyTo(array, arrayIndex);
         #endregion
 
         #region [public] (IEnumerator) IEnumerable.GetEnumerator(): Returns an enumerator that processes an iteration in the collection
@@ -225,46 +268,7 @@ namespace iTin.Core.Hardware.ComponentModel
         /// This method also returns <see langword="false" /> if <paramref name="item" /> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </returns>
         /// <exception cref="T:System.NotSupportedException"><see cref="T:System.Collections.Generic.ICollection`1" /> is read only.</exception>
-        public bool Remove(KeyValuePair<IPropertyKey, object> item)
-        {
-            return _table.Remove(item.Key);
-        }
-
-        #endregion
-
-        #region [public] (bool) Remove(IPropertyKey): Remove the element with the specified key from dictionary
-        /// <inheritdoc />
-        /// <summary>
-        /// Remove the element with the specified key from <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </summary>
-        /// <param name="key">Key of the item to be removed.</param>
-        /// <returns>
-        /// Is <see langword="true" /> if the element is removed correctly; otherwise, it is <see langword="false" />.
-        /// This method also returns <see langword="false" /> if <paramref name="key" /> was not found in the original <see cref="T:System.Collections.Generic.IDictionary`2" />.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">The value of <paramref name="key" /> is <see langword="null" />.</exception>
-        /// <exception cref="T:System.NotSupportedException"><see cref="T:System.Collections.Generic.IDictionary`2" /> is read only.</exception>
-        public bool Remove(IPropertyKey key)
-        {
-            return _table.Remove(key);
-        }
-        #endregion
-
-        #region [public] (bool) TryGetValue(IPropertyKey, out object): Gets the value associated with the specified key
-        /// <inheritdoc />
-        /// <summary>
-        /// Gets the value associated with the specified key.
-        /// </summary>
-        /// <param name="key">Key whose value will be obtained.</param>
-        /// <param name="value">
-        /// When this method returns the result, the value associated with the specified key, if the key is found; otherwise, the default value for the type of the parameter <paramref name="value" />.
-        /// This parameter is passed without initializing.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the object that implements <see cref="T:System.Collections.Generic.IDictionary`2" /> contains an element with the key; otherwise, <see langword="false" />.
-        /// </returns>
-        /// <exception cref="T:System.ArgumentNullException">The value of <paramref name="key" /> is <see langword="null" />.</exception>
-        public bool TryGetValue(IPropertyKey key, out object value) => _table.TryGetValue(key, out value);
+        public bool Remove(KeyValuePair<IPropertyKey, object> item) => _table.Remove(item);
         #endregion
 
         #endregion
@@ -280,10 +284,7 @@ namespace iTin.Core.Hardware.ComponentModel
         /// <returns>
         /// A string that represents the current object.
         /// </returns>
-        public override string ToString()
-        {
-            return $"Count = {_table.Count}";
-        }
+        public override string ToString() => $"Count = {_table.Count}";
         #endregion
 
         #endregion

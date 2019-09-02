@@ -108,7 +108,30 @@ namespace iTin.Core.Hardware.Specification.Dmi
             Enum propertyId = propertyKey.StructureId;
             DmiStructure structure = this[(DmiStructureClass)propertyId];
 
-            return structure?.Elements[0].Properties[propertyKey];
+            //return structure?.Elements[0].Properties[propertyKey];
+
+            Type propertyType = propertyKey.GetPropertyType();
+
+            object result = structure?.Elements[0].Properties[propertyKey]; //Properties[propertyKey];
+            if (!(result is List<KeyValuePair<IPropertyKey, object>> itemList))
+            {
+                return result;
+            }
+
+            bool hasItems = itemList.Any();
+            if (!hasItems)
+            {
+                return propertyType.GetDefaultValue();
+            }
+
+            bool onlyOneItem = itemList.Count == 1;
+            if (onlyOneItem)
+            {
+                return itemList.FirstOrDefault().Value;
+            }
+
+            return propertyType.GetDefaultValue();
+
         }
         #endregion
 

@@ -1,7 +1,8 @@
-﻿using System;
-
-namespace iTin.Core.Interop.Windows.Development
+﻿
+namespace iTin.Core.Interop.Windows
 {
+    using System;
+
     /// <summary>
     /// 
     /// </summary>

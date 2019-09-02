@@ -7,7 +7,8 @@ namespace iTin.Core.Hardware.Specification
     using System.Management;
 
     using Helpers;
-    using Interop.Smbios;
+    using Interop;
+    using Interop.ComponentModel;
     using Smbios;
 
     /// <summary>

@@ -60,21 +60,21 @@ Examples
 
     // Requires that the Slot Information structure exists in your
     system DmiStructureCollection structures = DMI.Instance.Structures;
-    IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId); 
-	bool hasSystemSlots = systemSlots.Any(); 
-	if (!hasSystemSlots) 
-	{
-		Console.WriteLine($" > There is no system slots information structure in this computer");
-	}
-	else
-	{
-		foreach (KeyValuePair<int, object> systemSlot in systemSlots)
-		{
-			int element = systemSlot.Key;
-			object property = systemSlot.Value;
-			Console.WriteLine($@"System Slot ({element}) \> {property}"); 
-		} 
-	}
+    IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
+    bool hasSystemSlots = systemSlots.Any();
+    if (!hasSystemSlots)
+    {
+        Console.WriteLine($@" > There is no system slots information structure in this computer");
+    }
+    else
+    {
+        foreach (KeyValuePair<int, object> systemSlot in systemSlots)
+        {
+            int element = systemSlot.Key;
+            var property = ((IEnumerable<KeyValuePair<IPropertyKey, object>>) systemSlot.Value).FirstOrDefault();
+            Console.WriteLine($@" > System Slot ({element}) > {property.Value}");
+        }
+    }
 
 5.  Prints all SMBIOS structures properties
 

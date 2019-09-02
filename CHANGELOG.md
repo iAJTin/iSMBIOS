@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - **iTin.Core.Hardware**: 
-- Due to a problem with duplicate properties of the same type, the data type for storing the properties has been changed.
+  - Due to a problem with duplicate properties of the same type, the data type for storing the properties has been changed.
 
 ## [1.0.9] - 2019-08-28
 

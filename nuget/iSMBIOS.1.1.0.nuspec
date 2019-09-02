@@ -13,7 +13,7 @@
         <description>iSMBIOS is a lightweight implementation that allows us to obtain SMBIOS information</description>
         <copyright>Copyright © 2019 iAJTin</copyright>
         <tags>SMBIOS DMI BIOS DMTF smbios-information hardware iTin</tags>
-        <repository type="git" url="https://github.com/iAJTin/iSMBIOS" commit="b4ffc579d565e2c9a3f01a534e11ad6d93cc2816" />
+        <repository type="git" url="https://github.com/iAJTin/iSMBIOS" commit="33b016d3c853f4a6574edd95985c6b2c502d4edd" />
         <dependencies>
           <group targetFramework="net45">
           </group>

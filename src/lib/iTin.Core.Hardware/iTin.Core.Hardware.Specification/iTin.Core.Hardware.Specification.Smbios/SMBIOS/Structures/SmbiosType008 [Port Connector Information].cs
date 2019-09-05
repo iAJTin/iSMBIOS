@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InternalConnectorType => GetByte(0x05);
+        private byte InternalConnectorType => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (string) ExternalReference: Gets a value representing the 'External Reference' field
@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ExternalConnectorType => GetByte(0x07);
+        private byte ExternalConnectorType => Reader.GetByte(0x07);
         #endregion
 
         #region [private] (byte) PortType: Gets a value representing the 'Port Type' field
@@ -113,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte PortType => GetByte(0x08);
+        private byte PortType => Reader.GetByte(0x08);
         #endregion
 
         #endregion

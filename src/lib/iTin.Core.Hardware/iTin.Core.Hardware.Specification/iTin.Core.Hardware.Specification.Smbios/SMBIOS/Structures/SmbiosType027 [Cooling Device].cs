@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TemperatureProbeHandle => GetWord(0x04);
+        private int TemperatureProbeHandle => Reader.GetWord(0x04);
         #endregion
 
         #region [private] (byte) DeviceTypeAndStatus: Gets a value representing the 'Device Type And Status' field
@@ -113,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceTypeAndStatus => GetByte(0x06);
+        private byte DeviceTypeAndStatus => Reader.GetByte(0x06);
         #endregion
 
         #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' feature of the 'Device Type And Status' field
@@ -146,7 +146,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CoolingUnitGroup => GetByte(0x07);
+        private byte CoolingUnitGroup => Reader.GetByte(0x07);
         #endregion
 
         #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field
@@ -157,7 +157,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemDefined => GetDoubleWord(0x08);
+        private long OemDefined => Reader.GetDoubleWord(0x08);
         #endregion
 
         #region [private] (int) NominalSpeed: Gets a value representing the 'Nominal Speed' field
@@ -168,7 +168,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NominalSpeed => GetWord(0x0c);
+        private int NominalSpeed => Reader.GetWord(0x0c);
         #endregion
 
         #endregion

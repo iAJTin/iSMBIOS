@@ -85,7 +85,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorType => GetByte(0x04);
+        private byte ErrorType => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (byte) ErrorGranularity: Gets a value representing the 'Error Granularity' field
@@ -96,7 +96,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorGranularity => GetByte(0x05);
+        private byte ErrorGranularity => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) ErrorOperation: Gets a value representing the 'Error Operation' field
@@ -107,7 +107,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorOperation => GetByte(0x06);
+        private byte ErrorOperation => Reader.GetByte(0x06);
         #endregion
 
         #region [private] (long) CrcData: Gets a value representing the 'Crc Data' field
@@ -118,7 +118,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long CrcData => GetDoubleWord(0x07);
+        private long CrcData => Reader.GetDoubleWord(0x07);
         #endregion
 
         #region [private] (ulong) MemoryArrayErrorAddress: Gets a value representing the 'Memory Array Error Address' field
@@ -129,7 +129,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong MemoryArrayErrorAddress => (ulong)GetQuadrupleWord(0x0b);
+        private ulong MemoryArrayErrorAddress => (ulong)Reader.GetQuadrupleWord(0x0b);
         #endregion
 
         #region [private] (ulong) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field
@@ -140,7 +140,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong DeviceErrorAddress => (ulong)GetQuadrupleWord(0x13);
+        private ulong DeviceErrorAddress => (ulong)Reader.GetQuadrupleWord(0x13);
         #endregion
 
         #region [private] (long) ErrorResolution: Gets a value representing the 'Error Resolution' field
@@ -151,7 +151,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long ErrorResolution => GetDoubleWord(0x1b);
+        private long ErrorResolution => Reader.GetDoubleWord(0x1b);
         #endregion
 
         #endregion

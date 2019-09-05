@@ -94,7 +94,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte[] RawVendorId => GetBytes(0x04, 0x04);
+        private byte[] RawVendorId => Reader.GetBytes(0x04, 0x04);
         #endregion
 
         #region [private] (byte) MajorSpecVersion: Gets a value representing the 'Major Spec Version' field
@@ -105,7 +105,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MajorSpecVersion => GetByte(0x08);
+        private byte MajorSpecVersion => Reader.GetByte(0x08);
         #endregion
 
         #region [private] (byte) MinorSpecVersion: Gets a value representing the 'Minor Spec Version' field
@@ -116,7 +116,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MinorSpecVersion => GetByte(0x09);
+        private byte MinorSpecVersion => Reader.GetByte(0x09);
         #endregion
 
         #region [private] (byte[]) RawFirmwareVersion1: Gets a value representing the 'Firmware Version 1' field
@@ -127,7 +127,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte[] RawFirmwareVersion1 => GetBytes(0x0a, 0x04);
+        private byte[] RawFirmwareVersion1 => Reader.GetBytes(0x0a, 0x04);
         #endregion
 
         #region [private] (byte[]) RawFirmwareVersion2: Gets a value representing the 'Firmware Version 2' field
@@ -138,7 +138,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte[] RawFirmwareVersion2 => GetBytes(0x0e, 0x04);
+        private byte[] RawFirmwareVersion2 => Reader.GetBytes(0x0e, 0x04);
         #endregion
 
         #region [private] (string) DescriptionVersion2: Gets a value representing the 'Description Version 2' field
@@ -159,7 +159,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Property value.
         /// </value>
-        private ulong Characteristics => (ulong)GetQuadrupleWord(0x13);
+        private ulong Characteristics => (ulong)Reader.GetQuadrupleWord(0x13);
         #endregion
 
         #region [private] (int) OemDefined: Gets a value representing the 'OEM Defined' field
@@ -169,7 +169,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Property value.
         /// </value>
-        private int OemDefined => GetDoubleWord(0x1b);
+        private int OemDefined => Reader.GetDoubleWord(0x1b);
         #endregion
 
         #endregion
@@ -196,7 +196,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 firmwareVersion =
                     MajorSpecVersion == 0x01
                         ? TpmFirmwareVersion.Parse(RawFirmwareVersion1)
-                        : new TpmFirmwareVersion { MajorVersion = GetDoubleWord(0x0a), MinorVersion = GetDoubleWord(0x0e) };
+                        : new TpmFirmwareVersion { MajorVersion = Reader.GetDoubleWord(0x0a), MinorVersion = Reader.GetDoubleWord(0x0e) };
             }
 
             properties.Add(SmbiosProperty.TpmDevice.FirmwareVersion, firmwareVersion);

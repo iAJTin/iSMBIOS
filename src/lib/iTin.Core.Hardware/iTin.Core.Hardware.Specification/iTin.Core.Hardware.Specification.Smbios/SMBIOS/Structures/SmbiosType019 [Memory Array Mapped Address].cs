@@ -117,7 +117,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong StartingAddress => (ulong)GetDoubleWord(0x04);
+        private ulong StartingAddress => (ulong)Reader.GetDoubleWord(0x04);
         #endregion
 
         #region [private] (ulong) EndingAddress: Gets a value representing the 'Ending Address' field
@@ -128,7 +128,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong EndingAddress => (ulong)GetDoubleWord(0x08);
+        private ulong EndingAddress => (ulong)Reader.GetDoubleWord(0x08);
         #endregion
 
         #region [private] (int) MemoryArrayHandle: Gets a value representing the 'Memory Array Handle' field
@@ -139,7 +139,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryArrayHandle => GetWord(0x0c);
+        private int MemoryArrayHandle => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (byte) PartitionWidth: Gets a value representing the 'Partition Width' field
@@ -150,7 +150,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte PartitionWidth => GetByte(0x0e);
+        private byte PartitionWidth => Reader.GetByte(0x0e);
         #endregion
 
         #endregion
@@ -165,7 +165,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedStartingAddress => (ulong)GetQuadrupleWord(0x0f);
+        private ulong ExtendedStartingAddress => (ulong)Reader.GetQuadrupleWord(0x0f);
         #endregion
 
         #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field
@@ -176,7 +176,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedEndingAddress => (ulong)GetQuadrupleWord(0x17);
+        private ulong ExtendedEndingAddress => (ulong)Reader.GetQuadrupleWord(0x17);
         #endregion
 
         #endregion

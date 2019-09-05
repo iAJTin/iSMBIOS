@@ -63,7 +63,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceType => (byte) (GetByte(0x04) & 0x7f);
+        private byte DeviceType => (byte) (Reader.GetByte(0x04) & 0x7f);
         #endregion
 
         #region [private] (bool) IsEnabled: Gets a value representing the 'Is Enabled' field
@@ -74,7 +74,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsEnabled => LogicHelper.CheckBit(GetByte(0x04), Bits.Bit07);
+        private bool IsEnabled => LogicHelper.CheckBit(Reader.GetByte(0x04), Bits.Bit07);
         #endregion
 
         #region [private] (string) Description: Gets a value representing the 'Description' field

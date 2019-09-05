@@ -182,7 +182,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CacheConfiguration => GetWord(0x05);
+        private int CacheConfiguration => Reader.GetWord(0x05);
         #endregion
 
         #region [private] (byte) OperationalMode:  Gets a value that represents the 'Operational Mode' feature of the 'Cache Configuration' field
@@ -257,7 +257,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximumCacheSize => GetWord(0x07);
+        private int MaximumCacheSize => Reader.GetWord(0x07);
         #endregion
 
         #region [private] (int) InstalledSize: Gets a value representing the 'Installed Size' field
@@ -268,7 +268,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InstalledSize => GetWord(0x09);
+        private int InstalledSize => Reader.GetWord(0x09);
         #endregion
 
         #region [private] (int) SupportedSramType: Gets a value representing the 'Supported SRAM Type' field
@@ -279,7 +279,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedSramType => GetWord(0x0b);
+        private int SupportedSramType => Reader.GetWord(0x0b);
         #endregion
 
         #region [private] (int) CurrentSramType: Gets a value representing the 'Current SRAM Type' field
@@ -290,7 +290,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSramType => GetWord(0x0d);
+        private int CurrentSramType => Reader.GetWord(0x0d);
         #endregion
 
         #endregion
@@ -305,7 +305,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CacheSpeed => GetByte(0x0f);
+        private byte CacheSpeed => Reader.GetByte(0x0f);
         #endregion
 
         #region [private] (byte) ErrorCorrectionType: Gets a value representing the 'Error Connection Type' field
@@ -316,7 +316,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorCorrectionType => GetByte(0x10);
+        private byte ErrorCorrectionType => Reader.GetByte(0x10);
         #endregion
 
         #region [private] (byte) SystemCacheType: Gets a value representing the 'System Cache Type' field
@@ -327,7 +327,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SystemCacheType => GetByte(0x11);
+        private byte SystemCacheType => Reader.GetByte(0x11);
         #endregion
 
         #region [private] (byte) Associativity: Gets a value representing the 'Associativity' field
@@ -338,7 +338,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Associativity => GetByte(0x12);
+        private byte Associativity => Reader.GetByte(0x12);
         #endregion
 
         #endregion
@@ -353,7 +353,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Valor de la propiedad.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint MaximumCacheSize2 => (uint)GetDoubleWord(0x13);
+        private uint MaximumCacheSize2 => (uint)Reader.GetDoubleWord(0x13);
         #endregion
 
         #region [private] (uint) InstalledCacheSize2: Gets a value representing the 'Installed Cache Size 2' field
@@ -364,7 +364,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Valor de la propiedad.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint InstalledCacheSize2 => (uint)GetDoubleWord(0x13);
+        private uint InstalledCacheSize2 => (uint)Reader.GetDoubleWord(0x13);
         #endregion
 
         #endregion

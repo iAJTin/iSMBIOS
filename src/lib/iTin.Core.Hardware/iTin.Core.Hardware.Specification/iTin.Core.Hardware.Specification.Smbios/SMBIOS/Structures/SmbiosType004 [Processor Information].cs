@@ -201,7 +201,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ProcessorType => GetByte(0x05);
+        private byte ProcessorType => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
@@ -223,7 +223,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string ProcessorId => $"{GetWord(0x08):X}";
+        private string ProcessorId => $"{Reader.GetWord(0x08):X}";
         #endregion
 
         #region [private] (string) Version: Gets a value representing the 'Version' field
@@ -245,7 +245,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Voltages => GetByte(0x11);
+        private byte Voltages => Reader.GetByte(0x11);
         #endregion
 
         #region [private] (double) VoltageValue: Gets a value representing the 'Voltage Value' characteristic of the 'Voltages' field
@@ -289,7 +289,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExternalClock => GetWord(0x12);
+        private int ExternalClock => Reader.GetWord(0x12);
         #endregion
 
         #region [private] (int) MaximunSpeed: Gets a value representing the 'Maximun Speed' field
@@ -300,7 +300,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunSpeed => GetWord(0x14);
+        private int MaximunSpeed => Reader.GetWord(0x14);
         #endregion
 
         #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field
@@ -311,7 +311,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSpeed => GetWord(0x16);
+        private int CurrentSpeed => Reader.GetWord(0x16);
         #endregion
 
         #region [private] (byte) Status: Gets a value representing the 'Status' field
@@ -322,7 +322,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Status => GetByte(0x18);
+        private byte Status => Reader.GetByte(0x18);
         #endregion
 
         #region [private] (byte) SocketPopulated: Gets a value representing the 'Socket Populated' characteristic of the 'Status' field
@@ -355,7 +355,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte UpgradeMethod => GetByte(0x19);
+        private byte UpgradeMethod => Reader.GetByte(0x19);
         #endregion
 
         #region [private] (int) L1CacheHandle: Gets a value representing the 'L1 CacheH andle' field
@@ -366,7 +366,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L1CacheHandle => GetWord(0x1a);
+        private int L1CacheHandle => Reader.GetWord(0x1a);
         #endregion
 
         #region [private] (int) L2CacheHandle: Gets a value representing the 'L2 CacheH andle' field
@@ -377,7 +377,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L2CacheHandle => GetWord(0x1c);
+        private int L2CacheHandle => Reader.GetWord(0x1c);
         #endregion
 
         #region [private] (int) L3CacheHandle: Gets a value representing the 'L3 CacheH andle' field
@@ -388,7 +388,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L3CacheHandle => GetWord(0x1e);
+        private int L3CacheHandle => Reader.GetWord(0x1e);
         #endregion
 
         #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
@@ -432,7 +432,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CoreCount => GetByte(0x23);
+        private byte CoreCount => Reader.GetByte(0x23);
         #endregion
 
         #region [private] (byte) CoreEnabled: Gets a value representing the 'Core Enabled' field
@@ -443,7 +443,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CoreEnabled => GetByte(0x24);
+        private byte CoreEnabled => Reader.GetByte(0x24);
         #endregion
 
         #region [private] (byte) ThreadCount: Gets a value representing the 'Thread Count' field
@@ -454,7 +454,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ThreadCount => GetByte(0x25);
+        private byte ThreadCount => Reader.GetByte(0x25);
         #endregion
 
         #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field
@@ -465,7 +465,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Characteristics => GetWord(0x26);
+        private int Characteristics => Reader.GetWord(0x26);
         #endregion
 
         #region [private] (bool) IsCapable64Bit: Gets a value representing the 'Is Capable 64Bit' characteristic of the 'Characteristics' field
@@ -542,7 +542,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CoreCount2 => GetWord(0x2a);
+        private int CoreCount2 => Reader.GetWord(0x2a);
         #endregion
 
         #region [private] (int) CoreEnabled2: Gets a value representing the 'Core Enabled 2' field
@@ -553,7 +553,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CoreEnabled2 => GetWord(0x2c);
+        private int CoreEnabled2 => Reader.GetWord(0x2c);
         #endregion
 
         #region [private] (int) ThreadCount2: Gets a value representing the 'Thread Count 2' field
@@ -564,7 +564,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ThreadCount2 => GetWord(0x2e);
+        private int ThreadCount2 => Reader.GetWord(0x2e);
         #endregion
 
         #endregion

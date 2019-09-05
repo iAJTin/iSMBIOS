@@ -77,7 +77,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Checksum => GetByte(0x04);
+        private byte Checksum => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (string) BisEntryPointAddress16: Gets a value representing the 'Bis Entry Point Address 16' field
@@ -88,7 +88,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string BisEntryPointAddress16 => $"{GetWord(0x08)}:{GetWord(0x0a)}";
+        private string BisEntryPointAddress16 => $"{Reader.GetWord(0x08)}:{Reader.GetWord(0x0a)}";
         #endregion
 
         #region [private] (string) BisEntryPointAddress32: Gets a value representing the 'Bis Entry Point Address 32' field
@@ -99,7 +99,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string BisEntryPointAddress32 => $"{GetQuadrupleWord(0x0c)}";
+        private string BisEntryPointAddress32 => $"{Reader.GetQuadrupleWord(0x0c)}";
         #endregion
 
         #endregion

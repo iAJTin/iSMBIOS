@@ -141,7 +141,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong Characteristics => (ulong)GetQuadrupleWord(0x0a);
+        private ulong Characteristics => (ulong)Reader.GetQuadrupleWord(0x0a);
         #endregion
 
         #region [private] (byte) ExtensionByte1: Gets a value representing the 'Extension byte 1' field
@@ -152,7 +152,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ExtensionByte1 => GetByte(0x12);
+        private byte ExtensionByte1 => Reader.GetByte(0x12);
         #endregion
 
         #region [private] (byte) ExtensionByte2: Gets a value representing the 'Extension byte 2' field
@@ -163,7 +163,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ExtensionByte2 => GetByte(0x13);
+        private byte ExtensionByte2 => Reader.GetByte(0x13);
         #endregion
 
         #region [private] (byte) FirmwareMajorRelease: Gets a value representing the 'Firmware major release' field
@@ -174,7 +174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FirmwareMajorRelease => GetByte(0x16);
+        private byte FirmwareMajorRelease => Reader.GetByte(0x16);
         #endregion
 
         #region [private] (byte) FirmwareMinorRelease: Gets a value representing the 'Firmware minor release' field
@@ -185,7 +185,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FirmwareMinorRelease => GetByte(0x17);
+        private byte FirmwareMinorRelease => Reader.GetByte(0x17);
         #endregion
 
         #region [private] (string) BiosReleaseDate: Gets a value representing the 'Bios release date' field
@@ -207,7 +207,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int RomSize => (GetByte(0x09) + 1) << 6;
+        private int RomSize => (Reader.GetByte(0x09) + 1) << 6;
         #endregion
 
         #region [private] (string) BiosStartSegment: Gets a value representing the 'Bios starting address segment' field
@@ -218,7 +218,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string BiosStartSegment => $"{GetWord(0x06):X}";
+        private string BiosStartSegment => $"{Reader.GetWord(0x06):X}";
         #endregion
 
         #region [private] (byte) SystemBiosMajorRelease: Gets a value representing the 'System bios major release' field
@@ -229,7 +229,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SystemBiosMajorRelease => GetByte(0x14);
+        private byte SystemBiosMajorRelease => Reader.GetByte(0x14);
         #endregion
 
         #region [private] (byte) SystemBiosMinorRelease: Gets a value representing the 'System bios minor release' field
@@ -240,7 +240,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SystemBiosMinorRelease => GetByte(0x15);
+        private byte SystemBiosMinorRelease => Reader.GetByte(0x15);
         #endregion
 
         #region [private] (string) Vendor: Gets a value representing the 'Vendor' field
@@ -273,7 +273,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExtendedBiosRomSizeRawInfo => GetWord(0x18);
+        private int ExtendedBiosRomSizeRawInfo => Reader.GetWord(0x18);
         #endregion
 
         #region [private] (int) ExtendedBiosRomSize: Gets a value representing the 'Extended bios rom size' field

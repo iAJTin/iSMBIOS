@@ -108,7 +108,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Capabilities => GetByte(0x04);
+        private byte Capabilities => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (string) Status: Gets a value representing the 'Status' capability of the 'Capabilities' field
@@ -163,7 +163,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ResetCount => GetWord(0x05);
+        private int ResetCount => Reader.GetWord(0x05);
         #endregion
 
         #region [private] (int) ResetLimit: Gets a value representing the 'Reset Limit' field
@@ -174,7 +174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ResetLimit => GetWord(0x07);
+        private int ResetLimit => Reader.GetWord(0x07);
         #endregion
 
         #region [private] (int) TimerInterval: Gets a value representing the 'Timer Interval' field
@@ -185,7 +185,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TimerInterval => GetWord(0x09);
+        private int TimerInterval => Reader.GetWord(0x09);
         #endregion
 
         #region [private] (int) TimeOut: Gets a value representing the 'Time Out' field
@@ -196,7 +196,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TimeOut => GetWord(0x09);
+        private int TimeOut => Reader.GetWord(0x09);
         #endregion
 
         #endregion

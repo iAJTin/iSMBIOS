@@ -86,7 +86,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string DeviceStatus => GetByte(0x05).CheckBit(Bits.Bit07) ? "Enabled" : "Disabled";
+        private string DeviceStatus => Reader.GetByte(0x05).CheckBit(Bits.Bit07) ? "Enabled" : "Disabled";
         #endregion
 
         #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' field
@@ -97,7 +97,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceType => (byte) (GetByte(0x05) & 0x7f);
+        private byte DeviceType => (byte) (Reader.GetByte(0x05) & 0x7f);
         #endregion
 
         #region [private] (byte) DeviceTypeInstance: Gets a value representing the 'Device Type Instance' field
@@ -108,7 +108,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceTypeInstance => GetByte(0x06);
+        private byte DeviceTypeInstance => Reader.GetByte(0x06);
         #endregion
 
         #region [private] (int) SegmentGroupNumber: Gets a value representing the 'Segment Group Number' field
@@ -119,7 +119,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SegmentGroupNumber => GetWord(0x07);
+        private int SegmentGroupNumber => Reader.GetWord(0x07);
         #endregion
 
         #region [private] (byte) BusNumber: Gets a value representing the 'Bus Number' field
@@ -130,7 +130,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BusNumber => GetByte(0x09);
+        private byte BusNumber => Reader.GetByte(0x09);
         #endregion
 
         #region [private] (byte) DeviceFunction: Gets a value representing the 'Device Function' field
@@ -141,7 +141,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceFunction => (byte)(GetByte(0x0a) & 0x07);
+        private byte DeviceFunction => (byte)(Reader.GetByte(0x0a) & 0x07);
         #endregion
 
         #region [private] (byte) DeviceNumber: Gets a value representing the 'Device Number' field
@@ -152,7 +152,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceNumber => (byte)((GetByte(0x0a) >> 3) & 0x1f);
+        private byte DeviceNumber => (byte)((Reader.GetByte(0x0a) >> 3) & 0x1f);
         #endregion
 
         #endregion

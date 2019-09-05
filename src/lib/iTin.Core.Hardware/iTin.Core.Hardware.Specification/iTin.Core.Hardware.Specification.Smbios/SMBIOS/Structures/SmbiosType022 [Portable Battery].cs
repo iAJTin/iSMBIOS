@@ -200,7 +200,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         {
             get
             {
-                byte rawManufactureDate = GetByte(0x06);
+                byte rawManufactureDate = Reader.GetByte(0x06);
                 if (rawManufactureDate == 0x00)
                 {
                     return string.Empty;
@@ -223,7 +223,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         {
             get
             {
-                byte rawSerialNumber = GetByte(0x07);
+                byte rawSerialNumber = Reader.GetByte(0x07);
                 if (rawSerialNumber == 0x00)
                 {
                     return string.Empty;
@@ -253,7 +253,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceChemistryValue => GetByte(0x09);
+        private byte DeviceChemistryValue => Reader.GetByte(0x09);
         #endregion
 
         #region [private] (int) DesignCapacity: Gets a value representing the 'Design Capacity' field
@@ -264,7 +264,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DesignCapacity => GetWord(0x0a);
+        private int DesignCapacity => Reader.GetWord(0x0a);
         #endregion
 
         #region [private] (int) DesignVoltage: Gets a value representing the 'Design Voltage' field
@@ -275,7 +275,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DesignVoltage => GetWord(0x0c);
+        private int DesignVoltage => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (string) SbdsVersionNumber: Gets a value representing the 'Sbds Version Number' field
@@ -297,7 +297,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MaximumErrorInBatteryData => GetByte(0x0f);
+        private byte MaximumErrorInBatteryData => Reader.GetByte(0x0f);
         #endregion
 
         #endregion
@@ -312,7 +312,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SbdsSerialNumber => GetWord(0x10).ToString(CultureInfo.InvariantCulture);
+        private string SbdsSerialNumber => Reader.GetWord(0x10).ToString(CultureInfo.InvariantCulture);
         #endregion
 
         #region [private] (string) SbdsManufactureDate: Gets a value representing the 'Sbds Manufacture Date' field
@@ -323,7 +323,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string SbdsManufactureDate => UnpacketBatteryDate((ushort)GetWord(0x12));
+        private string SbdsManufactureDate => UnpacketBatteryDate((ushort)Reader.GetWord(0x12));
         #endregion
 
         #region [private] (string) SbdsDeviceChemistry: Gets a value representing the 'Sbds Device Chemistry' field
@@ -345,7 +345,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DesignCapacityMultiplier => GetByte(0x15);
+        private byte DesignCapacityMultiplier => Reader.GetByte(0x15);
         #endregion
 
         #region [private] (long) OemSpecific: Gets a value representing the 'Oem Specific' field
@@ -356,7 +356,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemSpecific => GetDoubleWord(0x16);
+        private long OemSpecific => Reader.GetDoubleWord(0x16);
         #endregion
 
         #endregion

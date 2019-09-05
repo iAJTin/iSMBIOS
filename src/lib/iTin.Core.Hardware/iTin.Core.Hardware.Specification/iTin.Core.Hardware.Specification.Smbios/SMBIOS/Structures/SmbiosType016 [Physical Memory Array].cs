@@ -105,7 +105,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Location => GetByte(0x04);
+        private byte Location => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (byte) Use: Gets a value representing the 'Use' field
@@ -116,7 +116,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Use => GetByte(0x05);
+        private byte Use => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) ErrorCorrection: Gets a value representing the 'Error Correction' field
@@ -138,7 +138,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong MaximumCapacity => (ulong)GetDoubleWord(0x07);
+        private ulong MaximumCapacity => (ulong)Reader.GetDoubleWord(0x07);
         #endregion
 
         #region [private] (ulong) ErrorInformationHandle: Gets a value representing the 'Error Information Handle' field
@@ -149,7 +149,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ErrorInformationHandle => GetWord(0x0b);
+        private int ErrorInformationHandle => Reader.GetWord(0x0b);
         #endregion
 
         #region [private] (int) NumberOfMemoryDevices: Gets a value representing the 'Number Of Memory Devices' field
@@ -160,7 +160,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NumberOfMemoryDevices => GetWord(0x0d);
+        private int NumberOfMemoryDevices => Reader.GetWord(0x0d);
         #endregion
 
         #endregion
@@ -175,7 +175,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedMaximumCapacity => (ulong) GetQuadrupleWord(0x0f);
+        private ulong ExtendedMaximumCapacity => (ulong)Reader.GetQuadrupleWord(0x0f);
         #endregion
 
         #endregion

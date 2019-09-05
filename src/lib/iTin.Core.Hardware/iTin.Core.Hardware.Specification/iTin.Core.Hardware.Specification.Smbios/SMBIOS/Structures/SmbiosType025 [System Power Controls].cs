@@ -69,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Month => GetByte(0x04);
+        private byte Month => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (byte) Day: Gets a value representing the 'Day' field
@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Day => GetByte(0x05);
+        private byte Day => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) Hour: Gets a value representing the 'Hour' field
@@ -91,7 +91,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Hour => GetByte(0x06);
+        private byte Hour => Reader.GetByte(0x06);
         #endregion
 
         #region [private] (byte) Minute: Gets a value representing the 'Minute' field
@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Minute => GetByte(0x07);
+        private byte Minute => Reader.GetByte(0x07);
         #endregion
 
         #region [private] (byte) Second: Gets a value representing the 'Second' field
@@ -113,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Second => GetByte(0x08);
+        private byte Second => Reader.GetByte(0x08);
         #endregion
 
         #endregion

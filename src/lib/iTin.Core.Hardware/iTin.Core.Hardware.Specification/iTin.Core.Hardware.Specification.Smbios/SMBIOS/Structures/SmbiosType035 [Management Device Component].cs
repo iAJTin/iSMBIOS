@@ -79,7 +79,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ManagementDeviceHandle => GetWord(0x05);
+        private int ManagementDeviceHandle => Reader.GetWord(0x05);
         #endregion
 
         #region [private] (int) ComponentHandle: Gets a value representing the 'Component Handle' field
@@ -90,7 +90,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ComponentHandle => GetWord(0x07);
+        private int ComponentHandle => Reader.GetWord(0x07);
         #endregion
 
         #region [private] (int) ThresholdHandle: Gets a value representing the 'Threshold Handle' field
@@ -101,7 +101,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ThresholdHandle => GetWord(0x09);
+        private int ThresholdHandle => Reader.GetWord(0x09);
         #endregion
 
         #endregion

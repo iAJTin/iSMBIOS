@@ -122,7 +122,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InterfaceType => GetByte(0x04);
+        private byte InterfaceType => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (string) SpecificationRevision: Gets a value representing the 'Specification Revision' field
@@ -137,8 +137,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         {
             get
             {
-                byte hi = (byte)((GetByte(0x05) >> 4) & 0x0f);
-                byte lo = (byte)(GetByte(0x05) & 0x0f);
+                byte hi = (byte)((Reader.GetByte(0x05) >> 4) & 0x0f);
+                byte lo = (byte)(Reader.GetByte(0x05) & 0x0f);
 
                 string hiString = hi.ToString(CultureInfo.InvariantCulture);
                 string loString = lo.ToString(CultureInfo.InvariantCulture);
@@ -156,7 +156,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string I2CSlaveAddress => GetByte(0x06).ToString("X", CultureInfo.InvariantCulture);
+        private string I2CSlaveAddress => Reader.GetByte(0x06).ToString("X", CultureInfo.InvariantCulture);
         #endregion
 
         #region [private] (byte) NVStorageDeviceAddress: Gets a value representing the 'NV Storage Device Address' field
@@ -167,7 +167,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte NVStorageDeviceAddress => GetByte(0x07);
+        private byte NVStorageDeviceAddress => Reader.GetByte(0x07);
         #endregion
 
         #region [private] (ulong) BaseAddress: Gets a value representing the 'Base Address' field
@@ -178,7 +178,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong BaseAddress => (ulong)GetQuadrupleWord(0x08);
+        private ulong BaseAddress => (ulong)Reader.GetQuadrupleWord(0x08);
         #endregion
 
         #region [private] (string) BaseAddressModifier: Gets a value representing the 'Base Address Modifier' field
@@ -189,7 +189,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BaseAddressModifier => GetByte(0x10);
+        private byte BaseAddressModifier => Reader.GetByte(0x10);
         #endregion
 
         #region [private] (string) TriggerMode: Gets a value representing the 'Trigger Mode' feature of the 'Base Address Modifier' field
@@ -255,7 +255,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InterruptNumber => GetByte(0x11);
+        private byte InterruptNumber => Reader.GetByte(0x11);
         #endregion
 
         #endregion

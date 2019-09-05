@@ -162,7 +162,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsRedundant => GetByte(0x04) != 0x00;
+        private bool IsRedundant => Reader.GetByte(0x04) != 0x00;
         #endregion
 
         #region [private] (string) Location: Gets a value representing the 'Location' field
@@ -250,7 +250,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaxPowerCapacity => GetWord(0x0c);
+        private int MaxPowerCapacity => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field
@@ -261,7 +261,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Characteristics => GetWord(0x0e);
+        private int Characteristics => Reader.GetWord(0x0e);
         #endregion
 
         #region [private] (bool) IsHotReplaceable: Gets a value representing the 'Is Hot Replaceable' feature of the 'Characteristics' field
@@ -338,7 +338,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InputVoltageProbeHandle => GetWord(0x10);
+        private int InputVoltageProbeHandle => Reader.GetWord(0x10);
         #endregion
 
         #region [private] (int) CoolingDeviceHandle: Gets a value representing the 'Cooling Device Handle' field
@@ -349,7 +349,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CoolingDeviceHandle => GetWord(0x12);
+        private int CoolingDeviceHandle => Reader.GetWord(0x12);
         #endregion
 
         #region [private] (int) InputCurrentProbeHandle: Gets a value representing the 'Input Current Probe Handle' field
@@ -360,7 +360,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InputCurrentProbeHandle => GetWord(0x14);
+        private int InputCurrentProbeHandle => Reader.GetWord(0x14);
         #endregion
 
         #endregion

@@ -104,7 +104,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SlotType => GetByte(0x05);
+        private byte SlotType => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) DataWidth: Gets a value representing the 'Data Width' field
@@ -115,7 +115,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DataWidth => GetByte(0x06);
+        private byte DataWidth => Reader.GetByte(0x06);
         #endregion
 
         #region [private] (byte) CurrentUsage: Gets a value representing the 'Current Usage' field
@@ -126,7 +126,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CurrentUsage => GetByte(0x07);
+        private byte CurrentUsage => Reader.GetByte(0x07);
         #endregion
 
         #region [private] (byte) Length: Gets a value representing the 'Length' field
@@ -137,7 +137,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Length => GetByte(0x08);
+        private byte Length => Reader.GetByte(0x08);
         #endregion
 
         #region [private] (byte) Adapter: Gets a value representing the 'Adapter' field
@@ -148,7 +148,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Adapter => GetByte(0x09);
+        private byte Adapter => Reader.GetByte(0x09);
         #endregion
 
         #region [private] (byte) Socket: Gets a value representing the 'Socket' field
@@ -159,7 +159,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Socket => GetByte(0x0a);
+        private byte Socket => Reader.GetByte(0x0a);
         #endregion
 
         #region [private] (byte) Characteristics1: Gets a value representing the 'Characteristics1' field
@@ -170,7 +170,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Characteristics1 => GetByte(0x0b);
+        private byte Characteristics1 => Reader.GetByte(0x0b);
         #endregion
 
         #endregion
@@ -185,7 +185,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Characteristics2 => GetByte(0x0c);
+        private byte Characteristics2 => Reader.GetByte(0x0c);
         #endregion
 
         #endregion
@@ -200,7 +200,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SegmentBusFunction => GetWord(0x0d);
+        private int SegmentBusFunction => Reader.GetWord(0x0d);
         #endregion
 
         #region [private] (byte) Bus: Gets a value representing the 'Bus' field
@@ -211,7 +211,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Bus => GetByte(0x0f);
+        private byte Bus => Reader.GetByte(0x0f);
         #endregion
 
         #region [private] (byte) DeviceFunctionNumber: Gets a value representing the 'Device Function Number' field
@@ -222,7 +222,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceFunctionNumber => GetByte(0x10);
+        private byte DeviceFunctionNumber => Reader.GetByte(0x10);
         #endregion
 
         #region [private] (byte) Device: Gets a value representing the 'Device' feature of the 'Device/Function Number' field

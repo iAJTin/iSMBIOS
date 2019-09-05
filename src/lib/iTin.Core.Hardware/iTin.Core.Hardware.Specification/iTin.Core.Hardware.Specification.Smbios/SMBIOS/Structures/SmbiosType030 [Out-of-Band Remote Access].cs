@@ -85,7 +85,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Connections => GetByte(0x05);
+        private byte Connections => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) InBoundConnection: Gets a value representing the 'InBound Connection' feature of the 'Connections' field

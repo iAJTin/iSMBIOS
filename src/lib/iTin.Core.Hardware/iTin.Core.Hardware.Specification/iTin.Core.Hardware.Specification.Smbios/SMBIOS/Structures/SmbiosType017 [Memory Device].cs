@@ -229,7 +229,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int PhysicalArrayMemoryHandle => GetWord(0x04);
+        private int PhysicalArrayMemoryHandle => Reader.GetWord(0x04);
         #endregion
 
         #region [private] (int) MemoryErrorInformationHandle: Gets a value representing the 'Memory Error Information Handle' field
@@ -240,7 +240,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryErrorInformationHandle => GetWord(0x06);
+        private int MemoryErrorInformationHandle => Reader.GetWord(0x06);
         #endregion
 
         #region [private] (int) TotalWidth: Gets a value representing the 'Total Width' field
@@ -251,7 +251,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TotalWidth => GetWord(0x08);
+        private int TotalWidth => Reader.GetWord(0x08);
         #endregion
 
         #region [private] (int) DataWidth: Gets a value representing the 'Data Width' field
@@ -262,7 +262,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DataWidth => GetWord(0x0a);
+        private int DataWidth => Reader.GetWord(0x0a);
         #endregion
 
         #region [private] (int) Size: Gets a value representing the 'Size' field
@@ -273,7 +273,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Size => GetWord(0x0c);
+        private int Size => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (byte) FormFactor: Gets a value representing the 'Form Factor' field
@@ -284,7 +284,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FormFactor => GetByte(0x0e);
+        private byte FormFactor => Reader.GetByte(0x0e);
         #endregion
 
         #region [private] (byte) DeviceSet: Gets a value representing the 'Device Set' field
@@ -295,7 +295,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceSet => GetByte(0x0f);
+        private byte DeviceSet => Reader.GetByte(0x0f);
         #endregion
 
         #region [private] (MemoryDeviceBelongsToSet) BelongsToSet: Gets a value indicating whether this device belongs to a set of the same capacity and type
@@ -355,7 +355,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MemoryType => GetByte(0x12);
+        private byte MemoryType => Reader.GetByte(0x12);
         #endregion
 
         #region [private] (int) TypeDetail: Gets a value representing the 'Type Detail' field
@@ -366,7 +366,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TypeDetail => GetWord(0x13);
+        private int TypeDetail => Reader.GetWord(0x13);
         #endregion
 
         #endregion
@@ -425,7 +425,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunSpeed => GetWord(0x15);
+        private int MaximunSpeed => Reader.GetWord(0x15);
         #endregion
 
         #endregion
@@ -440,7 +440,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Rank => (byte) (GetByte(0x1b) & 0x0f);
+        private byte Rank => (byte) (Reader.GetByte(0x1b) & 0x0f);
         #endregion
 
         #endregion
@@ -455,7 +455,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint ExtendedSize => (uint) GetDoubleWord(0x1c) & 0x7FFFFFFF;
+        private uint ExtendedSize => (uint)Reader.GetDoubleWord(0x1c) & 0x7FFFFFFF;
         #endregion
 
         #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field
@@ -466,7 +466,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSpeed => GetWord(0x20);
+        private int CurrentSpeed => Reader.GetWord(0x20);
         #endregion
 
         #endregion
@@ -481,7 +481,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MinimunVoltage => GetWord(0x22);
+        private int MinimunVoltage => Reader.GetWord(0x22);
         #endregion
 
         #region [private] (int) MaximumVoltage: Gets a value representing the 'Maximum Voltage' field
@@ -492,7 +492,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximumVoltage => GetWord(0x24);
+        private int MaximumVoltage => Reader.GetWord(0x24);
         #endregion
 
         #region [private] (int) ConfiguredVoltage: Gets a value representing the 'Configured Voltage' field
@@ -503,7 +503,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ConfiguredVoltage => GetWord(0x26);
+        private int ConfiguredVoltage => Reader.GetWord(0x26);
         #endregion
 
         #endregion
@@ -518,7 +518,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MemoryTechnology => GetByte(0x28);
+        private byte MemoryTechnology => Reader.GetByte(0x28);
         #endregion
 
         #region [private] (byte) MemoryOperatingModeCapability: Gets a value representing the 'Memory Operating Mode Capability' field
@@ -529,7 +529,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryOperatingModeCapability => GetWord(0x29);
+        private int MemoryOperatingModeCapability => Reader.GetWord(0x29);
         #endregion
 
         #region [private] (string) FirmwareVersion: Gets a value representing the 'Firmware Version' field
@@ -551,7 +551,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ModuleManufacturerId => GetWord(0x2c);
+        private int ModuleManufacturerId => Reader.GetWord(0x2c);
         #endregion
 
         #region [private] (int) ModuleProductId: Gets a value representing the 'Module Product Id' field
@@ -562,7 +562,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ModuleProductId => GetWord(0x2e);
+        private int ModuleProductId => Reader.GetWord(0x2e);
         #endregion
 
         #region [private] (int) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Manufacturer Id' field
@@ -573,7 +573,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemorySubsystemControllerManufacturerId => GetWord(0x30);
+        private int MemorySubsystemControllerManufacturerId => Reader.GetWord(0x30);
         #endregion
 
         #region [private] (int) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Product Id' field
@@ -584,7 +584,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemorySubsystemControllerProductId => GetWord(0x32);
+        private int MemorySubsystemControllerProductId => Reader.GetWord(0x32);
         #endregion
 
         #region [private] (ulong) NonVolatileSize: Gets a value representing the 'Non Volatile Size' field
@@ -595,7 +595,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong NonVolatileSize => (ulong) GetQuadrupleWord(0x34);
+        private ulong NonVolatileSize => (ulong)Reader.GetQuadrupleWord(0x34);
         #endregion
 
         #region [private] (ulong) VolatileSize: Gets a value representing the 'Volatile Size' field
@@ -606,7 +606,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong VolatileSize => (ulong)GetQuadrupleWord(0x3c);
+        private ulong VolatileSize => (ulong)Reader.GetQuadrupleWord(0x3c);
         #endregion
 
         #region [private] (ulong) CacheSize: Gets a value representing the 'Cache Size' field
@@ -617,7 +617,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong CacheSize  => (ulong)GetQuadrupleWord(0x44);
+        private ulong CacheSize  => (ulong)Reader.GetQuadrupleWord(0x44);
         #endregion
 
         #region [private] (ulong) LogicalSize: Gets a value representing the 'Logical Size' field
@@ -628,7 +628,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong LogicalSize => (ulong)GetQuadrupleWord(0x4c);
+        private ulong LogicalSize => (ulong)Reader.GetQuadrupleWord(0x4c);
         #endregion
 
         #endregion

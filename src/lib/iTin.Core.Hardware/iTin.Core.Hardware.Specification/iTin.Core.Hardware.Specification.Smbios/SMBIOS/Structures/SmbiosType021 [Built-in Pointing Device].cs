@@ -64,7 +64,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte DeviceType => GetByte(0x04);
+        private byte DeviceType => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (byte) Interface: Gets a value representing the 'Interface' field
@@ -75,7 +75,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Interface => GetByte(0x05);
+        private byte Interface => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) NumberOfButtons: Gets a value representing the 'Number Of Buttons' field
@@ -86,7 +86,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte NumberOfButtons => GetByte(0x06);
+        private byte NumberOfButtons => Reader.GetByte(0x06);
         #endregion
 
         #endregion

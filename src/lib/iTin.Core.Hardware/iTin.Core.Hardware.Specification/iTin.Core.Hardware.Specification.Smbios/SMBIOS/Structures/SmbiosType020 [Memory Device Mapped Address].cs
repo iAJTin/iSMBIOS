@@ -160,7 +160,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong StartingAddress => (ulong)GetDoubleWord(0x04);
+        private ulong StartingAddress => (ulong)Reader.GetDoubleWord(0x04);
         #endregion
 
         #region [private] (ulong) EndingAddress: Gets a value representing the 'Ending Address' field
@@ -171,7 +171,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong EndingAddress => (ulong)GetDoubleWord(0x08);
+        private ulong EndingAddress => (ulong)Reader.GetDoubleWord(0x08);
         #endregion
 
         #region [private] (int) MemoryDeviceHandle: Gets a value representing the 'Memory Device Handle' field
@@ -182,7 +182,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryDeviceHandle => GetWord(0x0C);
+        private int MemoryDeviceHandle => Reader.GetWord(0x0C);
         #endregion
 
         #region [private] (int) MappedAddressHandle: Gets a value representing the 'Mapped Address Handle' field
@@ -193,7 +193,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MappedAddressHandle => GetWord(0x0e);
+        private int MappedAddressHandle => Reader.GetWord(0x0e);
         #endregion
 
         #region [private] (byte) PartitionRowPosition: Gets a value representing the 'Partition Row Position' field
@@ -204,7 +204,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte PartitionRowPosition => GetByte(0x10);
+        private byte PartitionRowPosition => Reader.GetByte(0x10);
         #endregion
 
         #region [private] (MemoryDeviceMappedAddressInterleavedPosition) InterleavePosition: Gets a value representing the 'Interleave Position' field
@@ -215,7 +215,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private MemoryDeviceMappedAddressInterleavedPosition InterleavePosition => (MemoryDeviceMappedAddressInterleavedPosition)GetByte(0x11);
+        private MemoryDeviceMappedAddressInterleavedPosition InterleavePosition => (MemoryDeviceMappedAddressInterleavedPosition)Reader.GetByte(0x11);
         #endregion
 
         #region [private] (byte) InterleavedDataDepth: Gets a value representing the 'Interleaved Data Depth' field
@@ -226,7 +226,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InterleavedDataDepth => GetByte(0x12);
+        private byte InterleavedDataDepth => Reader.GetByte(0x12);
         #endregion
 
         #endregion
@@ -241,7 +241,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedStartingAddress => (ulong)GetQuadrupleWord(0x13);
+        private ulong ExtendedStartingAddress => (ulong)Reader.GetQuadrupleWord(0x13);
         #endregion
 
         #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field
@@ -252,7 +252,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedEndingAddress => (ulong)GetQuadrupleWord(0x1b);
+        private ulong ExtendedEndingAddress => (ulong)Reader.GetQuadrupleWord(0x1b);
         #endregion
 
         #endregion

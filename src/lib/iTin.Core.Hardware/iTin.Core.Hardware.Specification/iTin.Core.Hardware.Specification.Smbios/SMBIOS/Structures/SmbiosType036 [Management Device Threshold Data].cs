@@ -73,7 +73,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int LowerNonCritical => GetWord(0x04);
+        private int LowerNonCritical => Reader.GetWord(0x04);
         #endregion
 
         #region [private] (int) UpperNonCritical: Gets a value representing the 'Upper Non Critical' field
@@ -84,7 +84,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int UpperNonCritical => GetWord(0x06);
+        private int UpperNonCritical => Reader.GetWord(0x06);
         #endregion
 
         #region [private] (int) LowerCritical: Gets a value representing the 'Lower Critical' field
@@ -95,7 +95,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int LowerCritical => GetWord(0x08);
+        private int LowerCritical => Reader.GetWord(0x08);
         #endregion
 
         #region [private] (int) UpperCritical: Gets a value representing the 'Upper Critical' field
@@ -106,7 +106,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int UpperCritical => GetWord(0x0a);
+        private int UpperCritical => Reader.GetWord(0x0a);
         #endregion
 
         #region [private] (int) LowerNonRecoverable: Gets a value representing the 'Lower Non Recoverable' field
@@ -117,7 +117,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int LowerNonRecoverable => GetWord(0x0c);
+        private int LowerNonRecoverable => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (int) UpperNonRecoverable: Gets a value representing the 'Upper Non Recoverable' field
@@ -128,7 +128,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int UpperNonRecoverable => GetWord(0x0e);
+        private int UpperNonRecoverable => Reader.GetWord(0x0e);
         #endregion
 
         #endregion

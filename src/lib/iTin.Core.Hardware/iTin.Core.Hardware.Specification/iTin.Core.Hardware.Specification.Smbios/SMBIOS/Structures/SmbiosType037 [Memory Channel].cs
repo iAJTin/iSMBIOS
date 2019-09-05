@@ -86,7 +86,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ChannelType => GetByte(0x04);
+        private byte ChannelType => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (byte) MaximunChannelLoad: Gets a value representing the 'Maximun Channel Load' field
@@ -108,7 +108,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Count => GetByte(0x06);
+        private byte Count => Reader.GetByte(0x06);
         #endregion
 
         #endregion

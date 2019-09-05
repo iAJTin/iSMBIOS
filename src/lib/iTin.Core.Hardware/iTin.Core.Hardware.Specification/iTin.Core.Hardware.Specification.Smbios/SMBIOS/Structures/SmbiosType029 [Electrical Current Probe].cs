@@ -104,7 +104,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte LocationAndStatus => GetByte(0x05);
+        private byte LocationAndStatus => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) Location: Gets a value representing the 'Location' feature of the 'Location And Status' field
@@ -137,7 +137,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunValue => GetWord(0x06);
+        private int MaximunValue => Reader.GetWord(0x06);
         #endregion
 
         #region [private] (int) MinimunValue: Gets a value representing the 'Minimun Value' field
@@ -148,7 +148,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MinimunValue => GetWord(0x08);
+        private int MinimunValue => Reader.GetWord(0x08);
         #endregion
 
         #region [private] (int) Resolution: Gets a value representing the 'Resolution' field
@@ -159,7 +159,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Resolution => GetWord(0x0a);
+        private int Resolution => Reader.GetWord(0x0a);
         #endregion
 
         #region [private] (int) Tolerance: Gets a value representing the 'Tolerance' field
@@ -170,7 +170,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Tolerance => GetWord(0x0c);
+        private int Tolerance => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (int) Accuracy: Gets a value representing the 'Accuracy' field
@@ -181,7 +181,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Accuracy => GetWord(0x0e);
+        private int Accuracy => Reader.GetWord(0x0e);
         #endregion.
 
         #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field
@@ -192,7 +192,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemDefined => GetDoubleWord(0x10);
+        private long OemDefined => Reader.GetDoubleWord(0x10);
         #endregion
 
         #region [private] (int) NominalValue: Gets a value representing the 'Nominal Value field
@@ -203,7 +203,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NominalValue => GetWord(0x14);
+        private int NominalValue => Reader.GetWord(0x14);
         #endregion
 
         #endregion

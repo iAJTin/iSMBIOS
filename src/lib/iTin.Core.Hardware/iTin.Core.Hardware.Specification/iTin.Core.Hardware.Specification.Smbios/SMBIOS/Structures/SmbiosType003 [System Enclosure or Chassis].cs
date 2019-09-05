@@ -139,7 +139,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BootUpState => GetByte(0x09);
+        private byte BootUpState => Reader.GetByte(0x09);
         #endregion
 
         #region [private] (byte) ContainedElementCount: Gets a value representing the 'Contained Element Count' field
@@ -150,7 +150,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ContainedElementCount => GetByte(0x13);
+        private byte ContainedElementCount => Reader.GetByte(0x13);
         #endregion
 
         #region [private] (byte) ContainedElementRecordLenght: Gets a value representing the 'Contained Element Record Lenght' field
@@ -161,7 +161,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ContainedElementRecordLenght => GetByte(0x14);
+        private byte ContainedElementRecordLenght => Reader.GetByte(0x14);
         #endregion
 
         #region [private] (byte) EnclosureType: Gets a value representing the 'Enclosure Type' field
@@ -172,7 +172,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte EnclosureType => GetByte(0x05);
+        private byte EnclosureType => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) EnclosureLocked: Gets a value representing the 'Enclosure Locked' field
@@ -183,7 +183,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte EnclosureLocked => GetByte(0x05);
+        private byte EnclosureLocked => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) Height: Gets a value representing the 'Height' field
@@ -194,7 +194,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Height => GetByte(0x11);
+        private byte Height => Reader.GetByte(0x11);
         #endregion
 
         #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
@@ -216,7 +216,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte NumberOfPowerCords => GetByte(0x12);
+        private byte NumberOfPowerCords => Reader.GetByte(0x12);
         #endregion
 
         #region [private] (long) OemDefined: Gets a value representing the 'OEM Defined' field
@@ -227,7 +227,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemDefined => GetDoubleWord(0x0d);
+        private long OemDefined => Reader.GetDoubleWord(0x0d);
         #endregion
 
         #region [private] (byte) PowerSupplyState: Gets a value representing the 'Power Supply State' field
@@ -238,7 +238,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte PowerSupplyState => GetByte(0x0a);
+        private byte PowerSupplyState => Reader.GetByte(0x0a);
         #endregion
 
         #region [private] (byte) SecurityStatus: Gets a value representing the 'Security Status' field
@@ -249,7 +249,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte SecurityStatus => GetByte(0x0c);
+        private byte SecurityStatus => Reader.GetByte(0x0c);
         #endregion
 
         #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
@@ -282,7 +282,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ThermalState => GetByte(0x0b);
+        private byte ThermalState => Reader.GetByte(0x0b);
         #endregion
 
         #endregion

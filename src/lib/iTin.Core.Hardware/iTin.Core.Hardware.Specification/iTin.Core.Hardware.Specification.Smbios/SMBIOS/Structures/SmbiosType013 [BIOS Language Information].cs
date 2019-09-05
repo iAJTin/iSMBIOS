@@ -71,7 +71,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Count => GetByte(0x04);
+        private int Count => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (string) Current: Gets a value representing the 'Current' field
@@ -97,7 +97,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private bool IsCurrentAbbreviated => GetByte(0x05).CheckBit(Bits.Bit00);
+        private bool IsCurrentAbbreviated => Reader.GetByte(0x05).CheckBit(Bits.Bit00);
         #endregion
 
         #endregion

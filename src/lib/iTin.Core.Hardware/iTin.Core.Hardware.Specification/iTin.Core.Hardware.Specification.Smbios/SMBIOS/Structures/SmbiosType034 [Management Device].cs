@@ -75,7 +75,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte Type => GetByte(0x05);
+        private byte Type => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (string) Address: Gets a value representing the 'Address' field
@@ -86,7 +86,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string Address => $"{GetWord(0x06):X}:{GetWord(0x08):X}";
+        private string Address => $"{Reader.GetWord(0x06):X}:{Reader.GetWord(0x08):X}";
         #endregion
 
         #region [private] (byte) AddressType: Gets a value representing the 'Address Type' field
@@ -97,7 +97,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte AddressType => GetByte(0x0a);
+        private byte AddressType => Reader.GetByte(0x0a);
         #endregion
 
         #endregion

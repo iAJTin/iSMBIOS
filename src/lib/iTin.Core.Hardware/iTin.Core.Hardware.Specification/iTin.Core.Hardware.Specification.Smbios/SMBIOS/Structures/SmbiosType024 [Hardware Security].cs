@@ -75,7 +75,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte HardwareSecuritySettings => GetByte(0x04);
+        private byte HardwareSecuritySettings => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (byte) FrontPanelResetStatus: Gets a value representing the 'Front Panel ResetS Status' hardware setting of the 'Hardware Security Setting' field

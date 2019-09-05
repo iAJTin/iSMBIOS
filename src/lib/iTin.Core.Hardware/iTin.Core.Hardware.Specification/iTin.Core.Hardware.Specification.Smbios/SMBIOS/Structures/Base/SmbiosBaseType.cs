@@ -3,10 +3,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Diagnostics;
     using System.Linq;
 
+    using Core.ComponentModel;
     using Helpers;
 
     /// <summary>
@@ -89,6 +89,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected readonly properties
 
+        #region [protected] (ByteReader) Reader: Gets a reference to byte raw data reader
+        /// <summary>
+        /// Gets a reference to byte raw data reader
+        /// </summary>
+        /// <value>
+        /// Byte raw data reader.
+        /// </value>
+        protected ByteReader Reader => ByteReader.FromByteArray(StructureInfo.RawData);
+        #endregion
+
         #region [protected] (int) SmbiosVersion: Gets the current version of SMBIOS
         /// <summary>
         /// Gets the current version of <see cref="SMBIOS" />.
@@ -164,7 +174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public override methods
 
-        #region [protected] {override} (string) ToString(): Gets the property collection for this structure
+        #region [protected] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
         /// Returns a <see cref="T:System.String" /> that represents this instance.
         /// </summary>
@@ -181,72 +191,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region protected methods
 
-        #region [protected] (byte) GetByte(byte): Returns the stored value from the specified byte
-        /// <summary>
-        /// Returns the stored value from the specified byte.
-        /// </summary>
-        /// <param name="target">target byte</param>
-        /// <returns>
-        /// The value stored in the indicated byte.
-        /// </returns>
-        protected byte GetByte(byte target) => StructureInfo.RawData[target];
-        #endregion
-
-        #region [protected] (byte) GetBytes(byte, byte): Returns the stored array from start with specified lenght
-        /// <summary>
-        /// Returns the stored array from start with specified lenght.
-        /// </summary>
-        /// <param name="start">start byte</param>
-        /// <param name="lenght">lenght</param>
-        /// <returns>
-        /// The array value stored.
-        /// </returns>
-        protected byte[] GetBytes(byte start, byte lenght)
-        {
-            var bytes = new Collection<byte>();
-            for (byte i = start; i <= lenght; i++)
-            {
-                bytes.Add(StructureInfo.RawData[i]);
-            }
-
-            return bytes.ToArray();
-
-        }
-        #endregion
-
-        #region [protected] (int) GetWord(byte): Returns the stored value from the specified byte
-        /// <summary>
-        /// Returns the stored value from the specified byte.
-        /// </summary>
-        /// <param name="start">start byte</param>
-        /// <returns>
-        /// The value stored in the indicated byte.
-        /// </returns>
-        protected int GetWord(byte start) => StructureInfo.RawData.GetWord(start);
-        #endregion
-
-        #region [protected] (int) GetDoubleWord(byte): Returns the stored value from the specified byte
-        /// <summary>
-        /// Returns the stored value from the specified byte.
-        /// </summary>
-        /// <param name="start">start byte</param>
-        /// <returns>
-        /// The value stored in the indicated byte.
-        /// </returns>
-        protected int GetDoubleWord(byte start) => StructureInfo.RawData.GetDoubleWord(start);
-        #endregion
-
-        #region [protected] (long) GetQuadrupleWord(byte): Returns the stored value from the specified byte
-        /// <summary>
-        /// Returns the stored value from the specified byte.
-        /// </summary>
-        /// <param name="start">start byte</param>
-        /// <returns>
-        /// The value stored in the indicated byte.
-        /// </returns>
-        protected long GetQuadrupleWord(byte start) => StructureInfo.RawData.GetQuadrupleWord(start);
-        #endregion
-
         #region [protected] (string) GetString(byte): Returns the stored string from the specified byte
         /// <summary>
         /// Returns the stored string from the specified byte.
@@ -259,7 +203,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         {
             try
             {
-                return Strings[GetByte(target)];
+                return Strings[Reader.GetByte(target)];
             }
             catch
             {

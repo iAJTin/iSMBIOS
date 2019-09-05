@@ -108,7 +108,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorDetectingMethod => GetByte(0x04);
+        private byte ErrorDetectingMethod => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (byte) ErrorCorrectingCapabilities: Gets a value representing the 'Error Correcting Capabilities' field
@@ -119,7 +119,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorCorrectingCapabilities => GetByte(0x05);
+        private byte ErrorCorrectingCapabilities => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) SupportedInterleave: Gets a value representing the 'Supported Interleave' field
@@ -141,7 +141,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CurrentInterleave => GetByte(0x07);
+        private byte CurrentInterleave => Reader.GetByte(0x07);
         #endregion
 
         #region [private] (int) MaximumMemoryModuleSize: Gets a value representing the 'Maximum Memory Module Size' field
@@ -152,7 +152,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximumMemoryModuleSize => (int)Math.Pow(2, GetByte(0x08));
+        private int MaximumMemoryModuleSize => (int)Math.Pow(2, Reader.GetByte(0x08));
         #endregion
 
         #region [private] (int) SupportedSpeeds: Gets a value representing the 'Supported Speeds' field
@@ -163,7 +163,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedSpeeds => GetWord(0x09);
+        private int SupportedSpeeds => Reader.GetWord(0x09);
         #endregion
 
         #region [private] (int) SupportedMemoryTypes: Gets a value representing the 'Supported Memory Types' field
@@ -174,7 +174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedMemoryTypes => GetWord(0x0b);
+        private int SupportedMemoryTypes => Reader.GetWord(0x0b);
         #endregion
 
         #region [private] (byte) MemoryModuleVoltages: Gets a value representing the 'Memory Module Voltages' field
@@ -185,7 +185,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MemoryModuleVoltages => GetByte(0x0d);
+        private byte MemoryModuleVoltages => Reader.GetByte(0x0d);
         #endregion
 
         #region [private] (byte) NumberMemorySlots: Gets a value representing the 'Number Memory Slots' field

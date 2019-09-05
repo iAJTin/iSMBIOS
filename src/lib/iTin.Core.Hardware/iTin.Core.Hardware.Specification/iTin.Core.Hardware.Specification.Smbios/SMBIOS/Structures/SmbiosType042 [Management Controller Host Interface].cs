@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InterfaceType => GetByte(0x04);
+        private byte InterfaceType => Reader.GetByte(0x04);
         #endregion
 
         #region [private] (byte) InterfaceTypeSpecificDataLenght: Gets a value representing the 'Interface Type Specific Data Lenght' field
@@ -91,7 +91,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InterfaceTypeSpecificDataLenght => GetByte(0x05);
+        private byte InterfaceTypeSpecificDataLenght => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (ReadOnlyCollection<byte>) InterfaceTypeSpecificData: Gets a value representing the 'Interface Type Specific Data' field
@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ReadOnlyCollection<byte> InterfaceTypeSpecificData => new ReadOnlyCollection<byte>(GetBytes(0x06, InterfaceTypeSpecificDataLenght));
+        private ReadOnlyCollection<byte> InterfaceTypeSpecificData => new ReadOnlyCollection<byte>(Reader.GetBytes(0x06, InterfaceTypeSpecificDataLenght));
         #endregion
 
         #endregion
@@ -151,7 +151,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             var protocolRecords = new Collection<ManagementControllerHostInterfaceProtocolRecord>();
 
             var n = InterfaceTypeSpecificDataLenght;
-            var numberOfProtocolsRecords = GetByte((byte)(0x06 + n));
+            var numberOfProtocolsRecords = Reader.GetByte((byte)(0x06 + n));
 
             var offset = (byte)0;
             for (var x = 0; x < numberOfProtocolsRecords ; x++)
@@ -162,10 +162,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
                     break;
                 }
 
-                var m = GetByte((byte) (init + 0x01));
+                var m = Reader.GetByte((byte) (init + 0x01));
                 offset = (byte) (0x02 + m);
 
-                var protocolRecordsBytes = GetBytes(init, m);
+                var protocolRecordsBytes = Reader.GetBytes(init, m);
                 protocolRecords.Add(new ManagementControllerHostInterfaceProtocolRecord(protocolRecordsBytes));
             }
 

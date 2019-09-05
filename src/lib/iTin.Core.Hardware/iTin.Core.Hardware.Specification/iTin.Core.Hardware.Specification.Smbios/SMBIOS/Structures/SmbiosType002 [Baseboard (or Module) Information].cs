@@ -183,7 +183,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte FeatureFlags => GetByte(0x09);
+        private byte FeatureFlags => Reader.GetByte(0x09);
         #endregion
 
         #region [private] (bool) IsHostingBoard: Gets a value representing the 'Is Hosting Board' field
@@ -260,7 +260,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ChassisHandle => GetWord(0x0b);
+        private int ChassisHandle => Reader.GetWord(0x0b);
         #endregion
 
         #region [private] (byte) BoardType: Gets a value representing the 'Board Type' field
@@ -271,7 +271,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BoardType => GetByte(0x0d);
+        private byte BoardType => Reader.GetByte(0x0d);
         #endregion
 
         #region [private] (byte) NumberOfContainedObjectHandles: Gets a value representing the 'Number Of Contained Object Handles' field
@@ -282,7 +282,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte NumberOfContainedObjectHandles => GetByte(0x0e);
+        private byte NumberOfContainedObjectHandles => Reader.GetByte(0x0e);
         #endregion
 
         #endregion

@@ -103,7 +103,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BankConnections => GetByte(0x05);
+        private byte BankConnections => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) CurrentSpeed: Gets a value representing the 'Current Speed' field
@@ -114,7 +114,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte CurrentSpeed => GetByte(0x06);
+        private byte CurrentSpeed => Reader.GetByte(0x06);
         #endregion
 
         #region [private] (int) CurrentMemoryType: Gets a value representing the 'Current Memory Type' field
@@ -125,7 +125,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentMemoryType => GetWord(0x07);
+        private int CurrentMemoryType => Reader.GetWord(0x07);
         #endregion
 
         #region [private] (byte) InstalledSize: Gets a value representing the 'Installed Size' field
@@ -136,7 +136,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte InstalledSize => GetByte(0x09);
+        private byte InstalledSize => Reader.GetByte(0x09);
         #endregion
 
         #region [private] (byte) EnabledSize: Gets a value representing the 'Enabled Size' field
@@ -147,7 +147,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte EnabledSize => GetByte(0x0a);
+        private byte EnabledSize => Reader.GetByte(0x0a);
         #endregion
 
         #region [private] (byte) ErrorStatus: Gets a value representing the 'Error Status' field
@@ -158,7 +158,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte ErrorStatus => GetByte(0x0b);
+        private byte ErrorStatus => Reader.GetByte(0x0b);
         #endregion
 
         #endregion

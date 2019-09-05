@@ -180,7 +180,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </summary>
         /// <value>Property value.</value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte WakeUpType => GetByte(0x18);
+        private byte WakeUpType => Reader.GetByte(0x18);
         #endregion
 
         #endregion

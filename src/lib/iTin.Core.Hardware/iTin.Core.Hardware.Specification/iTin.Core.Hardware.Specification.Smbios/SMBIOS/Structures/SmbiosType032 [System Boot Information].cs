@@ -55,7 +55,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte BootStatus => GetByte(0x0a);
+        private byte BootStatus => Reader.GetByte(0x0a);
         #endregion
 
         #endregion

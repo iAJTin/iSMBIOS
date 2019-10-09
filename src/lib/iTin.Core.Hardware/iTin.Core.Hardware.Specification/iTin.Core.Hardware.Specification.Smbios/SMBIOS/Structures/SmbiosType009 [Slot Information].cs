@@ -41,12 +41,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                      Characteristics 2                                                                                        |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | 0Dh      2.6+        Segment Group       WORD        Varies      Note: For more information, GetSegmentBusFuction(int)        |
-    // |                      Number                                                                                                   | 
+    // |                      Number (Base)                                                                                            | 
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 0Fh      2.6+        Bus Number          BYTE        Varies                                                                   |
+    // | 0Fh      2.6+        Bus Number (Base)   BYTE        Varies                                                                   |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | 10h      2.6+        Device/Function     BYTE        Bit field   Bits 7:3 – device number                                     |
-    // |                      Number                                      Bits 2:0 – function number                                   |
+    // |                      Number (Base)                               Bits 2:0 – function number                                   |
     // |                                                                  Note: For more information, GetBusDeviceFunction(byte, byte) | 
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | 11h      3.2         Data Bus Width      BYTE        Varies      Indicate electrical bus width of base                        |
@@ -589,7 +589,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "PCI Express Gen 3 x2",
                 "PCI Express Gen 3 x4",
                 "PCI Express Gen 3 x8",
-                "PCI Express Gen 3 x16" // 0xB6 
+                "PCI Express Gen 3 x16", 
+                "PCI Express Gen 4",
+                "PCI Express Gen 4 x1",
+                "PCI Express Gen 4 x2",
+                "PCI Express Gen 4 x4",
+                "PCI Express Gen 4 x8",
+                "PCI Express Gen 4 x16" // 0xBD
             };
 
             if (code >= 0x01 && code <= 0x23)
@@ -597,7 +603,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 return value[code - 0x01];
             }
 
-            if (code >= 0xA0 && code <= 0xB6)
+            if (code >= 0xA0 && code <= 0xBD)
             {
                 return value1[code - 0xA0];
             }

@@ -4,9 +4,30 @@ What is iSMBIOS?
 
 iSMBIOS is a lightweight implementation that allows us to obtain the SMBIOS information
 
-This library fully implements DMTF Specification 3.2.0 and olders versions
+This library fully implements DMTF Specification 3.3.0 and olders versions
 
 For more information, please see https://www.dmtf.org/standards/smbios
+
+Library versions
+================
+
+Library versions for current iSMBIOS version (1.1.1)
+
+•———————————————————————————————————————————————————————————————————————————————————————————•
+| Library                                  Version      Description                         |
+•———————————————————————————————————————————————————————————————————————————————————————————•
+|iTin.Core                                 1.0.0		Common calls                        |
+•———————————————————————————————————————————————————————————————————————————————————————————•
+|iTin.Core.Interop                         1.0.0		Interop calls                       |
+•———————————————————————————————————————————————————————————————————————————————————————————•
+|iTin.Core.Hardware                        1.0.0		Hardware Interop Calls              |
+•———————————————————————————————————————————————————————————————————————————————————————————•
+|iTin.Core.Hardware.Specification.Dmi      3.3.0.0		DMI Specification Implementation    |
+•———————————————————————————————————————————————————————————————————————————————————————————•
+|iTin.Core.Hardware.Specification.Smbios   3.3.0.0		SMBIOS Specification Implementation |
+•———————————————————————————————————————————————————————————————————————————————————————————•
+|iTin.Core.Hardware.Specification.Tpm      1.0.0		TPM Specification Implementation    |
+•———————————————————————————————————————————————————————————————————————————————————————————•
 
 Install via NuGet
 =================

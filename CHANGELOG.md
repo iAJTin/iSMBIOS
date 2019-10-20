@@ -1,6 +1,35 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.1] - 2019-10-20
+
+### Added
+
+- Adds support for System Management BIOS (SMBIOS) v3.3.0, includes:
+
+      * System Slots (Type 9):
+        - SMBIOSCR00184: add PCI Express Gen 4 values
+        - SMBIOSCR00185: clarify bus number usage for PCI Express
+      * Memory Device (Type 17):
+        - SMBIOSCR00178: add new memory device type value (HBM) and new form factor value (Die)
+        - SMBIOSCR00179: update the string for Intel persistent memory
+      * Various:
+        - SMBIOSCR00181: add support for RISC-V processors, add structure type 44 (processor-additional information)
+        - SMBIOSCR00183: add support for CXL Flexbus
+
+### Changed
+
+- Library versions for this version
+  
+|Library|Version|Description|
+|:------|:------|:----------|
+|iTin.Core| 1.0.0 | Common calls |
+|iTin.Core.Interop| 1.0.0 | Interop calls |
+|iTin.Core.Hardware| 1.0.0 | Hardware Interop Calls |
+|iTin.Core.Hardware.Specification.Dmi|3.3.0.0| DMI Specification Implementation |
+|iTin.Core.Hardware.Specification.Smbios|3.3.0.0| SMBIOS Specification Implementation |
+|iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
+
 ## [1.1.0] - 2019-09-02
 
 ### Added
@@ -186,6 +215,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.1.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.1
 [1.1.0]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.0
 [1.0.9]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.9
 [1.0.8]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.8

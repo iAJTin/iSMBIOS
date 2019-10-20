@@ -294,7 +294,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 3.2.0 (26/04/2018)
+        #region BIOS Specification 3.3.0 (25/09/2019)
 
         #region [private] {static} (string) GetBusDeviceFunction(byte, byte, byte): Gets a string representing Bus / Device / Function of the slot
         /// <summary>
@@ -567,6 +567,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             string[] value1 =
             {
+                "CXL Flexbus 1.0"  // 0x30
+            };
+
+            string[] value2 =
+            {
                 "PC-98/C20", // 0xA0
                 "PC-98/C24",
                 "PC-98/E",
@@ -603,9 +608,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 return value[code - 0x01];
             }
 
+            if (code >= 0x30 && code < 0xA0)
+            {
+                return value1[code - 0x01];
+            }
+
             if (code >= 0xA0 && code <= 0xBD)
             {
-                return value1[code - 0xA0];
+                return value2[code - 0xA0];
             }
 
             return SmbiosHelper.OutOfSpec;

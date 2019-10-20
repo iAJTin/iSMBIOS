@@ -194,6 +194,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // | 4Ch      3.2+        Lofical Size        QWORD       Varies      Size of the logical memory device in Bytes.        |
     // |                                                                  If is FFFFFFFFFFFFFFFFh, is unknown.               |
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 54h      3.3+        Extended            DWORD       Varies      Extended speed of the memory device                |
+    // |                      Speed                                       (complements the Speed field at offset 15h).       |
+    // |                                                                  Identifies the maximum capable speed of the        |
+    // |                                                                  device, in megatransfers per second (MT/s).        |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 58h      3.3+        Extended            DWORD       Varies      Extended configured memory speed of the memory     |
+    // |                      Configured                                  device (complements the Configured Memory          |
+    // |                      Memory                                      Speed field at offset 20h). Identifies the .       |
+    // |                      Speed                                       configured speed of the memory device, in          |
+    // |                                                                  megatransfers per second (MT/s).                   |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <inheritdoc />
     /// <summary>
@@ -633,6 +644,32 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
+        #region Version 3.3+ fields
+
+        #region [private] (int) ExtendedSpeed: Gets a value representing the 'Extended Speed' field
+        /// <summary>
+        /// Gets a value representing the <c>Extended Speed</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int ExtendedSpeed => Reader.GetWord(0x54);
+        #endregion
+
+        #region [private] (int) ExtendedConfiguredSpeed: Gets a value representing the 'Extended Configured Speed' field
+        /// <summary>
+        /// Gets a value representing the <c>Extended Configured Speed</c> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int ExtendedConfiguredSpeed => Reader.GetDoubleWord(0x58);
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region protected override methods
@@ -775,13 +812,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             }
             #endregion
+
+            #region 3.3+
+            if (StructureInfo.Length >= 0x55)
+            {
+                properties.Add(SmbiosProperty.MemoryDevice.MaximunSpeed, ExtendedSpeed);
+                properties.Add(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, ExtendedConfiguredSpeed);
+            }
+            #endregion
         }
         #endregion
 
         #endregion
 
 
-        #region BIOS Specification 3.2.0 (26/04/2018)
+        #region BIOS Specification 3.3.0 (25/09/2019)
 
         #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
         /// <summary>
@@ -795,7 +840,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         {
             string[] deviceProperty =
             {
-                "Other",                      // 0x01
+                "Other",                                    // 0x01
                 "Unknown",
                 "DRAM",
                 "EDRAM",
@@ -814,19 +859,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "RDRAM",
                 "DDR",
                 "DDR2",
-                "DDR2 FB-DIMM"                // 0x14
+                "DDR2 FB-DIMM"                              // 0x14
             };
 
             string[] deviceProperty2 =
             {
-                "DDR3",                       // 0x18
+                "DDR3",                                     // 0x18
                 "FBD2",
                 "DDR4",
                 "LPDDR",
                 "LPDDR2",
                 "LPDDR3",
                 "LPDDR4",
-                "Logical non-volatile device" // 0x1F
+                "Logical non-volatile device", 
+                "HBM (High Bandwidth Memory)",
+                "HBM2 (High Bandwidth Memory Generation 2)" // 0x21F
             };
 
             if (code >= 0x01 && code <= 0x14)
@@ -834,7 +881,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 return deviceProperty[code - 0x01];
             }
 
-            if (code >= 0x18 && code <= 0x1F)
+            if (code >= 0x18 && code <= 0x21)
             {
                 return deviceProperty2[code - 0x18];
             }
@@ -913,10 +960,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "RIMM",
                 "SODIMM",
                 "SRIMM",
-                "FB-DIMM"              // 0x0F                                         
+                "FB-DIMM", 
+                "Die"                  // 0x10
             };
 
-            if (code >= 0x01 && code <= 0x0F)
+            if (code >= 0x01 && code <= 0x10)
             {
                 return deviceProperty[code - 0x01];
             }
@@ -937,13 +985,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         {
             string[] deviceProperty =
             {
-                "Other",                  // 0x01
+                "Other",                               // 0x01
                 "Unknown",
                 "DRAM",
                 "NVDIMM-N",
                 "NVDIMM-F",
                 "NVDIMM-P",
-                "Intel persistent memory" // 0x07
+                "Intel® OptaneTM DC Persistent Memory" // 0x07
             };
 
             if (code >= 0x01 && code <= 0x07)

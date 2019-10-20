@@ -315,6 +315,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         TpmDevice = 0x2b,
 
         /// <summary>
+        /// <b>TPM Device</b> structure, for more information please see <see cref="DmiType044" />.
+        /// </summary>
+        [PropertyName("Processor Additional Information")]
+        [PropertyDescription("")]
+        ProcessorAdditionalInformation = 0x2c,
+
+        /// <summary>
         /// <b>Inactive</b> structure, for more information please see <see cref="DmiType126" />.
         /// </summary>
         [PropertyName("Inactive")]

@@ -2874,6 +2874,36 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
             #endregion
 
             #endregion
+
+            #region version 3.3+
+
+            #region [public] {static} (IPropertyKey) ExtendedSpeed: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.MemoryDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType017Property.ExtendedSpeed" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.MTs" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Int32" /></para>
+            /// </summary>
+            public static IPropertyKey ExtendedSpeed => new PropertyKey(SmbiosStructure.MemoryDevice, SmbiosType017Property.ExtendedSpeed, PropertyUnit.MTs);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) ExtendedSpeed: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.MemoryDevice" /></para>
+            /// <para>Property: <see cref="SmbiosType017Property.ExtendedConfiguredMemorySpeed" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.MTs" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Int32" /></para>
+            /// </summary>
+            public static IPropertyKey ExtendedConfiguredMemorySpeed => new PropertyKey(SmbiosStructure.MemoryDevice, SmbiosType017Property.ExtendedConfiguredMemorySpeed, PropertyUnit.MTs);
+            #endregion
+
+            #endregion
         }
         #endregion
 
@@ -5601,6 +5631,40 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static IPropertyKey OemDefined => new PropertyKey(SmbiosStructure.TpmDevice, SmbiosType043Property.OemDefined);
+            #endregion
+        }
+        #endregion
+
+        #region [public] {static} (class) ProcessorAdditionalInformation: Contains the key definitions available for a type 044 [ProcessorAdditionalInformation] structure
+        /// <summary>
+        /// Contains the key definitions available for a type 044 [<see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructure.ProcessorAdditionalInformation" />] structure.
+        /// </summary>
+        public static class ProcessorAdditionalInformation
+        {
+            #region [public] {static} (IPropertyKey) VendorId: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.ProcessorAdditionalInformation" /></para>
+            /// <para>Property: <see cref="SmbiosType044Property.ReferencedHandle" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Int32" /></para>
+            /// </summary>
+            public static IPropertyKey ReferencedHandle => new PropertyKey(SmbiosStructure.ProcessorAdditionalInformation, SmbiosType044Property.ReferencedHandle);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) ProcessorSpecificBlock: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="SmbiosStructure.ProcessorAdditionalInformation" /></para>
+            /// <para>Property: <see cref="SmbiosType044Property.ProcessorSpecificBlock" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="ProcessorSpecificInformationBlock" /></para>
+            /// </summary>
+            public static IPropertyKey ProcessorSpecificBlock => new PropertyKey(SmbiosStructure.ProcessorAdditionalInformation, SmbiosType044Property.ProcessorSpecificBlock);
             #endregion
         }
         #endregion

@@ -102,6 +102,12 @@ namespace iTin.Core.Hardware
         MHz,
 
         /// <summary>
+        /// Megatransfers per second
+        /// </summary>
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Hz")]
+        MTs,
+
+        /// <summary>
         /// Nanoseconds
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "ns")]

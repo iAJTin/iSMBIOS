@@ -1008,6 +1008,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
         LogicalSize,
 
         #endregion
+
+        #region version 3.3+
+        [PropertyDescription("")]
+        [PropertyType(typeof(int?))]
+        ExtendedSpeed,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(int?))]
+        ExtendedConfiguredMemorySpeed
+        #endregion
     }
     #endregion
 
@@ -2102,6 +2112,26 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         OemDefined,
+        #endregion
+    }
+    #endregion
+
+    #region [internal] (emun) SmbiosType044Property: Defines the properties available for the structure type 044 [Processor Additional Information]
+    /// <summary>
+    /// Defines the properties available for the structure type type 044 [Processor Additional Information].
+    /// </summary>
+    internal enum SmbiosType044Property
+    {
+        #region Version 3.3.0+
+        [PropertyName("Referenced Handle")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(int))]
+        ReferencedHandle,
+
+        [PropertyName("Processor Specific Block")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(ProcessorSpecificInformationBlock))]
+        ProcessorSpecificBlock,
         #endregion
     }
     #endregion

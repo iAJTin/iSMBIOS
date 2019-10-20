@@ -205,6 +205,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
                         parseProperties.Add(new SmbiosType043(smbiosStructureHeaderInfo, structureInfo.SmbiosVersion));
                         break;
 
+                    case SmbiosStructure.ProcessorAdditionalInformation:
+                        parseProperties.Add(new SmbiosType044(smbiosStructureHeaderInfo, structureInfo.SmbiosVersion));
+                        break;
+
                     case SmbiosStructure.Inactive:
                         parseProperties.Add(new SmbiosType126(smbiosStructureHeaderInfo, structureInfo.SmbiosVersion));
                         break;

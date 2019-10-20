@@ -301,9 +301,26 @@ namespace iTin.Core.Hardware.Specification.Dmi
                 }
             }
             #endregion
+
+            #region 3.3+
+            if (SmbiosStructure.StructureInfo.Length >= 0x55)
+            {
+                object extendedSpeed = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ExtendedSpeed);
+                if (extendedSpeed != null)
+                {
+                    properties.Add(DmiProperty.MemoryDevice.ExtendedSpeed, extendedSpeed);
+                }
+
+                object extendedConfiguredMemorySpeed = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed);
+                if (extendedConfiguredMemorySpeed != null)
+                {
+                    properties.Add(DmiProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, extendedConfiguredMemorySpeed);
+                }
+            }
+            #endregion
         }
         #endregion
-
+    
         #endregion
     }
 }

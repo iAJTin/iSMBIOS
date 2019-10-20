@@ -315,6 +315,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         TpmDevice = 0x2b,
 
         /// <summary>
+        /// <b>Processor Additional Information</b> structure, for more information please see <see cref="SmbiosType044" />.
+        /// </summary>
+        [PropertyName("Processor Additional Information")]
+        [PropertyDescription("")]
+        ProcessorAdditionalInformation = 0x2c,
+
+        /// <summary>
         /// <b>Inactive</b> structure, for more information please see <see cref="SmbiosType126" />.
         /// </summary>
         [PropertyName("Inactive")]

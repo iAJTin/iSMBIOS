@@ -2824,6 +2824,36 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #endregion
 
             #endregion
+
+            #region version 3.3+
+
+            #region [public] {static} (IPropertyKey) ExtendedSpeed: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice" /></para>
+            /// <para>Property: <see cref="DmiType017Property.ExtendedSpeed" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.MTs" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Int32"/>?</para>
+            /// </summary>
+            public static IPropertyKey ExtendedSpeed => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ExtendedSpeed, PropertyUnit.MTs);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) ExtendedSpeed: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice" /></para>
+            /// <para>Property: <see cref="DmiType017Property.ExtendedConfiguredMemorySpeed" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.MTs" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Int32"/>?</para>
+            /// </summary>
+            public static IPropertyKey ExtendedConfiguredMemorySpeed => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ExtendedConfiguredMemorySpeed, PropertyUnit.MTs);
+            #endregion
+
+            #endregion
         }
         #endregion
 
@@ -5443,7 +5473,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) TpmDevice: Contains the key definitions available for a type 043 [TpmDevice] structure
+        #region [public] {static} (class) TpmDevice: Contains the key definitions available for a type 043 [Tpm Device] structure
         /// <summary>
         /// Contains the key definitions available for a type 043 [<see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructureClass.TpmDevice" />] structure.
         /// </summary>
@@ -5551,6 +5581,40 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>Type: <see cref="T:System.String" /></para>
             /// </summary>
             public static IPropertyKey OemDefined => new PropertyKey(DmiStructureClass.TpmDevice, DmiType043Property.OemDefined);
+            #endregion
+        }
+        #endregion
+
+        #region [public] {static} (class) ProcessorAdditionalInformation: Contains the key definitions available for a type 044 [Processor Additional Information] structure
+        /// <summary>
+        /// Contains the key definitions available for a type 043 [<see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructureClass.TpmDevice" />] structure.
+        /// </summary>
+        public static class ProcessorAdditionalInformation
+        {
+            #region [public] {static} (IPropertyKey) ReferencedHandle: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="DmiStructureClass.ProcessorAdditionalInformation" /></para>
+            /// <para>Property: <see cref="DmiType044Property.ReferencedHandle" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.Int32" /></para>
+            /// </summary>
+            public static IPropertyKey ReferencedHandle => new PropertyKey(DmiStructureClass.ProcessorAdditionalInformation, DmiType044Property.ReferencedHandle);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) ProcessorSpecificBlock: Gets a value representing the key to retrieve the property
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>— Key Composition —————————————————</para>
+            /// <para>Structure: <see cref="DmiStructureClass.ProcessorAdditionalInformation" /></para>
+            /// <para>Property: <see cref="DmiType044Property.ProcessorSpecificBlock" /></para>
+            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
+            /// <para>— Value ——————————————————————</para>
+            /// <para>Type: <see cref="T:System.String" /></para>
+            /// </summary>
+            public static IPropertyKey ProcessorSpecificBlock => new PropertyKey(DmiStructureClass.ProcessorAdditionalInformation, DmiType044Property.ProcessorSpecificBlock);
             #endregion
         }
         #endregion

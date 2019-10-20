@@ -1135,6 +1135,16 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyType(typeof(ulong?))]
         LogicalSize,
         #endregion
+
+        #region version 3.3+
+        [PropertyDescription("")]
+        [PropertyType(typeof(int?))]
+        ExtendedSpeed,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(int?))]
+        ExtendedConfiguredMemorySpeed
+        #endregion
     }
     #endregion
 
@@ -2249,6 +2259,26 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         OemDefined,
+        #endregion
+    }
+    #endregion
+
+    #region [internal] (emun) DmiType044Property: Defines the properties available for the structure type 043 [Processor Additional Information]
+    /// <summary>
+    /// Defines the properties available for the structure type type 044 [Processor Additional Information].
+    /// </summary>
+    internal enum DmiType044Property
+    {
+        #region Version 3.3.0+
+        [PropertyName("Referenced Handle")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(int))]
+        ReferencedHandle,
+
+        [PropertyName("Processor Specific Block")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(ProcessorSpecificInformationBlock))]
+        ProcessorSpecificBlock,
         #endregion
     }
     #endregion

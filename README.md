@@ -1,6 +1,6 @@
 ﻿<p align="center">
   <img src="https://cdn.rawgit.com/iAJTin/iSMBIOS/master/nuget/iSMBIOS.png"  
-       height="32">
+       height="32"/>
 </p>
 <p align="center">
   <a href="https://github.com/iAJTin/iSMBIOS">
@@ -22,7 +22,7 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
 <table>
   <tr>
     <td>
-      <a href="https://github.com/iAJTin/iSMBIOS/tree/master/src/iTin.Core.Hardware">
+      <a href="https://github.com/iAJTin/iSMBIOS">
         <img src="https://img.shields.io/badge/-iSMBIOS-green.svg?style=flat"/>
       </a>
     </td>

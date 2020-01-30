@@ -1,6 +1,15 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.1.2 -
+
+### Changed
+
+- Adds descriptive code help. Try to adds a help most descriptive for the properties keys.comming The image below shows an example
+
+  ![Help.png][helpimg]
+
+
 ## [1.1.1] - 2019-10-20
 
 ### Added
@@ -215,6 +224,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.1.2]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.2
 [1.1.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.1
 [1.1.0]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.0
 [1.0.9]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.9
@@ -226,3 +236,5 @@ for more information, please see how to use it in the example project. On the ot
 [1.0.2]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.2
 [1.0.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.1
 [1.0.0]: https://github.com/iAJTin/iSMBIOS
+
+[helpimg]: ./assets/helpimg.png "help"

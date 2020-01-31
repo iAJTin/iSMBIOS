@@ -377,10 +377,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyType(typeof(int?))]
         ExternalClock,
 
-        [PropertyName("Maximun Speed")]
+        [PropertyName("Maximum Speed")]
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
-        MaximunSpeed,
+        MaximumSpeed,
 
         [PropertyName("Current Speed")]
         [PropertyDescription("")]

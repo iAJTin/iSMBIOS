@@ -5,7 +5,11 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Adds descriptive code help. Try to adds a help most descriptive for the properties keys.comming The image below shows an example
+- Typographic error. ***Please remember to change your code if you are currently using it.***
+
+  - Renames the property name *DmiProperty.Maximu**n**Speed* -> *DmiProperty.Maximu**m**Speed.*
+  
+- Adds descriptive code help. I Tried to adds a help most descriptive for the properties keys. The image below shows an example.
 
   ![Help.png][helpimg]
 

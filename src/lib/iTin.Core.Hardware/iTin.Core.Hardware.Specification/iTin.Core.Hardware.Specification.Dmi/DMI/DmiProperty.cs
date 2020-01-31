@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.ObjectModel;
+
 namespace iTin.Core.Hardware.Specification.Dmi.Property
 {
     using System.Diagnostics.CodeAnalysis;
@@ -867,7 +869,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
         #region [public] {static} (class) Processor: Contains the key definitions available for a type 004 [Processor Information] structure
         /// <summary>
-        /// Contains the key definitions available for a type 004 [<see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructureClass.Processor" /> Information] structure.
+        /// Contains the key definitions available for a type 004 [<see cref="DmiStructureClass.Processor"/> Information] structure.
         /// </summary>
         public static class Processor
         {
@@ -875,130 +877,271 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) SocketDesignation: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.SocketDesignation" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number for Reference Designation.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.SocketDesignation"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SocketDesignation => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.SocketDesignation);
             #endregion
 
             #region [public] {static} (IPropertyKey) ProcessorType: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.ProcessorType" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String containing the type of processor.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ProcessorType"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ProcessorType => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ProcessorType);
             #endregion
 
             #region [public] {static} (IPropertyKey) ProcessorFamily: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.ProcessorFamily" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String containing the family of processor.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ProcessorFamily"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Family => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ProcessorFamily);
             #endregion
 
             #region [public] {static} (IPropertyKey) ProcessorManufacturer: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.ProcessorManufacturer" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of Processor Manufacturer.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ProcessorManufacturer"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ProcessorManufacturer => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ProcessorManufacturer);
             #endregion
 
             #region [public] {static} (IPropertyKey) ProcessorId: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.ProcessorId" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Raw processor identification data.</para>
+            /// <para>The Processor ID field contains processor-specific information that describes the processor’s features.</para>
+            /// <para>
+            ///  <list type="bullet">
+            ///   <item>
+            ///    <term>x86</term>
+            ///    <description>
+            ///     <para>The field’s format depends on the processor’s support of the CPUID instruction. If the instruction is supported, the Processor ID field contains two DWORD-formatted values.</para>
+            ///     <para>The first (offsets 08h-0Bh) is the EAX value returned by a CPUID instruction with input EAX set to 1; the second(offsets 0Ch-0Fh) is the EDX value returned by that instruction.</para>
+            ///    </description>
+            ///   </item>
+            ///   <item>
+            ///    <term>ARM32</term>
+            ///    <description>
+            ///     <para>The processor ID field contains two DWORD-formatted values. The first (offsets 08h-0Bh) is the contents of the Main ID Register(MIDR); the second(offsets 0Ch-0Fh) is zero.</para>
+            ///    </description>
+            ///   </item>
+            ///   <item>
+            ///    <term>ARM64</term>
+            ///    <description>
+            ///     <para>The processor ID field contains two DWORD-formatted values. The first (offsets 08h-0Bh) is the contents of the MIDR_EL1 register; the second (offsets 0Ch-0Fh) is zero.</para>
+            ///    </description>
+            ///   </item>
+            ///   <item>
+            ///    <term>RISC-V</term>
+            ///    <description>
+            ///     <para>The processor ID contains a QWORD Machine Vendor ID CSR (mvendroid) of RISC-V processor hart 0. More information of RISC-V class CPU feature is described in RISC-V processor additional information.</para>
+            ///    </description>
+            ///   </item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ProcessorId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ProcessorId => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ProcessorId);
             #endregion
 
             #region [public] {static} (IPropertyKey) ProcessorVersion: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.ProcessorVersion" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number describing the processor.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ProcessorVersion"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ProcessorVersion => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ProcessorVersion);
             #endregion
 
             #region [public] {static} (IPropertyKey) ExternalClock: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.ExternalClock" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.MHz" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Nullable&lt;Int32&gt;" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number describing the processor.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ExternalClock"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ExternalClock => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ExternalClock, PropertyUnit.MHz);
             #endregion
 
-            #region [public] {static} (IPropertyKey) MaximunSpeed: Gets a value representing the key to retrieve the property
+            #region [public] {static} (IPropertyKey) MaximumSpeed: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.MaximunSpeed" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.MHz" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Int32" />?</para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Maximum processor speed (in MHz) supported by the system for this processor socket 0E9h is for a 233 MHz processor. If the value is unknown, the field is set to 0.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.MaximumSpeed"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MHz"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey MaximunSpeed => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.MaximunSpeed, PropertyUnit.MHz);
+            public static IPropertyKey MaximumSpeed => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.MaximumSpeed, PropertyUnit.MHz);
             #endregion
 
             #region [public] {static} (IPropertyKey) CurrentSpeed: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.CurrentSpeed" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.MHz" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Int32" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Current processor speed (in MHz).</para>
+            /// <para>This field identifies the processor's speed at system boot; the processor may support more than one speed.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.CurrentSpeed"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MHz"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CurrentSpeed => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.CurrentSpeed, PropertyUnit.MHz);
             #endregion
 
             #region [public] {static} (IPropertyKey) ProcessorUpgrade: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.ProcessorUpgrade" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Processor upgrade value.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ProcessorUpgrade"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey UpgradeMethod => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ProcessorUpgrade);
             #endregion
@@ -1009,39 +1152,90 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) L1CacheHandle: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.L1CacheHandle" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Int32" />?</para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle of a cache information structure that defines the attributes of the primary (Level 1) cache for this processor.</para>
+            /// <para>
+            ///  <list type="bullet">
+            ///   <item><description>For version 2.1 and version 2.2 implementations, the value is 0FFFFh if the processor has no L1 cache.</description></item>
+            ///   <item><description>For version 2.3 and later implementations, the value is 0FFFFh if the Cache Information structure is not provided.</description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.L1CacheHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey L1CacheHandle => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.L1CacheHandle);
             #endregion
 
             #region [public] {static} (IPropertyKey) L2CacheHandle: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.L2CacheHandle" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Int32" />?</para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle of a cache information structure that defines the attributes of the secondary (Level 2) cache for this processor.</para>
+            /// <para>
+            ///  <list type="bullet">
+            ///   <item><description>For version 2.1 and version 2.2 implementations, the value is 0FFFFh if the processor has no L1 cache.</description></item>
+            ///   <item><description>For version 2.3 and later implementations, the value is 0FFFFh if the Cache Information structure is not provided.</description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.L2CacheHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey L2CacheHandle => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.L2CacheHandle);
             #endregion
 
             #region [public] {static} (IPropertyKey) L3CacheHandle: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.L3CacheHandle" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.Int32" />?</para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle of a cache information structure that defines the attributes of the tertiary (Level 3) cache for this processor.</para>
+            /// <para>
+            ///  <list type="bullet">
+            ///   <item><description>For version 2.1 and version 2.2 implementations, the value is 0FFFFh if the processor has no L1 cache.</description></item>
+            ///   <item><description>For version 2.3 and later implementations, the value is 0FFFFh if the Cache Information structure is not provided.</description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.L3CacheHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey L3CacheHandle => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.L3CacheHandle);
             #endregion
@@ -1052,39 +1246,73 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) SerialNumber: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.SerialNumber" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number for the serial number of this processor.</para>
+            /// <para>This value is set by the manufacturer and normally not changeable.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.SerialNumber"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SerialNumber => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.SerialNumber);
             #endregion
 
             #region [public] {static} (IPropertyKey) AssetTag: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.AssetTag" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number for the asset tag of this processor.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.AssetTag"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey AssetTag => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.AssetTag);
             #endregion
 
             #region [public] {static} (IPropertyKey) PartNumber: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.PartNumber" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number for the asset tag of this processor.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.PartNumber"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey PartNumber => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.PartNumber);
             #endregion
@@ -1095,16 +1323,9 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) CoreCount: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>
-            /// Gets a value representing the key to retrieve the property value.
-            /// </para>
-            /// <para>
-            /// Number of cores per processor socket. If the value is unknown, the field is set to 0.
-            /// </para>
-            /// <para>
-            /// Core Count is the number of cores detected by the BIOS for this processor socket.
-            /// It does not necessarily indicate the full capability of the processor.
-            /// </para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of cores per processor socket. If the value is unknown, the field is set to 0.</para>
+            /// <para>Core Count is the number of cores detected by the BIOS for this processor socket. It does not necessarily indicate the full capability of the processor.</para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1127,12 +1348,8 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) CoreEnabled: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>
-            /// Gets a value representing the key to retrieve the property value.
-            /// </para>
-            /// <para>
-            /// Number of enabled cores per processor socket. If the value is unknown, the field is set 0.
-            /// </para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of enabled cores per processor socket. If the value is unknown, the field is set 0.</para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1155,15 +1372,9 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) ThreadCount: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>
-            /// Gets a value representing the key to retrieve the property value.
-            /// </para>
-            /// <para>
-            /// Number of threads per processor socket. If the value is unknown, the field is set to 0.
-            /// </para>
-            /// <para>
-            /// For thread counts of 256 or greater, this property returns FFh and the <b>ThreadCount2</b> property is set to the number of threads. 
-            /// </para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of threads per processor socket. If the value is unknown, the field is set to 0.</para>
+            /// <para>For thread counts of 256 or greater, this property returns FFh and the <b>ThreadCount2</b> property is set to the number of threads.</para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1191,38 +1402,80 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) CoreCount2: Gets a value representing the key to retrieve the property
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.CoreCount2" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.UInt32" />?</para>
+            /// <para>Number of cores per processor socket. Supports core counts >255.</para>
+            /// <para>If this field is present, it holds the core count for the processor socket.</para>
+            /// <para>Core Count will also hold the core count, except for core counts that are 256 or greater.</para>
+            /// <para>In that case, core Count shall be set to FFh and core Count 2 will hold the count.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.CoreCount2"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CoreCount2 => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.CoreCount2);
             #endregion
 
             #region [public] {static} (IPropertyKey) CoreEnabled2: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.CoreEnabled2" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.UInt32" />?</para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of enabled cores per processor socket. Supports core enabled counts >255</para>
+            /// <para>If this field is present, it holds the core enabled count for the processor socket.</para>
+            /// <para>Core Enabled will also hold the core enabled count, except for core counts that are 256 or greater.</para>
+            /// <para>In that case, core enabled shall be set to FFh and core enabled 2 will hold the count.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.CoreEnabled2"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="uint"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CoreEnabled2 => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.CoreEnabled2);
             #endregion
 
             #region [public] {static} (IPropertyKey) ThreadCount2: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition ——————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-            /// <para>Property: <see cref="DmiType004Property.ThreadCount2" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="T:System.UInt32" />?</para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of threads per processor socket. Supports thread counts >255</para>
+            /// <para>If this field is present, it holds the thread count for the processor socket.</para>
+            /// <para>Thread Count will also hold the thread count, except for thread counts that are 256 or greater.</para>
+            /// <para>In that case, thread count shall be set to FFh and thread count 2 will hold the count.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ThreadCount2"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="uint"/>?</para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ThreadCount2 => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ThreadCount2);
             #endregion
@@ -1240,78 +1493,152 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             {
                 #region [public] {static} (IPropertyKey) Capable64Bits: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.Capable64Bits" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.Boolean" />?</para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>64-bit Capable indicates the maximum data width capability of the processor.</para>
+                /// <para>For example, this bit is set for Intel Itanium, AMD Opteron, and Intel Xeon(with EM64T) processors; this bit is cleared for Intel Xeon processors that do not have EM64T.</para>
+                /// <para>Indicates the maximum capability of the processor and does not indicate the current enabled state.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.Capable64Bits"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/>?</para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.5+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey Capable64Bits => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.Capable64Bits);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) EnhancedVirtualizationInstructions: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.EnhancedVirtualizationInstructions" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.Boolean" />?</para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>indicates that the processor is capable of executing enhanced virtualization instructions.</para>
+                /// <para>Does not indicate the present state of this feature.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.EnhancedVirtualizationInstructions"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/>?</para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.5+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey EnhancedVirtualizationInstructions => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.EnhancedVirtualizationInstructions);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) ExecuteProtectionSupport: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.ExecuteProtectionSupport" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.Boolean" />?</para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicates that the processor supports marking specific memory regions as non-executable.</para>
+                /// <para>For example, this is the NX (No eXecute) feature of AMD processors and the XD (eXecute Disable) feature of Intel processors.</para>
+                /// <para>Does not indicate the present state of this feature.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.ExecuteProtectionSupport"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/>?</para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.5+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey ExecuteProtectionSupport => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ExecuteProtectionSupport);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) MultiCore: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.MultiCore" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.Boolean" />?</para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicates the processor has more than one core.</para>
+                /// <para>Does not indicate the number of cores (Core Count) enabled by hardware or the number of cores (Core Enabled) enabled by BIOS.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.MultiCore"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/>?</para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.5+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey MultiCore => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.MultiCore);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) HardwareThreadPerCore: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.HardwareThreadPerCore" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.Boolean" />?</para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicates that the processor supports multiple hardware threads per core.</para>
+                /// <para>Does not indicate the state or number of threads.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.HardwareThreadPerCore"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/>?</para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.5+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey HardwareThreadPerCore => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.HardwareThreadPerCore);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) PowerPerformanceControlSupport: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.PowerPerformanceControlSupport" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.Boolean" />?</para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicates that the processor is capable of load-based power savings.</para>
+                /// <para>Does not indicate the present state of this feature.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.PowerPerformanceControlSupport"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/>?</para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.5+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey PowerPerformanceControlSupport => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.PowerPerformanceControlSupport);
                 #endregion
@@ -1324,28 +1651,50 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </summary>
             public static class Status
             {
-                #region [public] {static} (IPropertyKey) PowerPerformanceControlSupport: Gets a value representing the key to retrieve the property
+                #region [public] {static} (IPropertyKey) CpuStatus: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.CpuStatus" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.String" /></para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>String containing the current status of processor.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.CpuStatus"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="string"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey CpuStatus => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.CpuStatus);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) SocketPopulated: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.SocketPopulated" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.Boolean" /></para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicates if CPU is populated.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.SocketPopulated"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey SocketPopulated => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.SocketPopulated);
                 #endregion
@@ -1358,28 +1707,50 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </summary>
             public static class Voltage
             {
-                #region [public] {static} (IPropertyKey) SocketPopulated: Gets a value representing the key to retrieve the property
+                #region [public] {static} (IPropertyKey) IsLegacyMode: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.IsLegacyMode" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:System.Boolean" /></para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicating 'legacy' mode for processor voltage</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.IsLegacyMode"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey IsLegacyMode => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.IsLegacyMode);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) VoltageCapability: Gets a value representing the key to retrieve the property
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition ——————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Processor" /></para>
-                /// <para>Property: <see cref="DmiType004Property.VoltageCapability" /></para>
-                /// <para>Unit: <see cref="PropertyUnit.V" /></para>
-                /// <para>— Return Value ———————————————— </para>
-                /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Represent the specific voltages that the processor socket can accept.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.VoltageCapability"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.V"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey SupportedVoltages => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.VoltageCapability, PropertyUnit.V);
                 #endregion

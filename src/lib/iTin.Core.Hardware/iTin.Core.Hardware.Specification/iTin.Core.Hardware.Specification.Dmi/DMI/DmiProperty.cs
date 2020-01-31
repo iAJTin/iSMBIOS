@@ -1,10 +1,9 @@
 ﻿
-using System.Collections.ObjectModel;
-
 namespace iTin.Core.Hardware.Specification.Dmi.Property
 {
+    using System.Collections.ObjectModel;
     using System.Diagnostics.CodeAnalysis;
-
+    
     /// <summary>
     /// Defines available keys for the available devices of a system.
     /// </summary>
@@ -18,98 +17,174 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         {
             #region [public] {static} (IPropertyKey) Vendor: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>BIOS Vendor’s Name.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Bios" /></para>
-            /// <para>Property: <see cref="DmiType000Property.Vendor" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the BIOS Vendor’s Name.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.Vendor"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Vendor => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.Vendor);
             #endregion
 
             #region [public] {static} (IPropertyKey) BiosVersion: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>BIOS Version.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Bios" /></para>
-            /// <para>Property: <see cref="DmiType000Property.BiosVersion" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the BIOS Version.</para>
+            /// <para>This value is a free-form string that may contain core and <b>OEM</b> version information.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.BiosVersion"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey BiosVersion => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosVersion);
             #endregion
 
             #region [public] {static} (IPropertyKey) BiosStartSegment: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
             /// <para>Segment location of BIOS starting address.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Bios" /></para>
-            /// <para>Property: <see cref="DmiType000Property.BiosStartSegment" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>This value is a free-form string that may contain core and <b>OEM</b> version information.</para>
+            /// <para>The size of the runtime BIOS image can be computed by subtracting the Starting Address Segment from 10000h and multiplying the result by 16.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.BiosStartSegment"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey BiosStartSegment => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosStartSegment);
             #endregion
 
             #region [public] {static} (IPropertyKey) BiosReleaseDate: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>BIOS release date.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Bios" /></para>
-            /// <para>Property: <see cref="DmiType000Property.BiosReleaseDate" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.String" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the BIOS release date.</para>
+            /// <para>The date string, if supplied, is in either mm/dd/yy or mm/dd/yyyy format. If the year portion of the string is two digits, the year is assumed to be 19yy.</para>
+            /// <para>The mm/dd/yyyy format is required for SMBIOS version 2.3 and later.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.BiosReleaseDate"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey BiosReleaseDate => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosReleaseDate);
             #endregion
 
             #region [public] {static} (IPropertyKey) BiosRomSize: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>Size of the physical device containing the BIOS. For check measured unit, please see <see cref="BiosRomSizeUnit" />.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Bios" /></para>
-            /// <para>Property: <see cref="DmiType000Property.BiosRomSize" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Size of the physical device containing the BIOS.</para>
+            /// <para>For check measured unit, please see <see cref="BiosRomSizeUnit"/>.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.BiosRomSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey BiosRomSize => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosRomSize, PropertyUnit.None);
             #endregion
 
             #region [public] {static} (IPropertyKey) Characteristics: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
             /// <para>Defines which functions the BIOS supports: <c>PCI</c>, <c>PCMCIA</c>, <c>Flash</c>, etc.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Bios" /></para>
-            /// <para>Property: <see cref="DmiType000Property.Characteristics" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection&lt;String&gt;" /></para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.Characteristics"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Characteristics => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.Characteristics);
             #endregion
 
             #region [public] {static} (IPropertyKey) CharacteristicsExtensionByte1: Gets a value representing the key to retrieve the property
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>BIOS characteristics byte 1 supports: <c>ACPI</c>, <c>USB</c>, <c>ATAPI ZIP</c>, etc.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Bios" /></para>
-            /// <para>Property: <see cref="DmiType000Property.CharacteristicsExtensionByte1" /></para>
-            /// <para>Unit: <see cref="PropertyUnit.None" /></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;" /></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Optional space reserved for future supported functions.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.CharacteristicsExtensionByte1"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CharacteristicsExtensionByte1 => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.CharacteristicsExtensionByte1);
             #endregion

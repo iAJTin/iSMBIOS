@@ -4,7 +4,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using System.Collections.Generic;
 
     /// <summary>
-    /// The <b>DmiBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="DMI" />.
+    /// The <b>DmiBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="DMI"/>.
     /// </summary>
     public interface IDmiType
     {
@@ -26,7 +26,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
 
         /// <summary>
-        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -35,7 +35,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         object GetPropertyValue(IPropertyKey propertyKey);
 
         /// <summary>
-        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>

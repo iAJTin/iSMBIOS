@@ -71,21 +71,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: See ExtendedMaximumCapacity         |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Physical Memory Array (Type 16) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Physical Memory Array (Type 16) structure.
     /// </summary>
     internal sealed class SmbiosType016 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType016(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType016" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType016"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType016(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -99,7 +99,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Location: Gets a value representing the 'Location' field
         /// <summary>
-        /// Gets a value representing the <c>Location</c> field.
+        /// Gets a value representing the <b>Location</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -110,7 +110,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Use: Gets a value representing the 'Use' field
         /// <summary>
-        /// Gets a value representing the <c>Use</c> field.
+        /// Gets a value representing the <b>Use</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -121,7 +121,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ErrorCorrection: Gets a value representing the 'Error Correction' field
         /// <summary>
-        /// Gets a value representing the <c>Error Correction</c> field.
+        /// Gets a value representing the <b>Error Correction</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -132,7 +132,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) MaximumCapacity: Gets a value representing the 'Maximum Capacity' field
         /// <summary>
-        /// Gets a value representing the <c>Maximum Capacity</c> field.
+        /// Gets a value representing the <b>Maximum Capacity</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -143,7 +143,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) ErrorInformationHandle: Gets a value representing the 'Error Information Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Maximum Capacity</c> field.
+        /// Gets a value representing the <b>Maximum Capacity</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -154,7 +154,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) NumberOfMemoryDevices: Gets a value representing the 'Number Of Memory Devices' field
         /// <summary>
-        /// Gets a value representing the <c>Number Of Memory Devices</c> field.
+        /// Gets a value representing the <b>Number Of Memory Devices</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -169,7 +169,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) ExtendedMaximumCapacity: Gets a value representing the 'Extended Maximum Capacity' field
         /// <summary>
-        /// Gets a value representing the <c>Extended Maximum Capacity</c> field.
+        /// Gets a value representing the <b>Extended Maximum Capacity</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -185,7 +185,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

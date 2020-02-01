@@ -23,7 +23,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [internal] GroupAssociationElement(byte[]): Initialize a new instance of the class specifying the structure information
         /// <summary>
-        /// Initialize a new instance of the class <see cref="GroupAssociationElement" /> specifying the information of the structure.
+        /// Initialize a new instance of the class <see cref="GroupAssociationElement"/> specifying the information of the structure.
         /// </summary>
         /// <param name="groupAssociationElement">Untreated information of the current structure.</param>
         internal GroupAssociationElement(byte[] groupAssociationElement) : base(groupAssociationElement)
@@ -37,7 +37,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Handle: Gets a value that represents the 'Handle' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Handle</c>' field.
+        ///  Gets a value that represents the '<b>Handle</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -48,7 +48,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (SmbiosStructure) ItemType: Gets a value that represents the 'ItemType' field
         /// <summary>
-        ///  Gets a value that represents the '<c>ItemType</c>' field.
+        ///  Gets a value that represents the '<b>ItemType</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -63,14 +63,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T: System.String" /> that represents the current object.
+        /// Returns a class <see cref="T: System.String"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref = "T:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref = "AdditionalInformationEntry"/> class.
         /// </returns>
         /// <remarks>
-        /// This method returns a string that includes the properties <see cref = "P:iTin.Core.Hardware.Specification.Smbios.GroupAssociationElement.ItemType" />
-        /// and <see cref = "P:iTin.Core.Hardware.Specification.Smbios.GroupAssociationElement.Handle" />.
+        /// This method returns a string that includes the properties <see cref="ItemType"/>
+        /// and <see cref="Handle"/>.
         /// </remarks>                                    
         public override string ToString() => $"Structure = {ItemType}, Handle = {Handle}";
         #endregion
@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

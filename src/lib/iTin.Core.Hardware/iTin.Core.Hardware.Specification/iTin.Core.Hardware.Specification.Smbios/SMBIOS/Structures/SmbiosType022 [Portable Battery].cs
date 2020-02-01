@@ -140,21 +140,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Ver OemSpecific                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Portable Battery (Type 22) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Portable Battery (Type 22) structure.
     /// </summary>
     internal sealed class SmbiosType022 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType022(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType022" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType022"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType022(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -168,7 +168,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Location: Gets a value representing the 'Location' field
         /// <summary>
-        /// Gets a value representing the <c>Location</c> field.
+        /// Gets a value representing the <b>Location</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -179,7 +179,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
-        /// Gets a value representing the <c>Manufacturer</c> field.
+        /// Gets a value representing the <b>Manufacturer</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -190,7 +190,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) ManufacturerDate: Gets a value representing the 'Manufacturer Date' field
         /// <summary>
-        /// Gets a value representing the <c>Manufacturer Date</c> field.
+        /// Gets a value representing the <b>Manufacturer Date</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -213,7 +213,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
-        /// Gets a value representing the <c>Serial Number</c> field.
+        /// Gets a value representing the <b>Serial Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -236,7 +236,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) DeviceName: Gets a value representing the 'Device Name' field
         /// <summary>
-        /// Gets a value representing the <c>Device Name</c> field.
+        /// Gets a value representing the <b>Device Name</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -247,7 +247,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceChemistryValue: Gets a value representing the 'Device Chemistry Value' field
         /// <summary>
-        /// Gets a value representing the <c>Device Chemistry Value</c> field.
+        /// Gets a value representing the <b>Device Chemistry Value</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -258,7 +258,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) DesignCapacity: Gets a value representing the 'Design Capacity' field
         /// <summary>
-        /// Gets a value representing the <c>Design Capacity</c> field.
+        /// Gets a value representing the <b>Design Capacity</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -269,7 +269,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) DesignVoltage: Gets a value representing the 'Design Voltage' field
         /// <summary>
-        /// Gets a value representing the <c>Design Voltage</c> field.
+        /// Gets a value representing the <b>Design Voltage</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -280,7 +280,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SbdsVersionNumber: Gets a value representing the 'Sbds Version Number' field
         /// <summary>
-        /// Gets a value representing the <c>Sbds Version Number</c> field.
+        /// Gets a value representing the <b>Sbds Version Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -291,7 +291,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MaximumErrorInBatteryData: Gets a value representing the 'Maximum Error In Battery Data' field
         /// <summary>
-        /// Gets a value representing the <c>Maximum Error In Battery Data</c> field.
+        /// Gets a value representing the <b>Maximum Error In Battery Data</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -306,7 +306,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SbdsSerialNumber: Gets a value representing the 'Sbds Serial Number' field
         /// <summary>
-        /// Gets a value representing the <c>Sbds Serial Number</c> field.
+        /// Gets a value representing the <b>Sbds Serial Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -317,7 +317,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SbdsManufactureDate: Gets a value representing the 'Sbds Manufacture Date' field
         /// <summary>
-        /// Gets a value representing the <c>Sbds Manufacture Date</c> field.
+        /// Gets a value representing the <b>Sbds Manufacture Date</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -328,7 +328,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SbdsDeviceChemistry: Gets a value representing the 'Sbds Device Chemistry' field
         /// <summary>
-        /// Gets a value representing the <c>Sbds Device Chemistry</c> field.
+        /// Gets a value representing the <b>Sbds Device Chemistry</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -339,7 +339,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DesignCapacityMultiplier: Gets a value representing the 'Design Capacity Multiplier' field
         /// <summary>
-        /// Gets a value representing the <c>Design Capacity Multiplier</c> field.
+        /// Gets a value representing the <b>Design Capacity Multiplier</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -350,7 +350,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (long) OemSpecific: Gets a value representing the 'Oem Specific' field
         /// <summary>
-        /// Gets a value representing the <c>Oem Specific</c> field.
+        /// Gets a value representing the <b>Oem Specific</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -366,7 +366,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

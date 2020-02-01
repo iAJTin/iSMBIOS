@@ -62,21 +62,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // | 1Bh          OEM-defined     DWORD       Varies      OEM- or BIOS vendor-specific information              |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the TPM Device (Type 43) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the TPM Device (Type 43) structure.
     /// </summary>
     internal sealed class SmbiosType043 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType043(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType043" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType043"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType043(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -88,7 +88,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte[]) VendorId: Gets a value representing the 'Vendor ID' field
         /// <summary>
-        ///  Gets a value representing the <c>Vendor ID</c> field.
+        ///  Gets a value representing the <b>Vendor ID</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -99,7 +99,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MajorSpecVersion: Gets a value representing the 'Major Spec Version' field
         /// <summary>
-        ///  Gets a value representing the <c>Major Spec Version</c> field.
+        ///  Gets a value representing the <b>Major Spec Version</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -110,7 +110,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MinorSpecVersion: Gets a value representing the 'Minor Spec Version' field
         /// <summary>
-        ///  Gets a value representing the <c>Minor Spec Version</c> field.
+        ///  Gets a value representing the <b>Minor Spec Version</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -121,7 +121,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte[]) RawFirmwareVersion1: Gets a value representing the 'Firmware Version 1' field
         /// <summary>
-        ///  Gets a value representing the <c>Firmware Version 1</c> field.
+        ///  Gets a value representing the <b>Firmware Version 1</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -132,7 +132,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte[]) RawFirmwareVersion2: Gets a value representing the 'Firmware Version 2' field
         /// <summary>
-        ///  Gets a value representing the <c>Firmware Version 2</c> field.
+        ///  Gets a value representing the <b>Firmware Version 2</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -143,7 +143,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) DescriptionVersion2: Gets a value representing the 'Description Version 2' field
         /// <summary>
-        ///  Gets a value representing the <c>Description Version 2</c> field.
+        ///  Gets a value representing the <b>Description Version 2</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -154,7 +154,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Characteristics</c> field.
+        /// Gets a value representing the <b>Characteristics</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -164,7 +164,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) OemDefined: Gets a value representing the 'OEM Defined' field
         /// <summary>
-        /// Gets a value representing the <c>OEM Defined</c> field.
+        /// Gets a value representing the <b>OEM Defined</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -177,7 +177,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>
@@ -213,11 +213,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (ReadOnlyCollection<string>) GetTpmCharacteristics(byte): Gets a collection of TPM characteristics
         /// <summary>
-        /// Gets a collection of <c>TPM</c> characteristics.
+        /// Gets a collection of <b>TPM</b> characteristics.
         /// </summary>
         /// <param name="target">Value to analyze</param>
         /// <returns>
-        /// Collection of <c>TPM</c> characteristics.
+        /// Collection of <b>TPM</b> characteristics.
         /// </returns>            
         private static ReadOnlyCollection<string> GetTpmCharacteristics(ulong target)
         {
@@ -249,7 +249,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </summary>
         /// <param name="data">Vendor Id raw data</param>
         /// <returns>
-        /// A <see cref="T:System.String" /> containing vendor id field.
+        /// A <see cref="string"/> containing vendor id field.
         /// </returns>
         private static string PopulatesVendorId(IEnumerable<byte> data)
         {
@@ -275,11 +275,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (TpmCapabilityVendorId) GetTpmCapabilityVendorId(byte[]): Returns TPM vendor information from hexadecimal vendor data
         /// <summary>
-        /// Returns <c>TPM vendor information</c> from hexadecimal vendor data. For more info please see, <see cref="TpmCapabilityVendorId"/> class.
+        /// Returns <b>TPM vendor information</b> from hexadecimal vendor data. For more info please see, <see cref="TpmCapabilityVendorId"/> class.
         /// </summary>
         /// <param name="data">target vendor id data</param>
         /// <returns>
-        /// A <see cref="TpmCapabilityVendorId" /> thats contains vendor information.
+        /// A <see cref="TpmCapabilityVendorId"/> thats contains vendor information.
         /// </returns>
         private static TpmCapabilityVendorId GetTpmCapabilityVendorId(byte[] data)
         {

@@ -113,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [internal] RiskVProcessorSpecificData(byte[]): Initialize a new instance of the class specifying the structure information
         /// <summary>
-        /// Initializes a new instance of the <see cref="RiskVProcessorSpecificData" /> class specifying the structure information.
+        /// Initializes a new instance of the <see cref="RiskVProcessorSpecificData"/> class specifying the structure information.
         /// </summary>
         /// <param name="processorSpecificInformationBlockData">Untreated information of the current structure.</param>
         internal RiskVProcessorSpecificData(byte[] processorSpecificInformationBlockData)
@@ -152,7 +152,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (byte?) MajorRevision: Gets a value that represents the 'Major Revision' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Major Revision</c>' field.
+        ///  Gets a value that represents the '<b>Major Revision</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -162,7 +162,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (byte?) MinorRevision: Gets a value that represents the 'Minor Revision' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Minor Revision</c>' field.
+        ///  Gets a value that represents the '<b>Minor Revision</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -172,7 +172,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (byte?) RegisterWidth: Gets a value that represents the 'Register Width (XLEN)' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Register Width (XLEN)</c>' field.
+        ///  Gets a value that represents the '<b>Register Width (XLEN)</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -182,7 +182,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (string) MachineMode: Gets a value that represents the 'Machine Mode' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Machine Mode</c>' field.
+        ///  Gets a value that represents the '<b>Machine Mode</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -192,7 +192,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (string) SupervisorMode: Gets a value that represents the 'Supervisor Mode' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Supervisor Mode</c>' field.
+        ///  Gets a value that represents the '<b>Supervisor Mode</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -202,7 +202,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (string) UserMode: Gets a value that represents the 'User Mode' field
         /// <summary>
-        ///  Gets a value that represents the '<c>User Mode</c>' field.
+        ///  Gets a value that represents the '<b>User Mode</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -216,7 +216,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Revision: Gets a value that represents the 'Revision' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Revision</c>' field.
+        ///  Gets a value that represents the '<b>Revision</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -227,7 +227,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) BootHart: Gets a value that represents the 'Boot Hart' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Boot Hart</c>' field.
+        ///  Gets a value that represents the '<b>Boot Hart</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -242,10 +242,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Devuelve una clase string que representa al objeto actual.
         /// <summary>
-        /// Returns a class <see cref="T:System.String"/> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String"/> that represents the current <see cref="RiskVProcessorSpecificData"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="RiskVProcessorSpecificData"/> class.
         /// </returns>
         public override string ToString() => $"Revision = {MajorRevision}{MinorRevision}";
         #endregion

@@ -76,21 +76,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: Please see, GetErrorCorrectingCapability  |
     // •——————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Controller Information (Type 5, Obsolete) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Memory Controller Information (Type 5, Obsolete) structure.
     /// </summary>
     internal sealed class SmbiosType005 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType005(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType005" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType005"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType005(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ErrorDetectingMethod: Gets a value representing the 'Error Detecting Method' field
         /// <summary>
-        /// Gets a value representing the <c>Error Detecting Method</c> field.
+        /// Gets a value representing the <b>Error Detecting Method</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -113,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ErrorCorrectingCapabilities: Gets a value representing the 'Error Correcting Capabilities' field
         /// <summary>
-        /// Gets a value representing the <c>Error Correcting Capabilities</c> field.
+        /// Gets a value representing the <b>Error Correcting Capabilities</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -124,7 +124,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) SupportedInterleave: Gets a value representing the 'Supported Interleave' field
         /// <summary>
-        /// Gets a value representing the <c>Supported Interleave</c> field.
+        /// Gets a value representing the <b>Supported Interleave</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -135,7 +135,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) CurrentInterleave: Gets a value representing the 'Current Interleave' field
         /// <summary>
-        /// Gets a value representing the <c>Current Interleave</c> field.
+        /// Gets a value representing the <b>Current Interleave</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -146,7 +146,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MaximumMemoryModuleSize: Gets a value representing the 'Maximum Memory Module Size' field
         /// <summary>
-        /// Gets a value representing the <c>Maximum Memory Module Size</c> field.
+        /// Gets a value representing the <b>Maximum Memory Module Size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -157,7 +157,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) SupportedSpeeds: Gets a value representing the 'Supported Speeds' field
         /// <summary>
-        /// Gets a value representing the <c>Supported Speeds</c> field.
+        /// Gets a value representing the <b>Supported Speeds</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -168,7 +168,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) SupportedMemoryTypes: Gets a value representing the 'Supported Memory Types' field
         /// <summary>
-        /// Gets a value representing the <c>Supported Memory Types</c> field.
+        /// Gets a value representing the <b>Supported Memory Types</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -179,7 +179,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MemoryModuleVoltages: Gets a value representing the 'Memory Module Voltages' field
         /// <summary>
-        /// Gets a value representing the <c>Memory Module Voltages</c> field.
+        /// Gets a value representing the <b>Memory Module Voltages</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -190,7 +190,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) NumberMemorySlots: Gets a value representing the 'Number Memory Slots' field
         /// <summary>
-        /// Gets a value representing the '<c>Number Memory Slots</c>'.
+        /// Gets a value representing the '<b>Number Memory Slots</b>'.
         /// </summary>
         /// <deviceProperty>
         /// Property value.
@@ -204,7 +204,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

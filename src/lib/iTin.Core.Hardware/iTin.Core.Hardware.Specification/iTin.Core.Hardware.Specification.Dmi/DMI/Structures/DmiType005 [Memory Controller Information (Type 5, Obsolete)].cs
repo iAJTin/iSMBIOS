@@ -6,22 +6,22 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios;
     using Smbios.Property;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiBaseType{T}" /> class that contains the logic to decode the Processor Information (Type 4) structure.
-    /// For more information, please see <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType005" />.
+    /// Specialization of the <see cref="DmiBaseType{T}"/> class that contains the logic to decode the Memory Controller Information (Type 5, Obsolete) structure.
+    /// For more information, please see <see cref="SmbiosType005"/>.
     /// </summary>
     internal sealed class DmiType005 : DmiBaseType<SmbiosType005>
     {
         #region constructor/s
 
         #region [public] DmiType005(SmbiosType005, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiType005" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="DmiType005"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructure">Formatted structure information.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public DmiType005(SmbiosType005 smbiosStructure, int smbiosVersion) : base(smbiosStructure, smbiosVersion)
         {
         }
@@ -32,7 +32,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(DmiClassPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

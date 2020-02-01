@@ -2,7 +2,7 @@
 namespace iTin.Core.Hardware.Specification.Tpm
 {
     /// <summary>
-    /// Represents <c>TPM Capabilities Vendor ID (CAP_VID)</c>.
+    /// Represents <b>TPM Capabilities Vendor ID (CAP_VID)</b>.
     /// </summary>
     public class TpmCapabilityVendorId
     {

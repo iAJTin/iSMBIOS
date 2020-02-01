@@ -7,18 +7,18 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     using Smbios;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Represents a collection of objects <see cref="T:iTin.Core.Hardware.Specification.Smbios.MemoryChannelElement" />.
+    /// Represents a collection of objects <see cref="MemoryChannelElement"/>.
     /// </summary>
     public sealed class DmiMemoryChannelElementCollection : ReadOnlyCollection<DmiMemoryChannelElement>
     {
         #region constructor/s
 
         #region [internal] DmiMemoryChannelElementCollection(MemoryChannelElementCollection): Initialize a new instance of the class
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initialize a new instance of the class <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiMemoryChannelElementCollection"/>.
+        /// Initialize a new instance of the class <see cref="DmiMemoryChannelElementCollection"/>.
         /// </summary>
         /// <param name="elements">Item list.</param>
         internal DmiMemoryChannelElementCollection(MemoryChannelElementCollection elements) : base(AsDmiCollectionFrom(elements).ToList())
@@ -32,10 +32,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T:System.String"/> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String"/> that represents the current <see cref="DmiMemoryChannelElementCollection"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="DmiMemoryChannelElementCollection"/> class.
         /// </returns>
         /// <remarks>
         /// This method returns a string that includes the number of available items

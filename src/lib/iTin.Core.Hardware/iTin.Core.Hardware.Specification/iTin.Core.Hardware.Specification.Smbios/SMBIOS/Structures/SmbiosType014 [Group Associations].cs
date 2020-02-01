@@ -29,21 +29,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: See GetContainedElements(byte[], int)           |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Group Associations (Type 14) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Group Associations (Type 14) structure.
     /// </summary>
     internal sealed class SmbiosType014 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType014(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType014" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType014"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType014(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -55,7 +55,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) GroupName: Gets a value representing the 'Group Name' field
         /// <summary>
-        /// Gets a value representing the <c>Group Name</c> field.
+        /// Gets a value representing the <b>Group Name</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -69,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

@@ -5,7 +5,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using System.Diagnostics;
 
     /// <summary>
-    /// Represents a <c>DMI</c> class.
+    /// Represents a <b>DMI</b> class.
     /// </summary>
     public sealed class DmiClass
     {
@@ -18,9 +18,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [internal] DmiClass(IDmiType): Initialize a new instance of the class
         /// <summary>
-        /// Initialize a new instance of the <see cref="DmiClass" /> class.
+        /// Initialize a new instance of the <see cref="DmiClass"/> class.
         /// </summary>
-        /// <param name="dmiType">Table <see cref="DMI" /> that contains the data of the structure.</param>
+        /// <param name="dmiType">Table <see cref="DMI"/> that contains the data of the structure.</param>
         internal DmiClass(IDmiType dmiType)
         {
             _dmiType = dmiType;
@@ -57,7 +57,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] (object) GetPropertyValue(IPropertyKey): Returns the value of specified property. Always returns the first appearance of the property
         /// <summary>
-        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -68,7 +68,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] (T) GetPropertyValue<T>(IPropertyKey): Returns the the strongly typed value of specified property
         /// <summary>
-        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -83,10 +83,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] {override} (string) ToString(): Returns a String that represents this instance
         /// <summary>
-        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="T:System.String" /> that represents this instance.
+        /// A <see cref="string"/> that represents this instance.
         /// </returns>
         /// <remarks>
         /// This method returns a string that includes the available properties.

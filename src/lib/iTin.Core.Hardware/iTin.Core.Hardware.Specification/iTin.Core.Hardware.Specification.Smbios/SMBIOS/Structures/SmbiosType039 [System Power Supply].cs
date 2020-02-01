@@ -130,21 +130,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: See InputCurrentProbeHandle                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Power Supply (Type 39) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the System Power Supply (Type 39) structure.
     /// </summary>
     internal sealed class SmbiosType039 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType039(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType039" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType039"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType039(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -156,7 +156,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsRedundant: Gets a value representing the 'Is Redundant' field
         /// <summary>
-        /// Gets a value representing the <c>Is Redundant</c> field.
+        /// Gets a value representing the <b>Is Redundant</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -167,7 +167,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Location: Gets a value representing the 'Location' field
         /// <summary>
-        /// Gets a value representing the <c>Location</c> field.
+        /// Gets a value representing the <b>Location</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -178,7 +178,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) DeviceName: Gets a value representing the 'Device Name' field
         /// <summary>
-        /// Gets a value representing the <c>Device Name</c> field.
+        /// Gets a value representing the <b>Device Name</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -189,7 +189,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
-        /// Gets a value representing the <c>Manufacturer</c> field.
+        /// Gets a value representing the <b>Manufacturer</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -200,7 +200,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
-        /// Gets a value representing the <c>Serial Number</c> field.
+        /// Gets a value representing the <b>Serial Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -211,7 +211,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) AssetTagNumber: Gets a value representing the 'Asset Tag Number' field
         /// <summary>
-        /// Gets a value representing the <c>Asset Tag Number</c> field.
+        /// Gets a value representing the <b>Asset Tag Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -222,7 +222,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) ModelPartNumber: Gets a value representing the 'Model Part Number' field
         /// <summary>
-        /// Gets a value representing the <c>Model Part Number</c> field.
+        /// Gets a value representing the <b>Model Part Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -233,7 +233,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) RevisionLevel: Gets a value representing the 'Revision Level' field
         /// <summary>
-        /// Gets a value representing the <c>Revision Level</c> field.
+        /// Gets a value representing the <b>Revision Level</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -244,7 +244,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MaxPowerCapacity: Gets a value representing the 'Max Power Capacity' field
         /// <summary>
-        /// Gets a value representing the <c>Max Power Capacity</c> field.
+        /// Gets a value representing the <b>Max Power Capacity</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -255,7 +255,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Characteristics</c> field.
+        /// Gets a value representing the <b>Characteristics</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -266,7 +266,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsHotReplaceable: Gets a value representing the 'Is Hot Replaceable' feature of the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Is Hot Replaceable</c> feature of the <c>Characteristics</c> field
+        /// Gets a value representing the <b>Is Hot Replaceable</b> feature of the <b>Characteristics</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -277,7 +277,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsPresent: Gets a value representing the 'Is Present' feature of the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Is Present</c> feature of the <c>Characteristics</c> field
+        /// Gets a value representing the <b>Is Present</b> feature of the <b>Characteristics</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -288,7 +288,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsPlugged: Gets a value representing the 'Is Plugged' feature of the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Is Plugged</c> feature of the <c>Characteristics</c> field
+        /// Gets a value representing the <b>Is Plugged</b> feature of the <b>Characteristics</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -299,7 +299,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) InputVoltageRange: Gets a value representing the 'Input Voltage Range' feature of the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Input Voltage Range</c> feature of the <c>Characteristics</c> field
+        /// Gets a value representing the <b>Input Voltage Range</b> feature of the <b>Characteristics</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -310,7 +310,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Status</c> feature of the <c>Characteristics</c> field
+        /// Gets a value representing the <b>Status</b> feature of the <b>Characteristics</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -321,7 +321,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) SupplyType: Gets a value representing the 'Supply Type' feature of the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Supply Type</c> feature of the <c>Characteristics</c> field
+        /// Gets a value representing the <b>Supply Type</b> feature of the <b>Characteristics</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -332,7 +332,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) InputVoltageProbeHandle: Gets a value representing the 'Input Voltage Probe Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Input Voltage Probe Handle</c> field.
+        /// Gets a value representing the <b>Input Voltage Probe Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -343,7 +343,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) CoolingDeviceHandle: Gets a value representing the 'Cooling Device Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Cooling Device Handle</c> field.
+        /// Gets a value representing the <b>Cooling Device Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -354,7 +354,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) InputCurrentProbeHandle: Gets a value representing the 'Input Current Probe Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Input Current Probe Handle</c> field.
+        /// Gets a value representing the <b>Input Current Probe Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -368,7 +368,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

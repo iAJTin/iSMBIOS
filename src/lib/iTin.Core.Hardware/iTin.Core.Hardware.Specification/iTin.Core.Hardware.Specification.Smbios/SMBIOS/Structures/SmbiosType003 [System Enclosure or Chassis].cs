@@ -96,21 +96,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: See GetEnclosureSkuNumber(byte, byte)   |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Enclosure or Chassis (Type 3) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the System Enclosure or Chassis (Type 3) structure.
     /// </summary>
     internal sealed class SmbiosType003 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType003(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType003" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType003"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType003(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -122,7 +122,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) AssetTagNumber: Gets a value representing the 'Asset Tag Number' field
         /// <summary>
-        /// Gets a value representing the <c>Asset Tag Number</c> field.
+        /// Gets a value representing the <b>Asset Tag Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -133,7 +133,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) BootUpState: Gets a value representing the 'Boot Up State' field
         /// <summary>
-        /// Gets a value representing the <c>Boot Up State</c> field.
+        /// Gets a value representing the <b>Boot Up State</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -144,7 +144,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ContainedElementCount: Gets a value representing the 'Contained Element Count' field
         /// <summary>
-        /// Gets a value representing the <c>Contained Element Count</c> field.
+        /// Gets a value representing the <b>Contained Element Count</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -155,7 +155,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ContainedElementRecordLenght: Gets a value representing the 'Contained Element Record Lenght' field
         /// <summary>
-        /// Gets a value representing the <c>Contained Element Record Lenght</c> field.
+        /// Gets a value representing the <b>Contained Element Record Lenght</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -166,7 +166,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) EnclosureType: Gets a value representing the 'Enclosure Type' field
         /// <summary>
-        /// Gets a value representing the <c>Enclosure Type</c> field.
+        /// Gets a value representing the <b>Enclosure Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -177,7 +177,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) EnclosureLocked: Gets a value representing the 'Enclosure Locked' field
         /// <summary>
-        /// Gets a value representing the <c>Enclosure Locked</c> field.
+        /// Gets a value representing the <b>Enclosure Locked</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -188,7 +188,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Height: Gets a value representing the 'Height' field
         /// <summary>
-        /// Gets a value representing the <c>Height</c> field.
+        /// Gets a value representing the <b>Height</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -199,7 +199,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
-        /// Gets a value representing the <c>Manufacturer</c> field.
+        /// Gets a value representing the <b>Manufacturer</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -210,7 +210,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) NumberOfPowerCords: Gets a value representing the 'Number Of Power Cords' field
         /// <summary>
-        /// Gets a value representing the <c>Number Of Power Cords</c> field.
+        /// Gets a value representing the <b>Number Of Power Cords</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -221,7 +221,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (long) OemDefined: Gets a value representing the 'OEM Defined' field
         /// <summary>
-        /// Gets a value representing the <c>OEM Defined</c> field.
+        /// Gets a value representing the <b>OEM Defined</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -232,7 +232,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) PowerSupplyState: Gets a value representing the 'Power Supply State' field
         /// <summary>
-        /// Gets a value representing the <c>Power Supply State</c> field.
+        /// Gets a value representing the <b>Power Supply State</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -243,7 +243,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) SecurityStatus: Gets a value representing the 'Security Status' field
         /// <summary>
-        /// Gets a value representing the <c>Security Status</c> field.
+        /// Gets a value representing the <b>Security Status</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -254,7 +254,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
-        /// Gets a value representing the <c>Serial Number</c> field.
+        /// Gets a value representing the <b>Serial Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -265,7 +265,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Version: Gets a value representing the 'Version' field
         /// <summary>
-        /// Gets a value representing the <c>Version</c> field.
+        /// Gets a value representing the <b>Version</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -276,7 +276,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ThermalState: Gets a value representing the 'Thermal State' field
         /// <summary>
-        /// Gets a value representing the <c>Thermal State</c> field.
+        /// Gets a value representing the <b>Thermal State</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -290,7 +290,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>
@@ -418,7 +418,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (string) GetEnclosureType(byte): Gets a string that identifies the type of chassis
         /// <summary>
-        /// Gets a <see cref="T:System.String" /> that identifies the type of chassis.
+        /// Gets a <see cref="string"/> that identifies the type of chassis.
         /// </summary>
         /// <param name="code">Value to analyze</param>
         /// <returns>
@@ -527,7 +527,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (string) GetEnclosureState(byte): Gets a string indicating the status of the chassis
         /// <summary>
-        /// Gets a <see cref="T:System.String" /> indicating the status of the chassis.
+        /// Gets a <see cref="string"/> indicating the status of the chassis.
         /// </summary>
         /// <param name="code">Value to analyze</param>
         /// <returns>

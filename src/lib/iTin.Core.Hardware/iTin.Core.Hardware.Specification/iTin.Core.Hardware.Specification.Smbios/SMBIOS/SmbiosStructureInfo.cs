@@ -40,10 +40,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (int) SmbiosVersion: Gets a value representing the version of SMBIOS
         /// <summary>
-        /// Gets a value representing the version of <see cref="SMBIOS" />.
+        /// Gets a value representing the version of <see cref="SMBIOS"/>.
         /// </summary>
         /// <value>
-        /// <see cref="SMBIOS" /> versión.
+        /// <see cref="SMBIOS"/> versión.
         /// </value>
         public int SmbiosVersion { get; }
         #endregion
@@ -84,7 +84,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="structureInfo1">The structure info1.</param>
         /// <param name="structureInfo2">The structure info2.</param>
         /// <returns>
-        /// Returns <b>true</b> if <c>structureInfo1</c> is equal to <c>structureInfo2</c>; <b>false</b> otherwise.
+        /// Returns <b>true</b> if <b>structureInfo1</b> is equal to <b>structureInfo2</b>; <b>false</b> otherwise.
         /// </returns>
         public static bool operator ==(SmbiosStructureInfo structureInfo1, SmbiosStructureInfo structureInfo2) => structureInfo1.Equals(structureInfo2);
         #endregion
@@ -96,7 +96,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="structureInfo1">The structure info1.</param>
         /// <param name="structureInfo2">The structure info2.</param>
         /// <returns>
-        /// Returns <b>true</b> if <c>structureInfo1</c> is not equal to <c>structureInfo2</c>; <b>false</b> otherwise.
+        /// Returns <b>true</b> if <b>structureInfo1</b> is not equal to <b>structureInfo2</b>; <b>false</b> otherwise.
         /// </returns>
         public static bool operator !=(SmbiosStructureInfo structureInfo1, SmbiosStructureInfo structureInfo2) => !structureInfo1.Equals(structureInfo2);
         #endregion
@@ -106,13 +106,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region public methods
 
         #region [public] (bool) Equals(SmbiosStructureInfo): Indicates whether the current object is equal to another object of the same type
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Indicates whether the current object is equal to another object of the same type.
         /// </summary>
         /// <param name="other">Object to be compared to this object.</param>
         /// <returns>
-        /// <c>true</c> if the current object is equal to the parameter <paramref name="other" />; Otherwise, <c>false</c>.
+        /// <b>true</b> if the current object is equal to the parameter <paramref name="other"/>; Otherwise, <b>false</b>.
         /// </returns>
         public bool Equals(SmbiosStructureInfo other) => other.Equals((object)this);
         #endregion
@@ -143,11 +143,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (bool) Equals(object): Determines whether the specified object is equal to this instance
         /// <summary>
-        /// Determines whether the specified <see cref="T:System.Object" /> is equal to this instance.
+        /// Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
         /// </summary>
         /// <param name="obj">Another object with which the comparison is to be made.</param>
         /// <returns>
-        /// <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+        /// <b>true</b> if the specified <see cref="System.Object"/> is equal to this instance; otherwise, <b>false</b>.
         /// </returns>
         public override bool Equals(object obj)
         {
@@ -170,11 +170,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
-        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
-        /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        /// <returns>A <see cref="string"/> that represents this instance.</returns>
         /// <remarks>
-        /// The <see cref="T:SmbiosStructureInfo.ToString ()" /> method returns a string that includes the <see cref="StructureType" />.
+        /// The <see cref="ToString()"/> method returns a string that includes the <see cref="StructureType"/>.
         /// </remarks>
         public override string ToString() => $"SMBIOS = {SmbiosVersion:X}, Type = {StructureType}, Structures = {Structures.Count}";
         #endregion

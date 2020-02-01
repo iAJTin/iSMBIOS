@@ -7,18 +7,18 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     using Smbios;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Represents a collection of <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiGroupAssociationElement"/>.
+    /// Represents a collection of <see cref="DmiGroupAssociationElement"/>.
     /// </summary>
     public sealed class DmiGroupAssociationElementCollection : ReadOnlyCollection<DmiGroupAssociationElement>
     {
         #region constructor/s
 
         #region [internal] DmiGroupAssociationElementCollection(GroupAssociationElementCollection): Inicializa una nueva instancia de la clase
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initialize a new instance of the class <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiGroupAssociationElementCollection"/>.
+        /// Initialize a new instance of the class <see cref="DmiGroupAssociationElementCollection"/>.
         /// </summary>
         /// <param name="elements">Item list.</param>
         public DmiGroupAssociationElementCollection(GroupAssociationElementCollection elements) : base(AsDmiCollectionFrom(elements).ToList())
@@ -32,10 +32,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T:System.String" /> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref="DmiGroupAssociationElementCollection"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="DmiGroupAssociationElementCollection"/> class.
         /// </returns>
         /// <remarks>
         /// This method returns a string that includes the number of available items

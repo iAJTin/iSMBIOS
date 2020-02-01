@@ -7,18 +7,18 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     using Smbios;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Represents a collection of objects <see cref="T:iTin.Core.Hardware.Specification.Smbios.DmiAdditionalInformationEntry"/>.
+    /// Represents a collection of objects <see cref="DmiAdditionalInformationEntry"/>.
     /// </summary>
     public sealed class DmiAdditionalInformationEntryCollection : ReadOnlyCollection<DmiAdditionalInformationEntry>
     {
         #region constructor/s
 
         #region [internal] DmiAdditionalInformationEntryCollection(IEnumerable<ChassisContainedElement>): Initialize a new instance of the class
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initialize a new instance of the class <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiAdditionalInformationEntryCollection"/>.
+        /// Initialize a new instance of the class <see cref="DmiAdditionalInformationEntryCollection"/>.
         /// </summary>
         /// <param name="elements">Item list.</param>
         internal DmiAdditionalInformationEntryCollection(AdditionalInformationEntryCollection elements) : base(AsDmiCollectionFrom(elements).ToList())
@@ -32,10 +32,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T: System.String"/> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String"/> that represents the current <see cref = "T:iTin.Core.Hardware.Specification.Dmi.DmiAdditionalInformationEntryCollection"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="DmiAdditionalInformationEntryCollection"/> class.
         /// </returns>
         /// <remarks>
         /// This method returns a string that includes the number of available elements.

@@ -32,7 +32,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [internal] ProcessorSpecificInformationBlock(byte[]): Initialize a new instance of the class specifying the structure information
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessorSpecificInformationBlock" /> class specifying the structure information.
+        /// Initializes a new instance of the <see cref="ProcessorSpecificInformationBlock"/> class specifying the structure information.
         /// </summary>
         /// <param name="processorSpecificInformationBlockData">Untreated information of the current structure.</param>
         internal ProcessorSpecificInformationBlock(byte[] processorSpecificInformationBlockData)
@@ -47,7 +47,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (RiskVProcessorSpecificData) ProcessorSpecificData: Gets a value that represents the 'Processor Specific Data' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Processor Specific Data</c>' field. If not implemented this field return a <see cref="RiskVProcessorSpecificData.NotImplemented"/> instance.
+        ///  Gets a value that represents the '<b>Processor Specific Data</b>' field. If not implemented this field return a <see cref="RiskVProcessorSpecificData.NotImplemented"/> instance.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -57,7 +57,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (string) ProcessorType: Gets a value that represents the 'Processor Type' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Processor Type</c>' field.
+        ///  Gets a value that represents the '<b>Processor Type</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -71,7 +71,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) BlockLenght: Gets a value that represents the 'Block Length' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Block Lenght</c>' field.
+        ///  Gets a value that represents the '<b>Block Lenght</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -82,7 +82,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ProcessorTypeValue: Gets a value that represents the 'Processor Type' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Processor Type</c>' field.
+        ///  Gets a value that represents the '<b>Processor Type</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -97,10 +97,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Devuelve una clase string que representa al objeto actual.
         /// <summary>
-        /// Returns a class <see cref="T:System.String"/> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String"/> that represents the current <see cref="ProcessorSpecificInformationBlock"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="ProcessorSpecificInformationBlock"/> class.
         /// </returns>
         public override string ToString() => $"ProcessorType = {ProcessorType}";
         #endregion

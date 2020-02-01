@@ -41,21 +41,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              Non-recoverable                         Note: Ver UpperNonRecoverable                         |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Management Device Threshold Data (Type 36) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Management Device Threshold Data (Type 36) structure.
     /// </summary>
     internal sealed class SmbiosType036 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType036(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType036" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType036"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType036(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -67,7 +67,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) LowerNonCritical: Gets a value representing the 'Lower Non Critical' field
         /// <summary>
-        /// Gets a value representing the <c>Lower Non Critical</c> field.
+        /// Gets a value representing the <b>Lower Non Critical</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -78,7 +78,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) UpperNonCritical: Gets a value representing the 'Upper Non Critical' field
         /// <summary>
-        /// Gets a value representing the <c>Upper Non Critical</c> field.
+        /// Gets a value representing the <b>Upper Non Critical</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -89,7 +89,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) LowerCritical: Gets a value representing the 'Lower Critical' field
         /// <summary>
-        /// Gets a value representing the <c>Lower Critical</c> field.
+        /// Gets a value representing the <b>Lower Critical</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -100,7 +100,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) UpperCritical: Gets a value representing the 'Upper Critical' field
         /// <summary>
-        /// Gets a value representing the <c>Upper Critical</c> field.
+        /// Gets a value representing the <b>Upper Critical</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -111,7 +111,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) LowerNonRecoverable: Gets a value representing the 'Lower Non Recoverable' field
         /// <summary>
-        /// Gets a value representing the <c>Lower Non Recoverable</c> field.
+        /// Gets a value representing the <b>Lower Non Recoverable</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -122,7 +122,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) UpperNonRecoverable: Gets a value representing the 'Upper Non Recoverable' field
         /// <summary>
-        /// Gets a value representing the <c>Upper Non Recoverable</c> field.
+        /// Gets a value representing the <b>Upper Non Recoverable</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -136,7 +136,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

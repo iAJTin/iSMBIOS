@@ -20,21 +20,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // | 04h          Count           BYTE        Varies      String's number                                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode OEM Strings (Type 11) structure
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode OEM Strings (Type 11) structure
     /// </summary>
     internal sealed class SmbiosType011 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType011(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType011" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType011"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType011(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -46,7 +46,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Count: Gets a value representing the 'Socket Designation' field
         /// <summary>
-        /// Gets a value representing the <c>Socket Designation</c> field.
+        /// Gets a value representing the <b>Socket Designation</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -60,7 +60,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

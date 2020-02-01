@@ -4,7 +4,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using Helpers;
 
     /// <summary>
-    /// Represents the <b>Header</b> structure contained in the initial four bytes of each <see cref="SMBIOS" /> structure.
+    /// Represents the <b>Header</b> structure contained in the initial four bytes of each <see cref="SMBIOS"/> structure.
     /// </summary>
     public class SmbiosStructureHeaderInfo
     {
@@ -30,10 +30,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public (int) Length: Gets the length of the formatted area of the current SMBIOS structure
         /// <summary>
-        /// Gets the length of the formatted area of the current <see cref="SMBIOS" /> structure.
+        /// Gets the length of the formatted area of the current <see cref="SMBIOS"/> structure.
         /// </summary>
         /// <value>
-        /// Length of the current <see cref="SMBIOS" /> structure.
+        /// Length of the current <see cref="SMBIOS"/> structure.
         /// </value>
         /// <remarks>
         /// Specifies the length of the formatted area of the current structure. 
@@ -64,10 +64,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region public (SmbiosStructure) StructureType: Gets the length of the formatted area of the current SMBIOS structure
         /// <summary>
-        /// Gets the current <see cref="SMBIOS" /> structure type.
+        /// Gets the current <see cref="SMBIOS"/> structure type.
         /// </summary>
         /// <value>
-        /// One of the <see cref="SmbiosStructure" /> values representing the current struct
+        /// One of the <see cref="SmbiosStructure"/> values representing the current struct
         /// </value>
         public SmbiosStructure StructureType { get; }
         #endregion
@@ -78,11 +78,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
-        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
-        /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        /// <returns>A <see cref="string"/> that represents this instance.</returns>
         /// <remarks>
-        /// The <see cref="T:SMBIOS.ToString ()" /> method returns a string that includes the <see cref="StructureType" /> property, <see cref="Handle" /> y <see cref="Length" />.
+        /// The <see cref="ToString()"/> method returns a string that includes the <see cref="StructureType"/> property, <see cref="Handle"/> y <see cref="Length"/>.
         /// </remarks>
         public override string ToString() => $"Type = {StructureType}, Handle = {Handle:X}, Length = {Length}";
         #endregion

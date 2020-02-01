@@ -109,21 +109,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                0100 0000 0011 0000b or 4030h.                         |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Bios Information (Type 0) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Bios Information (Type 0) structure.
     /// </summary>
     internal sealed class SmbiosType000 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType000(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType000" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType000"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType000(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -135,7 +135,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
-        /// Gets a value representing the <c>Characteristics</c> field.
+        /// Gets a value representing the <b>Characteristics</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -146,7 +146,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ExtensionByte1: Gets a value representing the 'Extension byte 1' field
         /// <summary>
-        /// Gets a value representing the <c>Extension byte 1</c> field.
+        /// Gets a value representing the <b>Extension byte 1</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -157,7 +157,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ExtensionByte2: Gets a value representing the 'Extension byte 2' field
         /// <summary>
-        /// Gets a value representing the <c>Extension byte 2</c> field.
+        /// Gets a value representing the <b>Extension byte 2</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -168,7 +168,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) FirmwareMajorRelease: Gets a value representing the 'Firmware major release' field
         /// <summary>
-        /// Gets a value representing the <c>Firmware major release</c> field.
+        /// Gets a value representing the <b>Firmware major release</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -179,7 +179,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) FirmwareMinorRelease: Gets a value representing the 'Firmware minor release' field
         /// <summary>
-        /// Gets a value representing the <c>Firmware minor release</c> field.
+        /// Gets a value representing the <b>Firmware minor release</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -190,7 +190,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) BiosReleaseDate: Gets a value representing the 'Bios release date' field
         /// <summary>
-        /// Gets a value representing the <c>Bios release date</c> field.
+        /// Gets a value representing the <b>Bios release date</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -201,7 +201,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) RomSize: Gets a value representing the 'Rom size' field
         /// <summary>
-        /// Gets a value representing the <c>Rom size</c> field.
+        /// Gets a value representing the <b>Rom size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -212,7 +212,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) BiosStartSegment: Gets a value representing the 'Bios starting address segment' field
         /// <summary>
-        /// Gets a value representing the <c>Bios starting address segment</c> field.
+        /// Gets a value representing the <b>Bios starting address segment</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -223,7 +223,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) SystemBiosMajorRelease: Gets a value representing the 'System bios major release' field
         /// <summary>
-        /// Gets a value representing the <c>System bios major release</c> field.
+        /// Gets a value representing the <b>System bios major release</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -234,7 +234,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) SystemBiosMinorRelease: Gets a value representing the 'System bios minor release' field
         /// <summary>
-        /// Gets a value representing the <c>System bios minor release</c> field.
+        /// Gets a value representing the <b>System bios minor release</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -245,7 +245,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Vendor: Gets a value representing the 'Vendor' field
         /// <summary>
-        /// Gets a value representing the <c>Vendor</c> field.
+        /// Gets a value representing the <b>Vendor</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -256,7 +256,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) BiosVersion: Gets a value representing the 'Bios version' field
         /// <summary>
-        /// Gets a value representing the <c>Bios version</c> field.
+        /// Gets a value representing the <b>Bios version</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -267,7 +267,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ExtendedBiosRomSizeRawInfo: Gets a value representing the 'Extended bios rom size raw info' field
         /// <summary>
-        /// Gets a value representing the <c>Extended bios rom size raw info</c> field.
+        /// Gets a value representing the <b>Extended bios rom size raw info</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -278,7 +278,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ExtendedBiosRomSize: Gets a value representing the 'Extended bios rom size' field
         /// <summary>
-        /// Gets a value representing the <c>Extended bios rom size</c> field.
+        /// Gets a value representing the <b>Extended bios rom size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -289,7 +289,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ExtendedBiosRomSizeUnits: Gets a value representing the 'Extended bios rom size units' field
         /// <summary>
-        /// Gets a value representing the <c>Extended bios rom size units</c> field.
+        /// Gets a value representing the <b>Extended bios rom size units</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -315,7 +315,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>
@@ -361,7 +361,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region BIOS Specification 3.1.0 (16/11/2016)
 
-        #region [private] {static} (ReadOnlyCollection<string>) GetCharacteristics(ulong): Define which functions supports the BIOS: PCI, PCMCIA, Flash, etc.
+        #region [private] {static} (ReadOnlyCollection<string>) GetCharacteristics(ulong): Define which functions supports the BIOS: PCI, PCMCIA, Flash, etc
         /// <summary>
         /// Define which functions supports the BIOS: PCI, PCMCIA, Flash, etc.
         /// </summary>

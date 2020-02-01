@@ -33,7 +33,7 @@ namespace iTin.Core.Hardware.Specification
 
         #region [public] {static} (string) AccessType: Gets a string that represents the type of access
         /// <summary>
-        /// Gets a <see cref="T:System.String"/> that represents the type of access.
+        /// Gets a <see cref="string"/> that represents the type of access.
         /// </summary>
         /// <value>
         /// A string that represents the type of access.
@@ -46,10 +46,10 @@ namespace iTin.Core.Hardware.Specification
 
         #region [public] {static} (string) Identificationmethod: Gets a string that represents access mode
         /// <summary>
-        /// Gets a <see cref="T:System.String"/> that represents access mode.
+        /// Gets a <see cref="string"/> that represents access mode.
         /// </summary>
         /// <value>
-        /// A <see cref="T:System.String"/> that represents the mode of access.
+        /// A <see cref="string"/> that represents the mode of access.
         /// </value>
         /// <remarks>
         /// This method always returns the <b>&lt;DMI&gt;</b> string.
@@ -76,8 +76,8 @@ namespace iTin.Core.Hardware.Specification
         /// Gets the collection of available structures.
         /// </summary>
         /// <value>
-        /// Object <see cref="DmiStructureCollection" /> that contains the collection of available <see cref="DmiStructure" /> objects.
-        /// If there is no object <see cref="DmiStructure" />, <b>null</b> is returned.
+        /// Object <see cref="DmiStructureCollection"/> that contains the collection of available <see cref="DmiStructure"/> objects.
+        /// If there is no object <see cref="DmiStructure"/>, <b>null</b> is returned.
         /// </value>
         public DmiStructureCollection Structures => dmiStructureCollection ?? (dmiStructureCollection = new DmiStructureCollection());
         #endregion
@@ -88,11 +88,13 @@ namespace iTin.Core.Hardware.Specification
 
         #region [public] {override} (string) ToString(): Returns aString that represents this instance.
         /// <summary>
-        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
-        /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        /// <returns>
+        /// A <see cref="string"/> that represents this instance.
+        /// </returns>
         /// <remarks>
-        /// The <see cref="T:SMBIOS.ToString ()" /> method returns a string that includes the version expresed in hexadecimal format,
+        /// The <see cref="ToString()"/> method returns a string that includes the version expresed in hexadecimal format,
         /// the number of available structures, and <see cref="SMBIOS"/> total size occupied by all structures.
         /// </remarks>
         public override string ToString() => $"SMBIOS={DmiHelper.Smbios.Version:X}, Classes={DmiHelper.Smbios.ImplementedStructures.Count}, Size={DmiHelper.Smbios.Lenght}";

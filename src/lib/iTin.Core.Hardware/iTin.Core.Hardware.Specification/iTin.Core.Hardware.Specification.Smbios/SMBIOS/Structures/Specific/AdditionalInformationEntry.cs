@@ -32,7 +32,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <summary>
-    /// This class represents an element of the structure <see cref="SmbiosType040" />.
+    /// This class represents an element of the structure <see cref="SmbiosType040"/>.
     /// </summary>
     public class AdditionalInformationEntry : SpecificSmbiosBaseType
     {
@@ -54,7 +54,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) EntryLength: Gets a value that represents the 'Entry Length' field
         /// <summary>
-        /// Gets a value that represents the <c>Entry Length</c> field.
+        /// Gets a value that represents the <b>Entry Length</b> field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -65,7 +65,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ReferencedHandle: Gets a value that represents the 'Referenced Handle' field
         /// <summary>
-        /// Gets a value that represents the '<c>Referenced Handle</c>' field.
+        /// Gets a value that represents the '<b>Referenced Handle</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -76,7 +76,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ReferencedOffset: Gets a value that represents the 'Referenced Offset' field
         /// <summary>
-        /// Gets a value that represents the '<c>Referenced Offset</c>' field.
+        /// Gets a value that represents the '<b>Referenced Offset</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -87,7 +87,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) StringValue: Gets a value that represents the 'String' field
         /// <summary>
-        /// Gets a value that represents the '<c>String</c>' field.
+        /// Gets a value that represents the '<b>String</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -98,7 +98,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Value: Gets a value that represents the 'Value' field
         /// <summary>
-        /// Gets a value that represents the '<c>Value</c>' field.
+        /// Gets a value that represents the '<b>Value</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -113,13 +113,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T:System.String" /> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref="T:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry" /> class.
+        /// Object <see cref="string"/> that represents the current <see cref="AdditionalInformationEntry"/> class.
         /// </returns>
         /// <remarks>
-        /// This method returns a string that includes the property <see cref="P:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry.Value" />.
+        /// This method returns a string that includes the property <see cref="P:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry.Value"/>.
         /// </remarks>                                    
         public override string ToString() => $"Value = {Value}";
         #endregion
@@ -129,7 +129,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

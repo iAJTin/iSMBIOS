@@ -62,9 +62,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: See NominalValue                                |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Electrical Current Probe (Type 29) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Electrical Current Probe (Type 29) structure.
     /// </summary>
     internal sealed class SmbiosType029 : SmbiosBaseType
     {
@@ -72,10 +72,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] SmbiosType029(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType029"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType029"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType029(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -87,7 +87,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
-        /// Gets a value representing the <c>Description</c> field.
+        /// Gets a value representing the <b>Description</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -98,7 +98,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) LocationAndStatus: Gets a value representing the 'Location And Status' field
         /// <summary>
-        /// Gets a value representing the <c>Location And Status</c> field.
+        /// Gets a value representing the <b>Location And Status</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -109,7 +109,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Location: Gets a value representing the 'Location' feature of the 'Location And Status' field
         /// <summary>
-        /// Gets a value representing the <c>Location</c> feature of the <c>Location And Status</c> field
+        /// Gets a value representing the <b>Location</b> feature of the <b>Location And Status</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -120,7 +120,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Location And Status' field
         /// <summary>
-        /// Gets a value representing the <c>Status</c> feature of the <c>Location And Status</c> field
+        /// Gets a value representing the <b>Status</b> feature of the <b>Location And Status</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -131,7 +131,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MaximunValue: Gets a value representing the 'Maximun Value' field
         /// <summary>
-        /// Gets a value representing the <c>Maximun Value</c> field.
+        /// Gets a value representing the <b>Maximun Value</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -142,7 +142,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MinimunValue: Gets a value representing the 'Minimun Value' field
         /// <summary>
-        /// Gets a value representing the <c>Minimun Value</c> field.
+        /// Gets a value representing the <b>Minimun Value</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -153,7 +153,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Resolution: Gets a value representing the 'Resolution' field
         /// <summary>
-        /// Gets a value representing the <c>Resolution</c> field.
+        /// Gets a value representing the <b>Resolution</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -164,7 +164,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Tolerance: Gets a value representing the 'Tolerance' field
         /// <summary>
-        /// Gets a value representing the <c>Tolerance</c> field.
+        /// Gets a value representing the <b>Tolerance</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -175,7 +175,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Accuracy: Gets a value representing the 'Accuracy' field
         /// <summary>
-        /// Gets a value representing the <c>Accuracy</c> field.
+        /// Gets a value representing the <b>Accuracy</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -186,7 +186,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field
         /// <summary>
-        /// Gets a value representing the <c>Oem Defined</c> field.
+        /// Gets a value representing the <b>Oem Defined</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -197,7 +197,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) NominalValue: Gets a value representing the 'Nominal Value field
         /// <summary>
-        /// Gets a value representing the <c>Nominal Value</c> field.
+        /// Gets a value representing the <b>Nominal Value</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -211,7 +211,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

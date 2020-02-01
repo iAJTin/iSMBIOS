@@ -37,21 +37,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: See Default                         |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the BIOS Language Information (Type 13) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the BIOS Language Information (Type 13) structure.
     /// </summary>
     internal sealed class SmbiosType013 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType013(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType013" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType013"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType013(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -65,7 +65,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Count: Gets a value representing the 'Count' field
         /// <summary>
-        /// Gets a value representing the <c>Count</c> field.
+        /// Gets a value representing the <b>Count</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -76,7 +76,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Current: Gets a value representing the 'Current' field
         /// <summary>
-        /// Gets a value representing the <c>Current</c> field.
+        /// Gets a value representing the <b>Current</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -91,7 +91,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsCurrentAbbreviated: Gets a value representing the 'Is Current Abbreviated' field
         /// <summary>
-        /// Gets a value representing the <c>Is Current Abbreviated</c> field.
+        /// Gets a value representing the <b>Is Current Abbreviated</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -107,7 +107,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

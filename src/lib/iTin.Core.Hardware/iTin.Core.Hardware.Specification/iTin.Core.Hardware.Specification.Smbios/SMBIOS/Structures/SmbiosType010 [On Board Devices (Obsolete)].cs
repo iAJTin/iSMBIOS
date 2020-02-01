@@ -31,21 +31,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              String                                                                                        |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the On Board Devices (Type 10, Obsolete) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the On Board Devices (Type 10, Obsolete) structure.
     /// </summary>
     internal sealed class SmbiosType010 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType010(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType010" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType010"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType010(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -57,7 +57,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' field
         /// <summary>
-        /// Gets a value representing the <c>Device Type</c> field.
+        /// Gets a value representing the <b>Device Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -68,7 +68,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsEnabled: Gets a value representing the 'Is Enabled' field
         /// <summary>
-        /// Gets a value representing the <c>Is Enabled</c> field.
+        /// Gets a value representing the <b>Is Enabled</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -79,7 +79,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
-        /// Gets a value representing the <c>Description</c> field.
+        /// Gets a value representing the <b>Description</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -107,7 +107,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

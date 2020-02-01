@@ -9,7 +9,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Text;
 
     /// <summary>
-    /// Helper class for <see cref="SMBIOS" />.
+    /// Helper class for <see cref="SMBIOS"/>.
     /// </summary>
     internal static class SmbiosHelper
     {
@@ -40,7 +40,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {static} (IEnumerable<byte[]>) RawTables: Gets the raw SMBIOS tables
         /// <summary>
-        /// Gets the raw <c>SMBIOS</c> tables.
+        /// Gets the raw <b>SMBIOS</b> tables.
         /// </summary>
         /// <value>
         /// An enumerator, which supports a simple iteration in the collection.
@@ -109,7 +109,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <summary>
         /// Returns all the SMBIOS tables unprocessed.
         /// </summary>
-        /// <param name="rawSMBIOSTable">Array with raw <c>SMBIOS</c> data.</param>
+        /// <param name="rawSMBIOSTable">Array with raw <b>SMBIOS</b> data.</param>
         public static void ToRawTables(byte[] rawSMBIOSTable)
         {
             int i = 0;

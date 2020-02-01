@@ -5,7 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.ObjectModel;
     using System.Linq;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
     /// Represents a collection of memory device identifiers.
     /// </summary>
@@ -14,9 +14,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region constructor/s
 
         #region [internal] MemoryControllerContainedElementCollection(IEnumerable<int>): Initialize a new instance of the class
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initialize a new instance of the class <see cref="T:iTin.Core.Hardware.Specification.Smbios.MemoryControllerContainedElementCollection" />.
+        /// Initialize a new instance of the class <see cref="MemoryControllerContainedElementCollection"/>.
         /// </summary>
         /// <param name="elements">Item list.</param>
         internal MemoryControllerContainedElementCollection(IEnumerable<int> elements) : base(elements.ToList())
@@ -30,10 +30,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T:System.String" /> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref="MemoryControllerContainedElementCollection"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="MemoryControllerContainedElementCollection"/> class.
         /// </returns>
         /// <remarks>
         /// This method returns a string that includes the number of available items

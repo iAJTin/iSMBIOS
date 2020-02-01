@@ -90,21 +90,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver InterruptNumber                             |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the IPMI Device Information (Type 38) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the IPMI Device Information (Type 38) structure.
     /// </summary>
     internal sealed class SmbiosType038 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType038(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType038" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType038"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType038(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -116,7 +116,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) InterfaceType: Gets a value representing the 'Interface Type' field
         /// <summary>
-        /// Gets a value representing the <c>Interface Type</c> field.
+        /// Gets a value representing the <b>Interface Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -127,7 +127,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SpecificationRevision: Gets a value representing the 'Specification Revision' field
         /// <summary>
-        /// Gets a value representing the <c>Specification Revision</c> field.
+        /// Gets a value representing the <b>Specification Revision</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -150,7 +150,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) I2CSlaveAddress: Gets a value representing the 'I2C Slave Address' field
         /// <summary>
-        /// Gets a value representing the <c>I2C Slave Address</c> field.
+        /// Gets a value representing the <b>I2C Slave Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -161,7 +161,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) NVStorageDeviceAddress: Gets a value representing the 'NV Storage Device Address' field
         /// <summary>
-        /// Gets a value representing the <c>NV Storage Device Address</c> field.
+        /// Gets a value representing the <b>NV Storage Device Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -172,7 +172,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) BaseAddress: Gets a value representing the 'Base Address' field
         /// <summary>
-        /// Gets a value representing the <c>Base Address</c> field.
+        /// Gets a value representing the <b>Base Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -183,7 +183,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) BaseAddressModifier: Gets a value representing the 'Base Address Modifier' field
         /// <summary>
-        /// Gets a value representing the <c>Base Address Modifier</c> field.
+        /// Gets a value representing the <b>Base Address Modifier</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -194,7 +194,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) TriggerMode: Gets a value representing the 'Trigger Mode' feature of the 'Base Address Modifier' field
         /// <summary>
-        /// Gets a value representing the <c>Trigger Mode</c> feature of the <c>Base Address Modifier</c> field
+        /// Gets a value representing the <b>Trigger Mode</b> feature of the <b>Base Address Modifier</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -205,7 +205,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Polarity: Gets a value representing the 'Polarity' feature of the 'Base Address Modifier' field
         /// <summary>
-        /// Gets a value representing the <c>Polarity</c> feature of the <c>Base Address Modifier</c> field
+        /// Gets a value representing the <b>Polarity</b> feature of the <b>Base Address Modifier</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -216,7 +216,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) SpecifiedInfo: Gets a value representing the 'Specified Info' feature of the 'Base Address Modifier' field
         /// <summary>
-        /// Gets a value representing the <c>Specified Info</c> feature of the <c>Base Address Modifier</c> field
+        /// Gets a value representing the <b>Specified Info</b> feature of the <b>Base Address Modifier</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -227,7 +227,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) LsBit: Gets a value representing the 'Specified Info' feature of the 'Base Address Modifier' field
         /// <summary>
-        /// Gets a value representing the <c>LsBit</c> feature of the <c>Base Address Modifier</c> field
+        /// Gets a value representing the <b>LsBit</b> feature of the <b>Base Address Modifier</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -238,7 +238,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) RegisterSpacing: Gets a value representing the 'Register Spacing' field
         /// <summary>
-        /// Gets a value representing the <c>Register Spacing</c> field.
+        /// Gets a value representing the <b>Register Spacing</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -249,7 +249,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) InterruptNumber: Gets a value representing the 'Interrupt Number' field
         /// <summary>
-        /// Gets a value representing the <c>Interrup tNumber</c> field.
+        /// Gets a value representing the <b>Interrup tNumber</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -263,7 +263,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

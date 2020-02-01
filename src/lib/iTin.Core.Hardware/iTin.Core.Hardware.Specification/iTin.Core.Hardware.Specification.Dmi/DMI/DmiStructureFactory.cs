@@ -4,7 +4,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios;
 
     /// <summary>
-    /// The static class <see cref="DmiStructureFactory" /> creates the <see cref="DMI" /> structures.
+    /// The static class <see cref="DmiStructureFactory"/> creates the <see cref="DMI"/> structures.
     /// </summary>
     internal static class DmiStructureFactory
     {
@@ -12,9 +12,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// Create list of available structures.
         /// </summary>
         /// <param name="smbiosType">Structure information.</param>
-        /// <param name="smbiosVersion"><see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion"><see cref="SMBIOS"/> version.</param>
         /// <returns>
-        /// A class whichs implements <see cref="IDmiType" /> interface.
+        /// A class whichs implements <see cref="IDmiType"/> interface.
         /// </returns>
         public static IDmiType Create(SmbiosBaseType smbiosType, int smbiosVersion)
         {

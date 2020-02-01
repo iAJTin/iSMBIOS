@@ -9,7 +9,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Helpers;
 
     /// <summary>
-    /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="DMI" />.
+    /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="DMI"/>.
     /// </summary>
     public abstract class SpecificDmiBaseType
     {
@@ -36,7 +36,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [protected] SpecificDmiBaseType(byte[]): Initializes a new instance of the class by specifying the raw data of a specific SMBIOS structure
         /// <summary>
-        /// Initializes a new instance of the class <see cref="SpecificDmiBaseType"/> by specifying the raw data of a specific <c>SMBIOS</c> structure
+        /// Initializes a new instance of the class <see cref="SpecificDmiBaseType"/> by specifying the raw data of a specific <b>SMBIOS</b> structure
         /// </summary>
         /// <param name="data">Raw data.</param>
         protected SpecificDmiBaseType(byte[] data)
@@ -89,7 +89,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] (object) GetPropertyValue(IPropertyKey): Returns the value of specified property. Always returns the first appearance of the property
         /// <summary>
-        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -100,7 +100,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] (T) GetPropertyValue<T>(IPropertyKey): Returns the the strongly typed value of specified property
         /// <summary>
-        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>

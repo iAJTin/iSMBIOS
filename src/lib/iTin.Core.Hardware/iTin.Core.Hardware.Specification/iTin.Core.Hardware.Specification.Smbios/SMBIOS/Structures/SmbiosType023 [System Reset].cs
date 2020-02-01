@@ -76,21 +76,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: See TimeOut                                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Reset (Type 23) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the System Reset (Type 23) structure.
     /// </summary>
     internal sealed class SmbiosType023 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType023(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType023" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType023"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType023(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Capabilities: Gets a value representing the 'Capabilities' field
         /// <summary>
-        /// Gets a value representing the <c>Capabilities</c> field.
+        /// Gets a value representing the <b>Capabilities</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -113,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Status: Gets a value representing the 'Status' capability of the 'Capabilities' field
         /// <summary>
-        /// Gets a value representing the <c>Status</c> capability of the <c>Capabilities</c> field
+        /// Gets a value representing the <b>Status</b> capability of the <b>Capabilities</b> field
         /// </summary>
         /// <value>
         /// Capability value.
@@ -124,7 +124,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) BootOption: Gets a value representing the 'Boot Option' capability of the 'Capabilities' field
         /// <summary>
-        /// Gets a value representing the <c>Boot Option</c> capability of the <c>Capabilities</c> field
+        /// Gets a value representing the <b>Boot Option</b> capability of the <b>Capabilities</b> field
         /// </summary>
         /// <value>
         /// Capability value.
@@ -135,7 +135,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) BootOptionOnLimit: Gets a value representing the 'Boot Option On Limit' capability of the 'Capabilities' field
         /// <summary>
-        /// Gets a value representing the <c>Boot Option On Limit</c> capability of the <c>Capabilities</c> field
+        /// Gets a value representing the <b>Boot Option On Limit</b> capability of the <b>Capabilities</b> field
         /// </summary>
         /// <value>
         /// Capability value.
@@ -146,7 +146,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) WatchdogTimer: Gets a value representing the 'Watchdog Timer' capability of the 'Capabilities' field
         /// <summary>
-        /// Gets a value representing the <c>Watchdog Timer</c> capability of the <c>Capabilities</c> field
+        /// Gets a value representing the <b>Watchdog Timer</b> capability of the <b>Capabilities</b> field
         /// </summary>
         /// <value>
         /// Capability value.
@@ -157,7 +157,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ResetCount: Gets a value representing the 'Reset Count' field
         /// <summary>
-        /// Gets a value representing the <c>Reset Count</c> field.
+        /// Gets a value representing the <b>Reset Count</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -168,7 +168,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ResetLimit: Gets a value representing the 'Reset Limit' field
         /// <summary>
-        /// Gets a value representing the <c>Reset Limit</c> field.
+        /// Gets a value representing the <b>Reset Limit</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -179,7 +179,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) TimerInterval: Gets a value representing the 'Timer Interval' field
         /// <summary>
-        /// Gets a value representing the <c>Timer Interval</c> field.
+        /// Gets a value representing the <b>Timer Interval</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -190,7 +190,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) TimeOut: Gets a value representing the 'Time Out' field
         /// <summary>
-        /// Gets a value representing the <c>Time Out</c> field.
+        /// Gets a value representing the <b>Time Out</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -204,7 +204,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

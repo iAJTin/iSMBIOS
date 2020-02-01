@@ -8,9 +8,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     using Smbios;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// The <b>DmiBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="T:iTin.Core.Hardware.Specification.DMI" />.
+    /// The <b>DmiBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="DMI"/>.
     /// </summary>
     /// <typeparam name="TSmbios">Smbios strucutre type</typeparam>
     public abstract class DmiBaseType<TSmbios> : IDmiType
@@ -24,7 +24,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [protected] DmiBaseType(TSmbios, int): Initializes a new instance of the class by specifying the Header of the structure and current SMBIOS
         /// <summary>
-        /// Initializes a new instance of the class <see cref="SmbiosBaseType"/> by specifying the Header of the structure and current SMBIOS.
+        /// Initializes a new instance of the class <see cref="SmbiosBaseType"/> by specifying the Header of the structure and current 
         /// </summary>
         /// <param name="smbiosStructure">Header of the current structure.</param>
         /// <param name="smbiosVersion">Current SMBIOS version.</param>
@@ -40,7 +40,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region public readonly properties
 
         #region [public] (IEnumerable<IPropertyKey>) ImplementedProperties: Returns a list of implemented properties for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Returns a list of implemented properties for this structure.
         /// </summary>
@@ -80,10 +80,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [protected] (int) SmbiosVersion: Gets the current version of SMBIOS
         /// <summary>
-        /// Gets the current version of <see cref="SMBIOS" />.
+        /// Gets the current version of <see cref="SMBIOS"/>.
         /// </summary>
         /// <value>
-        /// Value representing the current version of <see cref="SMBIOS" />.
+        /// Value representing the current version of <see cref="SMBIOS"/>.
         /// </value>
         protected int SmbiosVersion { get; }
         #endregion
@@ -103,9 +103,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region public methods
 
         #region [public] (object) GetPropertyValue(IPropertyKey): Returns the value of specified property. Always returns the first appearance of the property
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -115,9 +115,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #endregion
 
         #region [public] (TProperty) GetPropertyValue<TProperty>(IPropertyKey): Returns the the strongly typed value of specified property
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -142,10 +142,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [protected] {override} (string) ToString(): Gets the property collection for this structure
         /// <summary>
-        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="T:System.String" /> that represents this instance.
+        /// A <see cref="string"/> that represents this instance.
         /// </returns>
         public override string ToString() => $"Type = {GetType().Name}";
         #endregion
@@ -187,7 +187,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         //#region [private] (IDeviceProperty) GetTypedProperty(PropertyKey): Returns a reference to an object that implements the interface IDeviceProperty, represents the value of the property specified by its key by the parameter propertyKey.
         ///// <summary>
-        ///// Returns a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
+        ///// Returns a reference to an object that implements the interface <see cref="IDeviceProperty"/>, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
         ///// </summary>
         ///// <param name="propertyKey">Key to the property to obtain</param>
         ///// <returns>

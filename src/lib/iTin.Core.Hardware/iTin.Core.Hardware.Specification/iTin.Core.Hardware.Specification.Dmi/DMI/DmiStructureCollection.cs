@@ -10,18 +10,18 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Helpers;
     using Smbios;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Represents a collection of <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructure" /> objects implemented in <see cref="T:iTin.Core.Hardware.Specification.DMI" />.
+    /// Represents a collection of <see cref="DmiStructure"/> objects implemented in <see cref="DMI"/>.
     /// </summary>
     public sealed class DmiStructureCollection : ReadOnlyCollection<DmiStructure>
     {
         #region constructor/s
 
         #region [internal] DmiStructureCollection(): Initialize a new instance of the class
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initialize a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiStructureCollection" /> class.
+        /// Initialize a new instance of the <see cref="DmiStructureCollection"/> class.
         /// </summary>
         internal DmiStructureCollection() : base(new List<DmiStructure>())
         {
@@ -41,7 +41,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// Gets the element with the specified key.
         /// </summary>
         /// <value>
-        /// Object <see cref="DmiStructure" /> specified by its key.
+        /// Object <see cref="DmiStructure"/> specified by its key.
         /// </value>
         /// <remarks>
         /// If the element does not exist, <b>null</b> is returned.
@@ -76,9 +76,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <summary>
         /// Determines whether the element with the specified key is in the collection.
         /// </summary>
-        /// <param name="valueKey">One of the values of <see cref="SmbiosStructure" /> that represents the key of the object <see cref="DmiStructure" /> to search.</param>
+        /// <param name="valueKey">One of the values of <see cref="SmbiosStructure"/> that represents the key of the object <see cref="DmiStructure"/> to search.</param>
         /// <returns>
-        /// <b>true</b> if the object <see cref="DmiStructure" /> with the <paramref name="valueKey"/> is in the collection; otherwise, it is <b>false</b>.
+        /// <b>true</b> if the object <see cref="DmiStructure"/> with the <paramref name="valueKey"/> is in the collection; otherwise, it is <b>false</b>.
         /// </returns>
         /// <exception cref="InvalidEnumArgumentException"></exception>
         public bool Contains(DmiStructureClass valueKey)
@@ -97,7 +97,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] (object) GetProperty(IPropertyKey): Returns the value of specified property. Always returns the first appearance of the property
         /// <summary>
-        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -137,7 +137,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] (T) GetProperty<T>(IPropertyKey): Returns the the strongly typed value of specified property
         /// <summary>
-        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -219,7 +219,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <summary>
         /// Returns the index of the object with the key specified in the collection
         /// </summary>
-        /// <param name="valueKey">One of the values of <see cref="SmbiosStructure" /> that represents the key of the object to be searched in the collection.</param>
+        /// <param name="valueKey">One of the values of <see cref="SmbiosStructure"/> that represents the key of the object to be searched in the collection.</param>
         /// <returns>
         /// Zero-base index of the first appearance of the item in the collection, if found; otherwise, -1.
         /// </returns>

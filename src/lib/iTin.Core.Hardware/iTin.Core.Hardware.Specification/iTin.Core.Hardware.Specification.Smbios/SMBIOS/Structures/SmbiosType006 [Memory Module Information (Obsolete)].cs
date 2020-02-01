@@ -60,21 +60,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Please see, GetErrorStatus(byte)                |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Module Information (Type 6, Obsolete) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Memory Module Information (Type 6, Obsolete) structure.
     /// </summary>
     internal sealed class SmbiosType006 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType006(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType006" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType006"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType006(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -86,7 +86,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field
         /// <summary>
-        /// Gets a value representing the <c>Socket Designation</c> field.
+        /// Gets a value representing the <b>Socket Designation</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -97,7 +97,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) BankConnections: Gets a value representing the 'Bank Connections' field
         /// <summary>
-        /// Gets a value representing the <c>Bank Connections</c> field.
+        /// Gets a value representing the <b>Bank Connections</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -108,7 +108,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) CurrentSpeed: Gets a value representing the 'Current Speed' field
         /// <summary>
-        /// Gets a value representing the <c>Current Speed</c> field.
+        /// Gets a value representing the <b>Current Speed</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -119,7 +119,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) CurrentMemoryType: Gets a value representing the 'Current Memory Type' field
         /// <summary>
-        /// Gets a value representing the <c>Current Memory Type</c> field.
+        /// Gets a value representing the <b>Current Memory Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -130,7 +130,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) InstalledSize: Gets a value representing the 'Installed Size' field
         /// <summary>
-        /// Gets a value representing the <c>Installed Size</c> field.
+        /// Gets a value representing the <b>Installed Size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -141,7 +141,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) EnabledSize: Gets a value representing the 'Enabled Size' field
         /// <summary>
-        /// Gets a value representing the <c>Enabled Size</c> field.
+        /// Gets a value representing the <b>Enabled Size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -152,7 +152,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ErrorStatus: Gets a value representing the 'Error Status' field
         /// <summary>
-        /// Gets a value representing the <c>Error Status</c> field.
+        /// Gets a value representing the <b>Error Status</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -166,7 +166,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

@@ -23,21 +23,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      boot status.                                          |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the System Boot Information (Type 32) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the System Boot Information (Type 32) structure.
     /// </summary>
     internal sealed class SmbiosType032 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType032(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType032" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType032"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType032(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -49,7 +49,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) BootStatus: Gets a value representing the 'Boot Status' field
         /// <summary>
-        /// Gets a value representing the <c>Boot Status</c> field.
+        /// Gets a value representing the <b>Boot Status</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -63,7 +63,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

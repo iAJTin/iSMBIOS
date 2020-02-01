@@ -7,7 +7,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios.Property;
 
     /// <summary>
-    /// This class represents an element of the structure <see cref="DmiType037" />.
+    /// This class represents an element of the structure <see cref="DmiType037"/>.
     /// </summary>
     public class DmiMemoryChannelElement
     {
@@ -21,7 +21,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <summary>
         /// Initialize a new instance of the class <see cref="DmiMemoryChannelElement"/>.
         /// </summary>
-        /// <param name="reference"><c>SMBIOS</c> properties.</param>
+        /// <param name="reference"><b>SMBIOS</b> properties.</param>
         internal DmiMemoryChannelElement(SmbiosPropertiesTable reference)
         {
             _reference = reference;

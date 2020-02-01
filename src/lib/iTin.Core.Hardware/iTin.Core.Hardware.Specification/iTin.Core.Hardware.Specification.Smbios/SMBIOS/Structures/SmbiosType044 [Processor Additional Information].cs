@@ -26,21 +26,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              Block                                                                                         |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType"/> class that contains the logic to decode the Processor Additional Information (Type 44) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Processor Additional Information (Type 44) structure.
     /// </summary>
     internal sealed class SmbiosType044 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType044(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType043" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType044"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType044(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -52,7 +52,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Length: Gets a value representing the 'Length' field
         /// <summary>
-        ///  Gets a value representing the <c>Length</c> field.
+        ///  Gets a value representing the <b>Length</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -63,7 +63,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ReferencedHandle: Gets a value representing the 'Referenced Handle' field
         /// <summary>
-        ///  Gets a value representing the <c>Referenced Handle</c> field.
+        ///  Gets a value representing the <b>Referenced Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -77,7 +77,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

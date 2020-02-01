@@ -139,11 +139,11 @@ namespace iTin.Core.Hardware.Specification
 
         #region [public] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
-        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
-        /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        /// <returns>A <see cref="string"/> that represents this instance.</returns>
         /// <remarks>
-        /// The <see cref="T:SMBIOS.ToString ()" /> method returns a string that includes the version expresed in hexadecimal format,
+        /// The <see cref="ToString()"/> method returns a string that includes the version expresed in hexadecimal format,
         /// the number of available structures, and the total length occupied by all structures.
         /// </remarks>
         public override string ToString() => $"Version = {Version:X}, Structures = {ImplementedStructures.Count}, Lenght = {Lenght}";

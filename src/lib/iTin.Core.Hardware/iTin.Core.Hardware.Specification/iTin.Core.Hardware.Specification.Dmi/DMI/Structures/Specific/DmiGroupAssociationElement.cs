@@ -19,9 +19,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [internal] DmiGroupAssociationElement(SmbiosPropertiesTable): Initialize a new instance of the class specifying the structure information
         /// <summary>
-        /// Initialize a new instance of the class <see cref="DmiGroupAssociationElement" /> specifying the information of the structure.
+        /// Initialize a new instance of the class <see cref="DmiGroupAssociationElement"/> specifying the information of the structure.
         /// </summary>
-        /// <param name="reference"><c>SMBIOS</c> properties.</param>
+        /// <param name="reference"><b>SMBIOS</b> properties.</param>
         internal DmiGroupAssociationElement(SmbiosPropertiesTable reference)
         {
             _reference = reference;

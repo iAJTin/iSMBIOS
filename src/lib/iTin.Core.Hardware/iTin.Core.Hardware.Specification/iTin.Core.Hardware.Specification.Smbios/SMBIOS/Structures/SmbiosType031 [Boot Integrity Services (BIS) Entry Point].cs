@@ -45,21 +45,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |      doubleNull      UINT16      ushort      2               20h                     |
     // •——————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Boot Integrity Services (BIS) Entry Point (Type 31) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Boot Integrity Services (BIS) Entry Point (Type 31) structure.
     /// </summary>
     internal sealed class SmbiosType031 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType031(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType031" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType031"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType031(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -71,7 +71,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Checksum: Gets a value representing the 'Checksum' field
         /// <summary>
-        /// Gets a value representing the <c>Checksum</c> field.
+        /// Gets a value representing the <b>Checksum</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -82,7 +82,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) BisEntryPointAddress16: Gets a value representing the 'Bis Entry Point Address 16' field
         /// <summary>
-        /// Gets a value representing the <c>Bis Entry Point Address 16</c> field.
+        /// Gets a value representing the <b>Bis Entry Point Address 16</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -93,7 +93,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) BisEntryPointAddress32: Gets a value representing the 'Bis Entry Point Address 32' field
         /// <summary>
-        /// Gets a value representing the <c>Bis Entry Point Address 32</c> field.
+        /// Gets a value representing the <b>Bis Entry Point Address 32</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -107,7 +107,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

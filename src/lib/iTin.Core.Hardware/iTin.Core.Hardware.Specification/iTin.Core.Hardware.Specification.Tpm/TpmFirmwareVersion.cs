@@ -37,7 +37,7 @@ namespace iTin.Core.Hardware.Specification.Tpm
     // •——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <summary>
-    /// Represents <c>TPM</c> firmware version.
+    /// Represents <b>TPM</b> firmware version.
     /// </summary>
     public class TpmFirmwareVersion
     {
@@ -62,7 +62,7 @@ namespace iTin.Core.Hardware.Specification.Tpm
         /// Gets a value indicating whether this instance is unknown version.
         /// </summary>
         /// <value>
-        /// <strong>true</strong> if this <c>TpmFirmwareVersion</c> instance has a unknown version  contains the default; otherwise, <strong>false</strong>.
+        /// <b>true</b> if this <b>TpmFirmwareVersion</b> instance has a unknown version  contains the default; otherwise, <b>false</b>.
         /// </value>
         public bool IsUnknownVersion =>MajorVersion == -1 && MinorVersion == -1  && MajorRevision == -1 && MinorRevision == -1;
         #endregion
@@ -117,7 +117,7 @@ namespace iTin.Core.Hardware.Specification.Tpm
 
         #region [public] {static} (TpmFirmwareVersion) Parse(byte[]): Parses firmware version raw data, valid only for Firmware Spec Version 1
         /// <summary>
-        /// Parses firmware version raw data, valid only for <c>Firmware Spec Version 1</c>.
+        /// Parses firmware version raw data, valid only for <b>Firmware Spec Version 1</b>.
         /// </summary>
         /// <param name="rawBytes">Target data to analyze</param>
         /// <returns>
@@ -154,10 +154,10 @@ namespace iTin.Core.Hardware.Specification.Tpm
 
         #region [public] {override} (string) ToString(): Returns a class String that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T:System.String" /> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref="T:iTin.Core.Hardware.Specification.Smbios.TpmFirmwareVersion" /> class.
+        /// Object <see cref="string"/> that represents the current <see cref="TpmFirmwareVersion"/> class.
         /// </returns>
         public override string ToString() => MajorRevision != 0 ? $"{MajorVersion}.{MinorVersion}.{MajorRevision}.{MinorRevision}" : $"{MajorVersion}.{MinorVersion}";
         #endregion

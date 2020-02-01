@@ -30,18 +30,18 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: See NumberOfButtons                 |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Built-in Pointing Device (Type 21) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Built-in Pointing Device (Type 21) structure.
     /// </summary>
     internal sealed class SmbiosType021 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType021(SmbiosStructureHeaderInfo, int): Inicializa una nueva instancia de la clase especificando la información de la estructura y la versión de SMBIOS
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType021" /> especificando la información de la estructura y la versión de SMBIOS.
+        /// Inicializa una nueva instancia de la clase <see cref="SmbiosType021"/> especificando la información de la estructura y la versión de SMBIOS.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Información sin tratar de la estructura actual.</param>
         /// <param name="smbiosVersion">Versión actual de SMBIOS.</param>
@@ -58,7 +58,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' field
         /// <summary>
-        /// Gets a value representing the <c>Device Type</c> field.
+        /// Gets a value representing the <b>Device Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -69,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Interface: Gets a value representing the 'Interface' field
         /// <summary>
-        /// Gets a value representing the <c>Interface</c> field.
+        /// Gets a value representing the <b>Interface</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) NumberOfButtons: Gets a value representing the 'Number Of Buttons' field
         /// <summary>
-        /// Gets a value representing the <c>Number Of Buttons</c> field.
+        /// Gets a value representing the <b>Number Of Buttons</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -96,7 +96,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

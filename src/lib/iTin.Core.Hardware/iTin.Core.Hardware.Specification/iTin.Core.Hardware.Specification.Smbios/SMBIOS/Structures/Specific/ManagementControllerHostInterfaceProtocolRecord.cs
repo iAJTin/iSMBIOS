@@ -42,7 +42,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) ProtocolType: Gets a value that represents the 'Protocol Type' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Protocol Type</c>' field.
+        ///  Gets a value that represents the '<b>Protocol Type</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -53,7 +53,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ProtocolTypeSpecificDataLenght: Gets a value representing the 'Protocol Type Specific Data Lenght' field
         /// <summary>
-        /// Gets a value representing the <c>Protocol Type Specific Data Lenght</c> field.
+        /// Gets a value representing the <b>Protocol Type Specific Data Lenght</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -64,7 +64,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ReadOnlyCollection<byte>) ProtocolTypeSpecificData: Gets a value representing the 'Protocol Type Specific Data' field
         /// <summary>
-        /// Gets a value representing the <c>Protocol Type Specific Data</c> field.
+        /// Gets a value representing the <b>Protocol Type Specific Data</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -79,13 +79,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Returns a string that represents the current object
         /// <summary>
-        /// Returns a class <see cref="T: System.String" /> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref = "T:iTin.Core.Hardware.Specification.Smbios.ManagementControllerHostInterfaceProtocolRecord"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="ManagementControllerHostInterfaceProtocolRecord"/> class.
         /// </returns>
         /// <remarks>
-        /// This method returns a string that includes the property <see cref = "P:iTin.Core.Hardware.Specification.Smbios.ManagementControllerHostInterfaceProtocolRecord.ProtocolType" />.
+        /// This method returns a string that includes the property <see cref="ProtocolType"/>.
         /// </remarks>                                    
         public override string ToString() => $"Type = {ProtocolType}";
         #endregion
@@ -95,7 +95,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

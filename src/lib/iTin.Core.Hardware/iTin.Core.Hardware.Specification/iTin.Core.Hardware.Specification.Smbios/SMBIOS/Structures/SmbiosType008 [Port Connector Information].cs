@@ -37,21 +37,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              Type                                    Note: Please see, GetPortType(byte)              |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Port Connector Information (Type 8) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the  Port Connector Information (Type 8) structure.
     /// </summary>
     internal sealed class SmbiosType008 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType008(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType008" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType008"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType008(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -63,7 +63,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) InternalReference: Gets a value representing the 'Internal Reference' field
         /// <summary>
-        /// Gets a value representing the <c>Internal Reference</c> field.
+        /// Gets a value representing the <b>Internal Reference</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -74,7 +74,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) InternalConnectorType: Gets a value representing the 'Internal Connector Type' field
         /// <summary>
-        /// Gets a value representing the <c>Internal Connector Type</c> field.
+        /// Gets a value representing the <b>Internal Connector Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -85,7 +85,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) ExternalReference: Gets a value representing the 'External Reference' field
         /// <summary>
-        /// Gets a value representing the <c>External Reference</c> field.
+        /// Gets a value representing the <b>External Reference</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -96,7 +96,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ExternalConnectorType: Gets a value representing the 'External Connector Type' field
         /// <summary>
-        /// Gets a value representing the <c>External Connector Type</c> field.
+        /// Gets a value representing the <b>External Connector Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -107,7 +107,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) PortType: Gets a value representing the 'Port Type' field
         /// <summary>
-        /// Gets a value representing the <c>Port Type</c> field.
+        /// Gets a value representing the <b>Port Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -121,7 +121,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

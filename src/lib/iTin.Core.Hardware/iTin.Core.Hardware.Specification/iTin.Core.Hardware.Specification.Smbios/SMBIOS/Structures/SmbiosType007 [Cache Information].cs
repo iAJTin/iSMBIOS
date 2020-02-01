@@ -137,21 +137,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  See 7.8.1.                                   |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Cache Information (Type 7) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Cache Information (Type 7) structure.
     /// </summary>
     internal sealed class SmbiosType007 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType007(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType007" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType007"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType007(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -165,7 +165,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SocketDesignation: Gets a value representing the 'Socket Designation' field
         /// <summary>
-        /// Gets a value representing the <c>Socket Designation</c> field.
+        /// Gets a value representing the <b>Socket Designation</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -176,7 +176,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) CacheConfiguration: Gets a value representing the 'Cache Configuration' field
         /// <summary>
-        /// Gets a value representing the <c>Cache Configuration</c> field.
+        /// Gets a value representing the <b>Cache Configuration</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -187,7 +187,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) OperationalMode:  Gets a value that represents the 'Operational Mode' feature of the 'Cache Configuration' field
         /// <summary>
-        /// Gets a value that represents the <c>bcOperational Mode</c> feature of the <c>Cache Configuration</c> field.
+        /// Gets a value that represents the <b>bcOperational Mode</b> feature of the <b>Cache Configuration</b> field.
         /// </summary>
         /// <value>
         /// Feature value.
@@ -198,7 +198,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) Enabled: Gets a value that represents the 'Enabled' feature of the 'Cache Configuration' field
         /// <summary>
-        /// Gets a value that represents the <c>Enabled</c> feature of the <c>Cache Configuration</c> field.
+        /// Gets a value that represents the <b>Enabled</b> feature of the <b>Cache Configuration</b> field.
         /// </summary>
         /// <value>
         /// Feature value.
@@ -209,7 +209,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Location: Gets a value that represents the 'Location' feature of the 'Cache Configuration' field
         /// <summary>
-        /// Gets a value that represents the <c>Location</c> feature of the <c>Cache Configuration</c> field.
+        /// Gets a value that represents the <b>Location</b> feature of the <b>Cache Configuration</b> field.
         /// </summary>
         /// <value>
         /// Feature value.
@@ -220,7 +220,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) CacheSocketed: Gets a value that represents the 'Cache Socketed' feature of the 'Cache Configuration' field
         /// <summary>
-        /// Gets a value that represents the <c>Cache Socketed</c> feature of the <c>Cache Configuration</c> field.
+        /// Gets a value that represents the <b>Cache Socketed</b> feature of the <b>Cache Configuration</b> field.
         /// </summary>
         /// <value>
         /// Feature value.
@@ -231,7 +231,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) CacheLevel: Gets a value that represents the 'Cache Level' feature of the 'Cache Configuration' field
         /// <summary>
-        /// Gets a value that represents the <c>Cache Level</c> feature of the <c>Cache Configuration</c> field.
+        /// Gets a value that represents the <b>Cache Level</b> feature of the <b>Cache Configuration</b> field.
         /// </summary>
         /// <value>
         /// Feature value.
@@ -251,7 +251,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MaximumCacheSize: Gets a value representing the 'Maximum Cache Size' field
         /// <summary>
-        /// Gets a value representing the <c>Maximum Cache Size</c> field.
+        /// Gets a value representing the <b>Maximum Cache Size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -262,7 +262,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) InstalledSize: Gets a value representing the 'Installed Size' field
         /// <summary>
-        /// Gets a value representing the <c>Installed Size</c> field.
+        /// Gets a value representing the <b>Installed Size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -273,7 +273,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) SupportedSramType: Gets a value representing the 'Supported SRAM Type' field
         /// <summary>
-        /// Gets a value representing the <c>Supported SRAM Type</c> field.
+        /// Gets a value representing the <b>Supported SRAM Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -284,7 +284,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) CurrentSramType: Gets a value representing the 'Current SRAM Type' field
         /// <summary>
-        /// Gets a value representing the <c>Current SRAM Type</c> field.
+        /// Gets a value representing the <b>Current SRAM Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -299,7 +299,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) CacheSpeed: Gets a value representing the 'Cache Speed' field
         /// <summary>
-        /// Gets a value representing the <c>Cache Speed</c> field.
+        /// Gets a value representing the <b>Cache Speed</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -310,7 +310,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ErrorCorrectionType: Gets a value representing the 'Error Connection Type' field
         /// <summary>
-        /// Gets a value representing the <c>Error Connection Type</c> field.
+        /// Gets a value representing the <b>Error Connection Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -321,7 +321,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) SystemCacheType: Gets a value representing the 'System Cache Type' field
         /// <summary>
-        /// Gets a value representing the <c>System Cache Type</c> field.
+        /// Gets a value representing the <b>System Cache Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -332,7 +332,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Associativity: Gets a value representing the 'Associativity' field
         /// <summary>
-        /// Gets a value representing the <c>Associativity</c>' field.
+        /// Gets a value representing the <b>Associativity</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -347,7 +347,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (uint) MaximumCacheSize2: Gets a value representing the 'Maximum Cache Size 2' field
         /// <summary>
-        /// Gets a value representing the <c>Maximum Cache Size 2</c> field.
+        /// Gets a value representing the <b>Maximum Cache Size 2</b> field.
         /// </summary>
         /// <value>
         /// Valor de la propiedad.
@@ -358,7 +358,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (uint) InstalledCacheSize2: Gets a value representing the 'Installed Cache Size 2' field
         /// <summary>
-        /// Gets a value representing the <c>Installed Cache Size 2</c> field.
+        /// Gets a value representing the <b>Installed Cache Size 2</b> field.
         /// </summary>
         /// <value>
         /// Valor de la propiedad.
@@ -374,7 +374,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>
@@ -427,7 +427,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (string) GetAssociativity(byte): Gets a string indicating the association mode of this cache
         /// <summary>
-        /// Gets a <see cref="T:system.String"/> indicating the association mode of this cache.
+        /// Gets a <see cref="string"/> indicating the association mode of this cache.
         /// </summary>
         /// <param name="code">Value to analyze.</param>
         /// <returns>The association mode of this cache.</returns>
@@ -462,7 +462,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (string) GetErrorCorrection(byte): Gets a string indicating the method of error correction
         /// <summary>
-        /// Gets a <see cref="T:system.String"/> indicating the method of error correction.
+        /// Gets a <see cref="string"/> indicating the method of error correction.
         /// </summary>
         /// <param name="code">Value to analyze.</param>
         /// <returns>Method used for error correction.</returns>            
@@ -489,7 +489,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (string) GetLocation(byte): Gets a string indicating the location of this cache against the processor
         /// <summary>
-        /// Gets a <see cref="T:system.String"/> indicating the location of this cache against the processor.
+        /// Gets a <see cref="string"/> indicating the location of this cache against the processor.
         /// </summary>
         /// <param name="code">Value to analyze.</param>
         /// <returns>The location of this cache against the processor.</returns>            
@@ -509,7 +509,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (string) GetOperationalMode(byte): Gets a string representing the operational mode
         /// <summary>
-        /// Gets a <see cref="T:system.String"/> representing the operational mode.
+        /// Gets a <see cref="string"/> representing the operational mode.
         /// </summary>
         /// <param name="code">Value to analyze.</param>
         /// <returns>The operational mode.</returns>            
@@ -529,7 +529,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (int) GetSize(int): Gets a string that represents the cache size in Kb
         /// <summary>
-        /// Gets a <see cref="T:System.String"/> that represents the cache size in Kb.
+        /// Gets a <see cref="string"/> that represents the cache size in Kb.
         /// </summary>
         /// <param name="code">Value to analyze.</param>
         /// <returns>The cache size in Kb.</returns>
@@ -548,7 +548,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (uint) GetSize(int): Gets a string that represents the cache size in Kb
         /// <summary>
-        /// Gets a <see cref="T:System.String"/> that represents the cache size in Kb.
+        /// Gets a <see cref="string"/> that represents the cache size in Kb.
         /// </summary>
         /// <param name="code">Value to analyze.</param>
         /// <returns>The cache size in Kb.</returns>
@@ -568,7 +568,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (string) GetSystemCacheType(byte): Gets a string representing the logical type of this cache
         /// <summary>
-        /// Gets a <see cref="T:System.String"/> representing the logical type of this cache.
+        /// Gets a <see cref="string"/> representing the logical type of this cache.
         /// </summary>
         /// <param name="code">Value to analyze</param>
         /// <returns>The logical type of this cache.</returns>

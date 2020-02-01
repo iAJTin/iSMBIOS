@@ -59,21 +59,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                      groups              BYTE                    present in the slot; see 7.10.9                              |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Slot Information (Type 9) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Slot Information (Type 9) structure.
     /// </summary>
     internal sealed class SmbiosType009 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType009(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType009" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType009"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType009(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -87,7 +87,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SlotDesignation: Gets a value representing the 'Socket Designation' field
         /// <summary>
-        /// Gets a value representing the <c>Slot Designation</c> field.
+        /// Gets a value representing the <b>Slot Designation</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -98,7 +98,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) SlotType: Gets a value representing the 'Slot Type' field
         /// <summary>
-        /// Gets a value representing the <c>Slot Type</c> field.
+        /// Gets a value representing the <b>Slot Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -109,7 +109,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DataWidth: Gets a value representing the 'Data Width' field
         /// <summary>
-        /// Gets a value representing the <c>Data Width</c> field.
+        /// Gets a value representing the <b>Data Width</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -120,7 +120,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) CurrentUsage: Gets a value representing the 'Current Usage' field
         /// <summary>
-        /// Gets a value representing the <c>Current Usage</c> field.
+        /// Gets a value representing the <b>Current Usage</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -131,7 +131,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Length: Gets a value representing the 'Length' field
         /// <summary>
-        /// Gets a value representing the <c>Length</c> field.
+        /// Gets a value representing the <b>Length</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -142,7 +142,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Adapter: Gets a value representing the 'Adapter' field
         /// <summary>
-        /// Gets a value representing the <c>Adapter</c> field.
+        /// Gets a value representing the <b>Adapter</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -153,7 +153,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Socket: Gets a value representing the 'Socket' field
         /// <summary>
-        /// Gets a value representing the <c>Socket</c> field.
+        /// Gets a value representing the <b>Socket</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -164,7 +164,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Characteristics1: Gets a value representing the 'Characteristics1' field
         /// <summary>
-        /// Gets a value representing the <c>Characteristics1</c> field.
+        /// Gets a value representing the <b>Characteristics1</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -179,7 +179,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Characteristics2: Gets a value representing the 'Characteristics2' field
         /// <summary>
-        /// Gets a value representing the <c>Characteristics2</c> field.
+        /// Gets a value representing the <b>Characteristics2</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -194,7 +194,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) SegmentBusFunction: Gets a value representing the 'Segment Bus Function' field
         /// <summary>
-        /// Gets a value representing the <c>Segment Bus Function</c> field.
+        /// Gets a value representing the <b>Segment Bus Function</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -205,7 +205,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Bus: Gets a value representing the 'Bus' field
         /// <summary>
-        /// Gets a value representing the <c>Bus</c> field.
+        /// Gets a value representing the <b>Bus</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -216,7 +216,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceFunctionNumber: Gets a value representing the 'Device Function Number' field
         /// <summary>
-        /// Gets a value representing the <c>Device Function Number</c> field.
+        /// Gets a value representing the <b>Device Function Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -227,7 +227,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Device: Gets a value representing the 'Device' feature of the 'Device/Function Number' field
         /// <summary>
-        /// Gets a value representing the <c>Device</c> feature of the <c>Device/Function Number</c> field.
+        /// Gets a value representing the <b>Device</b> feature of the <b>Device/Function Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -238,7 +238,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Function: Gets a value representing the 'Function' feature of the 'Device/Function Number' field
         /// <summary>
-        /// Gets a value representing the <c>Function</c> feature of the <c>Device/Function Number</c> field.
+        /// Gets a value representing the <b>Function</b> feature of the <b>Device/Function Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -254,7 +254,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

@@ -19,7 +19,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <summary>
-    /// This class represents an element of the structure <see cref="SmbiosType037" />.
+    /// This class represents an element of the structure <see cref="SmbiosType037"/>.
     /// </summary>
     public class MemoryChannelElement : SpecificSmbiosBaseType
     {
@@ -27,7 +27,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [internal] MemoryChannelElement(byte[]): Initialize a new instance of the class specifying the structure information
         /// <summary>
-        /// Initializes a new instance of the <see cref="MemoryChannelElement" /> class specifying the structure information.
+        /// Initializes a new instance of the <see cref="MemoryChannelElement"/> class specifying the structure information.
         /// </summary>
         /// <param name="memoryContainedElementsArray">Untreated information of the current structure.</param>
         internal MemoryChannelElement(byte[] memoryContainedElementsArray) : base(memoryContainedElementsArray)
@@ -41,7 +41,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Load: Gets a value that represents the 'Load' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Load</c>' field.
+        ///  Gets a value that represents the '<b>Load</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -52,7 +52,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Handle: Gets a value that represents the 'Handle' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Handle</c>' field.
+        ///  Gets a value that represents the '<b>Handle</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -67,14 +67,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Devuelve una clase string que representa al objeto actual.
         /// <summary>
-        /// Returns a class <see cref="T: System.String" /> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref = "T:iTin.Core.Hardware.Specification.Smbios.MemoryChannelElement"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="MemoryChannelElement"/> class.
         /// </returns>
         /// <remarks>
-        /// This method returns a string that includes the property <see cref = "P:iTin.Core.Hardware.Specification.Smbios.MemoryChannelElement.Load" /> and
-        /// <see cref = "P:iTin.Core.Hardware.Specification.Smbios.ChassisContainedElement.ItemType" />.
+        /// This method returns a string that includes the property <see cref="Load"/> and <see cref="Handle"/>.
         /// </remarks>                                    
         public override string ToString() => $"Load = {Load}, Handle = {Handle}";
         #endregion
@@ -84,7 +83,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region private methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

@@ -21,7 +21,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <summary>
         /// Initialize a new instance of the class <see cref="DmiManagementControllerHostInterfaceProtocolRecord"/>.
         /// </summary>
-        /// <param name="reference"><c>SMBIOS</c> properties.</param>
+        /// <param name="reference"><b>SMBIOS</b> properties.</param>
         internal DmiManagementControllerHostInterfaceProtocolRecord(SmbiosPropertiesTable reference)
         {
             _reference = reference;

@@ -36,21 +36,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver ThresholdHandle                             |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the  Management Device Component (Type 35) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the  Management Device Component (Type 35) structure.
     /// </summary>
     internal sealed class SmbiosType035 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType035(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType035" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType035"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType035(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -62,7 +62,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
-        /// Gets a value representing the <c>Description</c> field.
+        /// Gets a value representing the <b>Description</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -73,7 +73,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ManagementDeviceHandle: Gets a value representing the 'Management Device Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Management Device Handle</c> field.
+        /// Gets a value representing the <b>Management Device Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -84,7 +84,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ComponentHandle: Gets a value representing the 'Component Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Component Handle</c> field.
+        /// Gets a value representing the <b>Component Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -95,7 +95,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ThresholdHandle: Gets a value representing the 'Threshold Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Threshold Handle</c> field.
+        /// Gets a value representing the <b>Threshold Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -109,7 +109,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

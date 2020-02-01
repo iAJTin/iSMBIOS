@@ -44,9 +44,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                   11b - Unknown                            |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Hardware Security (Type 24) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Hardware Security (Type 24) structure.
     /// </summary>
     internal sealed class SmbiosType024 : SmbiosBaseType
     {
@@ -54,10 +54,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] SmbiosType024(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version.
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmbiosType024"/> class by specifying the structure information and the <see cref="SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType024"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType024(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -69,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) HardwareSecuritySettings: Gets a value representing the 'Hardware Security Settings' field
         /// <summary>
-        /// Gets a value representing the <c>Hardware Security Setting</c> field.
+        /// Gets a value representing the <b>Hardware Security Setting</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) FrontPanelResetStatus: Gets a value representing the 'Front Panel ResetS Status' hardware setting of the 'Hardware Security Setting' field
         /// <summary>
-        /// Gets a value representing the <c>Front Panel ResetS Status</c> hardware setting of the <c>Hardware Security Setting</c> field
+        /// Gets a value representing the <b>Front Panel ResetS Status</b> hardware setting of the <b>Hardware Security Setting</b> field
         /// </summary>
         /// <value>
         /// Hardware setting value.
@@ -91,7 +91,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) AdministratorPasswordStatus: Gets a value representing the 'Administrator Password Status' hardware setting of the 'Hardware Security Setting' field
         /// <summary>
-        /// Gets a value representing the <c>Administrator Password Status</c> hardware setting of the <c>Hardware Security Setting</c> field
+        /// Gets a value representing the <b>Administrator Password Status</b> hardware setting of the <b>Hardware Security Setting</b> field
         /// </summary>
         /// <value>
         /// Hardware setting value.
@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) KeyboardPasswordStatus: Gets a value representing the 'Keyboard Password Status' hardware setting of the 'Hardware Security Setting' field
         /// <summary>
-        /// Gets a value representing the <c>Keyboard Password Status</c> hardware setting of the <c>Hardware Security Setting</c> field
+        /// Gets a value representing the <b>Keyboard Password Status</b> hardware setting of the <b>Hardware Security Setting</b> field
         /// </summary>
         /// <value>
         /// Hardware setting value.
@@ -113,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) PowerOnPasswordStatus: Gets a value representing the 'Power-On Password Status' hardware setting of the 'Hardware Security Setting' field
         /// <summary>
-        /// Gets a value representing the <c>Power-On Password Status</c> hardware setting of the <c>Hardware Security Setting</c> field
+        /// Gets a value representing the <b>Power-On Password Status</b> hardware setting of the <b>Hardware Security Setting</b> field
         /// </summary>
         /// <value>
         /// Hardware setting value.
@@ -127,7 +127,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

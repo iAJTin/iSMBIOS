@@ -6,22 +6,22 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios;
     using Smbios.Property;
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiBaseType{T}" /> class that contains the logic to decode the TPM Device (Type 43) structure.
-    /// For more information, please see <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType043" />.
+    /// Specialization of the <see cref="DmiBaseType{T}"/> class that contains the logic to decode the TPM Device (Type 43) structure.
+    /// For more information, please see <see cref="SmbiosType043"/>.
     /// </summary>
     internal sealed class DmiType043: DmiBaseType<SmbiosType043>
     {
         #region constructor/s
 
         #region [public] DmiType043(SmbiosType043, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Dmi.DmiType043" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="DmiType043"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructure">Formatted structure information.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public DmiType043(SmbiosType043 smbiosStructure, int smbiosVersion) : base(smbiosStructure, smbiosVersion)
         {
         }
@@ -32,7 +32,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(DmiClassPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

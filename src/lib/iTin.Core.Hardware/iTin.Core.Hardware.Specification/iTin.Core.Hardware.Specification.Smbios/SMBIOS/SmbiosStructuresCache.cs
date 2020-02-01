@@ -5,7 +5,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Diagnostics;
 
     /// <summary>
-    /// The <see cref="SmbiosStructuresCache" /> class represents the cache of available structures for a particular type.
+    /// The <see cref="SmbiosStructuresCache"/> class represents the cache of available structures for a particular type.
     /// </summary>
     internal class SmbiosStructuresCache
     {

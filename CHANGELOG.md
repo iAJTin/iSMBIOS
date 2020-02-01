@@ -9,10 +9,64 @@ All notable changes to this project will be documented in this file.
 
   - Renames the property name *DmiProperty.Maximu**n**Speed* -> *DmiProperty.Maximu**m**Speed.*
   
-- Adds descriptive code help. I Tried to adds a help most descriptive for the properties keys. The image below shows an example.
+- Adds descriptive code help. I Tried to adds a help most descriptive for the properties keys. 
 
-  ![Help.png][helpimg]
+  - Current progress
 
+    |Type|Description|Status|
+|:------|:------|
+|Type000|BIOS Information|Done!!|
+|Type001|System Information|Done!!|
+|Type002|Baseboard (or Module) Information|Done!!|
+|Type003|System Enclosure or Chassis|Done!!|
+|Type004|Processor Information|Done!!|
+|Type005|Memory Controller Information (Obsolete)|...|
+|Type006|Memory Module Information (Obsolete)|...|
+|Type007|Cache Information|...|
+|Type008|Port Connector Information|Done!!|
+|Type009|Slot Information|Done!!|
+|Type010|On Board Devices (Obsolete)|Done!!|
+|Type011|OEM Strings|Done!!|
+|Type012|System Configuration Options|Done!!|
+|Type013|BIOS Language Information|Done!!|
+|Type014|Group Associations|Done!!|
+|Type015|System Event Log|Done!!|
+|Type016|Physical Memory Array|...|
+|Type017|Memory Device|...|
+|Type018|32-Bit Memory Error Information|...|
+|Type019|Memory Array Mapped Address|...|
+|Type020|Memory Device Mapped Address|...|
+|Type021|Built-in Pointing Device|...|
+|Type022|Portable Battery|...|
+|Type023|System Reset|...|
+|Type024|Hardware Security|...|
+|Type025|System Power Controls|...|
+|Type026|Voltage Probe|...|
+|Type027|Cooling Device|...|
+|Type028|Temperature Probe|...|
+|Type029|Electrical Current Probe|...|
+|Type030|Out-of-Band Remote Access|...|
+|Type031|Boot Integrity Services (BIS) Entry Point|...|
+|Type032|System Boot Information|...|
+|Type033|64-Bit Memory Error Information|...|
+|Type034|Management Device|...|
+|Type035|Management Device Component|...|
+|Type036|Management Device Threshold Data|...|
+|Type037|Memory Channel|...|
+|Type038|IPMI Device Information|...|
+|Type039|System Power Supply|...|
+|Type040|Additional Information|...|
+|Type041|Onboard Devices Extended Information|...|
+|Type042|Management Controller Host Interface|Done!!|
+|Type043|TPM Device|Done!!!|
+|Type044|Processor Additional Information|Done!!|
+|Type126|Inactive|Done!!|
+|Type127|End-Of-Table|Done!!|
+ 
+      
+  - The image below shows an example.
+
+    ![Help.png][helpimg] 
 
 ## [1.1.1] - 2019-10-20
 
@@ -34,7 +88,7 @@ All notable changes to this project will be documented in this file.
 
 - Library versions for this version
   
-|Library|Version|Description|
+    |Library|Version|Description|
 |:------|:------|:----------|
 |iTin.Core| 1.0.0 | Common calls |
 |iTin.Core.Interop| 1.0.0 | Interop calls |

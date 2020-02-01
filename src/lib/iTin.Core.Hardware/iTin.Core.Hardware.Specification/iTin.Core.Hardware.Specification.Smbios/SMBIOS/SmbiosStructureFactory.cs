@@ -4,7 +4,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.Generic;
 
     /// <summary>
-    /// The static class <see cref="SmbiosStructureFactory" /> creates the <see cref="SMBIOS" /> structures.
+    /// The static class <see cref="SmbiosStructureFactory"/> creates the <see cref="SMBIOS"/> structures.
     /// </summary>
     internal static class SmbiosStructureFactory
     {

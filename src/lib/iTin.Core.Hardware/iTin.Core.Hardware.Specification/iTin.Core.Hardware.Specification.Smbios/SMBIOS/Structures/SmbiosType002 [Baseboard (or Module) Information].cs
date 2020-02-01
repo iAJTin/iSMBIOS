@@ -96,21 +96,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              Handles                                 present on this motherboard.                                   |
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Baseboard (or Module) Information (Type 2) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Baseboard (or Module) Information (Type 2) structure.
     /// </summary>
     internal sealed class SmbiosType002 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType002(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType002" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType002"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType002(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -122,7 +122,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
-        /// Gets a value representing the <c>Manufacturer</c> field.
+        /// Gets a value representing the <b>Manufacturer</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -133,7 +133,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Product: Gets a value representing the 'Product' field
         /// <summary>
-        /// Gets a value representing the <c>Product</c> field.
+        /// Gets a value representing the <b>Product</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -144,7 +144,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Version: Gets a value representing the 'Version' field
         /// <summary>
-        /// Gets a value representing the <c>Version</c> field.
+        /// Gets a value representing the <b>Version</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -155,7 +155,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
-        /// Gets a value representing the <c>Serial Number</c> field.
+        /// Gets a value representing the <b>Serial Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -166,7 +166,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) AssetTag: Gets a value representing the 'Asset Tag' field
         /// <summary>
-        /// Gets a value representing the <c>Asset Tag</c> field.
+        /// Gets a value representing the <b>Asset Tag</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -177,7 +177,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) FeatureFlags: Gets a value representing the 'Feature Flags' field
         /// <summary>
-        /// Gets a value representing the <c>Feature Flags</c> field.
+        /// Gets a value representing the <b>Feature Flags</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -188,7 +188,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsHostingBoard: Gets a value representing the 'Is Hosting Board' field
         /// <summary>
-        /// Gets a value representing the <c>Is Hosting Board</c> field.
+        /// Gets a value representing the <b>Is Hosting Board</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -199,7 +199,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) RequiredDaughterBoard: Gets a value representing the 'Required Daughter Board' field
         /// <summary>
-        /// Gets a value representing the <c>Required Daughter Board</c> field.
+        /// Gets a value representing the <b>Required Daughter Board</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -210,7 +210,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsRemovable: Gets a value representing the 'Is Removable' field
         /// <summary>
-        /// Gets a value representing the <c>Is Removable</c> field.
+        /// Gets a value representing the <b>Is Removable</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -221,7 +221,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsReplaceable: Gets a value representing the 'Is Replaceable' field
         /// <summary>
-        /// Gets a value representing the <c>Is Replaceable</c> field.
+        /// Gets a value representing the <b>Is Replaceable</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -232,7 +232,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (bool) IsHotSwappable: Gets a value representing the 'Is Hot Swappable' field
         /// <summary>
-        /// Gets a value representing the <c>Is Hot Swappable</c> field.
+        /// Gets a value representing the <b>Is Hot Swappable</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -243,7 +243,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) LocationInChassis: Gets a value representing the 'Location In Chassis' field
         /// <summary>
-        /// Gets a value representing the <c>Location In Chassis</c> field.
+        /// Gets a value representing the <b>Location In Chassis</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -254,7 +254,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ChassisHandle: Gets a value representing the 'Chassis Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Chassis Handle</c> field.
+        /// Gets a value representing the <b>Chassis Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -265,7 +265,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) BoardType: Gets a value representing the 'Board Type' field
         /// <summary>
-        /// Gets a value representing the <c>Board Type</c> field.
+        /// Gets a value representing the <b>Board Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -276,7 +276,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) NumberOfContainedObjectHandles: Gets a value representing the 'Number Of Contained Object Handles' field
         /// <summary>
-        /// Gets a value representing the <c>Number Of Contained Object Handles</c> field.
+        /// Gets a value representing the <b>Number Of Contained Object Handles</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -290,7 +290,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>
@@ -353,7 +353,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] {static} (string) GetBoardType(byte): Gets a string that identifies the type of motherboard
         /// <summary>
-        /// Gets a <see cref="T:System.String" /> that identifies the type of motherboard.
+        /// Gets a <see cref="string"/> that identifies the type of motherboard.
         /// </summary>
         /// <param name="code">Value to analyze</param>
         /// <returns>

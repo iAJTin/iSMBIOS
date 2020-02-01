@@ -2272,7 +2272,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region Version 3.3.0+
         [PropertyName("Referenced Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         ReferencedHandle,
 
         [PropertyName("Processor Specific Block")]

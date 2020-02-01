@@ -53,21 +53,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: Ver ErrorResolution                             |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the 64-Bit Memory Error Information (Type 33) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the 64-Bit Memory Error Information (Type 33) structure.
     /// </summary>
     internal sealed class SmbiosType033 : SmbiosBaseType
     {
         #region Constructor/es
 
         #region [public] SmbiosType033(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType033" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType033"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType033(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -79,7 +79,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ErrorType: Gets a value representing the 'Error Type' field
         /// <summary>
-        /// Gets a value representing the <c>Error Type</c> field.
+        /// Gets a value representing the <b>Error Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -90,7 +90,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ErrorGranularity: Gets a value representing the 'Error Granularity' field
         /// <summary>
-        /// Gets a value representing the <c>Error Granularity</c> field.
+        /// Gets a value representing the <b>Error Granularity</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -101,7 +101,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ErrorOperation: Gets a value representing the 'Error Operation' field
         /// <summary>
-        /// Gets a value representing the <c>Error Operation</c> field.
+        /// Gets a value representing the <b>Error Operation</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -112,7 +112,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (long) CrcData: Gets a value representing the 'Crc Data' field
         /// <summary>
-        /// Gets a value representing the <c>Crc Data</c> field.
+        /// Gets a value representing the <b>Crc Data</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -123,7 +123,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) MemoryArrayErrorAddress: Gets a value representing the 'Memory Array Error Address' field
         /// <summary>
-        /// Gets a value representing the <c>Memory Array Error Address</c> field.
+        /// Gets a value representing the <b>Memory Array Error Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -134,7 +134,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field
         /// <summary>
-        /// Gets a value representing the <c>Device Error Address</c> field.
+        /// Gets a value representing the <b>Device Error Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -145,7 +145,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (long) ErrorResolution: Gets a value representing the 'Error Resolution' field
         /// <summary>
-        /// Gets a value representing the <c>Error Resolution</c> field.
+        /// Gets a value representing the <b>Error Resolution</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -159,7 +159,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

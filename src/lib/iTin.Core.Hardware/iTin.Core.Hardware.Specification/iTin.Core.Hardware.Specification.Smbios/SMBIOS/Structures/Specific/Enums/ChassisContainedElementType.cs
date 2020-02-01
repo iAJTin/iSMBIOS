@@ -2,7 +2,7 @@
 namespace iTin.Core.Hardware.Specification.Smbios
 {
     /// <summary>
-    /// Defines the <c>SMBIOS</c> structures associated with the chassis.
+    /// Defines the <b>SMBIOS</b> structures associated with the chassis.
     /// </summary>
     internal enum ChassisContainedElementType
     {
@@ -12,7 +12,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         BaseBoardEnumeration = 0x00,
 
         /// <summary>
-        /// <c>SMBIOS</c> structure
+        /// <b>SMBIOS</b> structure
         /// </summary>
         SmbiosStructure = 0x01
     }

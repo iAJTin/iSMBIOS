@@ -7,7 +7,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios.Property;
 
     /// <summary>
-    /// This class represents an element of the structure <see cref="DmiType040" />.
+    /// This class represents an element of the structure <see cref="DmiType040"/>.
     /// </summary>
     public class DmiAdditionalInformationEntry
     {
@@ -21,7 +21,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <summary>
         /// Initialize a new instance of the <see cref="DmiAdditionalInformationEntry"/> class specifying the structure information.
         /// </summary>
-        /// <param name="reference"><c>SMBIOS</c> properties.</param>
+        /// <param name="reference"><b>SMBIOS</b> properties.</param>
         internal DmiAdditionalInformationEntry(SmbiosPropertiesTable reference)
         {
             _reference = reference;

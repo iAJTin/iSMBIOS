@@ -4,7 +4,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using System.Diagnostics;
 
     /// <summary>
-    /// Represents a structure <see cref="DMI" />.
+    /// Represents a structure <see cref="DMI"/>.
     /// </summary>
     public sealed class DmiStructure
     {
@@ -17,9 +17,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [internal] DmiStructure(DmiStructureClass): Initialize a new instance of the class DmiStructure
         /// <summary>
-        /// Initialize a new instance of the class <see cref="DmiStructure" />.
+        /// Initialize a new instance of the class <see cref="DmiStructure"/>.
         /// </summary>
-        /// <param name="class">Estructura.</param>
+        /// <param name="class">Structure.</param>
         internal DmiStructure(DmiStructureClass @class)
         {
             Class = @class;
@@ -35,7 +35,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// Gets a value that represents the class implemented.
         /// </summary>
         /// <value>
-        /// One of the values of the enumeration <see cref="DmiStructureClass" /> that represents the implemented class.
+        /// One of the values of the enumeration <see cref="DmiStructureClass"/> that represents the implemented class.
         /// </value>
         public DmiStructureClass Class { get; }
         #endregion
@@ -45,8 +45,8 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// Gets the collection of available items.
         /// </summary>
         /// <value>
-        /// Object <see cref="DmiClassCollection" /> that contains the collection of <see cref="DmiClass" /> objects available.
-        /// If there is no object <see cref="DmiClass" />, <b>null</b> is returned.
+        /// Object <see cref="DmiClassCollection"/> that contains the collection of <see cref="DmiClass"/> objects available.
+        /// If there is no object <see cref="DmiClass"/>, <b>null</b> is returned.
         /// </value>
         public DmiClassCollection Elements => _elementsCollection ?? (_elementsCollection = new DmiClassCollection(this));
         #endregion
@@ -81,10 +81,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region [public] {override} (String) ToString: Returns a String that represents this instance
         /// <summary>
-        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="T:System.String" /> that represents this instance.
+        /// A <see cref="string"/> that represents this instance.
         /// </returns>
         /// <remarks>
         /// This method returns a string that represents this instance.

@@ -2,7 +2,7 @@
 namespace iTin.Core.Hardware.Specification.Dmi
 {
     /// <summary>
-    /// Defines the <c>DMI</c> structures associated with the chassis.
+    /// Defines the <b>DMI</b> structures associated with the chassis.
     /// </summary>
     public enum ChassisContainedElementType
     {
@@ -12,7 +12,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         BaseBoardEnumeration = 0x00,
 
         /// <summary>
-        /// <c>SMBIOS</c> structure
+        /// <b>SMBIOS</b> structure
         /// </summary>
         SmbiosStructure = 0x01
     }

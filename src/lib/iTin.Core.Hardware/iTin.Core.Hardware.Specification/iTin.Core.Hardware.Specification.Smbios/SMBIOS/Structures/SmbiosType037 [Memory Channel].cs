@@ -54,21 +54,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |              Handle                                                                                        |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Channel (Type 37) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Memory Channel (Type 37) structure.
     /// </summary>
     internal sealed class SmbiosType037 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType037(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType037" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType037"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType037(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) ChannelType: Gets a value representing the 'Channel Type' field
         /// <summary>
-        /// Gets a value representing the <c>Channel Type</c> field.
+        /// Gets a value representing the <b>Channel Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -91,7 +91,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MaximunChannelLoad: Gets a value representing the 'Maximun Channel Load' field
         /// <summary>
-        /// Gets a value representing the <c>Maximun Channel Load</c> field.
+        /// Gets a value representing the <b>Maximun Channel Load</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Count: Gets a value representing the 'Count' field
         /// <summary>
-        /// Gets a value representing the <c>Count</c> field.
+        /// Gets a value representing the <b>Count</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -116,7 +116,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

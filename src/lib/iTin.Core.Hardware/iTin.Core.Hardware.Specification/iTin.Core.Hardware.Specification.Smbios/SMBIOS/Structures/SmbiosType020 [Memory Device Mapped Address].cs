@@ -126,21 +126,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: See ExtendedEndingAddress           |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Device Mapped Address (Type 20) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Memory Device Mapped Address (Type 20) structure.
     /// </summary>
     internal sealed class SmbiosType020 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType020(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType020" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType020"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType020(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -154,7 +154,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) StartingAddress: Gets a value representing the 'Starting Address' field
         /// <summary>
-        /// Gets a value representing the <c>Starting Address</c> field.
+        /// Gets a value representing the <b>Starting Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -165,7 +165,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) EndingAddress: Gets a value representing the 'Ending Address' field
         /// <summary>
-        /// Gets a value representing the <c>Ending Address</c> field.
+        /// Gets a value representing the <b>Ending Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -176,7 +176,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MemoryDeviceHandle: Gets a value representing the 'Memory Device Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Memory Device Handle</c> field.
+        /// Gets a value representing the <b>Memory Device Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -187,7 +187,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MappedAddressHandle: Gets a value representing the 'Mapped Address Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Mapped Address Handle</c> field.
+        /// Gets a value representing the <b>Mapped Address Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -198,7 +198,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) PartitionRowPosition: Gets a value representing the 'Partition Row Position' field
         /// <summary>
-        /// Gets a value representing the <c>Partition Row Position</c> field.
+        /// Gets a value representing the <b>Partition Row Position</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -209,7 +209,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (MemoryDeviceMappedAddressInterleavedPosition) InterleavePosition: Gets a value representing the 'Interleave Position' field
         /// <summary>
-        /// Gets a value representing the <c>Interleave Position</c> field.
+        /// Gets a value representing the <b>Interleave Position</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -220,7 +220,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) InterleavedDataDepth: Gets a value representing the 'Interleaved Data Depth' field
         /// <summary>
-        /// Gets a value representing the <c>Interleaved Data Depth</c> field.
+        /// Gets a value representing the <b>Interleaved Data Depth</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -235,7 +235,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) ExtendedStartingAddress: Gets a value representing the 'Extended Starting Address' field
         /// <summary>
-        /// Gets a value representing the <c>Extended Starting Address</c> field.
+        /// Gets a value representing the <b>Extended Starting Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -246,7 +246,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field
         /// <summary>
-        /// Gets a value representing the <c>Extended Ending Address</c> field.
+        /// Gets a value representing the <b>Extended Ending Address</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -262,7 +262,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

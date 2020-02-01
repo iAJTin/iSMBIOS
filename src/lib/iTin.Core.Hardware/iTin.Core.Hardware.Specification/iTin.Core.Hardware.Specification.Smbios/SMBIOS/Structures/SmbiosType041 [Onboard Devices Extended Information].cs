@@ -43,21 +43,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                      Note: See FunctionNumber                              |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Onboard Devices Extended Information (Type 41) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Onboard Devices Extended Information (Type 41) structure.
     /// </summary>
     internal sealed class SmbiosType041 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType041(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType041" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType041"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType041(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -69,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) ReferenceDesignation: Gets a value representing the 'Reference Designation' field
         /// <summary>
-        /// Gets a value representing the <c>Reference Designation</c> field.
+        /// Gets a value representing the <b>Reference Designation</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) DeviceStatus: Gets a value representing the 'Device Status' field
         /// <summary>
-        /// Gets a value representing the <c>Device Status</c> field.
+        /// Gets a value representing the <b>Device Status</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -91,7 +91,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' field
         /// <summary>
-        /// Gets a value representing the <c>Device Type</c> field.
+        /// Gets a value representing the <b>Device Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -102,7 +102,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceTypeInstance: Gets a value representing the 'Device Type Instance' field
         /// <summary>
-        /// Gets a value representing the <c>Device Type Instance</c> field.
+        /// Gets a value representing the <b>Device Type Instance</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -113,7 +113,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) SegmentGroupNumber: Gets a value representing the 'Segment Group Number' field
         /// <summary>
-        /// Gets a value representing the <c>Segment Group Number</c> field.
+        /// Gets a value representing the <b>Segment Group Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -124,7 +124,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) BusNumber: Gets a value representing the 'Bus Number' field
         /// <summary>
-        /// Gets a value representing the <c>Bus Number</c> field.
+        /// Gets a value representing the <b>Bus Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -135,7 +135,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceFunction: Gets a value representing the 'Device Function' field
         /// <summary>
-        /// Gets a value representing the <c>Device Function</c> field.
+        /// Gets a value representing the <b>Device Function</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -146,7 +146,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceNumber: Gets a value representing the 'Device Number' field
         /// <summary>
-        /// Gets a value representing the <c>Device Number</c> field.
+        /// Gets a value representing the <b>Device Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -160,7 +160,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

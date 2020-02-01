@@ -80,7 +80,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) ItemType: Gets a value that represents the 'Type' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Type</c>' field.
+        ///  Gets a value that represents the '<b>Type</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -112,7 +112,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Max: Gets a value that represents the 'Contained Element Maximum' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Contained Element Maximum</c>' field.
+        ///  Gets a value that represents the '<b>Contained Element Maximum</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -123,7 +123,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Min: Gets a value that represents the 'Contained Element Minimun' field
         /// <summary>
-        ///  Gets a value that represents the '<c>Contained Element Minimun</c>' field.
+        ///  Gets a value that represents the '<b>Contained Element Minimun</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -134,7 +134,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ChassisContainedElementType) TypeSelect: Gets a value that represents the 'TypeSelect' field
         /// <summary>
-        ///  Gets a value that represents the '<c>TypeSelect</c>' field.
+        ///  Gets a value that represents the '<b>TypeSelect</b>' field.
         /// </summary>
         /// <value>
         /// Value of the property.
@@ -149,14 +149,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] {override} (string) ToString(): Devuelve una clase string que representa al objeto actual.
         /// <summary>
-        /// Returns a class <see cref="T: System.String" /> that represents the current object.
+        /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="T:System.String" /> that represents the current <see cref = "T:iTin.Core.Hardware.Specification.Smbios.AdditionalInformationEntry"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="AdditionalInformationEntry"/> class.
         /// </returns>
         /// <remarks>
-        /// This method returns a string that includes the property <see cref = "P:iTin.Core.Hardware.Specification.Smbios.ChassisContainedElement.TypeSelect" /> and
-        /// <see cref = "P:iTin.Core.Hardware.Specification.Smbios.ChassisContainedElement.ItemType" />.
+        /// This method returns a string that includes the property <see cref="TypeSelect"/> and
+        /// <see cref="ItemType"/>.
         /// </remarks>                                    
         public override string ToString() => $"Select = {TypeSelect}, Type = {ItemType}";
         #endregion
@@ -166,7 +166,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

@@ -9,7 +9,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using Helpers;
 
     /// <summary>
-    /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="SMBIOS" />.
+    /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="SMBIOS"/>.
     /// </summary>
     public abstract class SpecificSmbiosBaseType
     {
@@ -36,7 +36,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [protected] SpecificSmbiosBaseType(byte[]): Initializes a new instance of the class by specifying the raw data of a specific SMBIOS structure
         /// <summary>
-        /// Initializes a new instance of the class <see cref="SpecificSmbiosBaseType"/> by specifying the raw data of a specific <c>SMBIOS</c> structure
+        /// Initializes a new instance of the class <see cref="SpecificSmbiosBaseType"/> by specifying the raw data of a specific <b>SMBIOS</b> structure
         /// </summary>
         /// <param name="data">Raw data.</param>
         protected SpecificSmbiosBaseType(byte[] data)
@@ -89,10 +89,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [protected] (int) SmbiosVersion: Gets the current version of SMBIOS
         /// <summary>
-        /// Gets the current version of <see cref="SMBIOS" />.
+        /// Gets the current version of <see cref="SMBIOS"/>.
         /// </summary>
         /// <value>
-        /// Value representing the current version of <see cref="SMBIOS" />.
+        /// Value representing the current version of <see cref="SMBIOS"/>.
         /// </value>
         protected int SmbiosVersion { get; }
         #endregion
@@ -103,7 +103,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (object) GetPropertyValue(IPropertyKey): Returns the value of specified property. Always returns the first appearance of the property
         /// <summary>
-        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -114,7 +114,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (T) GetPropertyValue<T>(IPropertyKey): Returns the the strongly typed value of specified property
         /// <summary>
-        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>

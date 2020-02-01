@@ -42,21 +42,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                   Note: See InboundConnection              |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Out-of-Band Remote Access (Type 30) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Out-of-Band Remote Access (Type 30) structure.
     /// </summary>
     internal sealed class SmbiosType030 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType030(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType030" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType030"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType030(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -68,7 +68,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) ManufacturerName: Gets a value representing the 'Manufacturer Name' field
         /// <summary>
-        /// Gets a value representing the <c>Manufacturer Name</c> field.
+        /// Gets a value representing the <b>Manufacturer Name</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -79,7 +79,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Connections: Gets a value representing the 'Connections' field
         /// <summary>
-        /// Gets a value representing the <c>Connections</c> field.
+        /// Gets a value representing the <b>Connections</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -90,7 +90,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) InBoundConnection: Gets a value representing the 'InBound Connection' feature of the 'Connections' field
         /// <summary>
-        /// Gets a value representing the <c>InBound Connection</c> feature of the <c>Connections</c> field
+        /// Gets a value representing the <b>InBound Connection</b> feature of the <b>Connections</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -101,7 +101,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) OutBoundConnection: Gets a value representing the 'OutBound Connection' feature of the 'LConnections' field
         /// <summary>
-        /// Gets a value representing the <c>OutBound Connection</c> feature of the <c>Connections</c> field
+        /// Gets a value representing the <b>OutBound Connection</b> feature of the <b>Connections</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -115,7 +115,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

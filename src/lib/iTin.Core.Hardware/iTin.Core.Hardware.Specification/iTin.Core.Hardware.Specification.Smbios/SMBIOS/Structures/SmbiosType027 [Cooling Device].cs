@@ -68,21 +68,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: See Description                     |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Cooling Device (Type 27) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Cooling Device (Type 27) structure.
     /// </summary>
     internal sealed class SmbiosType027 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType027(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType027" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType027"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType027(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -96,7 +96,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) TemperatureProbeHandle: Gets a value representing the 'Temperature Probe Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Temperature Probe Handle</c> field.
+        /// Gets a value representing the <b>Temperature Probe Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -107,7 +107,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceTypeAndStatus: Gets a value representing the 'Device Type And Status' field
         /// <summary>
-        /// Gets a value representing the <c>Device Type And Status</c> field.
+        /// Gets a value representing the <b>Device Type And Status</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -118,7 +118,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceType: Gets a value representing the 'Device Type' feature of the 'Device Type And Status' field
         /// <summary>
-        /// Gets a value representing the <c>Device Type</c> feature of the <c>Device Type And Status</c> field
+        /// Gets a value representing the <b>Device Type</b> feature of the <b>Device Type And Status</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -129,7 +129,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Status: Gets a value representing the 'Status' feature of the 'Device Type And Status' field
         /// <summary>
-        /// Gets a value representing the <c>Status</c> feature of the <c>Device Type And Status</c> field
+        /// Gets a value representing the <b>Status</b> feature of the <b>Device Type And Status</b> field
         /// </summary>
         /// <value>
         /// Feature value.
@@ -140,7 +140,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) CoolingUnitGroup: Gets a value representing the 'Cooling Unit Group' field
         /// <summary>
-        /// Gets a value representing the <c>Cooling Unit Group</c> field.
+        /// Gets a value representing the <b>Cooling Unit Group</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -151,7 +151,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field
         /// <summary>
-        /// Gets a value representing the <c>Oem Defined</c> field.
+        /// Gets a value representing the <b>Oem Defined</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -162,7 +162,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) NominalSpeed: Gets a value representing the 'Nominal Speed' field
         /// <summary>
-        /// Gets a value representing the <c>Nominal Speed</c> field.
+        /// Gets a value representing the <b>Nominal Speed</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -177,7 +177,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Description: Gets a value representing the 'Description' field
         /// <summary>
-        /// Gets a value representing the <c>Description</c> field.
+        /// Gets a value representing the <b>Description</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -193,7 +193,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

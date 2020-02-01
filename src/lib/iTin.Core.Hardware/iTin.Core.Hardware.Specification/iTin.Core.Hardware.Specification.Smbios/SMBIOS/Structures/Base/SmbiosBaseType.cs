@@ -10,7 +10,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using Helpers;
 
     /// <summary>
-    /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="SMBIOS" />.
+    /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="SMBIOS"/>.
     /// </summary>
     public abstract class SmbiosBaseType
     {
@@ -101,10 +101,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [protected] (int) SmbiosVersion: Gets the current version of SMBIOS
         /// <summary>
-        /// Gets the current version of <see cref="SMBIOS" />.
+        /// Gets the current version of <see cref="SMBIOS"/>.
         /// </summary>
         /// <value>
-        /// Value representing the current version of <see cref="SMBIOS" />.
+        /// Value representing the current version of <see cref="SMBIOS"/>.
         /// </value>
         protected int SmbiosVersion { get; }
         #endregion
@@ -125,9 +125,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region public methods
 
         #region [public] (object) GetPropertyValue(IPropertyKey): Returns the value of specified property. Always returns the first appearance of the property
-
         /// <summary>
-        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -161,7 +160,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [public] (T) GetPropertyValue<T>(IPropertyKey): Returns the the strongly typed value of specified property
         /// <summary>
-        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <c>null</c> (<c>Nothing</c> in visual basic).
+        /// Returns the the strongly typed value of specified property. Always returns the first appearance of the property. If it does not exist, returns <b>null</b> (<b>Nothing</b> in visual basic).
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
@@ -176,13 +175,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [protected] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
-        /// Returns a <see cref="T:System.String" /> that represents this instance.
+        /// Returns a <see cref="string"/> that represents this instance.
         /// </summary>
         /// <returns>
-        /// A <see cref="T:System.String" /> that represents this instance.
+        /// A <see cref="string"/> that represents this instance.
         /// </returns>
         /// <remarks>
-        /// This method returns a string that includes the property <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosStructureInfo.StructureType" />.
+        /// This method returns a string that includes the property <see cref="SmbiosStructureInfo.StructureType"/>.
         /// </remarks> 
         public override string ToString() => $"Type = {StructureInfo.StructureType}";
         #endregion
@@ -245,7 +244,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         //#region [private] (IDeviceProperty) GetTypedProperty(PropertyKey): Returns a reference to an object that implements the interface IDeviceProperty, represents the value of the property specified by its key by the parameter propertyKey.
         ///// <summary>
-        ///// Returns a reference to an object that implements the interface <see cref="IDeviceProperty" />, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
+        ///// Returns a reference to an object that implements the interface <see cref="IDeviceProperty"/>, represents the value of the property specified by its key by the parameter <paramref name="propertyKey"/>.
         ///// </summary>
         ///// <param name="propertyKey">Key to the property to obtain</param>
         ///// <returns>

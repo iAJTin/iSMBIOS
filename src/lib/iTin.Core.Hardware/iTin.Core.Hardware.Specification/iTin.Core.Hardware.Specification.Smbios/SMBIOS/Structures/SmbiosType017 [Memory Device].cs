@@ -206,21 +206,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  megatransfers per second (MT/s).                   |
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc />
+    /// <inheritdoc/>
     /// <summary>
-    /// Specialization of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosBaseType" /> class that contains the logic to decode the Memory Device (Type 17) structure.
+    /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Memory Device (Type 17) structure.
     /// </summary>
     internal sealed class SmbiosType017 : SmbiosBaseType
     {
         #region constructor/s
 
         #region [public] SmbiosType017(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:iTin.Core.Hardware.Specification.Smbios.SmbiosType017" /> class by specifying the structure information and the <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.
+        /// Initializes a new instance of the <see cref="SmbiosType017"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
         /// <param name="smbiosStructureHeaderInfo">Raw information of the current structure.</param>
-        /// <param name="smbiosVersion">Current <see cref="T:iTin.Core.Hardware.Specification.SMBIOS" /> version.</param>
+        /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType017(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
@@ -234,7 +234,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) PhysicalArrayMemoryHandle: Gets a value representing the 'Physical Array Memory Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Physical Array Memory Handle</c> field.
+        /// Gets a value representing the <b>Physical Array Memory Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -245,7 +245,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MemoryErrorInformationHandle: Gets a value representing the 'Memory Error Information Handle' field
         /// <summary>
-        /// Gets a value representing the <c>Memory Error Information Handle</c> field.
+        /// Gets a value representing the <b>Memory Error Information Handle</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -256,7 +256,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) TotalWidth: Gets a value representing the 'Total Width' field
         /// <summary>
-        /// Gets a value representing the <c>Total Width</c> field.
+        /// Gets a value representing the <b>Total Width</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -267,7 +267,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) DataWidth: Gets a value representing the 'Data Width' field
         /// <summary>
-        /// Gets a value representing the <c>Data Width</c> field.
+        /// Gets a value representing the <b>Data Width</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -278,7 +278,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) Size: Gets a value representing the 'Size' field
         /// <summary>
-        /// Gets a value representing the <c>Size</c> field.
+        /// Gets a value representing the <b>Size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -289,7 +289,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) FormFactor: Gets a value representing the 'Form Factor' field
         /// <summary>
-        /// Gets a value representing the <c>Form Factor</c> field.
+        /// Gets a value representing the <b>Form Factor</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -300,7 +300,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) DeviceSet: Gets a value representing the 'Device Set' field
         /// <summary>
-        /// Gets a value representing the <c>Device Set</c> field.
+        /// Gets a value representing the <b>Device Set</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -314,7 +314,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Gets a value indicating whether this device belongs to a set of the same capacity and type.
         /// </summary>
         /// <value>
-        /// One of the values in the <see cref = "MemoryDeviceBelongsToSet" /> enumeration that indicates membership to a set.
+        /// One of the values in the <see cref = "MemoryDeviceBelongsToSet"/> enumeration that indicates membership to a set.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private MemoryDeviceBelongsToSet BelongsToSet
@@ -338,7 +338,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) DeviceLocator: Gets a value representing the 'Device Locator' field
         /// <summary>
-        /// Gets a value representing the <c>Device Locator</c> field.
+        /// Gets a value representing the <b>Device Locator</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -349,7 +349,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) BankLocator: Gets a value representing the 'Bank Locator' field
         /// <summary>
-        /// Gets a value representing the <c>Bank Locator</c> field.
+        /// Gets a value representing the <b>Bank Locator</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -360,7 +360,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MemoryType: Gets a value representing the 'Memory Type' field
         /// <summary>
-        /// Gets a value representing the <c>Memory Type</c> field.
+        /// Gets a value representing the <b>Memory Type</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -371,7 +371,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) TypeDetail: Gets a value representing the 'Type Detail' field
         /// <summary>
-        /// Gets a value representing the <c>Type Detail</c> field.
+        /// Gets a value representing the <b>Type Detail</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -386,7 +386,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) Manufacturer: Gets a value representing the 'Manufacturer' field
         /// <summary>
-        /// Gets a value representing the <c>Manufacturer</c> field.
+        /// Gets a value representing the <b>Manufacturer</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -397,7 +397,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
         /// <summary>
-        /// Gets a value representing the <c>Serial Number</c> field.
+        /// Gets a value representing the <b>Serial Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -408,7 +408,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) AssetTag: Gets a value representing the 'Asset Tag' field
         /// <summary>
-        /// Gets a value representing the <c>Asset Tag</c> field.
+        /// Gets a value representing the <b>Asset Tag</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -419,7 +419,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) PartNumber: Gets a value representing the 'Part Number' field
         /// <summary>
-        /// Gets a value representing the <c>Part Number</c> field.
+        /// Gets a value representing the <b>Part Number</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -430,7 +430,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MaximunSpeed: Gets a value representing the 'Maximun Speed' field
         /// <summary>
-        /// Gets a value representing the <c>Maximun Speed</c> field.
+        /// Gets a value representing the <b>Maximun Speed</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -445,7 +445,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) Rank: Gets a value representing the 'Rank' field
         /// <summary>
-        /// Gets a value representing the <c>Rank</c> field.
+        /// Gets a value representing the <b>Rank</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -460,7 +460,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (uint) ExtendedSize: Gets a value representing the 'Extended Size' field
         /// <summary>
-        /// Gets a value representing the <c>Extended Size</c> field.
+        /// Gets a value representing the <b>Extended Size</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -471,7 +471,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field
         /// <summary>
-        /// Gets a value representing the <c>Current Speed</c> field.
+        /// Gets a value representing the <b>Current Speed</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -486,7 +486,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MinimunVoltage: Gets a value representing the 'Minimun Voltage' field
         /// <summary>
-        /// Gets a value representing the <c>Minimun Voltage</c> field.
+        /// Gets a value representing the <b>Minimun Voltage</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -497,7 +497,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MaximumVoltage: Gets a value representing the 'Maximum Voltage' field
         /// <summary>
-        /// Gets a value representing the <c>Maximum Voltage</c> field.
+        /// Gets a value representing the <b>Maximum Voltage</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -508,7 +508,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ConfiguredVoltage: Gets a value representing the 'Configured Voltage' field
         /// <summary>
-        /// Gets a value representing the <c>Configured Voltage</c> field.
+        /// Gets a value representing the <b>Configured Voltage</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -523,7 +523,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MemoryTechnology: Gets a value representing the 'Memory Technology' field
         /// <summary>
-        /// Gets a value representing the '<c>Memory Technology</c>' field.
+        /// Gets a value representing the '<b>Memory Technology</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -534,7 +534,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (byte) MemoryOperatingModeCapability: Gets a value representing the 'Memory Operating Mode Capability' field
         /// <summary>
-        /// Gets a value representing the '<c>Memory Operating Mode Capability</c>' field.
+        /// Gets a value representing the '<b>Memory Operating Mode Capability</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -545,7 +545,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (string) FirmwareVersion: Gets a value representing the 'Firmware Version' field
         /// <summary>
-        /// Gets a value representing the '<c>Firmware Version</c>' field.
+        /// Gets a value representing the '<b>Firmware Version</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -556,7 +556,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ModuleManufacturerId: Gets a value representing the 'Module Manufacturer Id' field
         /// <summary>
-        /// Gets a value representing the '<c>Module Manufacturer Id</c>' field.
+        /// Gets a value representing the '<b>Module Manufacturer Id</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -567,7 +567,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ModuleProductId: Gets a value representing the 'Module Product Id' field
         /// <summary>
-        /// Gets a value representing the '<c>Module Product Id</c>' field.
+        /// Gets a value representing the '<b>Module Product Id</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -578,7 +578,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Manufacturer Id' field
         /// <summary>
-        /// Gets a value representing the '<c>Memory Subsystem Controller Manufacturer Id</c>' field.
+        /// Gets a value representing the '<b>Memory Subsystem Controller Manufacturer Id</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -589,7 +589,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Product Id' field
         /// <summary>
-        /// Gets a value representing the '<c>Memory Subsystem Controller Product Id</c>' field.
+        /// Gets a value representing the '<b>Memory Subsystem Controller Product Id</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -600,7 +600,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) NonVolatileSize: Gets a value representing the 'Non Volatile Size' field
         /// <summary>
-        /// Gets a value representing the '<c>Non Volatile Size</c>' field.
+        /// Gets a value representing the '<b>Non Volatile Size</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -611,7 +611,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) VolatileSize: Gets a value representing the 'Volatile Size' field
         /// <summary>
-        /// Gets a value representing the '<c>Volatile Size</c>' field.
+        /// Gets a value representing the '<b>Volatile Size</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -622,7 +622,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) CacheSize: Gets a value representing the 'Cache Size' field
         /// <summary>
-        /// Gets a value representing the '<c>Cache Size</c>' field.
+        /// Gets a value representing the '<b>Cache Size</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -633,7 +633,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (ulong) LogicalSize: Gets a value representing the 'Logical Size' field
         /// <summary>
-        /// Gets a value representing the '<c>Logical Size</c>' field.
+        /// Gets a value representing the '<b>Logical Size</b>' field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -648,7 +648,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ExtendedSpeed: Gets a value representing the 'Extended Speed' field
         /// <summary>
-        /// Gets a value representing the <c>Extended Speed</c> field.
+        /// Gets a value representing the <b>Extended Speed</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -659,7 +659,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region [private] (int) ExtendedConfiguredSpeed: Gets a value representing the 'Extended Configured Speed' field
         /// <summary>
-        /// Gets a value representing the <c>Extended Configured Speed</c> field.
+        /// Gets a value representing the <b>Extended Configured Speed</b> field.
         /// </summary>
         /// <value>
         /// Property value.
@@ -675,7 +675,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
-        /// <inheritdoc />
+        /// <inheritdoc/>
         /// <summary>
         /// Populates the property collection for this structure.
         /// </summary>

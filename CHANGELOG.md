@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
   - Current progress
 
 |Type|Description|Status|
-|:------|:------|
+|:------|:------|:------:|
 |Type000|BIOS Information|Done!!|
 |Type001|System Information|Done!!|
 |Type002|Baseboard (or Module) Information|Done!!|
@@ -63,7 +63,6 @@ All notable changes to this project will be documented in this file.
 |Type126|Inactive|Done!!|
 |Type127|End-Of-Table|Done!!|
  
-      
   - The image below shows an example.
 
     ![Help.png][helpimg] 

@@ -81,10 +81,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
                 {
                     if (SmbiosStructure.StructureInfo.Length >= 0x10)
                     {
-                        object extendedMaximunCapacity = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.ExtendedMaximunCapacity);
-                        if (extendedMaximunCapacity != null)
+                        object extendedMaximumCapacity = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.ExtendedMaximumCapacity);
+                        if (extendedMaximumCapacity != null)
                         {
-                            properties.Add(DmiProperty.PhysicalMemoryArray.MaximumCapacity, extendedMaximunCapacity);
+                            properties.Add(DmiProperty.PhysicalMemoryArray.MaximumCapacity, extendedMaximumCapacity);
                         }
                     }
                 }

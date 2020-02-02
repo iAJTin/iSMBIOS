@@ -14,12 +14,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         #region version 2.0+
         [PropertyName("BIOS Vendor")]
-        [PropertyDescription("BIOS Vendor's name")]
+        [PropertyDescription("String number of the BIOS Vendor’s Name")]
         [PropertyType(typeof(string))]
         Vendor,
 
         [PropertyName("BIOS Version")]
-        [PropertyDescription("BIOS Version")]
+        [PropertyDescription("String number of the BIOS Version")]
         [PropertyType(typeof(string))]
         BiosVersion,
 
@@ -29,14 +29,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
         BiosStartSegment,
 
         [PropertyName("BIOS Release Date")]
-        [PropertyDescription("BIOS Release Date")]
+        [PropertyDescription("String number of the BIOS release date")]
         [PropertyType(typeof(string))]
         BiosReleaseDate,
-
-        [PropertyName("BIOS Size")]
-        [PropertyDescription("Size of the physical device containing the BIOS")]
-        [PropertyType(typeof(int))]
-        BiosRomSize,
 
         [PropertyName("BIOS Characteristics")]
         [PropertyDescription("Defines which functions the BIOS supports: PCI, PCMCIA, Flash, etc...")]
@@ -76,7 +71,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
         FirmwareMinorRelease,
         #endregion
 
-        #region version 3.1.0+
+        #region version 2.0+, 3.1+
+        [PropertyName("BIOS Size")]
+        [PropertyDescription("Size of the physical device containing the BIOS")]
+        [PropertyType(typeof(int))]
+        BiosRomSize,
+
         [PropertyName("BIOS ROM Size Units")]
         [PropertyDescription("Size of the physical device(s) containing the BIOS")]
         [PropertyType(typeof(MemorySizeUnit))]
@@ -315,12 +315,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Contained Type Select")]
         [PropertyDescription("Specifies the maximum number of the element type that can be installed in the chassis, in the range 1 to 255")]
-        [PropertyType(typeof(byte))]
-        ContainedElementMaximun,
+        [PropertyType(typeof(byte?))]
+        ContainedElementMaximum,
 
         [PropertyName("Contained Element Minimum")]
         [PropertyDescription("Specifies the minimum number of the element type that can be installed in the chassis for the chassis to properly operate, in the range 0 to 254")]
-        [PropertyType(typeof(byte))]
+        [PropertyType(typeof(byte?))]
         ContainedElementMinimum
     }
     #endregion
@@ -364,7 +364,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Is Legacy Mode")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         IsLegacyMode,
 
         [PropertyName("Voltage Capability")]
@@ -384,12 +384,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Current Speed")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         CurrentSpeed,
 
         [PropertyName("Socket Populated")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         SocketPopulated,
 
         [PropertyName("Cpu Status")]
@@ -532,7 +532,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Maximum Memory Module Size")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         MaximumMemoryModuleSize,
 
         [PropertyName("Supported Speeds")]
@@ -552,7 +552,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Number Memory Slots")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         NumberMemorySlots,
 
         [PropertyName("Contained Memory Modules")]
@@ -621,86 +621,86 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         #region version 2.0+
         [PropertyName("Socket Designation")]
-        [PropertyDescription("")]
+        [PropertyDescription("String number for reference designation")]
         [PropertyType(typeof(string))]
         SocketDesignation,
 
         [PropertyName("Operational Mode")]
-        [PropertyDescription("")]
+        [PropertyDescription("Cache operational mode (Write Through, Write Back, ...)")]
         [PropertyType(typeof(string))]
         OperationalMode,
 
         [PropertyName("Cache Enabled")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyDescription("Indicates if is enabled/disabled (at boot time)")]
+        [PropertyType(typeof(bool?))]
         CacheEnabled,
 
         [PropertyName("Cache Location")]
-        [PropertyDescription("")]
+        [PropertyDescription("Location, relative to the CPU module")]
         [PropertyType(typeof(string))]
         CacheLocation,
 
         [PropertyName("Cache Socketed")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyDescription("Indicates if cache is socketed")]
+        [PropertyType(typeof(bool?))]
         CacheSocketed,
 
         [PropertyName("Cache Level")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(byte))]
+        [PropertyDescription("Returns cache level (1, 2, 3,...)")]
+        [PropertyType(typeof(byte?))]
         CacheLevel,
 
         [PropertyName("Maximum Cache Size")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyDescription("Maximum size that can be installed, expressed in KB")]
+        [PropertyType(typeof(int?))]
         MaximumCacheSize,
 
         [PropertyName("Installed Cache Size")]
-        [PropertyDescription("")]
+        [PropertyDescription("Installed size, expressed in KB")]
         [PropertyType(typeof(int?))]
         InstalledCacheSize,
 
         [PropertyName("Supported SRAM Types")]
-        [PropertyDescription("")]
+        [PropertyDescription("String collection with supported SRAM types")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         SupportedSramTypes,
+
+        [PropertyName("Current SRAM Type")]
+        [PropertyDescription("Current SRAM type is installed")]
+        [PropertyType(typeof(string))]
+        CurrentSramType,
         #endregion
 
         #region version 2.1+
-        [PropertyName("Current SRAM Type")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(string))]
-        CurrentSramType,
-
         [PropertyName("Cache Speed")]
-        [PropertyDescription("")]
+        [PropertyDescription("Cache module speed, in nanoseconds")]
         [PropertyType(typeof(byte?))]
         CacheSpeed,
 
         [PropertyName("Error Correction Type")]
-        [PropertyDescription("")]
+        [PropertyDescription("Error-correction scheme supported by this cache component")]
         [PropertyType(typeof(string))]
         ErrorCorrectionType,
 
         [PropertyName("System Cache Type")]
-        [PropertyDescription("")]
+        [PropertyDescription("Logical type of cache")]
         [PropertyType(typeof(string))]
         SystemCacheType,
 
         [PropertyName("Associativity")]
-        [PropertyDescription("")]
+        [PropertyDescription("Associativity of the cache")]
         [PropertyType(typeof(string))]
         Associativity,
         #endregion
 
         #region version 3.1+
         [PropertyName("Maximum Cache Size 2")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(uint))]
+        [PropertyDescription("If is present, for cache sizes of 2047MB or smaller the value is equals to MaximumCacheSize property")]
+        [PropertyType(typeof(uint?))]
         MaximumCacheSize2,
 
         [PropertyName("Installed Cache Size 2")]
-        [PropertyDescription("")]
+        [PropertyDescription("If is present, for cache sizes of 2047MB or smaller the value is equals to InstalledCacheSize property")]
         [PropertyType(typeof(uint?))]
         InstalledCacheSize2,
         #endregion
@@ -807,7 +807,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         [PropertyName("Enabled")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         Enabled,
 
         [PropertyName("Device Type")]
@@ -862,7 +862,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Is Current Abbreviated")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         IsCurrentAbbreviated,
 
         [PropertyName("Current")]
@@ -921,41 +921,36 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         #region version 2.1+
         [PropertyName("Location")]
-        [PropertyDescription("")]
+        [PropertyDescription("Physical location of the Memory Array, whether on the system board or an add-in board")]
         [PropertyType(typeof(string))]
         Location,
 
         [PropertyName("Use")]
-        [PropertyDescription("")]
+        [PropertyDescription("Function for which the array is used")]
         [PropertyType(typeof(string))]
         Use,
 
         [PropertyName("Memory Error Correction")]
-        [PropertyDescription("")]
+        [PropertyDescription("Primary hardware error correction or detection method supported by this memory array")]
         [PropertyType(typeof(string))]
         MemoryErrorCorrection,
 
-        [PropertyName("Maximum Capacity")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(ulong))]
-        MaximumCapacity,
-
         [PropertyName("Memory Error Information Handle")]
-        [PropertyDescription("")]
+        [PropertyDescription("Handle, or instance number, associated with any error that was previously detected for the array")]
         [PropertyType(typeof(string))]
         MemoryErrorInformationHandle,
 
         [PropertyName("Number Of Memory Devices")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyDescription("Number of slots or sockets available for Memory devices in this array")]
+        [PropertyType(typeof(int?))]
         NumberOfMemoryDevices,
         #endregion
 
-        #region version 2.7+
-        [PropertyName("Extended Maximun Capacity")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(ulong))]
-        ExtendedMaximunCapacity,
+        #region version 2.1+ - 2.7+
+        [PropertyName("Maximum Capacity")]
+        [PropertyDescription("Maximum memory capacity, in kilobytes, for this array")]
+        [PropertyType(typeof(ulong?))]
+        MaximumCapacity,
         #endregion
     }
     #endregion
@@ -969,12 +964,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region version 2.1+
         [PropertyName("Physical Memory Array Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         PhysicalMemoryArrayHandle,
 
         [PropertyName("Memory Error Information Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         MemoryErrorInformationHandle,
 
         [PropertyName("Total Width")]
@@ -1022,7 +1017,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("Maximun Speed")]
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
-        MaximunSpeed,
+        MaximumSpeed,
 
         [PropertyName("Manufacturer")]
         [PropertyDescription("")]
@@ -1066,7 +1061,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("Minimun Voltage")]
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
-        MinimunVoltage,
+        MinimumVoltage,
 
         [PropertyName("Maximum Voltage")]
         [PropertyDescription("")]

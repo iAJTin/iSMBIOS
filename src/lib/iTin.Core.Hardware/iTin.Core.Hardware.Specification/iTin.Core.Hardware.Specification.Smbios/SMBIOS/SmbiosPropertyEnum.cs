@@ -34,7 +34,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("BIOS Size")]
         [PropertyDescription("Size of the physical device containing the BIOS")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         BiosRomSize,
 
         [PropertyName("BIOS Characteristics")]
@@ -78,7 +78,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region version 3.1.0+
         [PropertyName("BIOS Size")]
         [PropertyDescription("Extended size of the physical device(s) containing the BIOS")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         ExtendedBiosRomSize,
 
         [PropertyName("BIOS ROM Size Units")]
@@ -317,14 +317,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyType(typeof(ChassisContainedElementType))]
         ContainedTypeSelect,
 
-        [PropertyName("Contained Element Maximun")]
+        [PropertyName("Contained Element Maximum")]
         [PropertyDescription("Specifies the maximum number of the element type that can be installed in the chassis, in the range 1 to 255")]
-        [PropertyType(typeof(byte))]
-        ContainedElementMaximun,
+        [PropertyType(typeof(byte?))]
+        ContainedElementMaximum,
 
         [PropertyName("Contained Type Select")]
         [PropertyDescription("Specifies the minimum number of the element type that can be installed in the chassis for the chassis to properly operate, in the range 0 to 254")]
-        [PropertyType(typeof(byte))]
+        [PropertyType(typeof(byte?))]
         ContainedElementMinimum
     }
     #endregion
@@ -375,14 +375,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
-        MaximunSpeed,
+        MaximumSpeed,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         CurrentSpeed,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         SocketPopulated,
 
         [PropertyDescription("")]
@@ -499,7 +499,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         CurrentInterleave,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         MaximumMemoryModuleSize,
 
         [PropertyDescription("")]
@@ -515,7 +515,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         MemoryModuleVoltages,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         NumberMemorySlots,
 
         [PropertyDescription("")]
@@ -583,7 +583,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         OperationalMode,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         CacheEnabled,
 
         [PropertyDescription("")]
@@ -591,15 +591,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         CacheLocation,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         CacheSocketed,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(byte))]
+        [PropertyType(typeof(byte?))]
         CacheLevel,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         MaximumCacheSize,
 
         [PropertyDescription("")]
@@ -635,7 +635,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 3.1+
         [PropertyDescription("")]
-        [PropertyType(typeof(uint))]
+        [PropertyType(typeof(uint?))]
         MaximumCacheSize2,
 
         [PropertyDescription("")]
@@ -730,7 +730,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     internal enum SmbiosType010Property
     {
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         Enabled,
 
         [PropertyDescription("")]
@@ -779,7 +779,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         InstallableLanguages,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool))]
+        [PropertyType(typeof(bool?))]
         IsCurrentAbbreviated,
 
         [PropertyDescription("")]
@@ -844,7 +844,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         MemoryErrorCorrection,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong))]
+        [PropertyType(typeof(ulong?))]
         MaximumCapacity,
 
         [PropertyDescription("")]
@@ -852,14 +852,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         MemoryErrorInformationHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         NumberOfMemoryDevices,
         #endregion
 
         #region version 2.7+
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong))]
-        ExtendedMaximunCapacity,
+        [PropertyType(typeof(ulong?))]
+        ExtendedMaximumCapacity,
         #endregion
     }
     #endregion
@@ -872,11 +872,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         PhysicalMemoryArrayHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         MemoryErrorInformationHandle,
 
         [PropertyDescription("")]
@@ -915,7 +915,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region version 2.3+
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
-        MaximunSpeed,
+        MaximumSpeed,
 
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
@@ -951,7 +951,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #region version 2.8+
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
-        MinimunVoltage,
+        MinimumVoltage,
 
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
@@ -985,11 +985,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
-        MemorySubsystemControllerManufacturerId,
+        MemorySubSystemControllerManufacturerId,
 
         [PropertyDescription("")]
         [PropertyType(typeof(int?))]
-        MemorySubsystemControllerProductId,
+        MemorySubSystemControllerProductId,
 
         [PropertyDescription("")]
         [PropertyType(typeof(ulong?))]

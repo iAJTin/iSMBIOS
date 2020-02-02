@@ -40,7 +40,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
             #region 2.1+
-            object physicalMemoryArrayHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.PhysicalMemoryArrayHandle);
+            var physicalMemoryArrayHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.PhysicalMemoryArrayHandle);
             if (physicalMemoryArrayHandle != null)
             {
                 properties.Add(DmiProperty.MemoryDevice.PhysicalMemoryArrayHandle, physicalMemoryArrayHandle);
@@ -96,10 +96,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
                 properties.Add(DmiProperty.MemoryDevice.DeviceLocator, deviceLocator);
             }
 
-            object bankLabel = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.BankLabel);
-            if (bankLabel != null)
+            object bankLocator = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.BankLocator);
+            if (bankLocator != null)
             {
-                properties.Add(DmiProperty.MemoryDevice.BankLabel, bankLabel);
+                properties.Add(DmiProperty.MemoryDevice.BankLocator, bankLocator);
             }
 
             object memoryType = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemoryType);
@@ -199,13 +199,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
             #region 2.8+
             if (SmbiosStructure.StructureInfo.Length >= 0x23)
             {
-                object minimunVoltageProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MinimunVoltage);
-                if (minimunVoltageProperty != null)
+                object minimumVoltageProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MinimumVoltage);
+                if (minimumVoltageProperty != null)
                 {
-                    int minimunVoltage = (int)minimunVoltageProperty;
+                    int minimunVoltage = (int)minimumVoltageProperty;
                     if (minimunVoltage != 0x0000)
                     {
-                        properties.Add(DmiProperty.MemoryDevice.MinimunVoltage, minimunVoltage);
+                        properties.Add(DmiProperty.MemoryDevice.MinimumVoltage, minimunVoltage);
                     }
                 }
 

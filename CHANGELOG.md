@@ -5,9 +5,24 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- Typographic error. ***Please remember to change your code if you are currently using it.***
+  - Typographic error. Renames properties names. 
 
-  - Renames the property name *DmiProperty.Maximu**n**Speed* -> *DmiProperty.Maximu**m**Speed.*
+|Old name|New name|
+|:------|:------|
+|**DMI**   |   |
+|*DmiProperty003.ContainedElementMinimu**n***|*DmiProperty003.ContainedElementMinimu**m***|
+|*DmiProperty003.ContainedElementMaximu**n***|*DmiProperty003.ContainedElementMaximu**m***|
+|*DmiProperty004.Maximu**n**Speed*|*DmiProperty004.Maximu**m**Speed*|
+|*DmiProperty004.Maximu**n**Speed*|*DmiProperty004.Maximu**m**Speed*|
+|*DmiProperty017.Maximu**n**Speed*|*DmiProperty017.Maximu**m**Speed*|
+|*DmiProperty017.Minimu**n**Voltage*|*DmiProperty017.Minimu**m**Voltage*|
+|**SMBIOS**   |   |
+|*SmbiosType003Property.ContainedElementMinimu**n***|*SmbiosType003Property.ContainedElementMinimu**m***|
+|*SmbiosType003Property.ContainedElementMaximu**n***|*SmbiosType003Property.ContainedElementMaximu**m***|
+|*SmbiosType004Property.Maximu**n**Speed*|*SmbiosType004Property.Maximu**m**Speed.*|
+|*SmbiosType017Property.Maximu**n**Speed*|*SmbiosType017Property.Maximu**m**Speed.*|
+|*SmbiosType017Property.Minimu**n**Voltage*|*SmbiosType017Property.Minimu**m**Voltage*|
+|*SmbiosProperty.PhysicalMemoryArray.ExtendedMaximu**n**Capacity*|*SmbiosProperty.PhysicalMemoryArray.ExtendedMaximu**m**Capacity*|
   
 - Adds descriptive code help. I Tried to adds a help most descriptive for the properties keys. 
 
@@ -20,9 +35,9 @@ All notable changes to this project will be documented in this file.
 |Type002|Baseboard (or Module) Information|Done!!|
 |Type003|System Enclosure or Chassis|Done!!|
 |Type004|Processor Information|Done!!|
-|Type005|Memory Controller Information (Obsolete)|...|
-|Type006|Memory Module Information (Obsolete)|...|
-|Type007|Cache Information|...|
+|Type005|Memory Controller Information (Obsolete)|Done!!|
+|Type006|Memory Module Information (Obsolete)|Done!!|
+|Type007|Cache Information|Done!!|
 |Type008|Port Connector Information|Done!!|
 |Type009|Slot Information|Done!!|
 |Type010|On Board Devices (Obsolete)|Done!!|
@@ -31,8 +46,8 @@ All notable changes to this project will be documented in this file.
 |Type013|BIOS Language Information|Done!!|
 |Type014|Group Associations|Done!!|
 |Type015|System Event Log|Done!!|
-|Type016|Physical Memory Array|...|
-|Type017|Memory Device|...|
+|Type016|Physical Memory Array|Done!!|
+|Type017|Memory Device|Done!!|
 |Type018|32-Bit Memory Error Information|...|
 |Type019|Memory Array Mapped Address|...|
 |Type020|Memory Device Mapped Address|...|

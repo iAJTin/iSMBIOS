@@ -166,17 +166,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.ErrorType, GetErrorType(ErrorType));
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.ErrorGranularity, GetErrorGranularity(ErrorGranularity));
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.ErrorOperation, GetErrorOperation(ErrorOperation));
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.VendorSyndrome, CrcData);
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.BusErrorAddress, MemoryArrayErrorAddress);
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.DeviceErrorAddress, DeviceErrorAddress);
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.ErrorResolution, ErrorResolution);
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.VendorSyndrome, CrcData);
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.BusErrorAddress, MemoryArrayErrorAddress);
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.DeviceErrorAddress, DeviceErrorAddress);
-            properties.Add(SmbiosProperty.BitMemoryErrorInformation64.ErrorResolution, ErrorResolution);
+            properties.Add(SmbiosProperty.BitMemoryError64.ErrorType, GetErrorType(ErrorType));
+            properties.Add(SmbiosProperty.BitMemoryError64.ErrorGranularity, GetErrorGranularity(ErrorGranularity));
+            properties.Add(SmbiosProperty.BitMemoryError64.ErrorOperation, GetErrorOperation(ErrorOperation));
+            properties.Add(SmbiosProperty.BitMemoryError64.VendorSyndrome, CrcData);
+            properties.Add(SmbiosProperty.BitMemoryError64.BusErrorAddress, MemoryArrayErrorAddress);
+            properties.Add(SmbiosProperty.BitMemoryError64.DeviceErrorAddress, DeviceErrorAddress);
+            properties.Add(SmbiosProperty.BitMemoryError64.ErrorResolution, ErrorResolution);
+            properties.Add(SmbiosProperty.BitMemoryError64.VendorSyndrome, CrcData);
+            properties.Add(SmbiosProperty.BitMemoryError64.BusErrorAddress, MemoryArrayErrorAddress);
+            properties.Add(SmbiosProperty.BitMemoryError64.DeviceErrorAddress, DeviceErrorAddress);
+            properties.Add(SmbiosProperty.BitMemoryError64.ErrorResolution, ErrorResolution);
         }
         #endregion
 

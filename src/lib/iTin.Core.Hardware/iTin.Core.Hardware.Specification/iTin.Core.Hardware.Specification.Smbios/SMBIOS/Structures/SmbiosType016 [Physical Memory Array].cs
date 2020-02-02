@@ -201,7 +201,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             if (StructureInfo.Length >= 0x10)
             {
-                properties.Add(SmbiosProperty.PhysicalMemoryArray.ExtendedMaximunCapacity, ExtendedMaximumCapacity);
+                properties.Add(SmbiosProperty.PhysicalMemoryArray.ExtendedMaximumCapacity, ExtendedMaximumCapacity);
             }
         }
         #endregion

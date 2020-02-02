@@ -1,6 +1,7 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Dmi.Property
 {
+    using System;
     using System.Collections.ObjectModel;
     using System.Diagnostics.CodeAnalysis;
     
@@ -69,9 +70,10 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) BiosStartSegment: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>Segment location of BIOS starting address.</para>
-            /// <para>This value is a free-form string that may contain core and <b>OEM</b> version information.</para>
-            /// <para>The size of the runtime BIOS image can be computed by subtracting the Starting Address Segment from 10000h and multiplying the result by 16.</para>
+            /// <para>
+            /// Segment location of BIOS starting address. This value is a free-form string that may contain core and <b>OEM</b> version information.
+            /// The size of the runtime BIOS image can be computed by subtracting the Starting Address Segment from 10000h and multiplying the result by 16.
+            /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -95,9 +97,10 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) BiosReleaseDate: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>String number of the BIOS release date.</para>
-            /// <para>The date string, if supplied, is in either mm/dd/yy or mm/dd/yyyy format. If the year portion of the string is two digits, the year is assumed to be 19yy.</para>
-            /// <para>The mm/dd/yyyy format is required for SMBIOS version 2.3 and later.</para>
+            /// <para>
+            /// String number of the BIOS release date. The date string, if supplied, is in either mm/dd/yy or mm/dd/yyyy format. If the year portion of the string is two digits, the year is assumed to be 19yy.
+            /// The mm/dd/yyyy format is required for SMBIOS version 2.3 and later.
+            /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -116,31 +119,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// </summary>
             public static IPropertyKey BiosReleaseDate => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosReleaseDate);
-            #endregion
-
-            #region [public] {static} (IPropertyKey) BiosRomSize: Gets a value representing the key to retrieve the property value
-            /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>Size of the physical device containing the BIOS.</para>
-            /// <para>For check measured unit, please see <see cref="BiosRomSizeUnit"/>.</para>
-            /// <para>
-            ///  <para><b>Key Composition</b></para>
-            ///  <list type="bullet">
-            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
-            ///   <item><description>Property: <see cref="DmiType000Property.BiosRomSize"/></description></item>
-            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
-            ///  </list>
-            /// </para>
-            /// <para>
-            ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/></para>
-            /// </para>
-            /// <para>
-            ///  <para><b>Remarks</b></para>
-            ///  <para>2.0+</para>
-            /// </para>
-            /// </summary>
-            public static IPropertyKey BiosRomSize => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosRomSize, PropertyUnit.None);
             #endregion
 
             #region [public] {static} (IPropertyKey) Characteristics: Gets a value representing the key to retrieve the property value
@@ -167,33 +145,9 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             public static IPropertyKey Characteristics => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.Characteristics);
             #endregion
 
-            #region [public] {static} (IPropertyKey) BiosRomSizeUnit: Gets a value representing the key to retrieve the property value
-            /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>Size of the physical device(s) containing the BIOS.</para>
-            /// <para>
-            ///  <para><b>Key Composition</b></para>
-            ///  <list type="bullet">
-            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
-            ///   <item><description>Property: <see cref="DmiType000Property.BiosRomSizeUnit"/></description></item>
-            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
-            ///  </list>
-            /// </para>
-            /// <para>
-            ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="MemorySizeUnit"/></para>
-            /// </para>
-            /// <para>
-            ///  <para><b>Remarks</b></para>
-            ///  <para>2.0+</para>
-            /// </para>
-            /// </summary>
-            public static IPropertyKey BiosRomSizeUnit => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosRomSizeUnit);
             #endregion
 
-            #endregion
-
-            #region version 2.1+
+            #region version 2.4+
 
             #region [public] {static} (IPropertyKey) CharacteristicsExtensionByte1: Gets a value representing the key to retrieve the property value
             /// <summary>
@@ -219,10 +173,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             public static IPropertyKey CharacteristicsExtensionByte1 => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.CharacteristicsExtensionByte1);
             #endregion
 
-            #endregion
-
-            #region version 2.3+
-
             #region [public] {static} (IPropertyKey) CharacteristicsExtensionByte2: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
@@ -247,10 +197,6 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             public static IPropertyKey CharacteristicsExtensionByte2 => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.CharacteristicsExtensionByte2);
             #endregion
 
-            #endregion
-
-            #region version 2.4+
-
             #region [public] {static} (IPropertyKey) SystemBiosMajorRelease: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
@@ -265,7 +211,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="byte"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -289,7 +235,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="byte"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -313,7 +259,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="byte"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -337,7 +283,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="byte"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -345,6 +291,58 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// </summary>
             public static IPropertyKey FirmwareMinorRelease => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.FirmwareMinorRelease);
+            #endregion
+
+            #endregion
+
+            #region version 2.0 - 3.1+
+
+            #region [public] {static} (IPropertyKey) BiosRomSize: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Size of the physical device containing the BIOS. For check measured unit, please see <see cref="BiosRomSizeUnit"/> property.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.BiosRomSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+, 3.1+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey BiosRomSize => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosRomSize, PropertyUnit.None);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) BiosRomSizeUnit: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Size of the physical device(s) containing the BIOS.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Bios"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType000Property.BiosRomSizeUnit"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="MemorySizeUnit"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+, 3.1+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey BiosRomSizeUnit => new PropertyKey(DmiStructureClass.Bios, DmiType000Property.BiosRomSizeUnit);
             #endregion
 
             #endregion
@@ -704,7 +702,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// </summary>
             public static IPropertyKey ChassisHandle => new PropertyKey(DmiStructureClass.BaseBoard, DmiType002Property.ChassisHandle);
@@ -744,7 +742,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="byte"/></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
             /// </para>
             /// </summary>
             public static IPropertyKey NumberOfContainedObjectHandles => new PropertyKey(DmiStructureClass.BaseBoard, DmiType002Property.NumberOfContainedObjectHandles);
@@ -793,7 +791,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// </summary>
                 public static IPropertyKey IsHostingBoard => new PropertyKey(DmiStructureClass.BaseBoard, DmiType002Property.IsHostingBoard);
@@ -813,7 +811,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// </summary>
                 public static IPropertyKey IsHotSwappable => new PropertyKey(DmiStructureClass.BaseBoard, DmiType002Property.HotSwappable);
@@ -833,7 +831,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// </summary>
                 public static IPropertyKey IsRemovable => new PropertyKey(DmiStructureClass.BaseBoard, DmiType002Property.IsRemovable);
@@ -853,7 +851,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// </summary>
                 public static IPropertyKey IsReplaceable => new PropertyKey(DmiStructureClass.BaseBoard, DmiType002Property.IsReplaceable);
@@ -873,7 +871,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// </summary>
                 public static IPropertyKey RequiredDaughterBoard => new PropertyKey(DmiStructureClass.BaseBoard, DmiType002Property.RequiredDaughterBoard);
@@ -1155,7 +1153,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="long"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="long"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1180,7 +1178,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="byte"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1204,7 +1202,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="byte"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1315,7 +1313,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="byte"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -1333,20 +1331,20 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 ///  <para><b>Key Composition</b></para>
                 ///  <list type="bullet">
                 ///   <item><description>Structure: <see cref="DmiStructureClass.SystemEnclosure"/></description></item>
-                ///   <item><description>Property: <see cref="DmiType003Property.ContainedElementMaximun"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType003Property.ContainedElementMaximum"/></description></item>
                 ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
                 ///  </list>
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="byte"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
                 ///  <para>2.3+</para>
                 /// </para>
                 /// </summary>
-                public static IPropertyKey Max => new PropertyKey(DmiStructureClass.SystemEnclosure, DmiType003Property.ContainedElementMaximun);
+                public static IPropertyKey Max => new PropertyKey(DmiStructureClass.SystemEnclosure, DmiType003Property.ContainedElementMaximum);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) TypeSelect: Gets a value representing the key to retrieve the property value
@@ -1575,7 +1573,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1599,7 +1597,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1624,7 +1622,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1682,7 +1680,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1698,7 +1696,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>Handle of a cache information structure that defines the attributes of the secondary (Level 2) cache for this processor.</para>
             /// <para>
             ///  <list type="bullet">
-            ///   <item><description>For version 2.1 and version 2.2 implementations, the value is 0FFFFh if the processor has no L1 cache.</description></item>
+            ///   <item><description>For version 2.1 and version 2.2 implementations, the value is 0FFFFh if the processor has no L2 cache.</description></item>
             ///   <item><description>For version 2.3 and later implementations, the value is 0FFFFh if the Cache Information structure is not provided.</description></item>
             ///  </list>
             /// </para>
@@ -1712,7 +1710,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1728,7 +1726,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// <para>Handle of a cache information structure that defines the attributes of the tertiary (Level 3) cache for this processor.</para>
             /// <para>
             ///  <list type="bullet">
-            ///   <item><description>For version 2.1 and version 2.2 implementations, the value is 0FFFFh if the processor has no L1 cache.</description></item>
+            ///   <item><description>For version 2.1 and version 2.2 implementations, the value is 0FFFFh if the processor has no L3 cache.</description></item>
             ///   <item><description>For version 2.3 and later implementations, the value is 0FFFFh if the Cache Information structure is not provided.</description></item>
             ///  </list>
             /// </para>
@@ -1742,7 +1740,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1759,8 +1757,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) SerialNumber: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>String number for the serial number of this processor.</para>
-            /// <para>This value is set by the manufacturer and normally not changeable.</para>
+            /// <para>String number for the serial number of this processor. This value is set by the manufacturer and normally not changeable.</para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1836,8 +1833,10 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) CoreCount: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>Number of cores per processor socket. If the value is unknown, the field is set to 0.</para>
-            /// <para>Core Count is the number of cores detected by the BIOS for this processor socket. It does not necessarily indicate the full capability of the processor.</para>
+            /// <para>
+            /// Number of cores per processor socket. If the value is unknown, the field is set to 0.
+            /// Core Count is the number of cores detected by the BIOS for this processor socket. It does not necessarily indicate the full capability of the processor.
+            /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1848,7 +1847,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1872,7 +1871,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1885,8 +1884,10 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) ThreadCount: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>Number of threads per processor socket. If the value is unknown, the field is set to 0.</para>
-            /// <para>For thread counts of 256 or greater, this property returns FFh and the <b>ThreadCount2</b> property is set to the number of threads.</para>
+            /// <para>
+            /// Number of threads per processor socket. If the value is unknown, the field is set to 0.
+            /// For thread counts of 256 or greater, this property returns FFh and the <b>ThreadCount2</b> property is set to the number of threads.
+            /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1897,7 +1898,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1914,10 +1915,12 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) CoreCount2: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>Number of cores per processor socket. Supports core counts >255.</para>
-            /// <para>If this field is present, it holds the core count for the processor socket.</para>
-            /// <para>Core Count will also hold the core count, except for core counts that are 256 or greater.</para>
-            /// <para>In that case, core Count shall be set to FFh and core Count 2 will hold the count.</para>
+            /// <para>
+            /// Number of cores per processor socket. Supports core counts >255.
+            /// If this field is present, it holds the core count for the processor socket.
+            /// Core Count will also hold the core count, except for core counts that are 256 or greater.
+            /// In that case, core Count shall be set to FFh and core Count 2 will hold the count.
+            /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1928,7 +1931,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="int"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1941,10 +1944,12 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) CoreEnabled2: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>Number of enabled cores per processor socket. Supports core enabled counts >255</para>
-            /// <para>If this field is present, it holds the core enabled count for the processor socket.</para>
-            /// <para>Core Enabled will also hold the core enabled count, except for core counts that are 256 or greater.</para>
-            /// <para>In that case, core enabled shall be set to FFh and core enabled 2 will hold the count.</para>
+            /// <para>
+            /// Number of enabled cores per processor socket. Supports core enabled counts >255
+            /// If this field is present, it holds the core enabled count for the processor socket.
+            /// Core Enabled will also hold the core enabled count, except for core counts that are 256 or greater.
+            /// In that case, core enabled shall be set to FFh and core enabled 2 will hold the count.
+            /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1955,7 +1960,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="uint"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -1968,10 +1973,12 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) ThreadCount2: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>Number of threads per processor socket. Supports thread counts >255</para>
-            /// <para>If this field is present, it holds the thread count for the processor socket.</para>
-            /// <para>Thread Count will also hold the thread count, except for thread counts that are 256 or greater.</para>
-            /// <para>In that case, thread count shall be set to FFh and thread count 2 will hold the count.</para>
+            /// <para>
+            /// Number of threads per processor socket. Supports thread counts >255
+            /// If this field is present, it holds the thread count for the processor socket.
+            /// Thread Count will also hold the thread count, except for thread counts that are 256 or greater.
+            /// In that case, thread count shall be set to FFh and thread count 2 will hold the count.
+            /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
@@ -1982,7 +1989,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="uint"/>?</para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="uint"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -2006,9 +2013,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (IPropertyKey) Capable64Bits: Gets a value representing the key to retrieve the property value
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property value.</para>
-                /// <para>64-bit Capable indicates the maximum data width capability of the processor.</para>
-                /// <para>For example, this bit is set for Intel Itanium, AMD Opteron, and Intel Xeon(with EM64T) processors; this bit is cleared for Intel Xeon processors that do not have EM64T.</para>
-                /// <para>Indicates the maximum capability of the processor and does not indicate the current enabled state.</para>
+                /// <para>
+                /// 64-bit Capable indicates the maximum data width capability of the processor.
+                /// For example, this bit is set for Intel Itanium, AMD Opteron, and Intel Xeon(with EM64T) processors; this bit is cleared for Intel Xeon processors that do not have EM64T.
+                /// Indicates the maximum capability of the processor and does not indicate the current enabled state.
+                /// </para>
                 /// <para>
                 ///  <para><b>Key Composition</b></para>
                 ///  <list type="bullet">
@@ -2019,7 +2028,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/>?</para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -2032,8 +2041,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (IPropertyKey) EnhancedVirtualizationInstructions: Gets a value representing the key to retrieve the property value
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property value.</para>
-                /// <para>indicates that the processor is capable of executing enhanced virtualization instructions.</para>
-                /// <para>Does not indicate the present state of this feature.</para>
+                /// <para>Indicates that the processor is capable of executing enhanced virtualization instructions. Does not indicate the present state of this feature.</para>
                 /// <para>
                 ///  <para><b>Key Composition</b></para>
                 ///  <list type="bullet">
@@ -2044,7 +2052,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/>?</para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -2057,9 +2065,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (IPropertyKey) ExecuteProtectionSupport: Gets a value representing the key to retrieve the property value
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property value.</para>
-                /// <para>Indicates that the processor supports marking specific memory regions as non-executable.</para>
-                /// <para>For example, this is the NX (No eXecute) feature of AMD processors and the XD (eXecute Disable) feature of Intel processors.</para>
-                /// <para>Does not indicate the present state of this feature.</para>
+                /// <para>
+                /// Indicates that the processor supports marking specific memory regions as non-executable.
+                /// For example, this is the NX (No eXecute) feature of AMD processors and the XD (eXecute Disable) feature of Intel processors.
+                /// Does not indicate the present state of this feature.
+                /// </para>
                 /// <para>
                 ///  <para><b>Key Composition</b></para>
                 ///  <list type="bullet">
@@ -2070,7 +2080,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/>?</para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -2083,8 +2093,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (IPropertyKey) MultiCore: Gets a value representing the key to retrieve the property value
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property value.</para>
-                /// <para>Indicates the processor has more than one core.</para>
-                /// <para>Does not indicate the number of cores (Core Count) enabled by hardware or the number of cores (Core Enabled) enabled by BIOS.</para>
+                /// <para>Indicates the processor has more than one core. Does not indicate the number of cores (Core Count) enabled by hardware or the number of cores (Core Enabled) enabled by BIOS.</para>
                 /// <para>
                 ///  <para><b>Key Composition</b></para>
                 ///  <list type="bullet">
@@ -2095,7 +2104,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/>?</para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -2108,8 +2117,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (IPropertyKey) HardwareThreadPerCore: Gets a value representing the key to retrieve the property value
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property value.</para>
-                /// <para>Indicates that the processor supports multiple hardware threads per core.</para>
-                /// <para>Does not indicate the state or number of threads.</para>
+                /// <para>Indicates that the processor supports multiple hardware threads per core. Does not indicate the state or number of threads.</para>
                 /// <para>
                 ///  <para><b>Key Composition</b></para>
                 ///  <list type="bullet">
@@ -2120,7 +2128,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/>?</para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -2133,8 +2141,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 #region [public] {static} (IPropertyKey) PowerPerformanceControlSupport: Gets a value representing the key to retrieve the property value
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property value.</para>
-                /// <para>Indicates that the processor is capable of load-based power savings.</para>
-                /// <para>Does not indicate the present state of this feature.</para>
+                /// <para>Indicates that the processor is capable of load-based power savings. Does not indicate the present state of this feature.</para>
                 /// <para>
                 ///  <para><b>Key Composition</b></para>
                 ///  <list type="bullet">
@@ -2145,7 +2152,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/>?</para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -2201,7 +2208,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -2233,7 +2240,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="bool"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
                 /// </para>
                 /// <para>
                 ///  <para><b>Remarks</b></para>
@@ -2283,130 +2290,243 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) ErrorDetectingMethod: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.ErrorDetectingMethod"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Error detecting method.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.ErrorDetectingMethod"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ErrorDetectingMethod => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.ErrorDetectingMethod);
             #endregion
 
             #region [public] {static} (IPropertyKey) ErrorCorrectingCapabilities: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.ErrorCorrectingCapabilities"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Error detecting capabilities.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.ErrorCorrectingCapabilities"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ErrorCorrectingCapabilities => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.ErrorCorrectingCapabilities);
             #endregion
 
             #region [public] {static} (IPropertyKey) SupportedInterleave: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.SupportedInterleave"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Interleave supported.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.SupportedInterleave"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SupportedInterleave => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.SupportedInterleave);
             #endregion
 
             #region [public] {static} (IPropertyKey) CurrentInterleave: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.CurrentInterleave"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Current interleave.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.CurrentInterleave"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CurrentInterleave => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.CurrentInterleave);
             #endregion
 
             #region [public] {static} (IPropertyKey) MaximumMemoryModuleSize: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.MaximumMemoryModuleSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Size of the largest memory module supported (per slot), specified as n, where 2**n is the maximum size in MB.
+            /// The maximum amount of memory supported by this controller is that value times the number of slots, as specified in <see cref="NumberMemorySlots"/> property.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.MaximumMemoryModuleSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MaximumMemoryModuleSize => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.MaximumMemoryModuleSize);
             #endregion
 
             #region [public] {static} (IPropertyKey) SupportedSpeeds: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.SupportedSpeeds"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.ns"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection{String}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>A string collection with supported speeds.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.SupportedSpeeds"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.ns"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SupportedSpeeds => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.SupportedSpeeds, PropertyUnit.ns);
             #endregion
 
             #region [public] {static} (IPropertyKey) SupportedMemoryTypes: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.SupportedMemoryTypes"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection{String}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>A string collection with supported memory types.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.SupportedMemoryTypes"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SupportedMemoryTypes => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.SupportedMemoryTypes);
             #endregion
 
             #region [public] {static} (IPropertyKey) MemoryModuleVoltages: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.MemoryModuleVoltages"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection{String}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>A string collection with memory module voltages.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.MemoryModuleVoltages"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryModuleVoltages => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.MemoryModuleVoltages, PropertyUnit.V);
             #endregion
 
             #region [public] {static} (IPropertyKey) NumberMemorySlots: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.NumberMemorySlots"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of memory slots.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.NumberMemorySlots"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey NumberMemorySlots => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.NumberMemorySlots);
             #endregion
 
             #region [public] {static} (IPropertyKey) ContainedMemoryModules: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.ContainedMemoryModules"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="DmiMemoryControllerContainedElementCollection"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Contained memory modules reference.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.ContainedMemoryModules"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="DmiMemoryControllerContainedElementCollection"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ContainedMemoryModules => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.ContainedMemoryModules, PropertyUnit.None);
             #endregion
@@ -2417,13 +2537,24 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) EnabledErrorCorrectingCapabilities: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryController"/></para>
-            /// <para>Property: <see cref="DmiType005Property.EnabledErrorCorrectingCapabilities"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Return Value ———————————————— </para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Identifies the error-correcting capabilities that were enabled.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryController"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType005Property.EnabledErrorCorrectingCapabilities"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey EnabledErrorCorrectingCapabilities => new PropertyKey(DmiStructureClass.MemoryController, DmiType005Property.EnabledErrorCorrectingCapabilities);
             #endregion
@@ -2440,91 +2571,140 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         {
             #region [public] {static} (IPropertyKey) SocketDesignation: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryModule"/></para>
-            /// <para>Property: <see cref="DmiType006Property.SocketDesignation"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number for reference designation.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryModule"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType006Property.SocketDesignation"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SocketDesignation => new PropertyKey(DmiStructureClass.MemoryModule, DmiType006Property.SocketDesignation);
             #endregion
 
             #region [public] {static} (IPropertyKey) BankConnections: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryModule"/></para>
-            /// <para>Property: <see cref="DmiType006Property.BankConnections"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection{String}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Indicates a bank (RAS#) connection.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryModule"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType006Property.BankConnections"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey BankConnections => new PropertyKey(DmiStructureClass.MemoryModule, DmiType006Property.BankConnections);
             #endregion
 
             #region [public] {static} (IPropertyKey) CurrentSpeed: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryModule"/></para>
-            /// <para>Property: <see cref="DmiType006Property.CurrentSpeed"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Speed of the memory module, in ns.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryModule"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType006Property.CurrentSpeed"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.ns"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CurrentSpeed => new PropertyKey(DmiStructureClass.MemoryModule, DmiType006Property.CurrentSpeed, PropertyUnit.ns);
             #endregion
 
             #region [public] {static} (IPropertyKey) CurrentMemoryType: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryModule"/></para>
-            /// <para>Property: <see cref="DmiType006Property.CurrentMemoryType"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection{String}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Describes the physical characteristics of the memory modules that are supported by (and currently installed in) the system.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryModule"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType006Property.CurrentMemoryType"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CurrentMemoryType => new PropertyKey(DmiStructureClass.MemoryModule, DmiType006Property.CurrentMemoryType);
             #endregion
 
             #region [public] {static} (IPropertyKey) InstalledSize: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryModule"/></para>
-            /// <para>Property: <see cref="DmiType006Property.InstalledSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.MB"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection{String}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Identify the size of the memory module that is installed in the socket, as determined by reading and correlating the module’s presence-detect information.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryModule"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType006Property.InstalledSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey InstalledSize => new PropertyKey(DmiStructureClass.MemoryModule, DmiType006Property.InstalledSize, PropertyUnit.MB);
             #endregion
 
             #region [public] {static} (IPropertyKey) EnabledSize: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryModule"/></para>
-            /// <para>Property: <see cref="DmiType006Property.EnabledSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.MB"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection{String}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Identifies the amount of memory currently enabled for the system’s use from the module.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryModule"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType006Property.EnabledSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey EnabledSize => new PropertyKey(DmiStructureClass.MemoryModule, DmiType006Property.EnabledSize, PropertyUnit.MB);
             #endregion
 
             #region [public] {static} (IPropertyKey) ErrorStatus: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryModule"/></para>
-            /// <para>Property: <see cref="DmiType006Property.ErrorStatus"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Identifies error status.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryModule"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType006Property.ErrorStatus"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ErrorStatus => new PropertyKey(DmiStructureClass.MemoryModule, DmiType006Property.ErrorStatus);
             #endregion
@@ -2541,67 +2721,120 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) SocketDesignation: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.SocketDesignation"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number for reference designation.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.SocketDesignation"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SocketDesignation => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.SocketDesignation);
             #endregion
 
-            #region [public] {static} (IPropertyKey) MaximumCacheSize2: Gets a value representing the key to retrieve the property value
+            #region [public] {static} (IPropertyKey) MaximumCacheSize: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.MaximumCacheSize2"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.UInt32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Maximum size that can be installed.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.MaximumCacheSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey MaximumCacheSize2 => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.MaximumCacheSize2, PropertyUnit.KB);
+            public static IPropertyKey MaximumCacheSize => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.MaximumCacheSize, PropertyUnit.KB);
             #endregion
 
             #region [public] {static} (IPropertyKey) InstalledCacheSize: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.InstalledCacheSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.KB"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Installed size.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.InstalledCacheSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey InstalledCacheSize => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.InstalledCacheSize, PropertyUnit.KB);
             #endregion
 
             #region [public] {static} (IPropertyKey) SupportedSramTypes: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.SupportedSramTypes"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.KB"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String collection with supported SRAM types.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.SupportedSramTypes"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SupportedSramTypes => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.SupportedSramTypes);
             #endregion
 
             #region [public] {static} (IPropertyKey) CurrentSramType: Gets a value representing the key to retrieve the property value
             /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Current SRAM type is installed.</para>
             /// <para>
-            /// Gets a value representing the key to retrieve the property.
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.SupportedSramTypes"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
             /// </para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.CurrentSramType"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.0+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CurrentSramType => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.CurrentSramType);
             #endregion
@@ -2612,54 +2845,96 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) CacheSpeed: Gets a value representing the key to retrieve the property value
             /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Cache module speed, in nanoseconds.</para>
             /// <para>
-            /// Gets a value representing the key to retrieve the property.
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.CacheSpeed"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.ns"/></description></item>
+            ///  </list>
             /// </para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.CacheSpeed"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.ns"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey CacheSpeed => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.CacheSpeed, PropertyUnit.ns);
             #endregion
 
             #region [public] {static} (IPropertyKey) ErrorCorrectionType: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.ErrorCorrectionType"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Error-correction scheme supported by this cache component.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.ErrorCorrectionType"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ErrorCorrectionType => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.ErrorCorrectionType);
             #endregion
 
             #region [public] {static} (IPropertyKey) SystemCacheType: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.SystemCacheType"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Logical type of cache.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.SystemCacheType"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SystemCacheType => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.SystemCacheType);
             #endregion
 
             #region [public] {static} (IPropertyKey) Associativity: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.Associativity"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Boolean"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Associativity of the cache.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.Associativity"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Associativity => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.Associativity);
             #endregion
@@ -2668,28 +2943,50 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region version 3.1+
 
-            #region [public] {static} (IPropertyKey) MaximumCacheSize: Gets a value representing the key to retrieve the property value
+            #region [public] {static} (IPropertyKey) MaximumCacheSize2: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.MaximumCacheSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.KB"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>If is present, for cache sizes of 2047MB or smaller the value is equals to <see cref="MaximumCacheSize"/> property.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.MaximumCacheSize2"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="uint"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.1+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey MaximumCacheSize => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.MaximumCacheSize, PropertyUnit.KB);
+            public static IPropertyKey MaximumCacheSize2 => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.MaximumCacheSize2, PropertyUnit.KB);
             #endregion
 
             #region [public] {static} (IPropertyKey) InstalledCacheSize2: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-            /// <para>Property: <see cref="DmiType007Property.InstalledCacheSize2"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.UInt32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>If is present, for cache sizes of 2047MB or smaller the value is equals to <see cref="InstalledCacheSize"/> property.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType007Property.InstalledCacheSize2"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="uint"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey InstalledCacheSize2 => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.InstalledCacheSize2, PropertyUnit.KB);
             #endregion
@@ -2707,71 +3004,120 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             {
                 #region [public] {static} (IPropertyKey) CacheEnabled: Gets a value representing the key to retrieve the property value
                 /// <summary>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicates if is enabled/disabled (at boot time).</para>
                 /// <para>
-                /// Gets a value representing the key to retrieve the property.
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType007Property.CacheEnabled"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
                 /// </para>
-                /// <para>— Key Composition —————————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-                /// <para>Property: <see cref="DmiType007Property.CacheEnabled"/></para>
-                /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-                /// <para>— Value ——————————————————————</para>
-                /// <para>Type: <see cref="T:System.Boolean"/></para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey CacheEnabled => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.CacheEnabled);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) CacheLevel: Gets a value representing the key to retrieve the property value
                 /// <summary>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Returns cache level (1, 2, 3,...).</para>
                 /// <para>
-                /// Gets a value representing the key to retrieve the property.
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType007Property.CacheLevel"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
                 /// </para>
-                /// <para>— Key Composition —————————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-                /// <para>Property: <see cref="DmiType007Property.CacheLevel"/></para>
-                /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-                /// <para>— Value ——————————————————————</para>
-                /// <para>Type: <see cref="string"/></para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="string"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey Level => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.CacheLevel);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) CacheLocation: Gets a value representing the key to retrieve the property value
                 /// <summary>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Location, relative to the CPU module.</para>
                 /// <para>
-                /// Gets a value representing the key to retrieve the property.
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType007Property.CacheLocation"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
                 /// </para>
-                /// <para>— Key Composition —————————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-                /// <para>Property: <see cref="DmiType007Property.CacheLocation"/></para>
-                /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-                /// <para>— Value ——————————————————————</para>
-                /// <para>Type: <see cref="string"/></para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="string"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey Location => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.CacheLocation);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) OperationalMode: Gets a value representing the key to retrieve the property value
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition —————————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-                /// <para>Property: <see cref="DmiType007Property.OperationalMode"/></para>
-                /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-                /// <para>— Value ——————————————————————</para>
-                /// <para>Type: <see cref="string"/></para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Cache operational mode (Write Through, Write Back, ...).</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType007Property.OperationalMode"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="string"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey OperationalMode => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.OperationalMode);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) CacheSocketed: Gets a value representing the key to retrieve the property value
                 /// <summary>
-                /// <para>Gets a value representing the key to retrieve the property.</para>
-                /// <para>— Key Composition —————————————————</para>
-                /// <para>Structure: <see cref="DmiStructureClass.Cache"/></para>
-                /// <para>Property: <see cref="DmiType007Property.CacheSocketed"/></para>
-                /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-                /// <para>— Value ——————————————————————</para>
-                /// <para>Type: <see cref="T:System.Boolean"/></para>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicates if cache is socketed.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Cache"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType007Property.CacheSocketed"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.0+</para>
+                /// </para>
                 /// </summary>
                 public static IPropertyKey CacheSocketed => new PropertyKey(DmiStructureClass.Cache, DmiType007Property.CacheSocketed);
                 #endregion
@@ -3146,7 +3492,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="bool"/></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
             /// </para>
             /// </summary>
             public static IPropertyKey Enabled => new PropertyKey(DmiStructureClass.OnBoardDevices, DmiType010Property.Enabled);
@@ -3325,7 +3671,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="bool"/></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="bool"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>
@@ -3408,7 +3754,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// <para>
                 ///  <para><b>Return Value</b></para>
-                ///  <para>Type: <see cref="int"/></para>
+                ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
                 /// </para>
                 /// </summary>
                 public static IPropertyKey Handle => new PropertyKey(DmiStructureClass.GroupAssociations, DmiType014Property.Handle);
@@ -3474,89 +3820,163 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         /// </summary>
         public static class PhysicalMemoryArray
         {
+            #region version 2.1+
+
             #region [public] {static} (IPropertyKey) Location: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></para>
-            /// <para>Property: <see cref="DmiType016Property.Location"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Physical location of the Memory Array, whether on the system board or an add-in board.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType016Property.Location"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Location => new PropertyKey(DmiStructureClass.PhysicalMemoryArray, DmiType016Property.Location);
             #endregion
 
             #region [public] {static} (IPropertyKey) Use: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></para>
-            /// <para>Property: <see cref="DmiType016Property.Use"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Function for which the array is used.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType016Property.Use"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Use => new PropertyKey(DmiStructureClass.PhysicalMemoryArray, DmiType016Property.Use);
             #endregion
 
             #region [public] {static} (IPropertyKey) MemoryErrorCorrection: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></para>
-            /// <para>Property: <see cref="DmiType016Property.MemoryErrorCorrection"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Primary hardware error correction or detection method supported by this memory array.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType016Property.MemoryErrorCorrection"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryErrorCorrection => new PropertyKey(DmiStructureClass.PhysicalMemoryArray, DmiType016Property.MemoryErrorCorrection);
             #endregion
 
-            #region [public] {static} (IPropertyKey) MaximumCapacity: Gets a value representing the key to retrieve the property value
-            /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></para>
-            /// <para>Property: <see cref="DmiType016Property.MaximumCapacity"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.KB"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.UInt64"/></para>
-            /// </summary>
-            public static IPropertyKey MaximumCapacity => new PropertyKey(DmiStructureClass.PhysicalMemoryArray, DmiType016Property.MaximumCapacity, PropertyUnit.KB);
-            #endregion
-
             #region [public] {static} (IPropertyKey) MemoryErrorInformationHandle: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></para>
-            /// <para>Property: <see cref="DmiType016Property.MemoryErrorInformationHandle"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with any error that was previously detected for the array.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType016Property.MemoryErrorInformationHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryErrorInformationHandle => new PropertyKey(DmiStructureClass.PhysicalMemoryArray, DmiType016Property.MemoryErrorInformationHandle);
             #endregion
 
             #region [public] {static} (IPropertyKey) NumberOfMemoryDevices: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></para>
-            /// <para>Property: <see cref="DmiType016Property.NumberOfMemoryDevices"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of slots or sockets available for Memory devices in this array.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType016Property.NumberOfMemoryDevices"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey NumberOfMemoryDevices => new PropertyKey(DmiStructureClass.PhysicalMemoryArray, DmiType016Property.NumberOfMemoryDevices);
+            #endregion
+
+            #endregion
+
+            #region version 2.1+ - 2.7+
+
+            #region [public] {static} (IPropertyKey) MaximumCapacity: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Maximum memory capacity, in kilobytes, for this array.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.PhysicalMemoryArray"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType016Property.MaximumCapacity"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+, 2.7+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey MaximumCapacity => new PropertyKey(DmiStructureClass.PhysicalMemoryArray, DmiType016Property.MaximumCapacity, PropertyUnit.KB);
+            #endregion
+
             #endregion
         }
         #endregion
 
         #region [public] {static} (class) MemoryDevice: Contains the key definitions available for a type 017 [Memory Device] structure
         /// <summary>
-        /// Contains the key definitions available for a type 016 [<see cref="DmiStructureClass.MemoryDevice"/>] structure.
+        /// Contains the key definitions available for a type 017 [<see cref="DmiStructureClass.MemoryDevice"/>] structure.
         /// </summary>
         public static class MemoryDevice
         {
@@ -3564,13 +3984,24 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) PhysicalMemoryArrayHandle: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.PhysicalMemoryArrayHandle"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with the physical memory array to which this device belongs.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.PhysicalMemoryArrayHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey PhysicalMemoryArrayHandle => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.PhysicalMemoryArrayHandle);
             #endregion
@@ -3578,12 +4009,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) MemoryErrorInformationHandle: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MemoryErrorInformationHandle"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Handle, or instance number, associated with any error that was previously detected for the device</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MemoryErrorInformationHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryErrorInformationHandle => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MemoryErrorInformationHandle);
             #endregion
@@ -3591,12 +4033,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) TotalWidth: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.TotalWidth"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.Bits"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Total width, in bits, of this memory device, including any check or error-correction bits.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.TotalWidth"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bits"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey TotalWidth => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.TotalWidth, PropertyUnit.Bits);
             #endregion
@@ -3604,12 +4057,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) DataWidth: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.DataWidth"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.Bits"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Data width, in bits, of this memory device A data width of 0 and a total width of 8 indicates that the device is being used solely to provide 8 error-correction bits</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.DataWidth"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bits"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey DataWidth => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.DataWidth, PropertyUnit.Bits);
             #endregion
@@ -3617,12 +4081,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) Size: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.Size"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.KB"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Size of the memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.Size"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Size => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.Size, PropertyUnit.KB);
             #endregion
@@ -3630,12 +4105,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) FormFactor: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.FormFactor"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Implementation form factor for this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.FormFactor"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey FormFactor => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.FormFactor);
             #endregion
@@ -3643,25 +4129,74 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) DeviceSet: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.DeviceSet"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{Byte}"/></para>
+            /// <para>
+            /// Identifies when the Memory Device is one of a set of Memory Devices that must be populated with all
+            /// devices of the same type and size, and the set to which this device belongs.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.DeviceSet"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey DeviceSet => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.DeviceSet);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) BankLocator: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>String number of the string that identifies the physically labeled bank where the memory device is located.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.BankLocator"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey BankLocator => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.BankLocator);
             #endregion
 
             #region [public] {static} (IPropertyKey) DeviceLocator: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.DeviceLocator"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>String number of the string that identifies the physically-labeled socket or board position where the memory device is located.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.DeviceLocator"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey DeviceLocator => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.DeviceLocator);
             #endregion
@@ -3669,12 +4204,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) MemoryType: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MemoryType"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Type of memory used in this device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MemoryType"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryType => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MemoryType);
             #endregion
@@ -3682,12 +4228,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) TypeDetail: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.TypeDetail"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;"/></para>
+            /// <para>Additional detail on the memory device type.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.TypeDetail"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey TypeDetail => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.TypeDetail);
             #endregion
@@ -3699,25 +4256,47 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) MaximunSpeed: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MaximunSpeed"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.MHz"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Size of the memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MaximumSpeed"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MHz"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey MaximunSpeed => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MaximunSpeed, PropertyUnit.MHz);
+            public static IPropertyKey MaximunSpeed => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MaximumSpeed, PropertyUnit.MHz);
             #endregion
 
             #region [public] {static} (IPropertyKey) Manufacturer: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.Manufacturer"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>String number for the manufacturer of this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.Manufacturer"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Manufacturer => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.Manufacturer);
             #endregion
@@ -3725,12 +4304,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) SerialNumber: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.SerialNumber"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>String number for the serial number of this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.SerialNumber"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey SerialNumber => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.SerialNumber);
             #endregion
@@ -3738,12 +4328,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) AssetTag: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.AssetTag"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>String number for the asset tag of this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.AssetTag"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey AssetTag => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.AssetTag);
             #endregion
@@ -3751,12 +4352,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) PartNumber: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.PartNumber"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>String number for the part number of this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.PartNumber"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey PartNumber => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.PartNumber);
             #endregion
@@ -3764,12 +4376,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) Rank: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.Rank"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Rank.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.Rank"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Rank => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.Rank);
             #endregion
@@ -3781,55 +4404,75 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) ConfiguredMemoryClockSpeed: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.ConfiguredMemoryClockSpeed"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.MHz"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Identifies the configured speed of the memory device, in megatransfers per second(MT/s).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.ConfiguredMemoryClockSpeed"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MTs"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.7+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey ConfiguredMemoryClockSpeed => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ConfiguredMemoryClockSpeed, PropertyUnit.MHz);
-            #endregion
-
-            #region [public] {static} (IPropertyKey) BankLabel: Gets a value representing the key to retrieve the property value
-            /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.BankLocator"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
-            /// </summary>
-            public static IPropertyKey BankLabel => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.BankLocator);
+            public static IPropertyKey ConfiguredMemoryClockSpeed => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ConfiguredMemoryClockSpeed, PropertyUnit.MTs);
             #endregion
 
             #endregion
 
             #region version 2.8+
 
-            #region [public] {static} (IPropertyKey) MinimunVoltage: Gets a value representing the key to retrieve the property value
+            #region [public] {static} (IPropertyKey) MinimumVoltage: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MinimunVoltage"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.mV"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Minimum operating voltage for this device, in millivolts.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MinimumVoltage"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.mV"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.8+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey MinimunVoltage => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MinimunVoltage, PropertyUnit.mV);
+            public static IPropertyKey MinimumVoltage => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MinimumVoltage, PropertyUnit.mV);
             #endregion
 
             #region [public] {static} (IPropertyKey) MaximumVoltage: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MaximumVoltage"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.mV"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Maximum operating voltage for this device, in millivolts.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MaximumVoltage"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.mV"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.8+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MaximumVoltage => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MaximumVoltage, PropertyUnit.mV);
             #endregion
@@ -3837,12 +4480,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) ConfiguredVoltage: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.ConfiguredVoltage"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.mV"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Configured voltage for this device, in millivolts.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.ConfiguredVoltage"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.mV"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.8+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ConfiguredVoltage => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ConfiguredVoltage, PropertyUnit.mV);
             #endregion
@@ -3853,39 +4507,72 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
 
             #region [public] {static} (IPropertyKey) MemoryTechnology: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MemoryTechnology"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Memory technology type for this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MemoryTechnology"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey MemoryTechnology => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MinimunVoltage, PropertyUnit.mV);
+            public static IPropertyKey MemoryTechnology => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MemoryTechnology);
             #endregion
 
             #region [public] {static} (IPropertyKey) MemoryOperatingModeCapability: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MemoryOperatingModeCapability"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:ReadOnlyCollection&lt;String&gt;"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>The operating modes supported by this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MemoryOperatingModeCapability"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryOperatingModeCapability => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MemoryOperatingModeCapability);
             #endregion
 
             #region [public] {static} (IPropertyKey) FirmwareVersion: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.FirmwareVersion"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number for the firmware version of this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.FirmwareVersion"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey FirmwareVersion => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.FirmwareVersion);
             #endregion
@@ -3893,12 +4580,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) ModuleManufacturerId: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.ModuleManufacturerId"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{Int32}"/></para>
+            /// <para>The two-byte module manufacturer ID found in the SPD of this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.ModuleManufacturerId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ModuleManufacturerId => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ModuleManufacturerId);
             #endregion
@@ -3906,12 +4604,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) ModuleProductId: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.ModuleProductId"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{Int32}"/></para>
+            /// <para>The two-byte module product ID found in the SPD of this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.ModuleProductId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ModuleProductId => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ModuleProductId);
             #endregion
@@ -3919,12 +4628,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) MemorySubSystemControllerManufacturerId: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MemorySubSystemControllerManufacturerId"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{Int32}"/></para>
+            /// <para>The two-byte memory subsystem controller manufacturer ID found in the SPD of this memory device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MemorySubSystemControllerManufacturerId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemorySubsystemControllerManufacturerId => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MemorySubSystemControllerManufacturerId);
             #endregion
@@ -3932,12 +4652,23 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) MemorySubSystemControllerProductId: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.MemorySubSystemControllerProductId"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{Int32}"/></para>
+            /// <para>The two-byte memory subsystem controller product ID found in the SPD of this memory device; LSB first.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.MemorySubSystemControllerProductId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemorySubsystemControllerProductId => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.MemorySubSystemControllerProductId);
             #endregion
@@ -3945,53 +4676,97 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) NonVolatileSize: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.NonVolatileSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.Bytes"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{UInt64}"/></para>
+            /// <para>Size of the Non-volatile portion of the memory device in bytes.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.NonVolatileSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey NonVolatileSize => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.NonVolatileSize);
+            public static IPropertyKey NonVolatileSize => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.NonVolatileSize, PropertyUnit.Bytes);
             #endregion
 
             #region [public] {static} (IPropertyKey) VolatileSize: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.VolatileSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.Bytes"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{UInt64}"/></para>
+            /// <para>Size of the volatile portion of the memory device in bytes.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.VolatileSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey VolatileSize => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.VolatileSize);
+            public static IPropertyKey VolatileSize => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.VolatileSize, PropertyUnit.Bytes);
             #endregion
 
             #region [public] {static} (IPropertyKey) CacheSize: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.CacheSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.Bytes"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{UInt64}"/></para>
+            /// <para>Size of the Cache portion of the memory device in bytes.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.CacheSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey CacheSize => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.CacheSize);
+            public static IPropertyKey CacheSize => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.CacheSize, PropertyUnit.Bytes);
             #endregion
 
             #region [public] {static} (IPropertyKey) LogicalSize: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.LogicalSize"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.Bytes"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{UInt64}"/></para>
+            /// <para>Size of the Logical memory device in bytes.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.LogicalSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey LogicalSize => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.LogicalSize);
+            public static IPropertyKey LogicalSize => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.LogicalSize, PropertyUnit.Bytes);
             #endregion
 
             #endregion
@@ -4001,25 +4776,47 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             #region [public] {static} (IPropertyKey) ExtendedSpeed: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.ExtendedSpeed"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.MTs"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/>?</para>
+            /// <para>Extended speed of the memory device. Identifies the maximum capable speed of the device, in megatransfers per second (MT/s).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.ExtendedSpeed"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MTs"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ExtendedSpeed => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ExtendedSpeed, PropertyUnit.MTs);
             #endregion
 
-            #region [public] {static} (IPropertyKey) ExtendedSpeed: Gets a value representing the key to retrieve the property value
+            #region [public] {static} (IPropertyKey) ExtendedConfiguredMemorySpeed: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="DmiStructureClass.MemoryDevice"/></para>
-            /// <para>Property: <see cref="DmiType017Property.ExtendedConfiguredMemorySpeed"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.MTs"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/>?</para>
+            /// <para>Extended configured memory speed of the memory device. Identifies the configured speed of the memory device, in megatransfers per second (MT/s).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType017Property.ExtendedConfiguredMemorySpeed"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.MTs"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ExtendedConfiguredMemorySpeed => new PropertyKey(DmiStructureClass.MemoryDevice, DmiType017Property.ExtendedConfiguredMemorySpeed, PropertyUnit.MTs);
             #endregion
@@ -5579,11 +6376,11 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
         }
         #endregion
 
-        #region [public] {static} (class) BitMemoryErrorInformation64: Contains the key definitions available for a type 033 [64-Bit Memory Error Information] structure
+        #region [public] {static} (class) BitMemoryError64: Contains the key definitions available for a type 033 [64-Bit Memory Error Information] structure
         /// <summary>
-        /// Contains the key definitions available for a type 033 [<see cref="DmiStructureClass.BitMemoryErrorInformation64"/>] structure.
+        /// Contains the key definitions available for a type 033 [<see cref="DmiStructureClass.BitMemoryError64"/>] structure.
         /// </summary>
-        public static class BitMemoryErrorInformation64
+        public static class BitMemoryError64
         {
             #region [public] {static} (IPropertyKey) ErrorType: Gets a value representing the key to retrieve the property value
             /// <summary>

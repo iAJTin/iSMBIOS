@@ -484,15 +484,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.8+ fields
 
-        #region [private] (int) MinimunVoltage: Gets a value representing the 'Minimun Voltage' field
+        #region [private] (int) MinimumVoltage: Gets a value representing the 'Minimum Voltage' field
         /// <summary>
-        /// Gets a value representing the <b>Minimun Voltage</b> field.
+        /// Gets a value representing the <b>Minimum Voltage</b> field.
         /// </summary>
         /// <value>
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MinimunVoltage => Reader.GetWord(0x22);
+        private int MinimumVoltage => Reader.GetWord(0x22);
         #endregion
 
         #region [private] (int) MaximumVoltage: Gets a value representing the 'Maximum Voltage' field
@@ -736,7 +736,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             }
 
             properties.Add(SmbiosProperty.MemoryDevice.DeviceLocator, DeviceLocator);
-            properties.Add(SmbiosProperty.MemoryDevice.BankLabel, BankLocator);
+            properties.Add(SmbiosProperty.MemoryDevice.BankLocator, BankLocator);
             properties.Add(SmbiosProperty.MemoryDevice.MemoryType, GetDeviceType(MemoryType));
             properties.Add(SmbiosProperty.MemoryDevice.TypeDetail, GetDeviceTypeDetail(TypeDetail));
             #endregion
@@ -785,7 +785,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #region 2.8+
             if (StructureInfo.Length >= 0x23)
             {
-                properties.Add(SmbiosProperty.MemoryDevice.MinimunVoltage, MinimunVoltage);
+                properties.Add(SmbiosProperty.MemoryDevice.MinimumVoltage, MinimumVoltage);
                 properties.Add(SmbiosProperty.MemoryDevice.MaximumVoltage, MaximumVoltage);
                 properties.Add(SmbiosProperty.MemoryDevice.ConfiguredVoltage, ConfiguredVoltage);
             }

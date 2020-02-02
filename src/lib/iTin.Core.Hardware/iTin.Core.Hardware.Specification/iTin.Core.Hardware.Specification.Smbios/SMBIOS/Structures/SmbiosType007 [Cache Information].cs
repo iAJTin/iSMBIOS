@@ -410,7 +410,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             }
             #endregion
 
-            #region 3.1.0+
+            #region 3.1+
             if (StructureInfo.Length >= 0x14)
             {
                 properties.Add(SmbiosProperty.Cache.MaximumCacheSize2, GetSize(MaximumCacheSize2));
@@ -532,7 +532,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Gets a <see cref="string"/> that represents the cache size in Kb.
         /// </summary>
         /// <param name="code">Value to analyze.</param>
-        /// <returns>The cache size in Kb.</returns>
+        /// <returns>
+        /// The cache size in Kb.
+        /// </returns>
         private static int GetSize(int code)
         {
             int size = code & 0x7fff;

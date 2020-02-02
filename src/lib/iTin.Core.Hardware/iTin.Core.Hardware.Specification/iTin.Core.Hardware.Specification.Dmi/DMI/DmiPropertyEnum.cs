@@ -1207,15 +1207,15 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #endregion
 
         #region version 2.7+
-        [PropertyName("Start Address")]
+        [PropertyName("Starting Address")]
         [PropertyDescription("")]
         [PropertyType(typeof(ulong?))]
-        StartAddress,
+        StartingAddress,
 
-        [PropertyName("End Address")]
+        [PropertyName("Ending Address")]
         [PropertyDescription("")]
         [PropertyType(typeof(ulong?))]
-        EndAddress,
+        EndingAddress,
         #endregion
     }
     #endregion
@@ -1227,24 +1227,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
     internal enum DmiType020Property
     {
         #region version 2.1+
-        [PropertyName("Start Address")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(ulong))]
-        StartAddress,
-
-        [PropertyName("End Address")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(ulong))]
-        EndAddress,
-
         [PropertyName("Memory Device Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         MemoryDeviceHandle,
 
         [PropertyName("Memory Array Mapped Address Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(int?))]
         MemoryArrayMappedAddressHandle,
 
         [PropertyName("Partition Row Position")]
@@ -1263,16 +1253,16 @@ namespace iTin.Core.Hardware.Specification.Dmi
         InterleavedDataDepth,
         #endregion
 
-        #region version 2.7+
-        [PropertyName("Extended Starting Address")]
+        #region version 2.1+, 2.7+
+        [PropertyName("Starting Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
-        ExtendedStartingAddress,
+        [PropertyType(typeof(uint?))]
+        StartingAddress,
 
-        [PropertyName("Extended Ending Address")]
+        [PropertyName("Ending Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
-        ExtendedEndingAddress,
+        [PropertyType(typeof(uint?))]
+        EndingAddress,
         #endregion
     }
     #endregion
@@ -1473,27 +1463,27 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         [PropertyName("Month")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Month,
 
         [PropertyName("Day")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Day,
 
         [PropertyName("Hour")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Hour,
 
         [PropertyName("Minute")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Minute,
 
         [PropertyName("Second")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Second,
     }
     #endregion
@@ -2214,7 +2204,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     /// </summary>
     internal enum DmiType043Property
     {
-        #region Version 3.1.0+
+        #region Version 3.1+
         [PropertyName("Vendor Id")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
@@ -2264,10 +2254,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
     /// </summary>
     internal enum DmiType044Property
     {
-        #region Version 3.3.0+
+        #region Version 3.3+
         [PropertyName("Referenced Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(int))]
         ReferencedHandle,
 
         [PropertyName("Processor Specific Block")]

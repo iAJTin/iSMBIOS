@@ -109,7 +109,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (ulong) StartingAddress: Gets a value representing the 'Starting Address' field
+        #region [private] (uint) StartingAddress: Gets a value representing the 'Starting Address' field
         /// <summary>
         /// Gets a value representing the <b>Starting Address</b> field.
         /// </summary>
@@ -117,10 +117,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong StartingAddress => (ulong)Reader.GetDoubleWord(0x04);
+        private uint StartingAddress => (uint)Reader.GetDoubleWord(0x04);
         #endregion
 
-        #region [private] (ulong) EndingAddress: Gets a value representing the 'Ending Address' field
+        #region [private] (uint) EndingAddress: Gets a value representing the 'Ending Address' field
         /// <summary>
         /// Gets a value representing the <b>Ending Address</b> field.
         /// </summary>
@@ -128,7 +128,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong EndingAddress => (ulong)Reader.GetDoubleWord(0x08);
+        private uint EndingAddress => (uint)Reader.GetDoubleWord(0x08);
         #endregion
 
         #region [private] (int) MemoryArrayHandle: Gets a value representing the 'Memory Array Handle' field
@@ -155,7 +155,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
-        #region Version 2.1+ fields
+        #region Version 2.7+ fields
 
         #region [private] (ulong) ExtendedStartingAddress: Gets a value representing the 'Extended Starting Address' field
         /// <summary>
@@ -193,34 +193,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            if (StartingAddress == 0xffffffff)
-            {
-                if (StructureInfo.Length >= 0x10)
-                {
-                    ulong extendedStartingAddress = ExtendedStartingAddress;
-                    properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, extendedStartingAddress);
-                }
-            }
-            else
-            {
-                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, StartingAddress);
-            }
-
-            if (EndingAddress == 0xffffffff)
-            {
-                if (StructureInfo.Length >= 0x18)
-                {
-                    ulong extendedEndingAddress = ExtendedEndingAddress;
-                    properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, extendedEndingAddress);
-                }
-            }
-            else
-            {
-                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, EndingAddress);
-            }
-
+            #region 2.1+
+            properties.Add(SmbiosProperty.MemoryArrayMappedAddress.StartingAddress, StartingAddress);
+            properties.Add(SmbiosProperty.MemoryArrayMappedAddress.EndingAddress, EndingAddress);
             properties.Add(SmbiosProperty.MemoryArrayMappedAddress.MemoryArrayHandle, MemoryArrayHandle);
             properties.Add(SmbiosProperty.MemoryArrayMappedAddress.PartitionWidth, PartitionWidth);
+            #endregion
+
+            #region 2.7+
+            if (SmbiosVersion >= 0x0207)
+            {
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, ExtendedStartingAddress);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, ExtendedEndingAddress);
+            }
+            #endregion
+
         }
         #endregion
 

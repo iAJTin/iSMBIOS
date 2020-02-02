@@ -48,21 +48,21 @@ All notable changes to this project will be documented in this file.
 |Type015|System Event Log|Done!!|
 |Type016|Physical Memory Array|Done!!|
 |Type017|Memory Device|Done!!|
-|Type018|32-Bit Memory Error Information|...|
-|Type019|Memory Array Mapped Address|...|
-|Type020|Memory Device Mapped Address|...|
-|Type021|Built-in Pointing Device|...|
+|Type018|32-Bit Memory Error Information|Done!!|
+|Type019|Memory Array Mapped Address|Done!!|
+|Type020|Memory Device Mapped Address|Done!!|
+|Type021|Built-in Pointing Device|Done!!|
 |Type022|Portable Battery|...|
 |Type023|System Reset|...|
 |Type024|Hardware Security|...|
-|Type025|System Power Controls|...|
+|Type025|System Power Controls|Done!!|
 |Type026|Voltage Probe|...|
 |Type027|Cooling Device|...|
 |Type028|Temperature Probe|...|
 |Type029|Electrical Current Probe|...|
 |Type030|Out-of-Band Remote Access|...|
-|Type031|Boot Integrity Services (BIS) Entry Point|...|
-|Type032|System Boot Information|...|
+|Type031|Boot Integrity Services (BIS) Entry Point|Done!!|
+|Type032|System Boot Information|Done!!|
 |Type033|64-Bit Memory Error Information|...|
 |Type034|Management Device|...|
 |Type035|Management Device Component|...|

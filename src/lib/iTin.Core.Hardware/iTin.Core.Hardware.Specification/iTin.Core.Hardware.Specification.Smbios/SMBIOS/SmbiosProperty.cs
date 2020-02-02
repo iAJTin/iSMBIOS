@@ -4891,93 +4891,170 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
 
             #region [public] {static} (IPropertyKey) ErrorType: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></para>
-            /// <para>Property: <see cref="SmbiosType018Property.ErrorType"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Type of error that is associated with the current status reported for the memory array or device.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType018Property.ErrorType"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ErrorType => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.ErrorType);
             #endregion
 
             #region [public] {static} (IPropertyKey) ErrorGranularity: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></para>
-            /// <para>Property: <see cref="SmbiosType018Property.ErrorGranularity"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Granularity (for example, device versus Partition) to which the error can be resolved.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType018Property.ErrorGranularity"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ErrorGranularity => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.ErrorGranularity);
             #endregion
 
             #region [public] {static} (IPropertyKey) ErrorOperation: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></para>
-            /// <para>Property: <see cref="SmbiosType018Property.ErrorOperation"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Memory access operation that caused the error.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType018Property.ErrorOperation"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ErrorOperation => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.ErrorOperation);
             #endregion
 
             #region [public] {static} (IPropertyKey) VendorSyndrome: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></para>
-            /// <para>Property: <see cref="SmbiosType018Property.VendorSyndrome"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int64"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Vendor-specific ECC syndrome or CRC data associated with the erroneous access.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType018Property.VendorSyndrome"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="long"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey VendorSyndrome => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.VendorSyndrome);
             #endregion
 
             #region [public] {static} (IPropertyKey) MemoryArrayErrorAddress: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></para>
-            /// <para>Property: <see cref="SmbiosType018Property.MemoryArrayErrorAddress"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int64"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>32-bit physical address of the error based on the addressing of the bus to which the memory array is connected.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType018Property.MemoryArrayErrorAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="long"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryArrayErrorAddress => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.MemoryArrayErrorAddress);
             #endregion
 
             #region [public] {static} (IPropertyKey) DeviceErrorAddress: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></para>
-            /// <para>Property: <see cref="SmbiosType018Property.DeviceErrorAddress"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int64"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>32-bit physical address of the error relative to the start of the failing memory device, in bytes</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType018Property.DeviceErrorAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="long"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey DeviceErrorAddress => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.DeviceErrorAddress);
+            public static IPropertyKey DeviceErrorAddress => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.DeviceErrorAddress, PropertyUnit.Bytes);
             #endregion
 
             #region [public] {static} (IPropertyKey) ErrorResolution: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></para>
-            /// <para>Property: <see cref="SmbiosType018Property.ErrorResolution"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int64"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Range, in bytes, within which the error can be determined, when an error address is given</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BitMemoryError32"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType018Property.ErrorResolution"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="long"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey ErrorResolution => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.ErrorResolution);
+            public static IPropertyKey ErrorResolution => new PropertyKey(SmbiosStructure.BitMemoryError32, SmbiosType018Property.ErrorResolution, PropertyUnit.Bytes);
             #endregion
 
             #endregion
@@ -4992,28 +5069,107 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
         {
             #region version 2.1+
 
+            #region [public] {static} (IPropertyKey) StartingAddress: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Physical address, of a range of memory mapped to the specified physical memory array When the field value is FFFF FFFFh,
+            /// the actual address is stored in the <see cref="ExtendedStartingAddress"/> property.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType019Property.StartingAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="uint"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey StartingAddress => new PropertyKey(SmbiosStructure.MemoryArrayMappedAddress, SmbiosType019Property.StartingAddress, PropertyUnit.KB);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) EndingAddress: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para> Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Physical ending address of the last kilobyte of a range of addresses mapped to the specified physical memory array When the field value is FFFF FFFFh
+            /// and the <see cref="StartingAddress"/> property also contains FFFF FFFFh, the actual address is stored in the <see cref="ExtendedEndingAddress"/> property.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType019Property.EndingAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="uint"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey EndingAddress => new PropertyKey(SmbiosStructure.MemoryArrayMappedAddress, SmbiosType019Property.EndingAddress, PropertyUnit.KB);
+            #endregion
+
             #region [public] {static} (IPropertyKey) MemoryArrayHandle: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType019Property.MemoryArrayHandle"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para> Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Handle, or instance number, associated with the physical memory array to which this address range is mapped
+            /// multiple address ranges can be mapped to a single physical memory array.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType019Property.MemoryArrayHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryArrayHandle => new PropertyKey(SmbiosStructure.MemoryArrayMappedAddress, SmbiosType019Property.MemoryArrayHandle);
             #endregion
 
             #region [public] {static} (IPropertyKey) PartitionWidth: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType019Property.PartitionWidth"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para> Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of memory devices that form a single row of memory for the address partition defined by this structure.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType019Property.PartitionWidth"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey PartitionWidth => new PropertyKey(SmbiosStructure.MemoryArrayMappedAddress, SmbiosType019Property.PartitionWidth);
             #endregion
@@ -5024,28 +5180,59 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
 
             #region [public] {static} (IPropertyKey) ExtendedStartingAddress: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType019Property.ExtendedStartingAddress"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.UInt64"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Physical address, in bytes, of a range of memory mapped to the specified physical memory array this property is valid when
+            /// <see cref="StartingAddress"/> contains the value FFFF FFFFh. If <see cref="StartingAddress"/> contains a value other than FFFF FFFFh,
+            /// this field contains zeros.When this field contains a valid address, <see cref="ExtendedEndingAddress"/> must also contain a valid address.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType019Property.ExtendedStartingAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.7+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey ExtendedStartingAddress => new PropertyKey(SmbiosStructure.MemoryArrayMappedAddress, SmbiosType019Property.ExtendedStartingAddress);
+            public static IPropertyKey ExtendedStartingAddress => new PropertyKey(SmbiosStructure.MemoryArrayMappedAddress, SmbiosType019Property.ExtendedStartingAddress, PropertyUnit.Bytes);
             #endregion
 
             #region [public] {static} (IPropertyKey) ExtendedEndingAddress: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType019Property.ExtendedEndingAddress"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.UInt64"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Physical ending address, in bytes, of the last of a range of addresses mapped to the specified physical memory array this property
+            /// is valid when both <see cref="StartingAddress"/> and <see cref="EndingAddress"/> contain the value FFFF FFFFh. If <see cref="EndingAddress"/>
+            /// contains a value other than FFFF FFFFh, this property contains zeros. When this property contains a valid address, <see cref="ExtendedEndingAddress"/>
+            /// must also contain a valid address.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryArrayMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType019Property.ExtendedEndingAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.7+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey ExtendedEndingAddress => new PropertyKey(SmbiosStructure.MemoryArrayMappedAddress, SmbiosType019Property.ExtendedEndingAddress);
+            public static IPropertyKey ExtendedEndingAddress => new PropertyKey(SmbiosStructure.MemoryArrayMappedAddress, SmbiosType019Property.ExtendedEndingAddress, PropertyUnit.Bytes);
             #endregion
 
             #endregion
@@ -5062,123 +5249,243 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
 
             #region [public] {static} (IPropertyKey) StartingAddress: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.StartingAddress"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.UInt64"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Physical address, in kilobytes, of a range of memory mapped to the referenced memory device When the property value is FFFF FFFFh the actual
+            /// address is stored in the <see cref="ExtendedStartingAddress"/> property. When this property contains a valid address, <see cref="EndingAddress"/> must also contain a
+            /// valid address. When this property contains FFFF FFFFh, <see cref="EndingAddress"/> must also contain FFFF FFFFh.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.StartingAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="uint"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey StartingAddress => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.StartingAddress);
             #endregion
 
             #region [public] {static} (IPropertyKey) EndingAddress: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.EndingAddress"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.UInt64"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Physical ending address of the last kilobyte of a range of addresses mapped to the referenced memory device When the field value is FFFF FFFFh the actual
+            /// address is stored in the <see cref="ExtendedEndingAddress"/> field. When this property contains a valid address,<see cref="StartingAddress"/> must also contain a valid address.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.EndingAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.KB"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="uint"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey EndingAddress => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.EndingAddress);
             #endregion
 
             #region [public] {static} (IPropertyKey) MemoryDeviceHandle: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.MemoryDeviceHandle"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Handle, or instance number, associated with the memory device structure to which this address range is mapped multiple address
+            /// ranges can be mapped to a single memory device.
+            /// </para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.MemoryDeviceHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryDeviceHandle => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.MemoryDeviceHandle);
             #endregion
 
             #region [public] {static} (IPropertyKey) MemoryArrayMappedAddressHandle: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.MemoryArrayMappedAddressHandle"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Handle, or instance number, associated with the memory array mapped Address structure to which this device address range is mapped
+            /// multiple address ranges can be mapped to a single Memory array mapped address.
+            /// </para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.MemoryArrayMappedAddressHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey MemoryArrayMappedAddressHandle => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.MemoryArrayMappedAddressHandle);
             #endregion
 
             #region [public] {static} (IPropertyKey) PartitionRowPosition: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.PartitionRowPosition"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Position of the referenced Memory Device in a row of the address partition.</para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.PartitionRowPosition"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey PartitionRowPosition => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.PartitionRowPosition);
             #endregion
 
             #region [public] {static} (IPropertyKey) InterleavePosition: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.InterleavePosition"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="MemoryDeviceMappedAddressInterleavedPosition"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Position of the referenced Memory Device in an interleave.</para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.InterleavePosition"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="MemoryDeviceMappedAddressInterleavedPosition"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey InterleavePosition => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.InterleavePosition);
             #endregion
 
             #region [public] {static} (IPropertyKey) InterleavedDataDepth: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.InterleavedDataDepth"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Maximum number of consecutive rows from the referenced Memory Device that are accessed in a single interleaved transfer.</para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.InterleavedDataDepth"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey InterleavedDataDepth => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.InterleavedDataDepth);
             #endregion
 
             #endregion
 
-            #region version 2.7+
+            #region version 2.1+ - 2.7+
 
             #region [public] {static} (IPropertyKey) ExtendedStartingAddress: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.ExtendedStartingAddress"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{UInt64}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Physical address, in bytes, of a range of memory mapped to the referenced memory device this property is valid when <see cref="StartingAddress"/> contains
+            /// the value FFFF FFFFh. If <see cref="StartingAddress"/> contains a value other than FFFF FFFFh, this property contains zeros. When this property contains a valid
+            /// address, <see cref="ExtendedEndingAddress"/> must also contain a valid address.
+            /// </para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.ExtendedStartingAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+, 2.7+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey ExtendedStartingAddress => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.ExtendedStartingAddress);
+            public static IPropertyKey ExtendedStartingAddress => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.ExtendedStartingAddress, PropertyUnit.Bytes);
             #endregion
 
             #region [public] {static} (IPropertyKey) ExtendedEndingAddress: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></para>
-            /// <para>Property: <see cref="SmbiosType020Property.ExtendedEndingAddress"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Nullable{UInt64}"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Physical ending address, in bytes, of the last of a range of addresses mapped to the referenced memory device this property is valid when both
+            /// <see cref="StartingAddress"/> and <see cref="EndingAddress"/> contain the value FFFF FFFFh. If <see cref="EndingAddress"/> contains a value other
+            /// than FFFF FFFFh, this property contains zeros. When this property contains a valid address, <see cref="ExtendedStartingAddress"/> must also contain a valid address.
+            /// </para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDeviceMappedAddress"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType020Property.ExtendedEndingAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+, 2.7+</para>
+            /// </para>
             /// </summary>
-            public static IPropertyKey ExtendedEndingAddress => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.ExtendedEndingAddress);
+            public static IPropertyKey ExtendedEndingAddress => new PropertyKey(SmbiosStructure.MemoryDeviceMappedAddress, SmbiosType020Property.ExtendedEndingAddress, PropertyUnit.Bytes);
             #endregion
 
             #endregion
@@ -5195,39 +5502,72 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
 
             #region [public] {static} (IPropertyKey) Type: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BuiltInPointingDevice"/></para>
-            /// <para>Property: <see cref="SmbiosType021Property.Type"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Type of pointing device.</para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BuiltInPointingDevice"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType021Property.Type"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Type => new PropertyKey(SmbiosStructure.BuiltInPointingDevice, SmbiosType021Property.Type);
             #endregion
 
             #region [public] {static} (IPropertyKey) Interface: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BuiltInPointingDevice"/></para>
-            /// <para>Property: <see cref="SmbiosType021Property.Interface"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Interface type for the pointing device.</para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BuiltInPointingDevice"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType021Property.Interface"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Interface => new PropertyKey(SmbiosStructure.BuiltInPointingDevice, SmbiosType021Property.Interface);
             #endregion
 
             #region [public] {static} (IPropertyKey) NumberOfButtons: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BuiltInPointingDevice"/></para>
-            /// <para>Property: <see cref="SmbiosType021Property.NumberOfButtons"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of buttons on the pointing device.</para>
+            /// <para>
+            /// <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BuiltInPointingDevice"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType021Property.NumberOfButtons"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>2.1+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey NumberOfButtons => new PropertyKey(SmbiosStructure.BuiltInPointingDevice, SmbiosType021Property.NumberOfButtons);
             #endregion
@@ -5652,65 +5992,100 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
         {
             #region [public] {static} (IPropertyKey) Month: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></para>
-            /// <para>Property: <see cref="SmbiosType025Property.Month"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>BCD value of the month on which the next scheduled power-on is to occur, in the range 01h to 12h.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType025Property.Month"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Month => new PropertyKey(SmbiosStructure.SystemPowerControls, SmbiosType025Property.Month);
             #endregion
 
             #region [public] {static} (IPropertyKey) Day: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></para>
-            /// <para>Property: <see cref="SmbiosType025Property.Day"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>BCD value of the day-of-month on which the next scheduled power-on is to occur, in the range 01h to 31h.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType025Property.Day"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Day => new PropertyKey(SmbiosStructure.SystemPowerControls, SmbiosType025Property.Day);
             #endregion
 
             #region [public] {static} (IPropertyKey) Hour: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></para>
-            /// <para>Property: <see cref="SmbiosType025Property.Hour"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>BCD value of the hour on which the next scheduled poweron is to occur, in the range 00h to 23h.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType025Property.Hour"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Hour => new PropertyKey(SmbiosStructure.SystemPowerControls, SmbiosType025Property.Hour);
             #endregion
 
             #region [public] {static} (IPropertyKey) Minute: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></para>
-            /// <para>Property: <see cref="SmbiosType025Property.Minute"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>BCD value of the minute on which the next scheduled power-on is to occur, in the range 00h to 59h.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType025Property.Minute"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Minute => new PropertyKey(SmbiosStructure.SystemPowerControls, SmbiosType025Property.Minute);
             #endregion
 
             #region [public] {static} (IPropertyKey) Second: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></para>
-            /// <para>Property: <see cref="SmbiosType025Property.Second"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>BCD value of the second on which the next scheduled power-on is to occur, in the range 00h to 59h.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemPowerControls"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType025Property.Second"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Second => new PropertyKey(SmbiosStructure.SystemPowerControls, SmbiosType025Property.Second);
             #endregion
@@ -6359,39 +6734,60 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
         {
             #region [public] {static} (IPropertyKey) Checksum: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BootIntegrityServicesEntryPoint"/></para>
-            /// <para>Property: <see cref="SmbiosType031Property.Checksum"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Byte"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Checksum.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BootIntegrityServicesEntryPoint"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType031Property.Checksum"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Checksum => new PropertyKey(SmbiosStructure.BootIntegrityServicesEntryPoint, SmbiosType031Property.Checksum);
             #endregion
 
             #region [public] {static} (IPropertyKey) BisEntryPointAddress16: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BootIntegrityServicesEntryPoint"/></para>
-            /// <para>Property: <see cref="SmbiosType031Property.BisEntryPointAddress16"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Entry point address bis 16bits.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BootIntegrityServicesEntryPoint"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType031Property.BisEntryPointAddress16"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey BisEntryPointAddress16 => new PropertyKey(SmbiosStructure.BootIntegrityServicesEntryPoint, SmbiosType031Property.BisEntryPointAddress16);
             #endregion
 
             #region [public] {static} (IPropertyKey) BisEntryPointAddress32: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.BootIntegrityServicesEntryPoint"/></para>
-            /// <para>Property: <see cref="SmbiosType031Property.BisEntryPointAddress32"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Entry point address bis 32bits.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.BootIntegrityServicesEntryPoint"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType031Property.BisEntryPointAddress32"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey BisEntryPointAddress32 => new PropertyKey(SmbiosStructure.BootIntegrityServicesEntryPoint, SmbiosType031Property.BisEntryPointAddress32);
             #endregion
@@ -6406,26 +6802,40 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
         {
             #region [public] {static} (IPropertyKey) Reserved: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.SystemBoot"/></para>
-            /// <para>Property: <see cref="SmbiosType032Property.Reserved"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Reserved for future assignment by this specification; all bytes are set to 00h.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemBoot"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType032Property.Reserved"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Reserved => new PropertyKey(SmbiosStructure.SystemBoot, SmbiosType032Property.Reserved);
             #endregion
 
-            #region [public] {static} (IPropertyKey) Checksum: Gets a value representing the key to retrieve the property value
+            #region [public] {static} (IPropertyKey) BootStatus: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.SystemBoot"/></para>
-            /// <para>Property: <see cref="SmbiosType032Property.BootStatus"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Status and Additional Data fields that identify the boot status.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemBoot"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType032Property.BootStatus"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
             /// </summary>
             public static IPropertyKey BootStatus => new PropertyKey(SmbiosStructure.SystemBoot, SmbiosType032Property.BootStatus);
             #endregion
@@ -7617,26 +8027,49 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
         {
             #region [public] {static} (IPropertyKey) VendorId: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.ProcessorAdditionalInformation"/></para>
-            /// <para>Property: <see cref="SmbiosType044Property.ReferencedHandle"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="T:System.Int32"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with the processor structure (Type 004).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.ProcessorAdditionalInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType044Property.ReferencedHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ReferencedHandle => new PropertyKey(SmbiosStructure.ProcessorAdditionalInformation, SmbiosType044Property.ReferencedHandle);
             #endregion
 
             #region [public] {static} (IPropertyKey) ProcessorSpecificBlock: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.ProcessorAdditionalInformation"/></para>
-            /// <para>Property: <see cref="SmbiosType044Property.ProcessorSpecificBlock"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="ProcessorSpecificInformationBlock"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Processor-specific block.</para>
+            /// <para>The format of processor-specific data varies between different processor architecture.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.ProcessorAdditionalInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType044Property.ProcessorSpecificBlock"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="Smbios.ProcessorSpecificInformationBlock"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.3+</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey ProcessorSpecificBlock => new PropertyKey(SmbiosStructure.ProcessorAdditionalInformation, SmbiosType044Property.ProcessorSpecificBlock);
             #endregion
@@ -7651,13 +8084,24 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
         {
             #region [public] {static} (IPropertyKey) Description: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para>Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.Inactive"/></para>
-            /// <para>Property: <see cref="SmbiosType126Property.Description"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Indicates end of structures. Always returns the '<b>Inactive</b>' string.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.Inactive"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType126Property.Description"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>Any version</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Description => new PropertyKey(SmbiosStructure.Inactive, SmbiosType126Property.Description);
             #endregion
@@ -7672,13 +8116,24 @@ namespace iTin.Core.Hardware.Specification.Smbios.Property
         {
             #region [public] {static} (IPropertyKey) Status: Gets a value representing the key to retrieve the property value
             /// <summary>
-            /// <para> Gets a value representing the key to retrieve the property.</para>
-            /// <para>— Key Composition —————————————————</para>
-            /// <para>Structure: <see cref="SmbiosStructure.EndOfTable"/></para>
-            /// <para>Property: <see cref="SmbiosType127Property.Status"/></para>
-            /// <para>Unit: <see cref="PropertyUnit.None"/></para>
-            /// <para>— Value ——————————————————————</para>
-            /// <para>Type: <see cref="string"/></para>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Indicates end of structures. Always returns the '<b>End Of Table Structures</b>' string.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.EndOfTable"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType127Property.Status"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>Any version</para>
+            /// </para>
             /// </summary>
             public static IPropertyKey Status => new PropertyKey(SmbiosStructure.EndOfTable, SmbiosType127Property.Status);
             #endregion

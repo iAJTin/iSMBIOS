@@ -1067,6 +1067,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [PropertyDescription("")]
+        [PropertyType(typeof(uint))]
+        StartingAddress,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(uint))]
+        EndingAddress,
+
+        [PropertyDescription("")]
         [PropertyType(typeof(int))]
         MemoryArrayHandle,
 
@@ -1095,11 +1103,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong))]
+        [PropertyType(typeof(uint))]
         StartingAddress,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong))]
+        [PropertyType(typeof(uint))]
         EndingAddress,
 
         [PropertyDescription("")]
@@ -1111,7 +1119,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         MemoryArrayMappedAddressHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         PartitionRowPosition,
 
         [PropertyDescription("")]
@@ -1119,7 +1127,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         InterleavePosition,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         InterleavedDataDepth,
         #endregion
 
@@ -1331,27 +1339,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         [PropertyName("Month")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Month,
 
         [PropertyName("Day")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Day,
 
         [PropertyName("Hour")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Hour,
 
         [PropertyName("Minute")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Minute,
 
         [PropertyName("Second")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Second,
     }
     #endregion
@@ -2072,7 +2080,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// </summary>
     internal enum SmbiosType043Property
     {
-        #region Version 3.1.0+
+        #region Version 3.1+
         [PropertyName("Vendor Id")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
@@ -2122,10 +2130,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// </summary>
     internal enum SmbiosType044Property
     {
-        #region Version 3.3.0+
+        #region Version 3.3+
         [PropertyName("Referenced Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(int))]
         ReferencedHandle,
 
         [PropertyName("Processor Specific Block")]

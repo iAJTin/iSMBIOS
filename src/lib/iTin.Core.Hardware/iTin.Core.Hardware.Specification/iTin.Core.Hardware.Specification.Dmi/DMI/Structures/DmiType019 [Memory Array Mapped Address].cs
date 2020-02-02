@@ -39,18 +39,6 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object extendedStartingAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress);
-            if (extendedStartingAddress != null)
-            {
-                properties.Add(DmiProperty.MemoryArrayMappedAddress.StartAddress, extendedStartingAddress);
-            }
-
-            object extendedEndingAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress);
-            if (extendedEndingAddress != null)
-            {
-                properties.Add(DmiProperty.MemoryArrayMappedAddress.EndAddress, extendedEndingAddress);
-            }
-
             object memoryArrayHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryArrayMappedAddress.MemoryArrayHandle);
             if (memoryArrayHandle != null)
             {
@@ -61,6 +49,28 @@ namespace iTin.Core.Hardware.Specification.Dmi
             if (partitionWidth != null)
             {
                 properties.Add(DmiProperty.MemoryArrayMappedAddress.PartitionWidth, partitionWidth);
+            }
+
+            uint startingAddress = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.MemoryArrayMappedAddress.StartingAddress);
+            if (startingAddress == 0xffffffff)
+            {
+                object extendedStartingAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, extendedStartingAddress);
+            }
+            else
+            {
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, startingAddress * 1024);
+            }
+
+            uint endingAddress = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.MemoryArrayMappedAddress.EndingAddress);
+            if (endingAddress == 0xffffffff)
+            {
+                object extendedEndingAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, extendedEndingAddress);
+            }
+            else
+            {
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, endingAddress * 1024);
             }
         }
         #endregion

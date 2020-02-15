@@ -155,7 +155,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private int MaximumMemoryModuleSize => (int)Math.Pow(2, Reader.GetByte(0x08));
         #endregion
 
-        #region [private] (int) SupportedSpeeds: Gets a value representing the 'Supported Speeds' field
+        #region [private] (ushort) SupportedSpeeds: Gets a value representing the 'Supported Speeds' field
         /// <summary>
         /// Gets a value representing the <b>Supported Speeds</b> field.
         /// </summary>
@@ -163,10 +163,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedSpeeds => Reader.GetWord(0x09);
+        private ushort SupportedSpeeds => Reader.GetWord(0x09);
         #endregion
 
-        #region [private] (int) SupportedMemoryTypes: Gets a value representing the 'Supported Memory Types' field
+        #region [private] (ushort) SupportedMemoryTypes: Gets a value representing the 'Supported Memory Types' field
         /// <summary>
         /// Gets a value representing the <b>Supported Memory Types</b> field.
         /// </summary>
@@ -174,7 +174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedMemoryTypes => Reader.GetWord(0x0b);
+        private ushort SupportedMemoryTypes => Reader.GetWord(0x0b);
         #endregion
 
         #region [private] (byte) MemoryModuleVoltages: Gets a value representing the 'Memory Module Voltages' field
@@ -211,6 +211,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.v20)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.MemoryController.ErrorDetectingMethod, GetErrorDetectingMethod(ErrorDetectingMethod));
             properties.Add(SmbiosProperty.MemoryController.ErrorCorrectingCapabilities, GetErrorCorrectingCapability(ErrorCorrectingCapabilities));
             properties.Add(SmbiosProperty.MemoryController.SupportedInterleave, GetControllerInterleave(SupportedInterleave));
@@ -233,7 +238,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             IEnumerable<int> containedElements = GetContainedMemoryModules(containedElementsArray);
             properties.Add(SmbiosProperty.MemoryController.ContainedMemoryModules, new MemoryControllerContainedElementCollection(containedElements));
 
-            if (StructureInfo.Length >= 0x10 + m)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
                 properties.Add(SmbiosProperty.MemoryController.EnabledErrorCorrectingCapabilities, GetErrorCorrectingCapability(StructureInfo.RawData[0x0f + m]));
             }

@@ -39,11 +39,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object values = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemConfigurationOptions.Values);
-            if (values != null)
-            {
-                properties.Add(DmiProperty.SystemConfigurationOptions.Values, values);
-            }
+            properties.Add(DmiProperty.SystemConfigurationOptions.Values, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemConfigurationOptions.Values));
         }
         #endregion
 

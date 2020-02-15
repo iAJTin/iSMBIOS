@@ -39,59 +39,15 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object errorDetectingMethod = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.ErrorDetectingMethod);
-            if (errorDetectingMethod != null)
-            {
-                properties.Add(DmiProperty.MemoryController.ErrorDetectingMethod, errorDetectingMethod);
-            }
-
-            object errorCorrectingCapabilities = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.ErrorCorrectingCapabilities);
-            if (errorCorrectingCapabilities != null)
-            {
-                properties.Add(DmiProperty.MemoryController.ErrorCorrectingCapabilities, errorCorrectingCapabilities);
-            }
-
-            object supportedInterleave = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.SupportedInterleave);
-            if (supportedInterleave != null)
-            {
-                properties.Add(DmiProperty.MemoryController.SupportedInterleave, supportedInterleave);
-            }
-
-            object currentInterleave = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.CurrentInterleave);
-            if (supportedInterleave != null)
-            {
-                properties.Add(DmiProperty.MemoryController.CurrentInterleave, currentInterleave);
-            }
-
-            object maximumMemoryModuleSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.MaximumMemoryModuleSize);
-            if (maximumMemoryModuleSize != null)
-            {
-                properties.Add(DmiProperty.MemoryController.MaximumMemoryModuleSize, maximumMemoryModuleSize);
-            }
-
-            object supportedSpeeds = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.SupportedSpeeds);
-            if (supportedSpeeds != null)
-            {
-                properties.Add(DmiProperty.MemoryController.SupportedSpeeds, supportedSpeeds);
-            }
-
-            object supportedMemoryTypes = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.SupportedMemoryTypes);
-            if (supportedMemoryTypes != null)
-            {
-                properties.Add(DmiProperty.MemoryController.SupportedMemoryTypes, supportedMemoryTypes);
-            }
-
-            object memoryModuleVoltages = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.MemoryModuleVoltages);
-            if (memoryModuleVoltages != null)
-            {
-                properties.Add(DmiProperty.MemoryController.MemoryModuleVoltages, memoryModuleVoltages);
-            }
-
-            object numberMemorySlots = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.NumberMemorySlots);
-            if (numberMemorySlots != null)
-            {
-                properties.Add(DmiProperty.MemoryController.NumberMemorySlots, numberMemorySlots);
-            }
+            properties.Add(DmiProperty.MemoryController.ErrorDetectingMethod, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.ErrorDetectingMethod));
+            properties.Add(DmiProperty.MemoryController.ErrorCorrectingCapabilities, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.ErrorCorrectingCapabilities));
+            properties.Add(DmiProperty.MemoryController.SupportedInterleave, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.SupportedInterleave));
+            properties.Add(DmiProperty.MemoryController.CurrentInterleave, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.CurrentInterleave));
+            properties.Add(DmiProperty.MemoryController.MaximumMemoryModuleSize, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.MaximumMemoryModuleSize));
+            properties.Add(DmiProperty.MemoryController.SupportedSpeeds, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.SupportedSpeeds));
+            properties.Add(DmiProperty.MemoryController.SupportedMemoryTypes, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.SupportedMemoryTypes));
+            properties.Add(DmiProperty.MemoryController.MemoryModuleVoltages, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.MemoryModuleVoltages));
+            properties.Add(DmiProperty.MemoryController.NumberMemorySlots, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.NumberMemorySlots));
 
             object containedMemoryModules = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.ContainedMemoryModules);
             if (containedMemoryModules == null)
@@ -100,12 +56,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
             }
 
             properties.Add(DmiProperty.MemoryController.ContainedMemoryModules, new DmiMemoryControllerContainedElementCollection((MemoryControllerContainedElementCollection)containedMemoryModules));
-
-            object enabledErrorCorrectingCapabilities = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.EnabledErrorCorrectingCapabilities);
-            if (enabledErrorCorrectingCapabilities != null)
-            {
-                properties.Add(DmiProperty.MemoryController.EnabledErrorCorrectingCapabilities, enabledErrorCorrectingCapabilities);
-            }
+            properties.Add(DmiProperty.MemoryController.EnabledErrorCorrectingCapabilities, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryController.EnabledErrorCorrectingCapabilities));
         }
         #endregion
 

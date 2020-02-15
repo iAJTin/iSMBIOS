@@ -39,29 +39,15 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object description = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDevice.Description);
-            if (description != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.ManagementDevice.Description, description);
+                return;
             }
 
-            object type = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDevice.Type);
-            if (type != null)
-            {
-                properties.Add(DmiProperty.ManagementDevice.Type, type);
-            }
-
-            object address = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDevice.Address);
-            if (address != null)
-            {
-                properties.Add(DmiProperty.ManagementDevice.Address, address);
-            }
-
-            object addressType = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDevice.AddressType);
-            if (addressType != null)
-            {
-                properties.Add(DmiProperty.ManagementDevice.AddressType, addressType);
-            }
+            properties.Add(DmiProperty.ManagementDevice.Description, SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDevice.Description));
+            properties.Add(DmiProperty.ManagementDevice.Type, SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDevice.Type));
+            properties.Add(DmiProperty.ManagementDevice.Address, SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDevice.Address));
+            properties.Add(DmiProperty.ManagementDevice.AddressType, SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDevice.AddressType));
         }
         #endregion
 

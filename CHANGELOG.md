@@ -3,84 +3,42 @@ All notable changes to this project will be documented in this file.
 
 ## 1.1.2 -
 
+### Added
+
+- Adds support for System Management BIOS (SMBIOS) v3.4.0a (Preliminary version), includes:
+
+      * Processor Information (Type 4)::
+        - SMBIOSCR00190: add Socket LGA4189
+      * System Slots (Type 9):
+        - SMBIOSCR00186: add PCI Express Gen 5 and U.2 values
+        - SMBIOSCR00188: add OCP NIC 3.0 values
+      * Memory Device (Type 17):
+        - SMBIOSCR00187: add new memory device types (DDR5, LPDDR5)
+
+- Adds **SmbiosVersion** property to **DMI** object.
+
+- SMBIOS 3.4.0a (preliminary version) pdf file to Documents folder. 
+
 ### Changed
 
-  - Typographic error. Renames properties names. 
+- Typographic errors. Renames properties names. 
 
-|Old name|New name|
-|:------|:------|
-|**DMI**   |   |
-|*DmiProperty003.ContainedElementMinimu**n***|*DmiProperty003.ContainedElementMinimu**m***|
-|*DmiProperty003.ContainedElementMaximu**n***|*DmiProperty003.ContainedElementMaximu**m***|
-|*DmiProperty004.Maximu**n**Speed*|*DmiProperty004.Maximu**m**Speed*|
-|*DmiProperty004.Maximu**n**Speed*|*DmiProperty004.Maximu**m**Speed*|
-|*DmiProperty017.Maximu**n**Speed*|*DmiProperty017.Maximu**m**Speed*|
-|*DmiProperty017.Minimu**n**Voltage*|*DmiProperty017.Minimu**m**Voltage*|
-|**SMBIOS**   |   |
-|*SmbiosType003Property.ContainedElementMinimu**n***|*SmbiosType003Property.ContainedElementMinimu**m***|
-|*SmbiosType003Property.ContainedElementMaximu**n***|*SmbiosType003Property.ContainedElementMaximu**m***|
-|*SmbiosType004Property.Maximu**n**Speed*|*SmbiosType004Property.Maximu**m**Speed.*|
-|*SmbiosType017Property.Maximu**n**Speed*|*SmbiosType017Property.Maximu**m**Speed.*|
-|*SmbiosType017Property.Minimu**n**Voltage*|*SmbiosType017Property.Minimu**m**Voltage*|
-|*SmbiosProperty.PhysicalMemoryArray.ExtendedMaximu**n**Capacity*|*SmbiosProperty.PhysicalMemoryArray.ExtendedMaximu**m**Capacity*|
-  
 - Adds descriptive code help. I Tried to adds a help most descriptive for the properties keys. 
-
-  - Current progress
-
-|Type|Description|Status|
-|:------|:------|:------:|
-|Type000|BIOS Information|Done!!|
-|Type001|System Information|Done!!|
-|Type002|Baseboard (or Module) Information|Done!!|
-|Type003|System Enclosure or Chassis|Done!!|
-|Type004|Processor Information|Done!!|
-|Type005|Memory Controller Information (Obsolete)|Done!!|
-|Type006|Memory Module Information (Obsolete)|Done!!|
-|Type007|Cache Information|Done!!|
-|Type008|Port Connector Information|Done!!|
-|Type009|Slot Information|Done!!|
-|Type010|On Board Devices (Obsolete)|Done!!|
-|Type011|OEM Strings|Done!!|
-|Type012|System Configuration Options|Done!!|
-|Type013|BIOS Language Information|Done!!|
-|Type014|Group Associations|Done!!|
-|Type015|System Event Log|Done!!|
-|Type016|Physical Memory Array|Done!!|
-|Type017|Memory Device|Done!!|
-|Type018|32-Bit Memory Error Information|Done!!|
-|Type019|Memory Array Mapped Address|Done!!|
-|Type020|Memory Device Mapped Address|Done!!|
-|Type021|Built-in Pointing Device|Done!!|
-|Type022|Portable Battery|...|
-|Type023|System Reset|...|
-|Type024|Hardware Security|...|
-|Type025|System Power Controls|Done!!|
-|Type026|Voltage Probe|...|
-|Type027|Cooling Device|...|
-|Type028|Temperature Probe|...|
-|Type029|Electrical Current Probe|...|
-|Type030|Out-of-Band Remote Access|...|
-|Type031|Boot Integrity Services (BIS) Entry Point|Done!!|
-|Type032|System Boot Information|Done!!|
-|Type033|64-Bit Memory Error Information|...|
-|Type034|Management Device|...|
-|Type035|Management Device Component|...|
-|Type036|Management Device Threshold Data|...|
-|Type037|Memory Channel|...|
-|Type038|IPMI Device Information|...|
-|Type039|System Power Supply|...|
-|Type040|Additional Information|...|
-|Type041|Onboard Devices Extended Information|...|
-|Type042|Management Controller Host Interface|Done!!|
-|Type043|TPM Device|Done!!!|
-|Type044|Processor Additional Information|Done!!|
-|Type126|Inactive|Done!!|
-|Type127|End-Of-Table|Done!!|
  
   - The image below shows an example.
 
     ![Help.png][helpimg] 
+
+- Library versions for this version
+  
+|Library|Version|Description|
+|:------|:------|:----------|
+|iTin.Core| 1.0.1 | Common calls |
+|iTin.Core.Interop| 1.0.0 | Interop calls |
+|iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
+|iTin.Core.Hardware.Specification.Dmi|3.3.0.1| DMI Specification Implementation |
+|iTin.Core.Hardware.Specification.Smbios|3.3.0.1| SMBIOS Specification Implementation |
+|iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
 
 ## [1.1.1] - 2019-10-20
 

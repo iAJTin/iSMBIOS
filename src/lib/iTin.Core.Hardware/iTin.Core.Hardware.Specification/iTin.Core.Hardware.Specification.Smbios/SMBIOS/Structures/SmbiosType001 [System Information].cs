@@ -196,7 +196,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             #region 2.0+
-            if (SmbiosVersion >= 0x0200)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v20)
             {
                 properties.Add(SmbiosProperty.System.Manufacturer, Manufacturer);
                 properties.Add(SmbiosProperty.System.ProductName, ProductName);
@@ -206,7 +206,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (SmbiosVersion >= 0x0201)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
                 properties.Add(SmbiosProperty.System.WakeUpType, GetWakeUpType(WakeUpType));
 
@@ -216,7 +216,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.4+
-            if (SmbiosVersion >= 0x0204)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v24)
             {
                 properties.Add(SmbiosProperty.System.SkuNumber, Sku);
                 properties.Add(SmbiosProperty.System.Family, Family);

@@ -40,219 +40,68 @@ namespace iTin.Core.Hardware.Specification.Dmi
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
             #region 2.0+
-            if (SmbiosVersion >= 0x0200)
+            if (ImplementedVersion >= DmiStructureVersion.v20)
             {
-                object socketDesignation = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.SocketDesignation);
-                if (socketDesignation != null)
-                {
-                    properties.Add(DmiProperty.Processor.SocketDesignation, socketDesignation);
-                }
-
-                object processorType = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ProcessorType);
-                if (processorType != null)
-                {
-                    properties.Add(DmiProperty.Processor.ProcessorType, processorType);
-                }
-
-                object processorVersion = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ProcessorVersion);
-                if (processorVersion != null)
-                {
-                    properties.Add(DmiProperty.Processor.ProcessorVersion, processorVersion);
-                }
-
-                object family = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Family);
-                if (family != null)
-                {
-                    properties.Add(DmiProperty.Processor.Family, family);
-                }
-
-                object processorManufacturer = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ProcessorManufacturer);
-                if (processorManufacturer != null)
-                {
-                    properties.Add(DmiProperty.Processor.ProcessorManufacturer, processorManufacturer);
-                }
-
-                object processorId = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ProcessorId);
-                if (processorId != null)
-                {
-                    properties.Add(DmiProperty.Processor.ProcessorId, processorId);
-                }
-
-                object isLegacyMode = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Voltage.IsLegacyMode);
-                if (isLegacyMode != null)
-                {
-                    properties.Add(DmiProperty.Processor.Voltage.IsLegacyMode, isLegacyMode);
-                }
-
-                object supportedVoltages = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Voltage.SupportedVoltages);
-                if (supportedVoltages != null)
-                {
-                    properties.Add(DmiProperty.Processor.Voltage.SupportedVoltages, supportedVoltages);
-                }
+                properties.Add(DmiProperty.Processor.SocketDesignation, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.SocketDesignation));
+                properties.Add(DmiProperty.Processor.ProcessorType, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ProcessorType));
+                properties.Add(DmiProperty.Processor.ProcessorVersion, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ProcessorVersion));
+                properties.Add(DmiProperty.Processor.Family, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Family));
+                properties.Add(DmiProperty.Processor.ProcessorManufacturer, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ProcessorManufacturer));
+                properties.Add(DmiProperty.Processor.ProcessorId, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ProcessorId));
+                properties.Add(DmiProperty.Processor.Voltage.IsLegacyMode, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Voltage.IsLegacyMode));
+                properties.Add(DmiProperty.Processor.Voltage.SupportedVoltages, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Voltage.SupportedVoltages));
 
                 object externakClockProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ExternalClock);
-                if (externakClockProperty != null)
+                ushort externakClock = (ushort)externakClockProperty;
+                if (externakClock != 0x00)
                 {
-                    int externakClock = (int)externakClockProperty;
-                    if (externakClock != 0x00)
-                    {
-                        properties.Add(DmiProperty.Processor.ExternalClock, externakClock);
-                    }
+                    properties.Add(DmiProperty.Processor.ExternalClock, externakClock);
                 }
 
                 object maxSpeedProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.MaximunSpeed);
-                if (maxSpeedProperty != null)
+                ushort maxSpeed = (ushort)maxSpeedProperty;
+                if (maxSpeed != 0x00)
                 {
-                    int maxSpeed = (int)maxSpeedProperty;
-                    if (maxSpeed != 0x00)
-                    {
-                        properties.Add(DmiProperty.Processor.MaximumSpeed, maxSpeed);
-                    }
+                    properties.Add(DmiProperty.Processor.MaximumSpeed, maxSpeed);
                 }
 
-                object currentSpeed = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.CurrentSpeed);
-                if (currentSpeed != null)
-                {
-                    properties.Add(DmiProperty.Processor.CurrentSpeed, currentSpeed);
-                }
-
-                object cpuStatus = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Status.CpuStatus);
-                if (cpuStatus != null)
-                {
-                    properties.Add(DmiProperty.Processor.Status.CpuStatus, cpuStatus);
-                }
-
-                object socketPopulated = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Status.SocketPopulated);
-                if (socketPopulated != null)
-                {
-                    properties.Add(DmiProperty.Processor.Status.SocketPopulated, socketPopulated);
-                }
-
-                object upgradeMethod = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.UpgradeMethod);
-                if (upgradeMethod != null)
-                {
-                    properties.Add(DmiProperty.Processor.UpgradeMethod, upgradeMethod);
-                }
+                properties.Add(DmiProperty.Processor.CurrentSpeed, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.CurrentSpeed));
+                properties.Add(DmiProperty.Processor.Status.CpuStatus, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Status.CpuStatus));
+                properties.Add(DmiProperty.Processor.Status.SocketPopulated, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Status.SocketPopulated));
+                properties.Add(DmiProperty.Processor.UpgradeMethod, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.UpgradeMethod));
             }
             #endregion
 
             #region 2.1+
-            if (SmbiosVersion >= 0x0201)
+            if (ImplementedVersion >= DmiStructureVersion.v21)
             {
-                object l1CacheHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.L1CacheHandle);
-                if (l1CacheHandle != null)
-                {
-                    properties.Add(DmiProperty.Processor.L1CacheHandle, l1CacheHandle);
-                }
-
-                object l2CacheHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.L2CacheHandle);
-                if (l2CacheHandle != null)
-                {
-                    properties.Add(DmiProperty.Processor.L2CacheHandle, l2CacheHandle);
-                }
-
-                object l3CacheHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.L3CacheHandle);
-                if (l3CacheHandle != null)
-                {
-                    properties.Add(DmiProperty.Processor.L3CacheHandle, l3CacheHandle);
-                }
+                properties.Add(DmiProperty.Processor.L1CacheHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.L1CacheHandle));
+                properties.Add(DmiProperty.Processor.L2CacheHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.L2CacheHandle));
+                properties.Add(DmiProperty.Processor.L3CacheHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.L3CacheHandle));
             }
             #endregion
 
             #region 2.3+
-            if (SmbiosStructure.StructureInfo.Length >= 0x21)
+            if (ImplementedVersion >= DmiStructureVersion.v23)
             {
-                object serialNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.SerialNumber);
-                if (serialNumber != null)
-                {
-                    properties.Add(DmiProperty.Processor.SerialNumber, serialNumber);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x22)
-            {
-                object assetTag = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.AssetTag);
-                if (assetTag != null)
-                {
-                    properties.Add(DmiProperty.Processor.AssetTag, assetTag);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x23)
-            {
-                object partNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.PartNumber);
-                if (partNumber != null)
-                {
-                    properties.Add(DmiProperty.Processor.PartNumber, partNumber);
-                }
+                properties.Add(DmiProperty.Processor.SerialNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.SerialNumber));
+                properties.Add(DmiProperty.Processor.AssetTag, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.AssetTag));
+                properties.Add(DmiProperty.Processor.PartNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.PartNumber));
             }
             #endregion
 
             #region 2.5+
-            if (SmbiosStructure.StructureInfo.Length >= 0x24)
+            if (ImplementedVersion >= DmiStructureVersion.v25)
             {
-                object coreCount = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.CoreCount);
-                if (coreCount != null)
-                {
-                    properties.Add(DmiProperty.Processor.CoreCount, coreCount);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x25)
-            {
-                object coreEnabled = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.CoreEnabled);
-                if (coreEnabled != null)
-                {
-                    properties.Add(DmiProperty.Processor.CoreEnabled, coreEnabled);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x26)
-            {
-                object threadCount = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ThreadCount);
-                if (threadCount != null)
-                {
-                    properties.Add(DmiProperty.Processor.ThreadCount, threadCount);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x27)
-            {
-                object capable64Bits = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.Capable64Bits);
-                if (capable64Bits != null)
-                {
-                    properties.Add(DmiProperty.Processor.Characteristics.Capable64Bits, capable64Bits);
-                }
-
-                object multiCore = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.MultiCore);
-                if (multiCore != null)
-                {
-                    properties.Add(DmiProperty.Processor.Characteristics.MultiCore, multiCore);
-                }
-
-                object hardwareThreadPerCore = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.HardwareThreadPerCore);
-                if (hardwareThreadPerCore != null)
-                {
-                    properties.Add(DmiProperty.Processor.Characteristics.HardwareThreadPerCore, hardwareThreadPerCore);
-                }
-
-                object executeProtectionSupport = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.ExecuteProtectionSupport);
-                if (executeProtectionSupport != null)
-                {
-                    properties.Add(DmiProperty.Processor.Characteristics.ExecuteProtectionSupport, executeProtectionSupport);
-                }
-
-                object enhancedVirtualizationInstructions = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.EnhancedVirtualizationInstructions);
-                if (enhancedVirtualizationInstructions != null)
-                {
-                    properties.Add(DmiProperty.Processor.Characteristics.EnhancedVirtualizationInstructions, enhancedVirtualizationInstructions);
-                }
-
-                object powerPerformanceControlSupport = SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.PowerPerformanceControlSupport);
-                if (powerPerformanceControlSupport != null)
-                {
-                    properties.Add(DmiProperty.Processor.Characteristics.PowerPerformanceControlSupport, powerPerformanceControlSupport);
-                }
+                properties.Add(DmiProperty.Processor.CoreCount, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.CoreCount));
+                properties.Add(DmiProperty.Processor.CoreEnabled, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.CoreEnabled));
+                properties.Add(DmiProperty.Processor.ThreadCount, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ThreadCount));
+                properties.Add(SmbiosProperty.Processor.Characteristics.Capable64Bits, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.Capable64Bits));
+                properties.Add(SmbiosProperty.Processor.Characteristics.MultiCore, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.MultiCore));
+                properties.Add(SmbiosProperty.Processor.Characteristics.HardwareThreadPerCore, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.HardwareThreadPerCore));
+                properties.Add(SmbiosProperty.Processor.Characteristics.ExecuteProtectionSupport, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.ExecuteProtectionSupport));
+                properties.Add(SmbiosProperty.Processor.Characteristics.EnhancedVirtualizationInstructions, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.EnhancedVirtualizationInstructions));
+                properties.Add(SmbiosProperty.Processor.Characteristics.PowerPerformanceControlSupport, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.PowerPerformanceControlSupport));
             }
             #endregion
         }

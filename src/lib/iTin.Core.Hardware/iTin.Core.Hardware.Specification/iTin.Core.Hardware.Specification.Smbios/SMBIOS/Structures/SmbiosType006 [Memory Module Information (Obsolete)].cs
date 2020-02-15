@@ -173,6 +173,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion <= SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.MemoryModule.SocketDesignation, SocketDesignation);
             properties.Add(SmbiosProperty.MemoryModule.BankConnections, GetBankConnections(BankConnections));
             properties.Add(SmbiosProperty.MemoryModule.CurrentSpeed, GetMemorySpeeds(CurrentSpeed));

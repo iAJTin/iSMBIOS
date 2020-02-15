@@ -174,7 +174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private uint EndingAddress => (uint)Reader.GetDoubleWord(0x08);
         #endregion
 
-        #region [private] (int) MemoryDeviceHandle: Gets a value representing the 'Memory Device Handle' field
+        #region [private] (ushort) MemoryDeviceHandle: Gets a value representing the 'Memory Device Handle' field
         /// <summary>
         /// Gets a value representing the <b>Memory Device Handle</b> field.
         /// </summary>
@@ -182,10 +182,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryDeviceHandle => Reader.GetWord(0x0C);
+        private ushort MemoryDeviceHandle => Reader.GetWord(0x0C);
         #endregion
 
-        #region [private] (int) MappedAddressHandle: Gets a value representing the 'Mapped Address Handle' field
+        #region [private] (ushort) MappedAddressHandle: Gets a value representing the 'Mapped Address Handle' field
         /// <summary>
         /// Gets a value representing the <b>Mapped Address Handle</b> field.
         /// </summary>
@@ -193,7 +193,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MappedAddressHandle => Reader.GetWord(0x0e);
+        private ushort MappedAddressHandle => Reader.GetWord(0x0e);
         #endregion
 
         #region [private] (byte) PartitionRowPosition: Gets a value representing the 'Partition Row Position' field
@@ -241,7 +241,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedStartingAddress => (ulong)Reader.GetQuadrupleWord(0x13);
+        private ulong ExtendedStartingAddress => Reader.GetQuadrupleWord(0x13);
         #endregion
 
         #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field
@@ -252,7 +252,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedEndingAddress => (ulong)Reader.GetQuadrupleWord(0x1b);
+        private ulong ExtendedEndingAddress => Reader.GetQuadrupleWord(0x1b);
         #endregion
 
         #endregion
@@ -270,21 +270,23 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             #region 2.1+
-            properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.StartingAddress, StartingAddress);
-            properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.EndingAddress, EndingAddress);
-            properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.MemoryDeviceHandle, MemoryDeviceHandle);
-            properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.MemoryArrayMappedAddressHandle, MappedAddressHandle);
-            properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.PartitionRowPosition, PartitionRowPosition);
-            properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.InterleavePosition, InterleavePosition);
-            properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.InterleavedDataDepth, InterleavedDataDepth);
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
+            {
+                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.StartingAddress, StartingAddress);
+                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.EndingAddress, EndingAddress);
+                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.MemoryDeviceHandle, MemoryDeviceHandle);
+                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.MemoryArrayMappedAddressHandle, MappedAddressHandle);
+                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.PartitionRowPosition, PartitionRowPosition);
+                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.InterleavePosition, InterleavePosition);
+                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.InterleavedDataDepth, InterleavedDataDepth);
+            }
             #endregion
 
             #region 2.7+
-            if (SmbiosVersion >= 0x0207)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v27)
             {
                 properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedStartingAddress, ExtendedStartingAddress);
                 properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedEndingAddress, ExtendedEndingAddress);
-
             }
             #endregion
         }

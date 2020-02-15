@@ -39,53 +39,19 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object vendorId = SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.VendorId);
-            if (vendorId != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.TpmDevice.VendorId, vendorId);
+                return;
             }
 
-            object vendorIdDescription = SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.VendorIdDescription);
-            if (vendorIdDescription != null)
-            {
-                properties.Add(DmiProperty.TpmDevice.VendorIdDescription, vendorIdDescription);
-            }
-
-            object majorSpecVersion = SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.MajorSpecVersion);
-            if (majorSpecVersion != null)
-            {
-                properties.Add(DmiProperty.TpmDevice.MajorSpecVersion, majorSpecVersion);
-            }
-
-            object minorSpecVersion = SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.MinorSpecVersion);
-            if (minorSpecVersion != null)
-            {
-                properties.Add(DmiProperty.TpmDevice.MinorSpecVersion, minorSpecVersion);
-            }
-
-            object firmwareVersion = SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.FirmwareVersion);
-            if (firmwareVersion != null)
-            {
-                properties.Add(DmiProperty.TpmDevice.FirmwareVersion, firmwareVersion);
-            }
-
-            object description = SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.Description);
-            if (description != null)
-            {
-                properties.Add(DmiProperty.TpmDevice.Description, description);
-            }
-
-            object characteristics = SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.Characteristics);
-            if (characteristics != null)
-            {
-                properties.Add(DmiProperty.TpmDevice.Characteristics, characteristics);
-            }
-
-            object oemDefined = SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.OemDefined);
-            if (oemDefined != null)
-            {
-                properties.Add(DmiProperty.TpmDevice.OemDefined, oemDefined);
-            }
+            properties.Add(DmiProperty.TpmDevice.VendorId, SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.VendorId));
+            properties.Add(DmiProperty.TpmDevice.VendorIdDescription, SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.VendorIdDescription));
+            properties.Add(DmiProperty.TpmDevice.MajorSpecVersion, SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.MajorSpecVersion));
+            properties.Add(DmiProperty.TpmDevice.MinorSpecVersion, SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.MinorSpecVersion));
+            properties.Add(DmiProperty.TpmDevice.FirmwareVersion, SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.FirmwareVersion));
+            properties.Add(DmiProperty.TpmDevice.Description, SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.Description));
+            properties.Add(DmiProperty.TpmDevice.Characteristics, SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.Characteristics));
+            properties.Add(DmiProperty.TpmDevice.OemDefined, SmbiosStructure.GetPropertyValue(SmbiosProperty.TpmDevice.OemDefined));
         }
         #endregion
 

@@ -39,62 +39,29 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            if (SmbiosStructure.StructureInfo.Length >= 0x05)
+            if (ImplementedVersion > DmiStructureVersion.v22)
             {
-                object temperatureProbeHandleProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.TemperatureProbeHandle);
-                if (temperatureProbeHandleProperty != null)
+                ushort temperatureProbeHandle = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.CoolingDevice.TemperatureProbeHandle);
+                if (temperatureProbeHandle != 0x8000)
                 {
-                    int temperatureProbeHandle = (int)temperatureProbeHandleProperty;
-                    if (temperatureProbeHandle != 0x8000)
-                    {
-                        properties.Add(DmiProperty.CoolingDevice.TemperatureProbeHandle, temperatureProbeHandle);
-                    }
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x07)
-            {
-                object status = SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.DeviceTypeAndStatus.Status);
-                if (status != null)
-                {
-                    properties.Add(DmiProperty.CoolingDevice.DeviceTypeAndStatus.Status, status);
+                    properties.Add(DmiProperty.CoolingDevice.TemperatureProbeHandle, temperatureProbeHandle);
                 }
 
-                object deviceType = SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType);
-                if (deviceType != null)
-                {
-                    properties.Add(DmiProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType, deviceType);
-                }
-            }
+                properties.Add(DmiProperty.CoolingDevice.DeviceTypeAndStatus.Status, SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.DeviceTypeAndStatus.Status));
+                properties.Add(DmiProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType, SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType));
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x08)
-            {
-                object coolingUnitGroupProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.CoolingUnitGroup);
-                if (coolingUnitGroupProperty != null)
+                byte coolingUnitGroup = SmbiosStructure.GetPropertyValue<byte>(SmbiosProperty.CoolingDevice.CoolingUnitGroup);
+                if (coolingUnitGroup != 0x00)
                 {
-                    byte coolingUnitGroup = (byte)coolingUnitGroupProperty;
-                    if (coolingUnitGroup != 0x00)
-                    {
-                        properties.Add(DmiProperty.CoolingDevice.CoolingUnitGroup, coolingUnitGroup);
-                    }
+                    properties.Add(DmiProperty.CoolingDevice.CoolingUnitGroup, coolingUnitGroup);
                 }
-            }
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x09)
-            {
-                object oemDefined = SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.OemDefined);
-                if (oemDefined != null)
-                {
-                    properties.Add(DmiProperty.CoolingDevice.OemDefined, oemDefined);
-                }
-            }
+                properties.Add(DmiProperty.CoolingDevice.OemDefined, SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.OemDefined));
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x0d)
-            {
                 object nominalSpeedProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.NominalSpeed);
                 if (nominalSpeedProperty != null)
                 {
-                    int nominalSpeed = (int)nominalSpeedProperty;
+                    ushort nominalSpeed = (ushort)nominalSpeedProperty;
                     if (nominalSpeed != 0x8000)
                     {
                         properties.Add(DmiProperty.CoolingDevice.NominalSpeed, nominalSpeed);
@@ -102,13 +69,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
                 }
             }
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x0f)
+            if (ImplementedVersion > DmiStructureVersion.v27)
             {
-                object description = SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.Description);
-                if (description != null)
-                {
-                    properties.Add(DmiProperty.CoolingDevice.Description, description);
-                }
+                properties.Add(DmiProperty.CoolingDevice.Description, SmbiosStructure.GetPropertyValue(SmbiosProperty.CoolingDevice.Description));
             }
         }
         #endregion

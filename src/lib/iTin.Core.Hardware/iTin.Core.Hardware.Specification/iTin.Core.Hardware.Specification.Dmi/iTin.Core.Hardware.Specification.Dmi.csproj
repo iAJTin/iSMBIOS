@@ -5,11 +5,11 @@
     <Authors>iTin</Authors>
     <Description>The Desktop Management Interface (DMI) or the desktop management interface, standard framework for management and component tracking on a desktop, laptop or server</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>Copyright © 2019</Copyright>
+    <Copyright>Copyright © 2020</Copyright>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>3.3.0.0</Version>
+    <Version>3.3.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

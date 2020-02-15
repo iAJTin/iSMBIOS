@@ -39,8 +39,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            #region 2.0
-            if (SmbiosVersion >= 0x0200)
+            #region 2.0+
+
+            if (ImplementedVersion >= DmiStructureVersion.v20)
             {
                 object vendor = SmbiosStructure.GetPropertyValue(SmbiosProperty.Bios.Vendor);
                 if (vendor != null)
@@ -72,10 +73,11 @@ namespace iTin.Core.Hardware.Specification.Dmi
                     properties.Add(DmiProperty.Bios.Characteristics, characteristics);
                 }
             }
+
             #endregion
 
             #region 2.4+
-            if (SmbiosVersion >= 0x0204)
+            if (ImplementedVersion >= DmiStructureVersion.v24)
             {
                 object characteristicsExtensionByte1 = SmbiosStructure.GetPropertyValue(SmbiosProperty.Bios.CharacteristicsExtensionByte1);
                 if (characteristicsExtensionByte1 != null)
@@ -116,13 +118,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
             #endregion
 
             #region 3.1+
-            object romSizeProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.Bios.BiosRomSize);
-            if (romSizeProperty != null)
+
+            if (ImplementedVersion >= DmiStructureVersion.v31)
             {
-                int romSize = (int)romSizeProperty;
-                if (romSize != 0xff)
+                object romSizeProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.Bios.BiosRomSize);
+                if (romSizeProperty != null)
                 {
-                    if (SmbiosVersion >= 0x0301)
+                    int romSize = (int) romSizeProperty;
+                    if (romSize != 0xff)
                     {
                         object extendedBiosRomSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.Bios.ExtendedBiosRomSize);
                         if (extendedBiosRomSize != null)
@@ -136,13 +139,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
                             properties.Add(DmiProperty.Bios.BiosRomSizeUnit, biosRomSizeUnit);
                         }
                     }
-                }
-                else
-                {
-                    properties.Add(DmiProperty.Bios.BiosRomSize, romSize);
-                    properties.Add(DmiProperty.Bios.BiosRomSizeUnit, MemorySizeUnit.KB);
+                    else
+                    {
+                        properties.Add(DmiProperty.Bios.BiosRomSize, romSize);
+                        properties.Add(DmiProperty.Bios.BiosRomSizeUnit, MemorySizeUnit.KB);
+                    }
                 }
             }
+
             #endregion
         }
         #endregion

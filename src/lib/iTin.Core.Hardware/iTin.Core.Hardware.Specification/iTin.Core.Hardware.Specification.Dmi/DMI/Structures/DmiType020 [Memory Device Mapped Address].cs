@@ -39,64 +39,43 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object memoryDeviceHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.MemoryDeviceHandle);
-            if (memoryDeviceHandle != null)
+            if (ImplementedVersion < DmiStructureVersion.v21)
             {
-                properties.Add(DmiProperty.MemoryDeviceMappedAddress.MemoryDeviceHandle, memoryDeviceHandle);
+                return;
             }
 
-            object memoryArrayMappedAddressHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.MemoryArrayMappedAddressHandle);
-            if (memoryArrayMappedAddressHandle != null)
-            {
-                properties.Add(DmiProperty.MemoryDeviceMappedAddress.MemoryArrayMappedAddressHandle, memoryArrayMappedAddressHandle);
-            }
-
-            object partitionRowPositionProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.PartitionRowPosition);
-            if (partitionRowPositionProperty != null)
-            {
-                byte partitionRowPosition = (byte)partitionRowPositionProperty;
-                if (partitionRowPosition != 0xff)
-                {
-                    properties.Add(DmiProperty.MemoryDeviceMappedAddress.PartitionRowPosition, partitionRowPosition);
-                }
-            }
-
-            object interleavePosition = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.InterleavePosition);
-            if (interleavePosition != null)
-            {
-                properties.Add(DmiProperty.MemoryDeviceMappedAddress.InterleavePosition, interleavePosition);
-            }
-
-            object interleavedDataDepthProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.InterleavedDataDepth);
-            if (interleavedDataDepthProperty != null)
-            {
-                byte interleavedDataDepth = (byte)interleavedDataDepthProperty;
-                if (interleavedDataDepth != 0xff)
-                {
-                    properties.Add(DmiProperty.MemoryDeviceMappedAddress.InterleavedDataDepth, interleavedDataDepth);
-                }
-            }
+            properties.Add(DmiProperty.MemoryDeviceMappedAddress.MemoryDeviceHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.MemoryDeviceHandle));
+            properties.Add(DmiProperty.MemoryDeviceMappedAddress.MemoryArrayMappedAddressHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.MemoryArrayMappedAddressHandle));
+            properties.Add(DmiProperty.MemoryDeviceMappedAddress.PartitionRowPosition, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.PartitionRowPosition));
+            properties.Add(DmiProperty.MemoryDeviceMappedAddress.InterleavePosition, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.InterleavePosition));
+            properties.Add(DmiProperty.MemoryDeviceMappedAddress.InterleavedDataDepth, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.InterleavedDataDepth));
 
             uint startingAddress = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.MemoryDeviceMappedAddress.StartingAddress);
             if (startingAddress == 0xffffffff)
             {
-                object extendedStartingAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedStartingAddress);
-                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedStartingAddress, extendedStartingAddress);
+                if (ImplementedVersion >= DmiStructureVersion.v27)
+                {
+                    object extendedStartingAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedStartingAddress);
+                    properties.Add(DmiProperty.MemoryDeviceMappedAddress.StartingAddress, extendedStartingAddress);
+                }
             }
             else
             {
-                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedStartingAddress, startingAddress * 1024);
+                properties.Add(DmiProperty.MemoryDeviceMappedAddress.StartingAddress, (ulong)startingAddress * (ulong)1024);
             }
 
             uint endingAddress = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.MemoryDeviceMappedAddress.EndingAddress);
             if (endingAddress == 0xffffffff)
             {
-                object extendedEndingAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedEndingAddress);
-                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedEndingAddress, extendedEndingAddress);
+                if (ImplementedVersion >= DmiStructureVersion.v27)
+                {
+                    object extendedEndingAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedEndingAddress);
+                    properties.Add(DmiProperty.MemoryDeviceMappedAddress.EndingAddress, extendedEndingAddress);
+                }
             }
             else
             {
-                properties.Add(SmbiosProperty.MemoryDeviceMappedAddress.ExtendedEndingAddress, endingAddress * 1024);
+                properties.Add(DmiProperty.MemoryDeviceMappedAddress.EndingAddress, (ulong)endingAddress * (ulong)1024);
             }
         }
         #endregion

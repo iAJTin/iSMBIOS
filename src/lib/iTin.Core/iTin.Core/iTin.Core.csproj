@@ -4,9 +4,9 @@
     <TargetFrameworks>net35;netstandard2.0;netcoreapp2.0;netcoreapp2.1</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Description>Base library containing various extensions, helpers, common constants</Description>
-    <Copyright>Copyright © 2019</Copyright>
+    <Copyright>Copyright © 2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageId>iTin.Core</PackageId>

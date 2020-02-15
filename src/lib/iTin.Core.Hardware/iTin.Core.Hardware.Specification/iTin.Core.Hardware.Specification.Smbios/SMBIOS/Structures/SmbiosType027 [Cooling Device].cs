@@ -85,6 +85,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="smbiosVersion">Current <see cref="SMBIOS"/> version.</param>
         public SmbiosType027(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
+            
         }
         #endregion
 
@@ -94,7 +95,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.2+ fields
 
-        #region [private] (int) TemperatureProbeHandle: Gets a value representing the 'Temperature Probe Handle' field
+        #region [private] (ushort) TemperatureProbeHandle: Gets a value representing the 'Temperature Probe Handle' field
         /// <summary>
         /// Gets a value representing the <b>Temperature Probe Handle</b> field.
         /// </summary>
@@ -102,7 +103,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TemperatureProbeHandle => Reader.GetWord(0x04);
+        private ushort TemperatureProbeHandle => Reader.GetWord(0x04);
         #endregion
 
         #region [private] (byte) DeviceTypeAndStatus: Gets a value representing the 'Device Type And Status' field
@@ -149,7 +150,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte CoolingUnitGroup => Reader.GetByte(0x07);
         #endregion
 
-        #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field
+        #region [private] (uint) OemDefined: Gets a value representing the 'Oem Defined' field
         /// <summary>
         /// Gets a value representing the <b>Oem Defined</b> field.
         /// </summary>
@@ -157,10 +158,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemDefined => Reader.GetDoubleWord(0x08);
+        private uint OemDefined => Reader.GetDoubleWord(0x08);
         #endregion
 
-        #region [private] (int) NominalSpeed: Gets a value representing the 'Nominal Speed' field
+        #region [private] (ushort) NominalSpeed: Gets a value representing the 'Nominal Speed' field
         /// <summary>
         /// Gets a value representing the <b>Nominal Speed</b> field.
         /// </summary>
@@ -168,7 +169,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NominalSpeed => Reader.GetWord(0x0c);
+        private ushort NominalSpeed => Reader.GetWord(0x0c);
         #endregion
 
         #endregion
@@ -200,33 +201,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            if (StructureInfo.Length >= 0x05)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v22)
             {
                 properties.Add(SmbiosProperty.CoolingDevice.TemperatureProbeHandle, TemperatureProbeHandle);
-            }
-
-            if (StructureInfo.Length >= 0x07)
-            {
                 properties.Add(SmbiosProperty.CoolingDevice.DeviceTypeAndStatus.Status, GetStatus(Status));
                 properties.Add(SmbiosProperty.CoolingDevice.DeviceTypeAndStatus.DeviceType, GetDeviceType(DeviceType));
-            }
-
-            if (StructureInfo.Length >= 0x08)
-            {
                 properties.Add(SmbiosProperty.CoolingDevice.CoolingUnitGroup, CoolingUnitGroup);
-            }
-
-            if (StructureInfo.Length >= 0x09)
-            {
                 properties.Add(SmbiosProperty.CoolingDevice.OemDefined, OemDefined);
+
+                if (StructureInfo.Length >= 0x0d)
+                {
+                    properties.Add(SmbiosProperty.CoolingDevice.NominalSpeed, NominalSpeed);
+                }
             }
 
-            if (StructureInfo.Length >= 0x0d)
-            {
-                properties.Add(SmbiosProperty.CoolingDevice.NominalSpeed, NominalSpeed);
-            }
-
-            if (StructureInfo.Length >= 0x0f)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v27)
             {
                 properties.Add(SmbiosProperty.CoolingDevice.Description, Description);
             }

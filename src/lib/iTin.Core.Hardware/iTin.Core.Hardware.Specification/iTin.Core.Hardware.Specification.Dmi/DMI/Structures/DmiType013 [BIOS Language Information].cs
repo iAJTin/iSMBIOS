@@ -39,32 +39,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            if (SmbiosStructure.StructureInfo.Length >= 0x05)
+            if (ImplementedVersion < DmiStructureVersion.v20)
             {
-                object installableLanguages = SmbiosStructure.GetPropertyValue(SmbiosProperty.BiosLanguage.InstallableLanguages);
-                if (installableLanguages != null)
-                {
-                    properties.Add(DmiProperty.BiosLanguage.InstallableLanguages, installableLanguages);
-                }
+                return;
             }
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x06)
-            {
-                object isCurrentAbbreviated = SmbiosStructure.GetPropertyValue(SmbiosProperty.BiosLanguage.IsCurrentAbbreviated);
-                if (isCurrentAbbreviated != null)
-                {
-                    properties.Add(DmiProperty.BiosLanguage.IsCurrentAbbreviated, isCurrentAbbreviated);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x16)
-            {
-                object current = SmbiosStructure.GetPropertyValue(SmbiosProperty.BiosLanguage.Current);
-                if (current != null)
-                {
-                    properties.Add(DmiProperty.BiosLanguage.Current, current);
-                }
-            }
+            properties.Add(DmiProperty.BiosLanguage.InstallableLanguages, SmbiosStructure.GetPropertyValue(SmbiosProperty.BiosLanguage.InstallableLanguages));
+            properties.Add(DmiProperty.BiosLanguage.IsCurrentAbbreviated, SmbiosStructure.GetPropertyValue(SmbiosProperty.BiosLanguage.IsCurrentAbbreviated));
+            properties.Add(DmiProperty.BiosLanguage.Current, SmbiosStructure.GetPropertyValue(SmbiosProperty.BiosLanguage.Current));
         }
         #endregion
 

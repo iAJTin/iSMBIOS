@@ -141,7 +141,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong Characteristics => (ulong)Reader.GetQuadrupleWord(0x0a);
+        private ulong Characteristics => Reader.GetQuadrupleWord(0x0a);
         #endregion
 
         #region [private] (byte) ExtensionByte1: Gets a value representing the 'Extension byte 1' field
@@ -199,7 +199,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string BiosReleaseDate => GetString(0x08);
         #endregion
 
-        #region [private] (int) RomSize: Gets a value representing the 'Rom size' field
+        #region [private] (byte) RomSize: Gets a value representing the 'Rom size' field
         /// <summary>
         /// Gets a value representing the <b>Rom size</b> field.
         /// </summary>
@@ -207,7 +207,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int RomSize => (Reader.GetByte(0x09) + 1) << 6;
+        private byte RomSize => (byte)((Reader.GetByte(0x09) + 1) << 6);
         #endregion
 
         #region [private] (string) BiosStartSegment: Gets a value representing the 'Bios starting address segment' field
@@ -265,7 +265,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string BiosVersion => GetString(0x05);
         #endregion
 
-        #region [private] (int) ExtendedBiosRomSizeRawInfo: Gets a value representing the 'Extended bios rom size raw info' field
+        #region [private] (ushort) ExtendedBiosRomSizeRawInfo: Gets a value representing the 'Extended bios rom size raw info' field
         /// <summary>
         /// Gets a value representing the <b>Extended bios rom size raw info</b> field.
         /// </summary>
@@ -273,10 +273,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExtendedBiosRomSizeRawInfo => Reader.GetWord(0x18);
+        private ushort ExtendedBiosRomSizeRawInfo => Reader.GetWord(0x18);
         #endregion
 
-        #region [private] (int) ExtendedBiosRomSize: Gets a value representing the 'Extended bios rom size' field
+        #region [private] (ushort) ExtendedBiosRomSize: Gets a value representing the 'Extended bios rom size' field
         /// <summary>
         /// Gets a value representing the <b>Extended bios rom size</b> field.
         /// </summary>
@@ -284,10 +284,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExtendedBiosRomSize => ExtendedBiosRomSizeRawInfo & 0x3fff;
+        private ushort ExtendedBiosRomSize => (ushort)(ExtendedBiosRomSizeRawInfo & 0x3fff);
         #endregion
 
-        #region [private] (int) ExtendedBiosRomSizeUnits: Gets a value representing the 'Extended bios rom size units' field
+        #region [private] (MemorySizeUnit) ExtendedBiosRomSizeUnits: Gets a value representing the 'Extended bios rom size units' field
         /// <summary>
         /// Gets a value representing the <b>Extended bios rom size units</b> field.
         /// </summary>
@@ -299,7 +299,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         {
             get
             {
-                int value = ExtendedBiosRomSizeRawInfo & 0xc000;
+                int value = (ushort)(ExtendedBiosRomSizeRawInfo & 0xc000);
                 byte unit = (byte)(value.GetByte(Bytes.Byte03) >> 2);
 
                 return
@@ -322,20 +322,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            #region 2.0
-            if (SmbiosVersion >= 0x0200)
+            #region 2.0+
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v20)
             {
                 properties.Add(SmbiosProperty.Bios.Vendor, Vendor);
                 properties.Add(SmbiosProperty.Bios.BiosVersion, BiosVersion);
                 properties.Add(SmbiosProperty.Bios.BiosStartSegment, BiosStartSegment);
                 properties.Add(SmbiosProperty.Bios.BiosReleaseDate, BiosReleaseDate);
-                properties.Add(SmbiosProperty.Bios.Characteristics, GetCharacteristics(Characteristics));
                 properties.Add(SmbiosProperty.Bios.BiosRomSize, RomSize);
+                properties.Add(SmbiosProperty.Bios.Characteristics, GetCharacteristics(Characteristics));
             }
             #endregion
 
             #region 2.4+
-            if (SmbiosVersion >= 0x0204)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v24)
             {
                 properties.Add(SmbiosProperty.Bios.CharacteristicsExtensionByte1, GetExtensionByte1(ExtensionByte1));
                 properties.Add(SmbiosProperty.Bios.CharacteristicsExtensionByte2, GetExtensionByte2(ExtensionByte2));
@@ -347,7 +347,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 3.1+
-            if (SmbiosVersion >= 0x0301)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v31)
             {
                 properties.Add(SmbiosProperty.Bios.ExtendedBiosRomSize, ExtendedBiosRomSize);
                 properties.Add(SmbiosProperty.Bios.BiosRomSizeUnit, ExtendedBiosRomSizeUnits);

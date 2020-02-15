@@ -39,83 +39,37 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object interfaceType = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.InterfaceType);
-            if (interfaceType != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.IpmiDevice.InterfaceType, interfaceType);
+                return;
             }
 
-            object specificationRevision = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.SpecificationRevision);
-            if (specificationRevision != null)
-            {
-                properties.Add(DmiProperty.IpmiDevice.SpecificationRevision, specificationRevision);
-            }
+            properties.Add(DmiProperty.IpmiDevice.InterfaceType, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.InterfaceType));
+            properties.Add(DmiProperty.IpmiDevice.SpecificationRevision, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.SpecificationRevision));
+            properties.Add(DmiProperty.IpmiDevice.I2CSlaveAddress, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.I2CSlaveAddress));
+            properties.Add(DmiProperty.IpmiDevice.BaseAddress, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.BaseAddress));
 
-            object i2CSlaveAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.I2CSlaveAddress);
-            if (i2CSlaveAddress != null)
+            byte nvStorageDeviceAddress = SmbiosStructure.GetPropertyValue<byte>(SmbiosProperty.IpmiDevice.NVStorageDeviceAddress);
+            if (nvStorageDeviceAddress != 0xff)
             {
-                properties.Add(DmiProperty.IpmiDevice.I2CSlaveAddress, i2CSlaveAddress);
-            }
-
-            object nvStorageDeviceAddressProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.NVStorageDeviceAddress);
-            if (nvStorageDeviceAddressProperty != null)
-            {
-                byte nvStorageDeviceAddress = (byte) nvStorageDeviceAddressProperty;
-                if (nvStorageDeviceAddress != 0x00)
-                {
-                    properties.Add(DmiProperty.IpmiDevice.NVStorageDeviceAddress, nvStorageDeviceAddress);
-                }
-            }
-
-            object baseAdress = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.BaseAdress);
-            if (baseAdress != null)
-            {
-                properties.Add(DmiProperty.IpmiDevice.BaseAdress, baseAdress);
+                properties.Add(DmiProperty.IpmiDevice.NVStorageDeviceAddress, nvStorageDeviceAddress);
             }
 
             if (SmbiosStructure.StructureInfo.Length >= 0x11)
             {
-                object registerSpacing = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.BaseAdressModifier.RegisterSpacing);
-                if (registerSpacing != null)
-                {
-                    properties.Add(DmiProperty.IpmiDevice.BaseAdressModifier.RegisterSpacing, registerSpacing);
-                }
-
-                object lsBit = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.BaseAdressModifier.LsBit);
-                if (lsBit != null)
-                {
-                    properties.Add(DmiProperty.IpmiDevice.BaseAdressModifier.LsBit, lsBit);
-                }
-
-                object specifiedInfo = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.Interrupt.SpecifiedInfo);
-                if (specifiedInfo != null)
-                {
-                    properties.Add(DmiProperty.IpmiDevice.Interrupt.SpecifiedInfo, specifiedInfo);
-                }
-
-                object polarity = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.Interrupt.Polarity);
-                if (polarity != null)
-                {
-                    properties.Add(DmiProperty.IpmiDevice.Interrupt.Polarity, polarity);
-                }
-
-                object triggerMode = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.Interrupt.TriggerMode);
-                if (triggerMode != null)
-                {
-                    properties.Add(DmiProperty.IpmiDevice.Interrupt.TriggerMode, triggerMode);
-                }
+                properties.Add(DmiProperty.IpmiDevice.BaseAdressModifier.LsBit, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.BaseAdressModifier.LsBit));
+                properties.Add(DmiProperty.IpmiDevice.BaseAdressModifier.RegisterSpacing, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.BaseAdressModifier.RegisterSpacing));
+                properties.Add(DmiProperty.IpmiDevice.Interrupt.SpecifiedInfo, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.Interrupt.SpecifiedInfo));
+                properties.Add(DmiProperty.IpmiDevice.Interrupt.Polarity, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.Interrupt.Polarity));
+                properties.Add(DmiProperty.IpmiDevice.Interrupt.TriggerMode, SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.Interrupt.TriggerMode));
             }
 
             if (SmbiosStructure.StructureInfo.Length >= 0x12)
             {
-                object interruptNumberProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.IpmiDevice.InterruptNumber);
-                if (interruptNumberProperty != null)
+                byte interruptNumber = SmbiosStructure.GetPropertyValue<byte>(SmbiosProperty.IpmiDevice.InterruptNumber);
+                if (interruptNumber != 0x00)
                 {
-                    byte interruptNumber = (byte) interruptNumberProperty;
-                    if (interruptNumber != 0x00)
-                    {
-                        properties.Add(DmiProperty.IpmiDevice.InterruptNumber, interruptNumber);
-                    }
+                    properties.Add(DmiProperty.IpmiDevice.InterruptNumber, interruptNumber);
                 }
             }
         }

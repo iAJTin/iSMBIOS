@@ -176,7 +176,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <remarks>
         /// The <see cref="ToString()"/> method returns a string that includes the <see cref="StructureType"/>.
         /// </remarks>
-        public override string ToString() => $"SMBIOS = {SmbiosVersion:X}, Type = {StructureType}, Structures = {Structures.Count}";
+        public override string ToString() => $"SMBIOS = {SmbiosVersion:X2}, Type = {StructureType}, Structures = {Structures.Count}";
         #endregion
 
         #endregion

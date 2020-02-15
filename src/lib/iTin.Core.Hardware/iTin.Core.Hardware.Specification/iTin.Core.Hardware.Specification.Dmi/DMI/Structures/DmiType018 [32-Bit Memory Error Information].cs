@@ -39,62 +39,37 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object errorType = SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.ErrorType);
-            if (errorType != null)
+            if (ImplementedVersion < DmiStructureVersion.v21)
             {
-                properties.Add(DmiProperty.BitMemoryError32.ErrorType, errorType);
+                return;
             }
 
-            object errorGranularity = SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.ErrorGranularity);
-            if (errorGranularity != null)
+            properties.Add(DmiProperty.BitMemoryError32.ErrorType, SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.ErrorType));
+            properties.Add(DmiProperty.BitMemoryError32.ErrorGranularity, SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.ErrorGranularity));
+            properties.Add(DmiProperty.BitMemoryError32.ErrorOperation, SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.ErrorOperation));
+
+            uint vendorSyndrome = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.BitMemoryError32.VendorSyndrome);
+            if (vendorSyndrome != 0x00000000)
             {
-                properties.Add(DmiProperty.BitMemoryError32.ErrorGranularity, errorGranularity);
+                properties.Add(DmiProperty.BitMemoryError32.VendorSyndrome, vendorSyndrome);
             }
 
-            object errorOperation = SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.ErrorOperation);
-            if (errorOperation != null)
+            uint busErrorAddress = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.BitMemoryError32.MemoryArrayErrorAddress);
+            if (busErrorAddress != 0x80000000)
             {
-                properties.Add(DmiProperty.BitMemoryError32.ErrorOperation, errorOperation);
+                properties.Add(DmiProperty.BitMemoryError32.MemoryArrayErrorAddress, busErrorAddress);
             }
 
-            object vendorSyndromeProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.VendorSyndrome);
-            if (vendorSyndromeProperty != null)
+            uint deviceErrorAddress = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.BitMemoryError32.DeviceErrorAddress);
+            if (deviceErrorAddress != 0x80000000)
             {
-                long vendorSyndrome = (long)vendorSyndromeProperty;
-                if (vendorSyndrome != 0x00000000)
-                {
-                    properties.Add(DmiProperty.BitMemoryError32.VendorSyndrome, vendorSyndrome);
-                }
+                properties.Add(DmiProperty.BitMemoryError32.DeviceErrorAddress, deviceErrorAddress);
             }
 
-            object busErrorAddressProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.MemoryArrayErrorAddress);
-            if (busErrorAddressProperty != null)
+            uint errorResolution = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.BitMemoryError32.ErrorResolution);
+            if (errorResolution != 0x80000000)
             {
-                long busErrorAddress = (long)busErrorAddressProperty;
-                if (busErrorAddress != 0x80000000)
-                {
-                    properties.Add(DmiProperty.BitMemoryError32.MemoryArrayErrorAddress, busErrorAddress);
-                }
-            }
-
-            object deviceErrorAddressProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.DeviceErrorAddress);
-            if (deviceErrorAddressProperty != null)
-            {
-                long deviceErrorAddress = (long)deviceErrorAddressProperty;
-                if (deviceErrorAddress != 0x80000000)
-                {
-                    properties.Add(DmiProperty.BitMemoryError32.DeviceErrorAddress, deviceErrorAddress);
-                }
-            }
-
-            object errorResolutionProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.BitMemoryError32.ErrorResolution);
-            if (errorResolutionProperty != null)
-            {
-                long errorResolution = (long)errorResolutionProperty;
-                if (errorResolution != 0x80000000)
-                {
-                    properties.Add(DmiProperty.BitMemoryError32.ErrorResolution, errorResolution);
-                }
+                properties.Add(DmiProperty.BitMemoryError32.ErrorResolution, errorResolution);
             }
         }
         #endregion

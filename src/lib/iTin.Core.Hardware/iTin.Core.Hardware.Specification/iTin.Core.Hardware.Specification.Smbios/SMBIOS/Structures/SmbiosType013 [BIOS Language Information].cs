@@ -114,20 +114,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            if (StructureInfo.Length >= 0x05)
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.v20)
             {
-                properties.Add(SmbiosProperty.BiosLanguage.InstallableLanguages, GetValues(Count));
+                return;
             }
 
-            if (StructureInfo.Length >= 0x06)
-            {
-                properties.Add(SmbiosProperty.BiosLanguage.IsCurrentAbbreviated, IsCurrentAbbreviated);
-            }
-
-            if (StructureInfo.Length >= 0x16)
-            {
-                properties.Add(SmbiosProperty.BiosLanguage.Current, Current);
-            }
+            properties.Add(SmbiosProperty.BiosLanguage.InstallableLanguages, GetValues(Count));
+            properties.Add(SmbiosProperty.BiosLanguage.IsCurrentAbbreviated, IsCurrentAbbreviated);
+            properties.Add(SmbiosProperty.BiosLanguage.Current, Current);
         }
         #endregion
 

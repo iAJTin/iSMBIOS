@@ -39,91 +39,54 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object description = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.Description);
-            if (description != null)
+            if (ImplementedVersion >= DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.ElectricalCurrentProbe.Description, description);
-            }
+                properties.Add(DmiProperty.ElectricalCurrentProbe.Description, SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.Description));
+                properties.Add(DmiProperty.ElectricalCurrentProbe.LocationAndStatus.Status, SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.LocationAndStatus.Status));
+                properties.Add(DmiProperty.ElectricalCurrentProbe.LocationAndStatus.Location, SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.LocationAndStatus.Location));
 
-            object status = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.LocationAndStatus.Status);
-            if (status != null)
-            {
-                properties.Add(DmiProperty.ElectricalCurrentProbe.LocationAndStatus.Status, status);
-            }
-
-            object location = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.LocationAndStatus.Location);
-            if (location != null)
-            {
-                properties.Add(DmiProperty.ElectricalCurrentProbe.LocationAndStatus.Location, location);
-            }
-
-            object maximunValueProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.MaximunValue);
-            if (maximunValueProperty != null)
-            {
-                int maximunValue = (int)maximunValueProperty;
-                if (maximunValue != 0x8000)
+                ushort maximumValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ElectricalCurrentProbe.MaximumValue);
+                if (maximumValue != 0x8000)
                 {
-                    properties.Add(DmiProperty.ElectricalCurrentProbe.MaximunValue, maximunValue);
+                    properties.Add(DmiProperty.ElectricalCurrentProbe.MaximumValue, maximumValue);
                 }
-            }
 
-            object minimunValueProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.MinimunValue);
-            if (minimunValueProperty != null)
-            {
-                int minimunValue = (int)minimunValueProperty;
-                if (minimunValue != 0x8000)
+                ushort minimumValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ElectricalCurrentProbe.MinimumValue);
+                if (minimumValue != 0x8000)
                 {
-                    properties.Add(DmiProperty.ElectricalCurrentProbe.MinimunValue, minimunValue);
+                    properties.Add(DmiProperty.ElectricalCurrentProbe.MinimumValue, minimumValue);
                 }
-            }
 
-            object resolutionProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.Resolution);
-            if (resolutionProperty != null)
-            {
-                int resolution = (int)resolutionProperty;
+                ushort resolution = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ElectricalCurrentProbe.Resolution);
                 if (resolution != 0x8000)
                 {
                     properties.Add(DmiProperty.ElectricalCurrentProbe.Resolution, resolution);
                 }
-            }
 
-            object toleranceProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.Tolerance);
-            if (toleranceProperty != null)
-            {
-                int tolerance = (int)toleranceProperty;
+                ushort tolerance = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ElectricalCurrentProbe.Tolerance);
                 if (tolerance != 0x8000)
                 {
                     properties.Add(DmiProperty.ElectricalCurrentProbe.Tolerance, tolerance);
                 }
-            }
 
-            object accuracyProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.Accuracy);
-            if (accuracyProperty != null)
-            {
-                int accuracy = (int)accuracyProperty;
+                ushort accuracy = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ElectricalCurrentProbe.Accuracy);
                 if (accuracy != 0x8000)
                 {
                     properties.Add(DmiProperty.ElectricalCurrentProbe.Accuracy, accuracy);
                 }
+
+                properties.Add(DmiProperty.ElectricalCurrentProbe.OemDefined, SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.OemDefined));
             }
 
-            object oemDefined = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.OemDefined);
-            if (oemDefined != null)
+            if (SmbiosStructure.StructureInfo.Length < 0x15)
             {
-                properties.Add(DmiProperty.ElectricalCurrentProbe.OemDefined, oemDefined);
+                return;
             }
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x15)
+            ushort nominalValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ElectricalCurrentProbe.NominalValue);
+            if (nominalValue != 0x8000)
             {
-                object nominalValueProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ElectricalCurrentProbe.NominalValue);
-                if (nominalValueProperty != null)
-                {
-                    int nominalValue = (int)nominalValueProperty;
-                    if (nominalValue != 0x8000)
-                    {
-                        properties.Add(DmiProperty.ElectricalCurrentProbe.NominalValue, nominalValue);
-                    }
-                }
+                properties.Add(DmiProperty.ElectricalCurrentProbe.NominalValue, nominalValue);
             }
         }
         #endregion

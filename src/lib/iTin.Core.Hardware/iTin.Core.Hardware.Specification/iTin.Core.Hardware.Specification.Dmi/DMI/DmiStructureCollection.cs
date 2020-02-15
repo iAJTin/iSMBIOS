@@ -148,7 +148,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
             T result = (T)GetProperty(propertyKey);
             if (result == null)
             {
-                return default;
+                return default(T);
             }
 
             return result;

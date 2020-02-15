@@ -159,17 +159,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <value>
         /// Property value.
         /// </value>
-        private ulong Characteristics => (ulong)Reader.GetQuadrupleWord(0x13);
+        private ulong Characteristics => Reader.GetQuadrupleWord(0x13);
         #endregion
 
-        #region [private] (int) OemDefined: Gets a value representing the 'OEM Defined' field
+        #region [private] (uint) OemDefined: Gets a value representing the 'OEM Defined' field
         /// <summary>
         /// Gets a value representing the <b>OEM Defined</b> field.
         /// </summary>
         /// <value>
         /// Property value.
         /// </value>
-        private int OemDefined => Reader.GetDoubleWord(0x1b);
+        private uint OemDefined => Reader.GetDoubleWord(0x1b);
         #endregion
 
         #endregion
@@ -184,7 +184,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            var tpmCapabilityVendorIdEntry = GetTpmCapabilityVendorId(RawVendorId);
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
+            TpmCapabilityVendorId tpmCapabilityVendorIdEntry = GetTpmCapabilityVendorId(RawVendorId);
             properties.Add(SmbiosProperty.TpmDevice.VendorId, tpmCapabilityVendorIdEntry.ASCII);
             properties.Add(SmbiosProperty.TpmDevice.VendorIdDescription, tpmCapabilityVendorIdEntry.Description);
             properties.Add(SmbiosProperty.TpmDevice.MajorSpecVersion, MajorSpecVersion);
@@ -196,7 +201,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 firmwareVersion =
                     MajorSpecVersion == 0x01
                         ? TpmFirmwareVersion.Parse(RawFirmwareVersion1)
-                        : new TpmFirmwareVersion { MajorVersion = Reader.GetDoubleWord(0x0a), MinorVersion = Reader.GetDoubleWord(0x0e) };
+                        : new TpmFirmwareVersion
+                        {
+                            MajorVersion = (int) Reader.GetDoubleWord(0x0a),
+                            MinorVersion = (int) Reader.GetDoubleWord(0x0e)
+                        };
             }
 
             properties.Add(SmbiosProperty.TpmDevice.FirmwareVersion, firmwareVersion);

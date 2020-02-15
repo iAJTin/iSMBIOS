@@ -1,6 +1,8 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Dmi
 {
+    using Helpers.Enumerations;
+
     using Property;
 
     using Smbios;
@@ -39,288 +41,165 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            #region 2.1+
-            var physicalMemoryArrayHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.PhysicalMemoryArrayHandle);
-            if (physicalMemoryArrayHandle != null)
+            if (ImplementedVersion >= DmiStructureVersion.v21)
             {
-                properties.Add(DmiProperty.MemoryDevice.PhysicalMemoryArrayHandle, physicalMemoryArrayHandle);
-            }
+                properties.Add(DmiProperty.MemoryDevice.PhysicalMemoryArrayHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.PhysicalMemoryArrayHandle));
 
-            object memoryErrorInformationHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemoryErrorInformationHandle);
-            if (memoryErrorInformationHandle != null)
-            {
-                properties.Add(DmiProperty.MemoryDevice.MemoryErrorInformationHandle, memoryErrorInformationHandle);
-            }
+                ushort memoryErrorInformationHandle = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.MemoryErrorInformationHandle);
+                switch (memoryErrorInformationHandle)
+                {
+                    case 0xffff:
+                        properties.Add(DmiProperty.MemoryDevice.MemoryErrorInformationHandle, -1);
+                        break;
 
-            object totalWidthProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.TotalWidth);
-            if (totalWidthProperty != null)
-            {
-                int totalWidth = (int)totalWidthProperty;
+                    case 0xfffe:
+                        properties.Add(DmiProperty.MemoryDevice.MemoryErrorInformationHandle, -2);
+                        break;
+
+                    default:
+                        properties.Add(DmiProperty.MemoryDevice.MemoryErrorInformationHandle, memoryErrorInformationHandle);
+                        break;
+                }
+
+                ushort totalWidth = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.TotalWidth);
                 if (totalWidth != 0xffff)
                 {
                     properties.Add(DmiProperty.MemoryDevice.TotalWidth, totalWidth);
                 }
-            }
 
-            object dataWidthProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.DataWidth);
-            if (dataWidthProperty != null)
-            {
-                int dataWidth = (int)dataWidthProperty;
+                ushort dataWidth = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.DataWidth);
                 if (dataWidth != 0xffff)
                 {
                     properties.Add(DmiProperty.MemoryDevice.DataWidth, dataWidth);
                 }
-            }
 
-            object size = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.Size);
-            if (size != null)
-            {
-                properties.Add(DmiProperty.MemoryDevice.Size, size);
-            }
-
-            object formFactor = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.FormFactor);
-            if (formFactor != null)
-            {
-                properties.Add(DmiProperty.MemoryDevice.FormFactor, formFactor);
-            }
-
-            object deviceSet = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.DeviceSet);
-            if (deviceSet != null)
-            {
-                properties.Add(DmiProperty.MemoryDevice.DeviceSet, deviceSet);
-            }
-
-            object deviceLocator = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.DeviceLocator);
-            if (deviceLocator != null)
-            {
-                properties.Add(DmiProperty.MemoryDevice.DeviceLocator, deviceLocator);
-            }
-
-            object bankLocator = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.BankLocator);
-            if (bankLocator != null)
-            {
-                properties.Add(DmiProperty.MemoryDevice.BankLocator, bankLocator);
-            }
-
-            object memoryType = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemoryType);
-            if (memoryType != null)
-            {
-                properties.Add(DmiProperty.MemoryDevice.MemoryType, memoryType);
-            }
-
-            object typeDetail = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.TypeDetail);
-            if (typeDetail != null)
-            {
-                properties.Add(DmiProperty.MemoryDevice.TypeDetail, typeDetail);
-            }
-            #endregion
-
-            #region 2.3+
-            if (SmbiosStructure.StructureInfo.Length >= 0x16)
-            {
-                object maximunSpeedProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MaximunSpeed);
-                if (maximunSpeedProperty != null)
+                ushort size = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.Size);
+                if (size == 0x0000)
                 {
-                    int maximunSpeed = (int)maximunSpeedProperty;
-                    if (maximunSpeed != 0x00)
+                    // No memory device installed
+                }
+                else if (size == 0xffff)
+                {
+                    // size is unknown.
+                }
+                else if (size != 0x7fff)
+                {
+                    bool sizeIsMeasuredInKb = IsMeasuredInKb(size);
+                    if (!sizeIsMeasuredInKb)
                     {
-                        properties.Add(DmiProperty.MemoryDevice.MaximunSpeed, maximunSpeed);
+                        size <<= 0x0a;
                     }
-                }
-            }
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x18)
-            {
-                object manufacturer = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.Manufacturer);
-                if (manufacturer != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.Manufacturer, manufacturer);
+                    properties.Add(DmiProperty.MemoryDevice.Size, size);
                 }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x19)
-            {
-                object serialNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.SerialNumber);
-                if (serialNumber != null)
+                else
                 {
-                    properties.Add(DmiProperty.MemoryDevice.SerialNumber, serialNumber);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x1a)
-            {
-                object assetTag = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.AssetTag);
-                if (assetTag != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.AssetTag, assetTag);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x1b)
-            {
-                object partNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.PartNumber);
-                if (partNumber != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.PartNumber, partNumber);
-                }
-            }
-            #endregion
-
-            #region 2.6+
-            if (SmbiosStructure.StructureInfo.Length >= 0x1c)
-            {
-                object rankProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.Rank);
-                if (rankProperty != null)
-                {
-                    byte rank = (byte)rankProperty;
-                    if (rank != 0x00)
+                    if (ImplementedVersion >= DmiStructureVersion.v27)
                     {
-                        properties.Add(DmiProperty.MemoryDevice.Rank, rank);
-                    }
-                }
-            }
-            #endregion
-
-            #region 2.7+
-            if (SmbiosStructure.StructureInfo.Length >= 0x21)
-            {
-                object currentSpeedProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ConfiguredMemoryClockSpeed);
-                if (currentSpeedProperty != null)
-                {
-                    int currentSpeed = (int)currentSpeedProperty;
-                    if (currentSpeed != 0x0000)
-                    {
-                        properties.Add(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed, currentSpeed);
-                    }
-                }
-            }
-            #endregion
-
-            #region 2.8+
-            if (SmbiosStructure.StructureInfo.Length >= 0x23)
-            {
-                object minimumVoltageProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MinimumVoltage);
-                if (minimumVoltageProperty != null)
-                {
-                    int minimunVoltage = (int)minimumVoltageProperty;
-                    if (minimunVoltage != 0x0000)
-                    {
-                        properties.Add(DmiProperty.MemoryDevice.MinimumVoltage, minimunVoltage);
+                        uint extendedSize = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.MemoryDevice.ExtendedSize);
+                        properties.Add(DmiProperty.MemoryDevice.Size, extendedSize << 0x0a);
                     }
                 }
 
-                object maximumVoltageProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MaximumVoltage);
-                if (maximumVoltageProperty != null)
-                {
-                    int maximumVoltage = (int)maximumVoltageProperty;
-                    if (maximumVoltage != 0x0000)
-                    {
-                        properties.Add(DmiProperty.MemoryDevice.MaximumVoltage, maximumVoltage);
-                    }
-                }
-
-                object configuredVoltageProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ConfiguredVoltage);
-                if (configuredVoltageProperty != null)
-                {
-                    int configuredVoltage = (int)configuredVoltageProperty;
-                    if (configuredVoltage != 0x0000)
-                    {
-                        properties.Add(DmiProperty.MemoryDevice.ConfiguredVoltage, configuredVoltage);
-                    }
-                }
+                properties.Add(DmiProperty.MemoryDevice.FormFactor, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.FormFactor));
+                properties.Add(DmiProperty.MemoryDevice.DeviceSet, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.DeviceSet));
+                properties.Add(DmiProperty.MemoryDevice.DeviceLocator, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.DeviceLocator));
+                properties.Add(DmiProperty.MemoryDevice.BankLocator, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.BankLocator));
+                properties.Add(DmiProperty.MemoryDevice.MemoryType, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemoryType));
+                properties.Add(DmiProperty.MemoryDevice.TypeDetail, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.TypeDetail));
             }
-            #endregion
 
-            #region 3.2+
-            if (SmbiosStructure.StructureInfo.Length >= 0x29)
+            if (ImplementedVersion >= DmiStructureVersion.v23)
             {
-                object memoryTechnology = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemoryTechnology);
-                if (memoryTechnology != null)
+                ushort maximunSpeed = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.Speed);
+                if (maximunSpeed != 0x0000)
                 {
-                    properties.Add(DmiProperty.MemoryDevice.MemoryTechnology, memoryTechnology);
+                    properties.Add(DmiProperty.MemoryDevice.Speed, maximunSpeed);
                 }
 
-                object memoryOperatingModeCapability = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemoryOperatingModeCapability);
-                if (memoryOperatingModeCapability != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.MemoryOperatingModeCapability, memoryOperatingModeCapability);
-                }
-
-                object firmwareVersion = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.FirmwareVersion);
-                if (firmwareVersion != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.FirmwareVersion, firmwareVersion);
-                }
-
-                object moduleManufacturerId = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ModuleManufacturerId);
-                if (moduleManufacturerId != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.ModuleManufacturerId, moduleManufacturerId);
-                }
-
-                object moduleProductId = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ModuleProductId);
-                if (moduleProductId != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.ModuleProductId, moduleProductId);
-                }
-
-                object memorySubsystemControllerManufacturerId = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemorySubsystemControllerManufacturerId);
-                if (memorySubsystemControllerManufacturerId != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.MemorySubsystemControllerManufacturerId, memorySubsystemControllerManufacturerId);
-                }
-
-                object memorySubsystemControllerProductId = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemorySubsystemControllerProductId);
-                if (memorySubsystemControllerProductId != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.MemorySubsystemControllerProductId, memorySubsystemControllerProductId);
-                }
-
-                object nonVolatileSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.NonVolatileSize);
-                if (nonVolatileSize != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.NonVolatileSize, nonVolatileSize);
-                }
-
-                object volatileSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.VolatileSize);
-                if (volatileSize != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.VolatileSize, volatileSize);
-                }
-
-                object cacheSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.CacheSize);
-                if (cacheSize != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.CacheSize, cacheSize);
-                }
-
-                object logicalSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.LogicalSize);
-                if (logicalSize != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.LogicalSize, logicalSize);
-                }
+                properties.Add(DmiProperty.MemoryDevice.Manufacturer, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.Manufacturer));
+                properties.Add(DmiProperty.MemoryDevice.SerialNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.SerialNumber));
+                properties.Add(DmiProperty.MemoryDevice.AssetTag, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.AssetTag));
+                properties.Add(DmiProperty.MemoryDevice.PartNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.PartNumber));
             }
-            #endregion
 
-            #region 3.3+
-            if (SmbiosStructure.StructureInfo.Length >= 0x55)
+            if (ImplementedVersion >= DmiStructureVersion.v26)
             {
-                object extendedSpeed = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ExtendedSpeed);
-                if (extendedSpeed != null)
+                byte rank = SmbiosStructure.GetPropertyValue<byte>(SmbiosProperty.MemoryDevice.Rank);
+                if (rank != 0x00)
                 {
-                    properties.Add(DmiProperty.MemoryDevice.ExtendedSpeed, extendedSpeed);
-                }
-
-                object extendedConfiguredMemorySpeed = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed);
-                if (extendedConfiguredMemorySpeed != null)
-                {
-                    properties.Add(DmiProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, extendedConfiguredMemorySpeed);
+                    properties.Add(DmiProperty.MemoryDevice.Rank, rank);
                 }
             }
-            #endregion
+
+            if (ImplementedVersion >= DmiStructureVersion.v27)
+            {
+                ushort currentSpeed = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.ConfiguredMemoryClockSpeed);
+                if (currentSpeed != 0x0000)
+                {
+                    properties.Add(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed, currentSpeed);
+                }
+            }
+
+            if (ImplementedVersion >= DmiStructureVersion.v28)
+            {
+                ushort minimunVoltage = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.MinimumVoltage);
+                if (minimunVoltage != 0x0000)
+                {
+                    properties.Add(DmiProperty.MemoryDevice.MinimumVoltage, minimunVoltage);
+                }
+
+                ushort maximumVoltage = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.MaximumVoltage);
+                if (maximumVoltage != 0x0000)
+                {
+                    properties.Add(DmiProperty.MemoryDevice.MaximumVoltage, maximumVoltage);
+                }
+
+                ushort configuredVoltage = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.MemoryDevice.ConfiguredVoltage);
+                if (configuredVoltage != 0x0000)
+                {
+                    properties.Add(DmiProperty.MemoryDevice.ConfiguredVoltage, configuredVoltage);
+                }
+            }
+
+            if (ImplementedVersion >= DmiStructureVersion.v32)
+            {
+                properties.Add(DmiProperty.MemoryDevice.MemoryTechnology, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemoryTechnology));
+                properties.Add(DmiProperty.MemoryDevice.MemoryOperatingModeCapability, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemoryOperatingModeCapability));
+                properties.Add(DmiProperty.MemoryDevice.FirmwareVersion, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.FirmwareVersion));
+                properties.Add(DmiProperty.MemoryDevice.ModuleManufacturerId, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ModuleManufacturerId));
+                properties.Add(DmiProperty.MemoryDevice.ModuleProductId, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ModuleProductId));
+                properties.Add(DmiProperty.MemoryDevice.MemorySubsystemControllerManufacturerId, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemorySubsystemControllerManufacturerId));
+                properties.Add(DmiProperty.MemoryDevice.MemorySubsystemControllerProductId, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.MemorySubsystemControllerProductId));
+                properties.Add(DmiProperty.MemoryDevice.NonVolatileSize, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.NonVolatileSize));
+                properties.Add(DmiProperty.MemoryDevice.VolatileSize, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.VolatileSize));
+                properties.Add(DmiProperty.MemoryDevice.CacheSize, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.CacheSize));
+                properties.Add(DmiProperty.MemoryDevice.LogicalSize, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.LogicalSize));
+            }
+
+            if (ImplementedVersion >= DmiStructureVersion.v33)
+            {
+                properties.Add(DmiProperty.MemoryDevice.ExtendedSpeed, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ExtendedSpeed));
+                properties.Add(DmiProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed));
+            }
         }
         #endregion
-    
+
+        #endregion
+
+        #region private static methods
+
+        #region [private] {static} (bool) IsMeasuredInKb(int): Gets a value that indicates whether the memory is measured in KB
+        /// <summary>
+        /// Gets a value that indicates whether the memory is measured in KB.
+        /// </summary>
+        /// <param name="code">Value to analyze.</param>
+        /// <returns>
+        /// <b>true</b> if memory is measured in KB;<b>false</b> otherwise.
+        /// </returns>
+        private static bool IsMeasuredInKb(int code) => code.CheckBit(Bits.Bit15);
+        #endregion
+
         #endregion
     }
 }

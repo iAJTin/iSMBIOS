@@ -40,7 +40,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
             #region 2.0+
-            if (SmbiosVersion >= 0x0200)
+            if (ImplementedVersion >= DmiStructureVersion.v20)
             {
                 object manufacturer = SmbiosStructure.GetPropertyValue(SmbiosProperty.System.Manufacturer);
                 if (manufacturer != null)
@@ -69,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
             #endregion
 
             #region 2.1+
-            if (SmbiosVersion >= 0x0201)
+            if (ImplementedVersion >= DmiStructureVersion.v21)
             {
                 object wakeUpType = SmbiosStructure.GetPropertyValue(SmbiosProperty.System.WakeUpType);
                 if (wakeUpType != null)
@@ -86,7 +86,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
             #endregion
 
             #region 2.4+
-            if (SmbiosVersion >= 0x0204)
+            if (ImplementedVersion >= DmiStructureVersion.v24)
             {
                 object skuNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.System.SkuNumber);
                 if (skuNumber != null)

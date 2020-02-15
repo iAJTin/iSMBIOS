@@ -97,7 +97,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte MaximunChannelLoad => StructureInfo.RawData[0x05];
+        private byte MaximunChannelLoad => Reader.GetByte(0x05);
         #endregion
 
         #region [private] (byte) Count: Gets a value representing the 'Count' field
@@ -123,8 +123,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.MemoryChannel.ChannelType, GetChannelType(ChannelType));
-            properties.Add(SmbiosProperty.MemoryChannel.MaximunChannelLoad, MaximunChannelLoad);
+            properties.Add(SmbiosProperty.MemoryChannel.MaximumChannelLoad, MaximunChannelLoad);
 
             byte n = Count;
             if (n == 0x00)

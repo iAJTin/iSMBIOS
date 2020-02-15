@@ -39,69 +39,39 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object resetCountProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.ResetCount);
-            if (resetCountProperty != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                int resetCount = (int)resetCountProperty;
-                if (resetCount != 0xffff)
-                {
-                    properties.Add(DmiProperty.SystemReset.ResetCount, resetCount);
-                }
+                return;
             }
 
-            object resetLimitProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.ResetLimit);
-            if (resetLimitProperty != null)
+            ushort resetCount = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.SystemReset.ResetCount);
+            if (resetCount != 0xffff)
             {
-                int resetLimit = (int)resetLimitProperty;
-                if (resetLimit != 0xffff)
-                {
-                    properties.Add(DmiProperty.SystemReset.ResetLimit, resetLimit);
-                }
+                properties.Add(DmiProperty.SystemReset.ResetCount, resetCount);
             }
 
-            object timerIntervalProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.TimerInterval);
-            if (timerIntervalProperty != null)
+            ushort resetLimit = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.SystemReset.ResetLimit);
+            if (resetLimit != 0xffff)
             {
-                int timerInterval = (int)timerIntervalProperty;
-                if (timerInterval != 0xffff)
-                {
-                    properties.Add(DmiProperty.SystemReset.TimerInterval, timerInterval);
-                }
+                properties.Add(DmiProperty.SystemReset.ResetLimit, resetLimit);
             }
 
-            object timeOutProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Timeout);
-            if (timeOutProperty != null)
+            ushort timerInterval = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.SystemReset.TimerInterval);
+            if (timerInterval != 0xffff)
             {
-                int timeOut = (int)timeOutProperty;
-                if (timeOut != 0xffff)
-                {
-                    properties.Add(DmiProperty.SystemReset.Timeout, timeOut);
-                }
+                properties.Add(DmiProperty.SystemReset.TimerInterval, timerInterval);
             }
 
-            object status = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Capabilities.Status);
-            if (status != null)
+            ushort timeOut = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.SystemReset.Timeout);
+            if (timeOut != 0xffff)
             {
-                properties.Add(DmiProperty.SystemReset.Capabilities.Status, status);
+                properties.Add(DmiProperty.SystemReset.Timeout, timeOut);
             }
 
-            object bootOption = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Capabilities.BootOption);
-            if (bootOption != null)
-            {
-                properties.Add(DmiProperty.SystemReset.Capabilities.BootOption, bootOption);
-            }
-
-            object bootOptionOnLimit = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Capabilities.BootOptionOnLimit);
-            if (bootOptionOnLimit != null)
-            {
-                properties.Add(DmiProperty.SystemReset.Capabilities.BootOptionOnLimit, bootOptionOnLimit);
-            }
-
-            object watchdogTimer = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Capabilities.WatchdogTimer);
-            if (watchdogTimer != null)
-            {
-                properties.Add(DmiProperty.SystemReset.Capabilities.WatchdogTimer, watchdogTimer);
-            }
+            properties.Add(DmiProperty.SystemReset.Capabilities.Status, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Capabilities.Status));
+            properties.Add(DmiProperty.SystemReset.Capabilities.BootOption, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Capabilities.BootOption));
+            properties.Add(DmiProperty.SystemReset.Capabilities.BootOptionOnLimit, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Capabilities.BootOptionOnLimit));
+            properties.Add(DmiProperty.SystemReset.Capabilities.WatchdogTimer, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemReset.Capabilities.WatchdogTimer));
         }
         #endregion
 

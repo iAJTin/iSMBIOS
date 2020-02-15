@@ -39,91 +39,54 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object description = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.Description);
-            if (description != null)
+            if (ImplementedVersion >= DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.VoltageProbe.Description, description);
-            }
+                properties.Add(DmiProperty.VoltageProbe.Description, SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.Description));
+                properties.Add(DmiProperty.VoltageProbe.LocationAndStatus.Status, SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.LocationAndStatus.Status));
+                properties.Add(DmiProperty.VoltageProbe.LocationAndStatus.Location, SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.LocationAndStatus.Location));
 
-            object status = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.LocationAndStatus.Status);
-            if (status != null)
-            {
-                properties.Add(DmiProperty.VoltageProbe.LocationAndStatus.Status, status);
-            }
-
-            object location = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.LocationAndStatus.Location);
-            if (location != null)
-            {
-                properties.Add(DmiProperty.VoltageProbe.LocationAndStatus.Location, location);
-            }
-
-            object maximunValueProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.MaximunValue);
-            if (maximunValueProperty != null)
-            {
-                int maximunValue = (int)maximunValueProperty;
-                if (maximunValue != 0x8000)
+                ushort maximumValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.VoltageProbe.MaximumValue);
+                if (maximumValue != 0x8000)
                 {
-                    properties.Add(DmiProperty.VoltageProbe.MaximunValue, maximunValue);
+                    properties.Add(DmiProperty.VoltageProbe.MaximumValue, maximumValue);
                 }
-            }
 
-            object minimunValueProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.MinimunValue);
-            if (minimunValueProperty != null)
-            {
-                int minimunValue = (int)minimunValueProperty;
-                if (minimunValue != 0x8000)
+                ushort minimumValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.VoltageProbe.MinimumValue);
+                if (minimumValue != 0x8000)
                 {
-                    properties.Add(DmiProperty.VoltageProbe.MinimunValue, minimunValue);
+                    properties.Add(DmiProperty.VoltageProbe.MinimumValue, minimumValue);
                 }
-            }
 
-            object resolutionProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.Resolution);
-            if (resolutionProperty != null)
-            {
-                int resolution = (int)resolutionProperty;
+                ushort resolution = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.VoltageProbe.Resolution);
                 if (resolution != 0x8000)
                 {
                     properties.Add(DmiProperty.VoltageProbe.Resolution, resolution);
                 }
-            }
 
-            object toleranceProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.Tolerance);
-            if (toleranceProperty != null)
-            {
-                int tolerance = (int)toleranceProperty;
+                ushort tolerance = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.VoltageProbe.Tolerance);
                 if (tolerance != 0x8000)
                 {
                     properties.Add(DmiProperty.VoltageProbe.Tolerance, tolerance);
                 }
-            }
 
-            object accuracyProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.Accuracy);
-            if (accuracyProperty != null)
-            {
-                int accuracy = (int)accuracyProperty;
+                ushort accuracy = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.VoltageProbe.Accuracy);
                 if (accuracy != 0x8000)
                 {
                     properties.Add(DmiProperty.VoltageProbe.Accuracy, accuracy);
                 }
+
+                properties.Add(DmiProperty.VoltageProbe.OemDefined, SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.OemDefined));
             }
 
-            object oemDefined = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.OemDefined);
-            if (oemDefined != null)
+            if (SmbiosStructure.StructureInfo.Length < 0x15)
             {
-                properties.Add(DmiProperty.VoltageProbe.OemDefined, oemDefined);
+                return;
             }
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x15)
+            ushort nominalValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.VoltageProbe.NominalValue);
+            if (nominalValue != 0x8000)
             {
-                object nominalValueProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.VoltageProbe.NominalValue);
-                if (nominalValueProperty != null)
-                {
-                    int nominalValue = (int)nominalValueProperty;
-                    if (nominalValue != 0x8000)
-                    {
-                        properties.Add(DmiProperty.VoltageProbe.NominalValue, nominalValue);
-                    }
-                }
+                properties.Add(DmiProperty.VoltageProbe.NominalValue, nominalValue);
             }
         }
         #endregion

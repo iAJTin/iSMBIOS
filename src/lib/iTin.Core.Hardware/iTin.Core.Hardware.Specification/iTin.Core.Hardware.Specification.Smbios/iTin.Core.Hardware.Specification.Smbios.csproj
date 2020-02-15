@@ -5,11 +5,11 @@
     <Authors>iTin</Authors>
     <Description>System Management BIOS (SMBIOS). Standard format of the data collected by the BIOS. SMBIOS defines this information in a series of data tables, where information about system components such as memory, peripheral devices, expansion cards, inventory label and operating system is collected</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>Copyright © 2019</Copyright>
+    <Copyright>Copyright © 2020</Copyright>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>3.3.0.0</Version>
+    <Version>3.3.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

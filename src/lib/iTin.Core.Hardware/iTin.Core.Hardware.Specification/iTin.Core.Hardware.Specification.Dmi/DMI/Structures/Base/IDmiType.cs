@@ -17,6 +17,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
         IEnumerable<IPropertyKey> ImplementedProperties { get; }
 
         /// <summary>
+        /// Returns a value that indicates the implemented version of a <see cref="DMI"/> structure.
+        /// </summary>
+        /// <returns>
+        /// One of the values of the <see cref="DmiStructureVersion"/> enumeration.
+        /// </returns>
+        DmiStructureVersion ImplementedVersion { get; }
+
+        /// <summary>
         /// Gets the properties available for this structure.
         /// </summary>
         /// <value>

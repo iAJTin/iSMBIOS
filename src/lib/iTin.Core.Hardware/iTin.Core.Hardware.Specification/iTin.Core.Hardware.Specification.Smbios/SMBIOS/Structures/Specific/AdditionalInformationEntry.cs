@@ -63,7 +63,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte EntryLength => GetByte(0x00);
         #endregion
 
-        #region [private] (int) ReferencedHandle: Gets a value that represents the 'Referenced Handle' field
+        #region [private] (ushort) ReferencedHandle: Gets a value that represents the 'Referenced Handle' field
         /// <summary>
         /// Gets a value that represents the '<b>Referenced Handle</b>' field.
         /// </summary>
@@ -71,7 +71,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Value of the property.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ReferencedHandle => GetWord(0x01);
+        private ushort ReferencedHandle => (ushort)GetWord(0x01);
         #endregion
 
         #region [private] (byte) ReferencedOffset: Gets a value that represents the 'Referenced Offset' field

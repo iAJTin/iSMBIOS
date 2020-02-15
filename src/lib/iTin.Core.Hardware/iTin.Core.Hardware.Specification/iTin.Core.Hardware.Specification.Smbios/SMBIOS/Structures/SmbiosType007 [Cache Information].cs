@@ -111,7 +111,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                  Note: For more information, please see       |
     // |                                                                        GetAssociativity(byte) function.       |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 13h      3.1.0+      Maximum Cache       DWORD       Bit Field   If this field is present, for cache sizes of |
+    // | 13h      3.1+        Maximum Cache       DWORD       Bit Field   If this field is present, for cache sizes of |
     // |                      Size 2                                      2047 MB or smaller the value in the Max size |
     // |                                                                  in given granularity portion of the field    |
     // |                                                                  equals the size given in the corresponding   |
@@ -132,7 +132,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // |                                                                                                               |
     // |                                                                  Bits 30:0     Max size in given granularity  |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 17h      3.1.0+      Installed Cache     DWORD       Bit Field   Same format as Maximum Cache Size 2 field;   |
+    // | 17h      3.1+        Installed Cache     DWORD       Bit Field   Same format as Maximum Cache Size 2 field;   |
     // |                      Size 2                                      Absent or set to 0 if no cache is installed. |
     // |                                                                  See 7.8.1.                                   |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————•
@@ -174,7 +174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string SocketDesignation => GetString(0x04);
         #endregion
 
-        #region [private] (int) CacheConfiguration: Gets a value representing the 'Cache Configuration' field
+        #region [private] (ushort) CacheConfiguration: Gets a value representing the 'Cache Configuration' field
         /// <summary>
         /// Gets a value representing the <b>Cache Configuration</b> field.
         /// </summary>
@@ -182,7 +182,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CacheConfiguration => Reader.GetWord(0x05);
+        private ushort CacheConfiguration => Reader.GetWord(0x05);
         #endregion
 
         #region [private] (byte) OperationalMode:  Gets a value that represents the 'Operational Mode' feature of the 'Cache Configuration' field
@@ -249,7 +249,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] (int) MaximumCacheSize: Gets a value representing the 'Maximum Cache Size' field
+        #region [private] (ushort) MaximumCacheSize: Gets a value representing the 'Maximum Cache Size' field
         /// <summary>
         /// Gets a value representing the <b>Maximum Cache Size</b> field.
         /// </summary>
@@ -257,10 +257,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximumCacheSize => Reader.GetWord(0x07);
+        private ushort MaximumCacheSize => Reader.GetWord(0x07);
         #endregion
 
-        #region [private] (int) InstalledSize: Gets a value representing the 'Installed Size' field
+        #region [private] (ushort) InstalledSize: Gets a value representing the 'Installed Size' field
         /// <summary>
         /// Gets a value representing the <b>Installed Size</b> field.
         /// </summary>
@@ -268,10 +268,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InstalledSize => Reader.GetWord(0x09);
+        private ushort InstalledSize => Reader.GetWord(0x09);
         #endregion
 
-        #region [private] (int) SupportedSramType: Gets a value representing the 'Supported SRAM Type' field
+        #region [private] (ushort) SupportedSramType: Gets a value representing the 'Supported SRAM Type' field
         /// <summary>
         /// Gets a value representing the <b>Supported SRAM Type</b> field.
         /// </summary>
@@ -279,10 +279,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SupportedSramType => Reader.GetWord(0x0b);
+        private ushort SupportedSramType => Reader.GetWord(0x0b);
         #endregion
 
-        #region [private] (int) CurrentSramType: Gets a value representing the 'Current SRAM Type' field
+        #region [private] (ushort) CurrentSramType: Gets a value representing the 'Current SRAM Type' field
         /// <summary>
         /// Gets a value representing the <b>Current SRAM Type</b> field.
         /// </summary>
@@ -290,7 +290,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSramType => Reader.GetWord(0x0d);
+        private ushort CurrentSramType => Reader.GetWord(0x0d);
         #endregion
 
         #endregion
@@ -353,7 +353,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Valor de la propiedad.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint MaximumCacheSize2 => (uint)Reader.GetDoubleWord(0x13);
+        private uint MaximumCacheSize2 => Reader.GetDoubleWord(0x13);
         #endregion
 
         #region [private] (uint) InstalledCacheSize2: Gets a value representing the 'Installed Cache Size 2' field
@@ -364,7 +364,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Valor de la propiedad.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint InstalledCacheSize2 => (uint)Reader.GetDoubleWord(0x13);
+        private uint InstalledCacheSize2 => Reader.GetDoubleWord(0x13);
         #endregion
 
         #endregion
@@ -382,7 +382,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             #region 2.0+
-            if (StructureInfo.Length >= 0x0f)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v20)
             {
                 properties.Add(SmbiosProperty.Cache.SocketDesignation, SocketDesignation);
                 properties.Add(SmbiosProperty.Cache.CacheConfiguration.OperationalMode, GetOperationalMode(OperationalMode));
@@ -401,7 +401,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (StructureInfo.Length >= 0x10)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
                 properties.Add(SmbiosProperty.Cache.CacheSpeed, CacheSpeed);
                 properties.Add(SmbiosProperty.Cache.ErrorCorrectionType, GetErrorCorrection(ErrorCorrectionType));
@@ -411,7 +411,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 3.1+
-            if (StructureInfo.Length >= 0x14)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v31)
             {
                 properties.Add(SmbiosProperty.Cache.MaximumCacheSize2, GetSize(MaximumCacheSize2));
                 properties.Add(SmbiosProperty.Cache.InstalledCacheSize2, GetSize(InstalledCacheSize2));

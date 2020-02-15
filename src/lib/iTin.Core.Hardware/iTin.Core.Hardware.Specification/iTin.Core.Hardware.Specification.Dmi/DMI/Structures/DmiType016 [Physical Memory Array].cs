@@ -39,54 +39,27 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object location = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.Location);
-            if (location != null)
+            if (ImplementedVersion < DmiStructureVersion.v21)
             {
-                properties.Add(DmiProperty.PhysicalMemoryArray.Location, location);
+                return;
             }
 
-            object use = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.Use);
-            if (use != null)
-            {
-                properties.Add(DmiProperty.PhysicalMemoryArray.Use, use);
-            }
+            properties.Add(DmiProperty.PhysicalMemoryArray.Location, SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.Location));
+            properties.Add(DmiProperty.PhysicalMemoryArray.Use, SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.Use));
+            properties.Add(DmiProperty.PhysicalMemoryArray.MemoryErrorCorrection, SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.MemoryErrorCorrection));
+            properties.Add(DmiProperty.PhysicalMemoryArray.MemoryErrorInformationHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.MemoryErrorInformationHandle));
+            properties.Add(DmiProperty.PhysicalMemoryArray.NumberOfMemoryDevices, SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.NumberOfMemoryDevices));
 
-            object memoryErrorCorrection = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.MemoryErrorCorrection);
-            if (memoryErrorCorrection != null)
+            uint maximumCapacity = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.PhysicalMemoryArray.MaximumCapacity);
+            if (maximumCapacity != 0x08000000)
             {
-                properties.Add(DmiProperty.PhysicalMemoryArray.MemoryErrorCorrection, memoryErrorCorrection);
+                properties.Add(DmiProperty.PhysicalMemoryArray.MaximumCapacity, maximumCapacity);
             }
-
-            object memoryErrorInformationHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.MemoryErrorInformationHandle);
-            if (memoryErrorInformationHandle != null)
+            else
             {
-                properties.Add(DmiProperty.PhysicalMemoryArray.MemoryErrorInformationHandle, memoryErrorInformationHandle);
-            }
-
-            object numberOfMemoryDevices = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.NumberOfMemoryDevices);
-            if (numberOfMemoryDevices != null)
-            {
-                properties.Add(DmiProperty.PhysicalMemoryArray.NumberOfMemoryDevices, numberOfMemoryDevices);
-            }
-
-            object maximumCapacityProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.MaximumCapacity);
-            if (maximumCapacityProperty != null)
-            {
-                ulong maximumCapacity = (ulong)maximumCapacityProperty;
-                if (maximumCapacity != 0x08000000)
+                if (ImplementedVersion >= DmiStructureVersion.v27)
                 {
-                    properties.Add(DmiProperty.PhysicalMemoryArray.MaximumCapacity, maximumCapacity);
-                }
-                else
-                {
-                    if (SmbiosStructure.StructureInfo.Length >= 0x10)
-                    {
-                        object extendedMaximumCapacity = SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.ExtendedMaximumCapacity);
-                        if (extendedMaximumCapacity != null)
-                        {
-                            properties.Add(DmiProperty.PhysicalMemoryArray.MaximumCapacity, extendedMaximumCapacity);
-                        }
-                    }
+                    properties.Add(DmiProperty.PhysicalMemoryArray.MaximumCapacity, SmbiosStructure.GetPropertyValue(SmbiosProperty.PhysicalMemoryArray.ExtendedMaximumCapacity));
                 }
             }
         }

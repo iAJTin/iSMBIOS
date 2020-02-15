@@ -39,136 +39,52 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object isRedundant = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.IsRedundant);
-            if (isRedundant != null)
+            properties.Add(DmiProperty.SystemPowerSupply.IsRedundant, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.IsRedundant));
+            properties.Add(DmiProperty.SystemPowerSupply.Location, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Location));
+            properties.Add(DmiProperty.SystemPowerSupply.DeviceName, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.DeviceName));
+            properties.Add(DmiProperty.SystemPowerSupply.Manufacturer, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Manufacturer));
+            properties.Add(DmiProperty.SystemPowerSupply.SerialNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.SerialNumber));
+            properties.Add(DmiProperty.SystemPowerSupply.AssetTagNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.AssetTagNumber));
+            properties.Add(DmiProperty.SystemPowerSupply.ModelPartNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.ModelPartNumber));
+            properties.Add(DmiProperty.SystemPowerSupply.RevisionLevel, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.RevisionLevel));
+
+            ushort maxPowerCapacity = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.SystemPowerSupply.MaxPowerCapacity);
+            if (maxPowerCapacity != 0x8000)
             {
-                properties.Add(DmiProperty.SystemPowerSupply.IsRedundant, isRedundant);
+                properties.Add(DmiProperty.SystemPowerSupply.MaxPowerCapacity, maxPowerCapacity);
             }
 
-            object location = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Location);
-            if (location != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.Location, location);
-            }
-
-            object deviceName = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.DeviceName);
-            if (deviceName != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.DeviceName, deviceName);
-            }
-
-            object manufacturer = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Manufacturer);
-            if (manufacturer != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.Manufacturer, manufacturer);
-            }
-
-            object serialNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.SerialNumber);
-            if (serialNumber != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.SerialNumber, serialNumber);
-            }
-
-            object assetTagNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.AssetTagNumber);
-            if (assetTagNumber != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.AssetTagNumber, assetTagNumber);
-            }
-
-            object modelPartNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.ModelPartNumber);
-            if (modelPartNumber != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.ModelPartNumber, modelPartNumber);
-            }
-
-            object revisionLevel = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.RevisionLevel);
-            if (revisionLevel != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.RevisionLevel, revisionLevel);
-            }
-
-            object maxPowerCapacityProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.MaxPowerCapacity);
-            if (maxPowerCapacityProperty != null)
-            {
-                int maxPowerCapacity = (int) maxPowerCapacityProperty;
-                if (maxPowerCapacity != 0x8000)
-                {
-                    properties.Add(DmiProperty.SystemPowerSupply.MaxPowerCapacity, maxPowerCapacity);
-                }
-            }
-
-            object supplyType = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.SupplyType);
-            if (supplyType != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.Characteristics.SupplyType, supplyType);
-            }
-
-            object status = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.Status);
-            if (status != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.Characteristics.Status, status);
-            }
-
-            object inputVoltageRange = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.InputVoltageRange);
-            if (inputVoltageRange != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.Characteristics.InputVoltageRange, inputVoltageRange);
-            }
-
-            object isPlugged = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.IsPlugged);
-            if (isPlugged != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsPlugged, isPlugged);
-            }
-
-            object isPresent = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.IsPresent);
-            if (isPresent != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsPresent, isPresent);
-            }
-
-            object isHotReplaceable = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.IsHotReplaceable);
-            if (isHotReplaceable != null)
-            {
-                properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsHotReplaceable, isHotReplaceable);
-            }
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.SupplyType, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.SupplyType));
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.Status, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.Status));
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.InputVoltageRange, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.InputVoltageRange));
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsPlugged, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.IsPlugged));
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsPresent, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.IsPresent));
+            properties.Add(DmiProperty.SystemPowerSupply.Characteristics.IsHotReplaceable, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.Characteristics.IsHotReplaceable));
 
             if (SmbiosStructure.StructureInfo.Length >= 0x11)
             {
-                object inputVoltageProbeHandleProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.InputVoltageProbeHandle);
-                if (inputVoltageProbeHandleProperty != null)
+                ushort inputVoltageProbeHandle = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.SystemPowerSupply.InputVoltageProbeHandle);
+                if (inputVoltageProbeHandle != 0xffff)
                 {
-                    int inputVoltageProbeHandle = (int) inputVoltageProbeHandleProperty;
-                    if (inputVoltageProbeHandle != 0xffff)
-                    {
-                        properties.Add(DmiProperty.SystemPowerSupply.InputVoltageProbeHandle, inputVoltageProbeHandle);
-                    }
+                    properties.Add(DmiProperty.SystemPowerSupply.InputVoltageProbeHandle, inputVoltageProbeHandle);
                 }
             }
 
             if (SmbiosStructure.StructureInfo.Length >= 0x13)
             {
-                object coolingDeviceHandleProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.CoolingDeviceHandle);
-                if (coolingDeviceHandleProperty != null)
+                ushort coolingDeviceHandle = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.SystemPowerSupply.CoolingDeviceHandle);
+                if (coolingDeviceHandle != 0xffff)
                 {
-                    int coolingDeviceHandle = (int) coolingDeviceHandleProperty;
-                    if (coolingDeviceHandle != 0xffff)
-                    {
-                        properties.Add(DmiProperty.SystemPowerSupply.CoolingDeviceHandle, coolingDeviceHandle);
-                    }
+                    properties.Add(DmiProperty.SystemPowerSupply.CoolingDeviceHandle, coolingDeviceHandle);
                 }
             }
 
             if (SmbiosStructure.StructureInfo.Length >= 0x15)
             {
-                object inputCurrentProbeHandleProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerSupply.InputCurrentProbeHandle);
-                if (inputCurrentProbeHandleProperty != null)
+                ushort inputCurrentProbeHandle = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.SystemPowerSupply.InputCurrentProbeHandle);
+                if (inputCurrentProbeHandle != 0xffff)
                 {
-                    int inputCurrentProbeHandle = (int) inputCurrentProbeHandleProperty;
-                    if (inputCurrentProbeHandle != 0xffff)
-                    {
-                        properties.Add(DmiProperty.SystemPowerSupply.InputCurrentProbeHandle, inputCurrentProbeHandle);
-                    }
+                    properties.Add(DmiProperty.SystemPowerSupply.InputCurrentProbeHandle, inputCurrentProbeHandle);
                 }
             }
         }

@@ -39,23 +39,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object referenceDesignation = SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevicesExtended.ReferenceDesignation);
-            if (referenceDesignation != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.OnBoardDevicesExtended.ReferenceDesignation, referenceDesignation);
+                return;
             }
 
-            object deviceStatus = SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevicesExtended.Element.DeviceStatus);
-            if (deviceStatus != null)
-            {
-                properties.Add(DmiProperty.OnBoardDevicesExtended.Element.DeviceStatus, deviceStatus);
-            }
-
-            object deviceType = SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevicesExtended.Element.DeviceType);
-            if (deviceType != null)
-            {
-                properties.Add(DmiProperty.OnBoardDevicesExtended.Element.DeviceType, deviceType);
-            }
+            properties.Add(DmiProperty.OnBoardDevicesExtended.ReferenceDesignation, SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevicesExtended.ReferenceDesignation));
+            properties.Add(DmiProperty.OnBoardDevicesExtended.Element.DeviceStatus, SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevicesExtended.Element.DeviceStatus));
+            properties.Add(DmiProperty.OnBoardDevicesExtended.Element.DeviceType, SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevicesExtended.Element.DeviceType));
         }
         #endregion
 

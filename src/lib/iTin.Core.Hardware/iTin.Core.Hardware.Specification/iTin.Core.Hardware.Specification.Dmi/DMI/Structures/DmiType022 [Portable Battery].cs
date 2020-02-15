@@ -39,87 +39,36 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            if (SmbiosStructure.StructureInfo.Length >= 0x05)
+            if (ImplementedVersion >= DmiStructureVersion.v21)
             {
-                object location = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.Location);
-                if (location != null)
-                {
-                    properties.Add(DmiProperty.PortableBattery.Location, location);
-                }
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x06)
-            {
-                object manufacturer = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.Manufacturer);
-                if (manufacturer != null)
-                {
-                    properties.Add(DmiProperty.PortableBattery.Manufacturer, manufacturer);
-                }
-            }
-
-            object manufactureDate = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.ManufactureDate);
-            if (manufactureDate != null)
-            {
-                properties.Add(DmiProperty.PortableBattery.ManufactureDate, manufactureDate);
-            }
-
-            object serialNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.SerialNumber);
-            if (serialNumber != null)
-            {
-                properties.Add(DmiProperty.PortableBattery.SerialNumber, serialNumber);
-            }
-
-            object deviceName = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.DeviceName);
-            if (serialNumber != null)
-            {
-                properties.Add(DmiProperty.PortableBattery.DeviceName, deviceName);
-            }
-
-            object deviceChemistry = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.DeviceChemistry);
-            if (deviceChemistry != null)
-            {
-                properties.Add(DmiProperty.PortableBattery.DeviceChemistry, deviceChemistry);
-            }
-
-            object designCapacity = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.DesignCapacity);
-            if (deviceChemistry != null)
-            {
-                properties.Add(DmiProperty.PortableBattery.DesignCapacity, designCapacity);
-            }
-
-            object designVoltageProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.DesignVoltage);
-            if (designVoltageProperty != null)
-            {
-                int designVoltage = (int)designVoltageProperty;
+                properties.Add(DmiProperty.PortableBattery.Location, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.Location));
+                properties.Add(DmiProperty.PortableBattery.Manufacturer, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.Manufacturer));
+                properties.Add(DmiProperty.PortableBattery.DeviceName, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.DeviceName));
+  
+                ushort designVoltage = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.PortableBattery.DesignVoltage);
                 if (designVoltage != 0x0000)
                 {
                     properties.Add(DmiProperty.PortableBattery.DesignVoltage, designVoltage);
                 }
-            }
 
-            object sbdsVersionNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.SBDSVersionNumber);
-            if (sbdsVersionNumber != null)
-            {
-                properties.Add(DmiProperty.PortableBattery.SBDSVersionNumber, sbdsVersionNumber);
-            }
+                properties.Add(DmiProperty.PortableBattery.SBDSVersionNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.SBDSVersionNumber));
 
-            object maximumErrorInBatteryDataProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.MaximunErrorInBatteryData);
-            if (maximumErrorInBatteryDataProperty != null)
-            {
-                byte maximumErrorInBatteryData = (byte)maximumErrorInBatteryDataProperty;
+                byte maximumErrorInBatteryData = SmbiosStructure.GetPropertyValue<byte>(SmbiosProperty.PortableBattery.MaximunErrorInBatteryData);
                 if (maximumErrorInBatteryData != 0xff)
                 {
                     properties.Add(DmiProperty.PortableBattery.MaximunErrorInBatteryData, maximumErrorInBatteryData);
                 }
+
+                properties.Add(DmiProperty.PortableBattery.ManufactureDate, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.ManufactureDate));
+                properties.Add(DmiProperty.PortableBattery.SerialNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.SerialNumber));
+                properties.Add(DmiProperty.PortableBattery.DeviceChemistry, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.DeviceChemistry));
+                properties.Add(DmiProperty.PortableBattery.DesignCapacity, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.DesignCapacity));
+                properties.Add(DmiProperty.PortableBattery.DesignCapacityMultiplier, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.DesignCapacityMultiplier));
             }
 
             if (SmbiosStructure.StructureInfo.Length >= 0x17)
             {
-                object oemSpecific = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.OemSpecific);
-                if (oemSpecific != null)
-                {
-                    properties.Add(DmiProperty.PortableBattery.OemSpecific, oemSpecific);
-                }
+                properties.Add(DmiProperty.PortableBattery.OemSpecific, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortableBattery.OemSpecific));
             }
         }
         #endregion

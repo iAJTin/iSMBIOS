@@ -40,124 +40,51 @@ namespace iTin.Core.Hardware.Specification.Dmi
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
             #region 2.0+
-            if (SmbiosStructure.StructureInfo.Length >= 0x0f)
+            if (ImplementedVersion >= DmiStructureVersion.v20)
             {
-                object socketDesignation = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.SocketDesignation);
-                if (socketDesignation != null)
+                properties.Add(DmiProperty.Cache.SocketDesignation, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.SocketDesignation));
+                properties.Add(DmiProperty.Cache.CacheConfiguration.OperationalMode, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.OperationalMode));
+                properties.Add(DmiProperty.Cache.CacheConfiguration.CacheEnabled, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.CacheEnabled));
+                properties.Add(DmiProperty.Cache.CacheConfiguration.Location, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.Location));
+                properties.Add(DmiProperty.Cache.CacheConfiguration.CacheSocketed, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.CacheSocketed));
+                properties.Add(DmiProperty.Cache.CacheConfiguration.Level, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.Level));
+                properties.Add(DmiProperty.Cache.MaximumCacheSize, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.MaximumCacheSize));
+
+                int installedCacheSize = SmbiosStructure.GetPropertyValue<int>(SmbiosProperty.Cache.InstalledCacheSize);
+                if (installedCacheSize != 0x0000)
                 {
-                    properties.Add(DmiProperty.Cache.SocketDesignation, socketDesignation);
+                    properties.Add(DmiProperty.Cache.InstalledCacheSize, installedCacheSize);
                 }
 
-                object operationalMode = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.OperationalMode);
-                if (operationalMode != null)
-                {
-                    properties.Add(DmiProperty.Cache.CacheConfiguration.OperationalMode, operationalMode);
-                }
-
-                object cacheEnabled = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.CacheEnabled);
-                if (cacheEnabled != null)
-                {
-                    properties.Add(DmiProperty.Cache.CacheConfiguration.CacheEnabled, cacheEnabled);
-                }
-
-                object location = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.Location);
-                if (location != null)
-                {
-                    properties.Add(DmiProperty.Cache.CacheConfiguration.Location, location);
-                }
-
-                object cacheSocketed = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.CacheSocketed);
-                if (cacheSocketed != null)
-                {
-                    properties.Add(DmiProperty.Cache.CacheConfiguration.CacheSocketed, cacheSocketed);
-                }
-
-                object level = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheConfiguration.Level);
-                if (level != null)
-                {
-                    properties.Add(DmiProperty.Cache.CacheConfiguration.Level, level);
-                }
-
-                object maximumCacheSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.MaximumCacheSize);
-                if (maximumCacheSize != null)
-                {
-                    properties.Add(DmiProperty.Cache.MaximumCacheSize, maximumCacheSize);
-                }
-
-                object installedCacheSizeProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.InstalledCacheSize);
-                if (installedCacheSizeProperty != null)
-                {
-                    int installedCacheSize = (int)installedCacheSizeProperty;
-                    if (installedCacheSize != 0x0000)
-                    {
-                        properties.Add(DmiProperty.Cache.InstalledCacheSize, installedCacheSize);
-                    }
-                }
-
-                object supportedSramTypes = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.SupportedSramTypes);
-                if (supportedSramTypes != null)
-                {
-                    properties.Add(DmiProperty.Cache.SupportedSramTypes, supportedSramTypes);
-                }
-
-                object currentSramType = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CurrentSramType);
-                if (currentSramType != null)
-                {
-                    properties.Add(DmiProperty.Cache.CurrentSramType, currentSramType);
-                }
+                properties.Add(DmiProperty.Cache.SupportedSramTypes, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.SupportedSramTypes));
+                properties.Add(DmiProperty.Cache.CurrentSramType, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CurrentSramType));
             }
             #endregion
 
             #region 2.1+
-            if (SmbiosStructure.StructureInfo.Length >= 0x10)
+            if (ImplementedVersion >= DmiStructureVersion.v21)
             {
-                object cacheSpeedProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.CacheSpeed);
-                if (cacheSpeedProperty != null)
+                byte cacheSpeed = SmbiosStructure.GetPropertyValue<byte>(SmbiosProperty.Cache.CacheSpeed);
+                if (cacheSpeed != 0x00)
                 {
-                    byte cacheSpeed = (byte)cacheSpeedProperty;
-                    if (cacheSpeed != 0x00)
-                    {
-                        properties.Add(DmiProperty.Cache.CacheSpeed, cacheSpeed);
-                    }
+                    properties.Add(DmiProperty.Cache.CacheSpeed, cacheSpeed);
                 }
 
-                object errorCorrectionType = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.ErrorCorrectionType);
-                if (errorCorrectionType != null)
-                {
-                    properties.Add(DmiProperty.Cache.ErrorCorrectionType, errorCorrectionType);
-                }
-
-                object systemCacheType = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.SystemCacheType);
-                if (systemCacheType != null)
-                {
-                    properties.Add(DmiProperty.Cache.SystemCacheType, systemCacheType);
-                }
-
-                object associativity = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.Associativity);
-                if (associativity != null)
-                {
-                    properties.Add(DmiProperty.Cache.Associativity, associativity);
-                }
+                properties.Add(DmiProperty.Cache.ErrorCorrectionType, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.ErrorCorrectionType));
+                properties.Add(DmiProperty.Cache.SystemCacheType, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.SystemCacheType));
+                properties.Add(DmiProperty.Cache.Associativity, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.Associativity));
             }
             #endregion
 
-            #region 3.1.0+
-            if (SmbiosStructure.StructureInfo.Length >= 0x14)
+            #region 3.1+
+            if (ImplementedVersion >= DmiStructureVersion.v31)
             {
-                object maximumCacheSize2 = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.MaximumCacheSize2);
-                if (maximumCacheSize2 != null)
-                {
-                    properties.Add(DmiProperty.Cache.MaximumCacheSize2, maximumCacheSize2);
-                }
+                properties.Add(DmiProperty.Cache.MaximumCacheSize2, SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.MaximumCacheSize2));
 
-                object installedCacheSize2Property = SmbiosStructure.GetPropertyValue(SmbiosProperty.Cache.InstalledCacheSize2);
-                if (installedCacheSize2Property != null)
+                uint installedCacheSize2 = SmbiosStructure.GetPropertyValue<uint>(SmbiosProperty.Cache.InstalledCacheSize2);
+                if (installedCacheSize2 != 0x00)
                 {
-                    uint installedCacheSize2 = (uint)installedCacheSize2Property;
-                    if (installedCacheSize2 != 0x00)
-                    {
-                        properties.Add(DmiProperty.Cache.InstalledCacheSize2, installedCacheSize2);
-                    }
+                    properties.Add(DmiProperty.Cache.InstalledCacheSize2, installedCacheSize2);
                 }
             }
             #endregion

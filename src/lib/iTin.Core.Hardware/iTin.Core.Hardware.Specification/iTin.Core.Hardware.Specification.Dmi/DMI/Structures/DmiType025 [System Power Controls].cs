@@ -39,35 +39,16 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object month = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Month);
-            if (month != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.SystemPowerControls.Month, month);
+                return;
             }
 
-            object day = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Day);
-            if (day != null)
-            {
-                properties.Add(DmiProperty.SystemPowerControls.Day, day);
-            }
-
-            object hour = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Hour);
-            if (hour != null)
-            {
-                properties.Add(DmiProperty.SystemPowerControls.Hour, hour);
-            }
-
-            object minute = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Minute);
-            if (minute != null)
-            {
-                properties.Add(DmiProperty.SystemPowerControls.Minute, minute);
-            }
-
-            object second = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Second);
-            if (second != null)
-            {
-                properties.Add(DmiProperty.SystemPowerControls.Second, second);
-            }
+            properties.Add(DmiProperty.SystemPowerControls.Month, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Month));
+            properties.Add(DmiProperty.SystemPowerControls.Day, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Day));
+            properties.Add(DmiProperty.SystemPowerControls.Hour, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Hour));
+            properties.Add(DmiProperty.SystemPowerControls.Minute, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Minute));
+            properties.Add(DmiProperty.SystemPowerControls.Second, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemPowerControls.Second));
         }
         #endregion
 

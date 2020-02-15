@@ -65,7 +65,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (int) LowerNonCritical: Gets a value representing the 'Lower Non Critical' field
+        #region [private] (ushort) LowerNonCritical: Gets a value representing the 'Lower Non Critical' field
         /// <summary>
         /// Gets a value representing the <b>Lower Non Critical</b> field.
         /// </summary>
@@ -73,10 +73,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int LowerNonCritical => Reader.GetWord(0x04);
+        private ushort LowerNonCritical => Reader.GetWord(0x04);
         #endregion
 
-        #region [private] (int) UpperNonCritical: Gets a value representing the 'Upper Non Critical' field
+        #region [private] (ushort) UpperNonCritical: Gets a value representing the 'Upper Non Critical' field
         /// <summary>
         /// Gets a value representing the <b>Upper Non Critical</b> field.
         /// </summary>
@@ -84,10 +84,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int UpperNonCritical => Reader.GetWord(0x06);
+        private ushort UpperNonCritical => Reader.GetWord(0x06);
         #endregion
 
-        #region [private] (int) LowerCritical: Gets a value representing the 'Lower Critical' field
+        #region [private] (ushort) LowerCritical: Gets a value representing the 'Lower Critical' field
         /// <summary>
         /// Gets a value representing the <b>Lower Critical</b> field.
         /// </summary>
@@ -95,10 +95,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int LowerCritical => Reader.GetWord(0x08);
+        private ushort LowerCritical => Reader.GetWord(0x08);
         #endregion
 
-        #region [private] (int) UpperCritical: Gets a value representing the 'Upper Critical' field
+        #region [private] (ushort) UpperCritical: Gets a value representing the 'Upper Critical' field
         /// <summary>
         /// Gets a value representing the <b>Upper Critical</b> field.
         /// </summary>
@@ -106,10 +106,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int UpperCritical => Reader.GetWord(0x0a);
+        private ushort UpperCritical => Reader.GetWord(0x0a);
         #endregion
 
-        #region [private] (int) LowerNonRecoverable: Gets a value representing the 'Lower Non Recoverable' field
+        #region [private] (ushort) LowerNonRecoverable: Gets a value representing the 'Lower Non Recoverable' field
         /// <summary>
         /// Gets a value representing the <b>Lower Non Recoverable</b> field.
         /// </summary>
@@ -117,10 +117,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int LowerNonRecoverable => Reader.GetWord(0x0c);
+        private ushort LowerNonRecoverable => Reader.GetWord(0x0c);
         #endregion
 
-        #region [private] (int) UpperNonRecoverable: Gets a value representing the 'Upper Non Recoverable' field
+        #region [private] (ushort) UpperNonRecoverable: Gets a value representing the 'Upper Non Recoverable' field
         /// <summary>
         /// Gets a value representing the <b>Upper Non Recoverable</b> field.
         /// </summary>
@@ -128,7 +128,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int UpperNonRecoverable => Reader.GetWord(0x0e);
+        private ushort UpperNonRecoverable => Reader.GetWord(0x0e);
         #endregion
 
         #endregion
@@ -143,6 +143,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.ManagementDeviceThresholdData.LowerNonCritical, LowerNonCritical);
             properties.Add(SmbiosProperty.ManagementDeviceThresholdData.UpperNonCritical, UpperNonCritical);
             properties.Add(SmbiosProperty.ManagementDeviceThresholdData.LowerCritical, LowerCritical);

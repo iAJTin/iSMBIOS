@@ -39,64 +39,45 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object lowerNonCriticalProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceThresholdData.LowerNonCritical);
-            if (lowerNonCriticalProperty != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                int lowerNonCritical = (int)lowerNonCriticalProperty;
-                if (lowerNonCritical != 0x8000)
-                {
-                    properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerNonCritical, lowerNonCritical);
-                }
+                return;
             }
 
-            object upperNonCriticalProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceThresholdData.UpperNonCritical);
-            if (upperNonCriticalProperty != null)
+            ushort lowerNonCritical = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ManagementDeviceThresholdData.LowerNonCritical);
+            if (lowerNonCritical != 0x8000)
             {
-                int upperNonCritical = (int)upperNonCriticalProperty;
-                if (upperNonCritical != 0x8000)
-                {
-                    properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperNonCritical, upperNonCritical);
-                }
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerNonCritical, lowerNonCritical);
             }
 
-            object lowerCriticalProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceThresholdData.LowerCritical);
-            if (lowerCriticalProperty != null)
+            ushort upperNonCritical = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ManagementDeviceThresholdData.UpperNonCritical);
+            if (upperNonCritical != 0x8000)
             {
-                int lowerCritical = (int)lowerCriticalProperty;
-                if (lowerCritical != 0x8000)
-                {
-                    properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerCritical, lowerCritical);
-                }
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperNonCritical, upperNonCritical);
             }
 
-            object upperCriticalProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceThresholdData.UpperCritical);
-            if (upperCriticalProperty != null)
+            ushort lowerCritical = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ManagementDeviceThresholdData.LowerCritical);
+            if (lowerCritical != 0x8000)
             {
-                int upperCritical = (int) upperCriticalProperty;
-                if (upperCritical != 0x8000)
-                {
-                    properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperCritical, upperCritical);
-                }
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerCritical, lowerCritical);
             }
 
-            object lowerNonRecoverableProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceThresholdData.LowerNonRecoverable);
-            if (lowerNonRecoverableProperty != null)
+            ushort upperCritical = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ManagementDeviceThresholdData.UpperCritical);
+            if (upperCritical != 0x8000)
             {
-                int lowerNonRecoverable = (int)lowerNonRecoverableProperty;
-                if (lowerNonRecoverable != 0x8000)
-                {
-                    properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerNonRecoverable, lowerNonRecoverable);
-                }
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperCritical, upperCritical);
             }
 
-            object upperNonRecoverableProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceThresholdData.UpperNonRecoverable);
-            if (upperNonRecoverableProperty != null)
+            ushort lowerNonRecoverable = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ManagementDeviceThresholdData.LowerNonRecoverable);
+            if (lowerNonRecoverable != 0x8000)
             {
-                int upperNonRecoverable = (int) upperNonRecoverableProperty;
-                if (upperNonRecoverable != 0x8000)
-                {
-                    properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperNonRecoverable, upperNonRecoverable);
-                }
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.LowerNonRecoverable, lowerNonRecoverable);
+            }
+
+            ushort upperNonRecoverable = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ManagementDeviceThresholdData.UpperNonRecoverable);
+            if (upperNonRecoverable != 0x8000)
+            {
+                properties.Add(DmiProperty.ManagementDeviceThresholdData.UpperNonRecoverable, upperNonRecoverable);
             }
         }
         #endregion

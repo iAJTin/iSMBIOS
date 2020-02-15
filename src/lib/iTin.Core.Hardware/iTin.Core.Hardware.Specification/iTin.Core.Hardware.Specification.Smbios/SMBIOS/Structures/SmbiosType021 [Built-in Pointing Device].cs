@@ -103,6 +103,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.v21)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.BuiltInPointingDevice.NumberOfButtons, NumberOfButtons);
             properties.Add(SmbiosProperty.BuiltInPointingDevice.Type, GetDeviceType(DeviceType));
             properties.Add(SmbiosProperty.BuiltInPointingDevice.Interface, GetDeviceInterface(Interface));

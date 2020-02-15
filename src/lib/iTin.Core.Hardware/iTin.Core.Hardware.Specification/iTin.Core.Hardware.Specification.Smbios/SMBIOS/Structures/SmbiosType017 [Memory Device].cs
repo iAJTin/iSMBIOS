@@ -232,7 +232,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.1+ fields
 
-        #region [private] (int) PhysicalArrayMemoryHandle: Gets a value representing the 'Physical Array Memory Handle' field
+        #region [private] (ushort) PhysicalArrayMemoryHandle: Gets a value representing the 'Physical Array Memory Handle' field
         /// <summary>
         /// Gets a value representing the <b>Physical Array Memory Handle</b> field.
         /// </summary>
@@ -240,10 +240,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int PhysicalArrayMemoryHandle => Reader.GetWord(0x04);
+        private ushort PhysicalArrayMemoryHandle => Reader.GetWord(0x04);
         #endregion
 
-        #region [private] (int) MemoryErrorInformationHandle: Gets a value representing the 'Memory Error Information Handle' field
+        #region [private] (ushort) MemoryErrorInformationHandle: Gets a value representing the 'Memory Error Information Handle' field
         /// <summary>
         /// Gets a value representing the <b>Memory Error Information Handle</b> field.
         /// </summary>
@@ -251,10 +251,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryErrorInformationHandle => Reader.GetWord(0x06);
+        private ushort MemoryErrorInformationHandle => Reader.GetWord(0x06);
         #endregion
 
-        #region [private] (int) TotalWidth: Gets a value representing the 'Total Width' field
+        #region [private] (ushort) TotalWidth: Gets a value representing the 'Total Width' field
         /// <summary>
         /// Gets a value representing the <b>Total Width</b> field.
         /// </summary>
@@ -262,10 +262,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TotalWidth => Reader.GetWord(0x08);
+        private ushort TotalWidth => Reader.GetWord(0x08);
         #endregion
 
-        #region [private] (int) DataWidth: Gets a value representing the 'Data Width' field
+        #region [private] (ushort) DataWidth: Gets a value representing the 'Data Width' field
         /// <summary>
         /// Gets a value representing the <b>Data Width</b> field.
         /// </summary>
@@ -273,10 +273,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DataWidth => Reader.GetWord(0x0a);
+        private ushort DataWidth => Reader.GetWord(0x0a);
         #endregion
 
-        #region [private] (int) Size: Gets a value representing the 'Size' field
+        #region [private] (ushort) Size: Gets a value representing the 'Size' field
         /// <summary>
         /// Gets a value representing the <b>Size</b> field.
         /// </summary>
@@ -284,7 +284,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Size => Reader.GetWord(0x0c);
+        private ushort Size => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (byte) FormFactor: Gets a value representing the 'Form Factor' field
@@ -369,7 +369,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte MemoryType => Reader.GetByte(0x12);
         #endregion
 
-        #region [private] (int) TypeDetail: Gets a value representing the 'Type Detail' field
+        #region [private] (ushort) TypeDetail: Gets a value representing the 'Type Detail' field
         /// <summary>
         /// Gets a value representing the <b>Type Detail</b> field.
         /// </summary>
@@ -377,7 +377,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TypeDetail => Reader.GetWord(0x13);
+        private ushort TypeDetail => Reader.GetWord(0x13);
         #endregion
 
         #endregion
@@ -428,15 +428,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string PartNumber => GetString(0x1a);
         #endregion
 
-        #region [private] (int) MaximunSpeed: Gets a value representing the 'Maximun Speed' field
+        #region [private] (ushort) Speed: Gets a value representing the 'Speed' field
         /// <summary>
-        /// Gets a value representing the <b>Maximun Speed</b> field.
+        /// Gets a value representing the <b>Speed</b> field.
         /// </summary>
         /// <value>
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunSpeed => Reader.GetWord(0x15);
+        private ushort Speed => Reader.GetWord(0x15);
         #endregion
 
         #endregion
@@ -466,10 +466,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint ExtendedSize => (uint)Reader.GetDoubleWord(0x1c) & 0x7FFFFFFF;
+        private uint ExtendedSize => Reader.GetDoubleWord(0x1c) & 0x7FFFFFFF;
         #endregion
 
-        #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field
+        #region [private] (ushort) CurrentSpeed: Gets a value representing the 'Current Speed' field
         /// <summary>
         /// Gets a value representing the <b>Current Speed</b> field.
         /// </summary>
@@ -477,14 +477,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSpeed => Reader.GetWord(0x20);
+        private ushort CurrentSpeed => Reader.GetWord(0x20);
         #endregion
 
         #endregion
 
         #region Version 2.8+ fields
 
-        #region [private] (int) MinimumVoltage: Gets a value representing the 'Minimum Voltage' field
+        #region [private] (ushort) MinimumVoltage: Gets a value representing the 'Minimum Voltage' field
         /// <summary>
         /// Gets a value representing the <b>Minimum Voltage</b> field.
         /// </summary>
@@ -492,10 +492,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MinimumVoltage => Reader.GetWord(0x22);
+        private ushort MinimumVoltage => Reader.GetWord(0x22);
         #endregion
 
-        #region [private] (int) MaximumVoltage: Gets a value representing the 'Maximum Voltage' field
+        #region [private] (ushort) MaximumVoltage: Gets a value representing the 'Maximum Voltage' field
         /// <summary>
         /// Gets a value representing the <b>Maximum Voltage</b> field.
         /// </summary>
@@ -503,10 +503,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximumVoltage => Reader.GetWord(0x24);
+        private ushort MaximumVoltage => Reader.GetWord(0x24);
         #endregion
 
-        #region [private] (int) ConfiguredVoltage: Gets a value representing the 'Configured Voltage' field
+        #region [private] (ushort) ConfiguredVoltage: Gets a value representing the 'Configured Voltage' field
         /// <summary>
         /// Gets a value representing the <b>Configured Voltage</b> field.
         /// </summary>
@@ -514,7 +514,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ConfiguredVoltage => Reader.GetWord(0x26);
+        private ushort ConfiguredVoltage => Reader.GetWord(0x26);
         #endregion
 
         #endregion
@@ -554,7 +554,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string FirmwareVersion => GetString(0x2b);
         #endregion
 
-        #region [private] (int) ModuleManufacturerId: Gets a value representing the 'Module Manufacturer Id' field
+        #region [private] (ushort) ModuleManufacturerId: Gets a value representing the 'Module Manufacturer Id' field
         /// <summary>
         /// Gets a value representing the '<b>Module Manufacturer Id</b>' field.
         /// </summary>
@@ -562,10 +562,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ModuleManufacturerId => Reader.GetWord(0x2c);
+        private ushort ModuleManufacturerId => Reader.GetWord(0x2c);
         #endregion
 
-        #region [private] (int) ModuleProductId: Gets a value representing the 'Module Product Id' field
+        #region [private] (ushort) ModuleProductId: Gets a value representing the 'Module Product Id' field
         /// <summary>
         /// Gets a value representing the '<b>Module Product Id</b>' field.
         /// </summary>
@@ -573,10 +573,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ModuleProductId => Reader.GetWord(0x2e);
+        private ushort ModuleProductId => Reader.GetWord(0x2e);
         #endregion
 
-        #region [private] (int) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Manufacturer Id' field
+        #region [private] (ushort) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Manufacturer Id' field
         /// <summary>
         /// Gets a value representing the '<b>Memory Subsystem Controller Manufacturer Id</b>' field.
         /// </summary>
@@ -584,10 +584,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemorySubsystemControllerManufacturerId => Reader.GetWord(0x30);
+        private ushort MemorySubsystemControllerManufacturerId => Reader.GetWord(0x30);
         #endregion
 
-        #region [private] (int) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Product Id' field
+        #region [private] (ushort) MemorySubsystemControllerManufacturerId: Gets a value representing the 'Memory Subsystem Controller Product Id' field
         /// <summary>
         /// Gets a value representing the '<b>Memory Subsystem Controller Product Id</b>' field.
         /// </summary>
@@ -595,7 +595,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemorySubsystemControllerProductId => Reader.GetWord(0x32);
+        private ushort MemorySubsystemControllerProductId => Reader.GetWord(0x32);
         #endregion
 
         #region [private] (ulong) NonVolatileSize: Gets a value representing the 'Non Volatile Size' field
@@ -606,7 +606,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong NonVolatileSize => (ulong)Reader.GetQuadrupleWord(0x34);
+        private ulong NonVolatileSize => Reader.GetQuadrupleWord(0x34);
         #endregion
 
         #region [private] (ulong) VolatileSize: Gets a value representing the 'Volatile Size' field
@@ -617,7 +617,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong VolatileSize => (ulong)Reader.GetQuadrupleWord(0x3c);
+        private ulong VolatileSize => Reader.GetQuadrupleWord(0x3c);
         #endregion
 
         #region [private] (ulong) CacheSize: Gets a value representing the 'Cache Size' field
@@ -628,7 +628,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong CacheSize  => (ulong)Reader.GetQuadrupleWord(0x44);
+        private ulong CacheSize  => Reader.GetQuadrupleWord(0x44);
         #endregion
 
         #region [private] (ulong) LogicalSize: Gets a value representing the 'Logical Size' field
@@ -639,14 +639,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong LogicalSize => (ulong)Reader.GetQuadrupleWord(0x4c);
+        private ulong LogicalSize => Reader.GetQuadrupleWord(0x4c);
         #endregion
 
         #endregion
 
         #region Version 3.3+ fields
 
-        #region [private] (int) ExtendedSpeed: Gets a value representing the 'Extended Speed' field
+        #region [private] (ushort) ExtendedSpeed: Gets a value representing the 'Extended Speed' field
         /// <summary>
         /// Gets a value representing the <b>Extended Speed</b> field.
         /// </summary>
@@ -654,10 +654,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExtendedSpeed => Reader.GetWord(0x54);
+        private ushort ExtendedSpeed => Reader.GetWord(0x54);
         #endregion
 
-        #region [private] (int) ExtendedConfiguredSpeed: Gets a value representing the 'Extended Configured Speed' field
+        #region [private] (uint) ExtendedConfiguredSpeed: Gets a value representing the 'Extended Configured Speed' field
         /// <summary>
         /// Gets a value representing the <b>Extended Configured Speed</b> field.
         /// </summary>
@@ -665,7 +665,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExtendedConfiguredSpeed => Reader.GetDoubleWord(0x58);
+        private uint ExtendedConfiguredSpeed => Reader.GetDoubleWord(0x58);
         #endregion
 
         #endregion
@@ -682,122 +682,60 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            #region 2.1+
-            properties.Add(SmbiosProperty.MemoryDevice.PhysicalMemoryArrayHandle, PhysicalArrayMemoryHandle);
-
-            var memoryErrorInformationHandle = MemoryErrorInformationHandle;
-            switch (memoryErrorInformationHandle)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
-                case 0xffff:
-                    properties.Add(SmbiosProperty.MemoryDevice.MemoryErrorInformationHandle, -1);
-                    break;
-
-                case 0xfffe:
-                    properties.Add(SmbiosProperty.MemoryDevice.MemoryErrorInformationHandle, -2);
-                    break;
-
-                default:
-                    properties.Add(SmbiosProperty.MemoryDevice.MemoryErrorInformationHandle, memoryErrorInformationHandle);
-                    break;
-            }
-
-            properties.Add(SmbiosProperty.MemoryDevice.TotalWidth, TotalWidth);
-            properties.Add(SmbiosProperty.MemoryDevice.DataWidth, DataWidth);
-
-            var size = Size;
-            if (size != 0xffff)
-            {
-                if (size != 0x7fff)
+                properties.Add(SmbiosProperty.MemoryDevice.PhysicalMemoryArrayHandle, PhysicalArrayMemoryHandle);
+                properties.Add(SmbiosProperty.MemoryDevice.MemoryErrorInformationHandle, MemoryErrorInformationHandle);
+                properties.Add(SmbiosProperty.MemoryDevice.TotalWidth, TotalWidth);
+                properties.Add(SmbiosProperty.MemoryDevice.DataWidth, DataWidth);
+                properties.Add(SmbiosProperty.MemoryDevice.Size, Size);
+                properties.Add(SmbiosProperty.MemoryDevice.FormFactor, GetFormFactor(FormFactor));
+                
+                MemoryDeviceBelongsToSet belongsToSet = BelongsToSet;
+                if (belongsToSet.Equals(MemoryDeviceBelongsToSet.Yes))
                 {
-                    var sizeIsMeasuredInKb = IsMeasuredInKb(size);
-                    if (!sizeIsMeasuredInKb)
-                    {
-                        size <<= 0x0a;
-                    }
-
-                    properties.Add(SmbiosProperty.MemoryDevice.Size, size);
+                    properties.Add(SmbiosProperty.MemoryDevice.DeviceSet, DeviceSet);
                 }
-                else
-                {
-                    if (StructureInfo.Length >= 0x1d)
-                    {
-                        var extendedSize = ExtendedSize << 0x0a;
-                        properties.Add(SmbiosProperty.MemoryDevice.Size, extendedSize);
-                    }
-                }
+                
+                properties.Add(SmbiosProperty.MemoryDevice.DeviceLocator, DeviceLocator);
+                properties.Add(SmbiosProperty.MemoryDevice.BankLocator, BankLocator);
+                properties.Add(SmbiosProperty.MemoryDevice.MemoryType, GetDeviceType(MemoryType));
+                properties.Add(SmbiosProperty.MemoryDevice.TypeDetail, GetDeviceTypeDetail(TypeDetail));
             }
 
-            properties.Add(SmbiosProperty.MemoryDevice.FormFactor, GetFormFactor(FormFactor));
-
-            var belongsToSet = BelongsToSet;
-            if (belongsToSet.Equals(MemoryDeviceBelongsToSet.Yes))
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v23)
             {
-                properties.Add(SmbiosProperty.MemoryDevice.DeviceSet, DeviceSet);
-            }
-
-            properties.Add(SmbiosProperty.MemoryDevice.DeviceLocator, DeviceLocator);
-            properties.Add(SmbiosProperty.MemoryDevice.BankLocator, BankLocator);
-            properties.Add(SmbiosProperty.MemoryDevice.MemoryType, GetDeviceType(MemoryType));
-            properties.Add(SmbiosProperty.MemoryDevice.TypeDetail, GetDeviceTypeDetail(TypeDetail));
-            #endregion
-
-            #region 2.3+
-            if (StructureInfo.Length >= 0x16)
-            {
-                properties.Add(SmbiosProperty.MemoryDevice.MaximunSpeed, MaximunSpeed);
-            }
-
-            if (StructureInfo.Length >= 0x18)
-            {
+                properties.Add(SmbiosProperty.MemoryDevice.Speed, Speed);
                 properties.Add(SmbiosProperty.MemoryDevice.Manufacturer, Manufacturer);
-            }
-
-            if (StructureInfo.Length >= 0x19)
-            {
                 properties.Add(SmbiosProperty.MemoryDevice.SerialNumber, SerialNumber);
-            }
-
-            if (StructureInfo.Length >= 0x1a)
-            {
                 properties.Add(SmbiosProperty.MemoryDevice.AssetTag, AssetTag);
-            }
-
-            if (StructureInfo.Length >= 0x1b)
-            {
                 properties.Add(SmbiosProperty.MemoryDevice.PartNumber, PartNumber);
             }
-            #endregion
 
-            #region 2.6+
-            if (StructureInfo.Length >= 0x1c)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v26)
             {
                 properties.Add(SmbiosProperty.MemoryDevice.Rank, Rank);
             }
-            #endregion
 
-            #region 2.7+
-            if (StructureInfo.Length >= 0x21)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v27)
             {
+                properties.Add(SmbiosProperty.MemoryDevice.ExtendedSize, ExtendedSize);
                 properties.Add(SmbiosProperty.MemoryDevice.ConfiguredMemoryClockSpeed, CurrentSpeed);
             }
-            #endregion
 
-            #region 2.8+
-            if (StructureInfo.Length >= 0x23)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v28)
             {
                 properties.Add(SmbiosProperty.MemoryDevice.MinimumVoltage, MinimumVoltage);
                 properties.Add(SmbiosProperty.MemoryDevice.MaximumVoltage, MaximumVoltage);
                 properties.Add(SmbiosProperty.MemoryDevice.ConfiguredVoltage, ConfiguredVoltage);
             }
-            #endregion
 
-            #region 3.2+
-            if (StructureInfo.Length >= 0x29)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v32)
             {
-                var memoryTechnology = GetMemoryTechnology(MemoryTechnology);
+                string memoryTechnology = GetMemoryTechnology(MemoryTechnology);
                 properties.Add(SmbiosProperty.MemoryDevice.MemoryTechnology, memoryTechnology);
 
-                var memoryOperatingModeCapability = GetMemoryOperatingModeCapability(MemoryOperatingModeCapability);
+                ReadOnlyCollection<string> memoryOperatingModeCapability = GetMemoryOperatingModeCapability(MemoryOperatingModeCapability);
                 properties.Add(SmbiosProperty.MemoryDevice.MemoryOperatingModeCapability, memoryOperatingModeCapability);
 
                 properties.Add(SmbiosProperty.MemoryDevice.FirmwareVersion, FirmwareVersion);
@@ -809,22 +747,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 properties.Add(SmbiosProperty.MemoryDevice.VolatileSize, VolatileSize);
                 properties.Add(SmbiosProperty.MemoryDevice.CacheSize, CacheSize);
                 properties.Add(SmbiosProperty.MemoryDevice.LogicalSize, LogicalSize);
-
             }
-            #endregion
 
-            #region 3.3+
-            if (StructureInfo.Length >= 0x55)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v33)
             {
-                properties.Add(SmbiosProperty.MemoryDevice.MaximunSpeed, ExtendedSpeed);
+                properties.Add(SmbiosProperty.MemoryDevice.ExtendedSpeed, ExtendedSpeed);
                 properties.Add(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, ExtendedConfiguredSpeed);
             }
-            #endregion
         }
         #endregion
 
         #endregion
-
 
         #region BIOS Specification 3.3.0 (25/09/2019)
 
@@ -873,7 +806,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "LPDDR4",
                 "Logical non-volatile device", 
                 "HBM (High Bandwidth Memory)",
-                "HBM2 (High Bandwidth Memory Generation 2)" // 0x21F
+                "HBM2 (High Bandwidth Memory Generation 2)",
+                "DDR5",
+                "LPDDR5"                                    // 0x23
             };
 
             if (code >= 0x01 && code <= 0x14)
@@ -881,7 +816,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 return deviceProperty[code - 0x01];
             }
 
-            if (code >= 0x18 && code <= 0x21)
+            if (code >= 0x18 && code <= 0x23)
             {
                 return deviceProperty2[code - 0x18];
             }
@@ -1003,17 +938,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (bool) IsMeasuredInKb(int): Gets a value that indicates whether the memory is measured in KB
-        /// <summary>
-        /// Gets a value that indicates whether the memory is measured in KB.
-        /// </summary>
-        /// <param name="code">Value to analyze.</param>
-        /// <returns>
-        /// <b>true</b> if memory is measured in KB;<b>false</b> otherwise.
-        /// </returns>
-        private static bool IsMeasuredInKb(int code) => code.CheckBit(Bits.Bit15);
-        #endregion
-
         #region [private] {static} (ReadOnlyCollection<String>) GetMemoryOperatingModeCapability(int): Gets a memory operating mode capability
         /// <summary>
         /// Gets a memory operating mode capability.
@@ -1053,3 +977,33 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
     }
 }
+
+
+//#region 3.2+
+//if (StructureInfo.Length >= 0x29)
+//{
+//    var memoryTechnology = GetMemoryTechnology(MemoryTechnology);
+//    properties.Add(SmbiosProperty.MemoryDevice.MemoryTechnology, memoryTechnology);
+
+//    var memoryOperatingModeCapability = GetMemoryOperatingModeCapability(MemoryOperatingModeCapability);
+//    properties.Add(SmbiosProperty.MemoryDevice.MemoryOperatingModeCapability, memoryOperatingModeCapability);
+
+//    properties.Add(SmbiosProperty.MemoryDevice.FirmwareVersion, FirmwareVersion);
+//    properties.Add(SmbiosProperty.MemoryDevice.ModuleManufacturerId, ModuleManufacturerId);
+//    properties.Add(SmbiosProperty.MemoryDevice.ModuleProductId, ModuleProductId);
+//    properties.Add(SmbiosProperty.MemoryDevice.MemorySubsystemControllerManufacturerId, MemorySubsystemControllerManufacturerId);
+//    properties.Add(SmbiosProperty.MemoryDevice.MemorySubsystemControllerProductId, MemorySubsystemControllerProductId);
+//    properties.Add(SmbiosProperty.MemoryDevice.NonVolatileSize, NonVolatileSize);
+//    properties.Add(SmbiosProperty.MemoryDevice.VolatileSize, VolatileSize);
+//    properties.Add(SmbiosProperty.MemoryDevice.CacheSize, CacheSize);
+//    properties.Add(SmbiosProperty.MemoryDevice.LogicalSize, LogicalSize);
+//}
+//#endregion
+
+//#region 3.3+
+//if (StructureInfo.Length >= 0x55)
+//{
+//    properties.Add(SmbiosProperty.MemoryDevice.ExtendedSpeed, ExtendedSpeed);
+//    properties.Add(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, ExtendedConfiguredSpeed);
+//}
+//#endregion

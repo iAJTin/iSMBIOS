@@ -112,12 +112,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.ManagementDevice.Description, Description);
             properties.Add(SmbiosProperty.ManagementDevice.Type, GetDeviceType(Type));
             properties.Add(SmbiosProperty.ManagementDevice.Address, Address);
             properties.Add(SmbiosProperty.ManagementDevice.AddressType, GetDeviceAddressType(AddressType));
         }
-
         #endregion
 
         #endregion

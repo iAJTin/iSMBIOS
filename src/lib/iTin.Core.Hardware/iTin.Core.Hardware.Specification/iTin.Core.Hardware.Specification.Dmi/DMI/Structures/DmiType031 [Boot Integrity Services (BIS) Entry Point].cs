@@ -39,23 +39,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object checksum = SmbiosStructure.GetPropertyValue(SmbiosProperty.BootIntegrityServicesEntryPoint.Checksum);
-            if (checksum != null)
+            if (ImplementedVersion <= DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.Checksum, checksum);
+                return;
             }
 
-            object bisEntryPointAddress16 = SmbiosStructure.GetPropertyValue(SmbiosProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress16);
-            if (bisEntryPointAddress16 != null)
-            {
-                properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress16, bisEntryPointAddress16);
-            }
-
-            object bisEntryPointAddress32 = SmbiosStructure.GetPropertyValue(SmbiosProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress32);
-            if (bisEntryPointAddress32 != null)
-            {
-                properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress32, bisEntryPointAddress32);
-            }
+            properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.Checksum, SmbiosStructure.GetPropertyValue(SmbiosProperty.BootIntegrityServicesEntryPoint.Checksum));
+            properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress16, SmbiosStructure.GetPropertyValue(SmbiosProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress16));
+            properties.Add(DmiProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress32, SmbiosStructure.GetPropertyValue(SmbiosProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress32));
         }
         #endregion
 

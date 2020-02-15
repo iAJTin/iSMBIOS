@@ -50,7 +50,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte Load => GetByte(0x00);
         #endregion
 
-        #region [private] (int) Handle: Gets a value that represents the 'Handle' field
+        #region [private] (ushort) Handle: Gets a value that represents the 'Handle' field
         /// <summary>
         ///  Gets a value that represents the '<b>Handle</b>' field.
         /// </summary>
@@ -58,7 +58,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Value of the property.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Handle => GetWord(0x01);
+        private ushort Handle => (ushort)GetWord(0x01);
         #endregion
 
         #endregion

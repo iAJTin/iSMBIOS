@@ -39,29 +39,15 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object frontPanelResetStatus = SmbiosStructure.GetPropertyValue(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.FrontPanelResetStatus);
-            if (frontPanelResetStatus != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.FrontPanelResetStatus, frontPanelResetStatus);
+                return;
             }
 
-            object administratorPasswordStatus = SmbiosStructure.GetPropertyValue(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.AdministratorPasswordStatus);
-            if (administratorPasswordStatus != null)
-            {
-                properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.AdministratorPasswordStatus, administratorPasswordStatus);
-            }
-
-            object keyboardPasswordStatus = SmbiosStructure.GetPropertyValue(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.KeyboardPasswordStatus);
-            if (keyboardPasswordStatus != null)
-            {
-                properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.KeyboardPasswordStatus, keyboardPasswordStatus);
-            }
-
-            object powerOnPasswordStatus = SmbiosStructure.GetPropertyValue(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.PowerOnPasswordStatus);
-            if (powerOnPasswordStatus != null)
-            {
-                properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.PowerOnPasswordStatus, powerOnPasswordStatus);
-            }
+            properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.FrontPanelResetStatus, SmbiosStructure.GetPropertyValue(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.FrontPanelResetStatus));
+            properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.AdministratorPasswordStatus, SmbiosStructure.GetPropertyValue(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.AdministratorPasswordStatus));
+            properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.KeyboardPasswordStatus, SmbiosStructure.GetPropertyValue(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.KeyboardPasswordStatus));
+            properties.Add(DmiProperty.HardwareSecurity.HardwareSecuritySettings.PowerOnPasswordStatus, SmbiosStructure.GetPropertyValue(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.PowerOnPasswordStatus));
         }
         #endregion
 

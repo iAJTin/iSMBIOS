@@ -252,7 +252,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string LocationInChassis => GetString(0x0a);
         #endregion
 
-        #region [private] (int) ChassisHandle: Gets a value representing the 'Chassis Handle' field
+        #region [private] (ushort) ChassisHandle: Gets a value representing the 'Chassis Handle' field
         /// <summary>
         /// Gets a value representing the <b>Chassis Handle</b> field.
         /// </summary>
@@ -260,7 +260,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ChassisHandle => Reader.GetWord(0x0b);
+        private ushort ChassisHandle => Reader.GetWord(0x0b);
         #endregion
 
         #region [private] (byte) BoardType: Gets a value representing the 'Board Type' field

@@ -114,6 +114,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.BootIntegrityServicesEntryPoint.Checksum, Checksum);
             properties.Add(SmbiosProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress16, BisEntryPointAddress16);
             properties.Add(SmbiosProperty.BootIntegrityServicesEntryPoint.BisEntryPointAddress32, BisEntryPointAddress32);

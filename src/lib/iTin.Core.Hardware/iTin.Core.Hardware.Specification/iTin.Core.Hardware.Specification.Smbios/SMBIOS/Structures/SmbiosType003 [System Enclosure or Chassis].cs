@@ -219,7 +219,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte NumberOfPowerCords => Reader.GetByte(0x12);
         #endregion
 
-        #region [private] (long) OemDefined: Gets a value representing the 'OEM Defined' field
+        #region [private] (uint) OemDefined: Gets a value representing the 'OEM Defined' field
         /// <summary>
         /// Gets a value representing the <b>OEM Defined</b> field.
         /// </summary>
@@ -227,7 +227,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemDefined => Reader.GetDoubleWord(0x0d);
+        private uint OemDefined => Reader.GetDoubleWord(0x0d);
         #endregion
 
         #region [private] (byte) PowerSupplyState: Gets a value representing the 'Power Supply State' field
@@ -298,16 +298,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             #region 2.0+
-            properties.Add(SmbiosProperty.Chassis.Manufacturer, Manufacturer);
-            properties.Add(SmbiosProperty.Chassis.ChassisType, GetEnclosureType(EnclosureType));
-            properties.Add(SmbiosProperty.Chassis.Locked, GetEnclosureLocked(EnclosureLocked));
-            properties.Add(SmbiosProperty.Chassis.Version, Version);
-            properties.Add(SmbiosProperty.Chassis.SerialNumber, SerialNumber);
-            properties.Add(SmbiosProperty.Chassis.AssetTagNumber, AssetTagNumber);
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v20)
+            {
+                properties.Add(SmbiosProperty.Chassis.Manufacturer, Manufacturer);
+                properties.Add(SmbiosProperty.Chassis.ChassisType, GetEnclosureType(EnclosureType));
+                properties.Add(SmbiosProperty.Chassis.Locked, GetEnclosureLocked(EnclosureLocked));
+                properties.Add(SmbiosProperty.Chassis.Version, Version);
+                properties.Add(SmbiosProperty.Chassis.SerialNumber, SerialNumber);
+                properties.Add(SmbiosProperty.Chassis.AssetTagNumber, AssetTagNumber);
+            }
             #endregion
 
             #region 2.1+
-            if (StructureInfo.Length >= 0x0a)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
                 properties.Add(SmbiosProperty.Chassis.BootUpState, GetEnclosureState(BootUpState));
                 properties.Add(SmbiosProperty.Chassis.PowerSupplyState, GetEnclosureState(PowerSupplyState));
@@ -316,24 +319,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
             }
             #endregion
 
-            #region 2.3+
-            if (StructureInfo.Length >= 0x0e)
+            #region 2.3+, 2.7+
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v23)
             {
                 properties.Add(SmbiosProperty.Chassis.OemDefined, OemDefined);
-            }
-
-            if (StructureInfo.Length >= 0x12)
-            {
                 properties.Add(SmbiosProperty.Chassis.Height, Height);
-            }
-
-            if (StructureInfo.Length >= 0x13)
-            {
                 properties.Add(SmbiosProperty.Chassis.NumberOfPowerCords, NumberOfPowerCords);
-            }
 
-            if (StructureInfo.Length >= 0x14)
-            {
                 byte n = ContainedElementCount;
                 if (n != 0)
                 {
@@ -349,10 +341,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
                                 properties.Add(SmbiosProperty.Chassis.ContainedElements, new ChassisContainedElementCollection(containedElements));
                             }
 
-                            if (StructureInfo.Length > 0x16 + (n * m))
+                            #region 2.7+
+                            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v27)
                             {
                                 properties.Add(SmbiosProperty.Chassis.SkuNumber, GetEnclosureSkuNumber(n, m));
                             }
+                            #endregion
                         }
                     }
                 }

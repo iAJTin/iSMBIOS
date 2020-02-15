@@ -130,7 +130,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte ErrorCorrection => StructureInfo.RawData[0x06];
         #endregion
 
-        #region [private] (ulong) MaximumCapacity: Gets a value representing the 'Maximum Capacity' field
+        #region [private] (uint) MaximumCapacity: Gets a value representing the 'Maximum Capacity' field
         /// <summary>
         /// Gets a value representing the <b>Maximum Capacity</b> field.
         /// </summary>
@@ -138,10 +138,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong MaximumCapacity => (ulong)Reader.GetDoubleWord(0x07);
+        private uint MaximumCapacity => Reader.GetDoubleWord(0x07);
         #endregion
 
-        #region [private] (ulong) ErrorInformationHandle: Gets a value representing the 'Error Information Handle' field
+        #region [private] (ushort) ErrorInformationHandle: Gets a value representing the 'Error Information Handle' field
         /// <summary>
         /// Gets a value representing the <b>Maximum Capacity</b> field.
         /// </summary>
@@ -149,10 +149,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ErrorInformationHandle => Reader.GetWord(0x0b);
+        private ushort ErrorInformationHandle => Reader.GetWord(0x0b);
         #endregion
 
-        #region [private] (int) NumberOfMemoryDevices: Gets a value representing the 'Number Of Memory Devices' field
+        #region [private] (ushort) NumberOfMemoryDevices: Gets a value representing the 'Number Of Memory Devices' field
         /// <summary>
         /// Gets a value representing the <b>Number Of Memory Devices</b> field.
         /// </summary>
@@ -160,7 +160,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NumberOfMemoryDevices => Reader.GetWord(0x0d);
+        private ushort NumberOfMemoryDevices => Reader.GetWord(0x0d);
         #endregion
 
         #endregion
@@ -175,7 +175,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedMaximumCapacity => (ulong)Reader.GetQuadrupleWord(0x0f);
+        private ulong ExtendedMaximumCapacity => Reader.GetQuadrupleWord(0x0f);
         #endregion
 
         #endregion
@@ -192,14 +192,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            properties.Add(SmbiosProperty.PhysicalMemoryArray.Location, GetLocation(Location));
-            properties.Add(SmbiosProperty.PhysicalMemoryArray.Use, GetUse(Use));
-            properties.Add(SmbiosProperty.PhysicalMemoryArray.MemoryErrorCorrection, GetErrorCorrectionTypes(ErrorCorrection));
-            properties.Add(SmbiosProperty.PhysicalMemoryArray.MemoryErrorInformationHandle, GetErrorHandle(ErrorInformationHandle));
-            properties.Add(SmbiosProperty.PhysicalMemoryArray.NumberOfMemoryDevices, NumberOfMemoryDevices);
-            properties.Add(SmbiosProperty.PhysicalMemoryArray.MaximumCapacity, MaximumCapacity);
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
+            {
+                properties.Add(SmbiosProperty.PhysicalMemoryArray.Location, GetLocation(Location));
+                properties.Add(SmbiosProperty.PhysicalMemoryArray.Use, GetUse(Use));
+                properties.Add(SmbiosProperty.PhysicalMemoryArray.MemoryErrorCorrection, GetErrorCorrectionTypes(ErrorCorrection));
+                properties.Add(SmbiosProperty.PhysicalMemoryArray.MaximumCapacity, MaximumCapacity);
+                properties.Add(SmbiosProperty.PhysicalMemoryArray.MemoryErrorInformationHandle, GetErrorHandle(ErrorInformationHandle));
+                properties.Add(SmbiosProperty.PhysicalMemoryArray.NumberOfMemoryDevices, NumberOfMemoryDevices);
+            }
 
-            if (StructureInfo.Length >= 0x10)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v27)
             {
                 properties.Add(SmbiosProperty.PhysicalMemoryArray.ExtendedMaximumCapacity, ExtendedMaximumCapacity);
             }

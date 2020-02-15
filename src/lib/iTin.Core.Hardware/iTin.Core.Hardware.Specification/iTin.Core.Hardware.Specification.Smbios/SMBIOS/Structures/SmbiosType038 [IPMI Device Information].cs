@@ -143,7 +143,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 string hiString = hi.ToString(CultureInfo.InvariantCulture);
                 string loString = lo.ToString(CultureInfo.InvariantCulture);
 
-                return string.Format(CultureInfo.InvariantCulture, "{0}.{1}", hiString, loString);
+                return $"{hiString}.{loString}";
             }
         }
         #endregion
@@ -178,7 +178,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong BaseAddress => (ulong)Reader.GetQuadrupleWord(0x08);
+        private ulong BaseAddress => Reader.GetQuadrupleWord(0x08);
         #endregion
 
         #region [private] (string) BaseAddressModifier: Gets a value representing the 'Base Address Modifier' field
@@ -270,11 +270,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.IpmiDevice.InterfaceType, GetInterfaceType(InterfaceType));
             properties.Add(SmbiosProperty.IpmiDevice.SpecificationRevision, SpecificationRevision);
             properties.Add(SmbiosProperty.IpmiDevice.I2CSlaveAddress, I2CSlaveAddress);
             properties.Add(SmbiosProperty.IpmiDevice.NVStorageDeviceAddress, NVStorageDeviceAddress);
-            properties.Add(SmbiosProperty.IpmiDevice.BaseAdress, BaseAddress);
+            properties.Add(SmbiosProperty.IpmiDevice.BaseAddress, BaseAddress);
 
             if (StructureInfo.Length >= 0x11)
             {

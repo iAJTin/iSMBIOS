@@ -373,72 +373,68 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            if (StructureInfo.Length >= 0x05)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
                 properties.Add(SmbiosProperty.PortableBattery.Location, Location);
-            }
-
-            if (StructureInfo.Length >= 0x06)
-            {
                 properties.Add(SmbiosProperty.PortableBattery.Manufacturer, Manufacturer);
-            }
+                properties.Add(SmbiosProperty.PortableBattery.DeviceName, DeviceName);
+                properties.Add(SmbiosProperty.PortableBattery.DesignVoltage, DesignVoltage);
+                properties.Add(SmbiosProperty.PortableBattery.SBDSVersionNumber, SbdsVersionNumber);
+                properties.Add(SmbiosProperty.PortableBattery.MaximunErrorInBatteryData, MaximumErrorInBatteryData);
 
-            if (string.IsNullOrEmpty(ManufactureDate))
-            {
-                if (StructureInfo.Length >= 0x13)
+                if (string.IsNullOrEmpty(ManufactureDate))
                 {
-                    properties.Add(SmbiosProperty.PortableBattery.ManufactureDate, SbdsManufactureDate);
-                }
-            }
-            else
-            {
-                properties.Add(SmbiosProperty.PortableBattery.ManufactureDate, ManufactureDate);
-            }
-
-            if (string.IsNullOrEmpty(SerialNumber))
-            {
-                if (StructureInfo.Length >= 0x11)
-                {
-                    properties.Add(SmbiosProperty.PortableBattery.SerialNumber, SbdsSerialNumber);
-                }
-            }
-            else
-            {
-                properties.Add(SmbiosProperty.PortableBattery.SerialNumber, SerialNumber);
-            }
-
-            properties.Add(SmbiosProperty.PortableBattery.DeviceName, DeviceName);
-
-            if (DeviceChemistryValue == 0x02)
-            {
-                if (StructureInfo.Length >= 0x15)
-                {
-                    properties.Add(SmbiosProperty.PortableBattery.DeviceChemistry, SbdsDeviceChemistry);
-                }
-            }
-            else
-            {
-                properties.Add(SmbiosProperty.PortableBattery.DeviceChemistry, GetDeviceChemistry(DeviceChemistryValue));
-            }
-
-            if (DesignCapacity != 00)
-            {
-                if (StructureInfo.Length >= 0x16)
-                {
-                    int designCapacityCalculated = DesignCapacity * DesignCapacityMultiplier;
-                    properties.Add(SmbiosProperty.PortableBattery.DesignCapacity, designCapacityCalculated);
+                    if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v22)
+                    {
+                        properties.Add(SmbiosProperty.PortableBattery.ManufactureDate, SbdsManufactureDate);
+                    }
                 }
                 else
                 {
-                    properties.Add(SmbiosProperty.PortableBattery.DesignCapacity, DesignCapacity);
+                    properties.Add(SmbiosProperty.PortableBattery.ManufactureDate, ManufactureDate);
+                }
+
+                if (string.IsNullOrEmpty(SerialNumber))
+                {
+                    if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v22)
+                    {
+                        properties.Add(SmbiosProperty.PortableBattery.SerialNumber, SbdsSerialNumber);
+                    }
+                }
+                else
+                {
+                    properties.Add(SmbiosProperty.PortableBattery.SerialNumber, SerialNumber);
+                }
+
+
+                if (DeviceChemistryValue == 0x02)
+                {
+                    if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v22)
+                    {
+                        properties.Add(SmbiosProperty.PortableBattery.DeviceChemistry, SbdsDeviceChemistry);
+                    }
+                }
+                else
+                {
+                    properties.Add(SmbiosProperty.PortableBattery.DeviceChemistry, GetDeviceChemistry(DeviceChemistryValue));
+                }
+
+                if (DesignCapacity != 00)
+                {
+                    if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v22)
+                    {
+                        int designCapacityCalculated = DesignCapacity * DesignCapacityMultiplier;
+                        properties.Add(SmbiosProperty.PortableBattery.DesignCapacity, designCapacityCalculated);
+                        properties.Add(SmbiosProperty.PortableBattery.DesignCapacityMultiplier, DesignCapacityMultiplier);
+                    }
+                    else
+                    {
+                        properties.Add(SmbiosProperty.PortableBattery.DesignCapacity, DesignCapacity);
+                    }
                 }
             }
 
-            properties.Add(SmbiosProperty.PortableBattery.DesignVoltage, DesignVoltage);
-            properties.Add(SmbiosProperty.PortableBattery.SBDSVersionNumber, SbdsVersionNumber);
-            properties.Add(SmbiosProperty.PortableBattery.MaximunErrorInBatteryData, MaximumErrorInBatteryData);
-
-            if (StructureInfo.Length >= 0x17)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v22)
             {
                 properties.Add(SmbiosProperty.PortableBattery.OemSpecific, OemSpecific);
             }

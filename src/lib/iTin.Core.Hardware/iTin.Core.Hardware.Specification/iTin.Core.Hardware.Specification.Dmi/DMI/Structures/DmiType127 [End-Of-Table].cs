@@ -39,11 +39,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object status = SmbiosStructure.GetPropertyValue(SmbiosProperty.EndOfTable.Status);
-            if (status != null)
-            {
-                properties.Add(DmiProperty.EndOfTable.Status, status);
-            }
+            properties.Add(DmiProperty.EndOfTable.Status, SmbiosStructure.GetPropertyValue(SmbiosProperty.EndOfTable.Status));
         }
         #endregion
 

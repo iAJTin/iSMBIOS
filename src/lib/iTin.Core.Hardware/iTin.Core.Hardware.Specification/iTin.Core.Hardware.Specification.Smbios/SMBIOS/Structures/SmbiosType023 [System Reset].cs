@@ -155,7 +155,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private bool WatchdogTimer => Capabilities.CheckBit(Bits.Bit05);
         #endregion
 
-        #region [private] (int) ResetCount: Gets a value representing the 'Reset Count' field
+        #region [private] (ushort) ResetCount: Gets a value representing the 'Reset Count' field
         /// <summary>
         /// Gets a value representing the <b>Reset Count</b> field.
         /// </summary>
@@ -163,10 +163,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ResetCount => Reader.GetWord(0x05);
+        private ushort ResetCount => Reader.GetWord(0x05);
         #endregion
 
-        #region [private] (int) ResetLimit: Gets a value representing the 'Reset Limit' field
+        #region [private] (ushort) ResetLimit: Gets a value representing the 'Reset Limit' field
         /// <summary>
         /// Gets a value representing the <b>Reset Limit</b> field.
         /// </summary>
@@ -174,10 +174,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ResetLimit => Reader.GetWord(0x07);
+        private ushort ResetLimit => Reader.GetWord(0x07);
         #endregion
 
-        #region [private] (int) TimerInterval: Gets a value representing the 'Timer Interval' field
+        #region [private] (ushort) TimerInterval: Gets a value representing the 'Timer Interval' field
         /// <summary>
         /// Gets a value representing the <b>Timer Interval</b> field.
         /// </summary>
@@ -185,10 +185,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TimerInterval => Reader.GetWord(0x09);
+        private ushort TimerInterval => Reader.GetWord(0x09);
         #endregion
 
-        #region [private] (int) TimeOut: Gets a value representing the 'Time Out' field
+        #region [private] (ushort) TimeOut: Gets a value representing the 'Time Out' field
         /// <summary>
         /// Gets a value representing the <b>Time Out</b> field.
         /// </summary>
@@ -196,7 +196,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int TimeOut => Reader.GetWord(0x09);
+        private ushort TimeOut => Reader.GetWord(0x09);
         #endregion
 
         #endregion
@@ -211,6 +211,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.SystemReset.ResetCount, ResetCount);
             properties.Add(SmbiosProperty.SystemReset.ResetLimit, ResetLimit);
             properties.Add(SmbiosProperty.SystemReset.TimerInterval, TimerInterval);

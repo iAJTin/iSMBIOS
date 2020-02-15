@@ -192,7 +192,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region Version 2.6+ fields
 
-        #region [private] (int) SegmentBusFunction: Gets a value representing the 'Segment Bus Function' field
+        #region [private] (ushort) SegmentBusFunction: Gets a value representing the 'Segment Bus Function' field
         /// <summary>
         /// Gets a value representing the <b>Segment Bus Function</b> field.
         /// </summary>
@@ -200,7 +200,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SegmentBusFunction => Reader.GetWord(0x0d);
+        private ushort SegmentBusFunction => Reader.GetWord(0x0d);
         #endregion
 
         #region [private] (byte) Bus: Gets a value representing the 'Bus' field
@@ -262,7 +262,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             #region 2.0+
-            if (StructureInfo.Length >= 0x0c)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v20)
             {
                 properties.Add(SmbiosProperty.SystemSlots.SlotDesignation, SlotDesignation);
                 properties.Add(SmbiosProperty.SystemSlots.SlotType, GetSlotType(SlotType));
@@ -275,14 +275,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (StructureInfo.Length >= 0x0d)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
                 properties[SmbiosProperty.SystemSlots.Characteristics] = GetCharacteristics(Characteristics1, Characteristics2);
             }
             #endregion
 
             #region 2.6+
-            if (StructureInfo.Length >= 0x11)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v26)
             {
                 properties.Add(SmbiosProperty.SystemSlots.SegmentBusFunction, GetSegmentBusFunction(SegmentBusFunction));
                 properties.Add(SmbiosProperty.SystemSlots.BusDeviceFunction, GetBusDeviceFunction(Bus, Device, Function));
@@ -306,10 +306,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// Bus/Device/Function slot information
         /// </returns>
-        private static string GetBusDeviceFunction(byte bus, byte device, byte function)
-        {
-            return $"Bus = {bus}, Device = {device}, Function = {function}";
-        }
+        private static string GetBusDeviceFunction(byte bus, byte device, byte function) => $"Bus = {bus}, Device = {device}, Function = {function}";
         #endregion
 
         #region [private] {static} (ReadOnlyCollection<string>) GetCharacteristics(byte, byte): Gets a collection with the characteristics of the slot
@@ -502,7 +499,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
-        #region [private] {static} (string) GetSegmentBusFunction(int): Gets a string representing SegmentBusFuction
+        #region [private] {static} (string) GetSegmentBusFunction(ushort): Gets a string representing SegmentBusFuction
         /// <summary>
         /// Gets a string representing SegmentBusFuction.
         /// </summary>
@@ -510,10 +507,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <returns>
         /// Segment  Bus function.
         /// </returns>
-        private static string GetSegmentBusFunction(int code)
-        {
-            return $"{code:X}";
-        }
+        private static string GetSegmentBusFunction(ushort code) => $"{code:X}";
         #endregion
 
         #region [private] {static} (string) GetSlotType(byte): Gets a string indicating the slot type
@@ -562,7 +556,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "PCI Express Gen 3 SFF-8639",
                 "PCI Express Mini 52-pin (CEM spec. 2.0) with bottom-side keep-outs",
                 "PCI Express Mini 52-pin (CEM spec. 2.0) without bottom-side keep-outs",
-                "PCI Express Mini 76-pin (CEM spec. 2.0) Corresponds to Display-Mini card." // 0x23
+                "PCI Express Gen 4 SFF-8639 (U.2)",
+                "PCI Express Gen 5 SFF-8639 (U.2)",
+                "OCP NIC 3.0 Small Form Factor (SFF)",
+                "OCP NIC 3.0 Large Form Factor (LFF)"  // 0x27h
             };
 
             string[] value1 =
@@ -600,10 +597,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "PCI Express Gen 4 x2",
                 "PCI Express Gen 4 x4",
                 "PCI Express Gen 4 x8",
-                "PCI Express Gen 4 x16" // 0xBD
+                "PCI Express Gen 4 x16", 
+                "PCI Express Gen 5",
+                "PCI Express Gen 5 x1",
+                "PCI Express Gen 5 x2",
+                "PCI Express Gen 5 x4",
+                "PCI Express Gen 5 x8",
+                "PCI Express Gen 5 x16" // 0xC3
             };
 
-            if (code >= 0x01 && code <= 0x23)
+            if (code >= 0x01 && code <= 0x27)
             {
                 return value[code - 0x01];
             }
@@ -613,7 +616,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 return value1[code - 0x01];
             }
 
-            if (code >= 0xA0 && code <= 0xBD)
+            if (code >= 0xA0 && code <= 0xC3)
             {
                 return value2[code - 0xA0];
             }

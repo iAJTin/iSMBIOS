@@ -134,6 +134,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.FrontPanelResetStatus, GetSettings(FrontPanelResetStatus));
             properties.Add(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.AdministratorPasswordStatus, GetSettings(AdministratorPasswordStatus));
             properties.Add(SmbiosProperty.HardwareSecurity.HardwareSecuritySettings.KeyboardPasswordStatus, GetSettings(KeyboardPasswordStatus));

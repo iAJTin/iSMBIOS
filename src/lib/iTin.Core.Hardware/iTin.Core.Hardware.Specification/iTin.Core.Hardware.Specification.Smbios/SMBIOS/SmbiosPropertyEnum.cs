@@ -34,7 +34,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("BIOS Size")]
         [PropertyDescription("Size of the physical device containing the BIOS")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(byte))]
         BiosRomSize,
 
         [PropertyName("BIOS Characteristics")]
@@ -56,29 +56,29 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("System BIOS Major Release")]
         [PropertyDescription("Major release of the System BIOS")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         SystemBiosMajorRelease,
 
         [PropertyName("System BIOS Minor Release")]
         [PropertyDescription("Minor release of the System BIOS")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         SystemBiosMinorRelease,
 
         [PropertyName("Embedded Controller Firmware Major Version")]
         [PropertyDescription("Identifies the major release of the embedded controller firmware")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         FirmwareMajorRelease,
 
         [PropertyName("Embedded Controller Firmware Minor Version")]
         [PropertyDescription("Identifies the minor release of the embedded controller firmware")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         FirmwareMinorRelease,
         #endregion
 
-        #region version 3.1.0+
+        #region version 3.1+
         [PropertyName("BIOS Size")]
         [PropertyDescription("Extended size of the physical device(s) containing the BIOS")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(uint))]
         ExtendedBiosRomSize,
 
         [PropertyName("BIOS ROM Size Units")]
@@ -176,27 +176,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Hot Swappable")]
         [PropertyDescription("The mainboard is hot swappable")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         HotSwappable,
 
         [PropertyName("Replaceable")]
         [PropertyDescription("The mainboard is replaceable")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsReplaceable,
 
         [PropertyName("Removable")]
         [PropertyDescription("The mainboard is removable")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsRemovable,
 
         [PropertyName("Required Daughter Board")]
         [PropertyDescription("The mainboard required daughter board")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         RequiredDaughterBoard,
 
         [PropertyName("Hosting Board")]
         [PropertyDescription("Determines if is hosting board")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsHostingBoard,
 
         [PropertyName("Location In Chassis")]
@@ -206,7 +206,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Chassis Handle")]
         [PropertyDescription("Handle, or instance number, associated with the chassis in which this board resides")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ChassisHandle,
 
         [PropertyName("Mainboard Type")]
@@ -216,7 +216,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Mainboard Number Of Contained Object Handles")]
         [PropertyDescription("Number (0 to 255) of contained Object Handles that follow")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         NumberOfContainedObjectHandles,
 
         [PropertyName("Mainboard Contained Object Handles")]
@@ -284,17 +284,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("OEM Information")]
         [PropertyDescription("OEM or BIOS vendor-specific information")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Height")]
         [PropertyDescription("Height of the enclosure, in 'U's  A U is a standard unit of measure for the height of a rack or rack-mountable component")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Height,
 
         [PropertyName("Number Of Power Cords")]
         [PropertyDescription("Number of power cords associated with the enclosure or chassis")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         NumberOfPowerCords,
 
         [PropertyName("Contained Elements")]
@@ -319,12 +319,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Contained Element Maximum")]
         [PropertyDescription("Specifies the maximum number of the element type that can be installed in the chassis, in the range 1 to 255")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         ContainedElementMaximum,
 
         [PropertyName("Contained Type Select")]
         [PropertyDescription("Specifies the minimum number of the element type that can be installed in the chassis for the chassis to properly operate, in the range 0 to 254")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         ContainedElementMinimum
     }
     #endregion
@@ -370,19 +370,19 @@ namespace iTin.Core.Hardware.Specification.Smbios
         VoltageCapability,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ExternalClock,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MaximumSpeed,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         CurrentSpeed,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         SocketPopulated,
 
         [PropertyDescription("")]
@@ -396,15 +396,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 2.1+
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         L1CacheHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         L2CacheHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         L3CacheHandle,
         #endregion
 
@@ -423,53 +423,53 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 2.6+
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(byte))]
         CoreCount,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(byte))]
         CoreEnabled,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(byte))]
         ThreadCount,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         Capable64Bits,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         MultiCore,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         HardwareThreadPerCore,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         ExecuteProtectionSupport,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         EnhancedVirtualizationInstructions,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         PowerPerformanceControlSupport,
         #endregion
 
         #region version 3.0+
         [PropertyDescription("")]
-        [PropertyType(typeof(uint?))]
+        [PropertyType(typeof(ushort))]
         CoreCount2,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(uint?))]
+        [PropertyType(typeof(ushort))]
         CoreEnabled2,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(uint?))]
+        [PropertyType(typeof(ushort))]
         ThreadCount2,
         #endregion
     }
@@ -482,48 +482,59 @@ namespace iTin.Core.Hardware.Specification.Smbios
     internal enum SmbiosType005Property
     {
         #region version 2.0+
+        [PropertyName("Error Detecting Method")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         ErrorDetectingMethod,
 
+        [PropertyName("Error Correcting Capabilitiesn")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         ErrorCorrectingCapabilities,
 
+        [PropertyName("Supported Interleave")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         SupportedInterleave,
 
+        [PropertyName("Current Interleave")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         CurrentInterleave,
 
+        [PropertyName("Maximum Memory Module Size")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(int))]
         MaximumMemoryModuleSize,
 
+        [PropertyName("Supported Speeds")]
         [PropertyDescription("")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         SupportedSpeeds,
 
+        [PropertyName("Supported Memory Types")]
         [PropertyDescription("")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         SupportedMemoryTypes,
 
+        [PropertyName("Memory Module Voltages")]
         [PropertyDescription("")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         MemoryModuleVoltages,
 
+        [PropertyName("Number Memory Slots")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         NumberMemorySlots,
 
+        [PropertyName("Contained Memory Modules")]
         [PropertyDescription("")]
         [PropertyType(typeof(MemoryControllerContainedElementCollection))]
         ContainedMemoryModules,
         #endregion
 
         #region version 2.1+
+        [PropertyName("Enabled Error Correcting Capabilities")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         EnabledErrorCorrectingCapabilities,
@@ -546,7 +557,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         BankConnections,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         CurrentSpeed,
 
         [PropertyDescription("")]
@@ -730,7 +741,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
     internal enum SmbiosType010Property
     {
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         Enabled,
 
         [PropertyDescription("")]
@@ -779,7 +790,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         InstallableLanguages,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsCurrentAbbreviated,
 
         [PropertyDescription("")]
@@ -804,7 +815,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         ContainedElements,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         Handle,
 
         [PropertyDescription("")]
@@ -844,7 +855,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         MemoryErrorCorrection,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(uint))]
         MaximumCapacity,
 
         [PropertyDescription("")]
@@ -852,13 +863,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         MemoryErrorInformationHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         NumberOfMemoryDevices,
         #endregion
 
         #region version 2.7+
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         ExtendedMaximumCapacity,
         #endregion
     }
@@ -872,23 +883,23 @@ namespace iTin.Core.Hardware.Specification.Smbios
     {
         #region version 2.1+
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         PhysicalMemoryArrayHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MemoryErrorInformationHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         TotalWidth,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         DataWidth,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Size,
 
         [PropertyDescription("")]
@@ -896,7 +907,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         FormFactor,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         DeviceSet,
 
         [PropertyDescription("")]
@@ -914,8 +925,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 2.3+
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MaximumSpeed,
+        [PropertyType(typeof(ushort))]
+        Speed,
 
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
@@ -934,13 +945,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
         PartNumber,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Rank,
         #endregion
 
         #region version 2.7+
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(uint))]
+        ExtendedSize,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(ushort))]
         ConfiguredMemoryClockSpeed,
 
         [PropertyDescription("")]
@@ -950,15 +965,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 2.8+
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MinimumVoltage,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MaximumVoltage,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ConfiguredVoltage,
         #endregion
 
@@ -984,38 +999,38 @@ namespace iTin.Core.Hardware.Specification.Smbios
         ModuleProductId,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MemorySubSystemControllerManufacturerId,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MemorySubSystemControllerProductId,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ushort))]
         NonVolatileSize,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ushort))]
         VolatileSize,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ushort))]
         CacheSize,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ushort))]
         LogicalSize,
 
         #endregion
 
         #region version 3.3+
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ExtendedSpeed,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ExtendedConfiguredMemorySpeed
         #endregion
     }
@@ -1041,20 +1056,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
         ErrorOperation,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         VendorSyndrome,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         MemoryArrayErrorAddress,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         DeviceErrorAddress,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
-        ErrorResolution,
+        [PropertyType(typeof(uint))]
+        ErrorResolution
         #endregion
     }
     #endregion
@@ -1075,7 +1090,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         EndingAddress,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         MemoryArrayHandle,
 
         [PropertyDescription("")]
@@ -1085,11 +1100,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 2.7+
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         ExtendedStartingAddress,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         ExtendedEndingAddress,
         #endregion
     }
@@ -1111,11 +1126,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         EndingAddress,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         MemoryDeviceHandle,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         MemoryArrayMappedAddressHandle,
 
         [PropertyDescription("")]
@@ -1133,12 +1148,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region version 2.7+
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         ExtendedStartingAddress,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
-        ExtendedEndingAddress,
+        [PropertyType(typeof(ulong))]
+        ExtendedEndingAddress
         #endregion
     }
     #endregion
@@ -1207,12 +1222,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Design Capacity")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         DesignCapacity,
 
         [PropertyName("Design Voltage")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         DesignVoltage,
 
         [PropertyName("SBDS Version Number")]
@@ -1222,7 +1237,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Maximun Error In Battery Data")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         MaximunErrorInBatteryData,
         #endregion
 
@@ -1244,12 +1259,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Design Capacity Multiplier")]
         [PropertyDescription("")]
-        [PropertyType(typeof(string))]
+        [PropertyType(typeof(byte))]
         DesignCapacityMultiplier,
 
         [PropertyName("OEM Specific")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         OemSpecific,
         #endregion
     }
@@ -1257,7 +1272,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
     #region [internal] (emun) SmbiosType023Property: Defines the properties available for the structure type 023 [System Reset]
     /// <summary>
-    /// Defines the properties available for the structure type type 023 [System Reset].
+    /// Defines the properties available for the structure type 023 [System Reset].
     /// </summary>
     internal enum SmbiosType023Property
     {
@@ -1283,29 +1298,29 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Reset Count")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ResetCount,
 
         [PropertyName("Reset Limit")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ResetLimit,
 
         [PropertyName("Timer Interval")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         TimerInterval,
 
         [PropertyName("Timeout")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Timeout,
     }
     #endregion
 
     #region [internal] (emun) SmbiosType024Property: Defines the properties available for the structure type 024 [Hardware Security]
     /// <summary>
-    /// Defines the properties available for the structure type type 024 [Hardware Security].
+    /// Defines the properties available for the structure type 024 [Hardware Security].
     /// </summary>
     internal enum SmbiosType024Property
     {
@@ -1333,7 +1348,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
     #region [internal] (emun) SmbiosType025Property: Defines the properties available for the structure type 025 [System Power Controls]
     /// <summary>
-    /// Defines the properties available for the structure type type 025 [System Power Controls].
+    /// Defines the properties available for the structure type 025 [System Power Controls].
     /// </summary>
     internal enum SmbiosType025Property
     {
@@ -1366,7 +1381,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
     #region [internal] (emun) SmbiosType026Property: Defines the properties available for the structure type 026 [Voltage Probe]
     /// <summary>
-    /// Defines the properties available for the structure type type 026 [Voltage Probe].
+    /// Defines the properties available for the structure type 026 [Voltage Probe].
     /// </summary>
     internal enum SmbiosType026Property
     {
@@ -1385,53 +1400,53 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyType(typeof(string))]
         Status,
 
-        [PropertyName("Maximun Value")]
+        [PropertyName("Maximum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MaximunValue,
+        [PropertyType(typeof(ushort))]
+        MaximumValue,
 
-        [PropertyName("Minimun Value")]
+        [PropertyName("Minimum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MinimunValue,
+        [PropertyType(typeof(ushort))]
+        MinimumValue,
 
         [PropertyName("Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Resolution,
 
         [PropertyName("Tolerance")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Tolerance,
 
         [PropertyName("Accuracy")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Accuracy,
 
         [PropertyName("OEM Defined")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Nominal Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         NominalValue,
     }
     #endregion
 
     #region [internal] (emun) SmbiosType027Property: Defines the properties available for the structure type 027 [Cooling Device]
     /// <summary>
-    /// Defines the properties available for the structure type type 027 [Cooling Device].
+    /// Defines the properties available for the structure type 027 [Cooling Device].
     /// </summary>
     internal enum SmbiosType027Property
     {
         #region version 2.2+
         [PropertyName("Temperature Probe Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         TemperatureProbeHandle,
 
         [PropertyName("Device Type")]
@@ -1446,17 +1461,17 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Cooling Unit Group")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         CoolingUnitGroup,
 
         [PropertyName("OEM Defined")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Nominal Speed")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         NominalSpeed,
         #endregion
 
@@ -1471,7 +1486,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
     #region [internal] (emun) SmbiosType028Property: Defines the properties available for the structure type 028 [Temperature Probe]
     /// <summary>
-    /// Defines the properties available for the structure type type 028 [Cooling Device].
+    /// Defines the properties available for the structure type 028 [Temperature Probe].
     /// </summary>
     internal enum SmbiosType028Property
     {
@@ -1490,46 +1505,46 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyType(typeof(string))]
         Status,
 
-        [PropertyName("Maximun Value")]
+        [PropertyName("Maximum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MaximunValue,
+        [PropertyType(typeof(ushort))]
+        MaximumValue,
 
-        [PropertyName("Minimun Value")]
+        [PropertyName("Minimum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MinimunValue,
+        [PropertyType(typeof(ushort))]
+        MinimumValue,
 
         [PropertyName("Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Resolution,
 
         [PropertyName("Tolerance")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Tolerance,
 
         [PropertyName("Accuracy")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Accuracy,
 
         [PropertyName("OEM Defined")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Nominal Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        NominalValue,
+        [PropertyType(typeof(ushort))]
+        NominalValue
     }
     #endregion
 
     #region [internal] (emun) SmbiosType029Property: Defines the properties available for the structure type 029 [Electrical Current Probe]
     /// <summary>
-    /// Defines the properties available for the structure type type 029 [Electrical Current Probe].
+    /// Defines the properties available for the structure type 029 [Electrical Current Probe].
     /// </summary>
     internal enum SmbiosType029Property
     {
@@ -1548,46 +1563,46 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyType(typeof(string))]
         Status,
 
-        [PropertyName("Maximun Value")]
+        [PropertyName("Maximum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MaximunValue,
+        [PropertyType(typeof(ushort))]
+        MaximumValue,
 
-        [PropertyName("Minimun Value")]
+        [PropertyName("Minimum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MinimunValue,
+        [PropertyType(typeof(ushort))]
+        MinimumValue,
 
         [PropertyName("Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Resolution,
 
         [PropertyName("Tolerance")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Tolerance,
 
         [PropertyName("Accuracy")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Accuracy,
 
         [PropertyName("OEM Defined")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Nominal Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        NominalValue,
+        [PropertyType(typeof(ushort))]
+        NominalValue
     }
     #endregion
 
     #region [internal] (emun) SmbiosType030Property: Defines the properties available for the structure type 030 [Out-of-Band Remote Access]
     /// <summary>
-    /// Defines the properties available for the structure type type 030 [Electrical Current Probe].
+    /// Defines the properties available for the structure type 030 [Out-of-Band Remote Access].
     /// </summary>
     internal enum SmbiosType030Property
     {
@@ -1604,13 +1619,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyName("InBound Connection")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        InBoundConnection,
+        InBoundConnection
     }
     #endregion
 
     #region [internal] (emun) SmbiosType031Property: Defines the properties available for the structure type 031 [Boot Integrity Services (BIS) Entry Point]
     /// <summary>
-    /// Defines the properties available for the structure type type 031 [Electrical Current Probe].
+    /// Defines the properties available for the structure type 031 [Boot Integrity Services (BIS) Entry Point].
     /// </summary>
     internal enum SmbiosType031Property
     {
@@ -1627,13 +1642,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyName("32-Bis Entry Point Address")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        BisEntryPointAddress32,
+        BisEntryPointAddress32
     }
     #endregion
 
     #region [internal] (emun) SmbiosType032Property: Defines the properties available for the structure type 032 [System Boot Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 032 [Electrical Current Probe].
+    /// Defines the properties available for the structure type 032 [System Boot Information].
     /// </summary>
     internal enum SmbiosType032Property
     {
@@ -1645,13 +1660,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyName("Boot Status")]
         [PropertyDescription("Status and Additional Data fields that identify the boot status")]
         [PropertyType(typeof(string))]
-        BootStatus,
+        BootStatus
     }
     #endregion
 
     #region [internal] (emun) SmbiosType033Property: Defines the properties available for the structure type 033 [64-Bit Memory Error Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 033 [64-Bit Memory Error Information].
+    /// Defines the properties available for the structure type 033 [64-Bit Memory Error Information].
     /// </summary>
     internal enum SmbiosType033Property
     {
@@ -1672,29 +1687,29 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Vendor Syndrome")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         VendorSyndrome,
 
         [PropertyName("Memory Array Error Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         MemoryArrayErrorAddress,
 
         [PropertyName("Device Error Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         DeviceErrorAddress,
 
         [PropertyName("Error Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
-        ErrorResolution,
+        [PropertyType(typeof(uint))]
+        ErrorResolution
     }
     #endregion
 
     #region [internal] (emun) SmbiosType034Property: Defines the properties available for the structure type 034 [Management Device]
     /// <summary>
-    /// Defines the properties available for the structure type type 034 [Management Device].
+    /// Defines the properties available for the structure type 034 [Management Device].
     /// </summary>
     internal enum SmbiosType034Property
     {
@@ -1716,13 +1731,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyName("Address Type")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        AddressType,
+        AddressType
     }
     #endregion
 
     #region [internal] (emun) SmbiosType035Property: Defines the properties available for the structure type 035 [Management Device Component]
     /// <summary>
-    /// Defines the properties available for the structure type type 035 [Management Device Component].
+    /// Defines the properties available for the structure type 035 [Management Device Component].
     /// </summary>
     internal enum SmbiosType035Property
     {
@@ -1733,62 +1748,62 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Management Device Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         ManagementDeviceHandle,
 
         [PropertyName("Component Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         ComponentHandle,
 
         [PropertyName("Threshold Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
-        ThresholdHandle,
+        [PropertyType(typeof(ushort))]
+        ThresholdHandle
     }
     #endregion
 
     #region [internal] (emun) SmbiosType036Property: Defines the properties available for the structure type 036 [Management Device Threshold Data]
     /// <summary>
-    /// Defines the properties available for the structure type type 036 [Management Device Threshold Data].
+    /// Defines the properties available for the structure type 036 [Management Device Threshold Data].
     /// </summary>
     internal enum SmbiosType036Property
     {
         [PropertyName("Lower Non Critical")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         LowerNonCritical,
 
         [PropertyName("Upper Non Critical")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         UpperNonCritical,
 
         [PropertyName("Lower Critical")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         LowerCritical,
 
         [PropertyName("Upper Critical")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         UpperCritical,
 
         [PropertyName("Lower Non Recoverable")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         LowerNonRecoverable,
 
         [PropertyName("Upper Non Recoverable")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        UpperNonRecoverable,
+        [PropertyType(typeof(ushort))]
+        UpperNonRecoverable
     }
     #endregion
 
     #region [internal] (emun) SmbiosType037Property: Defines the properties available for the structure type 037 [Memory Channel]
     /// <summary>
-    /// Defines the properties available for the structure type type 037 [Management Device Threshold Data].
+    /// Defines the properties available for the structure type 037 [Memory Channel].
     /// </summary>
     internal enum SmbiosType037Property
     {
@@ -1797,31 +1812,31 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyType(typeof(string))]
         ChannelType,
 
-        [PropertyName("Maximun Channel Load")]
+        [PropertyName("Maximum Channel Load")]
         [PropertyDescription("")]
         [PropertyType(typeof(byte))]
-        MaximunChannelLoad,
+        MaximumChannelLoad,
 
         [PropertyName("Devices")]
         [PropertyDescription("")]
         [PropertyType(typeof(MemoryChannelElementCollection))]
         Devices,
 
-        [PropertyName("Handle")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(byte))]
-        Handle,
-
         [PropertyName("Load")]
         [PropertyDescription("")]
         [PropertyType(typeof(byte))]
-        Load
+        Load,
+
+        [PropertyName("Handle")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(ushort))]
+        Handle
     }
     #endregion
 
     #region [internal] (emun) SmbiosType038Property: Defines the properties available for the structure type 038 [IPMI Device Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 038 [IPMI Device Information].
+    /// Defines the properties available for the structure type 038 [IPMI Device Information].
     /// </summary>
     internal enum SmbiosType038Property
     {
@@ -1842,13 +1857,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("NV Storage Device Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         NvStorageDeviceAddress,
 
-        [PropertyName("Base Adress")]
+        [PropertyName("Base Address")]
         [PropertyDescription("")]
         [PropertyType(typeof(ulong))]
-        BaseAdress,
+        BaseAddress,
 
         [PropertyName("Register Spacing")]
         [PropertyDescription("")]
@@ -1857,12 +1872,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("LS-Bit")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         LsBit,
 
-        [PropertyName("Interface Type")]
+        [PropertyName("Specified Info")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         SpecifiedInfo,
 
         [PropertyName("Polarity")]
@@ -1877,14 +1892,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Interrupt Number")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
-        InterruptNumber,
+        [PropertyType(typeof(byte))]
+        InterruptNumber
     }
     #endregion
 
     #region [internal] (emun) SmbiosType039Property: Defines the properties available for the structure type 039 [System Power Supply]
     /// <summary>
-    /// Defines the properties available for the structure type type 039 [System Power Supply].
+    /// Defines the properties available for the structure type 039 [System Power Supply].
     /// </summary>
     internal enum SmbiosType039Property
     {
@@ -1930,7 +1945,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Max Power Capacity")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MaxPowerCapacity,
 
         [PropertyName("Supply Type")]
@@ -1965,24 +1980,24 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Input Voltage Probe Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         InputVoltageProbeHandle,
 
         [PropertyName("Cooling Device Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         CoolingDeviceHandle,
 
         [PropertyName("Input Current Probe Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        InputCurrentProbeHandle,
+        [PropertyType(typeof(ushort))]
+        InputCurrentProbeHandle
     }
     #endregion
 
     #region [internal] (emun) SmbiosType040Property: Defines the properties available for the structure type 040 [Additional Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 040 [Additional Information].
+    /// Defines the properties available for the structure type 040 [Additional Information].
     /// </summary>
     internal enum SmbiosType040Property
     {
@@ -1993,7 +2008,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyName("Referenced Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         ReferencedHandle,
 
         [PropertyName("Referenced Offset")]
@@ -2014,13 +2029,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyName("Entries")]
         [PropertyDescription("")]
         [PropertyType(typeof(AdditionalInformationEntryCollection))]
-        Entries,
+        Entries
     }
     #endregion
 
     #region [internal] (emun) SmbiosType041Property: Defines the properties available for the structure type 041 [Onboard Devices Extended Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 041 [Onboard Devices Extended Information].
+    /// Defines the properties available for the structure type 041 [Onboard Devices Extended Information].
     /// </summary>
     internal enum SmbiosType041Property
     {
@@ -2037,13 +2052,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyName("Device Type")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        DeviceType,
+        DeviceType
     }
     #endregion
 
     #region [internal] (emun) SmbiosType042Property: Defines the properties available for the structure type 042 [Management Controller Host Interface]
     /// <summary>
-    /// Defines the properties available for the structure type type 042 [Management Controller Host Interface].
+    /// Defines the properties available for the structure type 042 [Management Controller Host Interface].
     /// </summary>
     internal enum SmbiosType042Property
     {
@@ -2070,13 +2085,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
         [PropertyName("Protocol Type Specific Data")]
         [PropertyDescription("")]
         [PropertyType(typeof(ReadOnlyCollection<byte>))]
-        ProtocolTypeSpecificData,
+        ProtocolTypeSpecificData
     }
     #endregion
 
     #region [internal] (emun) SmbiosType043Property: Defines the properties available for the structure type 043 [TPM Device]
     /// <summary>
-    /// Defines the properties available for the structure type type 043 [TPM Device].
+    /// Defines the properties available for the structure type 043 [TPM Device].
     /// </summary>
     internal enum SmbiosType043Property
     {
@@ -2126,27 +2141,27 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
     #region [internal] (emun) SmbiosType044Property: Defines the properties available for the structure type 044 [Processor Additional Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 044 [Processor Additional Information].
+    /// Defines the properties available for the structure type 044 [Processor Additional Information].
     /// </summary>
     internal enum SmbiosType044Property
     {
         #region Version 3.3+
         [PropertyName("Referenced Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         ReferencedHandle,
 
         [PropertyName("Processor Specific Block")]
         [PropertyDescription("")]
         [PropertyType(typeof(ProcessorSpecificInformationBlock))]
-        ProcessorSpecificBlock,
+        ProcessorSpecificBlock
         #endregion
     }
     #endregion
 
     #region [internal] (emun) SmbiosType126Property: Defines the properties available for the structure type 126 [Inactive]
     /// <summary>
-    /// Defines the properties available for the structure type type 126 [Inactive].
+    /// Defines the properties available for the structure type 126 [Inactive].
     /// </summary>
     internal enum SmbiosType126Property
     {
@@ -2159,7 +2174,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
     #region [internal] (emun) SmbiosType127Property: Defines the properties available for the structure type 127 [End-of-Table]
     /// <summary>
-    /// Defines the properties available for the structure type type 127 [End-of-Table].
+    /// Defines the properties available for the structure type 127 [End-of-Table].
     /// </summary>
     internal enum SmbiosType127Property
     {

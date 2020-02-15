@@ -14,6 +14,11 @@ namespace iTin.Core.Hardware
         None,
 
         /// <summary>
+        /// Adimensional
+        /// </summary>
+        xcent,
+
+        /// <summary>
         /// Auto
         /// </summary>
         Auto,
@@ -78,10 +83,21 @@ namespace iTin.Core.Hardware
         mm,
 
         /// <summary>
-        /// Milivolts
+        /// millivolts
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "m")]
         mV,
+
+        /// <summary>
+        /// Tenths of millivolts
+        /// </summary>
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "m")]
+        d_mV,
+
+        /// <summary>
+        /// 1/100th of a percent
+        /// </summary>
+        Percent_1_100th,
 
         /// <summary>
         /// Miliwatts/hour
@@ -145,6 +161,11 @@ namespace iTin.Core.Hardware
         /// Watts.
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "W")]
-        W
+        W,
+
+        /// <summary>
+        /// Variable unit, will depend on the version of the implemented structure, please see the documentation of the property to know the correct unit.
+        /// </summary>
+        Variable
     }
 }

@@ -281,7 +281,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private bool IsLegacyMode => !Voltages.CheckBit(Bits.Bit07);
         #endregion
 
-        #region [private] (int) ExternalClock: Gets a value representing the 'External Clock' field
+        #region [private] (ushort) ExternalClock: Gets a value representing the 'External Clock' field
         /// <summary>
         /// Gets a value representing the <b>External Clock</b> field.
         /// </summary>
@@ -289,10 +289,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ExternalClock => Reader.GetWord(0x12);
+        private ushort ExternalClock => Reader.GetWord(0x12);
         #endregion
 
-        #region [private] (int) MaximunSpeed: Gets a value representing the 'Maximun Speed' field
+        #region [private] (ushort) MaximunSpeed: Gets a value representing the 'Maximun Speed' field
         /// <summary>
         /// Gets a value representing the <b>Maximun Speed</b> field.
         /// </summary>
@@ -300,10 +300,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunSpeed => Reader.GetWord(0x14);
+        private ushort MaximunSpeed => Reader.GetWord(0x14);
         #endregion
 
-        #region [private] (int) CurrentSpeed: Gets a value representing the 'Current Speed' field
+        #region [private] (ushort) CurrentSpeed: Gets a value representing the 'Current Speed' field
         /// <summary>
         /// Gets a value representing the <b>Current Speed</b> field.
         /// </summary>
@@ -311,7 +311,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CurrentSpeed => Reader.GetWord(0x16);
+        private ushort CurrentSpeed => Reader.GetWord(0x16);
         #endregion
 
         #region [private] (byte) Status: Gets a value representing the 'Status' field
@@ -358,7 +358,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte UpgradeMethod => Reader.GetByte(0x19);
         #endregion
 
-        #region [private] (int) L1CacheHandle: Gets a value representing the 'L1 CacheH andle' field
+        #region [private] (ushort) L1CacheHandle: Gets a value representing the 'L1 CacheH andle' field
         /// <summary>
         /// Gets a value representing the <b>L1 Cache Handle</b> field.
         /// </summary>
@@ -366,10 +366,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L1CacheHandle => Reader.GetWord(0x1a);
+        private ushort L1CacheHandle => Reader.GetWord(0x1a);
         #endregion
 
-        #region [private] (int) L2CacheHandle: Gets a value representing the 'L2 CacheH andle' field
+        #region [private] (ushort) L2CacheHandle: Gets a value representing the 'L2 CacheH andle' field
         /// <summary>
         /// Gets a value representing the <b>L2 Cache Handle</b> field.
         /// </summary>
@@ -377,10 +377,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L2CacheHandle => Reader.GetWord(0x1c);
+        private ushort L2CacheHandle => Reader.GetWord(0x1c);
         #endregion
 
-        #region [private] (int) L3CacheHandle: Gets a value representing the 'L3 CacheH andle' field
+        #region [private] (ushort) L3CacheHandle: Gets a value representing the 'L3 CacheH andle' field
         /// <summary>
         /// Gets a value representing the <b>L3 Cache Handle</b> field.
         /// </summary>
@@ -388,7 +388,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int L3CacheHandle => Reader.GetWord(0x1e);
+        private ushort L3CacheHandle => Reader.GetWord(0x1e);
         #endregion
 
         #region [private] (string) SerialNumber: Gets a value representing the 'Serial Number' field
@@ -457,7 +457,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte ThreadCount => Reader.GetByte(0x25);
         #endregion
 
-        #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field
+        #region [private] (ushort) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <b>Characteristics</b> field.
         /// </summary>
@@ -465,7 +465,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Characteristics => Reader.GetWord(0x26);
+        private ushort Characteristics => Reader.GetWord(0x26);
         #endregion
 
         #region [private] (bool) IsCapable64Bit: Gets a value representing the 'Is Capable 64Bit' characteristic of the 'Characteristics' field
@@ -534,7 +534,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private bool PowerPerformanceControl => Characteristics.CheckBit(Bits.Bit07);
         #endregion
 
-        #region [private] (int) CoreCount2: Gets a value representing the 'Core Count 2' field
+        #region [private] (ushort) CoreCount2: Gets a value representing the 'Core Count 2' field
         /// <summary>
         /// Gets a value representing the <b>Core Count 2</b> field.
         /// </summary>
@@ -542,10 +542,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CoreCount2 => Reader.GetWord(0x2a);
+        private ushort CoreCount2 => Reader.GetWord(0x2a);
         #endregion
 
-        #region [private] (int) CoreEnabled2: Gets a value representing the 'Core Enabled 2' field
+        #region [private] (ushort) CoreEnabled2: Gets a value representing the 'Core Enabled 2' field
         /// <summary>
         /// Gets a value representing the <b>Core Enabled 2</b> field.
         /// </summary>
@@ -553,10 +553,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CoreEnabled2 => Reader.GetWord(0x2c);
+        private ushort CoreEnabled2 => Reader.GetWord(0x2c);
         #endregion
 
-        #region [private] (int) ThreadCount2: Gets a value representing the 'Thread Count 2' field
+        #region [private] (ushort) ThreadCount2: Gets a value representing the 'Thread Count 2' field
         /// <summary>
         /// Gets a value representing the <b>Thread Count 2</b> field.
         /// </summary>
@@ -564,7 +564,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ThreadCount2 => Reader.GetWord(0x2e);
+        private ushort ThreadCount2 => Reader.GetWord(0x2e);
         #endregion
 
         #endregion
@@ -580,7 +580,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             #region 2.0+
-            if (StructureInfo.Length >= 0x1a)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v20)
             {
                 properties.Add(SmbiosProperty.Processor.SocketDesignation, SocketDesignation);
                 properties.Add(SmbiosProperty.Processor.ProcessorType, GetProcessorType(ProcessorType));
@@ -593,7 +593,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 bool isLegacyMode = IsLegacyMode;
                 if (!isLegacyMode)
                 {
-                    List<string> items = new List<string> {$"{VoltageValue}"};
+                    var items = new List<string> {$"{VoltageValue}"};
                     properties.Add(SmbiosProperty.Processor.Voltage.SupportedVoltages, items.AsReadOnly());
                 }
                 else
@@ -611,7 +611,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.1+
-            if (StructureInfo.Length >= 0x20)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
                 int l1CacheHandle = L1CacheHandle;
                 if (l1CacheHandle == 0xffff)
@@ -667,18 +667,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
             #endregion
 
             #region 2.3+
-            if (StructureInfo.Length >= 0x21)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v23)
             {
                 properties.Add(SmbiosProperty.Processor.SerialNumber, SerialNumber);
-            }
-
-            if (StructureInfo.Length >= 0x22)
-            {
                 properties.Add(SmbiosProperty.Processor.AssetTag, AssetTag);
-            }
-
-            if (StructureInfo.Length >= 0x23)
-            {
                 properties.Add(SmbiosProperty.Processor.PartNumber, PartNumber);
             }
             #endregion
@@ -1214,10 +1206,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "Socket LGA2066",
                 "Socket BGA1392",
                 "Socket BGA1510",
-                "Socket BGA1528"   // 0x3C
+                "Socket BGA1528",
+                "Socket LGA4189"   // 0x3D
             };
 
-            if (code >= 0x01 && code <= 0x3C)
+            if (code >= 0x01 && code <= 0x3D)
             {
                 return value[code - 0x01];
             }

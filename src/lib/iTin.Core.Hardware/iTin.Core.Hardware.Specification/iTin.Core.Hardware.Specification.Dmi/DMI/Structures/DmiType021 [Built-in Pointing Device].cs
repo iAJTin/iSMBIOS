@@ -39,23 +39,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object numberOfButtons = SmbiosStructure.GetPropertyValue(SmbiosProperty.BuiltInPointingDevice.NumberOfButtons);
-            if (numberOfButtons != null)
+            if (ImplementedVersion < DmiStructureVersion.v21)
             {
-                properties.Add(DmiProperty.BuiltInPointingDevice.NumberOfButtons, numberOfButtons);
+                return;
             }
 
-            object type = SmbiosStructure.GetPropertyValue(SmbiosProperty.BuiltInPointingDevice.Type);
-            if (type != null)
-            {
-                properties.Add(DmiProperty.BuiltInPointingDevice.Type, type);
-            }
-
-            object @interface = SmbiosStructure.GetPropertyValue(SmbiosProperty.BuiltInPointingDevice.Interface);
-            if (@interface != null)
-            {
-                properties.Add(DmiProperty.BuiltInPointingDevice.Interface, @interface);
-            }
+            properties.Add(DmiProperty.BuiltInPointingDevice.NumberOfButtons, SmbiosStructure.GetPropertyValue(SmbiosProperty.BuiltInPointingDevice.NumberOfButtons));
+            properties.Add(DmiProperty.BuiltInPointingDevice.Type, SmbiosStructure.GetPropertyValue(SmbiosProperty.BuiltInPointingDevice.Type));
+            properties.Add(DmiProperty.BuiltInPointingDevice.Interface, SmbiosStructure.GetPropertyValue(SmbiosProperty.BuiltInPointingDevice.Interface));
         }
         #endregion
 

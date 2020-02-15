@@ -39,33 +39,21 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object description = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceComponent.Description);
-            if (description != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.ManagementDeviceComponent.Description, description);
+                return;
             }
 
-            object managementDeviceHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceComponent.ManagementDeviceHandle);
-            if (managementDeviceHandle != null)
+            properties.Add(DmiProperty.ManagementDeviceComponent.Description, SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceComponent.Description));
+            properties.Add(DmiProperty.ManagementDeviceComponent.ComponentHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceComponent.ComponentHandle));
+           
+            ushort thresholdHandle = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.ManagementDeviceComponent.ThresholdHandle);
+            if (thresholdHandle != 0xffff)
             {
-                properties.Add(DmiProperty.ManagementDeviceComponent.ManagementDeviceHandle, managementDeviceHandle);
+                properties.Add(DmiProperty.ManagementDeviceComponent.ThresholdHandle, thresholdHandle);
             }
 
-            object componentHandle = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceComponent.ComponentHandle);
-            if (componentHandle != null)
-            {
-                properties.Add(DmiProperty.ManagementDeviceComponent.ComponentHandle, componentHandle);
-            }
-
-            object thresholdHandleProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceComponent.ThresholdHandle);
-            if (thresholdHandleProperty != null)
-            {
-                int thresholdHandle = (int) thresholdHandleProperty;
-                if (thresholdHandle != 0xffff)
-                {
-                    properties.Add(DmiProperty.ManagementDeviceComponent.ThresholdHandle, thresholdHandle);
-                }
-            }
+            properties.Add(DmiProperty.ManagementDeviceComponent.ManagementDeviceHandle, SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementDeviceComponent.ManagementDeviceHandle));
         }
         #endregion
 

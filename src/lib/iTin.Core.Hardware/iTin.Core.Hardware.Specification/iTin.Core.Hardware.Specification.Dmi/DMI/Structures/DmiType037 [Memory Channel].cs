@@ -39,22 +39,18 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object channelType = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryChannel.ChannelType);
-            if (channelType != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.MemoryChannel.ChannelType, channelType);
+                return;
             }
 
-            object maximunChannelLoad = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryChannel.MaximunChannelLoad);
-            if (maximunChannelLoad != null)
-            {
-                properties.Add(DmiProperty.MemoryChannel.MaximunChannelLoad, maximunChannelLoad);
-            }
+            properties.Add(DmiProperty.MemoryChannel.ChannelType, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryChannel.ChannelType));
+            properties.Add(DmiProperty.MemoryChannel.MaximunChannelLoad, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryChannel.MaximumChannelLoad));
 
             object devices = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryChannel.Devices);
             if (devices != null)
             {
-                properties.Add(DmiProperty.MemoryChannel.Devices, new DmiMemoryChannelElementCollection((MemoryChannelElementCollection)devices));
+                properties.Add(DmiProperty.MemoryChannel.Devices, new DmiMemoryChannelElementCollection((MemoryChannelElementCollection) devices));
             }
         }
         #endregion

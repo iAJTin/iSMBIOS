@@ -49,7 +49,7 @@ namespace iTin.Core.ComponentModel
         public byte GetByte(byte offset) => Data[offset];
         #endregion
 
-        #region [public] (byte) GetBytes(byte, byte): Returns the stored array from start with specified lenght
+        #region [public] (byte[]) GetBytes(byte, byte): Returns the stored array from start with specified lenght
         /// <summary>
         /// Returns the stored array from start with specified lenght.
         /// </summary>
@@ -70,7 +70,7 @@ namespace iTin.Core.ComponentModel
         }
         #endregion
 
-        #region [public] (int) GetDoubleWord(byte): Returns the stored value from the specified byte
+        #region [public] (uint) GetDoubleWord(byte): Returns the stored value from the specified byte
         /// <summary>
         /// Returns the stored value from the specified byte.
         /// </summary>
@@ -78,10 +78,10 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// The value stored in the indicated byte.
         /// </returns>
-        public int GetDoubleWord(byte offset) => Data.GetDoubleWord(offset);
+        public uint GetDoubleWord(byte offset) => (uint)Data.GetDoubleWord(offset);
         #endregion
 
-        #region [public] (long) GetQuadrupleWord(byte): Returns the stored value from the specified byte
+        #region [public] (ulong) GetQuadrupleWord(byte): Returns the stored value from the specified byte
         /// <summary>
         /// Returns the stored value from the specified byte.
         /// </summary>
@@ -89,10 +89,10 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// The value stored in the indicated byte.
         /// </returns>
-        public long GetQuadrupleWord(byte offset) => Data.GetQuadrupleWord(offset);
+        public ulong GetQuadrupleWord(byte offset) => (ulong)Data.GetQuadrupleWord(offset);
         #endregion
 
-        #region [protected] (int) GetWord(byte): Returns the stored value from the specified byte
+        #region [public] (ushort) GetWord(byte): Returns the stored value from the specified byte
         /// <summary>
         /// Returns the stored value from the specified byte.
         /// </summary>
@@ -100,7 +100,7 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// The value stored in the indicated byte.
         /// </returns>
-        public int GetWord(byte offset) => Data.GetWord(offset);
+        public ushort GetWord(byte offset) => (ushort)Data.GetWord(offset);
         #endregion
 
         #endregion

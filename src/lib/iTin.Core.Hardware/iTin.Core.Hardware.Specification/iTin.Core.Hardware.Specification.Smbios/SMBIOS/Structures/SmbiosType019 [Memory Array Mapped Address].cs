@@ -117,7 +117,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint StartingAddress => (uint)Reader.GetDoubleWord(0x04);
+        private uint StartingAddress => Reader.GetDoubleWord(0x04);
         #endregion
 
         #region [private] (uint) EndingAddress: Gets a value representing the 'Ending Address' field
@@ -128,10 +128,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private uint EndingAddress => (uint)Reader.GetDoubleWord(0x08);
+        private uint EndingAddress => Reader.GetDoubleWord(0x08);
         #endregion
 
-        #region [private] (int) MemoryArrayHandle: Gets a value representing the 'Memory Array Handle' field
+        #region [private] (ushort) MemoryArrayHandle: Gets a value representing the 'Memory Array Handle' field
         /// <summary>
         /// Gets a value representing the <b>Memory Array Handle</b> field.
         /// </summary>
@@ -139,7 +139,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MemoryArrayHandle => Reader.GetWord(0x0c);
+        private ushort MemoryArrayHandle => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (byte) PartitionWidth: Gets a value representing the 'Partition Width' field
@@ -151,32 +151,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private byte PartitionWidth => Reader.GetByte(0x0e);
-        #endregion
-
-        #endregion
-
-        #region Version 2.7+ fields
-
-        #region [private] (ulong) ExtendedStartingAddress: Gets a value representing the 'Extended Starting Address' field
-        /// <summary>
-        /// Gets a value representing the <b>Extended Starting Address</b> field.
-        /// </summary>
-        /// <value>
-        /// Property value.
-        /// </value>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedStartingAddress => (ulong)Reader.GetQuadrupleWord(0x0f);
-        #endregion
-
-        #region [private] (ulong) ExtendedEndingAddress: Gets a value representing the 'Extended Ending Address' field
-        /// <summary>
-        /// Gets a value representing the <b>Extended Ending Address</b> field.
-        /// </summary>
-        /// <value>
-        /// Property value.
-        /// </value>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong ExtendedEndingAddress => (ulong)Reader.GetQuadrupleWord(0x17);
         #endregion
 
         #endregion
@@ -194,20 +168,25 @@ namespace iTin.Core.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             #region 2.1+
-            properties.Add(SmbiosProperty.MemoryArrayMappedAddress.StartingAddress, StartingAddress);
-            properties.Add(SmbiosProperty.MemoryArrayMappedAddress.EndingAddress, EndingAddress);
-            properties.Add(SmbiosProperty.MemoryArrayMappedAddress.MemoryArrayHandle, MemoryArrayHandle);
-            properties.Add(SmbiosProperty.MemoryArrayMappedAddress.PartitionWidth, PartitionWidth);
-            #endregion
-
-            #region 2.7+
-            if (SmbiosVersion >= 0x0207)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
-                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, ExtendedStartingAddress);
-                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, ExtendedEndingAddress);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.StartingAddress, StartingAddress);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.EndingAddress, EndingAddress);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.MemoryArrayHandle, MemoryArrayHandle);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.PartitionWidth, PartitionWidth);
             }
             #endregion
 
+            #region 2.7+
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v27)
+            {
+                var extendedStartingAddress = Reader.GetQuadrupleWord(0x0f);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedStartingAddress, extendedStartingAddress);
+
+                var extendedEndingAddress = Reader.GetQuadrupleWord(0x17);
+                properties.Add(SmbiosProperty.MemoryArrayMappedAddress.ExtendedEndingAddress, extendedEndingAddress);
+            }
+            #endregion
         }
         #endregion
 

@@ -41,6 +41,16 @@ namespace iTin.Core.Hardware.Specification.Dmi
         public IEnumerable<IPropertyKey> ImplementedProperties => _dmiType.ImplementedProperties;
         #endregion
 
+        #region [public] (DmiStructureVersion) ImplementedVersion: Returns a value that indicates the implemented version of this DMI structure
+        /// <summary>
+        /// Returns a value that indicates the implemented version of this <see cref="DMI"/> structure.
+        /// </summary>
+        /// <returns>
+        /// One of the values of the <see cref="DmiStructureVersion"/> enumeration.
+        /// </returns>
+        public DmiStructureVersion ImplementedVersion => _dmiType.ImplementedVersion;
+        #endregion
+
         #region [public] (DmiClassPropertiesTable) Properties: Gets a value that represents the available properties
         /// <summary>
         /// Gets a value that represents the available properties.

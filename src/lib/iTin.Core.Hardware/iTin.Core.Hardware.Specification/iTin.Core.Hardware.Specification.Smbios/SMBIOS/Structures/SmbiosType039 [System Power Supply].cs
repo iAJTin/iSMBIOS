@@ -242,7 +242,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string RevisionLevel => GetString(0x0b);
         #endregion
 
-        #region [private] (int) MaxPowerCapacity: Gets a value representing the 'Max Power Capacity' field
+        #region [private] (ushort) MaxPowerCapacity: Gets a value representing the 'Max Power Capacity' field
         /// <summary>
         /// Gets a value representing the <b>Max Power Capacity</b> field.
         /// </summary>
@@ -250,10 +250,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaxPowerCapacity => Reader.GetWord(0x0c);
+        private ushort MaxPowerCapacity => Reader.GetWord(0x0c);
         #endregion
 
-        #region [private] (int) Characteristics: Gets a value representing the 'Characteristics' field
+        #region [private] (ushort) Characteristics: Gets a value representing the 'Characteristics' field
         /// <summary>
         /// Gets a value representing the <b>Characteristics</b> field.
         /// </summary>
@@ -261,7 +261,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Characteristics => Reader.GetWord(0x0e);
+        private ushort Characteristics => Reader.GetWord(0x0e);
         #endregion
 
         #region [private] (bool) IsHotReplaceable: Gets a value representing the 'Is Hot Replaceable' feature of the 'Characteristics' field
@@ -330,7 +330,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte SupplyType => (byte) ((Characteristics >> 0x0a) & 0x000f);
         #endregion
 
-        #region [private] (int) InputVoltageProbeHandle: Gets a value representing the 'Input Voltage Probe Handle' field
+        #region [private] (ushort) InputVoltageProbeHandle: Gets a value representing the 'Input Voltage Probe Handle' field
         /// <summary>
         /// Gets a value representing the <b>Input Voltage Probe Handle</b> field.
         /// </summary>
@@ -338,10 +338,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InputVoltageProbeHandle => Reader.GetWord(0x10);
+        private ushort InputVoltageProbeHandle => Reader.GetWord(0x10);
         #endregion
 
-        #region [private] (int) CoolingDeviceHandle: Gets a value representing the 'Cooling Device Handle' field
+        #region [private] (ushort) CoolingDeviceHandle: Gets a value representing the 'Cooling Device Handle' field
         /// <summary>
         /// Gets a value representing the <b>Cooling Device Handle</b> field.
         /// </summary>
@@ -349,10 +349,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int CoolingDeviceHandle => Reader.GetWord(0x12);
+        private ushort CoolingDeviceHandle => Reader.GetWord(0x12);
         #endregion
 
-        #region [private] (int) InputCurrentProbeHandle: Gets a value representing the 'Input Current Probe Handle' field
+        #region [private] (ushort) InputCurrentProbeHandle: Gets a value representing the 'Input Current Probe Handle' field
         /// <summary>
         /// Gets a value representing the <b>Input Current Probe Handle</b> field.
         /// </summary>
@@ -360,7 +360,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int InputCurrentProbeHandle => Reader.GetWord(0x14);
+        private ushort InputCurrentProbeHandle => Reader.GetWord(0x14);
         #endregion
 
         #endregion

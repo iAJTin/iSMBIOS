@@ -52,29 +52,29 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("System BIOS Major Release")]
         [PropertyDescription("Major release of the System BIOS")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         SystemBiosMajorRelease,
 
         [PropertyName("System BIOS Minor Release")]
         [PropertyDescription("Minor release of the System BIOS")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         SystemBiosMinorRelease,
 
         [PropertyName("Embedded Controller Firmware Major Version")]
         [PropertyDescription("Identifies the major release of the embedded controller firmware")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         FirmwareMajorRelease,
 
         [PropertyName("Embedded Controller Firmware Minor Version")]
         [PropertyDescription("Identifies the minor release of the embedded controller firmware")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         FirmwareMinorRelease,
         #endregion
 
         #region version 2.0+, 3.1+
         [PropertyName("BIOS Size")]
         [PropertyDescription("Size of the physical device containing the BIOS")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(uint))]
         BiosRomSize,
 
         [PropertyName("BIOS ROM Size Units")]
@@ -172,27 +172,27 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Hot Swappable")]
         [PropertyDescription("The mainboard is hot swappable")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         HotSwappable,
 
         [PropertyName("Replaceable")]
         [PropertyDescription("The mainboard is replaceable")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsReplaceable,
 
         [PropertyName("Removable")]
         [PropertyDescription("The mainboard is removable")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsRemovable,
 
         [PropertyName("Required Daughter Board")]
         [PropertyDescription("The mainboard required daughter board")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         RequiredDaughterBoard,
 
         [PropertyName("Hosting Board")]
         [PropertyDescription("Determines if is hosting board")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsHostingBoard,
 
         [PropertyName("Location In Chassis")]
@@ -202,7 +202,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Chassis Handle")]
         [PropertyDescription("Handle, or instance number, associated with the chassis in which this board resides")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ChassisHandle,
 
         [PropertyName("Mainboard Type")]
@@ -212,7 +212,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Mainboard Number Of Contained Object Handles")]
         [PropertyDescription("Number (0 to 255) of contained Object Handles that follow")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         NumberOfContainedObjectHandles,
 
         [PropertyName("Mainboard Contained Object Handles")]
@@ -280,17 +280,17 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("OEM Information")]
         [PropertyDescription("OEM or BIOS vendor-specific information")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Height")]
         [PropertyDescription("Height of the enclosure, in 'U's  A U is a standard unit of measure for the height of a rack or rack-mountable component")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Height,
 
         [PropertyName("Number Of Power Cords")]
         [PropertyDescription("Number of power cords associated with the enclosure or chassis")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         NumberOfPowerCords,
 
         [PropertyName("Contained Elements")]
@@ -315,12 +315,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Contained Type Select")]
         [PropertyDescription("Specifies the maximum number of the element type that can be installed in the chassis, in the range 1 to 255")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         ContainedElementMaximum,
 
         [PropertyName("Contained Element Minimum")]
         [PropertyDescription("Specifies the minimum number of the element type that can be installed in the chassis for the chassis to properly operate, in the range 0 to 254")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         ContainedElementMinimum
     }
     #endregion
@@ -364,7 +364,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Is Legacy Mode")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsLegacyMode,
 
         [PropertyName("Voltage Capability")]
@@ -374,22 +374,22 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("External Clock")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ExternalClock,
 
         [PropertyName("Maximum Speed")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MaximumSpeed,
 
         [PropertyName("Current Speed")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         CurrentSpeed,
 
         [PropertyName("Socket Populated")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         SocketPopulated,
 
         [PropertyName("Cpu Status")]
@@ -406,17 +406,17 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region version 2.1+
         [PropertyName("L1 Cache Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         L1CacheHandle,
 
         [PropertyName("L2 Cache Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         L2CacheHandle,
 
         [PropertyName("L3 Cache Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         L3CacheHandle,
         #endregion
 
@@ -440,64 +440,64 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region version 2.6+
         [PropertyName("Core Count")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(byte))]
         CoreCount,
 
         [PropertyName("Core Enabled")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(byte))]
         CoreEnabled,
 
         [PropertyName("Thread Count")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(byte))]
         ThreadCount,
 
         [PropertyName("Capable 64 Bits")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         Capable64Bits,
 
         [PropertyName("Multi Core")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         MultiCore,
 
         [PropertyName("Hardware Thread Per Core")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         HardwareThreadPerCore,
 
         [PropertyName("Execute Protection Support")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         ExecuteProtectionSupport,
 
         [PropertyName("Enhanced Virtualization Instructions")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         EnhancedVirtualizationInstructions,
 
         [PropertyName("Power Performance Control Support")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         PowerPerformanceControlSupport,
         #endregion
 
         #region version 3.0+
         [PropertyName("Core Count 2")]
         [PropertyDescription("")]
-        [PropertyType(typeof(uint?))]
+        [PropertyType(typeof(ushort))]
         CoreCount2,
 
         [PropertyName("Core Enabled 2")]
         [PropertyDescription("")]
-        [PropertyType(typeof(uint?))]
+        [PropertyType(typeof(ushort))]
         CoreEnabled2,
 
         [PropertyName("Thread Count 2")]
         [PropertyDescription("")]
-        [PropertyType(typeof(uint?))]
+        [PropertyType(typeof(ushort))]
         ThreadCount2,
         #endregion
     }
@@ -532,7 +532,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Maximum Memory Module Size")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(int))]
         MaximumMemoryModuleSize,
 
         [PropertyName("Supported Speeds")]
@@ -552,7 +552,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Number Memory Slots")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(byte))]
         NumberMemorySlots,
 
         [PropertyName("Contained Memory Modules")]
@@ -588,7 +588,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Current Speed")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(ReadOnlyCollection<string>))]
         CurrentSpeed,
 
         [PropertyName("Current Memory Type")]
@@ -807,7 +807,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         [PropertyName("Enabled")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         Enabled,
 
         [PropertyName("Device Type")]
@@ -844,7 +844,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("Values")]
         [PropertyDescription("")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
-        Values,
+        Values
     }
     #endregion
 
@@ -862,7 +862,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Is Current Abbreviated")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         IsCurrentAbbreviated,
 
         [PropertyName("Current")]
@@ -891,7 +891,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         Handle,
 
         [PropertyName("Structure")]
@@ -909,7 +909,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         [PropertyName("System Event Log")]
         [PropertyDescription("")]
-        SystemEventLog,
+        SystemEventLog
     }
     #endregion
 
@@ -942,15 +942,15 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Number Of Memory Devices")]
         [PropertyDescription("Number of slots or sockets available for Memory devices in this array")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         NumberOfMemoryDevices,
         #endregion
 
-        #region version 2.1+ - 2.7+
+        #region version 2.1+, 2.7+
         [PropertyName("Maximum Capacity")]
         [PropertyDescription("Maximum memory capacity, in kilobytes, for this array")]
-        [PropertyType(typeof(ulong?))]
-        MaximumCapacity,
+        [PropertyType(typeof(ulong))]
+        MaximumCapacity
         #endregion
     }
     #endregion
@@ -962,182 +962,153 @@ namespace iTin.Core.Hardware.Specification.Dmi
     internal enum DmiType017Property
     {
         #region version 2.1+
-        [PropertyName("Physical Memory Array Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         PhysicalMemoryArrayHandle,
 
-        [PropertyName("Memory Error Information Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MemoryErrorInformationHandle,
 
-        [PropertyName("Total Width")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         TotalWidth,
 
-        [PropertyName("Data Width")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         DataWidth,
 
-        [PropertyName("Size")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Size,
 
-        [PropertyName("Form Factor")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         FormFactor,
 
-        [PropertyName("Device Set")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         DeviceSet,
 
-        [PropertyName("Device Locator")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         DeviceLocator,
 
-        [PropertyName("Memory Type")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         MemoryType,
 
-        [PropertyName("Type Detail")]
         [PropertyDescription("")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         TypeDetail,
         #endregion
 
         #region version 2.3+
-        [PropertyName("Maximun Speed")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MaximumSpeed,
+        [PropertyType(typeof(ushort))]
+        Speed,
 
-        [PropertyName("Manufacturer")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         Manufacturer,
 
-        [PropertyName("Serial Number")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         SerialNumber,
 
-        [PropertyName("Asset Tag")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         AssetTag,
 
-        [PropertyName("Part Number")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         PartNumber,
+        #endregion
 
-        [PropertyName("Rank")]
+        #region version 2.6+
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         Rank,
         #endregion
 
         #region version 2.7+
-        [PropertyName("Configured Memory Clock Speed")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ConfiguredMemoryClockSpeed,
 
-        [PropertyName("Bank Locator")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         BankLocator,
         #endregion
 
         #region version 2.8+
-        [PropertyName("Minimun Voltage")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MinimumVoltage,
 
-        [PropertyName("Maximum Voltage")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MaximumVoltage,
 
-        [PropertyName("Configured Voltage")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ConfiguredVoltage,
         #endregion
 
         #region version 3.2+
-        [PropertyName("Memory Technology")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         MemoryTechnology,
 
-        [PropertyName("Memory Operating Mode Capability")]
         [PropertyDescription("")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         MemoryOperatingModeCapability,
 
-        [PropertyName("Firmware Version")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         FirmwareVersion,
 
-        [PropertyName("Module Manufacturer Id")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         ModuleManufacturerId,
 
-        [PropertyName("Module Product Id")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
         ModuleProductId,
 
-        [PropertyName("Memory Sub System Controller Manufacturer Id")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MemorySubSystemControllerManufacturerId,
 
-        [PropertyName("Memory Sub System Controller Product Id")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MemorySubSystemControllerProductId,
 
-        [PropertyName("Non-Volatile Size")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ushort))]
         NonVolatileSize,
 
-        [PropertyName("Volatile Size")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ushort))]
         VolatileSize,
 
-        [PropertyName("Cache Size")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ushort))]
         CacheSize,
 
-        [PropertyName("Logical Size")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ushort))]
         LogicalSize,
+
         #endregion
 
         #region version 3.3+
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ExtendedSpeed,
 
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         ExtendedConfiguredMemorySpeed
         #endregion
     }
@@ -1167,23 +1138,23 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Vendor Syndrome")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         VendorSyndrome,
 
         [PropertyName("Memory Array Error Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         MemoryArrayErrorAddress,
 
         [PropertyName("Device Error Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         DeviceErrorAddress,
 
         [PropertyName("Error Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
-        ErrorResolution,
+        [PropertyType(typeof(uint))]
+        ErrorResolution
         #endregion
     }
     #endregion
@@ -1197,7 +1168,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region version 2.1+
         [PropertyName("Memory Array Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         MemoryArrayHandle,
 
         [PropertyName("Partition Width")]
@@ -1209,12 +1180,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region version 2.7+
         [PropertyName("Starting Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         StartingAddress,
 
         [PropertyName("Ending Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         EndingAddress,
         #endregion
     }
@@ -1229,17 +1200,17 @@ namespace iTin.Core.Hardware.Specification.Dmi
         #region version 2.1+
         [PropertyName("Memory Device Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MemoryDeviceHandle,
 
         [PropertyName("Memory Array Mapped Address Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MemoryArrayMappedAddressHandle,
 
         [PropertyName("Partition Row Position")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         PartitionRowPosition,
 
         [PropertyName("Interleave Position")]
@@ -1249,19 +1220,19 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Interleaved Data Depth")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         InterleavedDataDepth,
         #endregion
 
         #region version 2.1+, 2.7+
         [PropertyName("Starting Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(uint?))]
+        [PropertyType(typeof(ulong))]
         StartingAddress,
 
         [PropertyName("Ending Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(uint?))]
+        [PropertyType(typeof(ulong))]
         EndingAddress,
         #endregion
     }
@@ -1331,12 +1302,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Design Capacity")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         DesignCapacity,
 
         [PropertyName("Design Voltage")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         DesignVoltage,
 
         [PropertyName("SBDS Version Number")]
@@ -1346,7 +1317,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Maximun Error In Battery Data")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         MaximunErrorInBatteryData,
         #endregion
 
@@ -1368,12 +1339,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Design Capacity Multiplier")]
         [PropertyDescription("")]
-        [PropertyType(typeof(string))]
+        [PropertyType(typeof(byte))]
         DesignCapacityMultiplier,
 
         [PropertyName("OEM Specific")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         OemSpecific,
         #endregion
     }
@@ -1381,7 +1352,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     #region [internal] (emun) DmiType023Property: Defines the properties available for the structure type 023 [System Reset]
     /// <summary>
-    /// Defines the properties available for the structure type type 023 [System Reset].
+    /// Defines the properties available for the structure type 023 [System Reset].
     /// </summary>
     internal enum DmiType023Property
     {
@@ -1407,29 +1378,29 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Reset Count")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(int))]
         ResetCount,
 
         [PropertyName("Reset Limit")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(int))]
         ResetLimit,
 
         [PropertyName("Timer Interval")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(int))]
         TimerInterval,
 
         [PropertyName("Timeout")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(int))]
         Timeout,
     }
     #endregion
 
     #region [internal] (emun) DmiType024Property: Defines the properties available for the structure type 024 [Hardware Security]
     /// <summary>
-    /// Defines the properties available for the structure type type 024 [Hardware Security].
+    /// Defines the properties available for the structure type 024 [Hardware Security].
     /// </summary>
     internal enum DmiType024Property
     {
@@ -1457,7 +1428,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     #region [internal] (emun) DmiType025Property: Defines the properties available for the structure type 025 [System Power Controls]
     /// <summary>
-    /// Defines the properties available for the structure type type 025 [System Power Controls].
+    /// Defines the properties available for the structure type 025 [System Power Controls].
     /// </summary>
     internal enum DmiType025Property
     {
@@ -1490,7 +1461,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     #region [internal] (emun) DmiType026Property: Defines the properties available for the structure type 026 [Voltage Probe]
     /// <summary>
-    /// Defines the properties available for the structure type type 026 [Voltage Probe].
+    /// Defines the properties available for the structure type 026 [Voltage Probe].
     /// </summary>
     internal enum DmiType026Property
     {
@@ -1509,53 +1480,53 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyType(typeof(string))]
         Status,
 
-        [PropertyName("Maximun Value")]
+        [PropertyName("Maximum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MaximunValue,
+        [PropertyType(typeof(ushort))]
+        MaximumValue,
 
-        [PropertyName("Minimun Value")]
+        [PropertyName("Minimum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MinimunValue,
+        [PropertyType(typeof(ushort))]
+        MinimumValue,
 
         [PropertyName("Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Resolution,
 
         [PropertyName("Tolerance")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Tolerance,
 
         [PropertyName("Accuracy")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Accuracy,
 
         [PropertyName("OEM Defined")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Nominal Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         NominalValue,
     }
     #endregion
 
     #region [internal] (emun) DmiType027Property: Defines the properties available for the structure type 027 [Cooling Device]
     /// <summary>
-    /// Defines the properties available for the structure type type 027 [Cooling Device].
+    /// Defines the properties available for the structure type 027 [Cooling Device].
     /// </summary>
     internal enum DmiType027Property
     {
         #region version 2.2+
         [PropertyName("Temperature Probe Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         TemperatureProbeHandle,
 
         [PropertyName("Device Type")]
@@ -1570,17 +1541,17 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Cooling Unit Group")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         CoolingUnitGroup,
 
         [PropertyName("OEM Defined")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Nominal Speed")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         NominalSpeed,
         #endregion
 
@@ -1595,7 +1566,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     #region [internal] (emun) DmiType028Property: Defines the properties available for the structure type 028 [Temperature Probe]
     /// <summary>
-    /// Defines the properties available for the structure type type 028 [Cooling Device].
+    /// Defines the properties available for the structure type 028 [Temperature Probe].
     /// </summary>
     internal enum DmiType028Property
     {
@@ -1614,46 +1585,46 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyType(typeof(string))]
         Status,
 
-        [PropertyName("Maximun Value")]
+        [PropertyName("Maximum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MaximunValue,
+        [PropertyType(typeof(ushort))]
+        MaximumValue,
 
-        [PropertyName("Minimun Value")]
+        [PropertyName("Minimum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MinimunValue,
+        [PropertyType(typeof(ushort))]
+        MinimumValue,
 
         [PropertyName("Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Resolution,
 
         [PropertyName("Tolerance")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Tolerance,
 
         [PropertyName("Accuracy")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Accuracy,
 
         [PropertyName("OEM Defined")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Nominal Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        NominalValue,
+        [PropertyType(typeof(ushort))]
+        NominalValue
     }
     #endregion
 
     #region [internal] (emun) DmiType029Property: Defines the properties available for the structure type 029 [Electrical Current Probe]
     /// <summary>
-    /// Defines the properties available for the structure type type 029 [Electrical Current Probe].
+    /// Defines the properties available for the structure type 029 [Electrical Current Probe].
     /// </summary>
     internal enum DmiType029Property
     {
@@ -1672,46 +1643,46 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyType(typeof(string))]
         Status,
 
-        [PropertyName("Maximun Value")]
+        [PropertyName("Maximum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MaximunValue,
+        [PropertyType(typeof(ushort))]
+        MaximumValue,
 
-        [PropertyName("Minimun Value")]
+        [PropertyName("Minimum Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        MinimunValue,
+        [PropertyType(typeof(ushort))]
+        MinimumValue,
 
         [PropertyName("Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Resolution,
 
         [PropertyName("Tolerance")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Tolerance,
 
         [PropertyName("Accuracy")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         Accuracy,
 
         [PropertyName("OEM Defined")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long))]
+        [PropertyType(typeof(uint))]
         OemDefined,
 
         [PropertyName("Nominal Value")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        NominalValue,
+        [PropertyType(typeof(ushort))]
+        NominalValue
     }
     #endregion
 
     #region [internal] (emun) DmiType030Property: Defines the properties available for the structure type 030 [Out-of-Band Remote Access]
     /// <summary>
-    /// Defines the properties available for the structure type type 030 [Electrical Current Probe].
+    /// Defines the properties available for the structure type 030 [Out-of-Band Remote Access]
     /// </summary>
     internal enum DmiType030Property
     {
@@ -1728,13 +1699,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("InBound Connection")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        InBoundConnection,
+        InBoundConnection
     }
     #endregion
 
     #region [internal] (emun) DmiType031Property: Defines the properties available for the structure type 031 [Boot Integrity Services (BIS) Entry Point]
     /// <summary>
-    /// Defines the properties available for the structure type type 031 [Electrical Current Probe].
+    /// Defines the properties available for the structure type 031 [Boot Integrity Services (BIS) Entry Point]
     /// </summary>
     internal enum DmiType031Property
     {
@@ -1751,13 +1722,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("32-Bis Entry Point Address")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        BisEntryPointAddress32,
+        BisEntryPointAddress32
     }
     #endregion
 
     #region [internal] (emun) DmiType032Property: Defines the properties available for the structure type 032 [System Boot Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 032 [Electrical Current Probe].
+    /// Defines the properties available for the structure type 032 [System Boot Information].
     /// </summary>
     internal enum DmiType032Property
     {
@@ -1769,13 +1740,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("Boot Status")]
         [PropertyDescription("Status and Additional Data fields that identify the boot status")]
         [PropertyType(typeof(string))]
-        BootStatus,
+        BootStatus
     }
     #endregion
 
     #region [internal] (emun) DmiType033Property: Defines the properties available for the structure type 033 [64-Bit Memory Error Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 033 [64-Bit Memory Error Information].
+    /// Defines the properties available for the structure type 033 [64-Bit Memory Error Information].
     /// </summary>
     internal enum DmiType033Property
     {
@@ -1796,29 +1767,29 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Vendor Syndrome")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
+        [PropertyType(typeof(uint))]
         VendorSyndrome,
 
         [PropertyName("Memory Array Error Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         MemoryArrayErrorAddress,
 
         [PropertyName("Device Error Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(ulong?))]
+        [PropertyType(typeof(ulong))]
         DeviceErrorAddress,
 
         [PropertyName("Error Resolution")]
         [PropertyDescription("")]
-        [PropertyType(typeof(long?))]
-        ErrorResolution,
+        [PropertyType(typeof(uint))]
+        ErrorResolution
     }
     #endregion
 
     #region [internal] (emun) DmiType034Property: Defines the properties available for the structure type 034 [Management Device]
     /// <summary>
-    /// Defines the properties available for the structure type type 034 [Management Device].
+    /// Defines the properties available for the structure type 034 [Management Device].
     /// </summary>
     internal enum DmiType034Property
     {
@@ -1840,13 +1811,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("Address Type")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        AddressType,
+        AddressType
     }
     #endregion
 
     #region [internal] (emun) DmiType035Property: Defines the properties available for the structure type 035 [Management Device Component]
     /// <summary>
-    /// Defines the properties available for the structure type type 035 [Management Device Component].
+    /// Defines the properties available for the structure type 035 [Management Device Component].
     /// </summary>
     internal enum DmiType035Property
     {
@@ -1857,62 +1828,62 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Management Device Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         ManagementDeviceHandle,
 
         [PropertyName("Component Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         ComponentHandle,
 
         [PropertyName("Threshold Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
-        ThresholdHandle,
+        [PropertyType(typeof(ushort))]
+        ThresholdHandle
     }
     #endregion
 
     #region [internal] (emun) DmiType036Property: Defines the properties available for the structure type 036 [Management Device Threshold Data]
     /// <summary>
-    /// Defines the properties available for the structure type type 036 [Management Device Threshold Data].
+    /// Defines the properties available for the structure type 036 [Management Device Threshold Data].
     /// </summary>
     internal enum DmiType036Property
     {
         [PropertyName("Lower Non Critical")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         LowerNonCritical,
 
         [PropertyName("Upper Non Critical")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         UpperNonCritical,
 
         [PropertyName("Lower Critical")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         LowerCritical,
 
         [PropertyName("Upper Critical")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         UpperCritical,
 
         [PropertyName("Lower Non Recoverable")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         LowerNonRecoverable,
 
         [PropertyName("Upper Non Recoverable")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        UpperNonRecoverable,
+        [PropertyType(typeof(ushort))]
+        UpperNonRecoverable
     }
     #endregion
 
     #region [internal] (emun) DmiType037Property: Defines the properties available for the structure type 037 [Memory Channel]
     /// <summary>
-    /// Defines the properties available for the structure type type 037 [Management Device Threshold Data].
+    /// Defines the properties available for the structure type 037 [Memory Channel].
     /// </summary>
     internal enum DmiType037Property
     {
@@ -1921,31 +1892,31 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyType(typeof(string))]
         ChannelType,
 
-        [PropertyName("Maximun Channel Load")]
+        [PropertyName("Maximum Channel Load")]
         [PropertyDescription("")]
         [PropertyType(typeof(byte))]
-        MaximunChannelLoad,
+        MaximumChannelLoad,
 
         [PropertyName("Devices")]
         [PropertyDescription("")]
         [PropertyType(typeof(MemoryChannelElementCollection))]
         Devices,
 
-        [PropertyName("Handle")]
-        [PropertyDescription("")]
-        [PropertyType(typeof(byte))]
-        Handle,
-
         [PropertyName("Load")]
         [PropertyDescription("")]
         [PropertyType(typeof(byte))]
-        Load
+        Load,
+
+        [PropertyName("Handle")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(ushort))]
+        Handle
     }
     #endregion
 
     #region [internal] (emun) DmiType038Property: Defines the properties available for the structure type 038 [IPMI Device Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 038 [IPMI Device Information].
+    /// Defines the properties available for the structure type 038 [IPMI Device Information].
     /// </summary>
     internal enum DmiType038Property
     {
@@ -1966,13 +1937,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("NV Storage Device Address")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         NvStorageDeviceAddress,
 
-        [PropertyName("Base Adress")]
+        [PropertyName("Base Address")]
         [PropertyDescription("")]
         [PropertyType(typeof(ulong))]
-        BaseAdress,
+        BaseAddress,
 
         [PropertyName("Register Spacing")]
         [PropertyDescription("")]
@@ -1981,12 +1952,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("LS-Bit")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
+        [PropertyType(typeof(byte))]
         LsBit,
 
-        [PropertyName("Interface Type")]
+        [PropertyName("Specified Info")]
         [PropertyDescription("")]
-        [PropertyType(typeof(bool?))]
+        [PropertyType(typeof(bool))]
         SpecifiedInfo,
 
         [PropertyName("Polarity")]
@@ -2001,14 +1972,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Interrupt Number")]
         [PropertyDescription("")]
-        [PropertyType(typeof(byte?))]
-        InterruptNumber,
+        [PropertyType(typeof(byte))]
+        InterruptNumber
     }
     #endregion
 
     #region [internal] (emun) DmiType039Property: Defines the properties available for the structure type 039 [System Power Supply]
     /// <summary>
-    /// Defines the properties available for the structure type type 039 [System Power Supply].
+    /// Defines the properties available for the structure type 039 [System Power Supply].
     /// </summary>
     internal enum DmiType039Property
     {
@@ -2054,7 +2025,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Max Power Capacity")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         MaxPowerCapacity,
 
         [PropertyName("Supply Type")]
@@ -2089,24 +2060,24 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Input Voltage Probe Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         InputVoltageProbeHandle,
 
         [PropertyName("Cooling Device Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
+        [PropertyType(typeof(ushort))]
         CoolingDeviceHandle,
 
         [PropertyName("Input Current Probe Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int?))]
-        InputCurrentProbeHandle,
+        [PropertyType(typeof(ushort))]
+        InputCurrentProbeHandle
     }
     #endregion
 
     #region [internal] (emun) DmiType040Property: Defines the properties available for the structure type 040 [Additional Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 040 [Additional Information].
+    /// Defines the properties available for the structure type 040 [Additional Information].
     /// </summary>
     internal enum DmiType040Property
     {
@@ -2117,7 +2088,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         [PropertyName("Referenced Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         ReferencedHandle,
 
         [PropertyName("Referenced Offset")]
@@ -2144,7 +2115,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     #region [internal] (emun) DmiType041Property: Defines the properties available for the structure type 041 [Onboard Devices Extended Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 041 [Onboard Devices Extended Information].
+    /// Defines the properties available for the structure type 041 [Onboard Devices Extended Information].
     /// </summary>
     internal enum DmiType041Property
     {
@@ -2161,13 +2132,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("Device Type")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        DeviceType,
+        DeviceType
     }
     #endregion
 
     #region [internal] (emun) DmiType042Property: Defines the properties available for the structure type 042 [Management Controller Host Interface]
     /// <summary>
-    /// Defines the properties available for the structure type type 042 [Management Controller Host Interface].
+    /// Defines the properties available for the structure type 042 [Management Controller Host Interface].
     /// </summary>
     internal enum DmiType042Property
     {
@@ -2194,13 +2165,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("Protocol Type Specific Data")]
         [PropertyDescription("")]
         [PropertyType(typeof(ReadOnlyCollection<byte>))]
-        ProtocolTypeSpecificData,
+        ProtocolTypeSpecificData
     }
     #endregion
 
     #region [internal] (emun) DmiType043Property: Defines the properties available for the structure type 043 [TPM Device]
     /// <summary>
-    /// Defines the properties available for the structure type type 043 [TPM Device].
+    /// Defines the properties available for the structure type 043 [TPM Device].
     /// </summary>
     internal enum DmiType043Property
     {
@@ -2250,27 +2221,27 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     #region [internal] (emun) DmiType044Property: Defines the properties available for the structure type 043 [Processor Additional Information]
     /// <summary>
-    /// Defines the properties available for the structure type type 044 [Processor Additional Information].
+    /// Defines the properties available for the structure type 044 [Processor Additional Information].
     /// </summary>
     internal enum DmiType044Property
     {
         #region Version 3.3+
         [PropertyName("Referenced Handle")]
         [PropertyDescription("")]
-        [PropertyType(typeof(int))]
+        [PropertyType(typeof(ushort))]
         ReferencedHandle,
 
         [PropertyName("Processor Specific Block")]
         [PropertyDescription("")]
         [PropertyType(typeof(ProcessorSpecificInformationBlock))]
-        ProcessorSpecificBlock,
+        ProcessorSpecificBlock
         #endregion
     }
     #endregion
 
     #region [internal] (emun) DmiType126Property: Defines the properties available for the structure type 126 [Inactive]
     /// <summary>
-    /// Defines the properties available for the structure type type 126 [Inactive].
+    /// Defines the properties available for the structure type 126 [Inactive].
     /// </summary>
     internal enum DmiType126Property
     {
@@ -2283,7 +2254,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
     #region [internal] (emun) DmiType127Property: Defines the properties available for the structure type 127 [End-of-Table]
     /// <summary>
-    /// Defines the properties available for the structure type type 127 [End-of-Table].
+    /// Defines the properties available for the structure type 127 [End-of-Table].
     /// </summary>
     internal enum DmiType127Property
     {

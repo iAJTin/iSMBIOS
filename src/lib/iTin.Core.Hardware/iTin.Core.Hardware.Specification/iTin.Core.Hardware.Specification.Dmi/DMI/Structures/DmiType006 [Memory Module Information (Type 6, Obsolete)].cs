@@ -39,17 +39,8 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object socketDesignation = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.SocketDesignation);
-            if (socketDesignation != null)
-            {
-                properties.Add(DmiProperty.MemoryModule.SocketDesignation, socketDesignation);
-            }
-
-            object bankConnections = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.BankConnections);
-            if (bankConnections != null)
-            {
-                properties.Add(DmiProperty.MemoryModule.BankConnections, bankConnections);
-            }
+            properties.Add(DmiProperty.MemoryModule.SocketDesignation, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.SocketDesignation));
+            properties.Add(DmiProperty.MemoryModule.BankConnections, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.BankConnections));
 
             object currentSpeedProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.CurrentSpeed);
             if (currentSpeedProperty != null)
@@ -61,29 +52,10 @@ namespace iTin.Core.Hardware.Specification.Dmi
                 }
             }
 
-            object currentMemoryType = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.CurrentMemoryType);
-            if (currentMemoryType != null)
-            {
-                properties.Add(DmiProperty.MemoryModule.CurrentMemoryType, currentMemoryType);
-            }
-
-            object installedSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.InstalledSize);
-            if (installedSize != null)
-            {
-                properties.Add(DmiProperty.MemoryModule.InstalledSize, installedSize);
-            }
-
-            object enabledSize = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.EnabledSize);
-            if (enabledSize != null)
-            {
-                properties.Add(DmiProperty.MemoryModule.EnabledSize, enabledSize);
-            }
-
-            object errorStatus = SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.ErrorStatus);
-            if (errorStatus != null)
-            {
-                properties.Add(DmiProperty.MemoryModule.ErrorStatus, errorStatus);
-            }
+            properties.Add(DmiProperty.MemoryModule.CurrentMemoryType, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.CurrentMemoryType));
+            properties.Add(DmiProperty.MemoryModule.InstalledSize, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.InstalledSize));
+            properties.Add(DmiProperty.MemoryModule.EnabledSize, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.EnabledSize));
+            properties.Add(DmiProperty.MemoryModule.ErrorStatus, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryModule.ErrorStatus));
         }
         #endregion
 

@@ -47,7 +47,7 @@ namespace iTin.Core
         }
         #endregion
 
-        #region [public] {static} (long) GetQuadrupleWord(this byte[], byte): Returns a quadriple Word from this array of bytes starting in start
+        #region [public] {static} (ulong) GetQuadrupleWord(this byte[], byte): Returns a quadriple Word from this array of bytes starting in start
         /// <summary>
         /// Returns a <b>Quadriple Word</b> from this array of bytes starting in <paramref name="start"/>.
         /// </summary>

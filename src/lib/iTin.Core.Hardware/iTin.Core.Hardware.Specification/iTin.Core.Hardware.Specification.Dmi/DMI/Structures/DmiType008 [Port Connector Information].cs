@@ -39,35 +39,11 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object internalReferenceDesignator = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.InternalReferenceDesignator);
-            if (internalReferenceDesignator != null)
-            {
-                properties.Add(DmiProperty.PortConnector.InternalReferenceDesignator, internalReferenceDesignator);
-            }
-
-            object internalConnectorType = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.InternalConnectorType);
-            if (internalConnectorType != null)
-            {
-                properties.Add(DmiProperty.PortConnector.InternalConnectorType, internalConnectorType);
-            }
-
-            object externalReferenceDesignator = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.ExternalReferenceDesignator);
-            if (externalReferenceDesignator != null)
-            {
-                properties.Add(DmiProperty.PortConnector.ExternalReferenceDesignator, externalReferenceDesignator);
-            }
-
-            object externalConnectorType = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.ExternalConnectorType);
-            if (externalConnectorType != null)
-            {
-                properties.Add(DmiProperty.PortConnector.ExternalConnectorType, externalConnectorType);
-            }
-
-            object portType = SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.PortType);
-            if (portType != null)
-            {
-                properties.Add(DmiProperty.PortConnector.PortType, portType);
-            }
+            properties.Add(DmiProperty.PortConnector.InternalReferenceDesignator, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.InternalReferenceDesignator));
+            properties.Add(DmiProperty.PortConnector.InternalConnectorType, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.InternalConnectorType));
+            properties.Add(DmiProperty.PortConnector.ExternalReferenceDesignator, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.ExternalReferenceDesignator));
+            properties.Add(DmiProperty.PortConnector.ExternalConnectorType, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.ExternalConnectorType));
+            properties.Add(DmiProperty.PortConnector.PortType, SmbiosStructure.GetPropertyValue(SmbiosProperty.PortConnector.PortType));
         }
         #endregion
 

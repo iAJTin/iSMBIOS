@@ -122,6 +122,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.OutOfBandRemote.Manufacturer, ManufacturerName);
             properties.Add(SmbiosProperty.OutOfBandRemote.Connections.OutBoundConnection, OutBoundConnection);
             properties.Add(SmbiosProperty.OutOfBandRemote.Connections.InBoundConnection, InBoundConnection);

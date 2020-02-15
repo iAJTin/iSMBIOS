@@ -39,23 +39,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object enabled = SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevices.Enabled);
-            if (enabled != null)
-            {
-                properties.Add(DmiProperty.OnBoardDevices.Enabled, enabled);
-            }
-
-            object deviceType = SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevices.DeviceType);
-            if (deviceType != null)
-            {
-                properties.Add(DmiProperty.OnBoardDevices.DeviceType, deviceType);
-            }
-
-            object description = SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevices.Description);
-            if (description != null)
-            {
-                properties.Add(DmiProperty.OnBoardDevices.Description, description);
-            }
+            properties.Add(DmiProperty.OnBoardDevices.Enabled, SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevices.Enabled));
+            properties.Add(DmiProperty.OnBoardDevices.DeviceType, SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevices.DeviceType));
+            properties.Add(DmiProperty.OnBoardDevices.Description, SmbiosStructure.GetPropertyValue(SmbiosProperty.OnBoardDevices.Description));
         }
         #endregion
 

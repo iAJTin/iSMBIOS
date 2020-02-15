@@ -118,7 +118,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte ErrorOperation => Reader.GetByte(0x06);
         #endregion
 
-        #region [private] (long) CrcData: Gets a value representing the 'Crc Data' field
+        #region [private] (uint) CrcData: Gets a value representing the 'Crc Data' field
         /// <summary>
         /// Gets a value representing the <b>Crc Data</b> field.
         /// </summary>
@@ -126,10 +126,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long CrcData => Reader.GetDoubleWord(0x07);
+        private uint CrcData => Reader.GetDoubleWord(0x07);
         #endregion
 
-        #region [private] (long) BusErrorAddress: Gets a value representing the 'Bus Error Address' field
+        #region [private] (uint) BusErrorAddress: Gets a value representing the 'Bus Error Address' field
         /// <summary>
         /// Gets a value representing the <b>Bus Error Address</b> field.
         /// </summary>
@@ -137,10 +137,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long BusErrorAddress => Reader.GetDoubleWord(0x0b);
+        private uint BusErrorAddress => Reader.GetDoubleWord(0x0b);
         #endregion
 
-        #region [private] (long) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field
+        #region [private] (uint) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field
         /// <summary>
         /// Gets a value representing the <b>Device Error Address</b> field.
         /// </summary>
@@ -148,10 +148,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long DeviceErrorAddress => Reader.GetDoubleWord(0x0f);
+        private uint DeviceErrorAddress => Reader.GetDoubleWord(0x0f);
         #endregion
 
-        #region [private] (long) ErrorResolution: Gets a value representing the 'Error Resolution' field
+        #region [private] (uint) ErrorResolution: Gets a value representing the 'Error Resolution' field
         /// <summary>
         /// Gets a value representing the <b>Error Resolution</b> field.
         /// </summary>
@@ -159,7 +159,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long ErrorResolution => Reader.GetDoubleWord(0x13);
+        private uint ErrorResolution => Reader.GetDoubleWord(0x13);
         #endregion
 
         #endregion
@@ -176,6 +176,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.v21)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.BitMemoryError32.ErrorType, GetErrorType(ErrorType));
             properties.Add(SmbiosProperty.BitMemoryError32.ErrorGranularity, GetErrorGranularity(ErrorGranularity));
             properties.Add(SmbiosProperty.BitMemoryError32.ErrorOperation, GetErrorOperation(ErrorOperation));

@@ -129,7 +129,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte Status => (byte)((LocationAndStatus >> 5) & 0x07);
         #endregion
 
-        #region [private] (int) MaximunValue: Gets a value representing the 'Maximun Value' field
+        #region [private] (ushort) MaximunValue: Gets a value representing the 'Maximun Value' field
         /// <summary>
         /// Gets a value representing the <b>Maximun Value</b> field.
         /// </summary>
@@ -137,10 +137,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MaximunValue => Reader.GetWord(0x06);
+        private ushort MaximunValue => Reader.GetWord(0x06);
         #endregion
 
-        #region [private] (int) MinimunValue: Gets a value representing the 'Minimun Value' field
+        #region [private] (ushort) MinimunValue: Gets a value representing the 'Minimun Value' field
         /// <summary>
         /// Gets a value representing the <b>Minimun Value</b> field.
         /// </summary>
@@ -148,10 +148,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int MinimunValue => Reader.GetWord(0x08);
+        private ushort MinimunValue => Reader.GetWord(0x08);
         #endregion
 
-        #region [private] (int) Resolution: Gets a value representing the 'Resolution' field
+        #region [private] (ushort) Resolution: Gets a value representing the 'Resolution' field
         /// <summary>
         /// Gets a value representing the <b>Resolution</b> field.
         /// </summary>
@@ -159,10 +159,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Resolution => Reader.GetWord(0x0a);
+        private ushort Resolution => Reader.GetWord(0x0a);
         #endregion
 
-        #region [private] (int) Tolerance: Gets a value representing the 'Tolerance' field
+        #region [private] (ushort) Tolerance: Gets a value representing the 'Tolerance' field
         /// <summary>
         /// Gets a value representing the <b>Tolerance</b> field.
         /// </summary>
@@ -170,10 +170,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Tolerance => Reader.GetWord(0x0c);
+        private ushort Tolerance => Reader.GetWord(0x0c);
         #endregion
 
-        #region [private] (int) Accuracy: Gets a value representing the 'Accuracy' field
+        #region [private] (ushort) Accuracy: Gets a value representing the 'Accuracy' field
         /// <summary>
         /// Gets a value representing the <b>Accuracy</b> field.
         /// </summary>
@@ -181,10 +181,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int Accuracy => Reader.GetWord(0x0e);
+        private ushort Accuracy => Reader.GetWord(0x0e);
         #endregion.
 
-        #region [private] (long) OemDefined: Gets a value representing the 'Oem Defined' field
+        #region [private] (uint) OemDefined: Gets a value representing the 'Oem Defined' field
         /// <summary>
         /// Gets a value representing the <b>Oem Defined</b> field.
         /// </summary>
@@ -192,10 +192,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemDefined => Reader.GetDoubleWord(0x10);
+        private uint OemDefined => Reader.GetDoubleWord(0x10);
         #endregion
 
-        #region [private] (int) NominalValue: Gets a value representing the 'Nominal Value field
+        #region [private] (ushort) NominalValue: Gets a value representing the 'Nominal Value field
         /// <summary>
         /// Gets a value representing the <b>Nominal Value</b> field.
         /// </summary>
@@ -203,7 +203,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int NominalValue => Reader.GetWord(0x14);
+        private ushort NominalValue => Reader.GetWord(0x14);
         #endregion
 
         #endregion
@@ -218,49 +218,22 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            properties.Add(SmbiosProperty.ElectricalCurrentProbe.Description, Description);
-            properties.Add(SmbiosProperty.ElectricalCurrentProbe.LocationAndStatus.Status, GetStatus(Status));
-            properties.Add(SmbiosProperty.ElectricalCurrentProbe.LocationAndStatus.Location, GetLocation(Location));
-
-            int maximunValue = MaximunValue;
-            if (maximunValue != 0x8000)
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.Latest)
             {
-                properties.Add(SmbiosProperty.ElectricalCurrentProbe.MaximunValue, maximunValue);
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.Description, Description);
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.LocationAndStatus.Status, GetStatus(Status));
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.LocationAndStatus.Location, GetLocation(Location));
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.MaximumValue, MaximunValue);
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.MinimumValue, MinimunValue);
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.Resolution, Resolution);
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.Tolerance, Tolerance);
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.Accuracy, Accuracy);
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.OemDefined, OemDefined);
             }
-
-            int minimunValue = MinimunValue;
-            if (minimunValue != 0x8000)
-            {
-                properties.Add(SmbiosProperty.ElectricalCurrentProbe.MinimunValue, minimunValue);
-            }
-
-            int resolution = Resolution;
-            if (resolution != 0x8000)
-            {
-                properties.Add(SmbiosProperty.ElectricalCurrentProbe.Resolution, resolution);
-            }
-
-            int tolerance = Tolerance;
-            if (tolerance != 0x8000)
-            {
-                properties.Add(SmbiosProperty.ElectricalCurrentProbe.Tolerance, tolerance);
-            }
-
-            int accuracy = Accuracy;
-            if (accuracy != 0x8000)
-            {
-                properties.Add(SmbiosProperty.ElectricalCurrentProbe.Accuracy, accuracy);
-            }
-
-            properties.Add(SmbiosProperty.ElectricalCurrentProbe.OemDefined, OemDefined);
 
             if (StructureInfo.Length >= 0x15)
             {
-                int nominalValue = NominalValue;
-                if (nominalValue != 0x8000)
-                {
-                    properties.Add(SmbiosProperty.ElectricalCurrentProbe.NominalValue, nominalValue);
-                }
+                properties.Add(SmbiosProperty.ElectricalCurrentProbe.NominalValue, NominalValue);
             }
         }
         #endregion

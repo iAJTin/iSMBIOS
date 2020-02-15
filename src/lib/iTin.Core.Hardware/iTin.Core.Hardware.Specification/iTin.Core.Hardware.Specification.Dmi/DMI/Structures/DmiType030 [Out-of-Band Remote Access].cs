@@ -39,23 +39,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object manufacturer = SmbiosStructure.GetPropertyValue(SmbiosProperty.OutOfBandRemote.Manufacturer);
-            if (manufacturer != null)
+            if (ImplementedVersion < DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.OutOfBandRemote.Manufacturer, manufacturer);
+                return;
             }
 
-            object outBoundConnection = SmbiosStructure.GetPropertyValue(SmbiosProperty.OutOfBandRemote.Connections.OutBoundConnection);
-            if (outBoundConnection != null)
-            {
-                properties.Add(DmiProperty.OutOfBandRemote.Connections.OutBoundConnection, outBoundConnection);
-            }
-
-            object inBoundConnection = SmbiosStructure.GetPropertyValue(SmbiosProperty.OutOfBandRemote.Connections.InBoundConnection);
-            if (inBoundConnection != null)
-            {
-                properties.Add(DmiProperty.OutOfBandRemote.Connections.InBoundConnection, inBoundConnection);
-            }
+            properties.Add(DmiProperty.OutOfBandRemote.Manufacturer, SmbiosStructure.GetPropertyValue(SmbiosProperty.OutOfBandRemote.Manufacturer));
+            properties.Add(DmiProperty.OutOfBandRemote.Connections.OutBoundConnection, SmbiosStructure.GetPropertyValue(SmbiosProperty.OutOfBandRemote.Connections.OutBoundConnection));
+            properties.Add(DmiProperty.OutOfBandRemote.Connections.InBoundConnection, SmbiosStructure.GetPropertyValue(SmbiosProperty.OutOfBandRemote.Connections.InBoundConnection));
         }
         #endregion
 

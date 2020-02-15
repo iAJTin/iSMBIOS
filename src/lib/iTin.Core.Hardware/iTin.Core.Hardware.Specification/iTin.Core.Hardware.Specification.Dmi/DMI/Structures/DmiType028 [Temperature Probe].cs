@@ -39,71 +39,54 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object description = SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.Description);
-            if (description != null)
+            if (ImplementedVersion >= DmiStructureVersion.Latest)
             {
-                properties.Add(DmiProperty.TemperatureProbe.Description, description);
-            }
+                properties.Add(DmiProperty.TemperatureProbe.Description, SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.Description));
+                properties.Add(DmiProperty.TemperatureProbe.LocationAndStatus.Status, SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.LocationAndStatus.Status));
+                properties.Add(DmiProperty.TemperatureProbe.LocationAndStatus.Location, SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.LocationAndStatus.Location));
 
-            object status = SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.LocationAndStatus.Status);
-            if (status != null)
-            {
-                properties.Add(DmiProperty.TemperatureProbe.LocationAndStatus.Status, status);
-            }
-
-            object location = SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.LocationAndStatus.Location);
-            if (location != null)
-            {
-                properties.Add(DmiProperty.TemperatureProbe.LocationAndStatus.Location, location);
-            }
-
-            int maximunValue = SmbiosStructure.GetPropertyValue<int>(SmbiosProperty.TemperatureProbe.MaximunValue);
-            if (maximunValue != 0x8000)
-            {
-                properties.Add(DmiProperty.TemperatureProbe.MaximunValue, maximunValue);
-            }
-
-            int minimunValue = SmbiosStructure.GetPropertyValue<int>(SmbiosProperty.TemperatureProbe.MinimunValue);
-            if (minimunValue != 0x8000)
-            {
-                properties.Add(DmiProperty.TemperatureProbe.MinimunValue, minimunValue);
-            }
-
-            int resolution = SmbiosStructure.GetPropertyValue<int>(SmbiosProperty.TemperatureProbe.Resolution);
-            if (resolution != 0x8000)
-            {
-                properties.Add(DmiProperty.TemperatureProbe.Resolution, resolution);
-            }
-
-            int tolerance = SmbiosStructure.GetPropertyValue<int>(SmbiosProperty.TemperatureProbe.Tolerance);
-            if (tolerance != 0x8000)
-            {
-                properties.Add(DmiProperty.TemperatureProbe.Tolerance, tolerance);
-            }
-
-            int accuracy = SmbiosStructure.GetPropertyValue<int>(SmbiosProperty.TemperatureProbe.Accuracy);
-            if (accuracy != 0x8000)
-            {
-                properties.Add(DmiProperty.TemperatureProbe.Accuracy, accuracy);
-            }
-
-            object oemDefined = SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.OemDefined);
-            if (oemDefined != null)
-            {
-                properties.Add(DmiProperty.TemperatureProbe.OemDefined, oemDefined);
-            }
-
-            if (SmbiosStructure.StructureInfo.Length >= 0x15)
-            {
-                object nominalValueProperty = SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.NominalValue);
-                if (nominalValueProperty != null)
+                ushort maximumValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.TemperatureProbe.MaximumValue);
+                if (maximumValue != 0x8000)
                 {
-                    int nominalValue = (int)nominalValueProperty;
-                    if (nominalValue != 0x8000)
-                    {
-                        properties.Add(DmiProperty.TemperatureProbe.NominalValue, nominalValue);
-                    }
+                    properties.Add(DmiProperty.TemperatureProbe.MaximumValue, maximumValue);
                 }
+
+                ushort minimumValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.TemperatureProbe.MinimumValue);
+                if (minimumValue != 0x8000)
+                {
+                    properties.Add(DmiProperty.TemperatureProbe.MinimumValue, minimumValue);
+                }
+
+                ushort resolution = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.TemperatureProbe.Resolution);
+                if (resolution != 0x8000)
+                {
+                    properties.Add(DmiProperty.TemperatureProbe.Resolution, resolution);
+                }
+
+                ushort tolerance = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.TemperatureProbe.Tolerance);
+                if (tolerance != 0x8000)
+                {
+                    properties.Add(DmiProperty.TemperatureProbe.Tolerance, tolerance);
+                }
+
+                ushort accuracy = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.TemperatureProbe.Accuracy);
+                if (accuracy != 0x8000)
+                {
+                    properties.Add(DmiProperty.TemperatureProbe.Accuracy, accuracy);
+                }
+
+                properties.Add(DmiProperty.TemperatureProbe.OemDefined, SmbiosStructure.GetPropertyValue(SmbiosProperty.TemperatureProbe.OemDefined));
+            }
+
+            if (SmbiosStructure.StructureInfo.Length < 0x15)
+            {
+                return;
+            }
+
+            ushort nominalValue = SmbiosStructure.GetPropertyValue<ushort>(SmbiosProperty.TemperatureProbe.NominalValue);
+            if (nominalValue != 0x8000)
+            {
+                properties.Add(DmiProperty.TemperatureProbe.NominalValue, nominalValue);
             }
         }
         #endregion

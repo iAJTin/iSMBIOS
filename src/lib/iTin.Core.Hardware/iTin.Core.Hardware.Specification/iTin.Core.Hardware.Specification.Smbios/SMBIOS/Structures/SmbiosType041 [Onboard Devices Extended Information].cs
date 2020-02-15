@@ -111,7 +111,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte DeviceTypeInstance => Reader.GetByte(0x06);
         #endregion
 
-        #region [private] (int) SegmentGroupNumber: Gets a value representing the 'Segment Group Number' field
+        #region [private] (ushort) SegmentGroupNumber: Gets a value representing the 'Segment Group Number' field
         /// <summary>
         /// Gets a value representing the <b>Segment Group Number</b> field.
         /// </summary>
@@ -119,7 +119,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int SegmentGroupNumber => Reader.GetWord(0x07);
+        private ushort SegmentGroupNumber => Reader.GetWord(0x07);
         #endregion
 
         #region [private] (byte) BusNumber: Gets a value representing the 'Bus Number' field
@@ -167,6 +167,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.OnBoardDevicesExtended.ReferenceDesignation, ReferenceDesignation);
             properties.Add(SmbiosProperty.OnBoardDevicesExtended.Element.DeviceStatus, DeviceStatus);
             properties.Add(SmbiosProperty.OnBoardDevicesExtended.Element.DeviceType, GetDeviceType(DeviceType));

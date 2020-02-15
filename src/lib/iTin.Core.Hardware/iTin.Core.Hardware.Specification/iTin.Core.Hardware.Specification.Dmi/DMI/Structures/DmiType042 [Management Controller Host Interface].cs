@@ -39,19 +39,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            object interfaceType = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementControllerHostInterface.InterfaceType);
-            if (interfaceType != null)
-            {
-                properties.Add(DmiProperty.ManagementControllerHostInterface.InterfaceType, interfaceType);
-            }
+            properties.Add(DmiProperty.ManagementControllerHostInterface.InterfaceType, SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementControllerHostInterface.InterfaceType));
 
-            if (SmbiosStructure.StructureInfo.Length >= 0x07)
+            object interfaceTypeSpecificData = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData);
+            if (interfaceTypeSpecificData != null)
             {
-                object interfaceTypeSpecificData = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData);
-                if (interfaceTypeSpecificData != null)
-                {
-                    properties.Add(DmiProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData, interfaceTypeSpecificData);
-                }
+                properties.Add(DmiProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData, interfaceTypeSpecificData);
             }
 
             object protocols = SmbiosStructure.GetPropertyValue(SmbiosProperty.ManagementControllerHostInterface.Protocols);

@@ -71,7 +71,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private string Description => GetString(0x04);
         #endregion
 
-        #region [private] (int) ManagementDeviceHandle: Gets a value representing the 'Management Device Handle' field
+        #region [private] (ushort) ManagementDeviceHandle: Gets a value representing the 'Management Device Handle' field
         /// <summary>
         /// Gets a value representing the <b>Management Device Handle</b> field.
         /// </summary>
@@ -79,10 +79,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ManagementDeviceHandle => Reader.GetWord(0x05);
+        private ushort ManagementDeviceHandle => Reader.GetWord(0x05);
         #endregion
 
-        #region [private] (int) ComponentHandle: Gets a value representing the 'Component Handle' field
+        #region [private] (ushort) ComponentHandle: Gets a value representing the 'Component Handle' field
         /// <summary>
         /// Gets a value representing the <b>Component Handle</b> field.
         /// </summary>
@@ -90,10 +90,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ComponentHandle => Reader.GetWord(0x07);
+        private ushort ComponentHandle => Reader.GetWord(0x07);
         #endregion
 
-        #region [private] (int) ThresholdHandle: Gets a value representing the 'Threshold Handle' field
+        #region [private] (ushort) ThresholdHandle: Gets a value representing the 'Threshold Handle' field
         /// <summary>
         /// Gets a value representing the <b>Threshold Handle</b> field.
         /// </summary>
@@ -101,7 +101,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ThresholdHandle => Reader.GetWord(0x09);
+        private ushort ThresholdHandle => Reader.GetWord(0x09);
         #endregion
 
         #endregion
@@ -116,10 +116,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.ManagementDeviceComponent.Description, Description);
-            properties.Add(SmbiosProperty.ManagementDeviceComponent.ManagementDeviceHandle, ManagementDeviceHandle);
             properties.Add(SmbiosProperty.ManagementDeviceComponent.ComponentHandle, ComponentHandle);
             properties.Add(SmbiosProperty.ManagementDeviceComponent.ThresholdHandle, ThresholdHandle);
+            properties.Add(SmbiosProperty.ManagementDeviceComponent.ManagementDeviceHandle, ManagementDeviceHandle);
         }
         #endregion
 

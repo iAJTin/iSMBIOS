@@ -40,7 +40,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
             #region 2.0+
-            if (SmbiosVersion >= 0x0200)
+            if (ImplementedVersion >= DmiStructureVersion.v20)
             {
                 object manufacturer = SmbiosStructure.GetPropertyValue(SmbiosProperty.Chassis.Manufacturer);
                 if (manufacturer != null)
@@ -81,7 +81,7 @@ namespace iTin.Core.Hardware.Specification.Dmi
             #endregion
 
             #region 2.1+
-            if (SmbiosVersion >= 0x0201)
+            if (ImplementedVersion >= DmiStructureVersion.v21)
             {
                 object bootUpState = SmbiosStructure.GetPropertyValue(SmbiosProperty.Chassis.BootUpState);
                 if (bootUpState != null)
@@ -110,51 +110,41 @@ namespace iTin.Core.Hardware.Specification.Dmi
             #endregion
 
             #region 2.3+
-            if (SmbiosVersion >= 0x0203)
+            if (ImplementedVersion >= DmiStructureVersion.v23)
             {
                 object oemDefined = SmbiosStructure.GetPropertyValue(SmbiosProperty.Chassis.OemDefined);
-                if (oemDefined != null)
+                if ((uint) oemDefined != 0)
                 {
-                    if ((long) oemDefined != 0)
-                    {
-                        properties.Add(DmiProperty.Chassis.OemDefined, oemDefined);
-                    }
+                    properties.Add(DmiProperty.Chassis.OemDefined, oemDefined);
                 }
 
                 object height = SmbiosStructure.GetPropertyValue(SmbiosProperty.Chassis.Height);
-                if (height != null)
+                if ((byte) height != 0)
                 {
-                    if ((byte)height != 0)
-                    {
-                        properties.Add(DmiProperty.Chassis.Height, height);
-                    }
+                    properties.Add(DmiProperty.Chassis.Height, height);
                 }
 
                 object numberOfPowerCords = SmbiosStructure.GetPropertyValue(SmbiosProperty.Chassis.NumberOfPowerCords);
-                if (numberOfPowerCords != null)
+                if ((byte) numberOfPowerCords != 0)
                 {
-                    if ((byte)numberOfPowerCords != 0)
-                    {
-                        properties.Add(DmiProperty.Chassis.NumberOfPowerCords, numberOfPowerCords);
-                    }
+                    properties.Add(DmiProperty.Chassis.NumberOfPowerCords, numberOfPowerCords);
                 }
 
                 object containedElements = SmbiosStructure.GetPropertyValue(SmbiosProperty.Chassis.ContainedElements);
-                if (numberOfPowerCords != null)
+                if (containedElements == null)
                 {
-                    properties.Add(DmiProperty.Chassis.ContainedElements, new DmiChassisContainedElementCollection((ChassisContainedElementCollection)containedElements));
+                    return;
                 }
+
+                properties.Add(DmiProperty.Chassis.ContainedElements, new DmiChassisContainedElementCollection((ChassisContainedElementCollection)containedElements));
             }
             #endregion
 
             #region 2.7+
-            if (SmbiosVersion >= 0x0207)
+            if (ImplementedVersion >= DmiStructureVersion.v27)
             {
                 object skuNumber = SmbiosStructure.GetPropertyValue(SmbiosProperty.Chassis.SkuNumber);
-                if (skuNumber != null)
-                {
-                    properties.Add(DmiProperty.Chassis.SkuNumber, skuNumber);
-                }
+                properties.Add(DmiProperty.Chassis.SkuNumber, skuNumber);
             }
             #endregion
         }

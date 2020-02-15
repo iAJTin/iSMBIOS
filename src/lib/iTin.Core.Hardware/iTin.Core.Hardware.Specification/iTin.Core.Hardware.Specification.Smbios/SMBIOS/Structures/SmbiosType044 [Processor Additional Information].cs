@@ -50,7 +50,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #region private properties
 
-        #region [private] (int) Length: Gets a value representing the 'Length' field
+        #region [private] (byte) Length: Gets a value representing the 'Length' field
         /// <summary>
         ///  Gets a value representing the <b>Length</b> field.
         /// </summary>
@@ -61,7 +61,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte Length => Reader.GetByte(0x01);
         #endregion
 
-        #region [private] (int) ReferencedHandle: Gets a value representing the 'Referenced Handle' field
+        #region [private] (ushort) ReferencedHandle: Gets a value representing the 'Referenced Handle' field
         /// <summary>
         ///  Gets a value representing the <b>Referenced Handle</b> field.
         /// </summary>
@@ -69,7 +69,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int ReferencedHandle => Reader.GetWord(0x04);
+        private ushort ReferencedHandle => Reader.GetWord(0x04);
         #endregion
 
         #endregion

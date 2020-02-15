@@ -71,6 +71,16 @@ namespace iTin.Core.Hardware.Specification
 
         #region public readonly properties
 
+        #region [public] {static} (int) SmbiosVersion: Gets the SMBIOS version
+        /// <summary>
+        /// Gets the <b>SMBIOS</b> version.
+        /// </summary>
+        /// <value>
+        /// The <b>SMBIOS</b> version.
+        /// </value>
+        public string SmbiosVersion => $"{DmiHelper.Smbios.Version:X}";
+        #endregion
+
         #region [public] (DmiStructureCollection) Structures: Gets the collection of available structure
         /// <summary>
         /// Gets the collection of available structures.
@@ -97,7 +107,7 @@ namespace iTin.Core.Hardware.Specification
         /// The <see cref="ToString()"/> method returns a string that includes the version expresed in hexadecimal format,
         /// the number of available structures, and <see cref="SMBIOS"/> total size occupied by all structures.
         /// </remarks>
-        public override string ToString() => $"SMBIOS={DmiHelper.Smbios.Version:X}, Classes={DmiHelper.Smbios.ImplementedStructures.Count}, Size={DmiHelper.Smbios.Lenght}";
+        public override string ToString() => $"SMBIOS={SmbiosVersion}, Classes={DmiHelper.Smbios.ImplementedStructures.Count}, Size={DmiHelper.Smbios.Lenght}";
         #endregion
 
         #endregion

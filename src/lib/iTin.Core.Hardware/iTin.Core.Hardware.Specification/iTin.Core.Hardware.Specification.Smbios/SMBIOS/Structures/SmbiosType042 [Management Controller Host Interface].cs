@@ -117,11 +117,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            #region 2.0+ - 3.1.1
             properties.Add(SmbiosProperty.ManagementControllerHostInterface.InterfaceType, GetInterfaceType(InterfaceType));
-            #endregion
 
-            #region 3.2+
             if (StructureInfo.Length >= 0x07)
             {
                 properties.Add(SmbiosProperty.ManagementControllerHostInterface.InterfaceTypeSpecificData, InterfaceTypeSpecificData);
@@ -131,7 +128,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
             {
                 properties.Add(SmbiosProperty.ManagementControllerHostInterface.Protocols, new ManagementControllerHostInterfaceProtocolRecordsCollection(GetProtocolRecords()));
             }
-            #endregion
         }
         #endregion
 

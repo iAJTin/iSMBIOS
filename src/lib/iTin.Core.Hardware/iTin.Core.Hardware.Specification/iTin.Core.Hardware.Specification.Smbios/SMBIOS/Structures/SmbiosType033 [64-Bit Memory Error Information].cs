@@ -110,7 +110,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte ErrorOperation => Reader.GetByte(0x06);
         #endregion
 
-        #region [private] (long) CrcData: Gets a value representing the 'Crc Data' field
+        #region [private] (uint) CrcData: Gets a value representing the 'Crc Data' field
         /// <summary>
         /// Gets a value representing the <b>Crc Data</b> field.
         /// </summary>
@@ -118,7 +118,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long CrcData => Reader.GetDoubleWord(0x07);
+        private uint CrcData => Reader.GetDoubleWord(0x07);
         #endregion
 
         #region [private] (ulong) MemoryArrayErrorAddress: Gets a value representing the 'Memory Array Error Address' field
@@ -129,7 +129,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong MemoryArrayErrorAddress => (ulong)Reader.GetQuadrupleWord(0x0b);
+        private ulong MemoryArrayErrorAddress => Reader.GetQuadrupleWord(0x0b);
         #endregion
 
         #region [private] (ulong) DeviceErrorAddress: Gets a value representing the 'Device Error Address' field
@@ -140,10 +140,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ulong DeviceErrorAddress => (ulong)Reader.GetQuadrupleWord(0x13);
+        private ulong DeviceErrorAddress => Reader.GetQuadrupleWord(0x13);
         #endregion
 
-        #region [private] (long) ErrorResolution: Gets a value representing the 'Error Resolution' field
+        #region [private] (uint) ErrorResolution: Gets a value representing the 'Error Resolution' field
         /// <summary>
         /// Gets a value representing the <b>Error Resolution</b> field.
         /// </summary>
@@ -151,7 +151,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long ErrorResolution => Reader.GetDoubleWord(0x1b);
+        private uint ErrorResolution => Reader.GetDoubleWord(0x1b);
         #endregion
 
         #endregion
@@ -166,15 +166,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
+            if (StructureInfo.StructureVersion <= SmbiosStructureVersion.Latest)
+            {
+                return;
+            }
+
             properties.Add(SmbiosProperty.BitMemoryError64.ErrorType, GetErrorType(ErrorType));
             properties.Add(SmbiosProperty.BitMemoryError64.ErrorGranularity, GetErrorGranularity(ErrorGranularity));
             properties.Add(SmbiosProperty.BitMemoryError64.ErrorOperation, GetErrorOperation(ErrorOperation));
             properties.Add(SmbiosProperty.BitMemoryError64.VendorSyndrome, CrcData);
-            properties.Add(SmbiosProperty.BitMemoryError64.BusErrorAddress, MemoryArrayErrorAddress);
-            properties.Add(SmbiosProperty.BitMemoryError64.DeviceErrorAddress, DeviceErrorAddress);
-            properties.Add(SmbiosProperty.BitMemoryError64.ErrorResolution, ErrorResolution);
-            properties.Add(SmbiosProperty.BitMemoryError64.VendorSyndrome, CrcData);
-            properties.Add(SmbiosProperty.BitMemoryError64.BusErrorAddress, MemoryArrayErrorAddress);
+            properties.Add(SmbiosProperty.BitMemoryError64.MemoryArrayErrorAddress, MemoryArrayErrorAddress);
             properties.Add(SmbiosProperty.BitMemoryError64.DeviceErrorAddress, DeviceErrorAddress);
             properties.Add(SmbiosProperty.BitMemoryError64.ErrorResolution, ErrorResolution);
         }

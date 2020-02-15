@@ -11,20 +11,20 @@ For more information, please see https://www.dmtf.org/standards/smbios
 Library versions
 ================
 
-Library versions for current iSMBIOS version (1.1.1)
+Library versions for current iSMBIOS version (1.1.2)
 
 •———————————————————————————————————————————————————————————————————————————————————————————•
 | Library                                  Version      Description                         |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core                                 1.0.0		Common calls                        |
+|iTin.Core                                 1.0.1		Common calls                        |
 •———————————————————————————————————————————————————————————————————————————————————————————•
 |iTin.Core.Interop                         1.0.0		Interop calls                       |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware                        1.0.0		Hardware Interop Calls              |
+|iTin.Core.Hardware                        1.0.1		Hardware Interop Calls              |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware.Specification.Dmi      3.3.0.0		DMI Specification Implementation    |
+|iTin.Core.Hardware.Specification.Dmi      3.3.0.1		DMI Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware.Specification.Smbios   3.3.0.0		SMBIOS Specification Implementation |
+|iTin.Core.Hardware.Specification.Smbios   3.3.0.1		SMBIOS Specification Implementation |
 •———————————————————————————————————————————————————————————————————————————————————————————•
 |iTin.Core.Hardware.Specification.Tpm      1.0.0		TPM Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•
@@ -65,17 +65,17 @@ Examples
 	object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
     if (biosVersion != null) 
 	{ 
-	    Console.WriteLine($@" BIOS Version \> {biosVersion}"); 
+	    Console.WriteLine($@" BIOS Version > {biosVersion}"); 
     }
 
     string biosVendor = structures.GetProperty<string>(DmiProperty.Bios.Vendor);
-    Console.WriteLine($@" \> BIOS Vendor \> {biosVendor}");
+    Console.WriteLine($@" > BIOS Vendor > {biosVendor}");
 
-    int currentSpeed = structures.GetProperty<int>(DmiProperty.Processor.CurrentSpeed);
-    Console.WriteLine($@" \> Current Speed \> {currentSpeed:N0} {DmiProperty.Processor.CurrentSpeed.PropertyUnit}");
+    ushort currentSpeed = structures.GetProperty<ushort>(DmiProperty.Processor.CurrentSpeed);
+    Console.WriteLine($@" > Current Speed > {currentSpeed:N0} {DmiProperty.Processor.CurrentSpeed.PropertyUnit}");
 
     string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
-	Console.WriteLine($@" Processor Manufacturer \> {processorManufacturer}");
+	Console.WriteLine($@" Processor Manufacturer > {processorManufacturer}");
 
 4.  Gets a property in multiple elements directly.
 
@@ -103,7 +103,9 @@ Examples
     foreach (DmiStructure structure in structures)
     {
         Console.WriteLine();
-        Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+        Console.WriteLine(element.ImplementedVersion == DmiStructureVersion.Latest
+            ? $@" ———————————————————————————————————————————————————— {element.ImplementedVersion} ——"
+            : $@" ——————————————————————————————————————————————————————— {element.ImplementedVersion} ——");
         Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName} structure detail");
         Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
         DmiClassCollection elements = structure.Elements;
@@ -142,7 +144,9 @@ Examples
                 }
                 else if (value is ushort)
                 {
-                    Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
+                    Console.WriteLine(key.Equals(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed)
+                        ? $@" > {friendlyName} > {value} {(int.Parse(DMI.Instance.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
+                        : $@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                 }
                 else if (value is int)
                 {

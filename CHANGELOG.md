@@ -17,6 +17,8 @@ All notable changes to this project will be documented in this file.
 
 - Adds **SmbiosVersion** property to **DMI** object.
 
+- Adds **ImplementedVersion** property to **DmiClasses**, indicates which structure version the manufacturer has implemented for a version of smbios.
+
 - SMBIOS 3.4.0a (preliminary version) pdf file to Documents folder. 
 
 ### Changed

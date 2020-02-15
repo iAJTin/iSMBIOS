@@ -73,7 +73,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        string biosVendor = structures.GetProperty<string>(DmiProperty.Bios.Vendor);
        Console.WriteLine($@" > BIOS Vendor > {biosVendor}");
 
-       int currentSpeed = structures.GetProperty<int>(DmiProperty.Processor.CurrentSpeed);
+       ushort currentSpeed = structures.GetProperty<ushort>(DmiProperty.Processor.CurrentSpeed);
        Console.WriteLine($@" > Current Speed > {currentSpeed:N0} {DmiProperty.Processor.CurrentSpeed.PropertyUnit}");
 
        string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
@@ -105,9 +105,12 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
         foreach (DmiStructure structure in structures)
         {
             Console.WriteLine();
-            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            Console.WriteLine(element.ImplementedVersion == DmiStructureVersion.Latest
+                ? $@" ———————————————————————————————————————————————————— {element.ImplementedVersion} ——"
+                : $@" ——————————————————————————————————————————————————————— {element.ImplementedVersion} ——");
             Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName} structure detail");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            
             DmiClassCollection elements = structure.Elements;
             foreach (DmiClass element in elements)
             {
@@ -144,7 +147,9 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
                     }
                     else if (value is ushort)
                     {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
+                        Console.WriteLine(key.Equals(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed)
+                            ? $@" > {friendlyName} > {value} {(int.Parse(DMI.Instance.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
+                            : $@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                     }
                     else if (value is int)
                     {

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
     <metadata>
         <id>iSMBIOS</id>
-        <version>1.1.1</version>
+        <version>1.1.2</version>
         <title>iSMBIOS</title>
         <authors>iAJTin</authors>
         <owners>iAJTin</owners>
@@ -11,9 +11,9 @@
         <iconUrl>https://raw.githubusercontent.com/iAJTin/iSMBIOS/master/nuget/iSMBIOS.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>iSMBIOS is a lightweight implementation that allows us to obtain SMBIOS information</description>
-        <copyright>Copyright © 2019 iAJTin</copyright>
+        <copyright>Copyright © 2020 iAJTin</copyright>
         <tags>SMBIOS DMI BIOS DMTF smbios-information hardware iTin</tags>
-        <repository type="git" url="https://github.com/iAJTin/iSMBIOS" commit="77713faf79c360b88c478504ef2c5df621c3d07a" />
+        <repository type="git" url="https://github.com/iAJTin/iSMBIOS" commit="399802b2c2f587e8df303dffac3e1ae0d77e3b3c"/>
         <dependencies>
           <group targetFramework="net45">
           </group>

@@ -1,7 +1,7 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## 1.1.2 -
+## [1.1.2] - 2020-02-15
 
 ### Added
 

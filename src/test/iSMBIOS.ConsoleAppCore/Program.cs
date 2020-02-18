@@ -16,12 +16,39 @@ namespace iSMBIOS.ConsoleAppCore
         static void Main(string[] args)
         {
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            Console.WriteLine(@" SMBIOS");
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            Console.WriteLine($@" Version > {DMI.Instance.SmbiosVersion}");
+
+            Console.WriteLine();
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine(@" Availables structures");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             DmiStructureCollection structures = DMI.Instance.Structures;
             foreach (DmiStructure structure in structures)
             {
                 Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+
+                int totalStructures = structure.Elements.Count;
+                if (totalStructures > 1)
+                {
+                    Console.WriteLine($@"     > {totalStructures} structures");
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            Console.WriteLine(@" Implemented SMBIOS Structure Version");
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            foreach (DmiStructure structure in structures)
+            {
+                Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+
+                DmiClassCollection elements = structure.Elements;
+                foreach (DmiClass element in elements)
+                {
+                    Console.WriteLine($@"     > {element.ImplementedVersion}");
+                }
             }
 
             foreach (DmiStructure structure in structures)

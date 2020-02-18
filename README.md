@@ -41,27 +41,39 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 
 ## Examples
 
-1. Gets and prints all **SMBIOS** availables structures.
+1. Gets and prints **SMBIOS** version.
 
+       Console.WriteLine($@" SMBIOS Version > {DMI.Instance.SmbiosVersion}");
+
+2. Gets and prints all **SMBIOS** availables structures.
 
        DmiStructureCollection structures = DMI.Instance.Structures;
        foreach (DmiStructure structure in structures)
        {
-           Console.WriteLine($@"{(int) structure.Class:D3}-{structure.Class}");
+           Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+
+           int totalStructures = structure.Elements.Count;
+           if (totalStructures > 1)
+           {
+               Console.WriteLine($@"     > {totalStructures} structures");
+           }
        }
 
-2. Gets a specific **SMBIOS** structure.
-
+3. Gets and prints the implemented **SMBIOS** structure version.
 
        DmiStructureCollection structures = DMI.Instance.Structures;
-       DmiStructure bios = structures[SmbiosStructure.Bios];
-       if (bios != null)
+       foreach (DmiStructure structure in structures)
        {
-           /// structure exist!!!
+           Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+
+           DmiClassCollection elements = structure.Elements;
+           foreach (DmiClass element in elements)
+           {
+               Console.WriteLine($@"     > Version > {element.ImplementedVersion}");
+           }
        }
 
-3. Gets a **single property** directly.
-
+4. Gets a **single property** directly.
 
        DmiStructureCollection structures = DMI.Instance.Structures;
        object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
@@ -79,7 +91,7 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
        string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
        Console.WriteLine($@" Processor Manufacturer > {processorManufacturer}");
 
-4. Gets a property in **multiple** elements directly.
+5. Gets a property in **multiple** elements directly.
 
        // Requires that the Slot Information structure exists in your system
        DmiStructureCollection structures = DMI.Instance.Structures;
@@ -99,21 +111,21 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
            }
        }
 
-5. Prints all **SMBIOS** structures properties
+6. Prints all **SMBIOS** structures properties
 
         DmiStructureCollection structures = DMI.Instance.Structures;      
         foreach (DmiStructure structure in structures)
-        {
-            Console.WriteLine();
-            Console.WriteLine(element.ImplementedVersion == DmiStructureVersion.Latest
-                ? $@" ———————————————————————————————————————————————————— {element.ImplementedVersion} ——"
-                : $@" ——————————————————————————————————————————————————————— {element.ImplementedVersion} ——");
-            Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName} structure detail");
-            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-            
+        {            
             DmiClassCollection elements = structure.Elements;
             foreach (DmiClass element in elements)
             {
+                Console.WriteLine();
+                Console.WriteLine(element.ImplementedVersion == DmiStructureVersion.Latest
+                    ? $@" ———————————————————————————————————————————————————— {element.ImplementedVersion} ——"
+                    : $@" ——————————————————————————————————————————————————————— {element.ImplementedVersion} ——");
+                Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName} structure detail");
+                Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+
                 DmiClassPropertiesTable elementProperties = element.Properties;
                 foreach (KeyValuePair<IPropertyKey, object> property in elementProperties)
                 {

@@ -5,7 +5,6 @@ namespace iTin.Core.Hardware.Specification.Smbios
     using System.Collections.ObjectModel;
     using System.Diagnostics;
 
-    using Helpers.Enumerations;
     using Property;
 
     // Type 017: Memory Device.

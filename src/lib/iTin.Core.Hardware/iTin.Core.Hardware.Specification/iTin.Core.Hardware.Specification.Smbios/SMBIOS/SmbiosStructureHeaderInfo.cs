@@ -430,31 +430,31 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                     case SmbiosStructure.MemoryDevice:
                     {
-                        if (Length == 0x5c)
+                        if (Length > 0x54)
                         {
                             result = SmbiosStructureVersion.v33;
                         }
-                        if (Length == 0x54)
+                        if (Length > 0x28 && Length <= 0x54)
                         {
                             result = SmbiosStructureVersion.v32;
                         }
-                        else if (Length == 0x28)
+                        else if (Length > 0x22 && Length <= 0x28)
                         {
                             result = SmbiosStructureVersion.v28;
                         }
-                        else if (Length == 0x22)
+                        else if (Length > 0x1c && Length <= 0x22)
                         {
                             result = SmbiosStructureVersion.v27;
                         }
-                        else if (Length == 0x1c)
+                        else if (Length > 0x1b && Length <= 0x1c)
                         {
                             result = SmbiosStructureVersion.v26;
                         }
-                        else if (Length == 0x1b)
+                        else if (Length > 0x15 && Length <= 0x1b)
                         {
                             result = SmbiosStructureVersion.v23;
                         }
-                        else if (Length == 0x15)
+                        else if (Length <= 0x15)
                         {
                             result = SmbiosStructureVersion.v21;
                         }

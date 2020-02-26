@@ -1,6 +1,14 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.3] - 
+
+### Fixed
+
+- Fixed a bug where the detection of **StructureVersion** for Type017 [Memory device], when the length of the structure is not a canonical length, such as windows running virtualized in parallels on a mac
+
+
+
 ## [1.1.2] - 2020-02-15
 
 ### Added
@@ -256,6 +264,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.1.3]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.3
 [1.1.2]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.2
 [1.1.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.1
 [1.1.0]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.0

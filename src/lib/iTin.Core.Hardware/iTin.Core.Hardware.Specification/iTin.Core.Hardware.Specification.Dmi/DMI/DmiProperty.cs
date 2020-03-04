@@ -311,7 +311,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref="Nullable{T}"/> where <b>T</b> is <see cref="int"/></para>
+            ///  <para>Type: <see cref="uint"/></para>
             /// </para>
             /// <para>
             ///  <para><b>Remarks</b></para>

@@ -13,6 +13,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="@Documents\dump.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="%40Documents\dump.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Management" Version="4.5.0" />
   </ItemGroup>
 

@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Hardware.Specific
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSMBIOS.ConsoleApp", "test\iSMBIOS.ConsoleApp\iSMBIOS.ConsoleApp.csproj", "{768A3709-640D-40D8-B286-59F3AF8A6AC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSMBIOS.ConsoleAppCore", "test\iSMBIOS.ConsoleAppCore\iSMBIOS.ConsoleAppCore.csproj", "{B48B4999-3A85-4157-ADB8-515BCEC0E74B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iSMBIOS.ConsoleAppCore", "test\iSMBIOS.ConsoleAppCore\iSMBIOS.ConsoleAppCore.csproj", "{B48B4999-3A85-4157-ADB8-515BCEC0E74B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

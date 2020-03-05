@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 
 ### Fixed
 
+- Fixed a bug in the DmiType 000 [BIOS] structure for versions equal to or greater than 3.1, which prevents the correct assignment of the **BiosRomSize** property due to an error in type conversion
+
 - Fixed a bug where the detection of **StructureVersion** for Type017 [Memory device], when the length of the structure is not a canonical length, such as windows running virtualized in parallels on a mac
 
 

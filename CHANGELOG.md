@@ -1,6 +1,27 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.4] - 
+
+### Fixed
+
+ - 
+### Changed
+
+ -
+
+- Library versions for this version
+  
+|Library|Version|Description|
+|:------|:------|:----------|
+|iTin.Core| 1.0.1 | Common calls |
+|iTin.Core.Interop| 1.0.0 | Interop calls |
+|iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
+|iTin.Core.Hardware.Specification.Dmi|**3.3.0.2**| DMI Specification Implementation |
+|iTin.Core.Hardware.Specification.Smbios|3.3.0.2| SMBIOS Specification Implementation |
+|iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
+
+
 ## [1.1.3] - 2020-03-06
 
 ### Fixed
@@ -283,6 +304,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.1.4]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.4
 [1.1.3]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.3
 [1.1.2]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.2
 [1.1.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.1

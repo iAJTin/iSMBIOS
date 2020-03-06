@@ -11,7 +11,7 @@ For more information, please see https://www.dmtf.org/standards/smbios
 Library versions
 ================
 
-Library versions for current iSMBIOS version (1.1.2)
+Library versions for current iSMBIOS version (1.1.3)
 
 •———————————————————————————————————————————————————————————————————————————————————————————•
 | Library                                  Version      Description                         |
@@ -24,7 +24,7 @@ Library versions for current iSMBIOS version (1.1.2)
 •———————————————————————————————————————————————————————————————————————————————————————————•
 |iTin.Core.Hardware.Specification.Dmi      3.3.0.1		DMI Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware.Specification.Smbios   3.3.0.1		SMBIOS Specification Implementation |
+|iTin.Core.Hardware.Specification.Smbios   3.3.0.2		SMBIOS Specification Implementation |
 •———————————————————————————————————————————————————————————————————————————————————————————•
 |iTin.Core.Hardware.Specification.Tpm      1.0.0.0		TPM Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•

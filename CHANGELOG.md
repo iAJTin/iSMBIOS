@@ -1,15 +1,32 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.1.3] - 
+## [1.1.3] - 2020-03-06
 
 ### Fixed
+
+- Fixed a bug in the DmiType 022 [Portable Battery] structure for versions equal to or greater than 2.1, which prevents the correct assignment of the **DesignVoltage** property due to an error in type conversion
+
+- Fixed a bug in the DmiType 022 [Portable Battery] structure for versions equal to or greater than 2.1, which prevents the correct assignment of the **DesignCapacity** property due to an error in type conversion
+
+- Fixed a bug in the DmiType 022 [Portable Battery] structure for versions equal to or greater than 2.1, which prevents the correct assignment of the **OemSpecific** property due to an error in type conversion
 
 - Fixed a bug in the DmiType 000 [BIOS] structure for versions equal to or greater than 3.1, which prevents the correct assignment of the **BiosRomSize** property due to an error in type conversion
 
 - Fixed a bug where the detection of **StructureVersion** for Type017 [Memory device], when the length of the structure is not a canonical length, such as windows running virtualized in parallels on a mac
 
+### Changed
 
+- Library versions for this version
+  
+|Library|Version|Description|
+|:------|:------|:----------|
+|iTin.Core| 1.0.1 | Common calls |
+|iTin.Core.Interop| 1.0.0 | Interop calls |
+|iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
+|iTin.Core.Hardware.Specification.Dmi|3.3.0.1| DMI Specification Implementation |
+|iTin.Core.Hardware.Specification.Smbios|3.3.0.2| SMBIOS Specification Implementation |
+|iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
 
 ## [1.1.2] - 2020-02-15
 

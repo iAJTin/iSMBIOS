@@ -256,7 +256,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte DeviceChemistryValue => Reader.GetByte(0x09);
         #endregion
 
-        #region [private] (int) DesignCapacity: Gets a value representing the 'Design Capacity' field
+        #region [private] (ushort) DesignCapacity: Gets a value representing the 'Design Capacity' field
         /// <summary>
         /// Gets a value representing the <b>Design Capacity</b> field.
         /// </summary>
@@ -264,10 +264,10 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DesignCapacity => Reader.GetWord(0x0a);
+        private ushort DesignCapacity => Reader.GetWord(0x0a);
         #endregion
 
-        #region [private] (int) DesignVoltage: Gets a value representing the 'Design Voltage' field
+        #region [private] (ushort) DesignVoltage: Gets a value representing the 'Design Voltage' field
         /// <summary>
         /// Gets a value representing the <b>Design Voltage</b> field.
         /// </summary>
@@ -275,7 +275,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private int DesignVoltage => Reader.GetWord(0x0c);
+        private ushort DesignVoltage => Reader.GetWord(0x0c);
         #endregion
 
         #region [private] (string) SbdsVersionNumber: Gets a value representing the 'Sbds Version Number' field
@@ -348,7 +348,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private byte DesignCapacityMultiplier => Reader.GetByte(0x15);
         #endregion
 
-        #region [private] (long) OemSpecific: Gets a value representing the 'Oem Specific' field
+        #region [private] (uint) OemSpecific: Gets a value representing the 'Oem Specific' field
         /// <summary>
         /// Gets a value representing the <b>Oem Specific</b> field.
         /// </summary>
@@ -356,7 +356,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private long OemSpecific => Reader.GetDoubleWord(0x16);
+        private uint OemSpecific => Reader.GetDoubleWord(0x16);
         #endregion
 
         #endregion

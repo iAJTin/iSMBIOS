@@ -9,16 +9,8 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>3.3.0.1</Version>
+    <Version>3.3.0.2</Version>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="@Documents\dump.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="%40Documents\dump.txt" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Management" Version="4.5.0" />

@@ -9,11 +9,11 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>3.3.0.2</Version>
+    <Version>3.3.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Management" Version="4.5.0" />
+    <PackageReference Include="System.Management" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>

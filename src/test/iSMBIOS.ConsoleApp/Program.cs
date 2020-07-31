@@ -15,13 +15,41 @@ namespace iSMBIOS.ConsoleApp
     {
         static void Main(string[] args)
         {
+            DMI dmi = DMI.CreateInstance();
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            Console.WriteLine(@" SMBIOS");
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            Console.WriteLine($@" Version > {dmi.SmbiosVersion}");
+
+            Console.WriteLine();
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine(@" Availables structures");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-            DmiStructureCollection structures = DMI.Instance.Structures;
+            DmiStructureCollection structures = dmi.Structures;
             foreach (DmiStructure structure in structures)
             {
                 Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+
+                int totalStructures = structure.Elements.Count;
+                if (totalStructures > 1)
+                {
+                    Console.WriteLine($@"     > {totalStructures} structures");
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            Console.WriteLine(@" Implemented SMBIOS Structure Version");
+            Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
+            foreach (DmiStructure structure in structures)
+            {
+                Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+
+                DmiClassCollection elements = structure.Elements;
+                foreach (DmiClass element in elements)
+                {
+                    Console.WriteLine($@"     > {element.ImplementedVersion}");
+                }
             }
 
             foreach (DmiStructure structure in structures)
@@ -70,7 +98,7 @@ namespace iSMBIOS.ConsoleApp
                         else if (value is ushort)
                         {
                             Console.WriteLine(key.Equals(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed)
-                                ? $@" > {friendlyName} > {value} {(int.Parse(DMI.Instance.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
+                                ? $@" > {friendlyName} > {value} {(int.Parse(dmi.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
                                 : $@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is int)
@@ -93,7 +121,7 @@ namespace iSMBIOS.ConsoleApp
                         {
                             Console.WriteLine($@" > {friendlyName} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
                         }
-                        else if (value.GetType() == typeof(DmiGroupAssociationElementCollection))
+                        else if (value is DmiGroupAssociationElementCollection)
                         {
                             // prints elements
                         }

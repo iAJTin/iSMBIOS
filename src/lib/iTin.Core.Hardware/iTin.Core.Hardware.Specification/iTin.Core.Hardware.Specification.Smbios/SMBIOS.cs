@@ -1,6 +1,8 @@
 ﻿
 namespace iTin.Core.Hardware.Specification
 {
+    using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
     using System.Linq;
@@ -12,9 +14,9 @@ namespace iTin.Core.Hardware.Specification
     using Smbios;
 
     /// <summary>
-    /// System Management BIOS (SMBIOS).
-    /// Standard format of the data collected by the BIOS. SMBIOS defines this information in a series of data tables, 
-    /// where information about system components such as memory, peripheral devices, expansion cards, inventory label
+    /// System Management BIOS (SMBIOS).<br/>
+    /// Standard format of the data collected by the BIOS. SMBIOS defines this information in a series of data tables,<br/>
+    /// where information about system components such as memory, peripheral devices, expansion cards, inventory label<br/>
     /// and operating system is collected.
     /// </summary>
     public sealed class SMBIOS
@@ -25,13 +27,27 @@ namespace iTin.Core.Hardware.Specification
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly byte _minorVersion;
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private readonly SmbiosConnectOptions _options;
+        #endregion
+
+        #region private members
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private IEnumerable<byte[]> _rawTables;
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ReadOnlyCollection<SmbiosStructure> _implementedStructures;
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private Dictionary<SmbiosStructure, ICollection<byte[]>> _rawStructures;
         #endregion
 
         #region constructor/s
 
-        #region [private] SMBIOS(): Initializes a new instance of the SMBIOS class. Retrieves the SMBIOS information by WMI
+        #region [private] SMBIOS(): Initializes a new instance of this class.
         /// <summary>
-        /// Initializes a new instance of the <see cref="SMBIOS"/> class. Retrieves the SMBIOS information by WMI.
+        /// Initializes a new instance of the <see cref="SMBIOS"/> class.
         /// </summary>
         /// <remarks>
         /// Retrieves the <b>SMBIOS</b> information by <b>WMI</b>
@@ -47,7 +63,7 @@ namespace iTin.Core.Hardware.Specification
                 Lenght = rawSmbiosTable.Length - 0x08;
 
                 var smbiosData = rawSmbiosTable.Extract(0x08, Lenght);
-                SmbiosHelper.ToRawTables(smbiosData);
+                ToRawTables(smbiosData);
             }
             else
             {
@@ -60,8 +76,51 @@ namespace iTin.Core.Hardware.Specification
                         _majorVersion = (byte)queryObj["SmbiosMajorVersion"];
                         _minorVersion = (byte)queryObj["SmbiosMinorVersion"];
 
-                        SmbiosHelper.ToRawTables((byte[])queryObj["SMBiosData"]);
+                        ToRawTables((byte[])queryObj["SMBiosData"]);
                     }
+                }
+            }
+        }
+        #endregion
+
+        #region [private] SMBIOS(SmbiosConnectOptions): Prevents a default instance of this class from being created with specified remote options
+        /// <summary>
+        /// Prevents a default instance of the <see cref="SMBIOS"/> class from being created. Retrieves the <see cref="SMBIOS"/> information by WMI.
+        /// </summary>
+        private SMBIOS(SmbiosConnectOptions options)
+        {
+            _options = options;
+
+            var connectionOptions = new ConnectionOptions
+            {
+                Username = options.UserName,
+                Authentication = AuthenticationLevel.Packet,
+                Impersonation = ImpersonationLevel.Impersonate,
+                SecurePassword = options.Password.ToSecureString()
+            };
+
+            var scope = new ManagementScope($"\\\\{options.MachineNameOrIpAddress}\\root\\cimv2", connectionOptions);
+            try
+            {
+                scope.Connect();
+            }
+            catch
+            {
+                ImplementedStructures = new ReadOnlyCollection<SmbiosStructure>(new List<SmbiosStructure>());
+                return;
+            }
+
+            ObjectQuery query = new ObjectQuery("SELECT * FROM MSSmBios_RawSMBiosTables");
+            using (var wmi = new ManagementObjectSearcher(scope, query))
+            {
+                foreach (var o in wmi.Get())
+                {
+                    var queryObj = (ManagementObject)o;
+                    Lenght = (int)(uint)queryObj["Size"];
+                    _majorVersion = (byte)queryObj["SmbiosMajorVersion"];
+                    _minorVersion = (byte)queryObj["SmbiosMinorVersion"];
+
+                    ToRawTables((byte[])queryObj["SMBiosData"]);
                 }
             }
         }
@@ -70,10 +129,18 @@ namespace iTin.Core.Hardware.Specification
         #endregion
 
         #region public static readonly properties
+
+        #region [public] {static} {readonly} (SMBIOS) Instance: Gets a instance of this class
         /// <summary>
-        /// Gets a unique instance of this class.
+        /// Gets a instance of this class.
         /// </summary>
+        /// <value>
+        /// A <see cref="SMBIOS"/> reference instance.
+        /// </value>
+        [Obsolete("please use the SMBIOS.CreateInstance() method instead of SMBIOS.Instance for local SMBIOS instance. For remote instance use SMBIOS.CreateInstance(SmbiosConnectOptions)")]
         public static readonly SMBIOS Instance = new SMBIOS();
+        #endregion
+
         #endregion
 
         #region public readonly properties
@@ -82,7 +149,16 @@ namespace iTin.Core.Hardware.Specification
         /// <summary>
         /// Gets the list of implemented structures.
         /// </summary>
-        public ReadOnlyCollection<SmbiosStructure> ImplementedStructures => SmbiosHelper.GetImplementedStructureKeys();
+        public ReadOnlyCollection<SmbiosStructure> ImplementedStructures
+        {
+            get
+            {
+                _implementedStructures = GetImplementedStructureKeys();
+                return _implementedStructures;
+            }
+            internal set => _implementedStructures = value;
+        }
+
         #endregion
 
         #region [public] (int) Lenght: Gets a value that contains the length of all SMBIOS tables
@@ -108,6 +184,21 @@ namespace iTin.Core.Hardware.Specification
 
         #endregion
 
+        #region private readonly properties
+
+        #region [private] (Dictionary<SmbiosStructure, ICollection<byte[]>>) RawStructures: Gets the structures grouped by raw type
+        /// <summary>
+        /// Gets the structures grouped by raw type.
+        /// </summary>
+        /// <value>>
+        /// Dictionary with unprocessed structures grouped by type.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private Dictionary<SmbiosStructure, ICollection<byte[]>> RawStructures => _rawStructures ?? (_rawStructures = new Dictionary<SmbiosStructure, ICollection<byte[]>>());
+        #endregion
+
+        #endregion
+
         #region public methods
 
         #region [public] (SmbiosStructureCollection) Get(SmbiosStructure): Gets the data of the specified structure
@@ -127,10 +218,51 @@ namespace iTin.Core.Hardware.Specification
             }
 
             SmbiosStructuresCache cache = SmbiosStructuresCache.Cache;
-            SmbiosStructureInfo structureInfo = new SmbiosStructureInfo(structure, Version);
+            SmbiosStructureInfo structureInfo = new SmbiosStructureInfo(this, structure);
 
             return cache.Get(structureInfo);
         }
+        #endregion
+
+        #endregion
+
+        #region internal methods
+
+        #region [internal] (ReadOnlyCollection<SmbiosStructure>) GetAllRawTablesFrom(SmbiosStructure): Returns the list of structure(s) of the specified type
+        /// <summary>
+        /// Returns the list of structure(s) of the specified type.
+        /// </summary>
+        /// <param name="structure">Reference structure.</param>
+        /// <returns>
+        /// An enumerator, which supports a simple iteration in the collection.
+        /// </returns>
+        internal IEnumerable<byte[]> GetAllRawTablesFrom(SmbiosStructure structure)
+        {
+            ReadOnlyCollection<SmbiosStructure> implementedStructures = GetImplementedStructureKeys();
+            bool ok = implementedStructures.Contains(structure);
+
+            if (!ok)
+            {
+                return null;
+            }
+
+            return RawStructures[structure];
+        }
+        #endregion
+
+        #endregion
+
+        #region public static methods
+
+        #region [public] {static} (SMBIOS) CreateInstance(SmbiosConnectOptions = null): Gets a unique instance of this class for remote machine
+        /// <summary>
+        /// Gets a unique instance of this class for remote machine.<br/>
+        /// If <paramref name="options"/> is <b>null</b> (<b>Nothing</b> in Visual Basic) always returns an instance for this machine.
+        /// </summary>
+        /// <value>
+        /// A unique <see cref="SMBIOS"/> reference that contains <b>DMI</b> information.
+        /// </value>
+        public static SMBIOS CreateInstance(SmbiosConnectOptions options = null) => options == null ? new SMBIOS() : new SMBIOS(options);
         #endregion
 
         #endregion
@@ -146,7 +278,113 @@ namespace iTin.Core.Hardware.Specification
         /// The <see cref="ToString()"/> method returns a string that includes the version expresed in hexadecimal format,
         /// the number of available structures, and the total length occupied by all structures.
         /// </remarks>
-        public override string ToString() => $"Version = {Version:X}, Structures = {ImplementedStructures.Count}, Lenght = {Lenght}";
+        public override string ToString()
+        {
+            if (_options == null)
+            {
+                return $"Version={Version:X}, Structures={ImplementedStructures.Count}, Lenght={Lenght}";
+            }
+
+            if (Version == 0 && ImplementedStructures.Count == 0 && Lenght == 0)
+            {
+                return $"Unable connect to remote machine '{_options.MachineNameOrIpAddress}'";
+            }
+
+            return $"Version={Version:X}, Structures={ImplementedStructures.Count}, Lenght={Lenght}";
+        }
+
+        #endregion
+
+        #endregion
+
+        #region private methods
+
+        #region [private] (ReadOnlyCollection<SmbiosStructure>) GetImplementedStructureKeys: Returns the list with the keys of implemented structures
+        /// <summary>
+        /// Returns the list with the keys of implemented structures.
+        /// </summary>
+        /// <value>
+        /// List of structures implemented.
+        /// </value>
+        private ReadOnlyCollection<SmbiosStructure> GetImplementedStructureKeys()
+        {
+            return
+                RawStructures
+                    .OrderBy(structure => structure.Key)
+                    .Select(rawStructure => rawStructure.Key)
+                    .ToList()
+                    .AsReadOnly();
+        }
+        #endregion
+
+        #region [private] (void) ToRawStructures(IEnumerable<byte[]): Returns the structures grouped by unprocessed type
+        /// <summary>
+        /// Returns the structures grouped by unprocessed type.
+        /// </summary>
+        /// <param name="data">Structures not processed without grouping.</param>
+        private void ToRawStructures(IEnumerable<byte[]> data)
+        {
+            if (RawStructures.Count != 0)
+            {
+                RawStructures.Clear();
+            }
+
+            foreach (byte[] rawTable in data)
+            {
+                SmbiosStructure structureType = (SmbiosStructure)rawTable[0];
+                if (RawStructures.ContainsKey(structureType))
+                {
+                    RawStructures[structureType].Add(rawTable);
+                }
+                else
+                {
+                    RawStructures.Add(structureType, new List<byte[]> { rawTable });
+                }
+            }
+        }
+        #endregion
+
+        #region [private] (void) ToRawTables(byte[]): Returns all the SMBIOS tables unprocessed
+        /// <summary>
+        /// Returns all the SMBIOS tables unprocessed.
+        /// </summary>
+        /// <param name="rawSmbiosTable">Array with raw <b>SMBIOS</b> data.</param>
+        private void ToRawTables(byte[] rawSmbiosTable)
+        {
+            int i = 0;
+            bool exit = false;
+            Collection<byte[]> smbiosTables = new Collection<byte[]>();
+
+            while (!exit)
+            {
+                int firstByte = i;
+                for (i = firstByte + rawSmbiosTable[i + 1]; i < rawSmbiosTable.Length; i++)
+                {
+                    if (rawSmbiosTable[i] == 0x00 && rawSmbiosTable[i + 1] == 0x00)
+                    {
+                        i += 2;
+                        int lastByte = i;
+
+                        if (rawSmbiosTable[firstByte] <= 0x7F)
+                        {
+                            var aTable = new byte[lastByte - firstByte];
+                            Array.Copy(rawSmbiosTable, firstByte, aTable, 0, lastByte - firstByte);
+                            smbiosTables.Add(aTable);
+                        }
+                        break;
+                    }
+                }
+
+                if (i == rawSmbiosTable.Length)
+                {
+                    exit = true;
+                }
+            }
+
+            //RawData = rawSmbiosTable;
+            _rawTables = smbiosTables;
+            ToRawStructures(_rawTables);
+        }
         #endregion
 
         #endregion

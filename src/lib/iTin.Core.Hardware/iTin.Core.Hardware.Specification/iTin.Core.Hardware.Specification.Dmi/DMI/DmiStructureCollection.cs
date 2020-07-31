@@ -18,16 +18,22 @@ namespace iTin.Core.Hardware.Specification.Dmi
     {
         #region constructor/s
 
-        #region [internal] DmiStructureCollection(): Initialize a new instance of the class
+        #region [internal] DmiStructureCollection(SMBIOS): Initialize a new instance of the class
         /// <inheritdoc/>
         /// <summary>
         /// Initialize a new instance of the <see cref="DmiStructureCollection"/> class.
         /// </summary>
-        internal DmiStructureCollection() : base(new List<DmiStructure>())
+        /// <param name="context">a <see cref="SMBIOS"/> reference.</param>
+        internal DmiStructureCollection(SMBIOS context) : base(new List<DmiStructure>())
         {
-            foreach (var smbiosStructure in DmiHelper.Smbios.ImplementedStructures)
-            {                
-                Items.Add(new DmiStructure((DmiStructureClass)(int)smbiosStructure));                    
+            if (context.Version == 0 && context.ImplementedStructures.Count == 0 && context.Lenght == 0)
+            {
+                return;
+            }
+
+            foreach (var smbiosStructure in context.ImplementedStructures)
+            {
+                Items.Add(new DmiStructure((DmiStructureClass)(int)smbiosStructure, context));
             }
         }
         #endregion

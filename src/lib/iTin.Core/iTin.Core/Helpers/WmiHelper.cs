@@ -18,9 +18,9 @@ namespace iTin.Core.Helpers
         /// </returns>
         public static DateTime WmiDateToDateTime(string date)
 		{
-			if (date == null) 
+			if (string.IsNullOrEmpty(date)) 
 			{
-				throw new ArgumentNullException(date);				
+				throw new ArgumentNullException(nameof(date));				
 			}
 
 			var year = int.Parse(date.Mid(0, 4), CultureInfo.InvariantCulture);

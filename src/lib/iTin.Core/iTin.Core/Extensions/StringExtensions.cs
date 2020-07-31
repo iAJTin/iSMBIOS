@@ -1,6 +1,8 @@
 ﻿
 namespace iTin.Core
 {
+    using System.Security;
+
     /// <summary>
     /// Static class than contains extension methods for objects of type <see cref="T:System.String" />.
     /// </summary> 
@@ -48,5 +50,23 @@ namespace iTin.Core
 		{
 			return string.IsNullOrEmpty(str) ? str : str.Substring(start, length);
 		}
-	}
+
+        /// <summary>
+        /// Converts a string into a "SecureString"
+        /// </summary>
+        /// <param name="text">Input String</param>
+        /// <returns>
+        /// A secure string instance
+        /// </returns>
+        public static SecureString ToSecureString(this string text)
+        {
+            SecureString secureString = new SecureString();
+            foreach (var c in text)
+            {
+                secureString.AppendChar(c);
+            }
+
+            return secureString;
+        }
+    }
 }

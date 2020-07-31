@@ -7,20 +7,21 @@ namespace iTin.Core.Hardware.Specification.Smbios
     /// <summary>
     /// Defines the contents of a structure type.
     /// </summary>
-    internal struct SmbiosStructureInfo : IEquatable<SmbiosStructureInfo>
+    internal readonly struct SmbiosStructureInfo : IEquatable<SmbiosStructureInfo>
     {
         #region constructor/s
 
-        #region [public] SmbiosStructureInfo(SmbiosStructure, int): Initializes a new instance of the struct
+        #region [public] SmbiosStructureInfo(SMBIOS, SmbiosStructure): Initializes a new instance of the struct
         /// <summary>
         /// Initializes a new instance of the <see cref="SmbiosStructureInfo"/> struct.
         /// </summary>
+        /// <param name="context">The <see cref="SMBIOS"/> context.</param>
         /// <param name="structureType">Type of the structure.</param>
-        /// <param name="smbiosVersion">The <see cref="SMBIOS"/> version.</param>
-        public SmbiosStructureInfo(SmbiosStructure structureType, int smbiosVersion)
+        public SmbiosStructureInfo(SMBIOS context, SmbiosStructure structureType)
         {
+            Context = context;
             StructureType = structureType;
-            SmbiosVersion = smbiosVersion;
+            SmbiosVersion = context.Version;
         }
         #endregion
 
@@ -32,9 +33,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <summary>
         /// Gets a value that represents the structure friendly name.
         /// </summary>
-        /// <returns>
+        /// <value>
         /// The structure friendly name
-        /// </returns>
+        /// </value>
         public string FriendlyStructureName => StructureType.GetPropertyName();
         #endregion
 
@@ -71,6 +72,20 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 return new SmbiosStructureCollection(structures);
             }
         }
+        #endregion
+
+        #endregion
+
+        #region internal readonly properties
+
+        #region [internal] (SMBIOS) Context: Gets a value that represents the underliying SMBIOS
+        /// <summary>
+        /// Gets a value that represents the underliying <see cref="SMBIOS"/>.
+        /// </summary>
+        /// <value>
+        /// The current <see cref="SMBIOS"/> context.
+        /// </value>
+        internal SMBIOS Context { get; }
         #endregion
 
         #endregion

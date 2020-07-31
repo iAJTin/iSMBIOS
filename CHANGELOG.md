@@ -3,12 +3,36 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.4] - 
 
-### Fixed
+### Added
 
- - 
+- Adds support for retrieving **DMI** information for remote machines using **WMI**
+  - **Currently in experimental mode, you can try to use it as it is implemented and comment if you find any problems**
+   
+- Please review the following document that indicates how to configure a remote computer to accept **WMI** calls
+    
+  [Connecting to WMI on a Remote Computer]
+
+- Usage examples
+
+        The DMI.Instance property now is mark as obsolete use DMI.CreateInstance() method instead
+        If you want to connect to a remote machine fill in an instance of the DmiConnectOptions object and use it 
+        as the argument of the DMI method.CreateInstance(optionsInstance).
+
+        Example:
+
+        // Returns same result as DMI.Instance
+        DMI dmi = DMI.CreateInstance(); 
+
+        // Connect to remote machine.
+        DMI dmi = DMI.CreateInstance(
+            new DmiConnectOptions
+            {
+                UserName = "username to use"  
+                Password = "password to use", 
+                MachineNameOrIpAddress = "target remote machine name or machine ip address"
+            });
+
 ### Changed
-
- -
 
 - Library versions for this version
   
@@ -17,8 +41,8 @@ All notable changes to this project will be documented in this file.
 |iTin.Core| 1.0.1 | Common calls |
 |iTin.Core.Interop| 1.0.0 | Interop calls |
 |iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
-|iTin.Core.Hardware.Specification.Dmi|**3.3.0.2**| DMI Specification Implementation |
-|iTin.Core.Hardware.Specification.Smbios|3.3.0.2| SMBIOS Specification Implementation |
+|iTin.Core.Hardware.Specification.Dmi|**3.3.0.3**| DMI Specification Implementation |
+|iTin.Core.Hardware.Specification.Smbios|**3.3.0.3**| SMBIOS Specification Implementation |
 |iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
 
 
@@ -320,3 +344,5 @@ for more information, please see how to use it in the example project. On the ot
 [1.0.0]: https://github.com/iAJTin/iSMBIOS
 
 [helpimg]: ./assets/helpimg.png "help"
+[Connecting to WMI on a Remote Computer]: https://docs.microsoft.com/es-es/windows/win32/wmisdk/connecting-to-wmi-on-a-remote-computer
+

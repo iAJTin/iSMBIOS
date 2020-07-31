@@ -15,14 +15,16 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region constructor/s
 
-        #region [internal] DmiStructure(DmiStructureClass): Initialize a new instance of the class DmiStructure
+        #region [internal] DmiStructure(DmiStructureClass, SMBIOS): Initialize a new instance of the class DmiStructure
         /// <summary>
         /// Initialize a new instance of the class <see cref="DmiStructure"/>.
         /// </summary>
         /// <param name="class">Structure.</param>
-        internal DmiStructure(DmiStructureClass @class)
+        /// <param name="context">a <see cref="SMBIOS"/> reference.</param>
+        internal DmiStructure(DmiStructureClass @class, SMBIOS context)
         {
             Class = @class;
+            Context = context;
         }
         #endregion
 
@@ -59,6 +61,21 @@ namespace iTin.Core.Hardware.Specification.Dmi
         /// The structure friendly name
         /// </returns>
         public string FriendlyClassName => Class.GetPropertyName();
+        #endregion
+
+        #endregion
+
+        #region internal readonly properties
+
+        #region [internal] (SMBIOS) Context: Gets a value that represents the reference context
+        /// <summary>
+        /// Gets a value that represents the <see cref="SMBIOS"/> reference context.
+        /// </summary>
+        /// <value>
+        /// A <see cref="SMBIOS"/> reference context.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        internal SMBIOS Context { get; }
         #endregion
 
         #endregion

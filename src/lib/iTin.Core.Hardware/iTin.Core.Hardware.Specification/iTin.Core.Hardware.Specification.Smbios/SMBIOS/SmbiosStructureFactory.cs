@@ -17,7 +17,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// </returns>
         public static IEnumerable<SmbiosBaseType> Create(SmbiosStructureInfo structureInfo)
         {
-            IEnumerable<byte[]> rawTables = SmbiosHelper.GetAllRawTablesFrom(structureInfo.StructureType);
+            IEnumerable<byte[]> rawTables = structureInfo.Context.GetAllRawTablesFrom(structureInfo.StructureType);
             if (rawTables == null)
             {
                 return null;

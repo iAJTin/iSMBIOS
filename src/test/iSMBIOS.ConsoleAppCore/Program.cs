@@ -15,16 +15,27 @@ namespace iSMBIOS.ConsoleAppCore
     {
         static void Main(string[] args)
         {
+
+            DMI dmi = DMI.CreateInstance(
+                new DmiConnectOptions
+                {
+                    UserName = ""
+                    Password = "", 
+                    MachineNameOrIpAddress = ""
+                });
+
+
+            DMI dmi = DMI.CreateInstance();
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine(@" SMBIOS");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-            Console.WriteLine($@" Version > {DMI.Instance.SmbiosVersion}");
+            Console.WriteLine($@" Version > {dmi.SmbiosVersion}");
 
             Console.WriteLine();
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine(@" Availables structures");
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-            DmiStructureCollection structures = DMI.Instance.Structures;
+            DmiStructureCollection structures = dmi.Structures;
             foreach (DmiStructure structure in structures)
             {
                 Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
@@ -97,7 +108,7 @@ namespace iSMBIOS.ConsoleAppCore
                         else if (value is ushort)
                         {
                             Console.WriteLine(key.Equals(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed)
-                                ? $@" > {friendlyName} > {value} {(int.Parse(DMI.Instance.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
+                                ? $@" > {friendlyName} > {value} {(int.Parse(dmi.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
                                 : $@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                         }
                         else if (value is int)
@@ -120,7 +131,7 @@ namespace iSMBIOS.ConsoleAppCore
                         {
                             Console.WriteLine($@" > {friendlyName} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
                         }
-                        else if (value.GetType() == typeof(DmiGroupAssociationElementCollection))
+                        else if (value is DmiGroupAssociationElementCollection)
                         {
                             // prints elements
                         }

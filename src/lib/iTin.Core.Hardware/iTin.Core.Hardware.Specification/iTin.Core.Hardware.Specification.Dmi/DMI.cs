@@ -1,19 +1,29 @@
 ﻿
 namespace iTin.Core.Hardware.Specification
 {
+    using System;
     using System.Diagnostics;
 
     using Dmi;
+    using Smbios;
 
     /// <summary>
-    /// The Desktop Management Interface (DMI) or the desktop management interface, standard framework for management and
+    /// The Desktop Management Interface (DMI) or the desktop management interface, standard framework for management and<br/>
     /// component tracking on a desktop, laptop or server.
     /// </summary>
     public sealed class DMI
     {
+        #region private readonly members
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private readonly DmiConnectOptions _options;
+        #endregion
+
         #region private members
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private DmiStructureCollection dmiStructureCollection;
+        private SMBIOS _smbios;
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private DmiStructureCollection _dmiStructureCollection;
         #endregion
 
         #region constructor/s
@@ -22,8 +32,26 @@ namespace iTin.Core.Hardware.Specification
         /// <summary>
         /// Prevents a default instance of the <see cref="DMI"/> class from being created.
         /// </summary>
-        private DMI()
+        private DMI() : this(null)
         {
+        }
+        #endregion
+
+        #region [private] DMI(DmiConnectOptions): Prevents a default instance of this class from being created with specified remote options
+        /// <summary>
+        /// Prevents a default instance of the <see cref="DMI"/> class from being created.
+        /// </summary>
+        private DMI(DmiConnectOptions options)
+        {
+            _options = options;
+            _smbios = _options == null
+                ? SMBIOS.CreateInstance()
+                : SMBIOS.CreateInstance(new SmbiosConnectOptions
+                {
+                    UserName = options.UserName,
+                    Password = options.Password,
+                    MachineNameOrIpAddress = options.MachineNameOrIpAddress
+                });
         }
         #endregion
 
@@ -57,14 +85,15 @@ namespace iTin.Core.Hardware.Specification
         public static string Identificationmethod => "<DMI>";
         #endregion
 
-        #region [public] {static} (DMI) Instance: Gets a unique instance of this class
+        #region [public] {static} (DMI) Instance: Gets a instance of this class
         /// <summary>
-        /// Gets a unique instance of this class.
+        /// Gets a instance of this class.
         /// </summary>
         /// <value>
-        /// A unique <see cref="DMI"/> reference that contains <b>DMI</b> information.
+        /// A <see cref="DMI"/> reference that contains <b>DMI</b> information.
         /// </value>
-        public static readonly DMI Instance = new DMI();
+        [Obsolete("please use the DMI.CreateInstance() method instead of DMI.Instance for local DMI instance. For remote instance use DMI.CreateInstance(DmiConnectOptions)")]
+        public static DMI Instance => new DMI();
         #endregion
 
         #endregion
@@ -78,7 +107,7 @@ namespace iTin.Core.Hardware.Specification
         /// <value>
         /// The <b>SMBIOS</b> version.
         /// </value>
-        public string SmbiosVersion => $"{DmiHelper.Smbios.Version:X}";
+        public string SmbiosVersion => _smbios.Version.ToString("X");
         #endregion
 
         #region [public] (DmiStructureCollection) Structures: Gets the collection of available structure
@@ -89,7 +118,22 @@ namespace iTin.Core.Hardware.Specification
         /// Object <see cref="DmiStructureCollection"/> that contains the collection of available <see cref="DmiStructure"/> objects.
         /// If there is no object <see cref="DmiStructure"/>, <b>null</b> is returned.
         /// </value>
-        public DmiStructureCollection Structures => dmiStructureCollection ?? (dmiStructureCollection = new DmiStructureCollection());
+        public DmiStructureCollection Structures => _dmiStructureCollection ?? (_dmiStructureCollection = new DmiStructureCollection(_smbios));
+        #endregion
+
+        #endregion
+
+        #region public static methods
+
+        #region [public] {static} (DMI) CreateInstance(DmiConnectOptions = null): Gets an instance of this class for remote machine
+        /// <summary>
+        /// Gets an instance of this class for remote machine.<br/>
+        /// If <paramref name="options"/> is <b>null</b> (<b>Nothing</b> in Visual Basic) always returns an instance for this machine.
+        /// </summary>
+        /// <value>
+        /// A <see cref="DMI"/> reference that contains <b>DMI</b> information.
+        /// </value>
+        public static DMI CreateInstance(DmiConnectOptions options = null) => options == null ? new DMI() : new DMI(options);
         #endregion
 
         #endregion
@@ -107,7 +151,12 @@ namespace iTin.Core.Hardware.Specification
         /// The <see cref="ToString()"/> method returns a string that includes the version expresed in hexadecimal format,
         /// the number of available structures, and <see cref="SMBIOS"/> total size occupied by all structures.
         /// </remarks>
-        public override string ToString() => $"SMBIOS={SmbiosVersion}, Classes={DmiHelper.Smbios.ImplementedStructures.Count}, Size={DmiHelper.Smbios.Lenght}";
+        public override string ToString()
+        {
+            return _options == null 
+                ? $"SMBIOS={SmbiosVersion}, Classes={_smbios.ImplementedStructures.Count}, Size={_smbios.Lenght}"
+                : _smbios.ToString();
+        }
         #endregion
 
         #endregion

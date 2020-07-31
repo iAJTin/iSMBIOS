@@ -15,16 +15,6 @@ namespace iSMBIOS.ConsoleAppCore
     {
         static void Main(string[] args)
         {
-
-            DMI dmi = DMI.CreateInstance(
-                new DmiConnectOptions
-                {
-                    UserName = ""
-                    Password = "", 
-                    MachineNameOrIpAddress = ""
-                });
-
-
             DMI dmi = DMI.CreateInstance();
             Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
             Console.WriteLine(@" SMBIOS");

@@ -38,7 +38,7 @@ All notable changes to this project will be documented in this file.
   
 |Library|Version|Description|
 |:------|:------|:----------|
-|iTin.Core| 1.0.1 | Common calls |
+|iTin.Core| 1.0.2 | Common calls |
 |iTin.Core.Interop| 1.0.0 | Interop calls |
 |iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
 |iTin.Core.Hardware.Specification.Dmi|**3.3.0.3**| DMI Specification Implementation |

@@ -58,6 +58,15 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // | 13h      3.2         Peer(S/B/D/F/Width) 5*n         Varies      Peer Segment/Bus/Device/Function                             |
     // |                      groups              BYTE                    present in the slot; see 7.10.9                              |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 14h +    3.4         Slot Information    BYTE        Varies      Please see 7.10.10                                           |
+    // | 5*n                                                                                                                           |
+    // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 15 +     3.4         Slot Physical Width BYTE        Varies      Please see 7.10.11                                           |
+    // | 5*n                                                                                                                           |
+    // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 16h +    3.4         Slot Pitch          BYTE         Varies     Please see 7.10.12                                           |
+    // | 5*n                                                                                                                           |
+    // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <inheritdoc/>
     /// <summary>
@@ -334,10 +343,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             string[] value1 =
             {
-                "PME signal is supported",         // 0x00
+                "PME signal is supported",             // 0x00
                 "Hot-plug devices are supported",
                 "SMBus signal is supported",        
-                "PCIe slot supports bifurcation",  // 0x03
+                "PCIe slot supports bifurcation", 
+                "Slot supports async/surprise removal" // 0x04
             };
 
             List<string> items = new List<string>();
@@ -352,13 +362,28 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             if (code2 != 0xff)
             {
-                for (byte i = 0; i <= 3; i++)
+                for (byte i = 0; i <= 4; i++)
                 {
                     bool addCharacteristic = code2.CheckBit(i);
                     if (addCharacteristic)
                     {
                         items.Add(value1[i]);
                     }
+                }
+
+                var bit5 = code2.CheckBit(5);
+                var bit6 = code2.CheckBit(6);
+                if (bit5 == false && bit6 == false)
+                {
+                    items.Add("Non CXL-capable slot");
+                }
+                else if(bit5 && bit6 == false)
+                {
+                    items.Add("Flexbus slot, CXL 2.0 capable (backward compatible to 1.0)");
+                }
+                else
+                {
+                    items.Add("Flexbus slot, CXL 1.0 capable");
                 }
             }
 
@@ -559,7 +584,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "PCI Express Gen 4 SFF-8639 (U.2)",
                 "PCI Express Gen 5 SFF-8639 (U.2)",
                 "OCP NIC 3.0 Small Form Factor (SFF)",
-                "OCP NIC 3.0 Large Form Factor (LFF)"  // 0x27h
+                "OCP NIC 3.0 Large Form Factor (LFF)",
+                "OCP NIC Prior to 3.0"  // 0x28h
             };
 
             string[] value1 =
@@ -603,10 +629,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "PCI Express Gen 5 x2",
                 "PCI Express Gen 5 x4",
                 "PCI Express Gen 5 x8",
-                "PCI Express Gen 5 x16" // 0xC3
+                "PCI Express Gen 5 x16",
+                "PCI Express Gen 6 and Beyond",
+                "Enterprise and Datacenter 1",
+                "Enterprise and Datacenter 3"  // 0xC6
             };
 
-            if (code >= 0x01 && code <= 0x27)
+            if (code >= 0x01 && code <= 0x28)
             {
                 return value[code - 0x01];
             }

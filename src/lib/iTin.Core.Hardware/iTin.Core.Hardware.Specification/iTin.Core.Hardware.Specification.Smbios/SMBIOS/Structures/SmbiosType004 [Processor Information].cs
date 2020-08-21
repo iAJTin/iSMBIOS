@@ -534,6 +534,28 @@ namespace iTin.Core.Hardware.Specification.Smbios
         private bool PowerPerformanceControl => Characteristics.CheckBit(Bits.Bit07);
         #endregion
 
+        #region [private] (bool) IsCapable128Bit: Gets a value representing the '128-bit Capable' characteristic of the 'Characteristics' field
+        /// <summary>
+        /// Gets a value representing the <b>128-bit Capable</b> characteristic of the <b>Characteristics</b> field
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private bool IsCapable128Bit => Characteristics.CheckBit(Bits.Bit08);
+        #endregion
+
+        #region [private] (bool) Arm64SocIdSupported: Gets a value representing the 'Arm64 SoC Id' characteristic of the 'Characteristics' field
+        /// <summary>
+        /// Gets a value representing the <b>Arm64 SoC Id</b> characteristic of the <b>Characteristics</b> field
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private bool Arm64SocIdSupported => Characteristics.CheckBit(Bits.Bit09);
+        #endregion
+
         #region [private] (ushort) CoreCount2: Gets a value representing the 'Core Count 2' field
         /// <summary>
         /// Gets a value representing the <b>Core Count 2</b> field.
@@ -756,7 +778,9 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
             if (StructureInfo.Length >= 0x27)
             {
+                properties.Add(SmbiosProperty.Processor.Characteristics.Arm64SocIdSupported, Arm64SocIdSupported);
                 properties.Add(SmbiosProperty.Processor.Characteristics.Capable64Bits, IsCapable64Bit);
+                properties.Add(SmbiosProperty.Processor.Characteristics.Capable128Bits, IsCapable128Bit);
                 properties.Add(SmbiosProperty.Processor.Characteristics.MultiCore, IsMultiCore);
                 properties.Add(SmbiosProperty.Processor.Characteristics.HardwareThreadPerCore, MultipleHardwareThreadsPerCore);
                 properties.Add(SmbiosProperty.Processor.Characteristics.ExecuteProtectionSupport, ExecuteProtection);
@@ -770,7 +794,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 3.2.0 (26/04/2018)
+        #region BIOS Specification 3.4.0 (20/08/2020)
 
         #region [private] {static} (string) GetProcessorFamily(IList<byte>, IEnumerable<string>): Gets a string that identifies the processor family
         /// <summary>
@@ -1207,10 +1231,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "Socket BGA1392",
                 "Socket BGA1510",
                 "Socket BGA1528",
-                "Socket LGA4189"   // 0x3D
+                "Socket LGA4189",
+                "Socket LGA1200"     // 0x3E
             };
 
-            if (code >= 0x01 && code <= 0x3D)
+            if (code >= 0x01 && code <= 0x3E)
             {
                 return value[code - 0x01];
             }

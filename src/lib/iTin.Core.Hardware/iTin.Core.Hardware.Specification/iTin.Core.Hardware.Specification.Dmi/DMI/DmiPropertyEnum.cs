@@ -458,6 +458,11 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyType(typeof(bool))]
         Capable64Bits,
 
+        [PropertyName("Capable 128 Bits")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(bool))]
+        Capable128Bits,
+
         [PropertyName("Multi Core")]
         [PropertyDescription("")]
         [PropertyType(typeof(bool))]
@@ -499,6 +504,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyDescription("")]
         [PropertyType(typeof(ushort))]
         ThreadCount2,
+        #endregion
+
+        #region version 3.4+
+        [PropertyName("Arm64 SoC ID Supported")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(bool))]
+        Arm64SocIdSupported,
         #endregion
     }
     #endregion

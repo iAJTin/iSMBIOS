@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Adds support for System Management BIOS (SMBIOS) v3.4.0, includes:
+
+      * Processor Information (Type 4):
+        - SMBIOSCR00189: update the definition of Type 4 Processor Id for ARM64 CPUs
+        - SMBIOSCR00191: add Socket LGA1200
+
+      * System Slots (Type 9):
+        - SMBIOSCR00193: add OCP NIC Prior to 3.0
+        - SMBIOSCR00196: Slot Type extensions for PCIe Gen6 and beyond
+        - SMBIOSCR00197: Add support for CXL 2.0 devices
+        - SMBIOSCR00199: Add support for EDSFF slot types
+
+      * Memory Device (Type 17):
+        - SMBIOSCR00195: update description for Intel persistent memory device
+        - SMBIOSCR00197: Add support for CXL 2.0 devices
+
 - Adds support for retrieving **DMI** information for remote machines using **WMI**
   - **Currently in experimental mode, you can try to use it as it is implemented and comment if you find any problems**
    
@@ -81,9 +97,11 @@ All notable changes to this project will be documented in this file.
 
       * Processor Information (Type 4)::
         - SMBIOSCR00190: add Socket LGA4189
+
       * System Slots (Type 9):
         - SMBIOSCR00186: add PCI Express Gen 5 and U.2 values
         - SMBIOSCR00188: add OCP NIC 3.0 values
+
       * Memory Device (Type 17):
         - SMBIOSCR00187: add new memory device types (DDR5, LPDDR5)
 

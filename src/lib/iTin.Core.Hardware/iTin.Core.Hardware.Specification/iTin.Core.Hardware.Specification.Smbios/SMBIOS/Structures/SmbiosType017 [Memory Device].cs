@@ -758,6 +758,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
+
         #region BIOS Specification 3.3.0 (25/09/2019)
 
         #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
@@ -925,7 +926,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "NVDIMM-N",
                 "NVDIMM-F",
                 "NVDIMM-P",
-                "Intel® OptaneTM DC Persistent Memory" // 0x07
+                "Intel® Optane™ persistent memory"     // 0x07
             };
 
             if (code >= 0x01 && code <= 0x07)
@@ -976,33 +977,3 @@ namespace iTin.Core.Hardware.Specification.Smbios
         #endregion
     }
 }
-
-
-//#region 3.2+
-//if (StructureInfo.Length >= 0x29)
-//{
-//    var memoryTechnology = GetMemoryTechnology(MemoryTechnology);
-//    properties.Add(SmbiosProperty.MemoryDevice.MemoryTechnology, memoryTechnology);
-
-//    var memoryOperatingModeCapability = GetMemoryOperatingModeCapability(MemoryOperatingModeCapability);
-//    properties.Add(SmbiosProperty.MemoryDevice.MemoryOperatingModeCapability, memoryOperatingModeCapability);
-
-//    properties.Add(SmbiosProperty.MemoryDevice.FirmwareVersion, FirmwareVersion);
-//    properties.Add(SmbiosProperty.MemoryDevice.ModuleManufacturerId, ModuleManufacturerId);
-//    properties.Add(SmbiosProperty.MemoryDevice.ModuleProductId, ModuleProductId);
-//    properties.Add(SmbiosProperty.MemoryDevice.MemorySubsystemControllerManufacturerId, MemorySubsystemControllerManufacturerId);
-//    properties.Add(SmbiosProperty.MemoryDevice.MemorySubsystemControllerProductId, MemorySubsystemControllerProductId);
-//    properties.Add(SmbiosProperty.MemoryDevice.NonVolatileSize, NonVolatileSize);
-//    properties.Add(SmbiosProperty.MemoryDevice.VolatileSize, VolatileSize);
-//    properties.Add(SmbiosProperty.MemoryDevice.CacheSize, CacheSize);
-//    properties.Add(SmbiosProperty.MemoryDevice.LogicalSize, LogicalSize);
-//}
-//#endregion
-
-//#region 3.3+
-//if (StructureInfo.Length >= 0x55)
-//{
-//    properties.Add(SmbiosProperty.MemoryDevice.ExtendedSpeed, ExtendedSpeed);
-//    properties.Add(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, ExtendedConfiguredSpeed);
-//}
-//#endregion

@@ -96,12 +96,14 @@ namespace iTin.Core.Hardware.Specification.Dmi
                 properties.Add(DmiProperty.Processor.CoreCount, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.CoreCount));
                 properties.Add(DmiProperty.Processor.CoreEnabled, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.CoreEnabled));
                 properties.Add(DmiProperty.Processor.ThreadCount, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ThreadCount));
-                properties.Add(SmbiosProperty.Processor.Characteristics.Capable64Bits, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.Capable64Bits));
-                properties.Add(SmbiosProperty.Processor.Characteristics.MultiCore, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.MultiCore));
-                properties.Add(SmbiosProperty.Processor.Characteristics.HardwareThreadPerCore, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.HardwareThreadPerCore));
-                properties.Add(SmbiosProperty.Processor.Characteristics.ExecuteProtectionSupport, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.ExecuteProtectionSupport));
-                properties.Add(SmbiosProperty.Processor.Characteristics.EnhancedVirtualizationInstructions, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.EnhancedVirtualizationInstructions));
-                properties.Add(SmbiosProperty.Processor.Characteristics.PowerPerformanceControlSupport, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.PowerPerformanceControlSupport));
+                properties.Add(DmiProperty.Processor.Characteristics.Arm64SocIdSupported, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.Arm64SocIdSupported));
+                properties.Add(DmiProperty.Processor.Characteristics.Capable64Bits, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.Capable64Bits));
+                properties.Add(DmiProperty.Processor.Characteristics.Capable128Bits, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.Capable128Bits));
+                properties.Add(DmiProperty.Processor.Characteristics.MultiCore, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.MultiCore));
+                properties.Add(DmiProperty.Processor.Characteristics.HardwareThreadPerCore, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.HardwareThreadPerCore));
+                properties.Add(DmiProperty.Processor.Characteristics.ExecuteProtectionSupport, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.ExecuteProtectionSupport));
+                properties.Add(DmiProperty.Processor.Characteristics.EnhancedVirtualizationInstructions, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.EnhancedVirtualizationInstructions));
+                properties.Add(DmiProperty.Processor.Characteristics.PowerPerformanceControlSupport, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.PowerPerformanceControlSupport));
             }
             #endregion
         }

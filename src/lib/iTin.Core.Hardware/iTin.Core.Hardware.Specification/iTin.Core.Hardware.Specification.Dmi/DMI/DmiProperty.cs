@@ -2012,6 +2012,33 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </summary>
             public static class Characteristics
             {
+                #region [public] {static} (IPropertyKey) Arm64SocIdSupported: Gets a value representing the key to retrieve the property value
+                /// <summary>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>indicates that the processor supports returning a SoC ID value using the
+                /// SMCCC_ARCH_SOC_ID architectural call, as defined in the Arm SMC Calling Convention Specification v1.2 at
+                /// https://developer.arm.com/architectures/system-architectures/software-standards/smccc.
+                /// </para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.Arm64SocIdSupported"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>3.4+</para>
+                /// </para>
+                /// </summary>
+                public static IPropertyKey Arm64SocIdSupported => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.Arm64SocIdSupported);
+                #endregion
+
                 #region [public] {static} (IPropertyKey) Capable64Bits: Gets a value representing the key to retrieve the property value
                 /// <summary>
                 /// <para>Gets a value representing the key to retrieve the property value.</para>
@@ -2038,6 +2065,32 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
                 /// </para>
                 /// </summary>
                 public static IPropertyKey Capable64Bits => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.Capable64Bits);
+                #endregion
+
+                #region [public] {static} (IPropertyKey) Capable128Bits: Gets a value representing the key to retrieve the property value
+                /// <summary>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>
+                /// 128-bit Capable indicates the maximum data width capability of the processor.
+                /// </para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType004Property.Capable64Bits"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="bool"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>2.5+</para>
+                /// </para>
+                /// </summary>
+                public static IPropertyKey Capable128Bits => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.Capable128Bits);
                 #endregion
 
                 #region [public] {static} (IPropertyKey) EnhancedVirtualizationInstructions: Gets a value representing the key to retrieve the property value

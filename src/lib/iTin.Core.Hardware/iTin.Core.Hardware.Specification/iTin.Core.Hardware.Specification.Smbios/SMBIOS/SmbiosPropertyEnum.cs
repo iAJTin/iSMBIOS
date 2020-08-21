@@ -440,6 +440,14 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         [PropertyDescription("")]
         [PropertyType(typeof(bool))]
+        Capable128Bits,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(bool))]
+        Arm64SocIdSupported,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(bool))]
         MultiCore,
 
         [PropertyDescription("")]

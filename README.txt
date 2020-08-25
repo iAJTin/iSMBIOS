@@ -16,17 +16,17 @@ Library versions for current iSMBIOS version (1.1.4)
 •———————————————————————————————————————————————————————————————————————————————————————————•
 | Library                                  Version      Description                         |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core                                 1.0.2.0		Common calls                            |
+|iTin.Core                                 1.0.2.0		Common calls                        |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Interop                         1.0.0.0		Interop calls                           |
+|iTin.Core.Interop                         1.0.0.0		Interop calls                       |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware                        1.0.1.0		Hardware Interop Calls                  |
+|iTin.Core.Hardware                        1.0.1.0		Hardware Interop Calls              |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware.Specification.Dmi      3.3.0.3		DMI Specification Implementation        |
+|iTin.Core.Hardware.Specification.Dmi      3.3.0.3		DMI Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware.Specification.Smbios   3.3.0.3		SMBIOS Specification Implementation     |
+|iTin.Core.Hardware.Specification.Smbios   3.3.0.3		SMBIOS Specification Implementation |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware.Specification.Tpm      1.0.0.0		TPM Specification Implementation        |
+|iTin.Core.Hardware.Specification.Tpm      1.0.0.0		TPM Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•
 
 Install via NuGet

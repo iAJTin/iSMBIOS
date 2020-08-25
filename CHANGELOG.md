@@ -61,7 +61,6 @@ All notable changes to this project will be documented in this file.
 |iTin.Core.Hardware.Specification.Smbios|**3.3.0.3**| SMBIOS Specification Implementation |
 |iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
 
-
 ## [1.1.3] - 2020-03-06
 
 ### Fixed

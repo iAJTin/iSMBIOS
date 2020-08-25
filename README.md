@@ -13,7 +13,7 @@
 # What is iSMBIOS?
 iSMBIOS is a lightweight implementation that allows us to obtain the SMBIOS information
 
-This library implements DMTF Specification 3.4.0a (Preliminary version) and olders versions
+This library implements DMTF Specification 3.4.0 version and olders versions.
 
 For more information, please see [https://www.dmtf.org/standards/smbios](https://www.dmtf.org/standards/smbios)
 

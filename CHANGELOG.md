@@ -1,6 +1,13 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.5] - 
+
+### Added
+
+
+
+
 ## [1.1.4] - 2020-08-25
 
 ### Added
@@ -345,6 +352,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.1.5]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.5
 [1.1.4]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.4
 [1.1.3]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.3
 [1.1.2]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.2

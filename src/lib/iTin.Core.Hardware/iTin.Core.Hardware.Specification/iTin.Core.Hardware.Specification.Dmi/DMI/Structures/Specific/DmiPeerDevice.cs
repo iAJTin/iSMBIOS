@@ -7,9 +7,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios.Property;
 
     /// <summary>
-    /// This class represents an element of the structure <see cref="DmiType042"/>.
+    /// This class represents an element of the structure <see cref="DmiType009"/>.
     /// </summary>
-    public class DmiManagementControllerHostInterfaceProtocolRecord 
+    public class DmiPeerDevice
     {
         #region private members
         private readonly SmbiosPropertiesTable _reference;
@@ -17,12 +17,12 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region constructor/s
 
-        #region [internal] DmiManagementControllerHostInterfaceProtocolRecord(SmbiosPropertiesTable): Initialize a new instance of the class
+        #region [internal] DmiPeerDevice(SmbiosPropertiesTable): Initialize a new instance of the class
         /// <summary>
-        /// Initialize a new instance of the class <see cref="DmiManagementControllerHostInterfaceProtocolRecord"/>.
+        /// Initialize a new instance of the class <see cref="DmiPeerDevice"/>.
         /// </summary>
         /// <param name="reference"><b>SMBIOS</b> properties.</param>
-        internal DmiManagementControllerHostInterfaceProtocolRecord(SmbiosPropertiesTable reference)
+        internal DmiPeerDevice(SmbiosPropertiesTable reference)
         {
             _reference = reference;
         }
@@ -42,8 +42,9 @@ namespace iTin.Core.Hardware.Specification.Dmi
         public DmiClassPropertiesTable Properties =>
             new DmiClassPropertiesTable
             {
-                {DmiProperty.ManagementControllerHostInterface.Protocol.ProtocolType, _reference[SmbiosProperty.ManagementControllerHostInterface.Protocol.ProtocolType]},
-                {DmiProperty.ManagementControllerHostInterface.Protocol.ProtocolTypeSpecificData, _reference[SmbiosProperty.ManagementControllerHostInterface.Protocol.ProtocolTypeSpecificData]}
+                {DmiProperty.SystemSlots.Peers.DataBusWidth, _reference[SmbiosProperty.SystemSlots.Peers.DataBusWidth]},
+                {DmiProperty.SystemSlots.Peers.BusDeviceFunction, _reference[SmbiosProperty.SystemSlots.Peers.BusDeviceFunction]},
+                {DmiProperty.SystemSlots.Peers.SegmentGroupNumber, _reference[SmbiosProperty.SystemSlots.Peers.SegmentGroupNumber]}
             };
         #endregion
 

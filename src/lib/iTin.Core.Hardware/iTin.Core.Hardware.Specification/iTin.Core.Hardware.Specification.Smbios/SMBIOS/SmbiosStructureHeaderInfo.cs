@@ -223,7 +223,7 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                     case SmbiosStructure.MemoryController:
                     {
-                        var x = 0;
+                        byte x = 0;
 
                         if (Length >= 0x0f)
                         {
@@ -298,9 +298,16 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
                     case SmbiosStructure.SystemSlots:
                     {
-                        if (Length > 0x11)
+                        if (Length > 0x12)
                         {
                             result = SmbiosStructureVersion.v32;
+
+                            byte n = RawData[0x12];
+                            byte groupsBytes = (byte)(5 * n);
+                            if (Length > 0x14 + groupsBytes)
+                            {
+                                result = SmbiosStructureVersion.v34;
+                            }
                         }
                         else if (Length == 0x11)
                         {

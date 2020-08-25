@@ -699,45 +699,93 @@ namespace iTin.Core.Hardware.Specification.Smbios
     internal enum SmbiosType009Property
     {
         #region version 2.0+
-        [PropertyDescription("")]
+        [PropertyName("Slot Designation")]
+        [PropertyDescription("String number for reference designation")]
         [PropertyType(typeof(string))]
         SlotDesignation,
 
-        [PropertyDescription("")]
+        [PropertyName("Slot Type")]
+        [PropertyDescription("Slot Type")]
         [PropertyType(typeof(string))]
         SlotType,
 
-        [PropertyDescription("")]
+        [PropertyName("Slot Data Bus Width")]
+        [PropertyDescription("Slot Data Bus Width")]
         [PropertyType(typeof(string))]
         SlotDataBusWidth,
 
-        [PropertyDescription("")]
+        [PropertyName("Current Usage")]
+        [PropertyDescription("Slot Current Usage")]
         [PropertyType(typeof(string))]
         CurrentUsage,
 
-        [PropertyDescription("")]
+        [PropertyName("Slot Length")]
+        [PropertyDescription("Slot Length")]
         [PropertyType(typeof(string))]
         SlotLength,
 
-        [PropertyDescription("")]
+        [PropertyName("Slot Id")]
+        [PropertyDescription("Slot Identifier")]
         [PropertyType(typeof(string))]
         SlotId,
         #endregion
 
         #region version 2.0+ - 2.1+
-        [PropertyDescription("")]
+        [PropertyName("Slot Characteristics")]
+        [PropertyDescription("Slot Characteristics")]
         [PropertyType(typeof(ReadOnlyCollection<string>))]
         SlotCharacteristics,
         #endregion
 
         #region version 2.6+
-        [PropertyDescription("")]
+        [PropertyName("Segment Bus Function")]
+        [PropertyDescription("Segment Bus Function")]
         [PropertyType(typeof(string))]
         SegmentBusFunction,
 
-        [PropertyDescription("")]
+        [PropertyName("Bus Device Function")]
+        [PropertyDescription("Bus Device Function")]
         [PropertyType(typeof(string))]
-        BusDeviceFunction
+        BusDeviceFunction,
+        #endregion
+
+        #region version 3.2
+        [PropertyName("Peers Devices")]
+        [PropertyDescription("Peers Devices")]
+        [PropertyType(typeof(PeerDevicesCollection))]
+        PeerDevices,
+
+        [PropertyName("Segment Group Number")]
+        [PropertyDescription("Defined in the PCI Firmware Specification")]
+        [PropertyType(typeof(ushort))]
+        SegmentGroupNumber,
+
+        [PropertyName("Bus Device Function")]
+        [PropertyDescription("Bus Device Function (Peer)")]
+        [PropertyType(typeof(string))]
+        BusDeviceFunctionPeer,
+
+        [PropertyName("Data Bus Width")]
+        [PropertyDescription("Data Bus Width (Peer)")]
+        [PropertyType(typeof(byte))]
+        DataBusWidth,
+        #endregion
+
+        #region version 3.4
+        [PropertyName("Slot Information")]
+        [PropertyDescription("The PCI Express Generation")]
+        [PropertyType(typeof(string))]
+        SlotInformation,
+
+        [PropertyName("Slot Physical Width")]
+        [PropertyDescription("Indicates the physical width of the slot")]
+        [PropertyType(typeof(string))]
+        SlotPhysicalWidth,
+
+        [PropertyName("Slot Pitch")]
+        [PropertyDescription("Indicates the pitch of the slot in units of 1/100 millimeter")]
+        [PropertyType(typeof(int))]
+        SlotPitch,
         #endregion
     }
     #endregion

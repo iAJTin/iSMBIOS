@@ -16,15 +16,15 @@ Library versions for current iSMBIOS version (1.1.3)
 •———————————————————————————————————————————————————————————————————————————————————————————•
 | Library                                  Version      Description                         |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core                                 1.0.1.0		Common calls                        |
+|iTin.Core                                 1.0.2.0		Common calls                        |
 •———————————————————————————————————————————————————————————————————————————————————————————•
 |iTin.Core.Interop                         1.0.0.0		Interop calls                       |
 •———————————————————————————————————————————————————————————————————————————————————————————•
 |iTin.Core.Hardware                        1.0.1.0		Hardware Interop Calls              |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware.Specification.Dmi      3.3.0.1		DMI Specification Implementation    |
+|iTin.Core.Hardware.Specification.Dmi      3.3.0.3		DMI Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•
-|iTin.Core.Hardware.Specification.Smbios   3.3.0.2		SMBIOS Specification Implementation |
+|iTin.Core.Hardware.Specification.Smbios   3.3.0.3		SMBIOS Specification Implementation |
 •———————————————————————————————————————————————————————————————————————————————————————————•
 |iTin.Core.Hardware.Specification.Tpm      1.0.0.0		TPM Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•
@@ -37,7 +37,17 @@ For more information, please see https://www.nuget.org/packages/iSMBIOS/
 Usage
 =====
 
-Call DMI.Instance.Structures for getting all SMBIOS structures availables.
+ - Before
+
+   Call DMI.Instance.Structures for getting all SMBIOS structures availables.
+
+ - Now 
+
+   The DMI.Instance property now is mark as obsolete use DMI.CreateInstance() method instead
+   If you want to connect to a remote machine fill in an instance of the DmiConnectOptions object and use it 
+   as the argument of the DMI method.CreateInstance(optionsInstance).
+   
+For more info, please see CHANGELOG file (https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md).
 
 Examples
 --------

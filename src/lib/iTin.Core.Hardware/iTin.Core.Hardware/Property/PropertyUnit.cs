@@ -83,6 +83,12 @@ namespace iTin.Core.Hardware
         mm,
 
         /// <summary>
+        /// 1/100 millimiters.
+        /// </summary>
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "d_mm")]
+        d_mm,
+
+        /// <summary>
         /// millivolts
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "m")]

@@ -6,7 +6,6 @@ namespace iTin.Core.Hardware.Specification.Dmi
     using Smbios;
     using Smbios.Property;
 
-    /// <inheritdoc/>
     /// <summary>
     /// Specialization of the <see cref="DmiBaseType{T}"/> class that contains the logic to decode the Slot Information (Type 9) structure.
     /// For more information, please see <see cref="SmbiosType009"/>.
@@ -101,6 +100,40 @@ namespace iTin.Core.Hardware.Specification.Dmi
                 if (busDeviceFunction != null)
                 {
                     properties.Add(DmiProperty.SystemSlots.BusDeviceFunction, busDeviceFunction);
+                }
+            }
+            #endregion
+
+            #region 3.2
+            if (SmbiosStructure.StructureInfo.StructureVersion >= SmbiosStructureVersion.v32)
+            {
+                object peerDevices = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemSlots.PeerDevices);
+                if (peerDevices != null)
+                {
+                    properties.Add(DmiProperty.SystemSlots.PeerDevices, new DmiPeerDevicesCollection((PeerDevicesCollection)peerDevices));
+                }
+            }
+            #endregion
+
+            #region 3.4
+            if (SmbiosStructure.StructureInfo.StructureVersion >= SmbiosStructureVersion.v34)
+            {
+                object slotInformation = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemSlots.SlotInformation);
+                if (slotInformation != null)
+                {
+                    properties.Add(DmiProperty.SystemSlots.SlotInformation, slotInformation);
+                }
+
+                object slotPhysicalWidth = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemSlots.SlotPhysicalWidth);
+                if (slotPhysicalWidth != null)
+                {
+                    properties.Add(DmiProperty.SystemSlots.SlotPhysicalWidth, slotPhysicalWidth);
+                }
+
+                object slotPitch = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemSlots.SlotPitch);
+                if (slotPitch != null)
+                {
+                    properties.Add(DmiProperty.SystemSlots.SlotPitch, (ushort)((ushort)slotPitch / 100));
                 }
             }
             #endregion

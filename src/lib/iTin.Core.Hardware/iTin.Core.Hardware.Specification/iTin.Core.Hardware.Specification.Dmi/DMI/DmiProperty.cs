@@ -744,7 +744,7 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// <para>
             ///  <para><b>Return Value</b></para>
-            ///  <para>Type: <see cref=byte"/></para>
+            ///  <para>Type: <see cref="byte"/></para>
             /// </para>
             /// </summary>
             public static IPropertyKey NumberOfContainedObjectHandles => new PropertyKey(DmiStructureClass.BaseBoard, DmiType002Property.NumberOfContainedObjectHandles);
@@ -3521,6 +3521,197 @@ namespace iTin.Core.Hardware.Specification.Dmi.Property
             /// </para>
             /// </summary>
             public static IPropertyKey BusDeviceFunction => new PropertyKey(DmiStructureClass.SystemSlots, DmiType009Property.BusDeviceFunction);
+            #endregion
+
+            #endregion
+
+            #region version 3.2
+
+            #region [public] {static} (IPropertyKey) PeerDevices: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>The PCI Express Generation (e.g., PCI Express Generation 6).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.SystemSlots"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType009Property.PeerDevices"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="DmiPeerDevicesCollection"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.2</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey PeerDevices => new PropertyKey(DmiStructureClass.SystemSlots, DmiType009Property.PeerDevices);
+            #endregion
+            
+            #endregion
+
+            #region version 3.4
+
+            #region [public] {static} (IPropertyKey) SlotInformation: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>The PCI Express Generation (e.g., PCI Express Generation 6).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.SystemSlots"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType009Property.SlotInformation"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.4</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey SlotInformation => new PropertyKey(DmiStructureClass.SystemSlots, DmiType009Property.SlotInformation);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) SlotPhysicalWidth: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Indicates the physical width of the slot whereas <see cref="SystemSlots.SlotDataBusWidth"/> property indicates the electrical width of the slot.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.SystemSlots"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType009Property.SlotPhysicalWidth"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.4</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey SlotPhysicalWidth => new PropertyKey(DmiStructureClass.SystemSlots, DmiType009Property.SlotPhysicalWidth);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) SlotPitch: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Indicates the pitch of the slot in millimeters. The pitch is defined by each slot/card specification, but typically describes add-in card to add-in card pitch.</para>
+            /// <para>A value of 0 implies that the slot pitch is not given or is unknown.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.SystemSlots"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType009Property.SlotPitch"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.mm"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.4</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey SlotPitch => new PropertyKey(DmiStructureClass.SystemSlots, DmiType009Property.SlotPitch, PropertyUnit.mm);
+            #endregion
+
+            #endregion
+
+
+            #region nested classes
+
+            #region [public] {static} (class) Peers: Contains the key definition for the 'Peers' section
+            /// <summary>
+            /// Contains the key definition for the <b>Peers</b> section.
+            /// </summary>
+            public static class Peers
+            {
+                #region [public] {static} (IPropertyKey) SegmentGroupNumber: Gets a value representing the key to retrieve the property value
+                /// <summary>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Segment Group Number is defined in the PCI Firmware Specification. The value is 0 for a single-segment topology.</para>
+                /// <para>For PCI Express slots, Bus Number and Device/Function Number refer to the endpoint in the slot, not the upstream switch.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.SystemSlots"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType009Property.SegmentGroupNumber"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="ushort"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>3.2</para>
+                /// </para>
+                /// </summary>
+                public static IPropertyKey SegmentGroupNumber => new PropertyKey(DmiStructureClass.SystemSlots, DmiType009Property.SegmentGroupNumber);
+                #endregion
+
+                #region [public] {static} (IPropertyKey) BusDeviceFunction: Gets a value representing the key to retrieve the property value
+                /// <summary>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Bus device function (Peer).</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.SystemSlots"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType009Property.BusDeviceFunctionPeer"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="string"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>3.2</para>
+                /// </para>
+                /// </summary>
+                public static IPropertyKey BusDeviceFunction => new PropertyKey(DmiStructureClass.SystemSlots, DmiType009Property.BusDeviceFunctionPeer);
+                #endregion
+
+                #region [public] {static} (IPropertyKey) DataBusWidth: Gets a value representing the key to retrieve the property value
+                /// <summary>
+                /// <para>Gets a value representing the key to retrieve the property value.</para>
+                /// <para>Indicates electrical bus width of peer Segment/Bus/Device/Function.</para>
+                /// <para>
+                ///  <para><b>Key Composition</b></para>
+                ///  <list type="bullet">
+                ///   <item><description>Structure: <see cref="DmiStructureClass.SystemSlots"/></description></item>
+                ///   <item><description>Property: <see cref="DmiType009Property.DataBusWidth"/></description></item>
+                ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+                ///  </list>
+                /// </para>
+                /// <para>
+                ///  <para><b>Return Value</b></para>
+                ///  <para>Type: <see cref="byte"/></para>
+                /// </para>
+                /// <para>
+                ///  <para><b>Remarks</b></para>
+                ///  <para>3.2</para>
+                /// </para>
+                /// </summary>
+                public static IPropertyKey DataBusWidth => new PropertyKey(DmiStructureClass.SystemSlots, DmiType009Property.DataBusWidth);
+                #endregion
+            }
             #endregion
 
             #endregion

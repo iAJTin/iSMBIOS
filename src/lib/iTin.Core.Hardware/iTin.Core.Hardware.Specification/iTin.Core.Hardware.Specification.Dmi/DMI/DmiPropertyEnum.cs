@@ -806,7 +806,46 @@ namespace iTin.Core.Hardware.Specification.Dmi
         [PropertyName("Bus Device Function")]
         [PropertyDescription("")]
         [PropertyType(typeof(string))]
-        BusDeviceFunction
+        BusDeviceFunction,
+        #endregion
+
+        #region version 3.2
+        [PropertyName("Peers Devices")]
+        [PropertyDescription("Peers Devices")]
+        [PropertyType(typeof(PeerDevicesCollection))]
+        PeerDevices,
+
+        [PropertyName("Segment Group Number")]
+        [PropertyDescription("Defined in the PCI Firmware Specification")]
+        [PropertyType(typeof(ushort))]
+        SegmentGroupNumber,
+
+        [PropertyName("Bus Device Function")]
+        [PropertyDescription("Bus Device Function (Peer)")]
+        [PropertyType(typeof(string))]
+        BusDeviceFunctionPeer,
+
+        [PropertyName("Data Bus Width")]
+        [PropertyDescription("Data Bus Width (Peer)")]
+        [PropertyType(typeof(byte))]
+        DataBusWidth,
+        #endregion
+
+        #region version 3.4
+        [PropertyName("Slot Information")]
+        [PropertyDescription("Slot Information")]
+        [PropertyType(typeof(string))]
+        SlotInformation,
+
+        [PropertyName("Slot Physical Width")]
+        [PropertyDescription("Slot Physical Width")]
+        [PropertyType(typeof(string))]
+        SlotPhysicalWidth,
+
+        [PropertyName("Slot Pitch")]
+        [PropertyDescription("Slot Pitch")]
+        [PropertyType(typeof(int))]
+        SlotPitch,
         #endregion
     }
     #endregion

@@ -37,7 +37,17 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
 
 # Usage
 
-Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
+#### Before
+
+   Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
+
+#### Now
+
+The **DMI.Instance** property now is mark as obsolete use **DMI.CreateInstance()** method instead
+If you want to connect to a remote machine fill in an instance of the DmiConnectOptions object and use it 
+as the argument of the **DMI method.CreateInstance(optionsInstance)**.
+   
+For more info, please see [CHANGELOG] file.
 
 ## Examples
 
@@ -217,3 +227,5 @@ Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
 If you have found **iSMBIOS** useful at work or in a personal project, I would love to hear about it. If you have decided not to use **iSMBIOS**, please send me and email stating why this is so. I will use this feedback to improve **iSMBIOS** in future releases.
 
 My email address is fdo.garcia.vega@gmail.com
+
+[CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md

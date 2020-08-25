@@ -79,6 +79,11 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// <summary>
         /// Version 3.3
         /// </summary>
-        v33
+        v33,
+
+        /// <summary>
+        /// Version 3.4
+        /// </summary>
+        v34
     }
 }

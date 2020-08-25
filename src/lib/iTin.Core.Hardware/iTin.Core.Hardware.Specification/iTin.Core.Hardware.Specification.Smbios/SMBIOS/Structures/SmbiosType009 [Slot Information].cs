@@ -1,6 +1,7 @@
 ﻿
 namespace iTin.Core.Hardware.Specification.Smbios
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Diagnostics;
@@ -58,13 +59,13 @@ namespace iTin.Core.Hardware.Specification.Smbios
     // | 13h      3.2         Peer(S/B/D/F/Width) 5*n         Varies      Peer Segment/Bus/Device/Function                             |
     // |                      groups              BYTE                    present in the slot; see 7.10.9                              |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 14h +    3.4         Slot Information    BYTE        Varies      Please see 7.10.10                                           |
+    // | 14h +    3.4         Slot Information    BYTE        Varies      Please see SlotInformation                                   |
     // | 5*n                                                                                                                           |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 15 +     3.4         Slot Physical Width BYTE        Varies      Please see 7.10.11                                           |
+    // | 15 +     3.4         Slot Physical Width BYTE        Varies      Please see GetDataBusWidth()                                 |
     // | 5*n                                                                                                                           |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 16h +    3.4         Slot Pitch          BYTE         Varies     Please see 7.10.12                                           |
+    // | 16h +    3.4         Slot Pitch          WORD         Varies     Please see SlotPitch                                         |
     // | 5*n                                                                                                                           |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
@@ -258,6 +259,80 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
         #endregion
 
+        #region Version 3.2 fields
+
+        #region [private] (byte) BaseDataBusWidth: Gets a value representing the 'Base Data Bus Width' field
+        /// <summary>
+        /// Gets a value representing the <b>Base Data Bus Width</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte BaseDataBusWidth => Reader.GetByte(0x11);
+        #endregion
+
+        #region [private] (byte) GroupingCount: Gets a value representing the 'Peer Grouping Count (n)' field
+        /// <summary>
+        /// Gets a value representing the <b>Peer Grouping Count (n)</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte GroupingCount => Reader.GetByte(0x12);
+        #endregion
+
+        #region [private] (byte[]) RawGroups: Gets a value representing the 'Peer (S/B/D/F/Width) groups' field
+        /// <summary>
+        /// Gets a value representing the <b>Peer (S/B/D/F/Width) groups</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte[] RawGroups => Reader.GetBytes(0x13, (byte)(5 * GroupingCount));
+        #endregion
+
+        #endregion
+
+        #region Version 3.4 fields
+
+        #region [private] (byte) SlotInformation: Gets a value representing the 'Slot Information' field
+        /// <summary>
+        /// Gets a value representing the <b>Slot Information</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte SlotInformation => Reader.GetByte((byte)(0x14 + (5 * GroupingCount)));
+        #endregion
+
+        #region [private] (byte) SlotPhysicalWidth: Gets a value representing the 'Slot Physical Width' field
+        /// <summary>
+        /// Gets a value representing the <b>Slot Physical Width</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte SlotPhysicalWidth => Reader.GetByte((byte)(0x15 + (5 * GroupingCount)));
+        #endregion
+
+        #region [private] (ushort) SlotPitch: Gets a value representing the 'Slot Pitch' field
+        /// <summary>
+        /// Gets a value representing the <b>Slot Pitch</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ushort SlotPitch => Reader.GetWord((byte)(0x16 + (5 * GroupingCount)));
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region protected override methods
@@ -297,13 +372,39 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 properties.Add(SmbiosProperty.SystemSlots.BusDeviceFunction, GetBusDeviceFunction(Bus, Device, Function));
             }
             #endregion
+
+            #region 3.2
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v32)
+            {
+                var slotType = GetSlotType(SlotType).ToLowerInvariant();
+                var canEvaluate = slotType.Contains("agp") || slotType.Contains("pci");
+                if (canEvaluate)
+                {
+                    IEnumerable<PeerDevice> peersDevices = GetPeerElements(RawGroups);
+                    properties.Add(SmbiosProperty.SystemSlots.PeerDevices, new PeerDevicesCollection(peersDevices));
+                }
+            }
+            #endregion
+
+            #region 3.4
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v34)
+            {
+                if (SlotType == 0xC4)
+                {
+                    properties.Add(SmbiosProperty.SystemSlots.SlotInformation, $"PCI Express Generation {SlotInformation}");
+                }
+
+                properties.Add(SmbiosProperty.SystemSlots.SlotPhysicalWidth, GetDataBusWidth(DataWidth));
+                properties.Add(SmbiosProperty.SystemSlots.SlotPitch, SlotPitch);
+            }
+            #endregion
         }
         #endregion
 
         #endregion
 
 
-        #region BIOS Specification 3.3.0 (25/09/2019)
+        #region BIOS Specification 3.4.0 (20/08/2020)
 
         #region [private] {static} (string) GetBusDeviceFunction(byte, byte, byte): Gets a string representing Bus / Device / Function of the slot
         /// <summary>
@@ -524,6 +625,29 @@ namespace iTin.Core.Hardware.Specification.Smbios
         }
         #endregion
 
+        #region [private] {static} (IEnumerable<PeerDevice>) GetPeerElements(byte[], byte): Gets the list of peer information
+        /// <summary>
+        /// Gets the list of peer information.
+        /// </summary>
+        /// <param name="rawData">Raw information.</param>
+        /// <returns>
+        /// Peers
+        /// </returns>
+        private static IEnumerable<PeerDevice> GetPeerElements(byte[] rawData)
+        {
+            Collection<PeerDevice> peerElements = new Collection<PeerDevice>();
+
+            for (int i = 0; i < rawData.Length; i += 0x05)
+            {
+                var peer = new byte[0x05];
+                Array.Copy(rawData, i, peer, 0, 0x05);
+                peerElements.Add(new PeerDevice(peer));
+            }
+
+            return peerElements;
+        }
+        #endregion
+
         #region [private] {static} (string) GetSegmentBusFunction(ushort): Gets a string representing SegmentBusFuction
         /// <summary>
         /// Gets a string representing SegmentBusFuction.
@@ -631,8 +755,8 @@ namespace iTin.Core.Hardware.Specification.Smbios
                 "PCI Express Gen 5 x8",
                 "PCI Express Gen 5 x16",
                 "PCI Express Gen 6 and Beyond",
-                "Enterprise and Datacenter 1",
-                "Enterprise and Datacenter 3"  // 0xC6
+                "Enterprise and Datacenter 1U E1 Form Factor Slot",
+                "Enterprise and Datacenter 3\" E3 Form Factor Slot" // 0xC6
             };
 
             if (code >= 0x01 && code <= 0x28)

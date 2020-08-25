@@ -32,7 +32,13 @@ namespace iTin.Core.Hardware.Specification.Dmi
 
         #region public properties
 
-        #region [public] (DmiClassPropertiesTable) Properties : 
+        #region [public] (DmiClassPropertiesTable) Properties: Gets the properties available for this structure
+        /// <summary>
+        /// Gets the properties available for this structure.
+        /// </summary>
+        /// <value>
+        /// Availables properties.
+        /// </value>
         public DmiClassPropertiesTable Properties =>
             new DmiClassPropertiesTable
             {

@@ -7,19 +7,18 @@ namespace iTin.Core.Hardware.Specification.Smbios
 
     /// <inheritdoc/>
     /// <summary>
-    /// Represents a collection of objects <see cref="ChassisContainedElement"/>.
+    /// Represents a collection of objects <see cref="PeerDevice"/>.
     /// </summary>
-    public sealed class ChassisContainedElementCollection : ReadOnlyCollection<ChassisContainedElement>
+    public sealed class PeerDevicesCollection : ReadOnlyCollection<PeerDevice>
     {
         #region constructor/s
 
-        #region [internal] ChassisContainedElementCollection(IEnumerable<ChassisContainedElement>): Initialize a new instance of the class
-        /// <inheritdoc/>
+        #region [internal] PeerDevicesCollection(byte[]): Initialize a new instance of the class
         /// <summary>
-        /// Initialize a new instance of the class <see cref="ChassisContainedElementCollection"/>.
+        /// Initialize a new instance of the class <see cref="PeerDevicesCollection"/>.
         /// </summary>
         /// <param name="elements">Item list.</param>
-        internal ChassisContainedElementCollection(IEnumerable<ChassisContainedElement> elements) : base(elements.ToList())
+        internal PeerDevicesCollection(IEnumerable<PeerDevice> elements) : base(elements.ToList())
         {
         }
         #endregion
@@ -33,12 +32,12 @@ namespace iTin.Core.Hardware.Specification.Smbios
         /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="string"/> that represents the current <see cref="ChassisContainedElementCollection"/> class.
+        /// Object <see cref="string"/> that represents the current <see cref="PeerDevicesCollection"/> class.
         /// </returns>
         /// <remarks>
-        /// This method returns a string that includes the number of available elements.
+        /// This method returns a string that includes the number of available items.
         /// </remarks>                                    
-        public override string ToString() => $"Elements = {Items.Count}";
+        public override string ToString() => $"Peers={Items.Count}";
         #endregion
 
         #endregion              

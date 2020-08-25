@@ -226,6 +226,9 @@ For more info, please see [CHANGELOG] file.
 
 If you have found **iSMBIOS** useful at work or in a personal project, I would love to hear about it. If you have decided not to use **iSMBIOS**, please send me and email stating why this is so. I will use this feedback to improve **iSMBIOS** in future releases.
 
-My email address is fdo.garcia.vega@gmail.com
+My email address is 
+
+![email.png][email] 
 
 [CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md
+[email]: ./assets/email.png "email"

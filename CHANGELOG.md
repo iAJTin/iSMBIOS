@@ -118,7 +118,7 @@ All notable changes to this project will be documented in this file.
  
   - The image below shows an example.
 
-    ![Help.png][helpimg] 
+    ![Help.png][help] 
 
 - Library versions for this version
   
@@ -360,6 +360,6 @@ for more information, please see how to use it in the example project. On the ot
 [1.0.1]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.0.1
 [1.0.0]: https://github.com/iAJTin/iSMBIOS
 
-[helpimg]: ./assets/helpimg.png "help"
+[help]: ./assets/help.png "help"
 [Connecting to WMI on a Remote Computer]: https://docs.microsoft.com/es-es/windows/win32/wmisdk/connecting-to-wmi-on-a-remote-computer
 

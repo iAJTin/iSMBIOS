@@ -19,6 +19,8 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
 
 # Install via NuGet
 
+- From nuget gallery
+
 <table>
   <tr>
     <td>
@@ -34,6 +36,10 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
     </td>  
   </tr>
 </table>
+
+- From package manager console
+
+```PM> Install-Package iSMBIOS```
 
 # Usage
 

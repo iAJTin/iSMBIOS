@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>iSMBIOS.ConsoleApp</RootNamespace>
     <AssemblyName>iSMBIOS.ConsoleApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -52,17 +52,17 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\iTin.Core.Hardware.Specification.Dmi.csproj">
-      <Project>{c081b25a-8eb2-46f8-8b03-40e215e986e5}</Project>
-      <Name>iTin.Core.Hardware.Specification.Dmi</Name>
+    <ProjectReference Include="..\..\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Common\iTin.Core.Hardware.Common.csproj">
+      <Project>{53276677-2197-4E9E-803D-D87F29C2A214}</Project>
+      <Name>iTin.Core.Hardware.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware\iTin.Core.Hardware.csproj">
-      <Project>{712177ab-3598-4d8b-b8b8-888928dafa7d}</Project>
-      <Name>iTin.Core.Hardware</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\lib\iTin.Core\iTin.Core\iTin.Core.csproj">
-      <Project>{a1fc8e7e-8a01-4456-bf5c-14c40981befa}</Project>
+    <ProjectReference Include="..\..\lib\net\iTin.Core\iTin.Core\iTin.Core.csproj">
+      <Project>{8A1C5156-3836-430C-9D14-FAD69D693376}</Project>
       <Name>iTin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\lib\net\iTin.Hardware\iTin.Hardware.Specification\iTin.Hardware.Specification.Dmi\iTin.Hardware.Specification.Dmi.csproj">
+      <Project>{69edda0b-1d62-4154-a8ef-715e1ee8f2ab}</Project>
+      <Name>iTin.Hardware.Specification.Dmi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

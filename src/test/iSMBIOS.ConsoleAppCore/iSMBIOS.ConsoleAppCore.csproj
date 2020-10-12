@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\iTin.Core.Hardware\iTin.Core.Hardware.Specification\iTin.Core.Hardware.Specification.Dmi\iTin.Core.Hardware.Specification.Dmi.csproj" />
+    <ProjectReference Include="..\..\lib\net\iTin.Hardware\iTin.Hardware.Specification\iTin.Hardware.Specification.Dmi\iTin.Hardware.Specification.Dmi.csproj" />
   </ItemGroup>
 
 </Project>

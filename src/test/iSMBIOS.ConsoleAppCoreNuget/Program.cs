@@ -1,14 +1,15 @@
 ﻿
 namespace iSMBIOS.ConsoleAppCoreNuget
 {
-    using iTin.Core.Hardware;
-    using iTin.Core.Hardware.Specification;
-    using iTin.Core.Hardware.Specification.Dmi;
-    using iTin.Core.Hardware.Specification.Dmi.Property;
+    using iTin.Core.Hardware.Common;
+
+    using iTin.Hardware.Specification;
+    using iTin.Hardware.Specification.Dmi;
+    using iTin.Hardware.Specification.Dmi.Property;
 
     class Program
     {
-        private static byte[] lenovoL490 =
+        private static readonly byte[] LenovoL490 =
         {
             0x00, 0x03, 0x01, 0x00, 0x4A, 0x0C, 0x00, 0x00,
             0xDE, 0x0E, 0x00, 0x00, 0x01, 0x99, 0x00, 0x03,
@@ -409,20 +410,21 @@ namespace iSMBIOS.ConsoleAppCoreNuget
 
         static void Main(string[] args)
         {
-            DmiStructureCollection structures = DMI.Instance.Structures;
+            DmiStructureCollection structures = DMI.CreateInstance().Structures;
 
             // type 0
             string biosVersion = GetSmbiosProperty(structures, DmiProperty.Bios.BiosVersion);
-            string biosVersionTyped = structures.GetProperty<string>(DmiProperty.Bios.BiosVersion);
         }
 
         private static string GetSmbiosProperty(DmiStructureCollection structure, IPropertyKey key)
         {
-            string result = null;
+            QueryPropertyResult queryResult = structure.GetProperty(key);
+            if (!queryResult.Success)
+            {
+                return null;
+            }
 
-            result = structure.GetProperty(key).ToString();
-
-            return result;
+            return queryResult.Value.Value.ToString();
         }
     }
 }

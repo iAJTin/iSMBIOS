@@ -8,10 +8,155 @@ This library implements DMTF Specification 3.4.0 version and olders versions
 
 For more information, please see https://www.dmtf.org/standards/smbios
 
-Library versions
-================
 
-Library versions for current iSMBIOS version (1.1.4)
+Changes in this version (v1.1.5)
+================================
+
+· Added
+  -----
+
+    - Add new libraries and remove old libraries for compability with another packages (Win32 only and Cross-Platform).   
+    - In order to unify the obtaining of one or more properties by directly consulting the structures, two new methods have been added to replace the existing ones.
+
+    Examples:
+
+        * Single property
+          ---------------
+
+            > Before
+              ------
+             
+              DmiStructureCollection structures = DMI.CreateInstance().Structures;
+              object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
+              if (biosVersion! = null)
+              {
+                  Console.WriteLine ($ @ "BIOS Version> {biosVersion}");
+              }
+
+            > Current Version
+              ---------------
+              
+              DmiStructureCollection structures = DMI.CreateInstance().Structures;
+              QueryPropertyResult biosVersion = structures.GetProperty (DmiProperty.Bios.BiosVersion);
+              if (biosVersion.Success)
+              {
+                  Console.WriteLine ($ @ "> BIOS Version> {biosVersion.Value.Value}");
+              }
+
+              Where:
+          
+                · Success: true if current operation was executed successfully, otherwise false.
+                · Value: If is success, contains an instance of PropertyItem containing property value (Value property) and property key (Key property)                
+                · Errors: If not success, contains a error collection, containing the query errors.
+
+
+        * Multiple properties
+          -------------------
+
+            > Before
+              ------
+             
+              DmiStructureCollection structures = DMI.CreateInstance().Structures;
+              IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
+              bool hasSystemSlots = systemSlots.Any();
+              if (!hasSystemSlots)
+              {
+                  Console.WriteLine($" > There is no system slots information structure in this computer");
+              }
+              else
+              {
+                  foreach (KeyValuePair<int, object> systemSlot in systemSlots)
+                  {
+                      int element = systemSlot.Key;
+                      var property = ((IEnumerable<KeyValuePair<IPropertyKey, object>>) systemSlot.Value).FirstOrDefault();
+                      Console.WriteLine($@" System Slot ({element}) > {property.Value}");
+                  }
+              }
+
+            > Current Version
+              ---------------
+              
+              DmiStructureCollection structures = DMI.CreateInstance().Structures;
+              QueryPropertyCollectionResult systemSlotsQueryResult = structures.GetProperties(DmiProperty.SystemSlots.SlotDesignation);
+              if (!systemSlotsQueryResult.Success)
+              {
+                  Console.WriteLine($@" > Error(s)");
+                  Console.WriteLine($@"   {systemSlotsQueryResult.Errors.AsMessages().ToStringBuilder()}");
+              }
+              else
+              {
+                  IEnumerable<PropertyItem> systemSlotsItems = systemSlotsQueryResult.Value.ToList();
+                  bool hasSystemSlotsItems = systemSlotsItems.Any();
+                  if (!hasSystemSlotsItems)
+                  {
+                      Console.WriteLine($@" > Sorry, The '{DmiProperty.SystemSlots.SlotId}' property has not implemented on this system");
+                  }
+                  else
+                  {
+                      int index = 0;
+                      foreach (var systemSlotItem in systemSlotsItems)
+                      {
+                          Console.WriteLine($@" >  System Slot ({index}) > {systemSlotItem.Value}");
+                          index++;
+                      }
+                  }
+              }
+
+              Where:
+          
+                · Success: true if current operation was executed successfully, otherwise false.
+                · Value: If is success, contains an instance of IEnumerable<PropertyItem> containing properties list, on each item contains 
+                         an instance of PropertyItem containing property value (Value property) and property key (Key property)               
+                · Errors: If not success, contains a error collection, containing the query errors.
+
+· Removed
+  -------
+
+    - Removed net45 and netcoreapp targets. Current supported targets, net461 and netstandard20
+
+    - Libraries removed in this version
+
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | Library                                   Version     Description                                                           |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Interop                         1.0.0.0		Interop calls                                                         |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Hardware                        1.0.1.0		Hardware Interop Calls                                                |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+
+· Changed
+  -------
+    - Rename iTin.Core.Harware.xxxxxx namespaces for iTin.Hardware.xxxx namespaces
+
+    - Library versions for current version
+
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | Library                                  Version      Description                                                           |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core                                2.0.0.1		Base library containing various extensions, helpers, common constants |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Hardware.Common                1.0.0.1		Generic Common Hardware Infrastructure                                |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Hardware.Windows.Smbios        1.0.0.0		Win32 Generic Hardware Calls (SMBIOS)                                 |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Interop.Shared                 1.0.0.0		Generic Shared Interop Definitions, Data Structures, Constants...     |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Interop.Windows.Smbios         1.0.0.0		Win32 Generic Interop Calls (SMBIOS)                                  |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Hardware.Specification.Dmi          3.3.0.4		DMI Specification Implementation                                      |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Hardware.Specification.Smbios       3.3.0.4		SMBIOS Specification Implementation                                   |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Hardware.Specification.Tpm          1.0.0.1		TPM Specification Implementation                                      |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Logging                             1.0.0.0		Logging library                                                       |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+
+
+v1.1.4
+======
+
+Library versions.
 
 •———————————————————————————————————————————————————————————————————————————————————————————•
 | Library                                  Version      Description                         |
@@ -29,10 +174,12 @@ Library versions for current iSMBIOS version (1.1.4)
 |iTin.Core.Hardware.Specification.Tpm      1.0.0.0		TPM Specification Implementation    |
 •———————————————————————————————————————————————————————————————————————————————————————————•
 
+
 Install via NuGet
 =================
 
 For more information, please see https://www.nuget.org/packages/iSMBIOS/
+
 
 Usage
 =====
@@ -54,79 +201,127 @@ Examples
 
 1. Gets and prints SMBIOS version.
 
-       Console.WriteLine($@" SMBIOS Version > {DMI.Instance.SmbiosVersion}");
+        Console.WriteLine($@" SMBIOS Version > {DMI.CreateInstance().SmbiosVersion}");
 
 2. Gets and prints all **SMBIOS** availables structures.
 
-       DmiStructureCollection structures = DMI.Instance.Structures;
-       foreach (DmiStructure structure in structures)
-       {
-           Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
-
-           int totalStructures = structure.Elements.Count;
-           if (totalStructures > 1)
-           {
-               Console.WriteLine($@"     > {totalStructures} structures");
-           }
-       }
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        foreach (DmiStructure structure in structures)
+        {
+            Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+ 
+            int totalStructures = structure.Elements.Count;
+            if (totalStructures > 1)
+            {
+                Console.WriteLine($@"     > {totalStructures} structures");
+            }
+        }
 
 3. Gets and prints the implemented SMBIOS structure version.
 
-       DmiStructureCollection structures = DMI.Instance.Structures;
-       foreach (DmiStructure structure in structures)
-       {
-           Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        foreach (DmiStructure structure in structures)
+        {
+            Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
 
-           DmiClassCollection elements = structure.Elements;
-           foreach (DmiClass element in elements)
-           {
-               Console.WriteLine($@"     > Version > {element.ImplementedVersion}");
-           }
-       }
+            DmiClassCollection elements = structure.Elements;
+            foreach (DmiClass element in elements)
+            {
+                Console.WriteLine($@"     > Version > {element.ImplementedVersion}");
+            }
+        }
 
 4. Gets a single property directly.
 
-       DmiStructureCollection structures = DMI.Instance.Structures;
-       object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
-       if (biosVersion != null)
-       {
-           Console.WriteLine($@" BIOS Version > {biosVersion}");
-       }
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        QueryPropertyResult biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
+        if (biosVersion.Success)
+        {
+            Console.WriteLine($@" > BIOS Version > {biosVersion.Value.Value}");
+        }
 
-       string biosVendor = structures.GetProperty<string>(DmiProperty.Bios.Vendor);
-       Console.WriteLine($@" > BIOS Vendor > {biosVendor}");
+        QueryPropertyResult biosVendor = structures.GetProperty(DmiProperty.Bios.Vendor);
+        if (biosVendor.Success)
+        {
+            Console.WriteLine($@" > BIOS Vendor > {biosVendor.Value.Value}");
+        }
 
-       ushort currentSpeed = structures.GetProperty<ushort>(DmiProperty.Processor.CurrentSpeed);
-       Console.WriteLine($@" > Current Speed > {currentSpeed:N0} {DmiProperty.Processor.CurrentSpeed.PropertyUnit}");
+        QueryPropertyResult currentSpeed = structures.GetProperty(DmiProperty.Processor.CurrentSpeed);
+        if (currentSpeed.Success)
+        {
+            Console.WriteLine($@" > Current Speed > {currentSpeed.Value.Value} {currentSpeed.Value.Key.PropertyUnit}");
+        }
 
-       string processorManufacturer = structures.GetProperty<string>(DmiProperty.Processor.ProcessorManufacturer);
-       Console.WriteLine($@" Processor Manufacturer > {processorManufacturer}");
+        QueryPropertyResult processorManufacturer = structures.GetProperty(DmiProperty.Processor.ProcessorManufacturer);
+        if (processorManufacturer.Success)
+        {
+            Console.WriteLine($@" > Processor Manufacturer > {processorManufacturer.Value.Value}");
+        }
 
-5. Gets a property in multiple elements directly.
+5. Gets a property in multiple elements directly (Handle result as collection).
 
-       // Requires that the Slot Information structure exists in your system
-       DmiStructureCollection structures = DMI.Instance.Structures;
-       IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
-       bool hasSystemSlots = systemSlots.Any();
-       if (!hasSystemSlots)
-       {
-           Console.WriteLine($" > There is no system slots information structure in this computer");
-       }
-       else
-       {
-           foreach (KeyValuePair<int, object> systemSlot in systemSlots)
-           {
-               int element = systemSlot.Key;
-               var property = ((IEnumerable<KeyValuePair<IPropertyKey, object>>) systemSlot.Value).FirstOrDefault();
-               Console.WriteLine($@" System Slot ({element}) > {property.Value}");
-           }
-       }
+        // Requires that the Slot Information structure exists in your system
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        QueryPropertyCollectionResult systemSlotsQueryResult = structures.GetProperties(DmiProperty.SystemSlots.SlotDesignation);
+        if (!systemSlotsQueryResult.Success)
+        {
+            Console.WriteLine($@" > Error(s)");
+            Console.WriteLine($@"   {systemSlotsQueryResult.Errors.AsMessages().ToStringBuilder()}");
+        }
+        else
+        {
+            IEnumerable<PropertyItem> systemSlotsItems = systemSlotsQueryResult.Value.ToList();
+            bool hasSystemSlotsItems = systemSlotsItems.Any();
+            if (!hasSystemSlotsItems)
+            {
+                Console.WriteLine($@" > Sorry, The '{DmiProperty.SystemSlots.SlotId}' property has not implemented on this system");
+            }
+            else
+            {
+                int index = 0;
+                foreach (var systemSlotItem in systemSlotsItems)
+                {
+                    Console.WriteLine($@" >  System Slot ({index}) > {systemSlotItem.Value}");
+                    index++;
+                }
+            }
+        }
 
-6. Prints all SMBIOS structures properties
+6. Gets a property in multiple elements directly (Handle result as dictionary).
 
-        DmiStructureCollection structures = DMI.Instance.Structures;      
+        // Requires that the Slot Information structure exists in your system
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        QueryPropertyCollectionResult systemSlotsQueryResult = structures.GetProperties(DmiProperty.SystemSlots.SlotDesignation);
+        var systemSlotsQueryDictionayResult = systemSlotsQueryResult.AsDictionaryResult();
+        if (!systemSlotsQueryDictionayResult.Success)
+        {
+            Console.WriteLine($@" > Error(s)");
+            Console.WriteLine($@"   {systemSlotsQueryDictionayResult.Errors.AsMessages().ToStringBuilder()}");
+        }
+        else
+        {
+            var systemSlotsItems = systemSlotsQueryDictionayResult.Value.ToList();
+            bool hasSystemSlotsItems = systemSlotsItems.Any();
+            if (!hasSystemSlotsItems)
+            {
+                Console.WriteLine($@" > Sorry, The '{DmiProperty.SystemSlots.SlotId}' property has not implemented on this system");
+            }
+            else
+            {
+                foreach (var systemSlotItemEntry in systemSlotsItems)
+                {
+                    var itemIndex = systemSlotItemEntry.Key;
+                    var itemValue = systemSlotItemEntry.Value;
+                    Console.WriteLine($@" >  System Slot ({itemIndex}) > {itemValue.Value}");
+                }
+            }
+        }
+
+7. Prints all SMBIOS structures properties
+
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;     
         foreach (DmiStructure structure in structures)
-        {            
+        {
             DmiClassCollection elements = structure.Elements;
             foreach (DmiClass element in elements)
             {
@@ -137,19 +332,15 @@ Examples
                 Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName} structure detail");
                 Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
 
-                DmiClassPropertiesTable elementProperties = element.Properties;
-                foreach (KeyValuePair<IPropertyKey, object> property in elementProperties)
+                IEnumerable<IPropertyKey> properties = element.ImplementedProperties;
+                foreach (var property in properties)
                 {
-                    object value = property.Value;
-
-                    IPropertyKey key = property.Key;
-                    string friendlyName = GetFriendlyName(key);
-                    PropertyUnit valueUnit = key.PropertyUnit;
-                    string unit =
-                        valueUnit == PropertyUnit.None
-                            ? string.Empty
-                            : valueUnit.ToString();
-
+                    QueryPropertyResult queryResult = element.GetProperty(property);
+                    PropertyItem propertyItem = queryResult.Value;
+                    object value = propertyItem.Value;
+                    string friendlyName = property.GetPropertyName();
+                    PropertyUnit valueUnit = property.PropertyUnit;
+                    string unit = valueUnit == PropertyUnit.None ? string.Empty : valueUnit.ToString();
                     if (value == null)
                     {
                         Console.WriteLine($@" > {friendlyName} > NULL");
@@ -170,8 +361,8 @@ Examples
                     }
                     else if (value is ushort)
                     {
-                        Console.WriteLine(key.Equals(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed)
-                            ? $@" > {friendlyName} > {value} {(int.Parse(DMI.Instance.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
+                        Console.WriteLine(property.Equals(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed)
+                            ? $@" > {friendlyName} > {value} {(int.Parse(dmi.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
                             : $@" > {friendlyName} > {value} {unit} [{value:X4}h]");
                     }
                     else if (value is int)
@@ -194,7 +385,7 @@ Examples
                     {
                         Console.WriteLine($@" > {friendlyName} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
                     }
-                    else if (value.GetType() == typeof(DmiGroupAssociationElementCollection))
+                    else if (value is DmiGroupAssociationElementCollection)
                     {
                         // prints elements
                     }
@@ -213,16 +404,4 @@ Examples
                     }
                 }
             }
-        }
-
-        ...
-        ...
-        ...
-
-        private static string GetFriendlyName(IPropertyKey value)
-        {
-            string name = value.GetPropertyName();
-            return string.IsNullOrEmpty(name)
-                ? value.PropertyId.ToString()
-                : name;
         }

@@ -1,14 +1,140 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.1.5] - 
+## [1.1.5] - 2020-10-11
 
 ### Added
 
+- Add new libraries and remove old libraries for compability with another packages (Win32 only and Cross-Platform)
+- In order to unify the obtaining of one or more properties by directly consulting the structures, two new methods have been added to replace the existing ones.
+
+    #### Examples:
+
+    ##### Single property          
+
+    ###### Before
+                           
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        object biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
+        if (biosVersion! = null)
+        {
+            Console.WriteLine ($ @ "BIOS Version> {biosVersion}");
+        }
+
+    ###### Current Version
+              
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        QueryPropertyResult biosVersion = structures.GetProperty (DmiProperty.Bios.BiosVersion);
+        if (biosVersion.Success)
+        {
+            Console.WriteLine ($ @ "> BIOS Version> {biosVersion.Value.Value}");
+        }
+
+    ###### Where
+          
+        > Success
+            true if current operation was executed successfully, otherwise false.
+        
+        > Value 
+            If is success, contains an instance of PropertyItem containing property value (Value property) and property key (Key property)                
+        
+        > Errors
+            If not success, contains a error collection, containing the query errors.
 
 
+    ##### Multiple properties
 
-## [1.1.4] - 2020-08-25
+    ###### Before
+             
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        IDictionary<int, object> systemSlots = structures.GetProperties(DmiProperty.SystemSlots.SlotId);
+        bool hasSystemSlots = systemSlots.Any();
+        if (!hasSystemSlots)
+        {
+            Console.WriteLine($" > There is no system slots information structure in this computer");
+        }
+        else
+        {
+            foreach (KeyValuePair<int, object> systemSlot in systemSlots)
+            {
+                int element = systemSlot.Key;
+                var property = ((IEnumerable<KeyValuePair<IPropertyKey, object>>) systemSlot.Value).FirstOrDefault();
+                Console.WriteLine($@" System Slot ({element}) > {property.Value}");
+            }
+        }
+
+    ###### Current Version
+              
+        DmiStructureCollection structures = DMI.CreateInstance().Structures;
+        QueryPropertyCollectionResult systemSlotsQueryResult = structures.GetProperties(DmiProperty.SystemSlots.SlotDesignation);
+        if (!systemSlotsQueryResult.Success)
+        {
+            Console.WriteLine($@" > Error(s)");
+            Console.WriteLine($@"   {systemSlotsQueryResult.Errors.AsMessages().ToStringBuilder()}");
+        }
+        else
+        {
+            IEnumerable<PropertyItem> systemSlotsItems = systemSlotsQueryResult.Value.ToList();
+            bool hasSystemSlotsItems = systemSlotsItems.Any();
+            if (!hasSystemSlotsItems)
+            {
+                Console.WriteLine($@" > Sorry, The '{DmiProperty.SystemSlots.SlotId}' property has not implemented on this system");
+            }
+            else
+            {
+                int index = 0;
+                foreach (var systemSlotItem in systemSlotsItems)
+                {
+                    Console.WriteLine($@" >  System Slot ({index}) > {systemSlotItem.Value}");
+                    index++;
+                }
+            }
+        }
+
+    ###### Where
+          
+        > Success
+            true if current operation was executed successfully, otherwise false.
+
+        > Value 
+            If is success, contains an instance of IEnumerable<PropertyItem> containing properties list, 
+            on each item contains an instance of PropertyItem containing property value (Value property) 
+            and property key (Key property)               
+
+        > Errors
+            If not success, contains a error collection, containing the query errors.
+
+### Removed
+
+- Removed **net45** and **netcoreapp** targets. Current supported targets, **net461** and **netstandard20**
+   
+- Libraries removed in this version
+
+|Library|Version|Description|
+|:------|:------|:----------|
+|iTin.Core.Interop| 1.0.0 | Interop calls |
+|iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
+
+### Changed
+
+- Rename **iTin.Core.Harware.XXX** namespaces for **iTin.Harware.XXX** namespaces
+
+- Library versions for this version
+
+|Library|Version|Description|
+|:------|:------|:----------|
+|iTin.Core| **2.0.0.1** | Base library containing various extensions, helpers, common constants |
+|iTin.Core.Hardware.Common| **1.0.0.1** | Generic Common Hardware Infrastructure |
+|iTin.Core.Hardware.Windows.Smbios| 1.0.0.0 | Win32 Generic Hardware Calls (SMBIOS) |
+|iTin.Core.Interop.Shared| 1.0.0.0 | Generic Shared Interop Definitions, Data Structures, Constants... |
+|iTin.Core.Interop.Windows.Smbios| 1.0.0.0 | Win32 Generic Interop Calls (SMBIOS)  |
+|iTin.Hardware.Specification.Dmi|**3.3.0.4**| DMI Specification Implementation |
+|iTin.Hardware.Specification.Smbios|**3.3.0.4**| SMBIOS Specification Implementation |
+|iTin.Hardware.Specification.Tpm|**1.0.0.1**| TPM Specification Implementation |
+|iTin.Logging|1.0.0.0| Logging library  |
+
+
+## [1.1.4] - 2020-08-2
 
 ### Added
 

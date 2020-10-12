@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>iTin.Hardware.Specification.Tpm</AssemblyName>
+    <PackageId>iTin.Hardware.Specification.Tpm</PackageId>
+    <Version>1.0.0.1</Version>
+    <Authors>iTin</Authors>
+    <Company>iTin</Company>
+    <Product>iTin.Hardware.Specification.Tpm</Product>
+    <Description>Includes TPM (Trusted Platform Module)</Description>
+    <Copyright>Copyright © 2020</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\iTin.Core\iTin.Core\iTin.Core.csproj" />
+  </ItemGroup>
+
+</Project>

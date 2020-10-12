@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>iTin.Hardware.Specification.Dmi</AssemblyName>
+    <PackageId>iTin.Hardware.Specification.Dmi</PackageId>
+    <Version>3.3.0.4</Version>
+    <Authors>iTin</Authors>
+    <Company>iTin</Company>
+    <Product>iTin.Hardware.Specification.Dmi</Product>
+    <Description>The Desktop Management Interface (DMI) or the desktop management interface, standard framework for management and component tracking on a desktop, laptop or server</Description>
+    <Copyright>Copyright © 2020</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\iTin.Hardware.Specification.Smbios\iTin.Hardware.Specification.Smbios.csproj" />
+  </ItemGroup>
+
+</Project>

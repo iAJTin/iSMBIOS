@@ -9,8 +9,45 @@ This library implements DMTF Specification 3.4.0 version and olders versions
 For more information, please see https://www.dmtf.org/standards/smbios
 
 
-Changes in this version (v1.1.5)
+Changes in this version (v1.1.6)
 ================================
+
+· Added
+  -----
+
+    - Library documentation.
+
+· Changed
+  -------
+
+    - Update result classes for support more scenaries.
+
+    - Library versions for this version
+
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | Library                                  Version      Description                                                           |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core                                2.0.0.2		Base library containing various extensions, helpers, common constants |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Hardware.Common                1.0.0.1		Generic Common Hardware Infrastructure                                |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Hardware.Windows.Smbios        1.0.0.0		Win32 Generic Hardware Calls (SMBIOS)                                 |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Interop.Shared                 1.0.0.0		Generic Shared Interop Definitions, Data Structures, Constants...     |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Core.Interop.Windows.Smbios         1.0.0.0		Win32 Generic Interop Calls (SMBIOS)                                  |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Hardware.Specification.Dmi          3.3.0.4		DMI Specification Implementation                                      |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Hardware.Specification.Smbios       3.3.0.4		SMBIOS Specification Implementation                                   |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Hardware.Specification.Tpm          1.0.0.1		TPM Specification Implementation                                      |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    | iTin.Logging                             1.0.0.0		Logging library                                                       |
+    •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+
+v1.1.5
+======
 
 · Added
   -----
@@ -406,8 +443,7 @@ Examples
             }
         }
 
-
 Ddocumentation
-=================
+==============
 
- - For full code documentation, please see next link [documentation].
+ - For full code documentation, please see next link https://github.com/iAJTin/iSMBIOS/blob/master/documentation/iTin.Hardware.Specification.Dmi.md.

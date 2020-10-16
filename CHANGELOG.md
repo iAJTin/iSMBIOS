@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
  - Library documentation.
+ 
  - ```tools``` folder in solution root. Contains a script for update help md files.
 
 ### Changed

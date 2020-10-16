@@ -443,7 +443,7 @@ Examples
             }
         }
 
-Ddocumentation
+Documentation
 ==============
 
  - For full code documentation, please see next link https://github.com/iAJTin/iSMBIOS/blob/master/documentation/iTin.Hardware.Specification.Dmi.md.

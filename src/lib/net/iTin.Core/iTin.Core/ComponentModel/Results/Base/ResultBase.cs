@@ -202,7 +202,7 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// A new <see cref="ResultBase{T}"/> instance for specified exception.
         /// </returns>
-        public static ResultBase<T> FromException(Exception exception) => FromException(exception, default);
+        public static ResultBase<T> FromException(Exception exception) => FromException(exception, default(T));
         #endregion
 
         #region [public] {static} (ResultBase<T>) FromException(Exception, T): Creates a new instance from known exception

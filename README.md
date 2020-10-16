@@ -264,6 +264,10 @@ For more info, please see [CHANGELOG] file.
             }
         }
 
+# Documentation
+
+ - For full code documentation, please see next link [documentation].
+
 # How can I send feedback!!!
 
 If you have found **iSMBIOS** useful at work or in a personal project, I would love to hear about it. If you have decided not to use **iSMBIOS**, please send me and email stating why this is so. I will use this feedback to improve **iSMBIOS** in future releases.
@@ -274,3 +278,4 @@ My email address is
 
 [CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md
 [email]: ./assets/email.png "email"
+[documentation]: ./documentation/iTin.Hardware.Specification.Dmi.md

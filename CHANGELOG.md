@@ -1,6 +1,30 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.6] - 
+
+### Added
+
+ - Library documentation.
+
+### Changed
+
+ - Update result classes for support more scenaries.
+ 
+ - Library versions for this version
+  
+|Library|Version|Description|
+|:------|:------|:----------|
+|iTin.Core| **2.0.0.2** | Base library containing various extensions, helpers, common constants |
+|iTin.Core.Hardware.Common| 1.0.0.1 | Generic Common Hardware Infrastructure |
+|iTin.Core.Hardware.Windows.Smbios| 1.0.0.0 | Win32 Generic Hardware Calls (SMBIOS) |
+|iTin.Core.Interop.Shared| 1.0.0.0 | Generic Shared Interop Definitions, Data Structures, Constants... |
+|iTin.Core.Interop.Windows.Smbios| 1.0.0.0 | Win32 Generic Interop Calls (SMBIOS)  |
+|iTin.Hardware.Specification.Dmi| 3.3.0.4 | DMI Specification Implementation |
+|iTin.Hardware.Specification.Smbios| 3.3.0.4 | SMBIOS Specification Implementation |
+|iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |
+|iTin.Logging|1.0.0.0| Logging library  |
+
 ## [1.1.5] - 2020-10-11
 
 ### Added
@@ -478,6 +502,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.1.6]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.6
 [1.1.5]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.5
 [1.1.4]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.4
 [1.1.3]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.3

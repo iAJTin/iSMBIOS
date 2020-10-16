@@ -1,6 +1,7 @@
 ﻿
 namespace iTin.Core.ComponentModel.Results
 {
+    using System;
     using System.Collections.Generic;
 
     /// <summary>
@@ -19,6 +20,17 @@ namespace iTin.Core.ComponentModel.Results
         public new static DoubleResult CreateErroResult(string message, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
+        /// Returns a new <see cref="DoubleResult"/> with specified detailed error.
+        /// </summary>
+        /// <param name="message">Error message</param>
+        /// <param name="value">Result value</param>
+        /// <param name="code">Error code</param>
+        /// <returns>
+        /// A new invalid <see cref="DoubleResult"/> with specified detailed error.
+        /// </returns>
+        public new static DoubleResult CreateErroResult(string message, double value, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } }, value);
+
+        /// <summary>
         /// Returns a new <see cref="DoubleResult"/> with specified detailed errors collection.
         /// </summary>
         /// <param name="errors">A errors collection</param>
@@ -34,9 +46,25 @@ namespace iTin.Core.ComponentModel.Results
             };
 
         /// <summary>
+        /// Returns a new <see cref="DoubleResult"/> with specified detailed errors collection.
+        /// </summary>
+        /// <param name="errors">A errors collection</param>
+        /// <param name="value">Result value</param>
+        /// <returns>
+        /// A new invalid <see cref="DoubleResult"/> with specified detailed errors collection.
+        /// </returns>
+        public new static DoubleResult CreateErroResult(IResultError[] errors, double value) =>
+            new DoubleResult
+            {
+                Value = value,
+                Success = false,
+                Errors = (IResultError[])errors.Clone()
+            };
+
+        /// <summary>
         /// Returns a new success result.
         /// </summary>
-        /// <param name="value">Response value</param>
+        /// <param name="value">Result value</param>
         /// <returns>
         /// A new valid <see cref="DoubleResult"/>.
         /// </returns>
@@ -55,9 +83,20 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new <see cref="DoubleResult"/> instance for specified exception.
         /// </returns>
-        public new static DoubleResult FromException(System.Exception exception) =>
+        public new static DoubleResult FromException(Exception exception) => FromException(exception, default);
+
+        /// <summary>
+        /// Creates a new <see cref="DoubleResult"/> instance from known exception.
+        /// </summary>
+        /// <param name="exception">Target exception.</param>
+        /// <param name="value">Result value</param>
+        /// <returns>
+        /// A new <see cref="DoubleResult"/> instance for specified exception.
+        /// </returns>
+        public new static DoubleResult FromException(Exception exception, double value) =>
             new DoubleResult
             {
+                Value = value,
                 Success = false,
                 Errors = new List<IResultError> { new ResultExceptionError { Exception = exception } }
             };

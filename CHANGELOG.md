@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.6] - 
 
+### Fixed
+
+ - Fixes an issue that generates an exception when a property that returns an object of type QueryPropertyDictionaryResult not available.
+
 ### Added
 
  - Library documentation.

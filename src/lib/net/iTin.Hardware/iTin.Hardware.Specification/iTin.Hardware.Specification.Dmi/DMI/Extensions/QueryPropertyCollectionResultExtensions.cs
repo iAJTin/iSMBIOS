@@ -4,6 +4,8 @@ namespace iTin.Hardware.Specification.Dmi
     using System.Collections.Generic;
     using System.Linq;
 
+    using iTin.Core.ComponentModel;
+
     using iTin.Core.Hardware.Common;
     using iTin.Core.Hardware.Common.ComponentModel;
 
@@ -23,9 +25,9 @@ namespace iTin.Hardware.Specification.Dmi
         {
             var propertyTable = new PropertyItemDictionary();
 
-            if (result == null)
+            if (!result.Success)
             {
-                return QueryPropertyDictionaryResult.CreateErroResult("Can not be null", propertyTable);
+                return QueryPropertyDictionaryResult.CreateErroResult((IResultError[])result.Errors.ToArray().Clone());
             }
 
             int index = 0;

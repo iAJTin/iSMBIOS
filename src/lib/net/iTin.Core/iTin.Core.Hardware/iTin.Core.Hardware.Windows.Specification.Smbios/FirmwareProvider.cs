@@ -1,5 +1,5 @@
 ﻿
-namespace iTin.Core.Hardware.Windows
+namespace iTin.Core.Hardware.Windows.Specification.Smbios
 {
     /// <summary>
     /// Defines firmware tables

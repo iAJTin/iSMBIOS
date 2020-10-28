@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>iTin.Core.Hardware.Common</AssemblyName>
     <PackageId>iTin.Core.Hardware.Common</PackageId>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.2</Version>
     <Authors>iTin</Authors>
     <Company>iTin</Company>
     <Product>iTin.Core.Hardware.Common</Product>

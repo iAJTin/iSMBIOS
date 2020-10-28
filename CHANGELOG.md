@@ -9,7 +9,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
- - Library documentation.
+ - Added support for **MacOS** (Tested on macOS Catalina Version 10.15.7, in progress...)
+ 
+ - Library documentation
  
  - ```tools``` folder in solution root. Contains a script for update help md files.
 
@@ -19,17 +21,20 @@ All notable changes to this project will be documented in this file.
  
  - Library versions for this version
   
-|Library|Version|Description|
+| Library | Version | Description |
 |:------|:------|:----------|
-|iTin.Core| **2.0.0.2** | Base library containing various extensions, helpers, common constants |
-|iTin.Core.Hardware.Common| 1.0.0.1 | Generic Common Hardware Infrastructure |
-|iTin.Core.Hardware.Windows.Smbios| 1.0.0.0 | Win32 Generic Hardware Calls (SMBIOS) |
-|iTin.Core.Interop.Shared| 1.0.0.0 | Generic Shared Interop Definitions, Data Structures, Constants... |
-|iTin.Core.Interop.Windows.Smbios| 1.0.0.0 | Win32 Generic Interop Calls (SMBIOS)  |
-|iTin.Hardware.Specification.Dmi| 3.3.0.4 | DMI Specification Implementation |
-|iTin.Hardware.Specification.Smbios| 3.3.0.4 | SMBIOS Specification Implementation |
-|iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |
-|iTin.Logging|1.0.0.0| Logging library  |
+| iTin.Core| **2.0.0.3** | Base library containing various extensions, helpers, common constants |
+| iTin.Core.Hardware.Common | **1.0.0.2** | Common Hardware Infrastructure |
+| iTin.Core.Hardware.Linux.Specification.Smbios | **1.0.0.0** | Linux Hardware Infrastructure |
+| iTin.Core.Hardware.MacOS.Specification.Smbios | **1.0.0.0** | MacOS Hardware Infrastructure |
+| iTin.Core.Hardware.Windows.Specification.Smbios | **1.0.0.0** | Windows Hardware Infrastructure |
+| iTin.Core.Interop.Shared | **1.0.0.1** | Generic Shared Interop Definitions |
+| iTin.Core.Interop.Windows.Specification.Smbios | **1.0.0.0** | Win32 Generic Interop Calls (SMBIOS) |
+| iTin.Hardware.Abstractions.Specification.Smbios | **1.0.0.0** | Generic Common Hardware Abstractions |
+| iTin.Hardware.Specification.Dmi| **3.3.0.5** | DMI Specification Implementation |
+| iTin.Hardware.Specification.Smbios| **3.3.0.5** | SMBIOS Specification Implementation |
+| iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |
+| iTin.Logging| 1.0.0.0 | Logging library |
 
 ## [1.1.5] - 2020-10-11
 

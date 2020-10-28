@@ -9,8 +9,8 @@ namespace iTin.Hardware.Specification
     using System.Management;
 
     using iTin.Core;
-    using iTin.Core.Hardware.Windows;
     using iTin.Core.Helpers;
+    using iTin.Hardware.Abstractions.Specification.Smbios;
 
     using Smbios;
 
@@ -55,31 +55,15 @@ namespace iTin.Hardware.Specification
         /// </remarks>
         private SMBIOS()
         {
-            string[] tableNames = Firmware.EnumerateTables(FirmwareProvider.RSMB);
-            if (tableNames.Any())
+            var rawSmbiosTable = Operations.GetSmbiosDataArray();
+            if (rawSmbiosTable.Length > 0)
             {
-                byte[] rawSmbiosTable = Firmware.GetTable(FirmwareProvider.RSMB, tableNames[0]);
                 _majorVersion = rawSmbiosTable[0x01];
                 _minorVersion = rawSmbiosTable[0x02];
                 Lenght = rawSmbiosTable.Length - 0x08;
 
                 byte[] smbiosData = rawSmbiosTable.Extract(0x08, Lenght).ToArray();
                 ToRawTables(smbiosData);
-            }
-            else
-            {
-                using (var wmi = new ManagementObjectSearcher("root\\WMI", "SELECT * FROM MSSmBios_RawSMBiosTables"))
-                {
-                    foreach (var o in wmi.Get())
-                    {
-                        var queryObj = (ManagementObject)o;
-                        Lenght = (int)(uint)queryObj["Size"];
-                        _majorVersion = (byte)queryObj["SmbiosMajorVersion"];
-                        _minorVersion = (byte)queryObj["SmbiosMinorVersion"];
-
-                        ToRawTables((byte[])queryObj["SMBiosData"]);
-                    }
-                }
             }
         }
         #endregion
@@ -331,6 +315,11 @@ namespace iTin.Hardware.Specification
 
             foreach (byte[] rawTable in data)
             {
+                if(rawTable.Length<3)
+                {
+                    continue;
+                }
+
                 SmbiosStructure structureType = (SmbiosStructure)rawTable[0];
                 if (RawStructures.ContainsKey(structureType))
                 {

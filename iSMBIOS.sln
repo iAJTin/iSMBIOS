@@ -27,12 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Hardware.Common",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Core.Hardware.Windows", "iTin.Core.Hardware.Windows", "{E84BA176-B041-4C19-A528-073F7091617D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Hardware.Specification.Dmi", "iTin.Hardware.Specification.Dmi", "{73C6351B-88ED-4FB6-9783-C3010DD12F17}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Hardware.Specification.Smbios", "iTin.Hardware.Specification.Smbios", "{E6980A5B-F8A6-4240-A35A-11D72D39A50C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Hardware.Specification.Tpm", "iTin.Hardware.Specification.Tpm", "{456AADD2-40E3-49A9-8B24-5290F867D0B9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Hardware.Specification.Tpm", "src\lib\net\iTin.Hardware\iTin.Hardware.Specification\iTin.Hardware.Specification.Tpm\iTin.Hardware.Specification.Tpm.csproj", "{6CC50D67-84DC-4CD2-BBD6-061730CA3DD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Core.Interop.Windows", "iTin.Core.Interop.Windows", "{9F51EA44-76BC-49AE-8C1C-8EED1C880FA2}"
@@ -45,9 +39,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Logging", "iTin.Loggin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Logging", "src\lib\net\iTin.Logging\iTin.Logging\iTin.Logging.csproj", "{A2AEC1BA-4DAA-4632-B2B5-4D948BE012B9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Core.Hardware.Windows.Smbios", "iTin.Core.Hardware.Windows.Smbios", "{3DAF1067-2724-47DD-8AC9-700DBB81F7B5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Interop.Windows.Smbios", "src\lib\net\iTin.Core\iTin.Core.Interop\iTin.Core.Interop.Windows\iTin.Core.Interop.Windows.Smbios\iTin.Core.Interop.Windows.Smbios.csproj", "{E983FFDC-F56A-4BC6-92D0-E55B9C69D31D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Interop.Windows.Specification.Smbios", "src\lib\net\iTin.Core\iTin.Core.Interop\iTin.Core.Interop.Windows\iTin.Core.Interop.Windows.Smbios\iTin.Core.Interop.Windows.Specification.Smbios.csproj", "{E983FFDC-F56A-4BC6-92D0-E55B9C69D31D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Core.Interop.Shared", "iTin.Core.Interop.Shared", "{9F26233B-BB24-49A1-A332-B503E710BE2E}"
 EndProject
@@ -55,11 +47,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Interop.Shared", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Hardware.Specification.Dmi", "src\lib\net\iTin.Hardware\iTin.Hardware.Specification\iTin.Hardware.Specification.Dmi\iTin.Hardware.Specification.Dmi.csproj", "{69EDDA0B-1D62-4154-A8EF-715E1EE8F2AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Hardware.Windows.Smbios", "src\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Windows\iTin.Core.Hardware.Windows.Smbios\iTin.Core.Hardware.Windows.Smbios.csproj", "{1C78C4A8-4BF3-485F-B936-9F8A9F4E377A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iSMBIOS.ConsoleApp", "src\test\iSMBIOS.ConsoleApp\iSMBIOS.ConsoleApp.csproj", "{768A3709-640D-40D8-B286-59F3AF8A6AC4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iSMBIOS.ConsoleAppCore", "src\test\iSMBIOS.ConsoleAppCore\iSMBIOS.ConsoleAppCore.csproj", "{4EC5CB46-11E7-47A7-9802-01CCF055628A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Core.Hardware.MacOS", "iTin.Core.Hardware.MacOS", "{1C2596E5-6E34-4E45-8BB1-CB4DF41CB507}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Core.Hardware.Linux", "iTin.Core.Hardware.Linux", "{965F9FA5-B203-43F4-9D44-A83820C36D23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iTin.Hardware.Abstractions", "iTin.Hardware.Abstractions", "{D722F568-E9F9-4EB4-B76E-A72D0FE6AD4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Hardware.Abstractions.Specification.Smbios", "src\lib\net\iTin.Hardware\iTin.Hardware.Abstractions\iTin.Hardware.Abstractions.Specification.Smbios\iTin.Hardware.Abstractions.Specification.Smbios.csproj", "{C656AD3B-07F4-4252-80B4-12A05D9E29AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Hardware.MacOS.Specification.Smbios", "src\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.MacOS\iTin.Core.Hardware.MacOS.Specification.Smbios\iTin.Core.Hardware.MacOS.Specification.Smbios.csproj", "{12A23AB2-1945-4F25-9930-93C654B5B3B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Hardware.Linux.Specification.Smbios", "src\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Linux\iTin.Core.Hardware.Linux.Specification.Smbios\iTin.Core.Hardware.Linux.Specification.Smbios.csproj", "{DB77FAFC-657B-4FFF-9884-D99788045B4B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iTin.Core.Hardware.Windows.Specification.Smbios", "src\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Windows.Specification.Smbios\iTin.Core.Hardware.Windows.Specification.Smbios.csproj", "{A6F9B3BC-BE6A-4AE1-9CFA-19E23EAD40F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,10 +103,6 @@ Global
 		{69EDDA0B-1D62-4154-A8EF-715E1EE8F2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69EDDA0B-1D62-4154-A8EF-715E1EE8F2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69EDDA0B-1D62-4154-A8EF-715E1EE8F2AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C78C4A8-4BF3-485F-B936-9F8A9F4E377A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C78C4A8-4BF3-485F-B936-9F8A9F4E377A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C78C4A8-4BF3-485F-B936-9F8A9F4E377A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C78C4A8-4BF3-485F-B936-9F8A9F4E377A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{768A3709-640D-40D8-B286-59F3AF8A6AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{768A3709-640D-40D8-B286-59F3AF8A6AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{768A3709-640D-40D8-B286-59F3AF8A6AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -111,6 +111,22 @@ Global
 		{4EC5CB46-11E7-47A7-9802-01CCF055628A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EC5CB46-11E7-47A7-9802-01CCF055628A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EC5CB46-11E7-47A7-9802-01CCF055628A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C656AD3B-07F4-4252-80B4-12A05D9E29AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C656AD3B-07F4-4252-80B4-12A05D9E29AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C656AD3B-07F4-4252-80B4-12A05D9E29AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C656AD3B-07F4-4252-80B4-12A05D9E29AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A23AB2-1945-4F25-9930-93C654B5B3B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A23AB2-1945-4F25-9930-93C654B5B3B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A23AB2-1945-4F25-9930-93C654B5B3B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A23AB2-1945-4F25-9930-93C654B5B3B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB77FAFC-657B-4FFF-9884-D99788045B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB77FAFC-657B-4FFF-9884-D99788045B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB77FAFC-657B-4FFF-9884-D99788045B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB77FAFC-657B-4FFF-9884-D99788045B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6F9B3BC-BE6A-4AE1-9CFA-19E23EAD40F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6F9B3BC-BE6A-4AE1-9CFA-19E23EAD40F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6F9B3BC-BE6A-4AE1-9CFA-19E23EAD40F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6F9B3BC-BE6A-4AE1-9CFA-19E23EAD40F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,23 +142,25 @@ Global
 		{EEF922CC-6C1E-42C2-BC0D-069067C23C99} = {C1D5328A-741F-41D7-A3F4-1FFA8EA76F4A}
 		{53276677-2197-4E9E-803D-D87F29C2A214} = {EEF922CC-6C1E-42C2-BC0D-069067C23C99}
 		{E84BA176-B041-4C19-A528-073F7091617D} = {C1D5328A-741F-41D7-A3F4-1FFA8EA76F4A}
-		{73C6351B-88ED-4FB6-9783-C3010DD12F17} = {75510385-E1C2-4CC6-A097-FA894BC07056}
-		{E6980A5B-F8A6-4240-A35A-11D72D39A50C} = {75510385-E1C2-4CC6-A097-FA894BC07056}
-		{456AADD2-40E3-49A9-8B24-5290F867D0B9} = {75510385-E1C2-4CC6-A097-FA894BC07056}
-		{6CC50D67-84DC-4CD2-BBD6-061730CA3DD4} = {456AADD2-40E3-49A9-8B24-5290F867D0B9}
+		{6CC50D67-84DC-4CD2-BBD6-061730CA3DD4} = {75510385-E1C2-4CC6-A097-FA894BC07056}
 		{9F51EA44-76BC-49AE-8C1C-8EED1C880FA2} = {A3567DE9-90C5-4440-A4AA-F25FDD85C8AD}
 		{AAE25886-7337-4649-A3EB-F1DFD498B22E} = {ED996611-FCEC-4B5A-9C30-DF6AC5C178C1}
-		{0F662D41-0C55-465D-8E5D-1D2E367D18D9} = {E6980A5B-F8A6-4240-A35A-11D72D39A50C}
+		{0F662D41-0C55-465D-8E5D-1D2E367D18D9} = {75510385-E1C2-4CC6-A097-FA894BC07056}
 		{31D6CF82-9CD5-49DA-846E-62FAD92F2650} = {AAE25886-7337-4649-A3EB-F1DFD498B22E}
 		{A2AEC1BA-4DAA-4632-B2B5-4D948BE012B9} = {31D6CF82-9CD5-49DA-846E-62FAD92F2650}
-		{3DAF1067-2724-47DD-8AC9-700DBB81F7B5} = {E84BA176-B041-4C19-A528-073F7091617D}
 		{E983FFDC-F56A-4BC6-92D0-E55B9C69D31D} = {9F51EA44-76BC-49AE-8C1C-8EED1C880FA2}
 		{9F26233B-BB24-49A1-A332-B503E710BE2E} = {A3567DE9-90C5-4440-A4AA-F25FDD85C8AD}
 		{EC02E5A9-B6B4-4C45-A65D-8F35EB293CB5} = {9F26233B-BB24-49A1-A332-B503E710BE2E}
-		{69EDDA0B-1D62-4154-A8EF-715E1EE8F2AB} = {73C6351B-88ED-4FB6-9783-C3010DD12F17}
-		{1C78C4A8-4BF3-485F-B936-9F8A9F4E377A} = {3DAF1067-2724-47DD-8AC9-700DBB81F7B5}
+		{69EDDA0B-1D62-4154-A8EF-715E1EE8F2AB} = {75510385-E1C2-4CC6-A097-FA894BC07056}
 		{768A3709-640D-40D8-B286-59F3AF8A6AC4} = {407B179E-ED42-4D2F-A089-D0F3C0283079}
 		{4EC5CB46-11E7-47A7-9802-01CCF055628A} = {407B179E-ED42-4D2F-A089-D0F3C0283079}
+		{1C2596E5-6E34-4E45-8BB1-CB4DF41CB507} = {C1D5328A-741F-41D7-A3F4-1FFA8EA76F4A}
+		{965F9FA5-B203-43F4-9D44-A83820C36D23} = {C1D5328A-741F-41D7-A3F4-1FFA8EA76F4A}
+		{D722F568-E9F9-4EB4-B76E-A72D0FE6AD4C} = {863E0CF8-EC65-4415-8079-1D4D57D5101E}
+		{C656AD3B-07F4-4252-80B4-12A05D9E29AD} = {D722F568-E9F9-4EB4-B76E-A72D0FE6AD4C}
+		{12A23AB2-1945-4F25-9930-93C654B5B3B8} = {1C2596E5-6E34-4E45-8BB1-CB4DF41CB507}
+		{DB77FAFC-657B-4FFF-9884-D99788045B4B} = {965F9FA5-B203-43F4-9D44-A83820C36D23}
+		{A6F9B3BC-BE6A-4AE1-9CFA-19E23EAD40F8} = {E84BA176-B041-4C19-A528-073F7091617D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E253257-825E-40F1-9BD8-3624F02E7544}

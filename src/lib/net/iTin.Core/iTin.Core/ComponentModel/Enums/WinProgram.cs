@@ -6,7 +6,7 @@ namespace iTin.Core.ComponentModel.Enums
     using iTin.Core.ComponentModel;
 
     /// <summary>
-    /// Defines known widows os programs
+    /// Defines known windows programs
     /// </summary>
     [Serializable]
     public enum WinProgram

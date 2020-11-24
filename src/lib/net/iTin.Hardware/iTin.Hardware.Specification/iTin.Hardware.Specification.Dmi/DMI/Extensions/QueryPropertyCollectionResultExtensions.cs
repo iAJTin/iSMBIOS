@@ -31,7 +31,7 @@ namespace iTin.Hardware.Specification.Dmi
             }
 
             int index = 0;
-            IEnumerable<PropertyItem> items = result.Value.ToList();
+            IEnumerable<PropertyItem> items = result.Result.ToList();
             foreach (var item in items)
             {
                 propertyTable.Add(index, item);

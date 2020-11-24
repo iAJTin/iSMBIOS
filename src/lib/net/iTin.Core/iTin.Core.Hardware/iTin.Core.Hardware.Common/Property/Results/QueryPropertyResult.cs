@@ -26,12 +26,12 @@ namespace iTin.Core.Hardware.Common
         /// Returns a new <see cref="QueryPropertyResult"/> with specified detailed error.
         /// </summary>
         /// <param name="message">Error message</param>
-        /// <param name="value">Result value</param>
+        /// <param name="Result">Result Result</param>
         /// <param name="code">Error code</param>
         /// <returns>
         /// A new invalid <see cref="QueryPropertyResult"/> with specified detailed error.
         /// </returns>
-        public new static QueryPropertyResult CreateErroResult(string message, PropertyItem value, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } }, value);
+        public new static QueryPropertyResult CreateErroResult(string message, PropertyItem Result, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } }, Result);
 
         /// <summary>
         /// Returns a new <see cref="QueryPropertyResult"/> with specified detailed errors collection.
@@ -43,7 +43,7 @@ namespace iTin.Core.Hardware.Common
         public new static QueryPropertyResult CreateErroResult(IResultError[] errors) =>
             new QueryPropertyResult
             {
-                Value = default,
+                Result = default,
                 Success = false,
                 Errors = (IResultError[])errors.Clone()
             };
@@ -52,14 +52,14 @@ namespace iTin.Core.Hardware.Common
         /// Returns a new <see cref="QueryPropertyResult"/> with specified detailed errors collection.
         /// </summary>
         /// <param name="errors">A errors collection</param>
-        /// <param name="value">Result value</param>
+        /// <param name="Result">Result Result</param>
         /// <returns>
         /// A new invalid <see cref="QueryPropertyResult"/> with specified detailed errors collection.
         /// </returns>
-        public new static QueryPropertyResult CreateErroResult(IResultError[] errors, PropertyItem value) =>
+        public new static QueryPropertyResult CreateErroResult(IResultError[] errors, PropertyItem Result) =>
             new QueryPropertyResult
             {
-                Value = value,
+                Result = Result,
                 Success = false,
                 Errors = (IResultError[])errors.Clone()
             };
@@ -67,14 +67,14 @@ namespace iTin.Core.Hardware.Common
         /// <summary>
         /// Returns a new success result.
         /// </summary>
-        /// <param name="value">Result value</param>
+        /// <param name="Result">Result Result</param>
         /// <returns>
         /// A new valid <see cref="QueryPropertyResult"/>.
         /// </returns>
-        public new static QueryPropertyResult CreateSuccessResult(PropertyItem value) =>
+        public new static QueryPropertyResult CreateSuccessResult(PropertyItem Result) =>
             new QueryPropertyResult
             {
-                Value = value,
+                Result = Result,
                 Success = true,
                 Errors = new List<IResultError>()
             };
@@ -92,14 +92,14 @@ namespace iTin.Core.Hardware.Common
         /// Creates a new <see cref="QueryPropertyResult"/> instance from known exception.
         /// </summary>
         /// <param name="exception">Target exception.</param>
-        /// <param name="value">Result value</param>
+        /// <param name="Result">Result Result</param>
         /// <returns>
         /// A new <see cref="QueryPropertyResult"/> instance for specified exception.
         /// </returns>
-        public new static QueryPropertyResult FromException(System.Exception exception, PropertyItem value) =>
+        public new static QueryPropertyResult FromException(System.Exception exception, PropertyItem Result) =>
             new QueryPropertyResult
             {
-                Value = value,
+                Result = Result,
                 Success = false,
                 Errors = new List<IResultError> { new ResultExceptionError { Exception = exception } }
             };

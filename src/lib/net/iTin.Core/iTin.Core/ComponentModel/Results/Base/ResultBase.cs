@@ -91,7 +91,7 @@ namespace iTin.Core.ComponentModel
         public bool Success { get; set; }
         #endregion
 
-        #region [public] (T) Value: Gets or sets a value that contains the result value information
+        #region [public] (T) Result: Gets or sets a value that contains the result value information
         /// <inheritdoc />
         /// <summary>
         /// Gets or sets a value that contains the result value information.
@@ -99,7 +99,7 @@ namespace iTin.Core.ComponentModel
         /// <value>
         /// The result information.
         /// </value>
-        public T Value { get; set; }
+        public T Result { get; set; }
         #endregion
 
         #region [public] (IEnumerable<IResultWarning>) Warnings: Gets or sets a value that contains a warnings messages list
@@ -140,7 +140,7 @@ namespace iTin.Core.ComponentModel
         public static ResultBase<T> CreateErroResult(IResultError[] errors) =>
             new ResultBase<T>
             {
-                Value = default,
+                Result = default,
                 Success = false,
                 Errors = (IResultError[])errors.Clone()
             };
@@ -171,7 +171,7 @@ namespace iTin.Core.ComponentModel
         public static ResultBase<T> CreateErroResult(IResultError[] errors, T value) =>
             new ResultBase<T>
             {
-                Value = value,
+                Result = value,
                 Success = false,
                 Errors = (IResultError[])errors.Clone()
             };
@@ -188,7 +188,7 @@ namespace iTin.Core.ComponentModel
         public static ResultBase<T> CreateSuccessResult(T value) =>
             new ResultBase<T>
             {
-                Value = value,
+                Result = value,
                 Success = true,
                 Errors = new List<IResultError>()
             };
@@ -217,7 +217,7 @@ namespace iTin.Core.ComponentModel
         public static ResultBase<T> FromException(Exception exception, T value) =>
             new ResultBase<T>
             {
-                Value = value,
+                Result = value,
                 Success = false,
                 Errors = new List<IResultError> { new ResultExceptionError { Exception = exception } }
             };

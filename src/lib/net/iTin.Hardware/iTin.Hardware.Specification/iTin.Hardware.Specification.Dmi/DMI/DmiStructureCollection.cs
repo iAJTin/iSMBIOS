@@ -48,24 +48,24 @@ namespace iTin.Hardware.Specification.Dmi
         /// <summary>
         /// Gets the element with the specified key.
         /// </summary>
-        /// <value>
+        /// <Result>
         /// Object <see cref="DmiStructure"/> specified by its key.
-        /// </value>
+        /// </Result>
         /// <remarks>
         /// If the element does not exist, <b>null</b> is returned.
         /// </remarks>
         /// <exception cref="InvalidEnumArgumentException"></exception>
-        public DmiStructure this[DmiStructureClass valueKey]
+        public DmiStructure this[DmiStructureClass ResultKey]
         {
             get
             {
-                bool knownBlockValid = SentinelHelper.IsEnumValid(valueKey, true);
+                bool knownBlockValid = SentinelHelper.IsEnumValid(ResultKey, true);
                 if (!knownBlockValid)
                 {
-                    throw new InvalidEnumArgumentException(nameof(valueKey), (int)valueKey, typeof(SmbiosStructure));
+                    throw new InvalidEnumArgumentException(nameof(ResultKey), (int)ResultKey, typeof(SmbiosStructure));
                 }
 
-                int blockIndex = IndexOf(valueKey);
+                int blockIndex = IndexOf(ResultKey);
                 if (blockIndex != -1)
                 {
                     return this[blockIndex];
@@ -84,38 +84,38 @@ namespace iTin.Hardware.Specification.Dmi
         /// <summary>
         /// Determines whether the element with the specified key is in the collection.
         /// </summary>
-        /// <param name="valueKey">One of the values of <see cref="SmbiosStructure"/> that represents the key of the object <see cref="DmiStructure"/> to search.</param>
+        /// <param name="ResultKey">One of the Results of <see cref="SmbiosStructure"/> that represents the key of the object <see cref="DmiStructure"/> to search.</param>
         /// <returns>
-        /// <b>true</b> if the object <see cref="DmiStructure"/> with the <paramref name="valueKey"/> is in the collection; otherwise, it is <b>false</b>.
+        /// <b>true</b> if the object <see cref="DmiStructure"/> with the <paramref name="ResultKey"/> is in the collection; otherwise, it is <b>false</b>.
         /// </returns>
         /// <exception cref="InvalidEnumArgumentException"></exception>
-        public bool Contains(DmiStructureClass valueKey)
+        public bool Contains(DmiStructureClass ResultKey)
         {
-            bool knownBlockValid = SentinelHelper.IsEnumValid(valueKey, true);
+            bool knownBlockValid = SentinelHelper.IsEnumValid(ResultKey, true);
             if (!knownBlockValid)
             {
-                throw new InvalidEnumArgumentException(nameof(valueKey), (int)valueKey, typeof(DmiStructureClass));
+                throw new InvalidEnumArgumentException(nameof(ResultKey), (int)ResultKey, typeof(DmiStructureClass));
             }
                            
-            DmiStructure block = Items.FirstOrDefault(item => item.Class == valueKey);
+            DmiStructure block = Items.FirstOrDefault(item => item.Class == ResultKey);
 
             return Items.Contains(block);
         }
         #endregion
 
-        #region [public] (QueryPropertyResult) GetProperty(IPropertyKey): Returns a value that contains the result of the operation. Always returns the first appearance of the property
+        #region [public] (QueryPropertyResult) GetProperty(IPropertyKey): Returns a Result that contains the result of the operation. Always returns the first appearance of the property
         /// <summary>
-        /// Returns a value that contains the result of the operation. Always returns the first appearance of the property
+        /// Returns a Result that contains the result of the operation. Always returns the first appearance of the property
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
         /// <para>
         /// A <see cref="QueryPropertyResult"/> reference that contains the result of the operation, to check if the operation is correct, the <b>Success</b>
-        /// property will be <b>true</b> and the <b>Value</b> property will contain the value; Otherwise, the the <b>Success</b> property
+        /// property will be <b>true</b> and the <b>Result</b> property will contain the Result; Otherwise, the the <b>Success</b> property
         /// will be false and the <b>Errors</b> property will contain the errors associated with the operation, if they have been filled in.
         /// </para>
         /// <para>
-        /// The type of the <b>Value</b> property is <see cref="PropertyItem"/>.
+        /// The type of the <b>Result</b> property is <see cref="PropertyItem"/>.
         /// </para>
         /// <para>
         /// </para>
@@ -148,19 +148,19 @@ namespace iTin.Hardware.Specification.Dmi
         }
         #endregion
 
-        #region [public] (QueryPropertyCollectionResult) GetProperties(IPropertyKey): Returns a value that contains the result of the operation
+        #region [public] (QueryPropertyCollectionResult) GetProperties(IPropertyKey): Returns a Result that contains the result of the operation
         /// <summary>
-        /// Returns a value that contains the result of the operation.
+        /// Returns a Result that contains the result of the operation.
         /// </summary>
         /// <param name="propertyKey">Key to the property to obtain</param>
         /// <returns>
         /// <para>
         /// A <see cref="QueryPropertyCollectionResult"/> reference that contains the result of the operation, to check if the operation is correct, the <b>Success</b>
-        /// property will be <b>true</b> and the <b>Value</b> property will contain the value; Otherwise, the the <b>Success</b> property
+        /// property will be <b>true</b> and the <b>Result</b> property will contain the Result; Otherwise, the the <b>Success</b> property
         /// will be false and the <b>Errors</b> property will contain the errors associated with the operation, if they have been filled in.
         /// </para>
         /// <para>
-        /// The type of the <b>Value</b> property is <see cref="IEnumerable{T}"/> where <b>T</b> is <see cref="PropertyItem"/>.
+        /// The type of the <b>Result</b> property is <see cref="IEnumerable{T}"/> where <b>T</b> is <see cref="PropertyItem"/>.
         /// </para>
         /// <para>
         /// </para>
@@ -179,7 +179,7 @@ namespace iTin.Hardware.Specification.Dmi
             DmiClassCollection elements = structure.Elements;
             foreach (var element in elements)
             {
-                properties.Add(element.GetProperty(propertyKey).Value);
+                properties.Add(element.GetProperty(propertyKey).Result);
                 i++;
             }
 
@@ -191,23 +191,23 @@ namespace iTin.Hardware.Specification.Dmi
         /// <summary>
         /// Returns the index of the object with the key specified in the collection
         /// </summary>
-        /// <param name="valueKey">One of the values of <see cref="SmbiosStructure"/> that represents the key of the object to be searched in the collection.</param>
+        /// <param name="ResultKey">One of the Results of <see cref="SmbiosStructure"/> that represents the key of the object to be searched in the collection.</param>
         /// <returns>
         /// Zero-base index of the first appearance of the item in the collection, if found; otherwise, -1.
         /// </returns>
         /// <exception cref="InvalidEnumArgumentException"></exception>
-        public int IndexOf(DmiStructureClass valueKey)
+        public int IndexOf(DmiStructureClass ResultKey)
         {
-            bool knownBlockValid = SentinelHelper.IsEnumValid(valueKey, true);
+            bool knownBlockValid = SentinelHelper.IsEnumValid(ResultKey, true);
             if (!knownBlockValid)
             {
-                throw new InvalidEnumArgumentException(nameof(valueKey), (int)valueKey, typeof(DmiStructureClass));
+                throw new InvalidEnumArgumentException(nameof(ResultKey), (int)ResultKey, typeof(DmiStructureClass));
             }
 
             DmiStructure block = null;
             foreach (var item in Items)
             {
-                if (item.Class != valueKey)
+                if (item.Class != ResultKey)
                 {
                     continue;
                 }

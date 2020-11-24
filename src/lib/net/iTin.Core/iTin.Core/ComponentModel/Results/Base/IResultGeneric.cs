@@ -13,6 +13,6 @@ namespace iTin.Core.ComponentModel
         /// <value>
         /// A reference that contains result.
         /// </value>
-        T Value { get; set; }
+        T Result { get; set; }
     }
 }

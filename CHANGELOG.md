@@ -9,7 +9,14 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
- - Added support for **MacOS** (Tested on macOS Catalina Version 10.15.7, in progress...)
+ - Added support for **MacOS** (In progress...)
+ 
+    Tested on:
+
+    | macOS | Version |
+    |:------|:------|
+    | Big Sur | 11.0.1 |
+    | Catalina | 10.15.7 |
  
  - Library documentation
  
@@ -17,30 +24,35 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
- - Update result classes for support more scenaries.
+ - Changed **```IResultGeneric```** interface. Changed **```Value```** property name by **```Result```** (for code clarify).
+ 
+       This change may have implications in your final code, it is resolved by changing Value to Result
+
+ - Updated result classes for support more scenaries.
  
  - Library versions for this version
   
-| Library | Version | Description |
-|:------|:------|:----------|
-| iTin.Core| **2.0.0.3** | Base library containing various extensions, helpers, common constants |
-| iTin.Core.Hardware.Common | **1.0.0.2** | Common Hardware Infrastructure |
-| iTin.Core.Hardware.Linux.Specification.Smbios | **1.0.0.0** | Linux Hardware Infrastructure |
-| iTin.Core.Hardware.MacOS.Specification.Smbios | **1.0.0.0** | MacOS Hardware Infrastructure |
-| iTin.Core.Hardware.Windows.Specification.Smbios | **1.0.0.0** | Windows Hardware Infrastructure |
-| iTin.Core.Interop.Shared | **1.0.0.1** | Generic Shared Interop Definitions |
-| iTin.Core.Interop.Windows.Specification.Smbios | **1.0.0.0** | Win32 Generic Interop Calls (SMBIOS) |
-| iTin.Hardware.Abstractions.Specification.Smbios | **1.0.0.0** | Generic Common Hardware Abstractions |
-| iTin.Hardware.Specification.Dmi| **3.3.0.5** | DMI Specification Implementation |
-| iTin.Hardware.Specification.Smbios| **3.3.0.5** | SMBIOS Specification Implementation |
-| iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |
-| iTin.Logging| 1.0.0.0 | Logging library |
+    | Library | Version | Description |
+    |:------|:------|:----------|
+    | iTin.Core| **2.0.0.3** | Base library containing various extensions, helpers, common constants |
+    | iTin.Core.Hardware.Common | **1.0.0.2** | Common Hardware Infrastructure |
+    | iTin.Core.Hardware.Linux.Specification.Smbios | **1.0.0.0** | Linux Hardware Infrastructure |
+    | iTin.Core.Hardware.MacOS.Specification.Smbios | **1.0.0.0** | MacOS Hardware Infrastructure |
+    | iTin.Core.Hardware.Windows.Specification.Smbios | **1.0.0.0** | Windows Hardware Infrastructure |
+    | iTin.Core.Interop.Shared | **1.0.0.1** | Generic Shared Interop Definitions |
+    | iTin.Core.Interop.Windows.Specification.Smbios | **1.0.0.0** | Win32 Generic Interop Calls (SMBIOS) |
+    | iTin.Hardware.Abstractions.Specification.Smbios | **1.0.0.0** | Generic Common Hardware Abstractions |
+    | iTin.Hardware.Specification.Dmi| **3.3.0.5** | DMI Specification Implementation |
+    | iTin.Hardware.Specification.Smbios| **3.3.0.5** | SMBIOS Specification Implementation |
+    | iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |
+    | iTin.Logging| 1.0.0.0 | Logging library |
 
 ## [1.1.5] - 2020-10-11
 
 ### Added
 
 - Add new libraries and remove old libraries for compability with another packages (Win32 only and Cross-Platform)
+
 - In order to unify the obtaining of one or more properties by directly consulting the structures, two new methods have been added to replace the existing ones.
 
     #### Examples:
@@ -145,10 +157,10 @@ All notable changes to this project will be documented in this file.
    
 - Libraries removed in this version
 
-|Library|Version|Description|
-|:------|:------|:----------|
-|iTin.Core.Interop| 1.0.0 | Interop calls |
-|iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
+    |Library|Version|Description|
+    |:------|:------|:----------|
+    |iTin.Core.Interop| 1.0.0 | Interop calls |
+    |iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
 
 ### Changed
 
@@ -156,17 +168,17 @@ All notable changes to this project will be documented in this file.
 
 - Library versions for this version
 
-|Library|Version|Description|
-|:------|:------|:----------|
-|iTin.Core| **2.0.0.1** | Base library containing various extensions, helpers, common constants |
-|iTin.Core.Hardware.Common| **1.0.0.1** | Generic Common Hardware Infrastructure |
-|iTin.Core.Hardware.Windows.Smbios| 1.0.0.0 | Win32 Generic Hardware Calls (SMBIOS) |
-|iTin.Core.Interop.Shared| 1.0.0.0 | Generic Shared Interop Definitions, Data Structures, Constants... |
-|iTin.Core.Interop.Windows.Smbios| 1.0.0.0 | Win32 Generic Interop Calls (SMBIOS)  |
-|iTin.Hardware.Specification.Dmi|**3.3.0.4**| DMI Specification Implementation |
-|iTin.Hardware.Specification.Smbios|**3.3.0.4**| SMBIOS Specification Implementation |
-|iTin.Hardware.Specification.Tpm|**1.0.0.1**| TPM Specification Implementation |
-|iTin.Logging|1.0.0.0| Logging library  |
+    |Library|Version|Description|
+    |:------|:------|:----------|
+    |iTin.Core| **2.0.0.1** | Base library containing various extensions, helpers, common constants |
+    |iTin.Core.Hardware.Common| **1.0.0.1** | Generic Common Hardware Infrastructure |
+    |iTin.Core.Hardware.Windows.Smbios| 1.0.0.0 | Win32 Generic Hardware Calls (SMBIOS) |
+    |iTin.Core.Interop.Shared| 1.0.0.0 | Generic Shared Interop Definitions, Data Structures, Constants... |
+    |iTin.Core.Interop.Windows.Smbios| 1.0.0.0 | Win32 Generic Interop Calls (SMBIOS)  |
+    |iTin.Hardware.Specification.Dmi|**3.3.0.4**| DMI Specification Implementation |
+    |iTin.Hardware.Specification.Smbios|**3.3.0.4**| SMBIOS Specification Implementation |
+    |iTin.Hardware.Specification.Tpm|**1.0.0.1**| TPM Specification Implementation |
+    |iTin.Logging|1.0.0.0| Logging library  |
 
 
 ## [1.1.4] - 2020-08-2
@@ -220,14 +232,14 @@ All notable changes to this project will be documented in this file.
 
 - Library versions for this version
   
-|Library|Version|Description|
-|:------|:------|:----------|
-|iTin.Core| **1.0.2** | Common calls |
-|iTin.Core.Interop| 1.0.0 | Interop calls |
-|iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
-|iTin.Core.Hardware.Specification.Dmi|**3.3.0.3**| DMI Specification Implementation |
-|iTin.Core.Hardware.Specification.Smbios|**3.3.0.3**| SMBIOS Specification Implementation |
-|iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
+    |Library|Version|Description|
+    |:------|:------|:----------|
+    |iTin.Core| **1.0.2** | Common calls |
+    |iTin.Core.Interop| 1.0.0 | Interop calls |
+    |iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
+    |iTin.Core.Hardware.Specification.Dmi|**3.3.0.3**| DMI Specification Implementation |
+    |iTin.Core.Hardware.Specification.Smbios|**3.3.0.3**| SMBIOS Specification Implementation |
+    |iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
 
 ## [1.1.3] - 2020-03-06
 
@@ -247,14 +259,14 @@ All notable changes to this project will be documented in this file.
 
 - Library versions for this version
   
-|Library|Version|Description|
-|:------|:------|:----------|
-|iTin.Core| 1.0.1 | Common calls |
-|iTin.Core.Interop| 1.0.0 | Interop calls |
-|iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
-|iTin.Core.Hardware.Specification.Dmi|3.3.0.1| DMI Specification Implementation |
-|iTin.Core.Hardware.Specification.Smbios|3.3.0.2| SMBIOS Specification Implementation |
-|iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
+    |Library|Version|Description|
+    |:------|:------|:----------|
+    |iTin.Core| 1.0.1 | Common calls |
+    |iTin.Core.Interop| 1.0.0 | Interop calls |
+    |iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
+    |iTin.Core.Hardware.Specification.Dmi|3.3.0.1| DMI Specification Implementation |
+    |iTin.Core.Hardware.Specification.Smbios|3.3.0.2| SMBIOS Specification Implementation |
+    |iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
 
 ## [1.1.2] - 2020-02-15
 
@@ -290,14 +302,14 @@ All notable changes to this project will be documented in this file.
 
 - Library versions for this version
   
-|Library|Version|Description|
-|:------|:------|:----------|
-|iTin.Core| 1.0.1 | Common calls |
-|iTin.Core.Interop| 1.0.0 | Interop calls |
-|iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
-|iTin.Core.Hardware.Specification.Dmi|3.3.0.1| DMI Specification Implementation |
-|iTin.Core.Hardware.Specification.Smbios|3.3.0.1| SMBIOS Specification Implementation |
-|iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
+    |Library|Version|Description|
+    |:------|:------|:----------|
+    |iTin.Core| 1.0.1 | Common calls |
+    |iTin.Core.Interop| 1.0.0 | Interop calls |
+    |iTin.Core.Hardware| 1.0.1 | Hardware Interop Calls |
+    |iTin.Core.Hardware.Specification.Dmi|3.3.0.1| DMI Specification Implementation |
+    |iTin.Core.Hardware.Specification.Smbios|3.3.0.1| SMBIOS Specification Implementation |
+    |iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
 
 ## [1.1.1] - 2019-10-20
 
@@ -319,14 +331,14 @@ All notable changes to this project will be documented in this file.
 
 - Library versions for this version
   
-|Library|Version|Description|
-|:------|:------|:----------|
-|iTin.Core| 1.0.0 | Common calls |
-|iTin.Core.Interop| 1.0.0 | Interop calls |
-|iTin.Core.Hardware| 1.0.0 | Hardware Interop Calls |
-|iTin.Core.Hardware.Specification.Dmi|3.3.0.0| DMI Specification Implementation |
-|iTin.Core.Hardware.Specification.Smbios|3.3.0.0| SMBIOS Specification Implementation |
-|iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
+    |Library|Version|Description|
+    |:------|:------|:----------|
+    |iTin.Core| 1.0.0 | Common calls |
+    |iTin.Core.Interop| 1.0.0 | Interop calls |
+    |iTin.Core.Hardware| 1.0.0 | Hardware Interop Calls |
+    |iTin.Core.Hardware.Specification.Dmi|3.3.0.0| DMI Specification Implementation |
+    |iTin.Core.Hardware.Specification.Smbios|3.3.0.0| SMBIOS Specification Implementation |
+    |iTin.Core.Hardware.Specification.Tpm|1.0.0| TPM Specification Implementation |
 
 ## [1.1.0] - 2019-09-02
 

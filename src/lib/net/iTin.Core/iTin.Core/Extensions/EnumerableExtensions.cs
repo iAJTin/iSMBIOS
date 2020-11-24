@@ -16,6 +16,17 @@ namespace iTin.Core
     /// </summary> 
     public static class EnumerableExtensions
     {
+        #region [public] {static} (IEnumerable<string>) AsHexadecimal(This IEnumerable<byte>): 
+        /// <summary>
+        /// Creates a 
+        /// </summary>
+        /// <typeparam name="T">Type of enumeeration.</typeparam>
+        /// <returns>
+        /// An new <see cref="IEnumerable{T}" /> where <b>T</b> is a <see cref="string"/> typed from <see cref="IEnumerable"/>.
+        /// </returns>
+        public static IEnumerable<string> AsHexadecimal(this IEnumerable<byte> value) => new ReadOnlyCollection<string>(value.Select(item => $"{item:x2}").ToList());
+        #endregion
+
         #region [public] {static} (IEnumerable<double?>) Average>(this IEnumerable<IEnumerable<int>>): Computes the average for all series
         /// <summary>
         /// Computes the average for all series.

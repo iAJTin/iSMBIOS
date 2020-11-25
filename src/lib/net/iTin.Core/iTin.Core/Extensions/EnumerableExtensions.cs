@@ -16,13 +16,12 @@ namespace iTin.Core
     /// </summary> 
     public static class EnumerableExtensions
     {
-        #region [public] {static} (IEnumerable<string>) AsHexadecimal(This IEnumerable<byte>): 
+        #region [public] {static} (IEnumerable<string>) AsHexadecimal(This IEnumerable<byte>): Returns the target enumerable of bytes as hexadecimal representation
         /// <summary>
-        /// Creates a 
+        /// Returns the target enumerable of bytes as hexadecimal representation.
         /// </summary>
-        /// <typeparam name="T">Type of enumeeration.</typeparam>
         /// <returns>
-        /// An new <see cref="IEnumerable{T}" /> where <b>T</b> is a <see cref="string"/> typed from <see cref="IEnumerable"/>.
+        /// An new <see cref="IEnumerable{T}" /> where <b>T</b> is a <see cref="string"/> typed from <see cref="IEnumerable"/> of bytes.
         /// </returns>
         public static IEnumerable<string> AsHexadecimal(this IEnumerable<byte> value) => new ReadOnlyCollection<string>(value.Select(item => $"{item:x2}").ToList());
         #endregion

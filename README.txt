@@ -44,29 +44,29 @@ Changes in this version (v1.1.6)
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
       | Library                                           Version   Description                                                           |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core                                         2.0.0.3	Base library containing various extensions, helpers, common constants |
+      | iTin.Core                                         2.0.0.3   Base library containing various extensions, helpers, common constants |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Hardware.Common                         1.0.0.2	Generic Common Hardware Infrastructure                                |
+      | iTin.Core.Hardware.Common                         1.0.0.2   Generic Common Hardware Infrastructure                                |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Hardware.Linux.Specification.Smbios     1.0.0.0	Linux Hardware Infrastructure                                         |
+      | iTin.Core.Hardware.Linux.Specification.Smbios     1.0.0.0   Linux Hardware Infrastructure                                         |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
       | iTin.Core.Hardware.MacOS.Specification.Smbios     1.0.0.0   MacOS Hardware Infrastructure                                         |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Hardware.Windows.Specification.Smbios   1.0.0.0	Windows Hardware Infrastructure                                       |
+      | iTin.Core.Hardware.Windows.Specification.Smbios   1.0.0.0   Windows Hardware Infrastructure                                       |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Interop.Shared                          1.0.0.1	Generic Shared Interop Definitions, Data Structures, Constants...     |
+      | iTin.Core.Interop.Shared                          1.0.0.1   Generic Shared Interop Definitions, Data Structures, Constants...     |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Interop.Windows.Specification.Smbios    1.0.0.0	Win32 Generic Interop Calls (SMBIOS)                                  |
+      | iTin.Core.Interop.Windows.Specification.Smbios    1.0.0.0   Win32 Generic Interop Calls (SMBIOS)                                  |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Hardware.Abstractions.Specification.Smbios   1.0.0.1	Generic Common Hardware Abstractions                                  |
+      | iTin.Hardware.Abstractions.Specification.Smbios   1.0.0.1   Generic Common Hardware Abstractions                                  |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Hardware.Specification.Dmi                   3.3.0.5	DMI Specification Implementation                                      |
+      | iTin.Hardware.Specification.Dmi                   3.3.0.5   DMI Specification Implementation                                      |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Hardware.Specification.Smbios                3.3.0.5	SMBIOS Specification Implementation                                   |
+      | iTin.Hardware.Specification.Smbios                3.3.0.5   SMBIOS Specification Implementation                                   |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Hardware.Specification.Tpm                   1.0.0.1	TPM Specification Implementation                                      |
+      | iTin.Hardware.Specification.Tpm                   1.0.0.1   TPM Specification Implementation                                      |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Logging                                      1.0.0.0	Logging library                                                       |
+      | iTin.Logging                                      1.0.0.0   Logging library                                                       |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
 v1.1.5
@@ -179,9 +179,9 @@ v1.1.5
       •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
       | Library                                   Version   Description                                                         |
       •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Interop                         1.0.0.0	Interop calls                                                       |
+      | iTin.Core.Interop                         1.0.0.0   Interop calls                                                       |
       •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Hardware                        1.0.1.0	Hardware Interop Calls                                              |
+      | iTin.Core.Hardware                        1.0.1.0   Hardware Interop Calls                                              |
       •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
 · Changed
@@ -193,23 +193,23 @@ v1.1.5
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
       | Library                                  Version    Description                                                           |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core                                2.0.0.1	Base library containing various extensions, helpers, common constants |
+      | iTin.Core                                2.0.0.1    Base library containing various extensions, helpers, common constants |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Hardware.Common                1.0.0.1	Generic Common Hardware Infrastructure                                |
+      | iTin.Core.Hardware.Common                1.0.0.1    Generic Common Hardware Infrastructure                                |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Hardware.Windows.Smbios        1.0.0.0	Win32 Generic Hardware Calls (SMBIOS)                                 |
+      | iTin.Core.Hardware.Windows.Smbios        1.0.0.0    Win32 Generic Hardware Calls (SMBIOS)                                 |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Interop.Shared                 1.0.0.0	Generic Shared Interop Definitions, Data Structures, Constants...     |
+      | iTin.Core.Interop.Shared                 1.0.0.0    Generic Shared Interop Definitions, Data Structures, Constants...     |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Core.Interop.Windows.Smbios         1.0.0.0	Win32 Generic Interop Calls (SMBIOS)                                  |
+      | iTin.Core.Interop.Windows.Smbios         1.0.0.0    Win32 Generic Interop Calls (SMBIOS)                                  |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Hardware.Specification.Dmi          3.3.0.4	DMI Specification Implementation                                      |
+      | iTin.Hardware.Specification.Dmi          3.3.0.4    DMI Specification Implementation                                      |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Hardware.Specification.Smbios       3.3.0.4	SMBIOS Specification Implementation                                   |
+      | iTin.Hardware.Specification.Smbios       3.3.0.4    SMBIOS Specification Implementation                                   |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Hardware.Specification.Tpm          1.0.0.1	TPM Specification Implementation                                      |
+      | iTin.Hardware.Specification.Tpm          1.0.0.1    TPM Specification Implementation                                      |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | iTin.Logging                             1.0.0.0	Logging library                                                       |
+      | iTin.Logging                             1.0.0.0    Logging library                                                       |
       •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
 

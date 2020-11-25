@@ -15,7 +15,7 @@ Changes in this version (v1.1.6)
 · Added
   -----
 
-    - Added support for **MacOS** (In progress...)
+    - Added support for MacOS (In progress...)
  
       Tested on:
       •—————————————————————•
@@ -42,7 +42,7 @@ Changes in this version (v1.1.6)
     - Library versions for this version
 
       •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-      | Library                                           Version       Description                                                                   |
+      | Library                                           Version       Description                                                         |
       •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
       | iTin.Core                                         2.0.0.3		Base library containing various extensions, helpers, common constants |
       •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•

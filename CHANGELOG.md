@@ -41,7 +41,7 @@ All notable changes to this project will be documented in this file.
     | iTin.Core.Hardware.Windows.Specification.Smbios | **1.0.0.0** | Windows Hardware Infrastructure |
     | iTin.Core.Interop.Shared | **1.0.0.1** | Generic Shared Interop Definitions |
     | iTin.Core.Interop.Windows.Specification.Smbios | **1.0.0.0** | Win32 Generic Interop Calls (SMBIOS) |
-    | iTin.Hardware.Abstractions.Specification.Smbios | **1.0.0.0** | Generic Common Hardware Abstractions |
+    | iTin.Hardware.Abstractions.Specification.Smbios | **1.0.0.1** | Generic Common Hardware Abstractions |
     | iTin.Hardware.Specification.Dmi| **3.3.0.5** | DMI Specification Implementation |
     | iTin.Hardware.Specification.Smbios| **3.3.0.5** | SMBIOS Specification Implementation |
     | iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |

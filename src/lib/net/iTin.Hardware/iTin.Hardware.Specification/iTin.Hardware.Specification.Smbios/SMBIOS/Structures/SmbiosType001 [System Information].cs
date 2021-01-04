@@ -320,7 +320,7 @@ namespace iTin.Hardware.Specification.Smbios
                         uuid[11].ToString("X2", CultureInfo.InvariantCulture),
                         uuid[12].ToString("X2", CultureInfo.InvariantCulture),
                         uuid[13].ToString("X2", CultureInfo.InvariantCulture),
-                        uuid[14].ToString("X", CultureInfo.InvariantCulture),
+                        uuid[14].ToString("X2", CultureInfo.InvariantCulture),
                         uuid[15].ToString("X2", CultureInfo.InvariantCulture));
         }
         #endregion

@@ -15,6 +15,8 @@ Changes in this version (v1.1.6)
 · Added
   -----
 
+    - Added support for System Event Log structure.
+
     - Added support for **MacOS** (In progress...)
  
       Tested on:

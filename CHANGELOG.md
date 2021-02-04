@@ -9,6 +9,8 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+ - Added support for System Event Log structure.
+ 
  - Added support for **MacOS** (In progress...)
  
     Tested on:

@@ -1,6 +1,13 @@
 ﻿
 namespace iTin.Hardware.Specification.Smbios
 {
+    using System.Collections.ObjectModel;
+    using System.Diagnostics;
+    using System.Linq;
+
+    using iTin.Core;
+    using iTin.Core.Helpers.Enumerations;
+
     using Property;
 
     // Type 015: System Event Log.
@@ -157,7 +164,132 @@ namespace iTin.Hardware.Specification.Smbios
 
         #endregion
 
-        #region protected override methods.
+        #region private properties
+
+        #region [private] (int) LogAreaLength: Gets a value representing the 'Log Area Length' field
+        /// <summary>
+        /// Gets a value representing the <b>Log Area Length</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int LogAreaLength => Reader.GetWord(0x04);
+        #endregion
+
+        #region [private] (int) LogHeaderStartOffset: Gets a value representing the 'Log Header Start Offset' field
+        /// <summary>
+        /// Gets a value representing the <b>Log Header Start Offset</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int LogHeaderStartOffset => Reader.GetWord(0x06);
+        #endregion
+
+        #region [private] (int) DataStartOffset: Gets a value representing the 'Data Start Offset' field
+        /// <summary>
+        /// Gets a value representing the <b>Data Start Offset</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int DataStartOffset => Reader.GetWord(0x08);
+        #endregion
+
+        #region [private] (byte) AccessMethod: Gets a value representing the 'Access Method' field
+        /// <summary>
+        /// Gets a value representing the <b>Access Method</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte AccessMethod => Reader.GetByte(0x10);
+        #endregion
+
+        #region [private] (byte) LogStatus: Gets a value representing the 'Log Status' field
+        /// <summary>
+        /// Gets a value representing the <b>Log Status</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte LogStatus => Reader.GetByte(0x0b);
+        #endregion
+
+        #region [private] (int) AccessMethodAddress: Gets a value representing the 'Access Method Address' field
+        /// <summary>
+        /// Gets a value representing the <b>Access Method Address</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int AccessMethodAddress => Reader.GetDoubleWord(0x10);
+        #endregion
+
+        #region [private] (int) LogChangeToken: Gets a value representing the 'Log Change Token' field
+        /// <summary>
+        /// Gets a value representing the <b>Log Change Token</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private int LogChangeToken => Reader.GetDoubleWord(0x0c);
+        #endregion
+
+        #region [private] (byte) LogHeaderFormat: Gets a value representing the 'Log Header Format' field
+        /// <summary>
+        /// Gets a value representing the <b>Log Header Format</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte LogHeaderFormat => Reader.GetByte(0x14);
+        #endregion
+
+        #region [private] (byte) SupportedLogTypeDescriptors: Gets a value representing the 'Supported Log Type Descriptors' field
+        /// <summary>
+        /// Gets a value representing the <b>Supported Log Type Descriptors</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte SupportedLogTypeDescriptors => Reader.GetByte(0x15);
+        #endregion
+
+        #region [private] (byte) LengthTypeDescriptor: Gets a value representing the 'Length Type Descriptor' field
+        /// <summary>
+        /// Gets a value representing the <b>Length Type Descriptor</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte LengthTypeDescriptor => Reader.GetByte(0x16);
+        #endregion
+
+        #region [private] (byte) ListSupportedEventLogTypeDescriptors: Gets a value representing the 'List Supported Event Log Type Descriptors' field
+        /// <summary>
+        /// Gets a value representing the <b>List Supported Event Log Type Descriptors</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte ListSupportedEventLogTypeDescriptors => Reader.GetByte(0x17);
+        #endregion
+
+        #endregion
+
+        #region protected override methods
 
         #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
         /// <inheritdoc/>
@@ -167,9 +299,140 @@ namespace iTin.Hardware.Specification.Smbios
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
-            properties.Add(SmbiosProperty.SystemEventLog.SystemEventLogs, string.Empty);
+            #region 2.0+
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v20)
+            {
+                properties.Add(SmbiosProperty.SystemEventLog.LogAreaLength, LogAreaLength);
+                properties.Add(SmbiosProperty.SystemEventLog.LogHeaderStartOffset, LogHeaderStartOffset);
+                properties.Add(SmbiosProperty.SystemEventLog.DataStartOffset, DataStartOffset);
+                properties.Add(SmbiosProperty.SystemEventLog.AccessMethod, GetAccessMethod(AccessMethod));
+                properties.Add(SmbiosProperty.SystemEventLog.LogStatus, GetLogStatus(LogStatus));
+                
+                if (AccessMethod <= 0x04)
+                {
+                    properties.Add(SmbiosProperty.SystemEventLog.AccessMethodAddress, GetAccessMethodAddress(AccessMethod, AccessMethodAddress));
+                }
+
+                properties.Add(SmbiosProperty.SystemEventLog.LogChangeToken, $"{LogChangeToken:X}");
+            }
+            #endregion
+
+            #region 2.1+
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
+            {
+                properties.Add(SmbiosProperty.SystemEventLog.LogHeaderFormat, GetLogHeaderFormat(LogHeaderFormat));
+                properties.Add(SmbiosProperty.SystemEventLog.SupportedLogTypeDescriptors, SupportedLogTypeDescriptors);
+
+                var n = SupportedLogTypeDescriptors * LengthTypeDescriptor;
+                if (StructureInfo.Length > 0x17 + n)
+                {
+                    properties.Add(SmbiosProperty.SystemEventLog.SupportedLogTypeDescriptors, SupportedLogTypeDescriptors);
+                    properties.Add(SmbiosProperty.SystemEventLog.ListSupportedEventLogTypeDescriptors, GetListSupportedEventLogTypeDescriptors(Reader.Data.Extract(0x17, n - 1).ToArray()));
+                }
+            }
+            #endregion
         }
         #endregion
+
+        #endregion
+
+
+        #region BIOS Specification 2.7.1 (26/01/2011)
+
+        private static string GetAccessMethod(byte code)
+        {
+            string[] methods =
+            {
+                "Indexed I/O, one 8-bit index port, one 8-bit data port",  // 0x00
+                "Indexed I/O, two 8-bit index ports, one 8-bit data port",
+                "Indexed I/O, one 16-bit index port, one 8-bit data port",
+                "Memory-mapped physical 32-bit address",
+                "General-purpose non-volatile data functions"              // 0x04
+            };
+
+            if (code <= 0x04)
+            {
+                return methods[code];
+            }
+
+            if (code >= 0x08)
+            {
+                return "OEM-specific";
+            }
+
+            return SmbiosHelper.OutOfSpec;
+        }
+
+        private static string GetLogStatus(byte code)
+        {
+            var valid = code.CheckBit(Bits.Bit00) ? "Valid" : "Invalid";
+            var area = code.CheckBit(Bits.Bit01) ? "Full" : "Not Full";
+
+            return $"{valid} {area}";
+        }
+
+        private static string GetAccessMethodAddress(byte method, int value)
+        {
+            switch (method)
+            {
+                case 0x00:
+                case 0x01:
+                case 0x02:
+                {
+                    var valueArray = value.ToArray();
+                    var data = valueArray[0];
+                    var index = valueArray[1];
+
+                    return $"Index {index:X}, Data {data:X}";
+                }
+
+                case 0x03:
+                    return $"{value:X}";
+
+                case 0x04:
+                {
+                    var valueArray = value.ToArray();
+                    var handle = valueArray[0];
+                    return $"{handle:X}";
+                }
+
+                default:
+                    return SmbiosHelper.Unknown;
+            }
+        }
+
+        private static string GetLogHeaderFormat(byte code)
+        {
+            string[] types =
+            {
+                "No Header", // 0x00
+                "Type 1" // 0x01
+            };
+
+            if (code <= 0x01)
+            {
+                return types[code];
+            }
+
+            if (code >= 0x80)
+            {
+                return "OEM-specific";
+            }
+
+            return SmbiosHelper.OutOfSpec;
+        }
+
+        private static SupportedEventLogTypeDescriptorsCollection GetListSupportedEventLogTypeDescriptors(byte[] data)
+        {
+            var items = new Collection<SupportedEventLogTypeDescriptorElement>();
+
+            for (var i = 0; i < data.Length; i += 2)
+            {
+                items.Add(new SupportedEventLogTypeDescriptorElement(data.Extract(i, 2).ToArray()));
+            }
+
+            return new SupportedEventLogTypeDescriptorsCollection(items);
+        }
 
         #endregion
     }

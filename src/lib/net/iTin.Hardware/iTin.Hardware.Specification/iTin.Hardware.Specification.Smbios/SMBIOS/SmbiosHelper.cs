@@ -11,6 +11,7 @@ namespace iTin.Hardware.Specification.Smbios
     /// </summary>
     internal static class SmbiosHelper
     {
+        public const string Unknown = "Unknown";
         public const string Reserved = "Reserved";
         public const string OutOfSpec = "<OUT OF SPEC>";
 

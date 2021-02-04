@@ -888,8 +888,55 @@ namespace iTin.Hardware.Specification.Smbios
     /// </summary>
     internal enum SmbiosType015Property
     {
-        [PropertyDescription("")]
-        SystemEventLog,
+        [PropertyName("Log Area Length")]
+        [PropertyDescription("The length, in bytes, of the overall event log area")]
+        [PropertyType(typeof(int))]
+        LogAreaLength,
+
+        [PropertyName("Log Header")]
+        [PropertyDescription("Defines the starting offset (or index) within the nonvolatile storage of the event-log’s header from the Access Method Address")]
+        [PropertyType(typeof(string))]
+        LogHeaderStartOffset,
+
+        [PropertyName("Data Start Offset")]
+        [PropertyDescription("Defines the starting offset (or index) within the nonvolatile storage of the event-log’s first data byte, from the Access Method Address")]
+        [PropertyType(typeof(int))]
+        DataStartOffset,
+
+        [PropertyName("Access Method")]
+        [PropertyDescription("Defines the Location and Method used by higher-level software to access the log area")]
+        [PropertyType(typeof(string))]
+        AccessMethod,
+
+        [PropertyName("Log Status")]
+        [PropertyDescription("Current status of the system event-log")]
+        [PropertyType(typeof(string))]
+        LogStatus,
+
+        [PropertyName("Access Method Address")]
+        [PropertyDescription("Access Method Address")]
+        [PropertyType(typeof(string))]
+        AccessMethodAddress,
+
+        [PropertyName("Log Change Token")]
+        [PropertyDescription("Unique token that is reassigned every time the event log changes")]
+        [PropertyType(typeof(string))]
+        LogChangeToken,
+
+        [PropertyName("Log Header Format")]
+        [PropertyDescription("Format of the log header area")]
+        [PropertyType(typeof(string))]
+        LogHeaderFormat,
+
+        [PropertyName("Supported Log Type Descriptors")]
+        [PropertyDescription("Number of supported event log type descriptors")]
+        [PropertyType(typeof(byte))]
+        SupportedLogTypeDescriptors,
+
+        [PropertyName("List Supported Event Log Type Descriptors")]
+        [PropertyDescription("List of Event Log Type Descriptors")]
+        [PropertyType(typeof(SupportedEventLogTypeDescriptorsCollection))]
+        ListSupportedEventLogTypeDescriptors,
     }
     #endregion
 

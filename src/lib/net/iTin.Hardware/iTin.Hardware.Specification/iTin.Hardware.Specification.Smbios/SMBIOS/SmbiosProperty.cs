@@ -4060,15 +4060,35 @@ namespace iTin.Hardware.Specification.Smbios.Property
         /// </summary>
         public static class SystemEventLog
         {
-            #region [public] {static} (IPropertyKey) SystemEventLogs: Gets a value representing the key to retrieve the property value
+            #region [public] {static} (IPropertyKey) LogAreaLength: Gets a value representing the key to retrieve the property value
             /// <summary>
             /// <para>Gets a value representing the key to retrieve the property value.</para>
-            /// <para>An empty String.</para>
+            /// <para>The length, in bytes, of the overall event log area</para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
             ///  <list type="bullet">
             ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
-            ///   <item><description>Property: <see cref="SmbiosType015Property.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.LogAreaLength"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey LogAreaLength => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.LogAreaLength, PropertyUnit.Bytes);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) LogHeaderStartOffset: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Defines the starting offset (or index) within the nonvolatile storage of the event-log’s header from the Access Method Address</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.LogHeaderStartOffset"/></description></item>
             ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
             ///  </list>
             /// </para>
@@ -4077,7 +4097,167 @@ namespace iTin.Hardware.Specification.Smbios.Property
             ///  <para>Type: <see cref="string"/></para>
             /// </para>
             /// </summary>
-            public static IPropertyKey SystemEventLogs => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.SystemEventLog);
+            public static IPropertyKey LogHeaderStartOffset => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.LogHeaderStartOffset);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) DataStartOffset: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Defines the starting offset (or index) within the nonvolatile storage of the event-log’s first data byte, from the Access Method Address</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.DataStartOffset"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="int"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey DataStartOffset => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.DataStartOffset);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) AccessMethod: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Defines the Location and Method used by higher-level software to access the log area</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.AccessMethod"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey AccessMethod => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.AccessMethod);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) LogStatus: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Current status of the system event-log</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.LogStatus"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey LogStatus => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.LogStatus);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) AccessMethodAddress: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Access Method Address</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.AccessMethodAddress"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey AccessMethodAddress => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.AccessMethodAddress);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) LogChangeToken: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Unique token that is reassigned every time the event log changes</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.LogChangeToken"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey LogChangeToken => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.LogChangeToken);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) LogHeaderFormat: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Unique token that is reassigned every time the event log changes</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.LogHeaderFormat"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey LogHeaderFormat => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.LogHeaderFormat);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) SupportedLogTypeDescriptors: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Number of supported event log type descriptors.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.SupportedLogTypeDescriptors"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey SupportedLogTypeDescriptors => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.SupportedLogTypeDescriptors);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) SupportedLogTypeDescriptors: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>List of Event Log Type Descriptors.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemEventLog"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType015Property.ListSupportedEventLogTypeDescriptors"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="SupportedEventLogTypeDescriptorsCollection"/></para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey ListSupportedEventLogTypeDescriptors => new PropertyKey(SmbiosStructure.SystemEventLog, SmbiosType015Property.ListSupportedEventLogTypeDescriptors);
             #endregion
         }
         #endregion

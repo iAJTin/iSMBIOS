@@ -1,6 +1,8 @@
 ﻿
 namespace iTin.Hardware.Specification.Dmi
 {
+    using System.Collections.ObjectModel;
+
     using Property;
 
     using Smbios;
@@ -39,7 +41,82 @@ namespace iTin.Hardware.Specification.Dmi
         /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(DmiClassPropertiesTable properties)
         {
-            properties.Add(DmiProperty.SystemEventLog.SystemEventLogs, SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.SystemEventLogs));
+            #region 2.0+
+            if (ImplementedVersion >= DmiStructureVersion.v20)
+            {
+                object logAreaLength = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.LogAreaLength);
+                if (logAreaLength != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.LogAreaLength, logAreaLength);
+                }
+
+                object logHeaderStartOffset = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.LogHeaderStartOffset);
+                if (logHeaderStartOffset != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.LogHeaderStartOffset, logHeaderStartOffset);
+                }
+
+                object dataStartOffset = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.DataStartOffset);
+                if (dataStartOffset != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.DataStartOffset, dataStartOffset);
+                }
+
+                object accessMethod = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.AccessMethod);
+                if (accessMethod != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.AccessMethod, accessMethod);
+                }
+
+                object logStatus = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.LogStatus);
+                if (logStatus != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.LogStatus, logStatus);
+                }
+
+                object accessMethodAddress = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.AccessMethodAddress);
+                if (accessMethodAddress != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.AccessMethodAddress, accessMethodAddress);
+                }
+
+                object logChangeToken = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.LogChangeToken);
+                if (logChangeToken != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.LogChangeToken, logChangeToken);
+                }
+            }
+            #endregion
+
+            #region 2.1+
+            if (ImplementedVersion >= DmiStructureVersion.v21)
+            {
+                object logHeaderFormat = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.LogHeaderFormat);
+                if (logHeaderFormat != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.LogHeaderFormat, logHeaderFormat);
+                }
+
+                object supportedLogTypeDescriptors = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.SupportedLogTypeDescriptors);
+                if (supportedLogTypeDescriptors != null)
+                {
+                    properties.Add(DmiProperty.SystemEventLog.SupportedLogTypeDescriptors, supportedLogTypeDescriptors);
+                }
+
+                object listSupportedEventLogTypeDescriptors = SmbiosStructure.GetPropertyValue(SmbiosProperty.SystemEventLog.ListSupportedEventLogTypeDescriptors);
+                if (listSupportedEventLogTypeDescriptors != null)
+                {
+                    var collection = new Collection<DmiSupportedEventLogTypeDescriptorElement>();
+                    var items = (SupportedEventLogTypeDescriptorsCollection) listSupportedEventLogTypeDescriptors;
+                    foreach (var item in items)
+                    {
+                        collection.Add(new DmiSupportedEventLogTypeDescriptorElement(item));
+                    }
+                    
+                    properties.Add(DmiProperty.SystemEventLog.ListSupportedEventLogTypeDescriptors, new DmiSupportedEventLogTypeDescriptorsCollection(collection));
+                }
+            }
+            #endregion
         }
         #endregion
 

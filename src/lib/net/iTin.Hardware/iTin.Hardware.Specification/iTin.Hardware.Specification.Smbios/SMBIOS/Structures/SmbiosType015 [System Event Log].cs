@@ -326,7 +326,6 @@ namespace iTin.Hardware.Specification.Smbios
                 var n = SupportedLogTypeDescriptors * LengthTypeDescriptor;
                 if (StructureInfo.Length > 0x17 + n)
                 {
-                    properties.Add(SmbiosProperty.SystemEventLog.SupportedLogTypeDescriptors, SupportedLogTypeDescriptors);
                     properties.Add(SmbiosProperty.SystemEventLog.ListSupportedEventLogTypeDescriptors, GetListSupportedEventLogTypeDescriptors(Reader.Data.Extract(0x17, n - 1).ToArray()));
                 }
             }

@@ -4,7 +4,7 @@ What is iSMBIOS?
 
 iSMBIOS is a lightweight implementation that allows us to obtain the SMBIOS information. Currently only works on Windows.
 
-This library implements DMTF Specification 3.4.0 version and olders versions
+This library implements DMTF Specification 3.5.0 version and olders versions
 
 For more information, please see https://www.dmtf.org/standards/smbios
 
@@ -15,18 +15,22 @@ Changes in this version (v1.1.6)
 · Added
   -----
 
+    - Added support for System Management BIOS (SMBIOS) v3.5.0.
+
     - Added support for System Event Log structure.
 
-    - Added support for **MacOS** (In progress...)
+    - Added support for MacOS (In progress...)
  
       Tested on:
-      •—————————————————————•
-      | macOS       Version |
-      •—————————————————————•
-      | Big Sur     10.15.7 |
-      •—————————————————————•
-      | Catalina     11.0.1 |
-      •—————————————————————•
+      •——————————————————————————•
+      | macOS           Version  |
+      •——————————————————————————•
+      | macOS Monterey  12.0.1   |
+      •——————————————————————————•
+      | Big Sur         11.0.1   |
+      •——————————————————————————•
+      | Catalina        10.15.7  |
+      •——————————————————————————•
 
     - Library documentation.
 

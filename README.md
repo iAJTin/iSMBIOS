@@ -95,25 +95,25 @@ For more info, please see [CHANGELOG] file.
        QueryPropertyResult biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
        if (biosVersion.Success)
        {
-           Console.WriteLine($@" > BIOS Version > {biosVersion.Value.Value}");
+           Console.WriteLine($@" > BIOS Version > {biosVersion.Result.Value}");
        }
  
        QueryPropertyResult biosVendor = structures.GetProperty(DmiProperty.Bios.Vendor);
        if (biosVendor.Success)
        {
-           Console.WriteLine($@" > BIOS Vendor > {biosVendor.Value.Value}");
+           Console.WriteLine($@" > BIOS Vendor > {biosVendor.Result.Value}");
        }
 
        QueryPropertyResult currentSpeed = structures.GetProperty(DmiProperty.Processor.CurrentSpeed);
        if (currentSpeed.Success)
        {
-           Console.WriteLine($@" > Current Speed > {currentSpeed.Value.Value} {currentSpeed.Value.Key.PropertyUnit}");
+           Console.WriteLine($@" > Current Speed > {currentSpeed.Result.Value} {currentSpeed.Result.Key.PropertyUnit}");
        }
 
        QueryPropertyResult processorManufacturer = structures.GetProperty(DmiProperty.Processor.ProcessorManufacturer);
        if (processorManufacturer.Success)
        {
-           Console.WriteLine($@" > Processor Manufacturer > {processorManufacturer.Value.Value}");
+           Console.WriteLine($@" > Processor Manufacturer > {processorManufacturer.Result.Value}");
        }
 
 5. Gets a property in **multiple** elements directly (Handle result as collection).
@@ -128,7 +128,7 @@ For more info, please see [CHANGELOG] file.
        }
        else
        {
-           IEnumerable<PropertyItem> systemSlotsItems = systemSlotsQueryResult.Value.ToList();
+           IEnumerable<PropertyItem> systemSlotsItems = systemSlotsQueryResult.Result.ToList();
            bool hasSystemSlotsItems = systemSlotsItems.Any();
            if (!hasSystemSlotsItems)
            {
@@ -158,7 +158,7 @@ For more info, please see [CHANGELOG] file.
         }
         else
         {
-            var systemSlotsItems = systemSlotsQueryDictionayResult.Value.ToList();
+            var systemSlotsItems = systemSlotsQueryDictionayResult.Result.ToList();
             bool hasSystemSlotsItems = systemSlotsItems.Any();
             if (!hasSystemSlotsItems)
             {
@@ -194,7 +194,7 @@ For more info, please see [CHANGELOG] file.
                 foreach (var property in properties)
                 {
                     QueryPropertyResult queryResult = element.GetProperty(property);
-                    PropertyItem propertyItem = queryResult.Value;
+                    PropertyItem propertyItem = queryResult.Result;
                     object value = propertyItem.Value;
                     string friendlyName = property.GetPropertyName();
                     PropertyUnit valueUnit = property.PropertyUnit;
@@ -276,6 +276,7 @@ My email address is
 
 ![email.png][email] 
 
-[CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md
+
 [email]: ./assets/email.png "email"
 [documentation]: ./documentation/iTin.Hardware.Specification.Dmi.md
+[CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md

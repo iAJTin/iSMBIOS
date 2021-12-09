@@ -2,7 +2,7 @@
 
 Gets a value representing the key to retrieve the property value.
 
-Indicates the physical width of the slot whereas [`SlotDataBusWidth`](SlotDataBusWidth.md) property indicates the electrical width of the slot.
+Indicates the physical width of the slot whereas [`SlotDataBusWidth`](./SlotDataBusWidth.md) property indicates the electrical width of the slot.
 
 Key Composition
 

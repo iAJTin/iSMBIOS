@@ -9389,6 +9389,414 @@ namespace iTin.Hardware.Specification.Dmi.Property
         }
         #endregion
 
+        #region [public] {static} (class) FirmwareInventoryInformation: Contains the key definitions available for a type 045 [Firmware Inventory Information] structure
+        /// <summary>
+        /// Contains the key definitions available for a type 045 [<see cref="DmiStructureClass.FirmwareInventoryInformation"/>] structure.
+        /// </summary>
+        public static class FirmwareInventoryInformation
+        {
+            #region version 3.5
+
+            #region [public] {static} (IPropertyKey) FirmwareComponentName: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the Firmware Component Name.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareComponentName"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareComponentName => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareComponentName);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareVersion: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the Firmware Version of this firmware. The format of this value is defined by the Version Format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareVersion"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareVersion => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareVersion);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareVersionFormat: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Describes the format of the Firmware Version and the Lowest Supported Firmware Version.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareVersionFormat"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareVersionFormat => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareVersionFormat);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareId: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the Firmware ID of this firmware. The format of this value is defined by the Firmware ID Format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareId => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareId);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareIdFormat: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Describes the format of the Firmware ID.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareIdFormat"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareIdFormat => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareIdFormat);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareReleaseDate: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the firmware release date. The date string, if supplied, follows the Date-Time values format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareReleaseDate"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareReleaseDate => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareReleaseDate);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareManufacturer: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the firmware release date. The date string, if supplied, follows the Date-Time values format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareManufacturer"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareManufacturer => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareManufacturer);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) LowestSupportedFirmwareVersion: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the lowest version to which this firmware can be rolled back to. The format of this value is defined by the Version Format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.LowestSupportedFirmwareVersion"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey LowestSupportedFirmwareVersion => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.LowestSupportedFirmwareVersion);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareImageSize: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Size of the firmware image that is currently programmed in the device, in bytes. If the Firmware Image Size is unknown, the field is set to FFFFFFFFFFFFFFFFh</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareImageSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareImageSize => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareImageSize, PropertyUnit.Bytes);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareCharacteristics: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Firmware characteristics information.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareCharacteristics"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareCharacteristics => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareCharacteristics);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareState: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Firmware state information.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.FirmwareState"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareState => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.FirmwareState);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) NumberOfAssociatedComponents: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Defines how many Associated Component Handles are associated with this firmware.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.NumberOfAssociatedComponents"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey NumberOfAssociatedComponents => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.NumberOfAssociatedComponents);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) AssociatedComponentHandles: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Lists the <b>SMBIOS</b> structure handles that are associated with this firmware.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType045Property.AssociatedComponentHandles"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="uint"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey AssociatedComponentHandles => new PropertyKey(DmiStructureClass.FirmwareInventoryInformation, DmiType045Property.AssociatedComponentHandles);
+            #endregion
+
+            #endregion
+        }
+        #endregion
+
+        #region [public] {static} (class) StringProperty: Contains the key definitions available for a type 046 [String Property] structure
+        /// <summary>
+        /// Contains the key definitions available for a type 046 [<see cref="DmiStructureClass.StringProperty"/>] structure.
+        /// </summary>
+        public static class StringProperty
+        {
+            #region version 3.5
+
+            #region [public] {static} (IPropertyKey) PropertyId: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with the processor structure (Type 004).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.StringProperty"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType046Property.PropertyId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey PropertyId => new PropertyKey(DmiStructureClass.StringProperty, DmiType046Property.PropertyId);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) PropertyValue: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with the processor structure (Type 004).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.StringProperty"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType046Property.PropertyValue"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey PropertyValue => new PropertyKey(DmiStructureClass.StringProperty, DmiType046Property.PropertyValue);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) ParentHandle: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with the processor structure (Type 004).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.StringProperty"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType046Property.ParentHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey ParentHandle => new PropertyKey(DmiStructureClass.StringProperty, DmiType046Property.ParentHandle);
+            #endregion
+
+            #endregion
+        }
+        #endregion
+
         #region [public] {static} (class) Inactive: Contains the key definitions available for a type 126 [Inactive] structure
         /// <summary>
         /// Contains the key definitions available for a type 126 [<see cref="DmiStructureClass.Inactive"/>] structure.

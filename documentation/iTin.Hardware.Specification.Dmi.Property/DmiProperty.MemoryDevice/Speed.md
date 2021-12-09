@@ -2,7 +2,7 @@
 
 Gets a value representing the key to retrieve the property.
 
-Identifies the maximum capable speed of the device, in megatransfers per second(MT/s). 0000h = the speed is unknown. FFFFh = the speed is 65,535 MT/s or greater, and the actual speed is stored in the [`ExtendedSpeed`](ExtendedSpeed.md) property.
+Identifies the maximum capable speed of the device, in megatransfers per second(MT/s). 0000h = the speed is unknown. FFFFh = the speed is 65,535 MT/s or greater, and the actual speed is stored in the [`ExtendedSpeed`](./ExtendedSpeed.md) property.
 
 Key Composition
 

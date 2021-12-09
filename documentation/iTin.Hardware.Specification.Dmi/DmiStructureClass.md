@@ -55,6 +55,8 @@ public enum DmiStructureClass
 | ManagementControllerHostInterface | `42` | Management Controller Host Interface structure, for more information please see DmiType042. |
 | TpmDevice | `43` | TPM Device structure, for more information please see DmiType043. |
 | ProcessorAdditionalInformation | `44` | TPM Device structure, for more information please see DmiType044. |
+| FirmwareInventoryInformation | `45` | Firmware Inventory Information structure, for more information please see DmiType045. |
+| StringProperty | `46` | String Property structure, for more information please see DmiType046. |
 | Inactive | `126` | Inactive structure, for more information please see DmiType126. |
 | EndOfTable | `127` | End-Of-Table structure, for more information please see DmiType127. |
 

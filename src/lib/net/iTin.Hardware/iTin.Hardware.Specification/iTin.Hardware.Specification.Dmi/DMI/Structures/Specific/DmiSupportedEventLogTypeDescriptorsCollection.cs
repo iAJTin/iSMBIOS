@@ -32,7 +32,7 @@ namespace iTin.Hardware.Specification.Dmi
         /// Returns a class <see cref="string"/> that represents the current object.
         /// </summary>
         /// <returns>
-        /// Object <see cref="string"/> that represents the current <see cref="ChassisContainedElementCollection"/> class.
+        /// Object <see cref="string"/> that represents the current class.
         /// </returns>
         /// <remarks>
         /// This method returns a string that includes the number of available elements.

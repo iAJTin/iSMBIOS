@@ -1234,10 +1234,11 @@ namespace iTin.Hardware.Specification.Smbios
                 "Socket BGA1510",
                 "Socket BGA1528",
                 "Socket LGA4189",
-                "Socket LGA1200"     // 0x3E
+                "Socket LGA1200",
+                "Socket LGA4677"   // 0x3F
             };
 
-            if (code >= 0x01 && code <= 0x3E)
+            if (code >= 0x01 && code <= 0x3F)
             {
                 return value[code - 0x01];
             }

@@ -789,6 +789,13 @@ namespace iTin.Hardware.Specification.Smbios
         [PropertyType(typeof(int))]
         SlotPitch,
         #endregion
+
+        #region version 3.5
+        [PropertyName("Slot Height")]
+        [PropertyDescription("Indicates the maximum supported card height for the slot")]
+        [PropertyType(typeof(byte))]
+        SlotHeight
+        #endregion
     }
     #endregion
 
@@ -2260,6 +2267,107 @@ namespace iTin.Hardware.Specification.Smbios
         [PropertyDescription("")]
         [PropertyType(typeof(ProcessorSpecificInformationBlock))]
         ProcessorSpecificBlock
+        #endregion
+    }
+    #endregion
+
+    #region [internal] (emun) SmbiosType045Property: Defines the properties available for the structure type 045 [Firmware Inventory Information]
+    /// <summary>
+    /// Defines the properties available for the structure type 045 [Firmware Inventory Information].
+    /// </summary>
+    internal enum SmbiosType045Property
+    {
+        #region Version 3.5+
+        [PropertyName("Firmware Component Name")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(string))]
+        FirmwareComponentName,
+
+        [PropertyName("Firmware Version")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(string))]
+        FirmwareVersion,
+
+        [PropertyName("Firmware Version Format")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(string))]
+        FirmwareVersionFormat,
+
+        [PropertyName("Firmware ID")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(string))]
+        FirmwareId,
+
+        [PropertyName("Firmware ID Format")]
+        [PropertyDescription("Describes the format of the Firmware ID")]
+        [PropertyType(typeof(string))]
+        FirmwareIdFormat,
+
+        [PropertyName("Firmware Release Date")]
+        [PropertyDescription("String number of the firmware release date")]
+        [PropertyType(typeof(string))]
+        FirmwareReleaseDate,
+
+        [PropertyName("Firmware Manufacturer")]
+        [PropertyDescription("String number of the manufacturer or producer of this firmware")]
+        [PropertyType(typeof(string))]
+        FirmwareManufacturer,
+
+        [PropertyName("Lowest Supported Firmware Version")]
+        [PropertyDescription("String number of the manufacturer or producer of this firmware")]
+        [PropertyType(typeof(string))]
+        LowestSupportedFirmwareVersion,
+
+        [PropertyName("Firmware Image Size")]
+        [PropertyDescription("Size of the firmware image that is currently programmed in the device, in bytes")]
+        [PropertyType(typeof(ulong))]
+        FirmwareImageSize,
+
+        [PropertyName("Firmware Characteristics")]
+        [PropertyDescription("Firmware characteristics information")]
+        [PropertyType(typeof(ReadOnlyCollection<string>))]
+        FirmwareCharacteristics,
+
+        [PropertyName("Firmware State")]
+        [PropertyDescription("Firmware state information")]
+        [PropertyType(typeof(string))]
+        FirmwareState,
+
+        [PropertyName("Number Of Associated Components")]
+        [PropertyDescription("Defines how many Associated Component Handles are associated with this firmware")]
+        [PropertyType(typeof(byte))]
+        NumberOfAssociatedComponents,
+
+        [PropertyName("Associated Component Handles")]
+        [PropertyDescription("Lists the SMBIOS structure handles that are associated with this firmware")]
+        [PropertyType(typeof(ReadOnlyCollection<uint>))]
+        AssociatedComponentHandles
+
+        #endregion
+    }
+    #endregion
+
+    #region [internal] (emun) SmbiosType046Property: Defines the properties available for the structure type 044 [Processor Additional Information]
+    /// <summary>
+    /// Defines the properties available for the structure type 044 [Processor Additional Information].
+    /// </summary>
+    internal enum SmbiosType046Property
+    {
+        #region Version 3.5+
+        [PropertyName("String Property ID")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(string))]
+        PropertyId,
+
+        [PropertyName("String Property Value")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(string))]
+        PropertyValue,
+
+        [PropertyName("Parent Handle")]
+        [PropertyDescription("")]
+        [PropertyType(typeof(int))]
+        ParentHandle
         #endregion
     }
     #endregion

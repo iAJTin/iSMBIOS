@@ -324,6 +324,20 @@ namespace iTin.Hardware.Specification.Dmi
         ProcessorAdditionalInformation = 0x2c,
 
         /// <summary>
+        /// <b>Firmware Inventory Information</b> structure, for more information please see <see cref="DmiType045"/>.
+        /// </summary>
+        [PropertyName("Firmware Inventory Information")]
+        [PropertyDescription("")]
+        FirmwareInventoryInformation = 0x2d,
+
+        /// <summary>
+        /// <b>String Property</b> structure, for more information please see <see cref="DmiType046"/>.
+        /// </summary>
+        [PropertyName("String Property")]
+        [PropertyDescription("")]
+        StringProperty = 0x2e,
+
+        /// <summary>
         /// <b>Inactive</b> structure, for more information please see <see cref="DmiType126"/>.
         /// </summary>
         [PropertyName("Inactive")]

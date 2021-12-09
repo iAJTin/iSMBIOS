@@ -1,6 +1,6 @@
 # DmiStructureCollection.GetProperty method
 
-Returns a value that contains the result of the operation. Always returns the first appearance of the property
+Returns a Result that contains the result of the operation. Always returns the first appearance of the property
 
 ```csharp
 public QueryPropertyResult GetProperty(IPropertyKey propertyKey)
@@ -12,9 +12,9 @@ public QueryPropertyResult GetProperty(IPropertyKey propertyKey)
 
 ## Return Value
 
-A QueryPropertyResult reference that contains the result of the operation, to check if the operation is correct, the Success property will be true and the Value property will contain the value; Otherwise, the the Success property will be false and the Errors property will contain the errors associated with the operation, if they have been filled in.
+A QueryPropertyResult reference that contains the result of the operation, to check if the operation is correct, the Success property will be true and the Result property will contain the Result; Otherwise, the the Success property will be false and the Errors property will contain the errors associated with the operation, if they have been filled in.
 
-The type of the Value property is PropertyItem.
+The type of the Result property is PropertyItem.
 
 ## See Also
 

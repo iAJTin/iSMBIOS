@@ -79,6 +79,16 @@ namespace iTin.Hardware.Specification.Dmi
         /// <summary>
         /// Version 3.3
         /// </summary>
-        v33
+        v33,
+
+        /// <summary>
+        /// Version 3.4
+        /// </summary>
+        v34,
+
+        /// <summary>
+        /// Version 3.5
+        /// </summary>
+        v35
     }
 }

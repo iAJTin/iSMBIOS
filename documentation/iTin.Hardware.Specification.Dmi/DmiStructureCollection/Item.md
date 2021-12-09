@@ -3,12 +3,8 @@
 Gets the element with the specified key.
 
 ```csharp
-public DmiStructure this[DmiStructureClass valueKey] { get; }
+public DmiStructure this[DmiStructureClass ResultKey] { get; }
 ```
-
-## Property Value
-
-Object [`DmiStructure`](../DmiStructure.md) specified by its key.
 
 ## Exceptions
 

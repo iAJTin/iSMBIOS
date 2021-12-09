@@ -202,6 +202,14 @@ namespace iTin.Hardware.Specification.Dmi
                     result = new DmiType044(type044, smbiosVersion);
                     break;
 
+                case SmbiosType045 type045:
+                    result = new DmiType045(type045, smbiosVersion);
+                    break;
+
+                case SmbiosType046 type046:
+                    result = new DmiType046(type046, smbiosVersion);
+                    break;
+
                 case SmbiosType126 type126:
                     result = new DmiType126(type126, smbiosVersion);
                     break;

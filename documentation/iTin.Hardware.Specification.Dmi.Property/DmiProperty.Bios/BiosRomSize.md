@@ -2,7 +2,7 @@
 
 Gets a value representing the key to retrieve the property value.
 
-Size of the physical device containing the BIOS. For check measured unit, please see [`BiosRomSizeUnit`](BiosRomSizeUnit.md) property.
+Size of the physical device containing the BIOS. For check measured unit, please see [`BiosRomSizeUnit`](./BiosRomSizeUnit.md) property.
 
 Key Composition
 

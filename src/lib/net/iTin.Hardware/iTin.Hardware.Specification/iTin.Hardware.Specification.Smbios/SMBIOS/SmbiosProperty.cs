@@ -75,6 +75,7 @@ namespace iTin.Hardware.Specification.Smbios.Property
             /// <para>
             /// Segment location of BIOS starting address. This value is a free-form string that may contain core and <b>OEM</b> version information.
             /// The size of the runtime BIOS image can be computed by subtracting the Starting Address Segment from 10000h and multiplying the result by 16.
+            /// When not applicable, such as on UEFI-based systems, this value is set to 0000h.
             /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
@@ -3648,6 +3649,34 @@ namespace iTin.Hardware.Specification.Smbios.Property
             /// </para>
             /// </summary>
             public static IPropertyKey SlotPitch => new PropertyKey(SmbiosStructure.SystemSlots, SmbiosType009Property.SlotPitch, PropertyUnit.d_mm);
+            #endregion
+
+            #endregion
+
+            #region version 3.5
+
+            #region [public] {static} (IPropertyKey) SlotHeight: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Indicates the maximum supported card height for the slot.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.SystemSlots"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType009Property.SlotHeight"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey SlotHeight => new PropertyKey(SmbiosStructure.SystemSlots, SmbiosType009Property.SlotHeight);
             #endregion
 
             #endregion
@@ -9654,7 +9683,7 @@ namespace iTin.Hardware.Specification.Smbios.Property
         }
         #endregion
 
-        #region [public] {static} (class) ProcessorAdditionalInformation: Contains the key definitions available for a type 044 [ProcessorAdditionalInformation] structure
+        #region [public] {static} (class) ProcessorAdditionalInformation: Contains the key definitions available for a type 044 [Processor Additional Information] structure
         /// <summary>
         /// Contains the key definitions available for a type 044 [<see cref="SmbiosStructure.ProcessorAdditionalInformation"/>] structure.
         /// </summary>
@@ -9707,6 +9736,406 @@ namespace iTin.Hardware.Specification.Smbios.Property
             /// </para>
             /// </summary>
             public static IPropertyKey ProcessorSpecificBlock => new PropertyKey(SmbiosStructure.ProcessorAdditionalInformation, SmbiosType044Property.ProcessorSpecificBlock);
+            #endregion
+        }
+        #endregion
+
+        #region [public] {static} (class) FirmwareInventoryInformation: Contains the key definitions available for a type 045 [Firmware Inventory Information] structure
+        /// <summary>
+        /// Contains the key definitions available for a type 045 [<see cref="SmbiosStructure.FirmwareInventoryInformation"/>] structure.
+        /// </summary>
+        public static class FirmwareInventoryInformation
+        {
+            #region [public] {static} (IPropertyKey) FirmwareComponentName: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the Firmware Component Name.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareComponentName"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareComponentName => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareComponentName);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareVersion: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the Firmware Version of this firmware. The format of this value is defined by the Version Format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareVersion"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareVersion => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareVersion);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareVersionFormat: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Describes the format of the Firmware Version and the Lowest Supported Firmware Version.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareVersionFormat"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareVersionFormat => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareVersionFormat);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareId: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the Firmware ID of this firmware. The format of this value is defined by the Firmware ID Format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareId => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareId);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareIdFormat: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Describes the format of the Firmware ID.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareIdFormat"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareIdFormat => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareIdFormat);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareReleaseDate: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the firmware release date. The date string, if supplied, follows the Date-Time values format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareReleaseDate"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareReleaseDate => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareReleaseDate);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareManufacturer: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the firmware release date. The date string, if supplied, follows the Date-Time values format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareManufacturer"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareManufacturer => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareManufacturer);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) LowestSupportedFirmwareVersion: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>String number of the lowest version to which this firmware can be rolled back to. The format of this value is defined by the Version Format.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.LowestSupportedFirmwareVersion"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey LowestSupportedFirmwareVersion => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.LowestSupportedFirmwareVersion);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareImageSize: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Size of the firmware image that is currently programmed in the device, in bytes. If the Firmware Image Size is unknown, the field is set to FFFFFFFFFFFFFFFFh</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareImageSize"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.Bytes"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ulong"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareImageSize => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareImageSize, PropertyUnit.Bytes);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareCharacteristics: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Firmware characteristics information.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareCharacteristics"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareCharacteristics => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareCharacteristics);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) FirmwareState: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Firmware state information.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.FirmwareState"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey FirmwareState => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.FirmwareState);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) NumberOfAssociatedComponents: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Defines how many Associated Component Handles are associated with this firmware.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.NumberOfAssociatedComponents"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="byte"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey NumberOfAssociatedComponents => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.NumberOfAssociatedComponents);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) AssociatedComponentHandles: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Lists the <b>SMBIOS</b> structure handles that are associated with this firmware.</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.FirmwareInventoryInformation"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType045Property.AssociatedComponentHandles"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ReadOnlyCollection{T}"/> where <b>T</b> is <see cref="uint"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey AssociatedComponentHandles => new PropertyKey(SmbiosStructure.FirmwareInventoryInformation, SmbiosType045Property.AssociatedComponentHandles);
+            #endregion
+        }
+        #endregion
+
+        #region [public] {static} (class) StringProperty: Contains the key definitions available for a type 046 [String Property] structure
+        /// <summary>
+        /// Contains the key definitions available for a type 044 [<see cref="SmbiosStructure.StringProperty"/>] structure.
+        /// </summary>
+        public static class StringProperty
+        {
+            #region [public] {static} (IPropertyKey) PropertyId: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with the processor structure (Type 004).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.StringProperty"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType046Property.PropertyId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey PropertyId => new PropertyKey(SmbiosStructure.StringProperty, SmbiosType046Property.PropertyId);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) PropertyValue: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with the processor structure (Type 004).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.StringProperty"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType046Property.PropertyValue"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="string"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey PropertyValue => new PropertyKey(SmbiosStructure.StringProperty, SmbiosType046Property.PropertyValue);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) ParentHandle: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>Handle, or instance number, associated with the processor structure (Type 004).</para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.StringProperty"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType046Property.ParentHandle"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.5</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey ParentHandle => new PropertyKey(SmbiosStructure.StringProperty, SmbiosType046Property.ParentHandle);
             #endregion
         }
         #endregion

@@ -1,13 +1,13 @@
-# DmiProperty.SystemEventLog.SystemEventLogs property
+# DmiProperty.SystemEventLog.LogStatus property
 
 Gets a value representing the key to retrieve the property value.
 
-An empty String.
+Current status of the system event-log
 
 Key Composition
 
 * Structure: SystemEventLog
-* Property: SystemEventLog
+* Property: LogStatus
 * Unit: None
 
 Return Value
@@ -15,7 +15,7 @@ Return Value
 Type: String
 
 ```csharp
-public static IPropertyKey SystemEventLogs { get; }
+public static IPropertyKey LogStatus { get; }
 ```
 
 ## See Also

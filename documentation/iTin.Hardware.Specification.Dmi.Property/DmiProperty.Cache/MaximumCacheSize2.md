@@ -2,7 +2,7 @@
 
 Gets a value representing the key to retrieve the property value.
 
-If is present, for cache sizes of 2047MB or smaller the value is equals to [`MaximumCacheSize`](MaximumCacheSize.md) property.
+If is present, for cache sizes of 2047MB or smaller the value is equals to [`MaximumCacheSize`](./MaximumCacheSize.md) property.
 
 Key Composition
 

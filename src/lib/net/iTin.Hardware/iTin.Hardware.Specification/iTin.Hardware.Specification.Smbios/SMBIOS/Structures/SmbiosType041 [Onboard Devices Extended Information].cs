@@ -183,7 +183,7 @@ namespace iTin.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 2.7.1 (26/01/2011)
+        #region BIOS Specification 3.5.0 (15/09/2021)
 
         #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
         /// <summary>
@@ -206,10 +206,16 @@ namespace iTin.Hardware.Specification.Smbios
                 "Sound",
                 "PATA Controller",
                 "SATA Controller",
-                "SAS Controller"       // 0x0A                                        
+                "SAS Controller",
+                "Wireless LAN",
+                "Bluetooth",
+                "WWAN",
+                "eMMC (embedded Multi-Media Controller)",
+                "NVMe Controller",
+                "UFS Controller"      // 0x10     
             };
 
-            if (code >= 0x01 && code <= 0x0A)
+            if (code >= 0x01 && code <= 0x10)
             {
                 return value[code - 0x01];
             }

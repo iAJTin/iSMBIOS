@@ -1,7 +1,7 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.1.6] - 
+## [1.1.6] - 2021-12-09
 
 ### Fixed
 
@@ -9,7 +9,37 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
- - Added support for System Event Log structure.
+- Added support for System Event Log structure.
+ 
+- Added support for System Management BIOS (SMBIOS) v3.5.0, includes:
+
+      * BIOS Information (Type 0):
+        - SMBIOSCR00209: Added support for manufacturing mode
+        - SMBIOSCR00210: Updated the definition of BIOS Starting Address Segment for UEFI systems
+
+      * Processor Information (Type 4):
+        - SMBIOSCR00205: Added processor socket (LGA4677)
+
+      * System Slots (Type 9):
+        - SMBIOSCR00202: Added support for slot height
+        – SMBIOSCR00203: Errata: correct offsets
+
+      * Built-in Pointing Device (Type 21):
+        - SMBIOSCR00200: Added support for new Pointing Device interfaces
+
+      * Built-in Pointing Device (Type 41):
+        - SMBIOSCR00201: Added support for new Onboard Device Types
+        – SMBIOSCR00204: Added note on how to describe multi-function devices
+
+      * Firmware Inventory Information (Type 45, new):
+        – SMBIOSCR00208: Added structure type for Firmware Inventory Information
+
+      * String Property  (Type 46, new):
+        – SMBIOSCR00211: Added structure for string properties
+
+ - Library documentation
+ 
+ - ```tools``` folder in solution root. Contains a script for update help md files.
  
  - Added support for **MacOS** (In progress...)
  
@@ -17,13 +47,10 @@ All notable changes to this project will be documented in this file.
 
     | macOS | Version |
     |:------|:------|
+    | macOS Monterey | 12.0.1 |
     | Big Sur | 11.0.1 |
     | Catalina | 10.15.7 |
  
- - Library documentation
- 
- - ```tools``` folder in solution root. Contains a script for update help md files.
-
 ### Changed
 
  - Changed **```IResultGeneric```** interface. Changed **```Value```** property name by **```Result```** (for code clarify).
@@ -183,7 +210,7 @@ All notable changes to this project will be documented in this file.
     |iTin.Logging|1.0.0.0| Logging library  |
 
 
-## [1.1.4] - 2020-08-2
+## [1.1.4] - 2020-08-02
 
 ### Added
 

@@ -19,8 +19,8 @@ public abstract class SpecificDmiBaseType
 
 | name | description |
 | --- | --- |
-| [SpecificDmiBaseType](SpecificDmiBaseType/SpecificDmiBaseType.md)() | Initializes a new instance of the class [`SpecificDmiBaseType`](SpecificDmiBaseType.md). |
-| [SpecificDmiBaseType](SpecificDmiBaseType/SpecificDmiBaseType.md)(…) | Initializes a new instance of the class [`SpecificDmiBaseType`](SpecificDmiBaseType.md) by specifying the raw data of a specific SMBIOS structure |
+| [SpecificDmiBaseType](SpecificDmiBaseType/SpecificDmiBaseType.md)() | Initializes a new instance of the class [`SpecificDmiBaseType`](./SpecificDmiBaseType.md). |
+| [SpecificDmiBaseType](SpecificDmiBaseType/SpecificDmiBaseType.md)(…) | Initializes a new instance of the class [`SpecificDmiBaseType`](./SpecificDmiBaseType.md) by specifying the raw data of a specific SMBIOS structure |
 | [GetByte](SpecificDmiBaseType/GetByte.md)(…) | Returns the stored value from the specified byte. |
 | [GetBytes](SpecificDmiBaseType/GetBytes.md)(…) | Returns the stored array from start with specified lenght. |
 | [GetDoubleWord](SpecificDmiBaseType/GetDoubleWord.md)(…) | Returns the stored value from the specified byte. |

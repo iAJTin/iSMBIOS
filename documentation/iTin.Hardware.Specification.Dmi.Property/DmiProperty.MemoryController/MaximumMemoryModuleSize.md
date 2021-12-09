@@ -2,7 +2,7 @@
 
 Gets a value representing the key to retrieve the property value.
 
-Size of the largest memory module supported (per slot), specified as n, where 2**n is the maximum size in MB. The maximum amount of memory supported by this controller is that value times the number of slots, as specified in [`NumberMemorySlots`](NumberMemorySlots.md) property.
+Size of the largest memory module supported (per slot), specified as n, where 2**n is the maximum size in MB. The maximum amount of memory supported by this controller is that value times the number of slots, as specified in [`NumberMemorySlots`](./NumberMemorySlots.md) property.
 
 Key Composition
 

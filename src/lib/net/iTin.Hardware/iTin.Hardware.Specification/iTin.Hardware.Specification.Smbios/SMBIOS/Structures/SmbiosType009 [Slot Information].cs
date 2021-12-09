@@ -61,13 +61,16 @@ namespace iTin.Hardware.Specification.Smbios
     // | 13h      3.2         Peer(S/B/D/F/Width) 5*n         Varies      Peer Segment/Bus/Device/Function                             |
     // |                      groups              BYTE                    present in the slot; see 7.10.9                              |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 14h +    3.4         Slot Information    BYTE        Varies      Please see SlotInformation                                   |
+    // | 13h +    3.4         Slot Information    BYTE        Varies      Please see SlotInformation                                   |
     // | 5*n                                                                                                                           |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 15 +     3.4         Slot Physical Width BYTE        Varies      Please see GetDataBusWidth()                                 |
+    // | 14 +     3.4         Slot Physical Width BYTE        Varies      Please see GetDataBusWidth()                                 |
     // | 5*n                                                                                                                           |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 16h +    3.4         Slot Pitch          WORD         Varies     Please see SlotPitch                                         |
+    // | 15h +    3.4         Slot Pitch          WORD         Varies     Please see SlotPitch                                         |
+    // | 5*n                                                                                                                           |
+    // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 17h +    3.5         Slot Height         BYTE         Varies     Please see SlotHeight                                        |
     // | 5*n                                                                                                                           |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
@@ -335,6 +338,21 @@ namespace iTin.Hardware.Specification.Smbios
 
         #endregion
 
+        #region Version 3.5 fields
+
+        #region [private] (byte) SlotHeight: Gets a value representing the 'Slot Height' field
+        /// <summary>
+        /// Gets a value representing the <b>Slot Height</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private byte SlotHeight => Reader.GetByte((byte)(0x18 + (5 * GroupingCount)));
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region protected override methods
@@ -400,13 +418,20 @@ namespace iTin.Hardware.Specification.Smbios
                 properties.Add(SmbiosProperty.SystemSlots.SlotPitch, SlotPitch);
             }
             #endregion
+
+            #region 3.5
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v35)
+            {
+                properties.Add(SmbiosProperty.SystemSlots.SlotHeight, GetSlotHeight(SlotHeight));
+            }
+            #endregion
         }
         #endregion
 
         #endregion
 
 
-        #region BIOS Specification 3.4.0 (20/08/2020)
+        #region BIOS Specification 3.5.0 (15/09/2021)
 
         #region [private] {static} (string) GetBusDeviceFunction(byte, byte, byte): Gets a string representing Bus / Device / Function of the slot
         /// <summary>
@@ -743,13 +768,13 @@ namespace iTin.Hardware.Specification.Smbios
                 "PCI Express Gen 3 x2",
                 "PCI Express Gen 3 x4",
                 "PCI Express Gen 3 x8",
-                "PCI Express Gen 3 x16", 
+                "PCI Express Gen 3 x16",
                 "PCI Express Gen 4",
                 "PCI Express Gen 4 x1",
                 "PCI Express Gen 4 x2",
                 "PCI Express Gen 4 x4",
                 "PCI Express Gen 4 x8",
-                "PCI Express Gen 4 x16", 
+                "PCI Express Gen 4 x16",
                 "PCI Express Gen 5",
                 "PCI Express Gen 5 x1",
                 "PCI Express Gen 5 x2",
@@ -774,6 +799,34 @@ namespace iTin.Hardware.Specification.Smbios
             if (code >= 0xA0 && code <= 0xC3)
             {
                 return value2[code - 0xA0];
+            }
+
+            return SmbiosHelper.OutOfSpec;
+        }
+        #endregion
+
+        #region [private] {static} (string) GetSlotHeight(byte): Gets a string that identifies the maximum supported card height for the slot
+        /// <summary>
+        /// Gets a string that identifies the maximum supported card height for the slot.
+        /// </summary>
+        /// <param name="code">Value to analyze.</param>
+        /// <returns>
+        /// Maximum supported card height for the slot.
+        /// </returns>
+        private static string GetSlotHeight(byte code)
+        {
+            string[] value =
+            {
+                "Not applicable", // 0x00
+                "Other",
+                "Unknown",
+                "Full height",
+                "Low-profile"     // 0x04
+            };
+
+            if (code >= 0x00 && code <= 0x04)
+            {
+                return value[code];
             }
 
             return SmbiosHelper.OutOfSpec;

@@ -304,7 +304,12 @@ namespace iTin.Hardware.Specification.Smbios
 
                             byte n = RawData[0x12];
                             byte groupsBytes = (byte)(5 * n);
-                            if (Length > 0x14 + groupsBytes)
+                                
+                            if (Length > 0x18 + groupsBytes)
+                            {
+                                result = SmbiosStructureVersion.v35;
+                            }
+                            else if (Length > 0x14 + groupsBytes)
                             {
                                 result = SmbiosStructureVersion.v34;
                             }
@@ -872,6 +877,30 @@ namespace iTin.Hardware.Specification.Smbios
                         if (Length == 6 + y)
                         {
                             result = SmbiosStructureVersion.Latest;
+                        }
+
+                        break;
+                    }
+
+                    #endregion
+
+                    #region Type045 [Firmware Inventory Information]
+
+                    case SmbiosStructure.FirmwareInventoryInformation:
+                    {
+                        result = SmbiosStructureVersion.v35;
+                        break;
+                    }
+
+                    #endregion
+
+                    #region Type046 [String Property]
+
+                    case SmbiosStructure.StringProperty:
+                    {
+                        if (Length >= 0x09)
+                        {
+                            result = SmbiosStructureVersion.v35;
                         }
 
                         break;

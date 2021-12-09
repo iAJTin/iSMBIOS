@@ -23,6 +23,7 @@ public static class DmiProperty
 | static class [CoolingDevice](DmiProperty.CoolingDevice.md) | Contains the key definitions available for a type 027 [CoolingDevice] structure. |
 | static class [ElectricalCurrentProbe](DmiProperty.ElectricalCurrentProbe.md) | Contains the key definitions available for a type 029 [ElectricalCurrentProbe] structure. |
 | static class [EndOfTable](DmiProperty.EndOfTable.md) | Contains the key definitions available for a type 127 [EndOfTable] structure. |
+| static class [FirmwareInventoryInformation](DmiProperty.FirmwareInventoryInformation.md) | Contains the key definitions available for a type 045 [FirmwareInventoryInformation] structure. |
 | static class [GroupAssociations](DmiProperty.GroupAssociations.md) | Contains the key definitions available for a type 014 [GroupAssociations] structure. |
 | static class [HardwareSecurity](DmiProperty.HardwareSecurity.md) | Contains the key definitions available for a type 024 [HardwareSecurity] structure. |
 | static class [Inactive](DmiProperty.Inactive.md) | Contains the key definitions available for a type 126 [Inactive] structure. |
@@ -46,6 +47,7 @@ public static class DmiProperty
 | static class [PortConnector](DmiProperty.PortConnector.md) | Contains the key definitions available for a type 008 [PortConnector Information] structure. |
 | static class [Processor](DmiProperty.Processor.md) | Contains the key definitions available for a type 004 [Processor Information] structure. |
 | static class [ProcessorAdditionalInformation](DmiProperty.ProcessorAdditionalInformation.md) | Contains the key definitions available for a type 044 [ProcessorAdditionalInformation] structure. |
+| static class [StringProperty](DmiProperty.StringProperty.md) | Contains the key definitions available for a type 046 [StringProperty] structure. |
 | static class [System](DmiProperty.System.md) | Contains the key definitions available for a type 001 [System Information] structure. |
 | static class [SystemBoot](DmiProperty.SystemBoot.md) | Contains the key definitions available for a type 032 [SystemBoot Information] structure. |
 | static class [SystemConfigurationOptions](DmiProperty.SystemConfigurationOptions.md) | Contains the key definitions available for a type 012 [SystemConfigurationOptions] structure. |

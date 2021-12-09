@@ -3,12 +3,12 @@
 Returns the index of the object with the key specified in the collection
 
 ```csharp
-public int IndexOf(DmiStructureClass valueKey)
+public int IndexOf(DmiStructureClass ResultKey)
 ```
 
 | parameter | description |
 | --- | --- |
-| valueKey | One of the values of SmbiosStructure that represents the key of the object to be searched in the collection. |
+| ResultKey | One of the Results of SmbiosStructure that represents the key of the object to be searched in the collection. |
 
 ## Return Value
 

@@ -25,6 +25,8 @@ public enum DmiStructureVersion
 | v31 | `11` | Version 3.1 |
 | v32 | `12` | Version 3.2 |
 | v33 | `13` | Version 3.3 |
+| v34 | `14` | Version 3.4 |
+| v35 | `15` | Version 3.5 |
 
 ## See Also
 

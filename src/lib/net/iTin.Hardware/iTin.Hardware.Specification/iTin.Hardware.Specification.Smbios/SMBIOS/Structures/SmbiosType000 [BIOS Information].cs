@@ -25,16 +25,20 @@ namespace iTin.Hardware.Specification.Smbios
     // |                                                                is at least 14h because two extension bytes are        |
     // |                                                                defined. For version 2.4 and later implementations,    |
     // |                                                                the length is at least 18h because bytes 14-17h are    |
-    // |                                                                defined.                                               |
+    // |                                                                For version 3.1 and later implementations, the length  |
+    // |                                                                is at least 1Ah because bytes 14-19h are defined.      |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | 02h      2.0+        Handle            WORD        Varies                                                             |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 04h      2.0+        Vendor            BYTE        STRING      Número o cadena terminada en nulo.                     |
+    // | 04h      2.0+        Vendor            BYTE        STRING      String number of the BIOS Vendor’s Name                |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
-    // | 05h      2.0+        BIOS Version      BYTE        STRING      Número o cadena terminada en nulo.                     |
+    // | 05h      2.0+        BIOS Version      BYTE        STRING      String number of the BIOS Version. This value is a     |
+    // |                                                                free-form string that may contain Core and OEM version |
+    // |                                                                information.                                           |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | 06h      2.0+        BIOS Starting     WORD        Varies      Segment location of BIOS starting address (for         |
-    // |                      Address Segment                           example, 0E800h).                                      |
+    // |                      Address Segment                           example, 0E800h). When not applicable, such as on      |
+    // |                                                                UEFI-based systems, this value is set to 0000h.        |
     // |                                                                                                                       |
     // |                                                                NOTE: The size of the runtime BIOS image can be        |
     // |                                                                computed by subtracting the Starting Address Segment   |
@@ -361,7 +365,7 @@ namespace iTin.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 3.1.0 (16/11/2016)
+        #region BIOS Specification 3.5.0 (15/09/2021)
 
         #region [private] {static} (ReadOnlyCollection<string>) GetCharacteristics(ulong): Define which functions supports the BIOS: PCI, PCMCIA, Flash, etc
         /// <summary>
@@ -476,11 +480,14 @@ namespace iTin.Hardware.Specification.Smbios
                 "Function key-initiated network boot is supported",
                 "Targeted content distribution is supported",
                 "UEFI Specification is supported",
-                "Virtual machine"
+                "Virtual machine",
+                "Manufacturing mode is supported",
+                "Manufacturing mode is enabled",
+                "Reserved"
             };
 
             List<string> items = new List<string>();
-            for (byte i = 0; i <= 4; i++)
+            for (byte i = 0; i <= 7; i++)
             {
                 bool addItem = code.CheckBit(i);
                 if (addItem)

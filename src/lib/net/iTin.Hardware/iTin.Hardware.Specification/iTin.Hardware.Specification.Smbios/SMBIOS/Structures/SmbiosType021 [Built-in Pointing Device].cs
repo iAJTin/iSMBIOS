@@ -117,7 +117,7 @@ namespace iTin.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 2.7.1 (26/01/2011)
+        #region BIOS Specification 3.5.0 (15/09/2021)
 
         #region [private] {static} (string) GetDeviceInterface(byte): Gets a string representing the interface of the device
         /// <summary>
@@ -145,7 +145,9 @@ namespace iTin.Hardware.Specification.Smbios
             {
                 "Bus mouse DB-9",         // 0xA0
                 "Bus mouse micro-DIN",
-                "USB"                     // 0xA2
+                "USB", 
+                "I2C",                 
+                "SPI"                     // 0xA4
             };
 
             if (code >= 0x01 && code <= 0x08)
@@ -153,7 +155,7 @@ namespace iTin.Hardware.Specification.Smbios
                 return value[code - 0x01];
             }
 
-            if (code >= 0xA0 && code <= 0xA2)
+            if (code >= 0xA0 && code <= 0xA4)
             {
                 return value1[code - 0xA0];
             }

@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>iTin.Hardware.Abstractions.Specification.Smbios</AssemblyName>
     <PackageId>iTin.Hardware.Abstractions.Specification.Smbios</PackageId>
-    <Version>1.0.0.0</Version>
+    <Version>1.0.0.2</Version>
     <Authors>iTin</Authors>
     <Company>iTin</Company>
     <Product>iTin.Hardware.Abstractions.Specification.Smbios</Product>
@@ -17,11 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Management" Version="5.0.0" />
-    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\..\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Linux\iTin.Core.Hardware.Linux.Specification.Smbios\iTin.Core.Hardware.Linux.Specification.Smbios.csproj" />
     <ProjectReference Include="..\..\..\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.MacOS\iTin.Core.Hardware.MacOS.Specification.Smbios\iTin.Core.Hardware.MacOS.Specification.Smbios.csproj" />
     <ProjectReference Include="..\..\..\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Windows.Specification.Smbios\iTin.Core.Hardware.Windows.Specification.Smbios.csproj" />
   </ItemGroup>

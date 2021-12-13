@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>iTin.Hardware.Specification.Dmi</AssemblyName>
     <PackageId>iTin.Hardware.Specification.Dmi</PackageId>
-    <Version>3.3.0.5</Version>
+    <Version>3.3.0.6</Version>
     <Authors>iTin</Authors>
     <Company>iTin</Company>
     <Product>iTin.Hardware.Specification.Dmi</Product>

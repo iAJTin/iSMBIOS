@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>iTin.Core.Hardware.Common</AssemblyName>
     <PackageId>iTin.Core.Hardware.Common</PackageId>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <Authors>iTin</Authors>
     <Company>iTin</Company>
     <Product>iTin.Core.Hardware.Common</Product>
@@ -15,6 +15,11 @@
     <Copyright>Copyright © 2020</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="6.0.0" />
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\iTin.Core\iTin.Core.csproj" />

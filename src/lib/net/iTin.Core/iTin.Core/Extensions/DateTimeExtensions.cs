@@ -231,5 +231,87 @@ namespace iTin.Core
                     ? dateAndTime[1]
                     : "0:00:00";
         }
+
+        /// <summary>
+        /// Counts the number of days between two dates, including both dates.
+        /// If the dates are the same, the difference is 1. 
+        /// The result will always be a positive value.
+        /// </summary>
+        /// <param name="value">Target date</param>
+        /// <param name="date">Date</param>
+        /// <returns>
+        /// Difference of days.
+        /// </returns>
+        public static int GetDiffDays(this DateTime value, DateTime date)
+        {
+            return value < date 
+                ? date.Date.Subtract(value.Date).Days + 1 
+                : value.Date.Subtract(date.Date).Days + 1;
+        }
+
+        /// <summary>
+        /// Returns a date that represents the first day of the year.
+        /// </summary>
+        /// <param name="value">Target date</param>
+        /// <returns>
+        /// First day of year.
+        /// </returns>
+        public static DateTime FirstDayOfYear(this DateTime value) => new DateTime(value.Year, 1, 1);
+
+        /// <summary>
+        /// Returns a date that represents the last day of the year.
+        /// </summary>
+        /// <param name="value">Target date</param>
+        /// <returns>
+        /// Last day of year.
+        /// </returns>
+        public static DateTime LastDayOfYear(this DateTime value) => new DateTime(value.Year, 12, 31);
+
+        /// <summary>
+        /// Returns a date that represents the first day of the month.
+        /// </summary>
+        /// <param name="value">Target date</param>
+        /// <returns>
+        /// First day of the month.
+        /// </returns>
+        public static DateTime FirstDayOfMonth(this DateTime value) => new DateTime(value.Year, value.Month, 1, 0, 0, 0);
+
+        /// <summary>
+        /// Returns the day before the specified date.
+        /// </summary>
+        /// <param name="value">Target date</param>
+        /// <returns>
+        /// The day before the specified date.
+        /// </returns>
+        public static DateTime DayBefore(this DateTime value) => value > DateTime.MinValue ? value.AddDays(-1) : value;
+
+        /// <summary>
+        /// Returns the day after the indicated date.
+        /// </summary>
+        /// <param name="value">Target date</param>
+        /// <returns>
+        /// The day after the specified date.
+        /// </returns>
+        public static DateTime DiaPosterior(this DateTime value) => value < DateTime.MaxValue ? value.AddDays(1) : value;
+
+        /// <summary>
+        /// Returns a date that represents the end of the day.
+        /// For example, if applied to "Date", it will return "{Date} 23:59:59".
+        /// </summary>
+        /// <param name="value">Target date</param>
+        /// <returns>
+        /// A date that represents the end of the day.
+        /// </returns>
+        public static DateTime EndOfDay(this DateTime value) => new DateTime(value.Year, value.Month, value.Day, 23, 59, 59);
+
+        /// <summary>
+        /// Returns a date that represents the start of the day.
+        /// For example, if applied to "Date", it will return "{Date} 00:00:00".
+        /// </summary>
+        /// <param name="value">Target date</param>
+        /// <returns>
+        /// A date that represents the start of the day.
+        /// </returns>
+        public static DateTime StartOfDay(this DateTime value) => value.Date;
     }
 }

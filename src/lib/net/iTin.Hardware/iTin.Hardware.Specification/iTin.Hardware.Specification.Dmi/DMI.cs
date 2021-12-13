@@ -5,7 +5,7 @@ namespace iTin.Hardware.Specification
     using System.Diagnostics;
 
     using Dmi;
-    using Smbios;
+    using iTin.Hardware.Abstractions.Specification.Smbios.ComponentModel;
 
     /// <summary>
     /// The Desktop Management Interface (DMI) or the desktop management interface, standard framework for management and<br/>

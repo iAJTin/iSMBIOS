@@ -3,7 +3,33 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.7] - 
 
+### Changed
+ 
+- Unify calls to obtain change information from a remote or local computer, currently this functionality is only available for Windows systems,
+  The logic of each platform is in its own assembly *iTin.Core.Hardware.**Target-System**.Specification.Smbios*.
 
+  *Where:*
+
+  **Target-System**, it can be *Linux*, *Windows* or *MacOS* and the platform independent logic is found in the 
+  **iTin.Hardware.Abstractions.Specification.Smbios** assembly, so that from *SMBIOS* a call is made independent of the target platform and this 
+  assembly has the responsibility of managing the final call to the platform destination.
+
+ - Library versions for this version
+  
+    | Library | Version | Description |
+    |:------|:------|:----------|
+    | iTin.Core| 2.0.0.3 | Base library containing various extensions, helpers, common constants |
+    | iTin.Core.Hardware.Common | **1.0.0.3** | Common Hardware Infrastructure |
+    | iTin.Core.Hardware.Linux.Specification.Smbios | **1.0.0.1** | Linux Hardware Infrastructure |
+    | iTin.Core.Hardware.MacOS.Specification.Smbios | **1.0.0.1** | MacOS Hardware Infrastructure |
+    | iTin.Core.Hardware.Windows.Specification.Smbios | **1.0.0.1** | Windows Hardware Infrastructure |
+    | iTin.Core.Interop.Shared | **1.0.0.1** | Generic Shared Interop Definitions |
+    | iTin.Core.Interop.Windows.Specification.Smbios | **1.0.0.0** | Win32 Generic Interop Calls (SMBIOS) |
+    | iTin.Hardware.Abstractions.Specification.Smbios | **1.0.0.2** | Generic Common Hardware Abstractions |
+    | iTin.Hardware.Specification.Dmi| **3.3.0.6** | DMI Specification Implementation |
+    | iTin.Hardware.Specification.Smbios| **3.3.0.6** | SMBIOS Specification Implementation |
+    | iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |
+    | iTin.Logging| 1.0.0.0 | Logging library |
 
 ## [1.1.6] - 2021-12-09
 

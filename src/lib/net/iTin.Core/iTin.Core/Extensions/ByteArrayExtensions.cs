@@ -2,6 +2,7 @@
 namespace iTin.Core
 {
     using System.IO;
+    using System.Text;
 
     using Helpers;
     using Logging;
@@ -11,6 +12,31 @@ namespace iTin.Core
     /// </summary> 
     public static class ByteArrayExtensions
     {
+        #region [public] {static} (string) ToEncodedString(this byte[], Encoding = null): Convert a byte array to encoded string
+        /// <summary>
+        /// Convert a byte array to encoded string
+        /// </summary>
+        /// <param name="value">Byte Array</param>
+        /// <param name="encodeType">Encode Type, Defaults to <see cref="Encoding.Default"/>.</param>
+        /// <returns>
+        /// Encoded String
+        /// </returns>
+        public static string ToEncodedString(this byte[] value, Encoding encodeType = null)
+        {
+            if (value == null)
+            {
+                return null;
+            }
+
+            if (encodeType == null)
+            {
+                encodeType = Encoding.Default;
+            }
+
+            return encodeType.GetString(value);
+        }
+        #endregion
+
         #region [public] {static} (MemoryStream) ToMemoryStream(this byte[]): Returns a MemoryStream from this byte array.
         /// <summary>
         /// Returns a <see cref="T:System.IO.MemoryStream"/> from this byte array.

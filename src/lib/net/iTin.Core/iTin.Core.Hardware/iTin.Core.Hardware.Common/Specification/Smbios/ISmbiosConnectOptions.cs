@@ -1,30 +1,30 @@
 ﻿
-namespace iTin.Hardware.Specification.Smbios
+namespace iTin.Core.Hardware.Common.Specification.Smbios
 {
     /// <summary>
-    /// Defines remote user parameters
+    /// Define a 
     /// </summary>
-    public class SmbiosConnectOptions
+    public interface ISmbiosConnectOptions
     {
         /// <summary>
         /// 
         /// </summary>
         /// <value>
         /// </value>
-        public string MachineNameOrIpAddress { get; set; }
+        string MachineNameOrIpAddress { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <value>
         /// </value>
-        public string UserName { get; set; }
+        string UserName { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <value>
         /// </value>
-        public string Password { get; set; }
+        string Password { get; set; }
     }
 }

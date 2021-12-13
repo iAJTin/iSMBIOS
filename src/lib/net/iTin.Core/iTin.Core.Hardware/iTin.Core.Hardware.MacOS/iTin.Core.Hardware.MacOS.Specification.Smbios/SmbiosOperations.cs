@@ -6,18 +6,21 @@ namespace iTin.Core.Hardware.MacOS.Specification.Smbios
     using System.Diagnostics;
 
     using iTin.Core.ComponentModel.Enums;
+    using iTin.Core.Hardware.Common.Specification.Smbios;
 
     /// <summary>
-    /// Defines 
+    /// Specialization of the <see cref="ISmbiosOperations"/> interface that contains the <b>SMBIOS</b> operations for <b>OSX</b> system.
     /// </summary>
-    public static class Operations
+    public class SmbiosOperations : ISmbiosOperations
     {
         /// <summary>
-        /// 
+        /// Gets a value containing the raw <b>SMBIOS</b> data.
         /// </summary>
+        /// <param name="options">Connection options for remote use</param>
         /// <returns>
+        /// The raw <b>SMBIOS</b> data.
         /// </returns>
-        public static byte[] GetSmbiosDataArray()
+        public byte[] GetSmbiosDataArray(ISmbiosConnectOptions options = null)
         {
             var startInfo = new ProcessStartInfo()
             {

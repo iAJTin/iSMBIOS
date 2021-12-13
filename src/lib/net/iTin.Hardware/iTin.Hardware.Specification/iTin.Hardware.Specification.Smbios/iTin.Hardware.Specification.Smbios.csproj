@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>iTin.Hardware.Specification.Smbios</AssemblyName>
     <PackageId>iTin.Hardware.Specification.Smbios</PackageId>
-    <Version>3.3.0.5</Version>
+    <Version>3.3.0.6</Version>
     <Authors>iTin</Authors>
     <Company>iTin</Company>
     <Product>iTin.Hardware.Specification.Smbios</Product>
@@ -17,7 +17,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Common\iTin.Core.Hardware.Common.csproj" />
     <ProjectReference Include="..\..\..\iTin.Core\iTin.Core\iTin.Core.csproj" />
     <ProjectReference Include="..\..\iTin.Hardware.Abstractions\iTin.Hardware.Abstractions.Specification.Smbios\iTin.Hardware.Abstractions.Specification.Smbios.csproj" />
     <ProjectReference Include="..\iTin.Hardware.Specification.Tpm\iTin.Hardware.Specification.Tpm.csproj" />

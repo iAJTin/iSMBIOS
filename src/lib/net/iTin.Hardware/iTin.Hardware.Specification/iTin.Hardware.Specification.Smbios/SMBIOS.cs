@@ -6,10 +6,11 @@ namespace iTin.Hardware.Specification
     using System.Collections.ObjectModel;
     using System.Diagnostics;
     using System.Linq;
-    using System.Management;
 
     using iTin.Core;
+    using iTin.Core.Hardware.Common.Specification.Smbios;
     using iTin.Core.Helpers;
+
     using iTin.Hardware.Abstractions.Specification.Smbios;
 
     using Smbios;
@@ -30,7 +31,7 @@ namespace iTin.Hardware.Specification
         private readonly byte _minorVersion;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private readonly SmbiosConnectOptions _options;
+        private readonly ISmbiosConnectOptions _options;
         #endregion
 
         #region private members
@@ -53,9 +54,20 @@ namespace iTin.Hardware.Specification
         /// <remarks>
         /// Retrieves the <b>SMBIOS</b> information by <b>WMI</b> or native call.
         /// </remarks>
-        private SMBIOS()
+        private SMBIOS() : this(null)
         {
-            var rawSmbiosTable = Operations.GetSmbiosDataArray();
+        }
+        #endregion
+
+        #region [private] SMBIOS(ISmbiosConnectOptions): Prevents a default instance of this class from being created with specified remote options
+        /// <summary>
+        /// Prevents a default instance of the <see cref="SMBIOS"/> class from being created. Retrieves the <see cref="SMBIOS"/> information by WMI.
+        /// </summary>
+        private SMBIOS(ISmbiosConnectOptions options)
+        {
+            _options = options;
+
+            var rawSmbiosTable = SmbiosOperations.Instance.GetSmbiosDataArray(options);
             if (rawSmbiosTable.Length > 0)
             {
                 _majorVersion = rawSmbiosTable[0x01];
@@ -64,49 +76,6 @@ namespace iTin.Hardware.Specification
 
                 byte[] smbiosData = rawSmbiosTable.Extract(0x08, Lenght).ToArray();
                 ToRawTables(smbiosData);
-            }
-        }
-        #endregion
-
-        #region [private] SMBIOS(SmbiosConnectOptions): Prevents a default instance of this class from being created with specified remote options
-        /// <summary>
-        /// Prevents a default instance of the <see cref="SMBIOS"/> class from being created. Retrieves the <see cref="SMBIOS"/> information by WMI.
-        /// </summary>
-        private SMBIOS(SmbiosConnectOptions options)
-        {
-            _options = options;
-
-            var connectionOptions = new ConnectionOptions
-            {
-                Username = options.UserName,
-                Authentication = AuthenticationLevel.Packet,
-                Impersonation = ImpersonationLevel.Impersonate,
-                SecurePassword = options.Password.ToSecureString()
-            };
-
-            var scope = new ManagementScope($"\\\\{options.MachineNameOrIpAddress}\\root\\cimv2", connectionOptions);
-            try
-            {
-                scope.Connect();
-            }
-            catch
-            {
-                ImplementedStructures = new ReadOnlyCollection<SmbiosStructure>(new List<SmbiosStructure>());
-                return;
-            }
-
-            ObjectQuery query = new ObjectQuery("SELECT * FROM MSSmBios_RawSMBiosTables");
-            using (var wmi = new ManagementObjectSearcher(scope, query))
-            {
-                foreach (var o in wmi.Get())
-                {
-                    var queryObj = (ManagementObject)o;
-                    Lenght = (int)(uint)queryObj["Size"];
-                    _majorVersion = (byte)queryObj["SmbiosMajorVersion"];
-                    _minorVersion = (byte)queryObj["SmbiosMinorVersion"];
-
-                    ToRawTables((byte[])queryObj["SMBiosData"]);
-                }
             }
         }
         #endregion
@@ -238,7 +207,7 @@ namespace iTin.Hardware.Specification
 
         #region public static methods
 
-        #region [public] {static} (SMBIOS) CreateInstance(SmbiosConnectOptions = null): Gets a unique instance of this class for remote machine
+        #region [public] {static} (SMBIOS) CreateInstance(ISmbiosConnectOptions = null): Gets a unique instance of this class for remote machine
         /// <summary>
         /// Gets a unique instance of this class for remote machine.<br/>
         /// If <paramref name="options"/> is <b>null</b> (<b>Nothing</b> in Visual Basic) always returns an instance for this machine.
@@ -246,7 +215,7 @@ namespace iTin.Hardware.Specification
         /// <value>
         /// A unique <see cref="SMBIOS"/> reference that contains <b>DMI</b> information.
         /// </value>
-        public static SMBIOS CreateInstance(SmbiosConnectOptions options = null) => options == null ? new SMBIOS() : new SMBIOS(options);
+        public static SMBIOS CreateInstance(ISmbiosConnectOptions options = null) => options == null ? new SMBIOS() : new SMBIOS(options);
         #endregion
 
         #endregion

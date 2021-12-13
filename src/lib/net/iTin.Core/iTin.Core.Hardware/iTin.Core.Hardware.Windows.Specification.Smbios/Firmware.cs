@@ -23,6 +23,7 @@ namespace iTin.Core.Hardware.Windows.Specification.Smbios
         public static string[] EnumerateTables(FirmwareProvider provider)
         {
             int size;
+
             try
             {
                 size = NativeMethods.EnumSystemFirmwareTables((uint)provider, IntPtr.Zero, 0);

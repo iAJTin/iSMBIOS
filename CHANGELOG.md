@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.7] - 
 
+### Added
+ 
+- Added support for System Management BIOS (SMBIOS) v3.5.1, includes:
+
+      * Processor Information (Type 4):
+        - SMBIOSCR00214: Added new processor sockets
+        - SMBIOSCR00215: Added processor family ID for ARMv9
+
 ### Changed
  
 - Unify calls to obtain change information from a remote or local computer, currently this functionality is only available for Windows systems,

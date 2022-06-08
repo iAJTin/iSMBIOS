@@ -1068,7 +1068,7 @@ namespace iTin.Hardware.Specification.Smbios
                 //// 0x100 - 0x1FF - These values are available for assignment, except for the following: 
                 { (ushort)0x100, "ARMv7" },
                 { (ushort)0x101, "ARMv8" },
-                //// 0x102 - Disponible.
+                { (ushort)0x102, "ARMv9" },
                 //// 0x103 - Disponible.
                 { (ushort)0x104, "SH-3" },
                 { (ushort)0x105, "SH-4" },
@@ -1079,8 +1079,11 @@ namespace iTin.Hardware.Specification.Smbios
                 { (ushort)0x12E, "MII" },
                 { (ushort)0x140, "WinChip" },
                 { (ushort)0x15E, "DSP" },
-                { (ushort)0x1F4, "Video Processor" }
-                //// 0x0200 - 0xFFFD - Available for assignment 
+                { (ushort)0x1F4, "Video Processor" },
+                { (ushort)0x200, "RISC-V RV32" },
+                { (ushort)0x201, "RISC-V RV64" },
+                { (ushort)0x202, "RISC-V RV128" },
+                //// 0x0203 - 0xFFFD - Available for assignment 
                 //// 0xFFFE - 0xFFFF - Reserved                       
             };
 
@@ -1235,10 +1238,13 @@ namespace iTin.Hardware.Specification.Smbios
                 "Socket BGA1528",
                 "Socket LGA4189",
                 "Socket LGA1200",
-                "Socket LGA4677"   // 0x3F
+                "Socket LGA4677",
+                "Socket LGA1700",
+                "Socket LGA1744",
+                "Socket LGA1781"   // 0x42
             };
 
-            if (code >= 0x01 && code <= 0x3F)
+            if (code >= 0x01 && code <= 0x42)
             {
                 return value[code - 0x01];
             }

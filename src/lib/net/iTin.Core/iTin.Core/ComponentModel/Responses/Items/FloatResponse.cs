@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="FloatResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static FloatResponse CreateErroResponse(IResponseError[] errors) =>
-            new FloatResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="FloatResponse"/>.
         /// </returns>
         public new static FloatResponse CreateSuccessResponse(float value) =>
-            new FloatResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="FloatResponse"/> instance for specified exception.
         /// </returns>
         public new static FloatResponse FromException(System.Exception exception) =>
-            new FloatResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

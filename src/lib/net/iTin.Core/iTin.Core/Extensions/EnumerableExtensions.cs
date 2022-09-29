@@ -1,16 +1,16 @@
 ﻿
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data;
+using System.Linq;
+
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Linq;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for generic enumerable objects.
     /// </summary> 
@@ -99,7 +99,7 @@ namespace iTin.Core
         public static IEnumerable<T> Clone<T>(this IEnumerable<T> collection) where T : ICloneable
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Clones collection");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<T>)}) Clone<{typeof(T)}>(this {typeof(IEnumerable<T>)}) where {typeof(T)} : {typeof(ICloneable)}");
             Logger.Instance.Debug($"   > collection: {collection}");
@@ -122,7 +122,7 @@ namespace iTin.Core
         public static List<T> ExchangeElement<T>(this IEnumerable<T> items, T item, int newPosition)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Moves specified item to new position");
             Logger.Instance.Debug($" > Signature: ({typeof(List<T>)}) ExchangeElement<{typeof(T)}>(this {typeof(IEnumerable<T>)})");
             Logger.Instance.Debug($"   > items: {items}");
@@ -131,7 +131,7 @@ namespace iTin.Core
 
             if (items == null)
             {
-                return null;
+                return Array.Empty<T>().ToList();
             }
 
             var list = items.ToList();
@@ -170,7 +170,7 @@ namespace iTin.Core
         public static IEnumerable<T> Extract<T>(this IEnumerable<T> sequence, byte start)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Extracts the specified sequence");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<T>)}) Extract<{typeof(T)}>(this {typeof(IEnumerable<T>)}, {typeof(byte)})");
             Logger.Instance.Debug($"   > sequence: {sequence}");
@@ -192,7 +192,7 @@ namespace iTin.Core
         public static IEnumerable<T> Extract<T>(this IEnumerable<T> sequence, byte start, byte lenght)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Extracts the specified sequence");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<T>)}) Extract<{typeof(T)}>(this {typeof(IEnumerable<T>)}, {typeof(byte)}, {typeof(byte)})");
             Logger.Instance.Debug($"   > sequence: {sequence}");
@@ -218,7 +218,7 @@ namespace iTin.Core
         public static IEnumerable<T> Extract<T>(this IEnumerable<T> sequence, int start, int lenght)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Extracts the specified sequence");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<T>)}) Extract<{typeof(T)}>(this {typeof(IEnumerable<T>)}, {typeof(byte)}, {typeof(int)})");
             Logger.Instance.Debug($"   > sequence: {sequence}");
@@ -242,7 +242,7 @@ namespace iTin.Core
         public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Executes an action for every item in the collection");
             Logger.Instance.Debug($" > Signature: ({typeof(List<T>)}) ForEach<{typeof(T)}>(this {typeof(IEnumerable<T>)}, {typeof(Action<T>)})");
             Logger.Instance.Debug($"   > source: {source}");
@@ -302,7 +302,7 @@ namespace iTin.Core
         public static bool HasDuplicates<T>(this IEnumerable<T> source)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Gets the duplicates");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<T>)}) HasDuplicates<{typeof(T)}>(this {typeof(IEnumerable<T>)})");
             Logger.Instance.Debug($"   > source: {source}");
@@ -310,6 +310,18 @@ namespace iTin.Core
             IEnumerable<T> duplicates = source.GetDuplicates();
             return duplicates.Any();
         }
+        #endregion
+
+        #region [public] {static} (bool) IsNullOrEmpty<T>(this IEnumerable<T>): Indicates whether the specified IEnumerable collection is null or empty
+        /// <summary>
+        /// Indicates whether the specified IEnumerable collection is null or empty.
+        /// </summary>
+        /// <typeparam name="T">The IEnumerable objects type</typeparam>
+        /// <param name="items">List of objects</param>
+        /// <returns>
+        /// <b>true</b> if the IEnumerable is null or empty; otherwise, <b>false</b>.
+        /// </returns>
+        public static bool IsNullOrEmpty<T>(this IEnumerable<T> items) => items == null || !items.Any();
         #endregion
 
         #region [public] {static} (Dictionary<TFirstKey, Dictionary<TSecondKey, TValue>>) Pivot<TSource, TFirstKey, TSecondKey, TValue>)(this IEnumerable<TSource>, Func<TSource, TFirstKey>, Func<TSource, TSecondKey>, Func<IEnumerable<TSource>, TValue>): Pivots the specified first key selector
@@ -330,7 +342,7 @@ namespace iTin.Core
         public static Dictionary<TFirstKey, Dictionary<TSecondKey, TValue>> Pivot<TSource, TFirstKey, TSecondKey, TValue>(this IEnumerable<TSource> source, Func<TSource, TFirstKey> firstKeySelector, Func<TSource, TSecondKey> secondKeySelector, Func<IEnumerable<TSource>, TValue> aggregate)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Pivots the specified first key selector");
             Logger.Instance.Debug($" > Signature: ({typeof(Dictionary<TFirstKey, Dictionary<TSecondKey, TValue>>)}) Pivot(this {typeof(IEnumerable<TSource>)}, {typeof(Func<TSource, TFirstKey>)}, {typeof(Func<TSource, TSecondKey>)}, {typeof(Func<IEnumerable<TSource>, TValue>)})");
             Logger.Instance.Debug($"   > source: {source}");
@@ -369,7 +381,7 @@ namespace iTin.Core
         public static DataTable ToDataTable<T>(this IEnumerable items, string name)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Converts an enumeration of groupings into a Dictionary of those groupings");
             Logger.Instance.Debug($" > Signature: ({typeof(DataTable)}) ToDataTable(this {typeof(IEnumerable)}, {typeof(string)})");
             Logger.Instance.Debug($"   > items: {items}");
@@ -409,7 +421,7 @@ namespace iTin.Core
         public static Dictionary<TKey, List<TValue>> ToDictionary<TKey, TValue>(this IEnumerable<IGrouping<TKey, TValue>> groupings)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Converts an enumeration of groupings into a Dictionary of those groupings");
             Logger.Instance.Debug($" > Signature: ({typeof(Dictionary<TKey, List<TValue>>)}) ToDictionary(this {typeof(IEnumerable<IGrouping<TKey, TValue>>)})");
             Logger.Instance.Debug($"   > groupings: {groupings}");
@@ -429,12 +441,27 @@ namespace iTin.Core
         public static ObservableCollection<T> ToObservableCollection<T>(this IEnumerable<T> source)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumerableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumerableExtensions).Assembly.GetName().Name}, v{typeof(EnumerableExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumerableExtensions).Namespace}, Class: {nameof(EnumerableExtensions)}");
             Logger.Instance.Debug($" Creates a new observable collection from an {typeof(IEnumerable<T>)}");
             Logger.Instance.Debug($" > Signature: ({typeof(ObservableCollection<T>)}) ToObservableCollection<{typeof(T)}>(this {typeof(IEnumerable<T>)})");
             Logger.Instance.Debug($"   > source: {source}");
 
             return new ObservableCollection<T>(source);
+        }
+        #endregion
+
+        #region [public] {static} (IEnumerable<T>) Yield<T>)(this T): Wraps this object instance into an IEnumerable<T> consisting of a single item
+        /// <summary>
+        /// Wraps this object instance into an <see cref="IEnumerable{T}"/> consisting of a single item.
+        /// </summary>
+        /// <typeparam name="T"> Type of the object.</typeparam>
+        /// <param name="item">The instance that will be wrapped.</param>
+        /// <returns>
+        /// An <see cref="IEnumerable{T}"/> consisting of a single item.
+        /// </returns>
+        public static IEnumerable<T> Yield<T>(this T item)
+        {
+            yield return item;
         }
         #endregion
     }

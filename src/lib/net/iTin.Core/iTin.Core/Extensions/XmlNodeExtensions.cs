@@ -1,10 +1,10 @@
 
+using System.Xml;
+
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System.Xml;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for <see cref="T:System.Xml.XmlNode"/> objects.
     /// </summary> 
@@ -21,7 +21,7 @@ namespace iTin.Core
         public static XmlNode FindNode(this XmlNode node, string nodeName)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StreamExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(XmlNodeExtensions).Assembly.GetName().Name}, v{typeof(XmlNodeExtensions).Assembly.GetName().Version}, Namespace: {typeof(XmlNodeExtensions).Namespace}, Class: {nameof(XmlNodeExtensions)}");
             Logger.Instance.Debug(" Finds specified node in NodeName into current node. If not found returns null (Nothing in Visual Basic).");
             Logger.Instance.Debug($" > Signature: ({typeof(XmlNode)}) FindNode(this {typeof(XmlNode)}, {typeof(string)})");
             Logger.Instance.Debug($"   > node: {node.Name}");

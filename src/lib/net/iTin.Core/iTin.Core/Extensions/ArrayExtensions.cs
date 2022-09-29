@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for Arrays.
     /// </summary> 
@@ -54,7 +54,7 @@ namespace iTin.Core
         public static T[] Copy<T>(this T[] array, int start, int length)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(ArrayExtensions).Assembly.GetName().Name}, v{typeof(ArrayExtensions).Assembly.GetName().Version}, Namespace: {typeof(ArrayExtensions).Namespace}, Class: {nameof(ArrayExtensions)}");
             Logger.Instance.Debug(" Copy a set of elements from an array from the indicated position and length");
             Logger.Instance.Debug($" > Signature: ({typeof(T[])}) Copy<{typeof(T)})>(this {typeof(T[])}, {typeof(int)}, {typeof(int)})");
             Logger.Instance.Debug($"   > array: {array.Length} items");
@@ -91,7 +91,7 @@ namespace iTin.Core
         public static T[] InsertAt<T>(this T[] array, int position, T item)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(ArrayExtensions).Assembly.GetName().Name}, v{typeof(ArrayExtensions).Assembly.GetName().Version}, Namespace: {typeof(ArrayExtensions).Namespace}, Class: {nameof(ArrayExtensions)}");
             Logger.Instance.Debug(" Insert an element in the array at the indicated position");
             Logger.Instance.Debug($" > Signature: ({typeof(T[])}) InsertAt<{typeof(T)})>(this {typeof(T[])}, {typeof(int)}, {typeof(T)})");
             Logger.Instance.Debug($"   > array: {array.Length} items");
@@ -128,7 +128,7 @@ namespace iTin.Core
         public static T[] InsertAt<T>(this T[] array, int position, T[] items)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(ArrayExtensions).Assembly.GetName().Name}, v{typeof(ArrayExtensions).Assembly.GetName().Version}, Namespace: {typeof(ArrayExtensions).Namespace}, Class: {nameof(ArrayExtensions)}");
             Logger.Instance.Debug(" Insert an array of elements in the array from the indicated position");
             Logger.Instance.Debug($" > Signature: ({typeof(T[])}) InsertAt<{typeof(T)})>(this {typeof(T[])}, {typeof(int)}, {typeof(T[])})");
             Logger.Instance.Debug($"   > array: {array.Length} items");
@@ -178,7 +178,7 @@ namespace iTin.Core
         public static T[] RemoveAt<T>(this T[] array, int start, int length)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(ArrayExtensions).Assembly.GetName().Name}, v{typeof(ArrayExtensions).Assembly.GetName().Version}, Namespace: {typeof(ArrayExtensions).Namespace}, Class: {nameof(ArrayExtensions)}");
             Logger.Instance.Debug(" Remove an array of elements from an array from the indicated position and length");
             Logger.Instance.Debug($" > Signature: ({typeof(T[])}) RemoveAt<{typeof(T)})>(this {typeof(T[])}, {typeof(int)}, {typeof(int)})");
             Logger.Instance.Debug($"   > array: {array.Length} items");
@@ -219,7 +219,7 @@ namespace iTin.Core
         public static T[] ReplaceAt<T>(this T[] array, int position, T item)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(ArrayExtensions).Assembly.GetName().Name}, v{typeof(ArrayExtensions).Assembly.GetName().Version}, Namespace: {typeof(ArrayExtensions).Namespace}, Class: {nameof(ArrayExtensions)}");
             Logger.Instance.Debug(" Replace an element in the array at the indicated position");
             Logger.Instance.Debug($" > Signature: ({typeof(T[])}) ReplaceAt<{typeof(T)})>(this {typeof(T[])}, {typeof(int)}, {typeof(T)})");
             Logger.Instance.Debug($"   > array: {array.Length} items");
@@ -261,7 +261,7 @@ namespace iTin.Core
         public static IEnumerable<T[]> SliceArray<T>(this T[] source, int maxResultElements)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(ArrayExtensions).Assembly.GetName().Name}, v{typeof(ArrayExtensions).Assembly.GetName().Version}, Namespace: {typeof(ArrayExtensions).Namespace}, Class: {nameof(ArrayExtensions)}");
             Logger.Instance.Debug(" Slice array");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<T>)}) SliceArray<{typeof(T)})>(this {typeof(T[])}, {typeof(int)})");
             Logger.Instance.Debug($"   > array: {source.Length} items");
@@ -289,11 +289,11 @@ namespace iTin.Core
 
         #region internal static methods
 
-        #region [public] {static} (void) ReverseContents<T>(this T[]);
+        #region [internal] {static} (void) ReverseContents<T>(this T[]);
         internal static void ReverseContents<T>(this T[] array) => ReverseContents(array, 0, array.Length);
         #endregion
 
-        #region [public] {static} (void) ReverseContents<T>(this T[], int, int): 
+        #region [internal] {static} (void) ReverseContents<T>(this T[], int, int): 
         internal static void ReverseContents<T>(this T[] array, int start, int count)
         {
             int end = start + count - 1;

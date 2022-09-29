@@ -19,7 +19,9 @@ namespace iTin.Core.ComponentModel
         /// <summary>
         /// Gets or sets exception.
         /// </summary>
-        /// <value>The exception.</value>
+        /// <value>
+        /// The exception.
+        /// </value>
         public System.Exception Exception { get; set; }
     }
 }

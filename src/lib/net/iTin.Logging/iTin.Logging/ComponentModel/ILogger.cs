@@ -1,10 +1,10 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
 namespace iTin.Logging.ComponentModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
-
     /// <summary>
     /// Defines a generic logger
     /// </summary>

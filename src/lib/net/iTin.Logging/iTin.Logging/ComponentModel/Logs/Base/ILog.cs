@@ -1,8 +1,8 @@
 ﻿
+using System;
+
 namespace iTin.Logging.ComponentModel
 {
-    using System;
-
     /// <summary>
     /// Declares members implemented by Log Writer classes.
     /// </summary>

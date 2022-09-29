@@ -1,18 +1,18 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading;
+
+using iTin.Logging.ComponentModel;
+using iTin.Logging.EventArgs;
+
 namespace iTin.Logging
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Linq;
-    using System.Reflection;
-    using System.Text;
-    using System.Threading;
-
-    using ComponentModel;
-    using EventArgs;
-
     /// <summary>
     /// Specialization of the <see cref="ILog"/> interface. Writes messages to a simple text file.
     /// </summary>

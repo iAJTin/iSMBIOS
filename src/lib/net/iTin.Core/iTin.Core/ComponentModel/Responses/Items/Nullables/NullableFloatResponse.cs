@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel.Responses
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResponseBase{T}" /> that contains a nullable float response.
     /// </summary>
@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="NullableFloatResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static NullableFloatResponse CreateErroResponse(IResponseError[] errors) =>
-            new NullableFloatResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="NullableFloatResponse"/>.
         /// </returns>
         public new static NullableFloatResponse CreateSuccessResponse(float? value) =>
-            new NullableFloatResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="NullableFloatResponse"/> instance for specified exception.
         /// </returns>
         public new static NullableFloatResponse FromException(System.Exception exception) =>
-            new NullableFloatResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

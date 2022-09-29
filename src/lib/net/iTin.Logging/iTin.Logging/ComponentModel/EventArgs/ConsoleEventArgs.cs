@@ -1,10 +1,10 @@
 ﻿
+using System.ComponentModel;
+
+using iTin.Logging.ComponentModel;
+
 namespace iTin.Logging.EventArgs
 {
-    using System.ComponentModel;
-
-    using ComponentModel;
-
     /// <summary>
     /// Provides data for the <see cref="ConsoleLog"/>.
     /// </summary>

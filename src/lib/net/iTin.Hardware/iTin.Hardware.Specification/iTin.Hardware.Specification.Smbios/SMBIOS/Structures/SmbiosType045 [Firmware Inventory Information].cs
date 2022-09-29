@@ -1,15 +1,15 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
+using iTin.Core;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-
-    using iTin.Core;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
     // Type 045: Firmware Inventory Information.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |

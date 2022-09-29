@@ -1,11 +1,11 @@
 ﻿
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
     /// Helper class for <see cref="SMBIOS"/>.
     /// </summary>

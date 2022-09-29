@@ -1,12 +1,12 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+using iTin.Hardware.Specification.Smbios;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-
-    using Smbios;
-
     /// <inheritdoc/>
     /// <summary>
     /// Represents a collection of objects <see cref="ChassisContainedElement"/>.

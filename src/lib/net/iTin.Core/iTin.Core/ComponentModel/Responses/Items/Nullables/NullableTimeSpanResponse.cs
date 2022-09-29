@@ -1,9 +1,9 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel.Responses
 {
-    using System;
-    using System.Collections.Generic;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResponseBase{T}" /> that contains a nullable timespan response.
     /// </summary>
@@ -27,7 +27,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="NullableTimeSpanResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static NullableTimeSpanResponse CreateErroResponse(IResponseError[] errors) =>
-            new NullableTimeSpanResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -42,7 +42,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="NullableTimeSpanResponse"/>.
         /// </returns>
         public new static NullableTimeSpanResponse CreateSuccessResponse(TimeSpan? value) =>
-            new NullableTimeSpanResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,8 +56,8 @@ namespace iTin.Core.ComponentModel.Responses
         /// <returns>
         /// A new <see cref="NullableTimeSpanResponse"/> instance for specified exception.
         /// </returns>
-        public new static NullableTimeSpanResponse FromException(System.Exception exception) =>
-            new NullableTimeSpanResponse
+        public new static NullableTimeSpanResponse FromException(Exception exception) =>
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

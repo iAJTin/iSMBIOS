@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="DecimalResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static DecimalResponse CreateErroResponse(IResponseError[] errors) =>
-            new DecimalResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="DecimalResponse"/>.
         /// </returns>
         public new static DecimalResponse CreateSuccessResponse(decimal value) =>
-            new DecimalResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="DecimalResponse"/> instance for specified exception.
         /// </returns>
         public new static DecimalResponse FromException(System.Exception exception) =>
-            new DecimalResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

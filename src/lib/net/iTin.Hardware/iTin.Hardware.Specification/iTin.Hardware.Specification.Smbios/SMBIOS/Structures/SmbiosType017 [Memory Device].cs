@@ -1,14 +1,14 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
+using iTin.Core;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-
-    using iTin.Core;
-
-    using Property;
-
     // Type 017: Memory Device.
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // |          Spec.                                                                                                      |
@@ -761,7 +761,7 @@ namespace iTin.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 3.3.0 (25/09/2019)
+        #region BIOS Specification 3.6.0 (20/06/2022)
 
         #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
         /// <summary>
@@ -807,10 +807,11 @@ namespace iTin.Hardware.Specification.Smbios
                 "LPDDR3",
                 "LPDDR4",
                 "Logical non-volatile device", 
-                "HBM (High Bandwidth Memory)",
-                "HBM2 (High Bandwidth Memory Generation 2)",
+                "HBM",
+                "HBM2",
                 "DDR5",
-                "LPDDR5"                                    // 0x23
+                "LPDDR5",
+                "HBM3"                                      // 0x24
             };
 
             if (code >= 0x01 && code <= 0x14)
@@ -818,7 +819,7 @@ namespace iTin.Hardware.Specification.Smbios
                 return deviceProperty[code - 0x01];
             }
 
-            if (code >= 0x18 && code <= 0x23)
+            if (code >= 0x18 && code <= 0x24)
             {
                 return deviceProperty2[code - 0x18];
             }

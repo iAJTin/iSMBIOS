@@ -1,20 +1,13 @@
 ﻿
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Versioning;
+
+using iTin.Core.ComponentModel;
+using iTin.Logging;
+
 namespace iTin.Core.Helpers
 {
-	using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-	using System.Reflection;
-    using System.Runtime.Versioning;
-    using System.Security.Permissions;
-
-    using Microsoft.Win32;
-
-	using ComponentModel;
-	using Logging;
-
 	/// <summary>
 	/// Static class which contains methods for retrieve <b>.NET Framework</b> information.
 	/// </summary>
@@ -29,7 +22,7 @@ namespace iTin.Core.Helpers
         public static FrameworkVersion GetAssemblyFrameworkVersion(Assembly assembly)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: NetFrameworkHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(NetFrameworkHelper).Assembly.GetName().Name}, v{typeof(NetFrameworkHelper).Assembly.GetName().Version}, Namespace: {typeof(NetFrameworkHelper).Namespace}, Class: {nameof(NetFrameworkHelper)}");
             Logger.Instance.Debug($" Returns an {typeof(string)} that contains full path to current assembly");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) GetAssemblyFrameworkVersion({typeof(Assembly)})");
 

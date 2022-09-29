@@ -1,11 +1,11 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
 namespace iTin.Core.Helpers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Static class which contains methods for retrieve <see cref="T:System.Assembly" /> information.
     /// </summary>

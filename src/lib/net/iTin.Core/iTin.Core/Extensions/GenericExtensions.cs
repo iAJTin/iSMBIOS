@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for generic objects.
     /// </summary> 
@@ -26,7 +26,7 @@ namespace iTin.Core
         public static T If<T>(this T val, Func<T, bool> predicate, Func<T, T> func)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: GenericExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(GenericExtensions).Assembly.GetName().Name}, v{typeof(GenericExtensions).Assembly.GetName().Version}, Namespace: {typeof(GenericExtensions).Namespace}, Class: {nameof(GenericExtensions)}");
             Logger.Instance.Debug($" Executes a function if a given predicate is true");
             Logger.Instance.Debug($" > Signature: ({typeof(T)}) If<{typeof(T)}>(this {typeof(T)}, {typeof(Func<T, bool>)}, {typeof(Func<T, T>)})");
             Logger.Instance.Debug($"   > val: {val}");
@@ -60,7 +60,7 @@ namespace iTin.Core
         public static bool In<T>(this T source, params T[] values)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: GenericExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(GenericExtensions).Assembly.GetName().Name}, v{typeof(GenericExtensions).Assembly.GetName().Version}, Namespace: {typeof(GenericExtensions).Namespace}, Class: {nameof(GenericExtensions)}");
             Logger.Instance.Debug($" Determines weather values are into list");
             Logger.Instance.Debug($" > Signature: ({typeof(T)}) In<{typeof(T)}>(this {typeof(T)}, {typeof(Func<T, bool>)}, {typeof(Func<T, T>)})");
             Logger.Instance.Debug($"   > source: {source}");

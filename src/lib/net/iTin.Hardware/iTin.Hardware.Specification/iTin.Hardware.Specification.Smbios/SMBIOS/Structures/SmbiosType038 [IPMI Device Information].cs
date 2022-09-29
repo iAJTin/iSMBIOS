@@ -1,14 +1,14 @@
 ﻿
+using System.Diagnostics;
+using System.Globalization;
+
+using iTin.Core;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-    using System.Globalization;
-
-    using iTin.Core;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
     // Type 038: IPMI Device Information.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |

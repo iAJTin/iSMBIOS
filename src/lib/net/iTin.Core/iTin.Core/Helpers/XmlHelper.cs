@@ -1,9 +1,9 @@
 ﻿
+using System.Data;
+using System.Xml;
+
 namespace iTin.Core.Helpers
 {
-    using System.Data;
-    using System.Xml;
-
     /// <summary>
     /// Static class than contains methods for manipulating xml documents.
     /// </summary>

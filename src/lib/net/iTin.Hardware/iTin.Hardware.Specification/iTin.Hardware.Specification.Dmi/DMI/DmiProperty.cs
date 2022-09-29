@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
+
+using iTin.Core.Hardware.Common;
+
 namespace iTin.Hardware.Specification.Dmi.Property
 {
-    using System;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics.CodeAnalysis;
-    
-    using iTin.Core.Hardware.Common;
-
     /// <summary>
     /// Defines available keys for the available devices of a system.
     /// </summary>

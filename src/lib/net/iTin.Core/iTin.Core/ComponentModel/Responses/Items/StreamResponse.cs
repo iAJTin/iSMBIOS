@@ -27,7 +27,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="StreamResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static StreamResponse CreateErroResponse(IResponseError[] errors) =>
-            new StreamResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -42,7 +42,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="StreamResponse"/>.
         /// </returns>
         public new static StreamResponse CreateSuccessResponse(Stream value) =>
-            new StreamResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -57,7 +57,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="StreamResponse"/> instance for specified exception.
         /// </returns>
         public new static StreamResponse FromException(System.Exception exception) =>
-            new StreamResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

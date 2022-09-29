@@ -1,12 +1,12 @@
 ﻿
+using System.Collections.ObjectModel;
+
+using iTin.Core.Hardware.Common;
+
+using iTin.Hardware.Specification.Tpm;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.ObjectModel;
-
-    using iTin.Core.Hardware.Common;
-
-    using Tpm;
-
     #region [internal] (emun) SmbiosType000Property: Defines the properties available for the structure type 000 [BIOS Information]
     /// <summary>
     /// Defines the properties available for the structure type 000 [BIOS Information].
@@ -481,6 +481,12 @@ namespace iTin.Hardware.Specification.Smbios
         [PropertyDescription("")]
         [PropertyType(typeof(ushort))]
         ThreadCount2,
+        #endregion
+
+        #region version 3.6+
+        [PropertyDescription("Number of enabled threads per processor")]
+        [PropertyType(typeof(ushort))]
+        ThreadEnabled
         #endregion
     }
     #endregion

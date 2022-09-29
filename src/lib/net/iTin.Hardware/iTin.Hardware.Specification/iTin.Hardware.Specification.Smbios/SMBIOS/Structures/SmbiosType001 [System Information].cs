@@ -1,15 +1,14 @@
 ﻿
+using System;
+using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
+
+using iTin.Core;
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System;
-    using System.Diagnostics;
-    using System.Globalization;
-    using System.Linq;
-
-    using iTin.Core;
-
-    using Property;
-
     // Type 001: System Information.
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // |          Spec.                                                                                                      |

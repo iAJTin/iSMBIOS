@@ -1,10 +1,10 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace iTin.Core.ComponentModel.Results
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a <see cref="StringBuilder"/> result.
     /// </summary>
@@ -18,18 +18,18 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="StringBuilderResult"/> with specified detailed error.
         /// </returns>
-        public new static StringBuilderResult CreateErroResult(string message, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public new static StringBuilderResult CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="StringBuilderResult"/> with specified detailed error.
         /// </summary>
         /// <param name="message">Error message</param>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <param name="code">Error code</param>
         /// <returns>
         /// A new invalid <see cref="StringBuilderResult"/> with specified detailed error.
         /// </returns>
-        public new static StringBuilderResult CreateErroResult(string message, StringBuilder Result, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } }, Result);
+        public new static StringBuilderResult CreateErrorResult(string message, StringBuilder result, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="StringBuilderResult"/> with specified detailed errors collection.
@@ -38,8 +38,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="StringBuilderResult"/> with specified detailed errors collection.
         /// </returns>
-        public new static StringBuilderResult CreateErroResult(IResultError[] errors) =>
-            new StringBuilderResult
+        public new static StringBuilderResult CreateErrorResult(IResultError[] errors) =>
+            new()
             {
                 Result = default,
                 Success = false,
@@ -50,14 +50,14 @@ namespace iTin.Core.ComponentModel.Results
         /// Returns a new <see cref="StringBuilderResult"/> with specified detailed errors collection.
         /// </summary>
         /// <param name="errors">A errors collection</param>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <returns>
         /// A new invalid <see cref="StringBuilderResult"/> with specified detailed errors collection.
         /// </returns>
-        public new static StringBuilderResult CreateErroResult(IResultError[] errors, StringBuilder Result) =>
-            new StringBuilderResult
+        public new static StringBuilderResult CreateErrorResult(IResultError[] errors, StringBuilder result) =>
+            new()
             {
-                Result = Result,
+                Result = result,
                 Success = false,
                 Errors = (IResultError[])errors.Clone()
             };
@@ -65,14 +65,14 @@ namespace iTin.Core.ComponentModel.Results
         /// <summary>
         /// Returns a new success result.
         /// </summary>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <returns>
         /// A new valid <see cref="StringBuilderResult"/>.
         /// </returns>
-        public new static StringBuilderResult CreateSuccessResult(StringBuilder Result) =>
-            new StringBuilderResult
+        public new static StringBuilderResult CreateSuccessResult(StringBuilder result) =>
+            new()
             {
-                Result = Result,
+                Result = result,
                 Success = true,
                 Errors = new List<IResultError>()
             };
@@ -90,14 +90,14 @@ namespace iTin.Core.ComponentModel.Results
         /// Creates a new <see cref="StringBuilderResult"/> instance from known exception.
         /// </summary>
         /// <param name="exception">Target exception.</param>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <returns>
         /// A new <see cref="StringBuilderResult"/> instance for specified exception.
         /// </returns>
-        public new static StringBuilderResult FromException(Exception exception, StringBuilder Result) =>
-            new StringBuilderResult
+        public new static StringBuilderResult FromException(Exception exception, StringBuilder result) =>
+            new()
             {
-                Result = Result,
+                Result = result,
                 Success = false,
                 Errors = new List<IResultError> { new ResultExceptionError { Exception = exception } }
             };

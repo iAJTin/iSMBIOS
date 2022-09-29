@@ -1,12 +1,12 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-
-    using Property;
-
     // Type 012: System Configuration Options.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |

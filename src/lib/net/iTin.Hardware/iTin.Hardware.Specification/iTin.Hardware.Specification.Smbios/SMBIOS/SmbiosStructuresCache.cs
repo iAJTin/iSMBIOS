@@ -1,9 +1,9 @@
 ﻿
+using System.Collections.Generic;
+using System.Diagnostics;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Diagnostics;
-
     /// <summary>
     /// The <see cref="SmbiosStructuresCache"/> class represents the cache of available structures for a particular type.
     /// </summary>

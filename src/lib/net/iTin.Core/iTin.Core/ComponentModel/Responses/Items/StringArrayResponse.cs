@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="StringArrayResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static StringArrayResponse CreateErroResponse(IResponseError[] errors) =>
-            new StringArrayResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="StringArrayResponse"/>.
         /// </returns>
         public new static StringArrayResponse CreateSuccessResponse(string[] value) =>
-            new StringArrayResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="StringArrayResponse"/> instance for specified exception.
         /// </returns>
         public new static StringArrayResponse FromException(System.Exception exception) =>
-            new StringArrayResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

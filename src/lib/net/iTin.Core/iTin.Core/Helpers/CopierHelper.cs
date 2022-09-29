@@ -1,13 +1,13 @@
 ﻿
+using System;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+
+using iTin.Logging;
+
 namespace iTin.Core.Helpers
 {
-    using System;
-    using System.IO;
-    using System.Runtime.Serialization;
-    using System.Runtime.Serialization.Formatters.Binary;
-
-    using Logging;
-
     /// <summary> 
     /// Static class than contains methods for cloning objects.
     /// </summary>

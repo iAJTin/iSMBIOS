@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="ByteResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static ByteResponse CreateErroResponse(IResponseError[] errors) =>
-            new ByteResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="ByteResponse"/>.
         /// </returns>
         public new static ByteResponse CreateSuccessResponse(byte value) =>
-            new ByteResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="ByteResponse"/> instance for specified exception.
         /// </returns>
         public new static ByteResponse FromException(System.Exception exception) =>
-            new ByteResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

@@ -1,16 +1,16 @@
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
+
+using iTin.Core.ComponentModel;
+using iTin.Core.Helpers;
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.Reflection;
-
-    using ComponentModel;
-    using Logging;
-    using Helpers;
-
     /// <summary>
     /// Static class than contains extension methods for items of type <see cref="T:System.Enum" />.
     /// </summary>
@@ -27,7 +27,7 @@ namespace iTin.Core
         public static T AsEnumType<T>(this Enum target) where T : struct
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumExtensions).Assembly.GetName().Name}, v{typeof(EnumExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumExtensions).Namespace}, Class: {nameof(EnumExtensions)}");
             Logger.Instance.Debug(" Converts a value of the specified enumerated type into another enumerated type of type T");
             Logger.Instance.Debug($" > Signature: ({typeof(T)}) AsEnumType(this {typeof(Enum)})");
             Logger.Instance.Debug($"   > target: {target}");
@@ -57,7 +57,7 @@ namespace iTin.Core
         public static IEnumerable<T> AsEnumType<T>(this IEnumerable<Enum> collection) where T : struct
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumExtensions).Assembly.GetName().Name}, v{typeof(EnumExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumExtensions).Namespace}, Class: {nameof(EnumExtensions)}");
             Logger.Instance.Debug(" Converts a set values of the specified enumerated type into another enumerated type of type T");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<T>)}) AsEnumType(this {typeof(IEnumerable<Enum>)})");
             Logger.Instance.Debug($"   > collection: {collection}");
@@ -79,7 +79,7 @@ namespace iTin.Core
         public static string GetDescription(this Enum value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumExtensions).Assembly.GetName().Name}, v{typeof(EnumExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumExtensions).Namespace}, Class: {nameof(EnumExtensions)}");
             Logger.Instance.Debug($" Returns the value of attribute of type {typeof(EnumDescriptionAttribute)} for this enum value. If this attribute is not defined returns null (Nothing in Visual Basic)");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) AsEnumType(this {typeof(Enum)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -124,7 +124,7 @@ namespace iTin.Core
         public static T GetNext<T>(this T value) where T : struct
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumExtensions).Assembly.GetName().Name}, v{typeof(EnumExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumExtensions).Namespace}, Class: {nameof(EnumExtensions)}");
             Logger.Instance.Debug(" Gets the next enum value. If it is the last item, the first item is returned.");
             Logger.Instance.Debug($" > Signature: ({typeof(T)}) GetNext<{typeof(T)}>(this {typeof(T)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -154,7 +154,7 @@ namespace iTin.Core
         public static T GetPrevious<T>(this T value) where T : struct
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: EnumExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(EnumExtensions).Assembly.GetName().Name}, v{typeof(EnumExtensions).Assembly.GetName().Version}, Namespace: {typeof(EnumExtensions).Namespace}, Class: {nameof(EnumExtensions)}");
             Logger.Instance.Debug(" Gets the previous enum value. If it is the first item, the last item is returned.");
             Logger.Instance.Debug($" > Signature: ({typeof(T)}) GetPrevious<{typeof(T)}>(this {typeof(T)})");
             Logger.Instance.Debug($"   > value: {value}");

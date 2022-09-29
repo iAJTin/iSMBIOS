@@ -1,8 +1,8 @@
 ﻿
+using iTin.Hardware.Specification.Smbios;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using Smbios;
-
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset   Name                           Length      Value       Description                         |
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————•

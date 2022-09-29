@@ -1,16 +1,16 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Core;
+using iTin.Core.ComponentModel;
+using iTin.Core.Hardware.Common;
+using iTin.Core.Helpers;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
-    using iTin.Core;
-    using iTin.Core.ComponentModel;
-    using iTin.Core.Hardware.Common;
-    using iTin.Core.Helpers;
-
     /// <summary>
     /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="SMBIOS"/>.
     /// </summary>

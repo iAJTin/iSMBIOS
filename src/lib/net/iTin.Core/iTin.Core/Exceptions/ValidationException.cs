@@ -1,11 +1,11 @@
 ﻿
+using System.Collections.Generic;
+using System.Text;
+
+using iTin.Core.ComponentModel;
+
 namespace iTin.Core.Exceptions
 {
-    using System.Collections.Generic;
-    using System.Text;
-
-    using ComponentModel;
-
     /// <summary>
     /// Class ValidationException.
     /// </summary>
@@ -15,7 +15,7 @@ namespace iTin.Core.Exceptions
         /// <summary>
         /// Error list
         /// </summary>
-        public List<Error> Errors = new List<Error>();
+        public List<Error> Errors = new();
 
         #region constructor/s
         /// <summary>
@@ -68,13 +68,8 @@ namespace iTin.Core.Exceptions
         /// <summary>
         /// Returns the list of Errors as an HTML to display on a website
         /// </summary>
-        public string HTML
-        {
-            get
-            {
-                return ToMessages().ToHtml();
-            }
-        }
+        public string Html => ToMessages().ToHtml();
+
         #endregion
 
         #region public methods

@@ -1,11 +1,11 @@
 ﻿
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Core;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-    using System.Linq;
-
-    using iTin.Core;
-
     // Type 044: Processor Specific Block.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |

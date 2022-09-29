@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="EpochPeriodResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static EpochPeriodResponse CreateErroResponse(IResponseError[] errors) =>
-            new EpochPeriodResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="EpochPeriodResponse"/>.
         /// </returns>
         public new static EpochPeriodResponse CreateSuccessResponse(EpochPeriod value) =>
-            new EpochPeriodResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="EpochPeriodResponse"/> instance for specified exception.
         /// </returns>
         public new static EpochPeriodResponse FromException(System.Exception exception) =>
-            new EpochPeriodResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

@@ -1,15 +1,15 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Core;
+using iTin.Core.Hardware.Common;
+using iTin.Core.Helpers;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-    using System.Linq;
-
-    using iTin.Core;
-    using iTin.Core.Hardware.Common;
-    using iTin.Core.Helpers;
-
     /// <summary>
     /// The <b>SmbiosBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="DMI"/>.
     /// </summary>

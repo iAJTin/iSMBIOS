@@ -1,10 +1,10 @@
 ﻿
+using System;
+using System.Net;
+using System.Threading.Tasks;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Net;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Static class than contains extension methods for a <see cref="Uri"/> references.
     /// </summary> 

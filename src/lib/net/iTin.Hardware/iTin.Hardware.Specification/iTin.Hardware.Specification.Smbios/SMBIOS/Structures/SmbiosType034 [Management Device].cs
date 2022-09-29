@@ -1,10 +1,10 @@
 ﻿
+using System.Diagnostics;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-
-    using Property;
-
     // Type 034: Management Device.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |

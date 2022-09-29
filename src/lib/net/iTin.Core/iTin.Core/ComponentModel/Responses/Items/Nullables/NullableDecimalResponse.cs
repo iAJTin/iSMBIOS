@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel.Responses
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResponseBase{T}" /> that contains a nullable decimal response.
     /// </summary>
@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="NullableDecimalResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static NullableDecimalResponse CreateErroResponse(IResponseError[] errors) =>
-            new NullableDecimalResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="NullableDecimalResponse"/>.
         /// </returns>
         public new static NullableDecimalResponse CreateSuccessResponse(decimal? value) =>
-            new NullableDecimalResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="NullableDecimalResponse"/> instance for specified exception.
         /// </returns>
         public new static NullableDecimalResponse FromException(System.Exception exception) =>
-            new NullableDecimalResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

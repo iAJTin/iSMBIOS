@@ -1,16 +1,22 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Security;
+using System.Text;
+
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+
+using iTin.Core.ComponentModel.Enumerators;
+
+#endif
+
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.IO;
-    using System.Linq;
-    using System.Security;
-    using System.Text;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for objects of type <see cref="T:System.String"/>.
     /// </summary> 
@@ -29,7 +35,7 @@ namespace iTin.Core
         public static bool AsBoolean(this string value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Tries to convert the value specified in its {typeof(bool)} equivalent value. Default value is False. Supported values are: 'true', 'false', 'yes', 'no', 't', 'f', 'y', 'n', '1', '0'");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) AsBoolean(this {typeof(string)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -115,7 +121,7 @@ namespace iTin.Core
         public static Stream AsStream(this string target, Encoding encoding = null)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Returns a new {typeof(Stream)} from target {typeof(string)}");
             Logger.Instance.Debug($" > Signature: ({typeof(Stream)}) AsStream(this {typeof(string)}, {typeof(Encoding)} = null)");
             Logger.Instance.Debug($"   > target: {target}");
@@ -145,7 +151,7 @@ namespace iTin.Core
         public static string FromBase64(this string value, Encoding encoding = null)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Decodes the input {typeof(string)} in base64 using specified encoding, if not specified by default the UTF8 encoding is used");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) FromBase64(this {typeof(string)}, {typeof(Encoding)} = null)");
             Logger.Instance.Debug($"   > value: {value}");
@@ -177,7 +183,7 @@ namespace iTin.Core
         public static bool HasValue(this string value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Determines whether this value has a value");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) HasValue(this {typeof(string)}");
             Logger.Instance.Debug($"   > value: {value}");
@@ -201,7 +207,7 @@ namespace iTin.Core
         public static bool IsBoolean(this string value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Determines whether this value is a {typeof(bool)} value");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) IsBoolean(this {typeof(string)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -285,7 +291,7 @@ namespace iTin.Core
         public static bool IsCaseInsensitiveEqual(this string instance, string comparing)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Determines whether this instance and another specified {typeof(string)} object have the same value");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) HasValue(this {typeof(string)}");
             Logger.Instance.Debug($"   > instance: {instance}");
@@ -310,7 +316,7 @@ namespace iTin.Core
         public static bool IsCaseSensitiveEqual(this string instance, string comparing)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Determines whether this instance and another specified {typeof(string)} object have the same value");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) HasValue(this {typeof(string)}");
             Logger.Instance.Debug($"   > instance: {instance}");
@@ -334,7 +340,7 @@ namespace iTin.Core
         public static bool IsNullValue(this string value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Determines whether {typeof(string)} value is null (Nothing in Visual Basic) value.");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) IsNullValue(this {typeof(string)}");
             Logger.Instance.Debug($"   > value: {value}");
@@ -357,7 +363,7 @@ namespace iTin.Core
         public static bool IsNumeric(this string value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug(" Determines whether the specified value is a numeric value");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) IsNumeric(this {typeof(string)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -381,7 +387,7 @@ namespace iTin.Core
         public static string Left(this string str, int length)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Returns a string containing a specified number of characters from the left side of a {typeof(string)}");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) Left(this {typeof(string)}, {typeof(int)})");
             Logger.Instance.Debug($"   > str: {str}");
@@ -407,7 +413,7 @@ namespace iTin.Core
         public static string Mid(this string str, int start, int length)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Returns a string containing a specified number of characters from the right side of a {typeof(string)}");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) Mid(this {typeof(string)}, {typeof(int)}, {typeof(int)})");
             Logger.Instance.Debug($"   > str: {str}");
@@ -432,7 +438,7 @@ namespace iTin.Core
         public static string Reverse(this string value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Returns a {typeof(string)} that contains the value of value parameter reversed");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) Reverse(this {typeof(string)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -459,7 +465,7 @@ namespace iTin.Core
         public static string Right(this string str, int length)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Returns a string containing a specified number of characters from the right side of a {typeof(string)}");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) Right(this {typeof(string)}, {typeof(int)})");
             Logger.Instance.Debug($"   > str: {str}");
@@ -484,7 +490,7 @@ namespace iTin.Core
         public static string ToBase64(this string value, Encoding encoding = null)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Encodes the input {typeof(string)} in base64 using specified encoding, if not specified by default the UTF8 encoding is used");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) ToBase64(this {typeof(string)}, {typeof(Encoding)} = null)");
             Logger.Instance.Debug($"   > value: {value}");
@@ -517,7 +523,7 @@ namespace iTin.Core
         public static byte[] ToByteArray(this string value, Encoding encoding = null)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Converts string to {typeof(byte[])}");
             Logger.Instance.Debug($" > Signature: ({typeof(byte[])}) ToByteArray(this {typeof(string)}, {typeof(Encoding)}=null)");
             Logger.Instance.Debug($"   > value: {value}");
@@ -554,7 +560,7 @@ namespace iTin.Core
         public static string ToCamelCase(this string instance)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Returns a string that contains input string as camel case format");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) ToCamelCase(this {typeof(string)})");
             Logger.Instance.Debug($"   > instance: {instance}");
@@ -579,7 +585,7 @@ namespace iTin.Core
         public static T ToEnum<T>(this string value, T defaultValue = default) where T : struct
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Converts string to {typeof(Enum)} object");
             Logger.Instance.Debug($" > Signature: ({typeof(T)}) ToEnum(this {typeof(string)}, {typeof(T)}=default(T))");
             Logger.Instance.Debug($"   > value: {value}");
@@ -614,7 +620,7 @@ namespace iTin.Core
         public static T ToEnumByDescription<T>(this string description) where T : struct
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Converts string to enum object by emun description attribute");
             Logger.Instance.Debug($" > Signature: ({typeof(T)}) ToEnumByDescription<T>(this {typeof(string)})");
             Logger.Instance.Debug($"   > description: {description}");
@@ -661,7 +667,7 @@ namespace iTin.Core
         public static IEnumerable<string> ToListWithSeparator(this string value, char[] separators)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug(" Returns a new list of strings splitted with specified chars");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<string>)}) ToListWithSeparator(this {typeof(string)}, {typeof(char[])})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -683,7 +689,7 @@ namespace iTin.Core
         public static SecureString ToSecureString(this string text)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug($" Converts {typeof(string)} into {typeof(SecureString)} object");
             Logger.Instance.Debug($" > Signature: ({typeof(SecureString)}) ToSecureString(this {typeof(string)})");
             Logger.Instance.Debug($"   > text: {text}");
@@ -713,7 +719,7 @@ namespace iTin.Core
         public static string UpperCaseFirstLetter(this string value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StringExtensions).Assembly.GetName().Name}, v{typeof(StringExtensions).Assembly.GetName().Version}, Namespace: {typeof(StringExtensions).Namespace}, Class: {nameof(StringExtensions)}");
             Logger.Instance.Debug(" Uppers the case first letter.");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) UpperCaseFirstLetter(this {typeof(string)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -732,5 +738,35 @@ namespace iTin.Core
             return new string(array);
         }
         #endregion
+
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="separators"></param>
+        /// <returns></returns>
+        public static SplitEnumerator SplitString(this string str, char[] separators) => new SplitEnumerator(str.AsSpan(), separators.AsSpan());
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static SplitEnumerator SplitLines(this string str) => new SplitEnumerator(str, new[] {'\r', '\n'});
     }
+
+#else
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string[] SplitLines(this string str) 
+            => str.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+    }
+
+#endif
+
 }

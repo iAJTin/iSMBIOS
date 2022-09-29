@@ -1,8 +1,8 @@
 ﻿
+using iTin.Core;
+
 namespace iTin.Hardware.Specification.Tpm
 {
-    using iTin.Core;
-
     // TPM_VERSION definition
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Type               Name        Description                                                                                                 |

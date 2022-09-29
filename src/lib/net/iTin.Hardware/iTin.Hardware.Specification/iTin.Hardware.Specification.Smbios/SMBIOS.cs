@@ -1,20 +1,19 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Core;
+using iTin.Core.Hardware.Common.Specification.Smbios;
+using iTin.Core.Helpers;
+
+using iTin.Hardware.Abstractions.Specification.Smbios;
+using iTin.Hardware.Specification.Smbios;
+
 namespace iTin.Hardware.Specification
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-    using System.Linq;
-
-    using iTin.Core;
-    using iTin.Core.Hardware.Common.Specification.Smbios;
-    using iTin.Core.Helpers;
-
-    using iTin.Hardware.Abstractions.Specification.Smbios;
-
-    using Smbios;
-
     /// <summary>
     /// System Management BIOS (SMBIOS).<br/>
     /// Standard format of the data collected by the BIOS. SMBIOS defines this information in a series of data tables,<br/>

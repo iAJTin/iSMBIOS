@@ -1,13 +1,13 @@
 
+using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+
+using iTin.Logging;
+
 namespace iTin.Core.Helpers
 {
-    using System;
-    using System.IO;
-    using System.Security.Cryptography;
-    using System.Text;
-
-    using Logging;
-
     /// <summary>
     /// Static class which contains methods for works with encrypt/decrypt.
     /// </summary>

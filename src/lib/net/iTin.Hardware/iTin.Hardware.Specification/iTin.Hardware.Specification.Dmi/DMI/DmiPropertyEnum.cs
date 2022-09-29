@@ -1,13 +1,13 @@
 ﻿
+using System.Collections.ObjectModel;
+
+using iTin.Core.Hardware.Common;
+
+using iTin.Hardware.Specification.Smbios;
+using iTin.Hardware.Specification.Tpm;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Collections.ObjectModel;
-
-    using iTin.Core.Hardware.Common;
-
-    using Smbios;
-    using Tpm;
-
     #region [internal] (emun) DmiType000Property: Defines the properties available for the structure type 000 [BIOS Information]
     /// <summary>
     /// Defines the properties available for the structure type 000 [BIOS Information].

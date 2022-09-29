@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="DoubleResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static DoubleResponse CreateErroResponse(IResponseError[] errors) =>
-            new DoubleResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="DoubleResponse"/>.
         /// </returns>
         public new static DoubleResponse CreateSuccessResponse(double value) =>
-            new DoubleResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="DoubleResponse"/> instance for specified exception.
         /// </returns>
         public new static DoubleResponse FromException(System.Exception exception) =>
-            new DoubleResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

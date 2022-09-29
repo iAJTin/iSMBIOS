@@ -1,8 +1,8 @@
 ﻿
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for nullable structures.
     /// </summary> 
@@ -33,14 +33,11 @@ namespace iTin.Core
         public static T AsNotNullValue<T>(this T? target, T defaultValue) where T : struct
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: NullableExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(NullableExtensions).Assembly.GetName().Name}, v{typeof(NullableExtensions).Assembly.GetName().Version}, Namespace: {typeof(NullableExtensions).Namespace}, Class: {nameof(NullableExtensions)}");
             Logger.Instance.Debug($" Gets the value of the current {typeof(T?)} object if it has been assigned a valid underlying value. If is null (or Nothing in Visual Basic) returns yours default value defined for your type.");
             Logger.Instance.Debug($" > Signature: ({typeof(T)}) AsNotNullValue(this {typeof(T?)}, {typeof(T)})");
 
-            T result = 
-                target == null
-                    ? defaultValue
-                    : target.Value;
+            T result = target ?? defaultValue;
 
             Logger.Instance.Debug($" > Output: {result}");
 

@@ -1,11 +1,11 @@
 ﻿
+using System.ComponentModel;
+using System.IO;
+
+using iTin.Logging.ComponentModel;
+
 namespace iTin.Logging.EventArgs
 {
-    using System.ComponentModel;
-    using System.IO;
-
-    using ComponentModel;
-
     /// <summary>
     /// Provides data for the <see cref="FileLog"/>.
     /// </summary>

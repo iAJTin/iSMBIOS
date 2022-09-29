@@ -1,15 +1,14 @@
 ﻿
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
+
+using iTin.Logging;
+
 namespace iTin.Core.Helpers
 {
-    using System;
-    using System.ComponentModel;
-    using System.Diagnostics;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Globalization;
-    using System.Linq;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains methods for perform tests and validate data types and parameters.
     /// <para><strong>- Warning -</strong></para>
@@ -43,7 +42,7 @@ namespace iTin.Core.Helpers
         public static void ArgumentNull<T>(T value, string parameterName, string message) where T : class
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, and throws an exception of type {typeof(ArgumentNullException)} with specified error message if is null");
             Logger.Instance.Debug($" > Signature: (void) ToMemoryStream({typeof(T)}, {typeof(string)}, {typeof(string)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -79,7 +78,7 @@ namespace iTin.Core.Helpers
         public static void ArgumentLessThan<T>(string parameter, T argument, T threshold) where T : IComparable<T>
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, and throws an exception of type {typeof(ArgumentOutOfRangeException)} if less than the specified threshold");
             Logger.Instance.Debug($" > Signature: (void) ArgumentLessThan<T>({typeof(string)}, {typeof(T)}, {typeof(T)})");
             Logger.Instance.Debug($"   > parameter: {parameter}");
@@ -111,7 +110,7 @@ namespace iTin.Core.Helpers
         public static void ArgumentGreaterThan<T>(string parameter, T argument, T threshold) where T : IComparable<T>
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, and throws an exception of type {typeof(ArgumentOutOfRangeException)} if greater than the specified threshold");
             Logger.Instance.Debug($" > Signature: (void) ArgumentGreaterThan<T>({typeof(string)}, {typeof(T)}, {typeof(T)})");
             Logger.Instance.Debug($"   > parameter: {parameter}");
@@ -138,7 +137,7 @@ namespace iTin.Core.Helpers
         public static void ArgumentNotFinite(string parameter, float argument)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a check against a method argument, and throws a {typeof(NotFiniteNumberException)} if it is not a finite number eg NaN, PositiveInfinity or NegetiveInfinity");
             Logger.Instance.Debug($" > Signature: (void) ArgumentNotFinite<T>({typeof(string)}, {typeof(float)})");
             Logger.Instance.Debug($"   > parameter: {parameter}");
@@ -186,7 +185,7 @@ namespace iTin.Core.Helpers
         public static void ArgumentOutOfRange<T>(string parameter, T argument, T min, T max, string message) where T : IComparable<T>
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, and throws an exception of type {typeof(ArgumentOutOfRangeException)} if is over the maximum specified, or is less than the specified minimum value");
             Logger.Instance.Debug($" > Signature: (void) ArgumentOutOfRange<{typeof(T)}>({typeof(string)}, {typeof(T)}, {typeof(T)}, {typeof(T)}, {typeof(string)})");
             Logger.Instance.Debug($"   > parameter: {parameter}");
@@ -222,7 +221,6 @@ namespace iTin.Core.Helpers
         /// </returns>
         /// <exception cref="ArgumentException">If <paramref name="value"/> isn't an enumerated type.</exception>
         /// <exception cref="InvalidEnumArgumentException">If <paramref name="value"/> not part of the enumeration.</exception>
-        [SuppressMessage("Microsoft.Design", "CA1026:DefaultParametersShouldNotBeUsed")]
         public static bool IsEnumValid<T>(T value) where T : struct => IsEnumValid(value, false);
         #endregion
 
@@ -241,7 +239,7 @@ namespace iTin.Core.Helpers
         public static bool IsEnumValid<T>(T value, bool testOnly) where T : struct
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, if testOnly parameter is false throws an exception of type {typeof(InvalidEnumArgumentException)} if the specified value doesn't belong to enumeration");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) IsEnumValid<{typeof(T)}>({typeof(T)}, {typeof(bool)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -297,7 +295,7 @@ namespace iTin.Core.Helpers
         public static void IsFalse(bool expression, string message)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, and throws an exception of type {typeof(InvalidOperationException)} if the specified expression is false");
             Logger.Instance.Debug($" > Signature: (void) IsFalse({typeof(bool)}, {typeof(string)})");
             Logger.Instance.Debug($"   > expression: {expression}");
@@ -328,7 +326,7 @@ namespace iTin.Core.Helpers
         public static void IsFalse(bool expression, Exception exception)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, and throws an specified exception if the specified expression is false");
             Logger.Instance.Debug($" > Signature: (void) IsFalse({typeof(bool)}, {typeof(Exception)})");
             Logger.Instance.Debug($"   > expression: {expression}");
@@ -372,7 +370,7 @@ namespace iTin.Core.Helpers
         public static void IsTrue(bool expression, string message)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, and throws an exception of type {typeof(InvalidOperationException)} if the specified expression is true");
             Logger.Instance.Debug($" > Signature: (void) IsTrue({typeof(bool)}, {typeof(string)})");
             Logger.Instance.Debug($"   > expression: {expression}");
@@ -403,7 +401,7 @@ namespace iTin.Core.Helpers
         public static void IsTrue(bool expression, Exception exception)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: SentinelHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(SentinelHelper).Assembly.GetName().Name}, v{typeof(SentinelHelper).Assembly.GetName().Version}, Namespace: {typeof(SentinelHelper).Namespace}, Class: {nameof(SentinelHelper)}");
             Logger.Instance.Debug($" Performs a test on the method argument, and throws an specified exception if the specified expression is true");
             Logger.Instance.Debug($" > Signature: (void) IsTrue({typeof(bool)}, {typeof(Exception)})");
             Logger.Instance.Debug($"   > expression: {expression}");

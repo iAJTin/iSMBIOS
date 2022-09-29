@@ -89,6 +89,11 @@ namespace iTin.Hardware.Specification.Smbios
         /// <summary>
         /// Version 3.5
         /// </summary>
-        v35
+        v35,
+
+        /// <summary>
+        /// Version 3.6
+        /// </summary>
+        v36
     }
 }

@@ -1,10 +1,10 @@
 ﻿
+using System.Diagnostics;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-
-    using Property;
-
     // Type 031: Boot Integrity Services (BIS) Entry Point.
     //
     // Structure type 31 (decimal) is reserved for use by the Boot Integrity Services (BIS). Refer to the Boot

@@ -1,9 +1,9 @@
 ﻿
+using System.Diagnostics;
+using System.Threading;
+
 namespace iTin.Logging
 {
-    using System.Diagnostics;
-    using System.Threading;
-
     /// <summary>
     /// Static class than contains methods for retrieve system information.
     /// </summary>

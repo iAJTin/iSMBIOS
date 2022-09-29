@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// The static class <see cref="SmbiosStructureFactory"/> creates the <see cref="SMBIOS"/> structures.
     /// </summary>

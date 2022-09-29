@@ -42,7 +42,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="StringBuilderResponse"/>.
         /// </returns>
         public new static StringBuilderResponse CreateSuccessResponse(StringBuilder value) =>
-            new StringBuilderResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -57,7 +57,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="StringBuilderResponse"/> instance for specified exception.
         /// </returns>
         public new static StringBuilderResponse FromException(System.Exception exception) =>
-            new StringBuilderResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

@@ -1,10 +1,10 @@
 ﻿
+using System.Globalization;
+
+using iTin.Logging;
+
 namespace iTin.Core.Helpers
 {
-    using System.Globalization;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains common helper methods.
     /// </summary>

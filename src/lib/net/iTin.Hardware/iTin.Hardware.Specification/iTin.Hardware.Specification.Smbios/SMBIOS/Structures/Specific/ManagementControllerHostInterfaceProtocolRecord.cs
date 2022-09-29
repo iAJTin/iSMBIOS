@@ -1,11 +1,11 @@
 ﻿
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-
-    using Property;
-
     // Type 042: Management Controller Host Interface. Protocol Record Data Format 
     // •———————————————————————————————————————————————————————————————————————————————————•
     // | Offset   Name                      Length      Value       Description            |

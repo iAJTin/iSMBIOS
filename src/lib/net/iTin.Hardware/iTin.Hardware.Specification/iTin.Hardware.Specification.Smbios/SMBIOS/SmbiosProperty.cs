@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
+
+using iTin.Core.Hardware.Common;
+
 namespace iTin.Hardware.Specification.Smbios.Property
 {
-    using System;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics.CodeAnalysis;
-
-    using iTin.Core.Hardware.Common;
-
     /// <summary>
     /// Defines available keys for the available devices of a system.
     /// </summary>
@@ -2030,6 +2030,35 @@ namespace iTin.Hardware.Specification.Smbios.Property
 
             #endregion
 
+            #region version 3.6+
+
+            #region [public] {static} (IPropertyKey) ThreadEnabled: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Number of enabled threads per processor.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType004Property.ThreadEnabled"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.6+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey ThreadEnabled => new PropertyKey(SmbiosStructure.Processor, SmbiosType004Property.ThreadEnabled);
+            #endregion
+
+            #endregion
 
             #region nested classes
 

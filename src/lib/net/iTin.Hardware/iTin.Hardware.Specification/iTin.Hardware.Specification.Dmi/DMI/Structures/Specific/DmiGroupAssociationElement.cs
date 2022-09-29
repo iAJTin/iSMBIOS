@@ -1,11 +1,11 @@
 ﻿
+using iTin.Hardware.Specification.Dmi.Property;
+
+using iTin.Hardware.Specification.Smbios;
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using Property;
-
-    using Smbios;
-    using Smbios.Property;
-
     /// <summary>
     /// This class represents an element of the structure <see cref="DmiType014"/>.
     /// </summary>

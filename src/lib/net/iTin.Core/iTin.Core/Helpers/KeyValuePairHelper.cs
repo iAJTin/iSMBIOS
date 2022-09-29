@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Core.Helpers
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// The static class <b>KeyValuePairHelper</b> provides static methods for works with dictionary entries.
     /// </summary>

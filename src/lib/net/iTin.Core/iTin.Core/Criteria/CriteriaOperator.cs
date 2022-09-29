@@ -1,8 +1,8 @@
 ﻿
+using System;
+
 namespace iTin.Core.Criteria
 {
-    using System;
-
     /// <summary>
     /// 
     /// </summary>

@@ -1,12 +1,12 @@
 ﻿
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Core.Hardware.Common;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
-    using iTin.Core.Hardware.Common;
-
     /// <summary>
     /// Represents a <b>DMI</b> class.
     /// </summary>

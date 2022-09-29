@@ -1,10 +1,10 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace iTin.Core.ComponentModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     /// <summary>
     /// Specialization of the interface <see cref="IResponse{T}"/> that acts as a base class that serves to defines a response.
     /// </summary>

@@ -1,11 +1,11 @@
 ﻿
+using System.Collections.Generic;
+using System.Diagnostics;
+
+using iTin.Core;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Diagnostics;
-
-    using iTin.Core;
-
     // Type 044: Processor Specific Block > RISC-V Processor-specific Data. For more information, please see: https://github.com/riscv/riscv-smbios/blob/master/RISCV-SMBIOS.md#risc-v_processor-specific_data.
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // |            Spec.                                                                                                |

@@ -1,9 +1,9 @@
 ﻿
+using System;
+using System.Reflection;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Reflection;
-
     /// <summary>
     /// Static class than contains extension methods for a <see cref="T:System.Type"/>. https://github.com/morrisjdev/FileContextCore/blob/master/FileContextCore/SharedTypeExtensions.cs
     /// </summary> 

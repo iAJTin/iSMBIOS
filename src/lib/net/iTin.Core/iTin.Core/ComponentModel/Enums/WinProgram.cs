@@ -1,10 +1,8 @@
 ﻿
+using System;
+
 namespace iTin.Core.ComponentModel.Enums
 {
-    using System;
-
-    using iTin.Core.ComponentModel;
-
     /// <summary>
     /// Defines known windows programs
     /// </summary>

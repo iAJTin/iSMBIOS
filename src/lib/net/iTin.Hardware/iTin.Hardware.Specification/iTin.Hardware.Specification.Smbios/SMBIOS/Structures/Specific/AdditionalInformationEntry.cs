@@ -1,10 +1,10 @@
 ﻿
+using System.Diagnostics;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-
-    using Property;
-
     // Type 040: Additional Information. Additional Information Entry
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset     Name            Length      Value       Description                                             |

@@ -1,17 +1,17 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+
+using iTin.Core;
+
+using iTin.Hardware.Specification.Smbios.Property;
+using iTin.Hardware.Specification.Tpm;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Text;
-
-    using iTin.Core;
-
-    using Property;
-    using Tpm;
-
     // Type 043: TPM Device.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |
@@ -96,7 +96,12 @@ namespace iTin.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte[] RawVendorId => Reader.GetBytes(0x04, 0x04);
+        private byte[] RawVendorId =>
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+            Reader.GetBytes(0x04, 0x04).ToArray();
+#else
+            Reader.GetBytes(0x04, 0x04);
+#endif
         #endregion
 
         #region [private] (byte) MajorSpecVersion: Gets a value representing the 'Major Spec Version' field
@@ -129,18 +134,28 @@ namespace iTin.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte[] RawFirmwareVersion1 => Reader.GetBytes(0x0a, 0x04);
+        private byte[] RawFirmwareVersion1 =>
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+            Reader.GetBytes(0x0a, 0x04).ToArray();
+#else
+            Reader.GetBytes(0x0a, 0x04);
+#endif
         #endregion
 
         #region [private] (byte[]) RawFirmwareVersion2: Gets a value representing the 'Firmware Version 2' field
         /// <summary>
-        ///  Gets a value representing the <b>Firmware Version 2</b> field.
+        /// Gets a value representing the <b>Firmware Version 2</b> field.
         /// </summary>
         /// <value>
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private byte[] RawFirmwareVersion2 => Reader.GetBytes(0x0e, 0x04);
+        private byte[] RawFirmwareVersion2 =>
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+            Reader.GetBytes(0x0e, 0x04).ToArray();
+#else
+            Reader.GetBytes(0x0e, 0x04);
+#endif
         #endregion
 
         #region [private] (string) DescriptionVersion2: Gets a value representing the 'Description Version 2' field
@@ -205,8 +220,8 @@ namespace iTin.Hardware.Specification.Smbios
                         ? TpmFirmwareVersion.Parse(RawFirmwareVersion1)
                         : new TpmFirmwareVersion
                         {
-                            MajorVersion = (int) Reader.GetDoubleWord(0x0a),
-                            MinorVersion = (int) Reader.GetDoubleWord(0x0e)
+                            MajorVersion = Reader.GetDoubleWord(0x0a),
+                            MinorVersion = Reader.GetDoubleWord(0x0e)
                         };
             }
 

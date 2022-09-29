@@ -9,8 +9,78 @@ This library implements DMTF Specification 3.5.0 version and olders versions
 For more information, please see https://www.dmtf.org/standards/smbios
 
 
-Changes in this version (v1.1.6)
+Changes in this version (v1.1.7)
 ================================
+
+· Added
+  -----
+
+  - Added support for System Management BIOS (SMBIOS) v3.6.0, includes:
+
+      * Processor Information (Type 4):
+        - SMBIOSCR00214: Added new processor sockets
+        - SMBIOSCR00215: Added processor family ID for ARMv9
+        – SMBIOSCR00218: Added new processor socket types
+        – SMBIOSCR00219: Added "thread enabled" field
+
+      * Memory Device (Type 17):
+        - SMBIOSCR00220: Added HBM3
+
+      * Various:
+        - SMBIOSCR00217: Added LoongArch processor architecture
+
+  - Added support for netstandard2.1 
+ 
+  - Add SplitEnumerator ref struct.
+   
+  - ByteReader class rewritten to work with Span in net core projects.
+
+- Added sample project for net60
+
+· Changed
+  -------
+ 
+  - Unify calls to obtain change information from a remote or local computer, currently this functionality is only available for Windows systems,
+    The logic of each platform is in its own assembly *iTin.Core.Hardware.**Target-System**.Specification.Smbios*.
+
+    Where:
+
+    Target-System, it can be Linux, Windows or MacOS and the platform independent logic is found in the 
+    iTin.Hardware.Abstractions.Specification.Smbios assembly, so that from SMBIOS a call is made independent of the target platform and this 
+    assembly has the responsibility of managing the final call to the platform destination.
+
+ - Library versions for this version
+  
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | Library                                           Version   Description                                                           |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Core                                         2.0.0.4   Base library containing various extensions, helpers, common constants |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Core.Hardware.Common                         1.0.0.3   Generic Common Hardware Infrastructure                                |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Core.Hardware.Linux.Specification.Smbios     1.0.0.1   Linux Hardware Infrastructure                                         |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Core.Hardware.MacOS.Specification.Smbios     1.0.0.1   MacOS Hardware Infrastructure                                         |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Core.Hardware.Windows.Specification.Smbios   1.0.0.1   Windows Hardware Infrastructure                                       |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Core.Interop.Shared                          1.0.0.2   Generic Shared Interop Definitions, Data Structures, Constants...     |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Core.Interop.Windows.Specification.Smbios    1.0.0.0   Win32 Generic Interop Calls (SMBIOS)                                  |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Hardware.Abstractions.Specification.Smbios   1.0.0.2   Generic Common Hardware Abstractions                                  |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Hardware.Specification.Dmi                   3.3.0.6   DMI Specification Implementation                                      |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Hardware.Specification.Smbios                3.3.0.6   SMBIOS Specification Implementation                                   |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Hardware.Specification.Tpm                   1.0.0.1   TPM Specification Implementation                                      |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+   | iTin.Logging                                      1.0.0.1   Logging library                                                       |
+   •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+
+v1.1.6
+======
 
 · Added
   -----

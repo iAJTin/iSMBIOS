@@ -27,7 +27,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="TimeSpanResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static TimeSpanResponse CreateErroResponse(IResponseError[] errors) =>
-            new TimeSpanResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -42,7 +42,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="TimeSpanResponse"/>.
         /// </returns>
         public new static TimeSpanResponse CreateSuccessResponse(TimeSpan value) =>
-            new TimeSpanResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -57,7 +57,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="TimeSpanResponse"/> instance for specified exception.
         /// </returns>
         public new static TimeSpanResponse FromException(System.Exception exception) =>
-            new TimeSpanResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

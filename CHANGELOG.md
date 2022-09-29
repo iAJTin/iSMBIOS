@@ -5,11 +5,27 @@ All notable changes to this project will be documented in this file.
 
 ### Added
  
-- Added support for System Management BIOS (SMBIOS) v3.5.1, includes:
+- Added support for System Management BIOS (SMBIOS) v3.6.0, includes:
 
       * Processor Information (Type 4):
         - SMBIOSCR00214: Added new processor sockets
         - SMBIOSCR00215: Added processor family ID for ARMv9
+        – SMBIOSCR00218: Added new processor socket types
+        – SMBIOSCR00219: Added "thread enabled" field
+
+      * Memory Device (Type 17):
+        - SMBIOSCR00220: Added HBM3
+
+      * Various:
+        - SMBIOSCR00217: Added LoongArch processor architecture
+
+- Added support for **netstandard2.1** 
+ 
+   - Add **SplitEnumerator** ref struct.
+   
+   - **ByteReader** class rewritten to work with **Span** in net core projects.
+
+- Added sample project for **net60**
 
 ### Changed
  
@@ -26,18 +42,18 @@ All notable changes to this project will be documented in this file.
   
     | Library | Version | Description |
     |:------|:------|:----------|
-    | iTin.Core| 2.0.0.3 | Base library containing various extensions, helpers, common constants |
+    | iTin.Core| **2.0.0.4** | Base library containing various extensions, helpers, common constants |
     | iTin.Core.Hardware.Common | **1.0.0.3** | Common Hardware Infrastructure |
     | iTin.Core.Hardware.Linux.Specification.Smbios | **1.0.0.1** | Linux Hardware Infrastructure |
     | iTin.Core.Hardware.MacOS.Specification.Smbios | **1.0.0.1** | MacOS Hardware Infrastructure |
     | iTin.Core.Hardware.Windows.Specification.Smbios | **1.0.0.1** | Windows Hardware Infrastructure |
-    | iTin.Core.Interop.Shared | **1.0.0.1** | Generic Shared Interop Definitions |
+    | iTin.Core.Interop.Shared | **1.0.0.2** | Generic Shared Interop Definitions |
     | iTin.Core.Interop.Windows.Specification.Smbios | **1.0.0.0** | Win32 Generic Interop Calls (SMBIOS) |
     | iTin.Hardware.Abstractions.Specification.Smbios | **1.0.0.2** | Generic Common Hardware Abstractions |
     | iTin.Hardware.Specification.Dmi| **3.3.0.6** | DMI Specification Implementation |
     | iTin.Hardware.Specification.Smbios| **3.3.0.6** | SMBIOS Specification Implementation |
     | iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |
-    | iTin.Logging| 1.0.0.0 | Logging library |
+    | iTin.Logging| **1.0.0.1** | Logging library |
 
 ## [1.1.6] - 2021-12-09
 

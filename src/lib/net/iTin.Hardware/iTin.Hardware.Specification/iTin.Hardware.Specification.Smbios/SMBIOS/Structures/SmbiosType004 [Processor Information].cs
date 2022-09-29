@@ -1,17 +1,17 @@
 ﻿
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Core;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-    using System.Linq;
-
-    using iTin.Core;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
     // Type 004: Processor Information.
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // |          Spec.                                                                                                                        |
@@ -158,6 +158,11 @@ namespace iTin.Hardware.Specification.Smbios
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | 2Eh      3.0+        Thread Count 2      WORD        Varies      Número de hilos por por procesador.                                  |
     // |                                                                                                                                       |
+    // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 30h      3.6+        Thread Enabled      WORD        Varies      Number of enabled threads per processor.                             |
+    // |                                                                  0000h = unknown                                                      |
+    // |                                                                  0001h-FFFEh = thread enabled counts 1 to 65534, respectively         |
+    // |                                                                  FFFFh = reserved                                                     |
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <inheritdoc/>
@@ -591,6 +596,17 @@ namespace iTin.Hardware.Specification.Smbios
         private ushort ThreadCount2 => (ushort)Reader.GetWord(0x2e);
         #endregion
 
+        #region [private] (ushort) ThreadEnabled: Gets a value representing the 'Thread Enabled' field
+        /// <summary>
+        /// Gets a value representing the <b>Thread Count 2</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ushort ThreadEnabled => (ushort)Reader.GetWord(0x30);
+        #endregion
+
         #endregion
 
         #region protected override methods
@@ -789,6 +805,17 @@ namespace iTin.Hardware.Specification.Smbios
                 properties.Add(SmbiosProperty.Processor.Characteristics.EnhancedVirtualizationInstructions, EnhancedVirtualization);
                 properties.Add(SmbiosProperty.Processor.Characteristics.PowerPerformanceControlSupport, PowerPerformanceControl);
             }
+
+            #endregion
+
+            #region 3.6+
+            
+            if (StructureInfo.StructureVersion == SmbiosStructureVersion.v36)
+            {
+                properties.Add(SmbiosProperty.Processor.ThreadEnabled, ThreadEnabled);
+
+            }
+
             #endregion
         }
         #endregion
@@ -796,7 +823,7 @@ namespace iTin.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 3.4.0 (20/08/2020)
+        #region BIOS Specification 3.6.0 (20/06/2022)
 
         #region [private] {static} (string) GetProcessorFamily(IList<byte>, IEnumerable<string>): Gets a string that identifies the processor family
         /// <summary>
@@ -1083,8 +1110,27 @@ namespace iTin.Hardware.Specification.Smbios
                 { (ushort)0x200, "RISC-V RV32" },
                 { (ushort)0x201, "RISC-V RV64" },
                 { (ushort)0x202, "RISC-V RV128" },
-                //// 0x0203 - 0xFFFD - Available for assignment 
-                //// 0xFFFE - 0xFFFF - Reserved                       
+                //// 0x0203 - 0x0257 - Available for assignment
+                { (ushort)0x258, "LoongArch" },
+                { (ushort)0x259, "Loongson™ 1 Processor Family" },
+                { (ushort)0x25a, "Loongson™ 2 Processor Family" },
+                { (ushort)0x25b, "Loongson™ 3 Processor Family" },
+                { (ushort)0x25c, "Loongson™ 2K Processor Family" },
+                { (ushort)0x25d, "Loongson™ 3A Processor Family" },
+                { (ushort)0x25e, "Loongson™ 3B Processor Family" },
+                { (ushort)0x25f, "Loongson™ 3C Processor Family" },
+                { (ushort)0x260, "Loongson™ 3D Processor Family" },
+                { (ushort)0x261, "Loongson™ 3E Processor Family" },
+                { (ushort)0x262, "Dual-Core Loongson™ 2K Processor 2xxx Series" },
+                //// 0x0263 - 0x026b - Available for assignment
+                { (ushort)0x26c, "Quad-Core Loongson™ 3A Processor 5xxx Series" },
+                { (ushort)0x26d, "Multi-Core Loongson™ 3A Processor 5xxx Series" },
+                { (ushort)0x26e, "Quad-Core Loongson™ 3B Processor 5xxx Series" },
+                { (ushort)0x26f, "Multi-Core Loongson™ 3B Processor 5xxx Series" },
+                { (ushort)0x270, "Multi-Core Loongson™ 3C Processor 5xxx Series" },
+                { (ushort)0x271, "Multi-Core Loongson™ 3D Processor 5xxx Series" },
+                //// 0x0300 - 0xfffd - Available for assignment
+                //// 0xfffe - 0xffff - Reserved                       
             };
 
             byte family = table[0x06];
@@ -1241,10 +1287,16 @@ namespace iTin.Hardware.Specification.Smbios
                 "Socket LGA4677",
                 "Socket LGA1700",
                 "Socket LGA1744",
-                "Socket LGA1781"   // 0x42
+                "Socket LGA1781",
+                "Socket BGA1211",
+                "Socket BGA2422",
+                "Socket LGA1211",
+                "Socket LGA2422",
+                "Socket LGA5773",
+                "Socket BGA5773"    // 0x48
             };
 
-            if (code >= 0x01 && code <= 0x42)
+            if (code >= 0x01 && code <= 0x48)
             {
                 return value[code - 0x01];
             }

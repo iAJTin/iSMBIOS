@@ -24,13 +24,17 @@ namespace iTin.Core.ComponentModel
         /// <summary>
         /// Gets or sets the message.
         /// </summary>
-        /// <value>The message.</value>
+        /// <value>
+        /// The message.
+        /// </value>
         public string Message { get; set; }
 
         /// <summary>
         /// Returns a <see cref="string" /> that represents this instance.
         /// </summary>
-        /// <returns>A <see cref="string" /> that represents this instance.</returns>
+        /// <returns>
+        /// A <see cref="string" /> that represents this instance.
+        /// </returns>
         public override string ToString() => $"Code = \"{Code}\"";
     }
 }

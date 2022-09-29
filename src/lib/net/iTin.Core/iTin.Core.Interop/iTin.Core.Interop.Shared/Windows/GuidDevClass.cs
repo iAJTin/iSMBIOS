@@ -1,8 +1,8 @@
 ﻿
+using System;
+
 namespace iTin.Core.Interop.Shared.Windows
 {
-    using System;
-
     /// <summary>
     /// GuidDevClass
     /// </summary>

@@ -1,10 +1,10 @@
 
+using System;
+
 namespace iTin.Core.ComponentModel
 {
-    using System;
-    
     /// <summary>    
-    /// Especifica una descripción para un elemento de tipo enumerado.       
+    /// Specifies an additional custom value for an enumerated type element.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class TagAttribute : Attribute
@@ -19,9 +19,10 @@ namespace iTin.Core.ComponentModel
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the custom tag value.
         /// </summary>
         /// <value>
+        /// The custom tag value
         /// </value>
         public object Value { get; }
     }

@@ -1,18 +1,18 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+using iTin.Core.ComponentModel;
+using iTin.Core.Hardware.Common;
+
+using iTin.Hardware.Specification;
+using iTin.Hardware.Specification.Dmi;
+using iTin.Hardware.Specification.Dmi.Property;
+
 namespace iSMBIOS.ConsoleAppCore
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-
-    using iTin.Core.ComponentModel;
-    using iTin.Core.Hardware.Common;
-
-    using iTin.Hardware.Specification;
-    using iTin.Hardware.Specification.Dmi;
-    using iTin.Hardware.Specification.Dmi.Property;
-
     class Program
     {
         static void Main(string[] args)

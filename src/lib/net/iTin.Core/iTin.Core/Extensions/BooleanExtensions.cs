@@ -1,8 +1,8 @@
 ﻿
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for objects of type <see cref="T:System.Boolean" />.
     /// </summary> 
@@ -19,7 +19,7 @@ namespace iTin.Core
         public static byte ToBinaryNotation(this bool value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: BooleanExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(BooleanExtensions).Assembly.GetName().Name}, v{typeof(BooleanExtensions).Assembly.GetName().Version}, Namespace: {typeof(BooleanExtensions).Namespace}, Class: {nameof(BooleanExtensions)}");
             Logger.Instance.Debug(" Convert the value specified in its binary equivalent value");
             Logger.Instance.Debug($" > Signature: ({typeof(byte)}) ToBinaryNotation(this {typeof(bool)})");
             Logger.Instance.Debug($"   > value: {value}");

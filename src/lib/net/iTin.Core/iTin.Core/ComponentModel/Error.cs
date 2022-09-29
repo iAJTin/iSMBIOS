@@ -1,8 +1,8 @@
 ﻿
+using iTin.Core.Exceptions;
+
 namespace iTin.Core.ComponentModel
 {
-    using Exceptions;
-
     /// <summary>
     /// Class Error.
     /// </summary>

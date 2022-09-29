@@ -1,8 +1,8 @@
 ﻿
+using iTin.Core.Hardware.Common;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using iTin.Core.Hardware.Common;
-
     /// <summary>
     /// Known <see cref="DMI"/> structures.
     /// </summary>

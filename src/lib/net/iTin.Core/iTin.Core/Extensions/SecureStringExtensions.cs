@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Runtime.InteropServices;
+using System.Security;
+
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Security;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for objects of type <see cref="T:System.Security.SecureString" />.
     /// </summary>
@@ -22,7 +22,7 @@ namespace iTin.Core
         public static bool Disposed(this SecureString target)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: SecureStringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(SecureStringExtensions).Assembly.GetName().Name}, v{typeof(SecureStringExtensions).Assembly.GetName().Version}, Namespace: {typeof(SecureStringExtensions).Namespace}, Class: {nameof(SecureStringExtensions)}");
             Logger.Instance.Debug(" Determines whether input secure string is disposed");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) Disposed(this {typeof(SecureString)})");
             Logger.Instance.Debug($"   > target: {target}");
@@ -53,7 +53,7 @@ namespace iTin.Core
         public static string Value(this SecureString target)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: SecureStringExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(SecureStringExtensions).Assembly.GetName().Name}, v{typeof(SecureStringExtensions).Assembly.GetName().Version}, Namespace: {typeof(SecureStringExtensions).Namespace}, Class: {nameof(SecureStringExtensions)}");
             Logger.Instance.Debug(" Returns the value stored in the specified secure string");
             Logger.Instance.Debug($" > Signature: ({typeof(string)}) Value(this {typeof(SecureString)})");
             Logger.Instance.Debug($"   > target: {target}");

@@ -1,14 +1,14 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
+
+using iTin.Logging.ComponentModel;
+ 
 namespace iTin.Logging
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Runtime.CompilerServices;
-
-    using ComponentModel;
-
     /// <summary>
     /// Provides logging functionality for the Application.
     /// </summary>

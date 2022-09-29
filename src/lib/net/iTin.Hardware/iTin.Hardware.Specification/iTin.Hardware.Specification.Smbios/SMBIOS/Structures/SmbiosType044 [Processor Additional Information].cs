@@ -1,10 +1,10 @@
 ﻿
+using System.Diagnostics;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-
-    using Property;
-
     // Type 044: Processor Additional Information.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |
@@ -85,7 +85,12 @@ namespace iTin.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             properties.Add(SmbiosProperty.ProcessorAdditionalInformation.ReferencedHandle, ReferencedHandle);
+
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+            properties.Add(SmbiosProperty.ProcessorAdditionalInformation.ProcessorSpecificBlock, new ProcessorSpecificInformationBlock(Reader.GetBytes(0x06, (byte)(Length - 6)).ToArray()));
+#else
             properties.Add(SmbiosProperty.ProcessorAdditionalInformation.ProcessorSpecificBlock, new ProcessorSpecificInformationBlock(Reader.GetBytes(0x06, (byte)(Length - 6))));
+#endif
         }
         #endregion
 

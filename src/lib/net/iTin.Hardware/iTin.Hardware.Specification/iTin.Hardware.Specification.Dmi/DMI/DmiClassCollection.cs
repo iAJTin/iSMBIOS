@@ -1,11 +1,11 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
+using iTin.Hardware.Specification.Smbios;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-
-    using Smbios;
-
     /// <inheritdoc/>
     /// <summary>
     /// Representa una colección de objetos <see cref="DmiClass"/>.

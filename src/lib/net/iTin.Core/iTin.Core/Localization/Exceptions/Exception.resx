@@ -121,7 +121,7 @@
     <value>T must be an enumerated type</value>
   </data>
   <data name="InvalidEnumArgumentException" xml:space="preserve">
-    <value>The value of argument  'value' ({0}) is invalid for Enum type '{1}</value>
+    <value>The value of argument  'value' ({0}) is invalid for Enum type '{1}'</value>
   </data>
   <data name="INVALID_COLOR" xml:space="preserve">
     <value>Invalid Color</value>

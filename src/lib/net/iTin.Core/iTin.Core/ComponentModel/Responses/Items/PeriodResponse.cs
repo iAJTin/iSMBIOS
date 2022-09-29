@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="PeriodResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static PeriodResponse CreateErroResponse(IResponseError[] errors) =>
-            new PeriodResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="PeriodResponse"/>.
         /// </returns>
         public new static PeriodResponse CreateSuccessResponse(Period value) =>
-            new PeriodResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="PeriodResponse"/> instance for specified exception.
         /// </returns>
         public new static PeriodResponse FromException(System.Exception exception) =>
-            new PeriodResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

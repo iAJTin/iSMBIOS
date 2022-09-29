@@ -34,7 +34,7 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// A <see cref="RunProgramOptions"/> reference that contains the default values.
         /// </returns>
-        public static RunProgramOptions Default => new RunProgramOptions();
+        public static RunProgramOptions Default => new();
         #endregion
 
         #endregion

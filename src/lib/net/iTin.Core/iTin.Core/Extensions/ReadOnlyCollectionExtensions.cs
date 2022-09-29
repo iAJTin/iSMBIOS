@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+
+using iTin.Core.Helpers;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-
-    using Helpers;
-
     /// <summary>
     /// Static class than contains extension methods for objects <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection{T}" /> of type <see cref="T:System.Byte" />.
     /// </summary> 

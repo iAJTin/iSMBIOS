@@ -1,11 +1,11 @@
 ﻿
+using System;
+using System.Globalization;
+using System.Resources;
+using System.Threading;
+
 namespace iTin.Core.Exceptions
 {
-    using System;
-    using System.Globalization;
-    using System.Resources;
-    using System.Threading;
-
     /// <summary>
     /// Class Exception.
     /// </summary>
@@ -13,8 +13,12 @@ namespace iTin.Core.Exceptions
     [Serializable]
     public class Exception : System.Exception
     {
-        internal static object Lock = new object();
-        internal static ResourceManager generalExceptionResourceManager;
+        #region internal static members
+
+        internal static object Lock = new();
+        internal static ResourceManager InnerGeneralExceptionResourceManager;
+
+        #endregion
 
         #region constructor/s
 
@@ -80,15 +84,17 @@ namespace iTin.Core.Exceptions
         {
             get
             {
-                if (generalExceptionResourceManager == null)
+                if (InnerGeneralExceptionResourceManager != null)
                 {
-                    lock (Lock)
-                    {
-                        generalExceptionResourceManager = new ResourceManager(Type.GetType("iTin.Core.Localization.Exceptions.Exception"));
-                    }
+                    return InnerGeneralExceptionResourceManager;
                 }
 
-                return generalExceptionResourceManager;
+                lock (Lock)
+                {
+                    InnerGeneralExceptionResourceManager = new ResourceManager(Type.GetType("iTin.Core.Localization.Exceptions.Exception")!);
+                }
+
+                return InnerGeneralExceptionResourceManager;
             }
         }
         #endregion

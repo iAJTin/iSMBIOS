@@ -37,11 +37,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -52,15 +47,15 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Common\iTin.Core.Hardware.Common.csproj">
+    <ProjectReference Include="..\..\..\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Common\iTin.Core.Hardware.Common.csproj">
       <Project>{53276677-2197-4E9E-803D-D87F29C2A214}</Project>
       <Name>iTin.Core.Hardware.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\lib\net\iTin.Core\iTin.Core\iTin.Core.csproj">
+    <ProjectReference Include="..\..\..\lib\net\iTin.Core\iTin.Core\iTin.Core.csproj">
       <Project>{8A1C5156-3836-430C-9D14-FAD69D693376}</Project>
       <Name>iTin.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\lib\net\iTin.Hardware\iTin.Hardware.Specification\iTin.Hardware.Specification.Dmi\iTin.Hardware.Specification.Dmi.csproj">
+    <ProjectReference Include="..\..\..\lib\net\iTin.Hardware\iTin.Hardware.Specification\iTin.Hardware.Specification.Dmi\iTin.Hardware.Specification.Dmi.csproj">
       <Project>{69edda0b-1d62-4154-a8ef-715e1ee8f2ab}</Project>
       <Name>iTin.Hardware.Specification.Dmi</Name>
     </ProjectReference>

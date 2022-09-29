@@ -1,15 +1,15 @@
 ﻿
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Core.Hardware.Common;
+using iTin.Core.Helpers;
+
+using iTin.Hardware.Specification.Smbios;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
-    using iTin.Core.Hardware.Common;
-    using iTin.Core.Helpers;
-
-    using Smbios;
-
     /// <inheritdoc/>
     /// <summary>
     /// The <b>DmiBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="DMI"/>.

@@ -1,16 +1,16 @@
 ﻿
+using System.Diagnostics;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+using iTin.Core.ComponentModel;
+using iTin.Core.ComponentModel.Enums;
+
+using NativeSystem = System;
+
 namespace iTin.Core.Helpers
 {
-    using System.Diagnostics;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-
-    using iTin.Core.ComponentModel;
-    using iTin.Core.ComponentModel.Enums;
-
-    using NativeSystem = System;
-
     /// <summary>
     /// Static class than contains methods for retrieve system information.
     /// </summary>
@@ -33,7 +33,6 @@ namespace iTin.Core.Helpers
         public static bool Is64BitOperatingSystem => NativeSystem.Environment.Is64BitOperatingSystem;
 
 
-
         /// <summary>
         /// Runs specified program with parameters.
         /// </summary>
@@ -44,7 +43,7 @@ namespace iTin.Core.Helpers
         /// </returns>
         public static StringBuilder RunCommand(string program, string arguments)
         {
-            ProcessStartInfo pi = new ProcessStartInfo(program, arguments)
+            var pi = new ProcessStartInfo(program, arguments)
             {
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
@@ -52,22 +51,20 @@ namespace iTin.Core.Helpers
                 WindowStyle = ProcessWindowStyle.Hidden
             };
 
-            using (var process = Process.Start(pi))
+            using var process = Process.Start(pi);
+            var builder = new StringBuilder();
+
+            if (process == null)
             {
-                StringBuilder builder = new StringBuilder();
-
-                if (process == null)
-                {
-                    return builder;
-                }
-
-                while (!process.StandardOutput.EndOfStream)
-                {
-                    builder.AppendLine(process.StandardOutput.ReadLine());
-                }
-
                 return builder;
             }
+
+            while (!process.StandardOutput.EndOfStream)
+            {
+                builder.AppendLine(process.StandardOutput.ReadLine());
+            }
+
+            return builder;
         }
 
         /// <summary>
@@ -124,9 +121,9 @@ namespace iTin.Core.Helpers
         public static async Task<StringBuilder> RunCommandAsync(string program, string arguments)
         {
             var tcs = new TaskCompletionSource<int>();
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
-            ProcessStartInfo pi = new ProcessStartInfo(program, arguments)
+            var pi = new ProcessStartInfo(program, arguments)
             {
                 CreateNoWindow = true,
                 RedirectStandardOutput = true,
@@ -145,7 +142,6 @@ namespace iTin.Core.Helpers
                 tcs.SetResult(process.ExitCode);
                 process.Dispose();
             };
-
 
             process.Start();
             while (!process.StandardOutput.EndOfStream)

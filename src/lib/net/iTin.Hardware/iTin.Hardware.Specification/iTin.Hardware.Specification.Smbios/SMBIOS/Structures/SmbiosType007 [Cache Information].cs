@@ -1,16 +1,16 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
+using iTin.Core;
+using iTin.Core.Helpers;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-
-    using iTin.Core;
-    using iTin.Core.Helpers;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
     // Type 007: Cache Information.
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // |          Spec.                                                                                                |

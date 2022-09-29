@@ -1,8 +1,8 @@
 ﻿
+using iTin.Core.Helpers;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using iTin.Core.Helpers;
-
     /// <summary>
     /// Represents the <b>Header</b> structure contained in the initial four bytes of each <see cref="SMBIOS"/> structure.
     /// </summary>
@@ -189,7 +189,11 @@ namespace iTin.Hardware.Specification.Smbios
 
                     case SmbiosStructure.Processor:
                     {
-                        if (Length >= 0x2b)
+                        if (Length >= 0x31)
+                        {
+                            result = SmbiosStructureVersion.v36;
+                        }
+                        else if (Length >= 0x2b)
                         {
                             result = SmbiosStructureVersion.v30;
                         }

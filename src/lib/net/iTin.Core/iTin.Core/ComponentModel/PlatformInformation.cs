@@ -1,9 +1,9 @@
 
+using System;
+using System.IO;
+
 namespace iTin.Core.ComponentModel
 {
-    using System;
-    using System.IO;
-
     /// <summary>
     /// This class provides simple properties for determining whether the current platform is Windows or Unix-based.
     /// We intentionally do not use System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(...) because

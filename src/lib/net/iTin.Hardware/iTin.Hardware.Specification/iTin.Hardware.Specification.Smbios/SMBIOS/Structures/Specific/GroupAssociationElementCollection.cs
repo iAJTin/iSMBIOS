@@ -1,10 +1,10 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
-
     /// <inheritdoc/>
     /// <summary>
     /// Represents a collection of <see cref="GroupAssociationElement"/>.

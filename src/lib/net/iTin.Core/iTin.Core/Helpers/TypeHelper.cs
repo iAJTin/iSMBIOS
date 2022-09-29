@@ -1,8 +1,6 @@
 ﻿
 namespace iTin.Core.Helpers
 {
-    using Logging;
-
     /// <summary>
     /// Static class than contains methods for manipulating generic types.
     /// </summary>
@@ -16,14 +14,6 @@ namespace iTin.Core.Helpers
         /// <returns>
         /// Typed value.
         /// </returns>
-        public static T ToType<T>(object value)
-        {
-            Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: TypeHelper");
-            Logger.Instance.Debug(" Converts value to specified type");
-            Logger.Instance.Debug($" > Signature: ({typeof(T)}) ToType<{typeof(T)}>(this {typeof(object)})");
-
-            return (T)value;
-        }
+        public static T ToType<T>(object value) => (T)value;
     }
 }

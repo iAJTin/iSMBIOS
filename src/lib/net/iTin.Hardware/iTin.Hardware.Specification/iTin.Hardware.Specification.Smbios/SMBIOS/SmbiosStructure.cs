@@ -1,8 +1,8 @@
 ﻿
+using iTin.Core.Hardware.Common;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using iTin.Core.Hardware.Common;
-
     /// <summary>
     /// Known <see cref="SMBIOS"/> structures.
     /// </summary>

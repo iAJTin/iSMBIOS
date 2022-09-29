@@ -1,9 +1,9 @@
 ﻿
+using System.Collections.Generic;
+using System.Text;
+
 namespace iTin.Core.ComponentModel
 {
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     /// Class Messages.
     /// </summary>
@@ -69,9 +69,9 @@ namespace iTin.Core.ComponentModel
             sb.AppendLine("<ul class=\"" + ccsClass + "\">");
             _msgs.ForEach(it => sb.Append("<li>").Append(it).Append("</li>"));
             sb.AppendLine("</ul>");
+
             return sb.ToString();
         }
-        #endregion
 
         /// <summary>
         /// Returns a new <see cref="StringBuilder"/> with the messages text
@@ -97,5 +97,7 @@ namespace iTin.Core.ComponentModel
 
             return builder;
         }
+
+        #endregion
     }
 }

@@ -1,11 +1,11 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
+using iTin.Core.Hardware.Common;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System;
-    using System.Collections.Generic;
-
-    using iTin.Core.Hardware.Common;
-
     /// <summary>
     /// Defines the contents of a structure type.
     /// </summary>

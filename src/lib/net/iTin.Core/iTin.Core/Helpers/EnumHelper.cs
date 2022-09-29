@@ -1,10 +1,10 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace iTin.Core.Helpers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     /// <summary>
     /// Static class than contains methods for manipulating objects of type <see cref="T:System.Enum" />.
     /// </summary>

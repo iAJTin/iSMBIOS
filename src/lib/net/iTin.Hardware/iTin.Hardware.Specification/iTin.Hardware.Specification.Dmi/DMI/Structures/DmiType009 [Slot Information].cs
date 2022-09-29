@@ -1,11 +1,11 @@
 ﻿
+using iTin.Hardware.Specification.Dmi.Property;
+
+using iTin.Hardware.Specification.Smbios;
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using Property;
-
-    using Smbios;
-    using Smbios.Property;
-
     /// <summary>
     /// Specialization of the <see cref="DmiBaseType{T}"/> class that contains the logic to decode the Slot Information (Type 9) structure.
     /// For more information, please see <see cref="SmbiosType009"/>.

@@ -1,13 +1,13 @@
 ﻿
+using System.Diagnostics;
+
+using iTin.Core;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-
-    using iTin.Core;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
     // Type 030: Out-of-Band Remote Access.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |

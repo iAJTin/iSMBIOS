@@ -1,13 +1,13 @@
 
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for objects of type <see cref="T:System.TimeSpan" />.
     /// </summary> 
@@ -24,7 +24,7 @@ namespace iTin.Core
         public static TimeSpan TotalTime(this IEnumerable<TimeSpan> durations)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: TimeSpanExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(TimeSpanExtensions).Assembly.GetName().Name}, v{typeof(TimeSpanExtensions).Assembly.GetName().Version}, Namespace: {typeof(TimeSpanExtensions).Namespace}, Class: {nameof(TimeSpanExtensions)}");
             Logger.Instance.Debug(" Returns total time");
             Logger.Instance.Debug($" > Signature: ({typeof(TimeSpan)}) TotalTime(this {typeof(IEnumerable<TimeSpan>)})");
             Logger.Instance.Debug($"   > durations: {durations.Count()} entries");
@@ -47,7 +47,7 @@ namespace iTin.Core
         public static string ToShortFormat(this TimeSpan target)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: TimeSpanExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(TimeSpanExtensions).Assembly.GetName().Name}, v{typeof(TimeSpanExtensions).Assembly.GetName().Version}, Namespace: {typeof(TimeSpanExtensions).Namespace}, Class: {nameof(TimeSpanExtensions)}");
             Logger.Instance.Debug($" Converts a {typeof(TimeSpan)} object into dd'd' HH'h' MM'm' ss's' or HH'h' MM'm' ss's' or MM'm' ss's' string");
             Logger.Instance.Debug($" > Signature: ({typeof(TimeSpan)}) TotalTime(this {typeof(IEnumerable<TimeSpan>)})");
             Logger.Instance.Debug($"   > target: {target}");

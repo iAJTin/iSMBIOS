@@ -1,8 +1,8 @@
 ﻿
+using System.Diagnostics;
+
 namespace iTin.Core.ComponentModel.Patterns
 {
-    using System.Diagnostics;
-
     /// <summary>
     /// 
     /// </summary>

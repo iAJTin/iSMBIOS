@@ -1,13 +1,13 @@
 ﻿
+using System.Diagnostics;
+
+using iTin.Core.Helpers;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Diagnostics;
-
-    using iTin.Core.Helpers;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
     // Type 003: System Enclosure or Chassis. Contained Elements
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // |          Spec.                                                                                             |

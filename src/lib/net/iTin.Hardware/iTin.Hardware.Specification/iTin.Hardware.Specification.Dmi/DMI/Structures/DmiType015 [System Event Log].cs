@@ -1,13 +1,13 @@
 ﻿
+using System.Collections.ObjectModel;
+
+using iTin.Hardware.Specification.Dmi.Property;
+
+using iTin.Hardware.Specification.Smbios;
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Collections.ObjectModel;
-
-    using Property;
-
-    using Smbios;
-    using Smbios.Property;
-
     /// <inheritdoc/>
     /// <summary>
     /// Specialization of the <see cref="DmiBaseType{T}"/> class that contains the logic to decode the System Event Log (Type 15) structure.

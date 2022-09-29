@@ -1,12 +1,12 @@
 ﻿
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-
-    using Property;
-
     // Type 042: Management Controller Host Interface.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |
@@ -102,7 +102,12 @@ namespace iTin.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private ReadOnlyCollection<byte> InterfaceTypeSpecificData => new ReadOnlyCollection<byte>(Reader.GetBytes(0x06, InterfaceTypeSpecificDataLenght));
+        private ReadOnlyCollection<byte> InterfaceTypeSpecificData =>
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+            new ReadOnlyCollection<byte>(Reader.GetBytes(0x06, InterfaceTypeSpecificDataLenght).ToArray());
+#else
+            new ReadOnlyCollection<byte>(Reader.GetBytes(0x06, InterfaceTypeSpecificDataLenght));
+#endif
         #endregion
 
         #endregion
@@ -161,7 +166,12 @@ namespace iTin.Hardware.Specification.Smbios
                 var m = Reader.GetByte((byte) (init + 0x01));
                 offset = (byte) (0x02 + m);
 
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+                var protocolRecordsBytes = Reader.GetBytes(init, m).ToArray();
+#else
                 var protocolRecordsBytes = Reader.GetBytes(init, m);
+#endif
+
                 protocolRecords.Add(new ManagementControllerHostInterfaceProtocolRecord(protocolRecordsBytes));
             }
 

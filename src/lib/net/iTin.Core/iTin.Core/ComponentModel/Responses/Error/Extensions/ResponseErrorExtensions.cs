@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Static class than contains extension methods for IResponseError references.
     /// </summary> 

@@ -1,11 +1,11 @@
 
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+
 namespace iTin.Logging.ComponentModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
     /// <summary>
     /// Defines mappings for <see cref="ColoredConsoleLog"/>.
     /// </summary>

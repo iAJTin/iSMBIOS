@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="LongResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static LongResponse CreateErroResponse(IResponseError[] errors) =>
-            new LongResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="LongResponse"/>.
         /// </returns>
         public new static LongResponse CreateSuccessResponse(long value) =>
-            new LongResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="LongResponse"/> instance for specified exception.
         /// </returns>
         public new static LongResponse FromException(System.Exception exception) =>
-            new LongResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

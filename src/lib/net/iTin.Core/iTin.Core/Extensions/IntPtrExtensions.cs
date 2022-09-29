@@ -1,9 +1,9 @@
 ﻿
+using System;
+using System.Runtime.InteropServices;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Runtime.InteropServices;
-
     /// <summary>
     /// Static class than contains extension methods for <see cref="T:System.IntPtr" /> type.
     /// </summary> 

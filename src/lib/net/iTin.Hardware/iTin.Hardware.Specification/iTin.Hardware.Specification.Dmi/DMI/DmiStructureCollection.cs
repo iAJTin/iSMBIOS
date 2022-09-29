@@ -1,17 +1,17 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+
+using iTin.Core.Hardware.Common;
+using iTin.Core.Helpers;
+
+using iTin.Hardware.Specification.Smbios;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.ComponentModel;
-    using System.Linq;
-
-    using iTin.Core.Hardware.Common;
-    using iTin.Core.Helpers;
-
-    using Smbios;
-
     /// <inheritdoc/>
     /// <summary>
     /// Represents a collection of <see cref="DmiStructure"/> objects implemented in <see cref="DMI"/>.

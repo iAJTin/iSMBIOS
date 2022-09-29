@@ -1,17 +1,17 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Core;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-    using System.Linq;
-
-    using iTin.Core;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
     // Type 005: Memory Controller Information.
     // •——————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // |          Spec.                                                                                                   |

@@ -1,10 +1,10 @@
 ﻿
+using System.Diagnostics;
+
+using iTin.Core.Hardware.Common;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Diagnostics;
-
-    using iTin.Core.Hardware.Common;
-
     /// <summary>
     /// Represents a structure <see cref="DMI"/>.
     /// </summary>

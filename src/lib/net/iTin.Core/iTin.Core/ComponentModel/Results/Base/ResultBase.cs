@@ -117,7 +117,7 @@ namespace iTin.Core.ComponentModel
 
         #region public static methods
 
-        #region [public] {static} (ResultBase<T>) CreateErroResult(string, string = null): Returns a new result with specified detailed error
+        #region [public] {static} (ResultBase<T>) CreateErrorResult(string, string = null): Returns a new result with specified detailed error
         /// <summary>
         /// Returns a new <see cref="ResultBase{T}"/> with specified detailed error.
         /// </summary>
@@ -126,10 +126,10 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// A new invalid <see cref="ResultBase{T}"/> with specified detailed error.
         /// </returns>
-        public static ResultBase<T> CreateErroResult(string message, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public static ResultBase<T> CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
         #endregion
 
-        #region [public] {static} (ResultBase<T>) CreateErroResult(IResultError[]): Returns a new result with specified detailed errors collection
+        #region [public] {static} (ResultBase<T>) CreateErrorResult(IResultError[]): Returns a new result with specified detailed errors collection
         /// <summary>
         /// Returns a new <see cref="ResultBase{T}"/> with specified detailed errors collection.
         /// </summary>
@@ -137,7 +137,7 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// A new invalid <see cref="ResultBase{T}"/> with specified detailed errors collection.
         /// </returns>
-        public static ResultBase<T> CreateErroResult(IResultError[] errors) =>
+        public static ResultBase<T> CreateErrorResult(IResultError[] errors) =>
             new ResultBase<T>
             {
                 Result = default,
@@ -146,7 +146,7 @@ namespace iTin.Core.ComponentModel
             };
         #endregion
 
-        #region [public] {static} (ResultBase<T>) CreateErroResult(string, T, string = null): Returns a new result with specified detailed error
+        #region [public] {static} (ResultBase<T>) CreateErrorResult(string, T, string = null): Returns a new result with specified detailed error
         /// <summary>
         /// Returns a new result with specified detailed error.
         /// </summary>
@@ -156,10 +156,10 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// A new valid <see cref="ResultBase{T}"/>.
         /// </returns>
-        public static ResultBase<T> CreateErroResult(string message, T value, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } }, value);
+        public static ResultBase<T> CreateErrorResult(string message, T value, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, value);
         #endregion
 
-        #region [public] {static} (ResultBase<T>) CreateErroResult(IResultError[], T): Returns a new result with specified detailed errors collection
+        #region [public] {static} (ResultBase<T>) CreateErrorResult(IResultError[], T): Returns a new result with specified detailed errors collection
         /// <summary>
         /// Returns a new <see cref="ResultBase{T}"/> with specified detailed errors collection.
         /// </summary>
@@ -168,7 +168,7 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// A new invalid <see cref="ResultBase{T}"/> with specified detailed errors collection.
         /// </returns>
-        public static ResultBase<T> CreateErroResult(IResultError[] errors, T value) =>
+        public static ResultBase<T> CreateErrorResult(IResultError[] errors, T value) =>
             new ResultBase<T>
             {
                 Result = value,
@@ -202,7 +202,7 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// A new <see cref="ResultBase{T}"/> instance for specified exception.
         /// </returns>
-        public static ResultBase<T> FromException(Exception exception) => FromException(exception, default(T));
+        public static ResultBase<T> FromException(Exception exception) => FromException(exception, default);
         #endregion
 
         #region [public] {static} (ResultBase<T>) FromException(Exception, T): Creates a new instance from known exception

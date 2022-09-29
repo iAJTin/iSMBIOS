@@ -1,12 +1,12 @@
 ﻿
+using System.Collections.Generic;
+
+using iTin.Core.ComponentModel;
+
+using iTin.Core.Hardware.Common.ComponentModel;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System.Collections.Generic;
-
-    using iTin.Core.ComponentModel;
-
-    using ComponentModel;
-
     /// <summary>
     /// Specialization of <see cref="ResultBase{T}"/> interface.<br/>
     /// Where <c>T</c> is <see cref="PropertyItemDictionary"/>.<br/>
@@ -22,18 +22,18 @@ namespace iTin.Core.Hardware.Common
         /// <returns>
         /// A new invalid <see cref="QueryPropertyDictionaryResult"/> with specified detailed error.
         /// </returns>
-        public new static QueryPropertyDictionaryResult CreateErroResult(string message, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public static QueryPropertyDictionaryResult CreateErroResult(string message, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="QueryPropertyDictionaryResult"/> with specified detailed error.
         /// </summary>
         /// <param name="message">Error message</param>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <param name="code">Error code</param>
         /// <returns>
         /// A new invalid <see cref="QueryPropertyDictionaryResult"/> with specified detailed error.
         /// </returns>
-        public new static QueryPropertyDictionaryResult CreateErroResult(string message, PropertyItemDictionary Result, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } }, Result);
+        public static QueryPropertyDictionaryResult CreateErroResult(string message, PropertyItemDictionary result, string code = "") => CreateErroResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="QueryPropertyDictionaryResult"/> with specified detailed errors collection.
@@ -42,7 +42,7 @@ namespace iTin.Core.Hardware.Common
         /// <returns>
         /// A new invalid <see cref="QueryPropertyDictionaryResult"/> with specified detailed errors collection.
         /// </returns>
-        public new static QueryPropertyDictionaryResult CreateErroResult(IResultError[] errors) =>
+        public static QueryPropertyDictionaryResult CreateErroResult(IResultError[] errors) =>
             new QueryPropertyDictionaryResult
             {
                 Result = default,
@@ -54,14 +54,14 @@ namespace iTin.Core.Hardware.Common
         /// Returns a new <see cref="QueryPropertyDictionaryResult"/> with specified detailed errors collection.
         /// </summary>
         /// <param name="errors">A errors collection</param>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <returns>
         /// A new invalid <see cref="QueryPropertyDictionaryResult"/> with specified detailed errors collection.
         /// </returns>
-        public new static QueryPropertyDictionaryResult CreateErroResult(IResultError[] errors, PropertyItemDictionary Result) =>
+        public static QueryPropertyDictionaryResult CreateErroResult(IResultError[] errors, PropertyItemDictionary result) =>
             new QueryPropertyDictionaryResult
             {
-                Result = Result,
+                Result = result,
                 Success = false,
                 Errors = (IResultError[])errors.Clone()
             };
@@ -69,14 +69,14 @@ namespace iTin.Core.Hardware.Common
         /// <summary>
         /// Returns a new success result.
         /// </summary>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <returns>
         /// A new valid <see cref="QueryPropertyDictionaryResult"/>.
         /// </returns>
-        public new static QueryPropertyDictionaryResult CreateSuccessResult(PropertyItemDictionary Result) =>
+        public new static QueryPropertyDictionaryResult CreateSuccessResult(PropertyItemDictionary result) =>
             new QueryPropertyDictionaryResult
             {
-                Result = Result,
+                Result = result,
                 Success = true,
                 Errors = new List<IResultError>()
             };
@@ -94,14 +94,14 @@ namespace iTin.Core.Hardware.Common
         /// Creates a new <see cref="QueryPropertyDictionaryResult"/> instance from known exception.
         /// </summary>
         /// <param name="exception">Target exception.</param>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <returns>
         /// A new <see cref="QueryPropertyDictionaryResult"/> instance for specified exception.
         /// </returns>
-        public new static QueryPropertyDictionaryResult FromException(System.Exception exception, PropertyItemDictionary Result) =>
+        public new static QueryPropertyDictionaryResult FromException(System.Exception exception, PropertyItemDictionary result) =>
             new QueryPropertyDictionaryResult
             {
-                Result = Result,
+                Result = result,
                 Success = false,
                 Errors = new List<IResultError> { new ResultExceptionError { Exception = exception } }
             };

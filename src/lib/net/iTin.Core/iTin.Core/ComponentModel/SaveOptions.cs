@@ -21,7 +21,7 @@ namespace iTin.Core.ComponentModel
         /// <value>
         /// A <see cref="SaveOptions"/> that contains default options for save.
         /// </value>
-        public static SaveOptions Default => new SaveOptions();
+        public static SaveOptions Default => new();
 
 
         /// <summary>

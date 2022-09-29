@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel.Responses
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResponseBase{T}" /> that contains a nullable double response.
     /// </summary>
@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="NullableDoubleResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static NullableDoubleResponse CreateErroResponse(IResponseError[] errors) =>
-            new NullableDoubleResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="NullableDoubleResponse"/>.
         /// </returns>
         public new static NullableDoubleResponse CreateSuccessResponse(double? value) =>
-            new NullableDoubleResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="NullableDoubleResponse"/> instance for specified exception.
         /// </returns>
         public new static NullableDoubleResponse FromException(System.Exception exception) =>
-            new NullableDoubleResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

@@ -1,12 +1,12 @@
 ﻿
+using System;
+
+using iTin.Core.Helpers;
+using iTin.Core.Helpers.Enumerations;
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-
-    using Helpers;
-    using Helpers.Enumerations;
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for <see cref="T:System.Byte" /> structure, <see cref="T:System.Int32" /> structure,
     /// <see cref="T:System.UInt32" /> structure, <see cref="T:System.Int64" /> structure, <see cref="T:System.UInt64" /> structure,
@@ -28,7 +28,7 @@ namespace iTin.Core
         public static bool CheckBit(this byte value, Bits bit)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
             Logger.Instance.Debug(" Returns a value indicating whether the specified bit is enabled");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) CheckBit(this {typeof(byte)}, {typeof(Bits)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -56,7 +56,7 @@ namespace iTin.Core
         public static bool CheckBit(this byte value, byte bit)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
             Logger.Instance.Debug(" Returns a value indicating whether the specified bit is enabled");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) CheckBit(this {typeof(byte)}, {typeof(byte)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -84,7 +84,7 @@ namespace iTin.Core
         public static byte GetBit(this byte value, Bits bit)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
             Logger.Instance.Debug(" Returns the current state of the specified bit");
             Logger.Instance.Debug($" > Signature: ({typeof(byte)}) GetBit(this {typeof(byte)}, {typeof(Bits)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -112,7 +112,7 @@ namespace iTin.Core
         public static byte GetBit(this byte value, byte bit)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
             Logger.Instance.Debug(" Returns the current state of the specified bit");
             Logger.Instance.Debug($" > Signature: ({typeof(byte)}) GetBit(this {typeof(byte)}, {typeof(byte)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -139,7 +139,7 @@ namespace iTin.Core
         public static byte[] ToArray(this byte value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
             Logger.Instance.Debug(" Returns reference value splitted into bytes as a 2 byte array");
             Logger.Instance.Debug($" > Signature: ({typeof(byte[])}) ToArray(this {typeof(byte)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -162,7 +162,7 @@ namespace iTin.Core
         public static byte[] ToNibbles(this byte value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
             Logger.Instance.Debug(" Returns an array of bytes that contains the nibbles of this Byte");
             Logger.Instance.Debug($" > Signature: ({typeof(byte[])}) ToNibbles(this {typeof(byte)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -266,7 +266,7 @@ namespace iTin.Core
         public static byte GetByte(this int value, Bytes onebyte)
         {
             SentinelHelper.IsEnumValid(onebyte);
-            SentinelHelper.IsTrue((byte)onebyte > (byte)Bytes.Byte03);
+            SentinelHelper.IsTrue((byte)onebyte > 1);
 
             return value.GetByte((byte)onebyte);
         }
@@ -281,7 +281,7 @@ namespace iTin.Core
         /// <returns></returns>
         public static byte GetByte(this int value, byte onebyte)
         {
-            SentinelHelper.IsTrue(onebyte > 3);
+            SentinelHelper.IsTrue(onebyte > 1);
 
             return value.ToArray()[onebyte];
         }

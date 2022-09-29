@@ -1,10 +1,10 @@
 ﻿
+using System.Collections.Generic;
+
+using iTin.Core.Hardware.Common;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using System.Collections.Generic;
-
-    using iTin.Core.Hardware.Common;
-
     /// <summary>
     /// The <b>DmiBaseType</b> class provides functions to analyze the properties associated with a structure <see cref="DMI"/>.
     /// </summary>

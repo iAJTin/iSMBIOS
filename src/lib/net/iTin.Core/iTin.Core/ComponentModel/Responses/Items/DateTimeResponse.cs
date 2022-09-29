@@ -27,7 +27,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="DateTimeResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static DateTimeResponse CreateErroResponse(IResponseError[] errors) =>
-            new DateTimeResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -42,7 +42,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="DateTimeResponse"/>.
         /// </returns>
         public new static DateTimeResponse CreateSuccessResponse(DateTime value) =>
-            new DateTimeResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -57,7 +57,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="DateTimeResponse"/> instance for specified exception.
         /// </returns>
         public new static DateTimeResponse FromException(System.Exception exception) =>
-            new DateTimeResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

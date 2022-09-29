@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel.Responses
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResponseBase{T}" /> that contains a nullable integer response.
     /// </summary>
@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="NullableIntegerResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static NullableIntegerResponse CreateErroResponse(IResponseError[] errors) =>
-            new NullableIntegerResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="NullableIntegerResponse"/>.
         /// </returns>
         public new static NullableIntegerResponse CreateSuccessResponse(int? value) =>
-            new NullableIntegerResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="NullableIntegerResponse"/> instance for specified exception.
         /// </returns>
         public new static NullableIntegerResponse FromException(System.Exception exception) =>
-            new NullableIntegerResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

@@ -1,8 +1,8 @@
 ﻿
+using System;
+
 namespace iTin.Core.Helpers
 {
-    using System;
-
     /// <summary>
     /// Static class than contains methods for manipulating generic datetime values.
     /// </summary>
@@ -19,6 +19,7 @@ namespace iTin.Core.Helpers
         {
             var datetime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
             datetime = datetime.AddMilliseconds(milliseconds).ToLocalTime();
+
             return datetime;
         }
     }

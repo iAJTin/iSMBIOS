@@ -1,10 +1,10 @@
 
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+
 namespace iTin.Logging.ComponentModel
 {
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
     /// <summary>
     /// Defines mappings for <see cref="ConsoleLog"/>.
     /// </summary>

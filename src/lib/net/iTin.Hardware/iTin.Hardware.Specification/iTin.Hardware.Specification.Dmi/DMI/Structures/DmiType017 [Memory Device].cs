@@ -1,14 +1,14 @@
 ﻿
+using iTin.Core;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Dmi.Property;
+
+using iTin.Hardware.Specification.Smbios;
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using iTin.Core;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
-    using Smbios;
-    using Smbios.Property;
-
     /// <inheritdoc/>
     /// <summary>
     /// Specialization of the <see cref="DmiBaseType{T}"/> class that contains the logic to decode the Memory Device (Type 17) structure.

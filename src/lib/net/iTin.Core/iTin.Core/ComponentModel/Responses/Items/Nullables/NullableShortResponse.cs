@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel.Responses
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResponseBase{T}" /> that contains a nullable short response.
     /// </summary>
@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="NullableShortResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static NullableShortResponse CreateErroResponse(IResponseError[] errors) =>
-            new NullableShortResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="NullableShortResponse"/>.
         /// </returns>
         public new static NullableShortResponse CreateSuccessResponse(short? value) =>
-            new NullableShortResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="NullableShortResponse"/> instance for specified exception.
         /// </returns>
         public new static NullableShortResponse FromException(System.Exception exception) =>
-            new NullableShortResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

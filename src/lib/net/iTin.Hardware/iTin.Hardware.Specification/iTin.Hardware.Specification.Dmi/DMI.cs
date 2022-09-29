@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Diagnostics;
+
+using iTin.Hardware.Abstractions.Specification.Smbios.ComponentModel;
+using iTin.Hardware.Specification.Dmi;
+
 namespace iTin.Hardware.Specification
 {
-    using System;
-    using System.Diagnostics;
-
-    using Dmi;
-    using iTin.Hardware.Abstractions.Specification.Smbios.ComponentModel;
-
     /// <summary>
     /// The Desktop Management Interface (DMI) or the desktop management interface, standard framework for management and<br/>
     /// component tracking on a desktop, laptop or server.

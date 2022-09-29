@@ -1,9 +1,9 @@
 ﻿
+using System;
+using System.Diagnostics;
+
 namespace iTin.Core.ComponentModel.Patterns
 {
-    using System;
-    using System.Diagnostics;
-
     /// <summary>
     /// 
     /// </summary>

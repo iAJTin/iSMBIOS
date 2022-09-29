@@ -1,10 +1,10 @@
 
+using System;
+using System.ComponentModel;
+using System.Globalization;
+
 namespace iTin.Core.ComponentModel
 {
-    using System;
-    using System.ComponentModel;
-    using System.Globalization;
-
     /// <summary>
     /// Provides a type converter to convert enumeration types to <see cref="T:System.String"/> and from <see cref="T:System.String"/> to enumeration types.
     /// </summary>

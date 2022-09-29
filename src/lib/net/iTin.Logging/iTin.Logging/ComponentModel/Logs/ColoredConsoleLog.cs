@@ -1,14 +1,14 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+
+using iTin.Logging.ComponentModel;
+using iTin.Logging.EventArgs;
+
 namespace iTin.Logging
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-        
-    using ComponentModel;
-    using EventArgs;
-
     /// <summary>
     /// Specialization of the <see cref="ILog"/> interface. Writes messages to a colored console.
     /// </summary>

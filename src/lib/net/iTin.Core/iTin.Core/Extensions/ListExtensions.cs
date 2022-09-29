@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for generic List.
     /// </summary> 
@@ -67,14 +67,13 @@ namespace iTin.Core
             Logger.Instance.Info("  > Method: GetNext<T>(this List<T>, T)");
             Logger.Instance.Info("  > Output: T?");
 
-            if (items == null || !items.Any())
+            if (items.IsNullOrEmpty())
             {
                 return null;
             }
 
             var length = items.Count();
             var index = items.LastIndexOf(current);
-
             if (index >= length - 1)
             {
                 return null;
@@ -100,7 +99,7 @@ namespace iTin.Core
             Logger.Instance.Info("  > Method: GetPrev<T>(this List<T>, T)");
             Logger.Instance.Info("  > Output: T?");
 
-            if (items == null || !items.Any())
+            if (items.IsNullOrEmpty())
             {
                 return null;
             }
@@ -132,14 +131,13 @@ namespace iTin.Core
             Logger.Instance.Info("  > Method: GetNextObject<T>(this List<T>, T)");
             Logger.Instance.Info("  > Output: T");
 
-            if (items == null || !items.Any())
+            if (items.IsNullOrEmpty())
             {
                 return null;
             }
 
-            var length = items.Count();
+            var length = items.Count;
             var index = items.LastIndexOf(current);
-
             if (index >= length - 1)
             {
                 return null;
@@ -165,13 +163,12 @@ namespace iTin.Core
             Logger.Instance.Info("  > Method: GetPrevObject<T>(this List<T>, T)");
             Logger.Instance.Info("  > Output: T");
 
-            if (items == null || !items.Any())
+            if (items.IsNullOrEmpty())
             {
                 return null;
             }
 
             var index = items.IndexOf(current);
-
             if (index <= 0)
             {
                 return null;
@@ -189,10 +186,8 @@ namespace iTin.Core
         /// <returns>
         /// A valid index.
         /// </returns>
-        public static int GetValidIndex<T>(this List<T> items, int index)
-        {
-            return Math.Max(0, Math.Min(index, items.Count - 1));
-        }
+        public static int GetValidIndex<T>(this List<T> items, int index) 
+            => Math.Max(0, Math.Min(index, items.Count - 1));
 
         /// <summary>
         /// Determines if specified value is a valid index in list
@@ -203,13 +198,10 @@ namespace iTin.Core
         /// <returns>
         /// <b>true</b> if is a valid index; otherwise <b>false</b>.
         /// </returns>
-        public static bool IsValidIndex<T>(this IList<T> items, int index)
-        {
-            return
-                items != null && 
-                index >= 0 && 
-                index < items.Count;
-        }
+        public static bool IsValidIndex<T>(this IList<T> items, int index) =>
+            items != null && 
+            index >= 0 && 
+            index < items.Count;
 
         /// <summary>
         /// Try returns item in specified index. If index is not valid value is <b>null</b> (<b>Nothing</b> in Visual Basic)
@@ -227,6 +219,7 @@ namespace iTin.Core
             }
 
             value = items[index];
+
             return true;
         }
     }

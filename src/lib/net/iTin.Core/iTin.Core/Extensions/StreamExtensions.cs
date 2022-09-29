@@ -1,15 +1,15 @@
 ﻿
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+using iTin.Core.Helpers;
+using iTin.Logging;
+
 namespace iTin.Core
 {
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.IO;
-    using System.Linq;
-    using System.Text;
-
-    using Helpers;
-    using Logging;
-
     /// <summary>
     /// Static class than contains extension methods for objects of type <see cref="T:System.IO.Stream" />.
     /// </summary> 
@@ -38,7 +38,7 @@ namespace iTin.Core
         public static byte[] AsByteArray(this Stream stream, bool closeAfter)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StreamExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StreamExtensions).Assembly.GetName().Name}, v{typeof(StreamExtensions).Assembly.GetName().Version}, Namespace: {typeof(StreamExtensions).Namespace}, Class: {nameof(StreamExtensions)}");
             Logger.Instance.Debug(" Returns stream input as byte array");
             Logger.Instance.Debug($" > Signature: ({typeof(byte[])}) AsByteArray(this {typeof(Stream)}, {typeof(bool)})");
 
@@ -103,7 +103,7 @@ namespace iTin.Core
         public static Stream Clone(this Stream stream)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StreamExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StreamExtensions).Assembly.GetName().Name}, v{typeof(StreamExtensions).Assembly.GetName().Version}, Namespace: {typeof(StreamExtensions).Namespace}, Class: {nameof(StreamExtensions)}");
             Logger.Instance.Debug(" Create a new object that is a copy of the current instance");
             Logger.Instance.Debug($" > Signature: ({typeof(Stream)}) Clone(this {typeof(Stream)})");
 
@@ -131,7 +131,7 @@ namespace iTin.Core
         public static IEnumerable<Stream> Clone(this IEnumerable<Stream> items)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StreamExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StreamExtensions).Assembly.GetName().Name}, v{typeof(StreamExtensions).Assembly.GetName().Version}, Namespace: {typeof(StreamExtensions).Namespace}, Class: {nameof(StreamExtensions)}");
             Logger.Instance.Debug(" Create a new object that is a copy of the current instance");
             Logger.Instance.Debug($" > Signature: ({typeof(IEnumerable<Stream>)}) Clone(this {typeof(IEnumerable<Stream>)})");
 
@@ -158,7 +158,7 @@ namespace iTin.Core
         public static MemoryStream ToMemoryStream(this Stream stream)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: StreamExtensions");
+            Logger.Instance.Debug($" Assembly: {typeof(StreamExtensions).Assembly.GetName().Name}, v{typeof(StreamExtensions).Assembly.GetName().Version}, Namespace: {typeof(StreamExtensions).Namespace}, Class: {nameof(StreamExtensions)}");
             Logger.Instance.Debug($" Convert a Stream into {typeof(MemoryStream)}");
             Logger.Instance.Debug($" > Signature: ({typeof(MemoryStream)}) ToMemoryStream(this {typeof(Stream)})");
 

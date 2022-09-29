@@ -1,8 +1,8 @@
 ﻿
+using iTin.Hardware.Specification.Smbios;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using Smbios;
-
     /// <summary>
     /// The static class <see cref="DmiStructureFactory"/> creates the <see cref="DMI"/> structures.
     /// </summary>

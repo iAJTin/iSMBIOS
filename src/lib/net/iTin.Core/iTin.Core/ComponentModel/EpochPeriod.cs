@@ -1,11 +1,11 @@
 
+using System;
+using System.Diagnostics;
+
+using iTin.Core.Helpers;
+
 namespace iTin.Core.ComponentModel
 {
-    using System;
-    using System.Diagnostics;
-
-    using iTin.Core.Helpers;
-
     /// <summary>
     /// Class that defines a time period expressed in <b>Unix</b> time. The <b>Unix</b> epoch gets the elapsed time from 1970 to today. The time is measured in seconds from January 1, 1970, at zero hours. 
     /// </summary>

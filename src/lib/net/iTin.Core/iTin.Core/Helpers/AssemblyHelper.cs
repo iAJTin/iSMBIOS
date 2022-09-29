@@ -1,11 +1,11 @@
 ﻿
+using System;
+using System.Reflection;
+
+using iTin.Logging;
+
 namespace iTin.Core.Helpers
 {
-    using System;
-    using System.Reflection;
-
-    using Logging;
-
     /// <summary>
     /// Static class which contains methods for retrieve <see cref="T:System.Assembly" /> information.
     /// </summary>
@@ -20,7 +20,7 @@ namespace iTin.Core.Helpers
         public static Uri GetFullAssemblyUri()
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core.Helpers, Class: AssemblyHelper");
+            Logger.Instance.Debug($" Assembly: {typeof(AssemblyHelper).Assembly.GetName().Name}, v{typeof(AssemblyHelper).Assembly.GetName().Version}, Namespace: {typeof(AssemblyHelper).Namespace}, Class: {nameof(AssemblyHelper)}");
             Logger.Instance.Debug($" Returns an {typeof(Uri)} that contains full path to current assembly");
             Logger.Instance.Debug($" > Signature: ({typeof(Uri)}) GetFullAssemblyUri()");
 

@@ -1,14 +1,14 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
+using iTin.Core;
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-
-    using iTin.Core;
-
-    using Property;
 
     // Type 009: System Slots
     // •———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
@@ -288,6 +288,22 @@ namespace iTin.Hardware.Specification.Smbios
         private byte GroupingCount => Reader.GetByte(0x12);
         #endregion
 
+
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+
+        #region [private] (Span<byte>) RawGroups: Gets a value representing the 'Peer (S/B/D/F/Width) groups' field
+        /// <summary>
+        /// Gets a value representing the <b>Peer (S/B/D/F/Width) groups</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private Span<byte> RawGroups => Reader.GetBytes(0x13, (byte)(5 * GroupingCount));
+        #endregion
+
+#else
+
         #region [private] (byte[]) RawGroups: Gets a value representing the 'Peer (S/B/D/F/Width) groups' field
         /// <summary>
         /// Gets a value representing the <b>Peer (S/B/D/F/Width) groups</b> field.
@@ -298,6 +314,8 @@ namespace iTin.Hardware.Specification.Smbios
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private byte[] RawGroups => Reader.GetBytes(0x13, (byte)(5 * GroupingCount));
         #endregion
+
+#endif
 
         #endregion
 
@@ -652,6 +670,33 @@ namespace iTin.Hardware.Specification.Smbios
         }
         #endregion
 
+#if NETSTANDARD2_1 || NET5_0_OR_GREATER
+
+        #region [private] {static} (IEnumerable<PeerDevice>) GetPeerElements(Span<byte>, byte): Gets the list of peer information
+        /// <summary>
+        /// Gets the list of peer information.
+        /// </summary>
+        /// <param name="rawData">Raw information.</param>
+        /// <returns>
+        /// Peers
+        /// </returns>
+        private static IEnumerable<PeerDevice> GetPeerElements(Span<byte> rawData)
+        {
+            var peerElements = new Collection<PeerDevice>();
+
+            for (var i = 0; i < rawData.Length; i += 0x05)
+            {
+                var peer = new byte[0x05];
+                Array.Copy(rawData.ToArray(), i, peer, 0, 0x05);
+                peerElements.Add(new PeerDevice(peer));
+            }
+
+            return peerElements;
+        }
+        #endregion
+
+#else
+
         #region [private] {static} (IEnumerable<PeerDevice>) GetPeerElements(byte[], byte): Gets the list of peer information
         /// <summary>
         /// Gets the list of peer information.
@@ -674,6 +719,8 @@ namespace iTin.Hardware.Specification.Smbios
             return peerElements;
         }
         #endregion
+
+#endif
 
         #region [private] {static} (string) GetSegmentBusFunction(ushort): Gets a string representing SegmentBusFuction
         /// <summary>

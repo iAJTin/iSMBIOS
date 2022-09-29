@@ -2,12 +2,12 @@
 namespace iTin.Core.Interop.Shared.CrossPlatform
 {
     /// <summary>
-    /// Defines known constants
+    /// Defines dll names
     /// </summary>
     public static class ExternDll
     {
         /// <summary>
-        /// cpuid
+        /// Cpuid dll
         /// </summary>
         public const string Cpuid = "cpuid";
     }

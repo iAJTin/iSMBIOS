@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="ShortResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static ShortResponse CreateErroResponse(IResponseError[] errors) =>
-            new ShortResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="ShortResponse"/>.
         /// </returns>
         public new static ShortResponse CreateSuccessResponse(short value) =>
-            new ShortResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="ShortResponse"/> instance for specified exception.
         /// </returns>
         public new static ShortResponse FromException(System.Exception exception) =>
-            new ShortResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

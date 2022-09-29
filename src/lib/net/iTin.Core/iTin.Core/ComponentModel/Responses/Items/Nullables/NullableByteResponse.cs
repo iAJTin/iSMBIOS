@@ -1,8 +1,8 @@
 ﻿
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel.Responses
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResponseBase{T}" /> that contains a nullable byte response.
     /// </summary>
@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="NullableByteResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static NullableByteResponse CreateErroResponse(IResponseError[] errors) =>
-            new NullableByteResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="NullableByteResponse"/>.
         /// </returns>
         public new static NullableByteResponse CreateSuccessResponse(byte? value) =>
-            new NullableByteResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="NullableByteResponse"/> instance for specified exception.
         /// </returns>
         public new static NullableByteResponse FromException(System.Exception exception) =>
-            new NullableByteResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

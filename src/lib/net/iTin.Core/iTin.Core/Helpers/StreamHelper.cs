@@ -1,11 +1,8 @@
 ﻿
+using System.IO;
+
 namespace iTin.Core.Helpers
 {
-    using System.Diagnostics.CodeAnalysis;
-    using System.IO;
-
-    using Logging;
-
     /// <summary> 
     /// Static class than contains methods for manipulating objects of type <see cref="T:System.IO.Stream" />.
     /// </summary>
@@ -20,13 +17,6 @@ namespace iTin.Core.Helpers
         /// </returns>
         public static byte[] AsByteArrayFromFile(string fileName)
         {
-            Logger.Instance.Debug("External Call");
-            Logger.Instance.Info("  Returns the specified file as a byte array");
-            Logger.Instance.Info("  > Library: iTin.Core");
-            Logger.Instance.Info("  > Class: StreamHelper");
-            Logger.Instance.Info("  > Method: AsByteArrayFromFile(string)");
-            Logger.Instance.Info("  > Output: System.Byte[]");
-
             SentinelHelper.IsTrue(string.IsNullOrEmpty(fileName));
 
             byte[] buffer;
@@ -46,16 +36,8 @@ namespace iTin.Core.Helpers
         /// <returns>
         /// A <see cref="T:System.IO.MemoryStream" /> than represent the input file.
         /// </returns>
-        [SuppressMessage("Microsoft.Reliability", "CA2000:Eliminar (Dispose) objetos antes de perder el ámbito")]
         public static MemoryStream AsMemoryStreamFromFile(string fileName)
         {
-            Logger.Instance.Debug("External Call");
-            Logger.Instance.Info("  Convert input file to memory stream");
-            Logger.Instance.Info("  > Library: iTin.Core");
-            Logger.Instance.Info("  > Class: StreamHelper");
-            Logger.Instance.Info("  > Method: AsMemoryStreamFromFile(string)");
-            Logger.Instance.Info("  > Output: System.IO.MemoryStream");
-
             SentinelHelper.IsTrue(string.IsNullOrEmpty(fileName));
 
             MemoryStream ms;
@@ -91,16 +73,6 @@ namespace iTin.Core.Helpers
         /// <returns>
         /// A <see cref="T:System.Stream"/> from specified filename.
         /// </returns>
-        public static Stream TextFileToStream(string file)
-        {
-            Logger.Instance.Debug("External Call");
-            Logger.Instance.Info("  Returns specified text file as System.Stream");
-            Logger.Instance.Info("  > Library: iTin.Core");
-            Logger.Instance.Info("  > Class: StreamHelper");
-            Logger.Instance.Info("  > Method: TextFileToStream(string)");
-            Logger.Instance.Info("  > Output: System.IO.Stream");
-
-            return new MemoryStream(File.ReadAllBytes(TypeHelper.ToType<string>(file)));
-        }
+        public static Stream TextFileToStream(string file) => new MemoryStream(File.ReadAllBytes(TypeHelper.ToType<string>(file)));
     }
 }

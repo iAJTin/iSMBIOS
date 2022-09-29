@@ -1,11 +1,11 @@
 ﻿
+using iTin.Hardware.Specification.Dmi.Property;
+
+using iTin.Hardware.Specification.Smbios;
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Dmi
 {
-    using Property;
-
-    using Smbios;
-    using Smbios.Property;
-
     /// <inheritdoc/>
     /// <summary>
     /// Specialization of the <see cref="DmiBaseType{T}"/> class that contains the logic to decode the Boot Integrity Services (BIS) Entry Point (Type 31) structure.

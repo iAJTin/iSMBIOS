@@ -1,9 +1,9 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
 namespace iTin.Core.ComponentModel.Responses
 {
-    using System;
-    using System.Collections.Generic;
-
     /// <summary>
     /// Specialization of the interface <see cref="ResponseBase{T}" /> that contains a nullable datetime response.
     /// </summary>
@@ -27,7 +27,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="NullableDateTimeResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static NullableDateTimeResponse CreateErroResponse(IResponseError[] errors) =>
-            new NullableDateTimeResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -42,7 +42,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="NullableDateTimeResponse"/>.
         /// </returns>
         public new static NullableDateTimeResponse CreateSuccessResponse(DateTime? value) =>
-            new NullableDateTimeResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -57,7 +57,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="NullableDateTimeResponse"/> instance for specified exception.
         /// </returns>
         public new static NullableDateTimeResponse FromException(System.Exception exception) =>
-            new NullableDateTimeResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

@@ -1,11 +1,11 @@
 ﻿
+using System;
+using System.Globalization;
+
+using iTin.Core.Helpers.Enumerations;
+
 namespace iTin.Core.Helpers
 {
-    using System;
-    using System.Globalization;
-
-    using Enumerations;
-
     /// <summary>
     /// The static class <b>Logical</b> provides static methods and Lambda expressions to manipulate logical expressions.
     /// </summary>

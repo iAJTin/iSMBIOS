@@ -1,12 +1,12 @@
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+using iTin.Core.Exceptions;
+
 namespace iTin.Core.ComponentModel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
-    using Exceptions;
-
     /// <summary>
     /// Class which defines a time period.
     /// </summary>

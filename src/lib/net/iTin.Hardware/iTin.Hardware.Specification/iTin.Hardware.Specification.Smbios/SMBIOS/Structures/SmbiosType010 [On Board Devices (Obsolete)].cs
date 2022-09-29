@@ -1,15 +1,15 @@
 ﻿
+using System;
+using System.Diagnostics;
+using System.Text;
+
+using iTin.Core.Helpers;
+using iTin.Core.Helpers.Enumerations;
+
+using iTin.Hardware.Specification.Smbios.Property;
+
 namespace iTin.Hardware.Specification.Smbios
 {
-    using System;
-    using System.Diagnostics;
-    using System.Text;
-
-    using iTin.Core.Helpers;
-    using iTin.Core.Helpers.Enumerations;
-
-    using Property;
-
     // Type 010: On Board Devices Information.
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
     // | Offset       Name            Length      Value       Description                                           |

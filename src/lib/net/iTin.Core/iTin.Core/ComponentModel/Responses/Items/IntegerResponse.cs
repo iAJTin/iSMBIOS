@@ -26,7 +26,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new invalid <see cref="IntegerResponse"/> with specified detailed errors collection.
         /// </returns>
         public new static IntegerResponse CreateErroResponse(IResponseError[] errors) =>
-            new IntegerResponse
+            new()
             {
                 Value = default,
                 Success = false,
@@ -41,7 +41,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new valid <see cref="IntegerResponse"/>.
         /// </returns>
         public new static IntegerResponse CreateSuccessResponse(int value) =>
-            new IntegerResponse
+            new()
             {
                 Value = value,
                 Success = true,
@@ -56,7 +56,7 @@ namespace iTin.Core.ComponentModel.Responses
         /// A new <see cref="IntegerResponse"/> instance for specified exception.
         /// </returns>
         public new static IntegerResponse FromException(System.Exception exception) =>
-            new IntegerResponse
+            new()
             {
                 Success = false,
                 Errors = new List<IResponseError> { new ResponseExceptionError { Exception = exception } }

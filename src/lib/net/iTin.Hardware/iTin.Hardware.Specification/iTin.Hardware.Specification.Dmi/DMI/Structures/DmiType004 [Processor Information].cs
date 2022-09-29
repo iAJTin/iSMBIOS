@@ -106,6 +106,14 @@ namespace iTin.Hardware.Specification.Dmi
                 properties.Add(DmiProperty.Processor.Characteristics.PowerPerformanceControlSupport, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.Characteristics.PowerPerformanceControlSupport));
             }
             #endregion
+
+            #region 3.6+
+            if (ImplementedVersion >= DmiStructureVersion.v36)
+            {
+                properties.Add(DmiProperty.Processor.ThreadEnabled, SmbiosStructure.GetPropertyValue(SmbiosProperty.Processor.ThreadEnabled));
+            }
+            #endregion
+
         }
         #endregion
 

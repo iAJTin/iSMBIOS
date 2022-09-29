@@ -2005,6 +2005,42 @@ namespace iTin.Hardware.Specification.Dmi.Property
 
             #endregion
 
+            #region version 3.6+
+
+            #region [public] {static} (IPropertyKey) ThreadEnabled: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property value.</para>
+            /// <para>
+            /// Number of enabled threads per processor.
+            ///  <list type="bullet">
+            ///   <item><description>If the value is unknown, the field is set to 0000h.</description></item>
+            ///   <item><description>If the value is valid, the field contains the thread enabled counts 1 to 65534, respectively </description></item>
+            ///   <item><description>If the value is reserved, the field is set to ffffh</description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="DmiStructureClass.Processor"/></description></item>
+            ///   <item><description>Property: <see cref="DmiType004Property.ThreadEnabled"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.6+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey ThreadEnabled => new PropertyKey(DmiStructureClass.Processor, DmiType004Property.ThreadEnabled);
+            #endregion
+
+            #endregion
+
 
             #region nested classes
 

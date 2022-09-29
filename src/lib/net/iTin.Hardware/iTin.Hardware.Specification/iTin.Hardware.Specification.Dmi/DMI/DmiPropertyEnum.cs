@@ -514,6 +514,13 @@ namespace iTin.Hardware.Specification.Dmi
         [PropertyType(typeof(bool))]
         Arm64SocIdSupported,
         #endregion
+
+        #region version 3.6+
+        [PropertyName("Thread Enabled")]
+        [PropertyDescription("Number of enabled threads per processor")]
+        [PropertyType(typeof(ushort))]
+        ThreadEnabled,
+        #endregion
     }
     #endregion
 

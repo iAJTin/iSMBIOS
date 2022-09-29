@@ -2037,6 +2037,12 @@ namespace iTin.Hardware.Specification.Smbios.Property
             /// <para>Gets a value representing the key to retrieve the property value.</para>
             /// <para>
             /// Number of enabled threads per processor.
+            ///  <list type="bullet">
+            ///   <item><description>If the value is unknown, the field is set to 0000h.</description></item>
+            ///   <item><description>If the value is valid, the field contains the thread enabled counts 1 to 65534, respectively </description></item>
+            ///   <item><description>If the value is reserved, the field is set to ffffh</description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
             /// </para>
             /// <para>
             ///  <para><b>Key Composition</b></para>
@@ -2059,6 +2065,7 @@ namespace iTin.Hardware.Specification.Smbios.Property
             #endregion
 
             #endregion
+
 
             #region nested classes
 

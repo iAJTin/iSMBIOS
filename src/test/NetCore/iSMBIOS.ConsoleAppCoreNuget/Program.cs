@@ -410,21 +410,19 @@ namespace iSMBIOS.ConsoleAppCoreNuget
 
         static void Main(string[] args)
         {
-            DmiStructureCollection structures = DMI.CreateInstance().Structures;
+            var structures = DMI.CreateInstance().Structures;
 
             // type 0
-            string biosVersion = GetSmbiosProperty(structures, DmiProperty.Bios.BiosVersion);
+            var voltages = GetSmbiosProperty(structures, DmiProperty.Processor.Voltage.SupportedVoltages);
         }
 
-        private static string GetSmbiosProperty(DmiStructureCollection structure, IPropertyKey key)
+        private static object GetSmbiosProperty(DmiStructureCollection structures, IPropertyKey key)
         {
-            QueryPropertyResult queryResult = structure.GetProperty(key);
-            if (!queryResult.Success)
-            {
-                return null;
-            }
+            var queryResult = structures.GetProperty(key);
 
-            return queryResult.Value.Value.ToString();
+            return !queryResult.Success
+                ? string.Empty
+                : queryResult.Result.Value;
         }
     }
 }

@@ -41,11 +41,9 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
 
 ```PM> Install-Package iSMBIOS```
 
-# PowerShell
+# Install via PowerShell
 
-Now if you want you can use **iSMBIOS** from **PowerShell**.
-
-It has the [iPowerShellSmbios] module that allows the use of **iSMBIOS** from **PowerShell**.
+Now if you want you can use iSMBIOS from PowerShell. It has the [iPowerShellSmbios] module available that allows the use of iSMBIOS from the PowerShell environment.
 
 - From PowerShellGallery
 

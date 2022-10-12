@@ -41,7 +41,11 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
 
 ```PM> Install-Package iSMBIOS```
 
-# PoweShell
+# PowerShell
+
+Now if you want you can use **iSMBIOS** from **PowerShell**.
+
+It has the [iPowerShellSmbios] module that allows the use of **iSMBIOS** from **PowerShell**.
 
 - From PowerShellGallery
 
@@ -61,7 +65,7 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
   </tr>
 </table>
 
-- From package manager console
+- From PowerShell console
 
 ```PM> Install-Module -Name iPowerShellSmbios```
 
@@ -304,3 +308,4 @@ My email address is
 [email]: ./assets/email.png "email"
 [documentation]: ./documentation/iTin.Hardware.Specification.Dmi.md
 [CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md
+[iPowerShellSmbios]: https://github.com/iAJTin/iPowerShellSmbios

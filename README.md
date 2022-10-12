@@ -57,7 +57,7 @@ Now if you want you can use iSMBIOS from PowerShell. It has the [iPowerShellSmbi
     <td>
       <a href="https://www.powershellgallery.com/packages/iPowerShellSmbios/">
         <img alt="PowerShellGallery Version" 
-             src="https://img.shields.io/powershellgallery/v/PowerShellGallery.svg?style=flat-square&label=iPowerShellSmbios" /> 
+             src="https://img.shields.io/powershellgallery/v/iPowerShellSmbios.svg?style=flat-square&label=iPowerShellSmbios" /> 
       </a>
     </td>  
   </tr>

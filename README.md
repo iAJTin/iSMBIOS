@@ -43,7 +43,7 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
 
 # Install via PowerShell
 
-Now if you want you can use iSMBIOS from PowerShell. It has the [iPowerShellSmbios] module available that allows the use of iSMBIOS from the PowerShell environment.
+Now if you want you can use iSMBIOS from PowerShell. It has the [iPowerShellSmbios] module available that contains a collection of PowerShell Cmdlets that allow us to obtain the SMBIOS information. If you want to know more, please review the available documentation from [here].
 
 - From PowerShellGallery
 
@@ -307,3 +307,4 @@ My email address is
 [documentation]: ./documentation/iTin.Hardware.Specification.Dmi.md
 [CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md
 [iPowerShellSmbios]: https://github.com/iAJTin/iPowerShellSmbios
+[here]: https://github.com/iAJTin/iPowerShellSmbios/blob/main/documentation/iPowerShellSmbios.md

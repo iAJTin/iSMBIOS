@@ -41,6 +41,30 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
 
 ```PM> Install-Package iSMBIOS```
 
+# PoweShell
+
+- From PowerShellGallery
+
+<table>
+  <tr>
+    <td>
+      <a href="https://github.com/iAJTin/iPowerShellSmbios">
+        <img src="https://img.shields.io/badge/-iPowerShellSmbios-green.svg?style=flat"/>
+      </a>
+    </td>
+    <td>
+      <a href="https://www.powershellgallery.com/packages/iPowerShellSmbios/">
+        <img alt="PowerShellGallery Version" 
+             src="https://img.shields.io/powershellgallery/v/iPowerShellSmbios.svg?style=flat-square&label=iPowerShellSmbios" /> 
+      </a>
+    </td>  
+  </tr>
+</table>
+
+- From package manager console
+
+```PM> Install-Module -Name iPowerShellSmbios```
+
 # Usage
 
 #### Before

@@ -43,7 +43,7 @@ For more information, please see [https://www.dmtf.org/standards/smbios](https:/
 
 # Install via PowerShell
 
-Now if you want you can use iSMBIOS from PowerShell. It has the [iPowerShellSmbios] module available that contains a collection of PowerShell Cmdlets that allow us to obtain the SMBIOS information. If you want to know more, please review the available documentation from [here].
+Now if you want you can use iSMBIOS from PowerShell. It has the [iPowerShellSmbios] module available that contains a collection of Cmdlets that allow us to obtain the SMBIOS information. If you want to know more, please review the available documentation from [here].
 
 - From PowerShellGallery
 

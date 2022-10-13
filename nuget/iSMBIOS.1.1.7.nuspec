@@ -21,7 +21,7 @@
       <group targetFramework=".NETStandard2.0">
         <dependency id="System.Management" version="4.5.0" exclude="Build,Analyzers" />
       </group>
-      <group targetFramework="net6.0">
+      <group targetFramework="net60">
         <dependency id="System.Management" version="4.5.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>

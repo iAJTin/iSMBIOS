@@ -1,7 +1,28 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.1.7] - 
+## [1.1.8] 
+
+### Changed
+ 
+ - Library versions for this version
+  
+    | Library | Version | Description |
+    |:------|:------|:----------|
+    | iTin.Core| **2.0.0.5** | Base library containing various extensions, helpers, common constants |
+    | iTin.Core.Hardware.Common | **1.0.0.4** | Common Hardware Infrastructure |
+    | iTin.Core.Hardware.Linux.Specification.Smbios | 1.0.0.1 | Linux Hardware Infrastructure |
+    | iTin.Core.Hardware.MacOS.Specification.Smbios | 1.0.0.1 | MacOS Hardware Infrastructure |
+    | iTin.Core.Hardware.Windows.Specification.Smbios | 1.0.0.1 | Windows Hardware Infrastructure |
+    | iTin.Core.Interop.Shared | **1.0.0.3** | Generic Shared Interop Definitions |
+    | iTin.Core.Interop.Windows.Specification.Smbios | 1.0.0.0 | Win32 Generic Interop Calls (SMBIOS) |
+    | iTin.Hardware.Abstractions.Specification.Smbios | 1.0.0.2 | Generic Common Hardware Abstractions |
+    | iTin.Hardware.Specification.Dmi| 3.3.0.6 | DMI Specification Implementation |
+    | iTin.Hardware.Specification.Smbios| 3.3.0.6 | SMBIOS Specification Implementation |
+    | iTin.Hardware.Specification.Tpm| 1.0.0.1 | TPM Specification Implementation |
+    | iTin.Logging| 1.0.0.1 | Logging library |
+
+## [1.1.7] - 2022-10-11
 
 ### Added
  
@@ -608,6 +629,7 @@ for more information, please see how to use it in the example project. On the ot
 ### Added
 - Create project and first commit
 
+[1.1.8]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.8
 [1.1.7]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.7
 [1.1.6]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.6
 [1.1.5]: https://github.com/iAJTin/iSMBIOS/releases/tag/v1.1.5
@@ -628,4 +650,3 @@ for more information, please see how to use it in the example project. On the ot
 
 [help]: ./assets/help.png "help"
 [Connecting to WMI on a Remote Computer]: https://docs.microsoft.com/es-es/windows/win32/wmisdk/connecting-to-wmi-on-a-remote-computer
-

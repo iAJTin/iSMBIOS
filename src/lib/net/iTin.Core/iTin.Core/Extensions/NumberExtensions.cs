@@ -8,9 +8,9 @@ using iTin.Logging;
 namespace iTin.Core
 {
     /// <summary>
-    /// Static class than contains extension methods for <see cref="T:System.Byte" /> structure, <see cref="T:System.Int32" /> structure,
-    /// <see cref="T:System.UInt32" /> structure, <see cref="T:System.Int64" /> structure, <see cref="T:System.UInt64" /> structure,
-    /// <see cref="T:System.Short" /> structure and <see cref="T:System.UShort" /> structure.
+    /// Static class than contains extension methods for <see cref="byte"/> structure, <see cref="int"/> structure,
+    /// <see cref="uint"/> structure, <see cref="long"/> structure, <see cref="ulong"/> structure,
+    /// <see cref="short"/> structure and <see cref="ushort"/> structure.
     /// </summary> 
     public static class NumberExtensions
     {
@@ -28,7 +28,7 @@ namespace iTin.Core
         public static bool CheckBit(this byte value, Bits bit)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
+            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
             Logger.Instance.Debug(" Returns a value indicating whether the specified bit is enabled");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) CheckBit(this {typeof(byte)}, {typeof(Bits)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -56,7 +56,7 @@ namespace iTin.Core
         public static bool CheckBit(this byte value, byte bit)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
+            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
             Logger.Instance.Debug(" Returns a value indicating whether the specified bit is enabled");
             Logger.Instance.Debug($" > Signature: ({typeof(bool)}) CheckBit(this {typeof(byte)}, {typeof(byte)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -68,6 +68,42 @@ namespace iTin.Core
             Logger.Instance.Info($"  > Output: {result}");
 
             return result;
+        }
+        #endregion
+
+
+        #region [public] {static} (float) FromIEEE754(this byte): Returns a float from half-precision floating-point value
+        /// <summary>
+        /// Returns a float from half-precision floating-point value.
+        /// </summary>
+        /// <param name="packet">A value codified as half-precision floating-point value</param>
+        /// <returns>
+        /// A <see cref="float"/> 
+        /// </returns>
+        public static float FromIEEE754(this byte packet)
+        {
+            var sign = packet.CheckBit(Bits.Bit15) ? -1 : 1;
+            var exponent = (packet >> 10) & 0x1f;
+            var mantissa = packet & 0x3ff;
+
+            switch (exponent)
+            {
+                // Infinities
+                case 0x1f:
+                    return sign == -1 ? float.NegativeInfinity : float.PositiveInfinity;
+
+                // Zero
+                case 0x00 when mantissa == 0x00:
+                    return sign * 0.0f;
+
+                // Subnormals Numbers
+                case 0x00:
+                    return sign * (2 ^ -14) * (0.0f + mantissa / 1024.0f);
+
+                // Normalized Numbers
+                default:
+                    return sign * (2 ^ (exponent - 0x0f)) * (1.0f + mantissa / 1024.0f);
+            }
         }
         #endregion
 
@@ -84,7 +120,7 @@ namespace iTin.Core
         public static byte GetBit(this byte value, Bits bit)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
+            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
             Logger.Instance.Debug(" Returns the current state of the specified bit");
             Logger.Instance.Debug($" > Signature: ({typeof(byte)}) GetBit(this {typeof(byte)}, {typeof(Bits)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -112,7 +148,7 @@ namespace iTin.Core
         public static byte GetBit(this byte value, byte bit)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
+            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
             Logger.Instance.Debug(" Returns the current state of the specified bit");
             Logger.Instance.Debug($" > Signature: ({typeof(byte)}) GetBit(this {typeof(byte)}, {typeof(byte)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -139,7 +175,7 @@ namespace iTin.Core
         public static byte[] ToArray(this byte value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
+            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
             Logger.Instance.Debug(" Returns reference value splitted into bytes as a 2 byte array");
             Logger.Instance.Debug($" > Signature: ({typeof(byte[])}) ToArray(this {typeof(byte)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -162,7 +198,7 @@ namespace iTin.Core
         public static byte[] ToNibbles(this byte value)
         {
             Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(NumberExtensions).Assembly.GetName().Name}, v{typeof(NumberExtensions).Assembly.GetName().Version}, Namespace: {typeof(NumberExtensions).Namespace}, Class: {nameof(NumberExtensions)}");
+            Logger.Instance.Debug(" Assembly: iTin.Core, Namespace: iTin.Core, Class: ByteArrayExtensions");
             Logger.Instance.Debug(" Returns an array of bytes that contains the nibbles of this Byte");
             Logger.Instance.Debug($" > Signature: ({typeof(byte[])}) ToNibbles(this {typeof(byte)})");
             Logger.Instance.Debug($"   > value: {value}");
@@ -284,6 +320,42 @@ namespace iTin.Core
             SentinelHelper.IsTrue(onebyte > 1);
 
             return value.ToArray()[onebyte];
+        }
+        #endregion
+
+
+        #region [public] {static} (float) FromIEEE754(this int): Returns a float from half-precision floating-point value
+        /// <summary>
+        /// Returns a float from half-precision floating-point value.
+        /// </summary>
+        /// <param name="packet">A value codified as half-precision floating-point value</param>
+        /// <returns>
+        /// A <see cref="float"/> 
+        /// </returns>
+        public static float FromIEEE754(this int packet)
+        {
+            var sign = packet.CheckBit(Bits.Bit15) ? -1 : 1;
+            var exponent = (packet >> 10) & 0x1f;
+            var mantissa = packet & 0x3ff;
+
+            switch (exponent)
+            {
+                // Infinities
+                case 0x1f:
+                    return sign == -1 ? float.NegativeInfinity : float.PositiveInfinity;
+
+                // Zero
+                case 0x00 when mantissa == 0x00:
+                    return sign * 0.0f;
+
+                // Subnormals Numbers
+                case 0x00:
+                    return sign * (2 ^ -14) * (0.0f + mantissa / 1024.0f);
+
+                // Normalized Numbers
+                default:
+                    return sign * (2 ^ (exponent - 0x0f)) * (1.0f + mantissa / 1024.0f);
+            }
         }
         #endregion
 
@@ -531,6 +603,42 @@ namespace iTin.Core
             SentinelHelper.IsTrue(onebyte > 3);
 
             return value.ToArray()[onebyte];
+        }
+        #endregion
+
+
+        #region [public] {static} (float) FromIEEE754(this uint): Returns a float from half-precision floating-point value
+        /// <summary>
+        /// Returns a float from half-precision floating-point value.
+        /// </summary>
+        /// <param name="packet">A value codified as half-precision floating-point value</param>
+        /// <returns>
+        /// A <see cref="float"/> 
+        /// </returns>
+        public static float FromIEEE754(this uint packet)
+        {
+            var sign = packet.CheckBit(Bits.Bit15) ? -1 : 1;
+            var exponent = (packet >> 10) & 0x1f;
+            var mantissa = packet & 0x3ff;
+
+            switch (exponent)
+            {
+                // Infinities
+                case 0x1f:
+                    return sign == -1 ? float.NegativeInfinity : float.PositiveInfinity;
+
+                // Zero
+                case 0x00 when mantissa == 0x00:
+                    return sign * 0.0f;
+
+                // Subnormals Numbers
+                case 0x00:
+                    return sign * (2 ^ -14) * (0.0f + mantissa / 1024.0f);
+
+                // Normalized Numbers
+                default:
+                    return sign * (2 ^ (exponent - 0x0f)) * (1.0f + mantissa / 1024.0f);
+            }
         }
         #endregion
 
@@ -817,6 +925,42 @@ namespace iTin.Core
         #endregion
 
 
+        #region [public] {static} (float) FromIEEE754(this short): Returns a float from half-precision floating-point value
+        /// <summary>
+        /// Returns a float from half-precision floating-point value.
+        /// </summary>
+        /// <param name="packet">A value codified as half-precision floating-point value</param>
+        /// <returns>
+        /// A <see cref="float"/> 
+        /// </returns>
+        public static float FromIEEE754(this short packet)
+        {
+            var sign = packet.CheckBit(Bits.Bit15) ? -1 : 1;
+            var exponent = (packet >> 10) & 0x1f;
+            var mantissa = packet & 0x3ff;
+
+            switch (exponent)
+            {
+                // Infinities
+                case 0x1f:
+                    return sign == -1 ? float.NegativeInfinity : float.PositiveInfinity;
+
+                // Zero
+                case 0x00 when mantissa == 0x00:
+                    return sign * 0.0f;
+
+                // Subnormals Numbers
+                case 0x00:
+                    return sign * (2 ^ -14) * (0.0f + mantissa / 1024.0f);
+
+                // Normalized Numbers
+                default:
+                    return sign * (2 ^ (exponent - 0x0f)) * (1.0f + mantissa / 1024.0f);
+            }
+        }
+        #endregion
+
+
         #region [public] {static} (byte[]) ToArray(this short): Returns reference value splitted into bytes as a 2 byte array.
         /// <summary>
         /// Returns reference value splitted into bytes as a 2 byte array
@@ -984,6 +1128,42 @@ namespace iTin.Core
             SentinelHelper.IsTrue(onebyte > 1);
 
             return value.ToArray()[onebyte];
+        }
+        #endregion
+
+
+        #region [public] {static} (float) FromIEEE754(this ushort): Returns a float from half-precision floating-point value
+        /// <summary>
+        /// Returns a float from half-precision floating-point value.
+        /// </summary>
+        /// <param name="packet">A value codified as half-precision floating-point value</param>
+        /// <returns>
+        /// A <see cref="float"/> 
+        /// </returns>
+        public static float FromIEEE754(this ushort packet)
+        {
+            var sign = packet.CheckBit(Bits.Bit15) ? -1 : 1;
+            var exponent = (packet >> 10) & 0x1f;
+            var mantissa = packet & 0x3ff;
+
+            switch (exponent)
+            {
+                // Infinities
+                case 0x1f:
+                    return sign == -1 ? float.NegativeInfinity : float.PositiveInfinity;
+
+                // Zero
+                case 0x00 when mantissa == 0x00:
+                    return sign * 0.0f;
+
+                // Subnormals Numbers
+                case 0x00:
+                    return sign * (2 ^ -14) * (0.0f + mantissa / 1024.0f);
+
+                // Normalized Numbers
+                default:
+                    return sign * (2 ^ (exponent - 0x0f)) * (1.0f + mantissa / 1024.0f);
+            }
         }
         #endregion
 

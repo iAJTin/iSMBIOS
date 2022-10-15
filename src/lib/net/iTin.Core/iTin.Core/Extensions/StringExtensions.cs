@@ -427,6 +427,17 @@ namespace iTin.Core
         }
         #endregion
 
+        #region [public] {static} (string) RemoveControlCharacters(this string): Remove control chars from input string
+        /// <summary>
+        /// Remove control chars from input string.
+        /// </summary>
+        /// <param name="input">The value.</param>
+        /// <returns>
+        /// Returns input string without control chars.
+        /// </returns>
+        public static string RemoveControlCharacters(this string input) => new(input.Where(c => !char.IsControl(c)).ToArray());
+        #endregion
+
         #region [public] {static} (string) Reverse(this string): Returns a string that contains the value of value parameter reversed
         /// <summary>
         /// Returns a <see cref="T:System.String"/> that contains the value of <paramref name="value"/> parameter reversed.
@@ -598,7 +609,7 @@ namespace iTin.Core
 
             try
             {
-                T result = (T) Enum.Parse(typeof(T), value, true);
+                T result = (T)Enum.Parse(typeof(T), value, true);
                 Logger.Instance.Debug($"  > Output: {result}");
                 return result;
             }
@@ -673,7 +684,7 @@ namespace iTin.Core
             Logger.Instance.Debug($"   > value: {value}");
             Logger.Instance.Debug($"   > separators: {separators.Length}, [{separators[0]} ...]");
 
-            List<string> result  = value.Split(separators, StringSplitOptions.RemoveEmptyEntries).ToList();
+            List<string> result = value.Split(separators, StringSplitOptions.RemoveEmptyEntries).ToList();
             Logger.Instance.Debug($" > Output: {result.Count} elements, [{result[0]} ...]");
 
             return result;
@@ -763,8 +774,8 @@ namespace iTin.Core
         /// </summary>
         /// <param name="str"></param>
         /// <returns></returns>
-        public static string[] SplitLines(this string str) 
-            => str.Split(new[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+        public static string[] SplitLines(this string str)
+            => str.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
     }
 
 #endif

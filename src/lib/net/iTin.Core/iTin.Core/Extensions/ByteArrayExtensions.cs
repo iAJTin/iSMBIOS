@@ -6,6 +6,7 @@ using System;
 #endif
 
 using System.IO;
+using System.Text;
 
 using iTin.Core.Helpers;
 using iTin.Logging;
@@ -17,31 +18,6 @@ namespace iTin.Core
     /// </summary> 
     public static class ByteArrayExtensions
     {
-        #region [public] {static} (MemoryStream) ToMemoryStream(this byte[]): Returns a MemoryStream from this byte array.
-        /// <summary>
-        /// Returns a <see cref="T:System.IO.MemoryStream"/> from this byte array.
-        /// </summary>
-        /// <param name="data">Data to convert.</param>
-        /// <returns>
-        /// MemoryStream.
-        /// </returns>
-        public static MemoryStream ToMemoryStream(this byte[] data)
-        {
-            Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(ByteArrayExtensions).Assembly.GetName().Name}, v{typeof(ByteArrayExtensions).Assembly.GetName().Version}, Namespace: {typeof(ByteArrayExtensions).Namespace}, Class: {nameof(ByteArrayExtensions)}");
-            Logger.Instance.Debug(" Returns a {typeof(MemoryStream)} from this byte array");
-            Logger.Instance.Debug($" > Signature: ({typeof(MemoryStream)}) ToMemoryStream(this {typeof(byte[])})");
-
-            SentinelHelper.ArgumentNull(data, nameof(data));
-            Logger.Instance.Debug($"   > data: {data.Length} byte(s) [{data[0]} {data[1]} {data[2]} ...]");
-
-            var result = new MemoryStream(data);
-            Logger.Instance.Debug($" > Output: {result.Length} byte(s)");
-
-            return result;
-        }
-        #endregion
-
         #region [public] {static} (long) GetQuadrupleWord(this byte[], byte): Returns a quadriple Word from this array of bytes starting in start.
         /// <summary>
         /// Returns a <b>Quadriple Word</b> from this array of bytes starting in <paramref name="start"/>.
@@ -68,6 +44,66 @@ namespace iTin.Core
             Logger.Instance.Debug($" > Output: {result}");
 
             return result;
+        }
+        #endregion
+
+        #region [public] {static} (MemoryStream) ToMemoryStream(this byte[]): Returns a MemoryStream from this byte array.
+        /// <summary>
+        /// Returns a <see cref="T:System.IO.MemoryStream"/> from this byte array.
+        /// </summary>
+        /// <param name="data">Data to convert.</param>
+        /// <returns>
+        /// MemoryStream.
+        /// </returns>
+        public static MemoryStream ToMemoryStream(this byte[] data)
+        {
+            Logger.Instance.Debug("");
+            Logger.Instance.Debug($" Assembly: {typeof(ByteArrayExtensions).Assembly.GetName().Name}, v{typeof(ByteArrayExtensions).Assembly.GetName().Version}, Namespace: {typeof(ByteArrayExtensions).Namespace}, Class: {nameof(ByteArrayExtensions)}");
+            Logger.Instance.Debug(" Returns a {typeof(MemoryStream)} from this byte array");
+            Logger.Instance.Debug($" > Signature: ({typeof(MemoryStream)}) ToMemoryStream(this {typeof(byte[])})");
+
+            SentinelHelper.ArgumentNull(data, nameof(data));
+            Logger.Instance.Debug($"   > data: {data.Length} byte(s) [{data[0]} {data[1]} {data[2]} ...]");
+
+            var result = new MemoryStream(data);
+            Logger.Instance.Debug($" > Output: {result.Length} byte(s)");
+
+            return result;
+        }
+        #endregion
+
+        #region [public] {static} (string) ToPrintableString(this byte[], Encoding = null): Returns a printable string from this byte array
+        /// <summary>
+        /// Returns a printable <see cref="string"/> from this byte array.
+        /// </summary>
+        /// <param name="data">Data to convert.</param>
+        /// <param name="encoding">Encoding to use.</param>
+        /// <returns>
+        /// A printable <see cref="string"/>.
+        /// </returns>
+        public static string ToPrintableString(this byte[] data, Encoding encoding = null)
+        {
+            var safeEncoding = encoding;
+            if (encoding == null)
+            {
+                safeEncoding = Encoding.Default;
+            }
+
+            var builder = new StringBuilder();
+            var encodedData = safeEncoding.GetString(data);
+            foreach (var value in encodedData)
+            {
+                if (char.IsLetterOrDigit(value) || char.IsSeparator(value) || char.IsPunctuation(value))
+                {
+                    builder.Append(value);
+                }
+                else
+                {
+                    builder.Append(".");
+                }
+            }
+
+            return builder.ToString();
         }
         #endregion
 

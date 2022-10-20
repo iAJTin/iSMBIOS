@@ -1,8 +1,8 @@
 ﻿
+using System.Diagnostics.CodeAnalysis;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System.Diagnostics.CodeAnalysis;
-
     /// <summary>
     /// Define the unit of measure of a property.
     /// </summary>

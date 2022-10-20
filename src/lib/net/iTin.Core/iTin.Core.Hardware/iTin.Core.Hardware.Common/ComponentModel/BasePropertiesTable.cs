@@ -1,11 +1,11 @@
 ﻿
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+
 namespace iTin.Core.Hardware.Common.ComponentModel
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Diagnostics;
-
     /// <summary>
     /// Define a suitable generic dictionary to store properties and their value.
     /// </summary>

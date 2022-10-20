@@ -1,9 +1,9 @@
 ﻿
+using System;
+using System.ComponentModel;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System;
-    using System.ComponentModel;
-
     /// <inheritdoc />
     /// <summary>
     /// Attribute that allows you to add a description to a property.

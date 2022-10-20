@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Linq;
+using System.Management;
+
+using iTin.Core.Hardware.Abstractions.Specification.Smbios;
+
 namespace iTin.Core.Hardware.Windows.Specification.Smbios
 {
-    using System;
-    using System.Linq;
-    using System.Management;
-
-    using iTin.Core.Hardware.Common.Specification.Smbios;
-
     /// <summary>
     /// Specialization of the <see cref="ISmbiosOperations"/> interface that contains the <b>SMBIOS</b> operations for <b>Windows</b> system.
     /// </summary>

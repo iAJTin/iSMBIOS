@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>iTin.Hardware.Abstractions.Specification.Smbios</AssemblyName>
+    <PackageId>iTin.Hardware.Abstractions.Specification.Smbios</PackageId>
+    <Version>1.0.0.3</Version>
+    <Authors>iTin</Authors>
+    <Company>iTin</Company>
+    <Product>iTin.Hardware.Abstractions.Specification.Smbios</Product>
+    <Description>Generic SMBIOS Specification Abstractions</Description>
+    <Copyright>Copyright © 2022</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Abstractions\iTin.Core.Hardware.Abstractions.csproj" />
+    <ProjectReference Include="..\..\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Linux.Specification.Smbios\iTin.Core.Hardware.Linux.Specification.Smbios.csproj" />
+    <ProjectReference Include="..\..\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.MacOS.Specification.Smbios\iTin.Core.Hardware.MacOS.Specification.Smbios.csproj" />
+    <ProjectReference Include="..\..\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Windows.Specification.Smbios\iTin.Core.Hardware.Windows.Specification.Smbios.csproj" />
+  </ItemGroup>
+  
+</Project>

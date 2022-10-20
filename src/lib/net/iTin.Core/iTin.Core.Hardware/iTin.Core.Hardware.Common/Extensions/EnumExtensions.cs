@@ -1,12 +1,12 @@
 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Linq;
-    using System.Reflection;
-
     /// <summary>
     /// Static class than contains extension methods for items of type <see cref="T:System.Enum" />.
     /// </summary>
@@ -29,7 +29,7 @@ namespace iTin.Core.Hardware.Common
                 return result;
             }
 
-            return default(T);
+            return default;
         }
 
         /// <summary>
@@ -40,7 +40,8 @@ namespace iTin.Core.Hardware.Common
         /// <returns>
         /// converted values.
         /// </returns>
-        public static IEnumerable<T> AsEnumType<T>(this IEnumerable<Enum> collection) where T : struct => collection.Select(item => item.AsEnumType<T>()).ToList();
+        public static IEnumerable<T> AsEnumType<T>(this IEnumerable<Enum> collection) where T : struct 
+            => collection.Select(item => item.AsEnumType<T>()).ToList();
 
         /// <summary>
         /// Returns the value of attribute of type <see cref="T:Syntec.Core.ComponentModel.EnumDescriptionAttribute"/> for this enum value. 

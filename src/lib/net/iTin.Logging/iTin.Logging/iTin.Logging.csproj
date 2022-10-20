@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;netstandard2.1;net461;</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;</TargetFrameworks>
 		<SignAssembly>true</SignAssembly>
 		<AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<Version>1.0.0.1</Version>
+		<Version>1.0.0.2</Version>
 		<Description>Logging library</Description>
-		<Copyright>Copyright © 2020</Copyright>
+		<Copyright>Copyright © 2022</Copyright>
 		<PackageProjectUrl></PackageProjectUrl>
 		<PackageId>iTin.Logging</PackageId>
 		<Company>iTin</Company>

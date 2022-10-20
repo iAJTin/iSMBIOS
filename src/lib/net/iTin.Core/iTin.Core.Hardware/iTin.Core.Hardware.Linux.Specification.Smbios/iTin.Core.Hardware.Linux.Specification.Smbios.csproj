@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>iTin.Core.Hardware.Linux.Specification.Smbios</AssemblyName>
+    <PackageId>iTin.Core.Hardware.Linux.Specification.Smbios</PackageId>
+    <Version>1.0.0.2</Version>
+    <Authors>iTin</Authors>
+    <Company>iTin</Company>
+    <Product>iTin.Core.Hardware.Linux.Specification.Smbios</Product>
+    <Description>MacOS Generic Desktop Hardware Calls</Description>
+    <Copyright>Copyright © 2022</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\iTin.Core\iTin.Core.csproj" />
+    <ProjectReference Include="..\iTin.Core.Hardware.Abstractions\iTin.Core.Hardware.Abstractions.csproj" />
+    <ProjectReference Include="..\iTin.Core.Hardware.Common\iTin.Core.Hardware.Common.csproj" />
+  </ItemGroup>
+
+</Project>

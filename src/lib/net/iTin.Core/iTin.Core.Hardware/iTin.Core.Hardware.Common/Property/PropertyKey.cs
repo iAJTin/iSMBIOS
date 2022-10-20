@@ -1,12 +1,12 @@
 ﻿
+using System;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System;
-
     /// <summary>
     /// Defines a value that contains the detailed information of a writer.
     /// </summary>
-    public struct PropertyKey : IPropertyKey, IEquatable<PropertyKey>
+    public readonly struct PropertyKey : IPropertyKey, IEquatable<PropertyKey>
     {
         #region constructor/s
 

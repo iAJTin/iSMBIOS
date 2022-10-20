@@ -1,8 +1,8 @@
 ﻿
+using System;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System;
-
     /// <inheritdoc />
     /// <summary>
     /// Attribute that sets the type of the value of a property.

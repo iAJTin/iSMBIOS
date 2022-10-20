@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net461;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>iTin.Core</AssemblyName>
     <PackageId>iTin.Core</PackageId>
-    <Version>2.0.0.5</Version>
+    <Version>2.0.0.6</Version>
     <Authors>iTin</Authors>
     <Company>iTin</Company>
     <Product>iTin.Core</Product>
     <Description>Base library containing various extensions, helpers, common constants</Description>
-    <Copyright>Copyright © 2020</Copyright>
+    <Copyright>Copyright © 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>

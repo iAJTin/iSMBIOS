@@ -1,8 +1,8 @@
 ﻿
+using System;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System;
-
     /// <inheritdoc />
     /// <summary>
     /// Attribute that allows you to add a name to a property.

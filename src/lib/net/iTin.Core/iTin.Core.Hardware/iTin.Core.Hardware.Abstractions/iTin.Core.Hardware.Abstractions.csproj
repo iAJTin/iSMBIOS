@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>iTin.Core.Hardware.Abstractions</AssemblyName>
+    <PackageId>iTin.Core.Hardware.Abstractions</PackageId>
+    <Version>1.0.0.0</Version>
+    <Authors>iTin</Authors>
+    <Company>iTin</Company>
+    <Product>iTin.Core.Hardware.Abstractions</Product>
+    <Description>Generic Common Hardware Abstractions</Description>
+    <Copyright>Copyright © 2022</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+</Project>

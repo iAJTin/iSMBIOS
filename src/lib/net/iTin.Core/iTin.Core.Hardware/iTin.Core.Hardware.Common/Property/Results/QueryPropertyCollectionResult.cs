@@ -1,10 +1,10 @@
 ﻿
+using System.Collections.Generic;
+
+using iTin.Core.ComponentModel;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System.Collections.Generic;
-
-    using iTin.Core.ComponentModel;
-
     /// <summary>
     /// Specialization of <see cref="ResultBase{T}"/> interface.<br/>
     /// Where <c>T</c> is <see cref="IEnumerable{T}"/> where <b>T</b> is <see cref="PropertyItem"/>.<br/>

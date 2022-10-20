@@ -1,12 +1,12 @@
 ﻿
+using System;
+using System.Runtime.InteropServices;
+using System.Text;
+
+using iTin.Core.Interop.Windows.Development.SystemServices.SystemInformation.Firmware;
+
 namespace iTin.Core.Hardware.Windows.Specification.Smbios
 {
-    using System;
-    using System.Runtime.InteropServices;
-    using System.Text;
-
-    using iTin.Core.Interop.Windows.Development.SystemServices.SystemInformation.Firmware;
-
     /// <summary>
     /// Methods for handle system firmware tables.
     /// Based on <c>open-hardware-monitor</c> project, for more info, please see: https://searchcode.com/codesearch/view/3147305/ [Michael Möller].

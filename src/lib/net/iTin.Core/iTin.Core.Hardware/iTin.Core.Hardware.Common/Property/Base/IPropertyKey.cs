@@ -1,8 +1,8 @@
 ﻿
+using System;
+
 namespace iTin.Core.Hardware.Common
 {
-    using System;
-
     /// <summary>
     /// Defines a value that contains the detailed information of a writer.
     /// </summary>

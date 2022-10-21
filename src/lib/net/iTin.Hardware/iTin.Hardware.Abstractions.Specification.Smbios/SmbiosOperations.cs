@@ -17,6 +17,7 @@ namespace iTin.Hardware.Abstractions.Specification.Smbios
     public class SmbiosOperations
     {
         #region private readonly members
+
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly ISmbiosOperations _operations;
 

@@ -5417,6 +5417,122 @@ namespace iTin.Hardware.Specification.Smbios.Property
             #endregion
 
             #endregion
+
+            #region version 3.7+
+
+            #region [public] {static} (IPropertyKey) PMIC0ManufacturerId: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>
+            /// The PMIC0 Manufacturer ID indicates the manufacturer of the PMIC0 on memory device. This field shall
+            /// be set to the value of the SPD PMIC 0 Manufacturer ID Code.
+            /// A value of 0000h indicates the PMIC0 Manufacturer ID is unknown.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType017Property.PMIC0ManufacturerId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.7+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey PMIC0ManufacturerId => new PropertyKey(SmbiosStructure.MemoryDevice, SmbiosType017Property.PMIC0ManufacturerId, PropertyUnit.None);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) PMIC0RevisionNumber: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>
+            /// The PMIC0 Revision Number indicates the revision of the PMIC0 on memory device. This field shall be
+            /// set to the value of the SPD PMIC 0 Revision Number.
+            /// A value of FF00h indicates the PMIC0 Revision Number is unknown.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType017Property.PMIC0RevisionNumber"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.7+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey PMIC0RevisionNumber => new PropertyKey(SmbiosStructure.MemoryDevice, SmbiosType017Property.PMIC0RevisionNumber, PropertyUnit.None);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) RCDManufacturerId: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>
+            /// The RCD Manufacturer ID indicates the manufacturer of the RCD on memory device. This field shall be
+            /// set to the value of the SPD Registering Clock Driver Manufacturer ID Code.
+            /// A value of 0000h indicates the RCD Manufacturer ID is unknown
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType017Property.RCDManufacturerId"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.7+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey RCDManufacturerId => new PropertyKey(SmbiosStructure.MemoryDevice, SmbiosType017Property.RCDManufacturerId, PropertyUnit.None);
+            #endregion
+
+            #region [public] {static} (IPropertyKey) RCDRevisionNumber: Gets a value representing the key to retrieve the property value
+            /// <summary>
+            /// <para>Gets a value representing the key to retrieve the property.</para>
+            /// <para>
+            /// The RCD Revision Number indicates the revision of the RCD on memory device.
+            /// This field shall be set to the value of the SPD Register Revision Number.
+            /// A value of FF00h indicates the RCD Revision Number is unknown.
+            /// </para>
+            /// <para>
+            ///  <para><b>Key Composition</b></para>
+            ///  <list type="bullet">
+            ///   <item><description>Structure: <see cref="SmbiosStructure.MemoryDevice"/></description></item>
+            ///   <item><description>Property: <see cref="SmbiosType017Property.RCDRevisionNumber"/></description></item>
+            ///   <item><description>Unit: <see cref="PropertyUnit.None"/></description></item>
+            ///  </list>
+            /// </para>
+            /// <para>
+            ///  <para><b>Return Value</b></para>
+            ///  <para>Type: <see cref="ushort"/></para>
+            /// </para>
+            /// <para>
+            ///  <para><b>Remarks</b></para>
+            ///  <para>3.7+</para>
+            /// </para>
+            /// </summary>
+            public static IPropertyKey RCDRevisionNumber => new PropertyKey(SmbiosStructure.MemoryDevice, SmbiosType017Property.RCDRevisionNumber, PropertyUnit.None);
+            #endregion
+
+            #endregion
         }
         #endregion
 

@@ -446,8 +446,12 @@ namespace iTin.Hardware.Specification.Smbios
 
                     case SmbiosStructure.MemoryDevice:
                     {
-                        if (Length > 0x54)
+                        if (Length > 0x58)
                         {
+                            result = SmbiosStructureVersion.v37;
+                        }
+                        if (Length > 0x54 && Length <= 0x58)
+                        { 
                             result = SmbiosStructureVersion.v33;
                         }
                         if (Length > 0x28 && Length <= 0x54)

@@ -449,7 +449,7 @@ namespace iTin.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 3.5.0 (15/09/2021)
+        #region BIOS Specification 3.7.0 (23/07/2023)
 
         #region [private] {static} (string) GetBusDeviceFunction(byte, byte, byte): Gets a string representing Bus / Device / Function of the slot
         /// <summary>
@@ -517,6 +517,7 @@ namespace iTin.Hardware.Specification.Smbios
                     }
                 }
 
+                // see v3.6.0
                 var bit5 = code2.CheckBit(5);
                 var bit6 = code2.CheckBit(6);
                 if (bit5 == false && bit6 == false)
@@ -530,6 +531,13 @@ namespace iTin.Hardware.Specification.Smbios
                 else
                 {
                     items.Add("Flexbus slot, CXL 1.0 capable");
+                }
+
+                // v3.7.0
+                var bit7 = code2.CheckBit(7);
+                if (bit7)
+                {
+                    items.Add("Flexbus slot, CXL 3.0 capable");
                 }
             }
 

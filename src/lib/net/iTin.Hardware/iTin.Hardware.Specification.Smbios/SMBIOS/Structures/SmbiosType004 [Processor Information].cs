@@ -620,6 +620,7 @@ namespace iTin.Hardware.Specification.Smbios
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             #region 2.0+
+
             if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v20)
             {
                 properties.Add(SmbiosProperty.Processor.SocketDesignation, SocketDesignation);
@@ -648,9 +649,11 @@ namespace iTin.Hardware.Specification.Smbios
                 properties.Add(SmbiosProperty.Processor.Status.SocketPopulated, SocketPopulated);
                 properties.Add(SmbiosProperty.Processor.UpgradeMethod, GetProcessorUpgrade(UpgradeMethod));
             }
+
             #endregion
 
             #region 2.1+
+
             if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v21)
             {
                 int l1CacheHandle = L1CacheHandle;
@@ -704,18 +707,22 @@ namespace iTin.Hardware.Specification.Smbios
                     properties.Add(SmbiosProperty.Processor.L3CacheHandle, L3CacheHandle);
                 }
             }
+
             #endregion
 
             #region 2.3+
+
             if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v23)
             {
                 properties.Add(SmbiosProperty.Processor.SerialNumber, SerialNumber);
                 properties.Add(SmbiosProperty.Processor.AssetTag, AssetTag);
                 properties.Add(SmbiosProperty.Processor.PartNumber, PartNumber);
             }
+
             #endregion
 
             #region 2.5+
+
             if (StructureInfo.Length >= 0x24)
             {
                 var coreCount = CoreCount;
@@ -809,11 +816,10 @@ namespace iTin.Hardware.Specification.Smbios
             #endregion
 
             #region 3.6+
-            
+
             if (StructureInfo.StructureVersion == SmbiosStructureVersion.v36)
             {
                 properties.Add(SmbiosProperty.Processor.ThreadEnabled, ThreadEnabled);
-
             }
 
             #endregion
@@ -823,7 +829,7 @@ namespace iTin.Hardware.Specification.Smbios
         #endregion
 
 
-        #region BIOS Specification 3.6.0 (20/06/2022)
+        #region BIOS Specification 3.7.0 (23/07/2023)
 
         #region [private] {static} (string) GetProcessorFamily(IList<byte>, IEnumerable<string>): Gets a string that identifies the processor family
         /// <summary>
@@ -858,7 +864,7 @@ namespace iTin.Hardware.Specification.Smbios
                 { (ushort)0x13, "M2" },
                 { (ushort)0x14, "Intel® Celeron® M processor" },
                 { (ushort)0x15, "Intel® Pentium® 4 HT processor" },
-                //// 0x16 - Disponible.
+                { (ushort)0x16, "Intel® Processor" },
                 //// 0x17 - Disponible.
                 { (ushort)0x18, "AMD Duron™ Processor Family" },
                 { (ushort)0x19, "K5" },
@@ -1293,10 +1299,18 @@ namespace iTin.Hardware.Specification.Smbios
                 "Socket LGA1211",
                 "Socket LGA2422",
                 "Socket LGA5773",
-                "Socket BGA5773"    // 0x48
+                "Socket BGA5773",
+                "Socket AM5",
+                "Socket SP5",
+                "Socket SP6",
+                "Socket BGA883",
+                "Socket BGA1190",
+                "Socket BGA4129",
+                "Socket BGA7410",
+                "Socket BGA7529"   // 0x50
             };
 
-            if (code >= 0x01 && code <= 0x48)
+            if (code >= 0x01 && code <= 0x50)
             {
                 return value[code - 0x01];
             }

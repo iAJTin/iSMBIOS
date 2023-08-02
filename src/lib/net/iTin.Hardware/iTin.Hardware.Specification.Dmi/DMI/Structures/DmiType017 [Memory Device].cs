@@ -183,6 +183,14 @@ namespace iTin.Hardware.Specification.Dmi
                 properties.Add(DmiProperty.MemoryDevice.ExtendedSpeed, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ExtendedSpeed));
                 properties.Add(DmiProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed));
             }
+
+            if (ImplementedVersion >= DmiStructureVersion.v37)
+            {
+                properties.Add(DmiProperty.MemoryDevice.PMIC0ManufacturerId, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.PMIC0ManufacturerId));
+                properties.Add(DmiProperty.MemoryDevice.PMIC0RevisionNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.PMIC0RevisionNumber));
+                properties.Add(DmiProperty.MemoryDevice.RCDManufacturerId, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.RCDManufacturerId));
+                properties.Add(DmiProperty.MemoryDevice.RCDRevisionNumber, SmbiosStructure.GetPropertyValue(SmbiosProperty.MemoryDevice.RCDRevisionNumber));
+            }
         }
         #endregion
 

@@ -3,6 +3,23 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.8] 
 
+### Added
+ 
+- Added support for System Management BIOS (SMBIOS) v3.7.0, includes:
+
+      * Processor Information (Type 4):
+        - SMBIOSCR00222: Added new processor sockets
+        - SMBIOSCR00224: Added new processor family
+        – SMBIOSCR00225: Added new processor socket
+        – SMBIOSCR00226: Added new processor sockets and updated link for LoongArch processor-specific data
+        – SMBIOSCR00228: Added new processor sockets
+
+      * Memory Device (Type 9):
+        - SMBIOSCR00221: Modified CXL description and added CXL 3.0 support
+
+      * Memory Device (Type 17):
+        - SMBIOSCR00227: Added PMIC/RCD Manufacturer ID and Revision information
+
 ### Changed
  
  - Library versions for this version

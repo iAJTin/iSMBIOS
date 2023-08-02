@@ -1215,7 +1215,25 @@ namespace iTin.Hardware.Specification.Dmi
 
         [PropertyDescription("")]
         [PropertyType(typeof(ushort))]
-        ExtendedConfiguredMemorySpeed
+        ExtendedConfiguredMemorySpeed,
+        #endregion
+
+        #region version 3.7+
+        [PropertyDescription("")]
+        [PropertyType(typeof(ushort))]
+        PMIC0ManufacturerId,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(ushort))]
+        PMIC0RevisionNumber,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(ushort))]
+        RCDManufacturerId,
+
+        [PropertyDescription("")]
+        [PropertyType(typeof(ushort))]
+        RCDRevisionNumber
         #endregion
     }
     #endregion

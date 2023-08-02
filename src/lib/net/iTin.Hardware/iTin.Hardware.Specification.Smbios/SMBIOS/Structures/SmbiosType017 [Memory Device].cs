@@ -206,6 +206,18 @@ namespace iTin.Hardware.Specification.Smbios
     // |                      Speed                                       configured speed of the memory device, in          |
     // |                                                                  megatransfers per second (MT/s).                   |
     // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 5Ch      3.7+        PMIC0               WORD        Varies      The two-byte PMIC0 manufacturer ID found in the    |
+    // |                      Manufacturer ID                             SPD of this memory device; LSB first.              |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 5Eh      3.7+        PMIC0 Revision      WORD        Varies      The PMIC 0 Revision Number found in the SPD of     |
+    // |                      Number                                      this memory device.                                |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 60h      3.7+        RCD                 WORD        Varies      The two-byte RCD manufacturer ID found in the      |
+    // |                      Manufacturer ID                             SPD of this memory device; LSB first.              |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
+    // | 62h      3.7+        RCD Revision        WORD        Varies      The RCD 0 Revision Number found in the SPD of      |
+    // |                      Number                                      this memory device.                                |
+    // •—————————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
     /// <inheritdoc/>
     /// <summary>
@@ -671,6 +683,54 @@ namespace iTin.Hardware.Specification.Smbios
 
         #endregion
 
+        #region Version 3.7+ fields
+
+        #region [private] (ushort) PMIC0ManufacturerId: Gets a value representing the 'PMIC0 Manufacturer ID' field
+        /// <summary>
+        /// Gets a value representing the <b>PMIC0 Manufacturer ID</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ushort PMIC0ManufacturerId => (ushort)Reader.GetWord(0x5c);
+        #endregion
+
+        #region [private] (ushort) PMIC0RevisionNumber: Gets a value representing the 'PMIC0 Revision Number' field
+        /// <summary>
+        /// Gets a value representing the <b>PMIC0 Revision Number</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ushort PMIC0RevisionNumber => (ushort)Reader.GetWord(0x5e);
+        #endregion
+
+        #region [private] (ushort) RCDManufacturerId: Gets a value representing the 'RCD Manufacturer ID' field
+        /// <summary>
+        /// Gets a value representing the <b>RCD Manufacturer ID</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ushort RCDManufacturerId => (ushort)Reader.GetWord(0x60);
+        #endregion
+
+        #region [private] (ushort) RCDRevisionNumber: Gets a value representing the 'RCD Revision Number' field
+        /// <summary>
+        /// Gets a value representing the <b>RCD Revision Number</b> field.
+        /// </summary>
+        /// <value>
+        /// Property value.
+        /// </value>
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        private ushort RCDRevisionNumber => (ushort)Reader.GetWord(0x62);
+        #endregion
+
+        #endregion
+
         #endregion
 
         #region protected override methods
@@ -755,13 +815,21 @@ namespace iTin.Hardware.Specification.Smbios
                 properties.Add(SmbiosProperty.MemoryDevice.ExtendedSpeed, ExtendedSpeed);
                 properties.Add(SmbiosProperty.MemoryDevice.ExtendedConfiguredMemorySpeed, ExtendedConfiguredSpeed);
             }
+
+            if (StructureInfo.StructureVersion >= SmbiosStructureVersion.v37)
+            {
+                properties.Add(SmbiosProperty.MemoryDevice.PMIC0ManufacturerId, PMIC0ManufacturerId);
+                properties.Add(SmbiosProperty.MemoryDevice.PMIC0RevisionNumber, PMIC0RevisionNumber);
+                properties.Add(SmbiosProperty.MemoryDevice.RCDManufacturerId, RCDManufacturerId);
+                properties.Add(SmbiosProperty.MemoryDevice.RCDRevisionNumber, RCDRevisionNumber);
+            }
         }
         #endregion
 
         #endregion
 
 
-        #region BIOS Specification 3.6.0 (20/06/2022)
+        #region BIOS Specification 3.7.0 (23/07/2023)
 
         #region [private] {static} (string) GetDeviceType(byte): Gets a string representing the device type
         /// <summary>

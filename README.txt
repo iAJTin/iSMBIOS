@@ -4,13 +4,31 @@ What is iSMBIOS?
 
 iSMBIOS is a lightweight implementation that allows us to obtain the SMBIOS information. Currently only works on Windows.
 
-This library implements DMTF Specification 3.6.0 version and olders versions
+This library implements DMTF Specification 3.7.0 version and olders versions
 
 For more information, please see https://www.dmtf.org/standards/smbios
 
 
 Changes in this version (v1.1.8)
 ================================
+
+· Added
+  -----
+
+  - Added support for System Management BIOS (SMBIOS) v3.6.0, includes:
+
+      * Processor Information (Type 4):
+        - SMBIOSCR00222: Added new processor sockets
+        - SMBIOSCR00224: Added new processor family
+        – SMBIOSCR00225: Added new processor socket
+        – SMBIOSCR00226: Added new processor sockets and updated link for LoongArch processor-specific data
+        – SMBIOSCR00228: Added new processor sockets
+
+      * Memory Device (Type 9):
+        - SMBIOSCR00221: Modified CXL description and added CXL 3.0 support
+
+      * Memory Device (Type 17):
+        - SMBIOSCR00227: Added PMIC/RCD Manufacturer ID and Revision information
 
 · Changed
   -------

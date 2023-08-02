@@ -230,7 +230,7 @@ namespace iTin.Hardware.Specification.Smbios
         /// Property value.
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private string ProcessorId => $"{Reader.GetWord(0x08):X}";
+        private string ProcessorId => $"{Reader.GetQuadrupleWord(0x08):X}";
         #endregion
 
         #region [private] (string) Version: Gets a value representing the 'Version' field

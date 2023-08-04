@@ -15,6 +15,7 @@
     <Copyright>Copyright © 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -4,47 +4,46 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
-namespace iTin.Hardware.Specification.Smbios
+namespace iTin.Hardware.Specification.Smbios;
+
+/// <summary>
+/// Helper class for <see cref="SMBIOS"/>.
+/// </summary>
+internal static class SmbiosHelper
 {
+    public const string Unknown = "Unknown";
+    public const string Reserved = "Reserved";
+    public const string OutOfSpec = "<OUT OF SPEC>";
+
     /// <summary>
-    /// Helper class for <see cref="SMBIOS"/>.
+    /// Returns all stored strings in raw table.
     /// </summary>
-    internal static class SmbiosHelper
+    /// <param name="rawDataArray">Raw table</param>
+    /// <returns>
+    /// Strings stored in raw data.
+    /// </returns>
+    public static string[] ParseStrings(byte[] rawDataArray)
     {
-        public const string Unknown = "Unknown";
-        public const string Reserved = "Reserved";
-        public const string OutOfSpec = "<OUT OF SPEC>";
+        var exit = false;
+        int index = rawDataArray[1];
+        var items = new Collection<string> { string.Empty };
 
-        /// <summary>
-        /// Returns all stored strings in raw table.
-        /// </summary>
-        /// <param name="rawDataArray">Raw table</param>
-        /// <returns>
-        /// Strings stored in raw data.
-        /// </returns>
-        public static string[] ParseStrings(byte[] rawDataArray)
+        while (!exit)
         {
-            bool exit = false;
-            int index = rawDataArray[1];
-            Collection<string> items = new Collection<string> { string.Empty };
+            int end = Array.IndexOf(rawDataArray, (byte)0x00, index);
+            int count = end - index;
+            items.Add(Encoding.ASCII.GetString(rawDataArray, index, count));
 
-            while (!exit)
+            if (rawDataArray[end + 1] == 0x00)
             {
-                int end = Array.IndexOf(rawDataArray, (byte)0x00, index);
-                int count = end - index;
-                items.Add(Encoding.ASCII.GetString(rawDataArray, index, count));
-
-                if (rawDataArray[end + 1] == 0x00)
-                {
-                    exit = true;
-                }
-                else
-                {
-                    index = end + 1;
-                }
+                exit = true;
             }
-
-            return items.ToArray();
+            else
+            {
+                index = end + 1;
+            }
         }
+
+        return items.ToArray();
     }
 }

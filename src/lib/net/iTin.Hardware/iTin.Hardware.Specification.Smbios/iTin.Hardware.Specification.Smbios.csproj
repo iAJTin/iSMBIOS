@@ -14,6 +14,7 @@
     <Description>System Management BIOS (SMBIOS). Standard format of the data collected by the BIOS. SMBIOS defines this information in a series of data tables, where information about system components such as memory, peripheral devices, expansion cards, inventory label and operating system is collected</Description>
     <Copyright>Copyright © 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

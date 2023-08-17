@@ -1,15 +1,4 @@
-﻿<p align="center">
-  <img src="https://cdn.rawgit.com/iAJTin/iSMBIOS/master/nuget/iSMBIOS.png"  
-       height="32"/>
-</p>
-<p align="center">
-  <a href="https://github.com/iAJTin/iSMBIOS">
-    <img src="https://img.shields.io/badge/iTin-iSMBIOS-green.svg?style=flat"/>
-  </a>
-</p>
-
-***
-
+﻿
 # What is iSMBIOS?
 iSMBIOS is a lightweight implementation that allows us to obtain the SMBIOS information. **Currently only works on Windows**
 
@@ -17,57 +6,7 @@ This library implements DMTF Specification 3.7.0 version and olders versions
 
 For more information, please see [https://www.dmtf.org/standards/smbios](https://www.dmtf.org/standards/smbios)
 
-# Install via NuGet
-
-- From nuget gallery
-
-<table>
-  <tr>
-    <td>
-      <a href="https://github.com/iAJTin/iSMBIOS">
-        <img src="https://img.shields.io/badge/-iSMBIOS-green.svg?style=flat"/>
-      </a>
-    </td>
-    <td>
-      <a href="https://www.nuget.org/packages/iSMBIOS/">
-        <img alt="NuGet Version" 
-             src="https://img.shields.io/nuget/v/iSMBIOS.svg" /> 
-      </a>
-    </td>  
-  </tr>
-</table>
-
-- From package manager console
-
-```PM> Install-Package iSMBIOS```
-
-# Install via PowerShell
-
-Now if you want you can use iSMBIOS from PowerShell. It has the [iPowerShellSmbios] module available that contains a collection of Cmdlets that allow us to obtain the SMBIOS information. If you want to know more, please review the available documentation from [here].
-
-- From PowerShellGallery
-
-<table>
-  <tr>
-    <td>
-      <a href="https://github.com/iAJTin/iPowerShellSmbios">
-        <img src="https://img.shields.io/badge/-iPowerShellSmbios-green.svg?style=flat"/>
-      </a>
-    </td>
-    <td>
-      <a href="https://www.powershellgallery.com/packages/iPowerShellSmbios/">
-        <img alt="PowerShellGallery Version" 
-             src="https://img.shields.io/powershellgallery/v/iPowerShellSmbios.svg?style=flat-square&label=iPowerShellSmbios" /> 
-      </a>
-    </td>  
-  </tr>
-</table>
-
-- From PowerShell console
-
-```PM> Install-Module -Name iPowerShellSmbios```
-
-# Usage
+### Usage
 
 #### Before
 
@@ -81,7 +20,7 @@ as the argument of the **DMI method.CreateInstance(optionsInstance)**.
    
 For more info, please see [CHANGELOG] file.
 
-## Examples
+### Examples
 
 1. Gets and prints **SMBIOS** version.
 
@@ -290,21 +229,5 @@ For more info, please see [CHANGELOG] file.
             }
         }
 
-# Documentation
-
- - For full code documentation, please see next link [documentation].
-
-# How can I send feedback!!!
-
-If you have found **iSMBIOS** useful at work or in a personal project, I would love to hear about it. If you have decided not to use **iSMBIOS**, please send me and email stating why this is so. I will use this feedback to improve **iSMBIOS** in future releases.
-
-My email address is 
-
-![email.png][email] 
-
-
-[email]: ./../assets/email.png "email"
-[documentation]: ./../documentation/iTin.Hardware.Specification.Dmi.md
 [CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md
-[iPowerShellSmbios]: https://github.com/iAJTin/iPowerShellSmbios
-[here]: https://github.com/iAJTin/iPowerShellSmbios/blob/main/documentation/iPowerShellSmbios.md
+

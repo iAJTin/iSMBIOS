@@ -97,7 +97,6 @@ namespace iTin.Hardware.Specification.Smbios;
 // |                                                              of a TPM device)                              |
 // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-/// <inheritdoc/>
 /// <summary>
 /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Firmware Inventory Information (Type 45) structure.
 /// </summary>
@@ -234,10 +233,7 @@ internal sealed class SmbiosType045 : SmbiosBaseType
 
     #region protected override methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         #region 3.5

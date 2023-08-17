@@ -15,7 +15,6 @@ namespace iTin.Hardware.Specification.Smbios;
 // |                                                      structure.                                            |
 // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-/// <inheritdoc/>
 /// <summary>
 /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the End Of Table (Type 127) structure.
 /// </summary>
@@ -36,10 +35,7 @@ internal class SmbiosType127 : SmbiosBaseType
 
     #region protected override methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         properties.Add(SmbiosProperty.EndOfTable.Status, "End Of Table Structures");

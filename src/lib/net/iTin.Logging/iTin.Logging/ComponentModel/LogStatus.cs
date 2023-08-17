@@ -1,19 +1,18 @@
 
-namespace iTin.Logging.ComponentModel
+namespace iTin.Logging.ComponentModel;
+
+/// <summary>
+/// Contains values that specify log status
+/// </summary>
+public enum LogStatus
 {
     /// <summary>
-    /// Contains values that specify log status
+    /// Activate log activity.
     /// </summary>
-    public enum LogStatus
-    {
-        /// <summary>
-        /// Activate log activity.
-        /// </summary>
-        Running,
+    Running,
 
-        /// <summary>
-        /// Pauses log activitiy.
-        /// </summary>
-        Paused
-    }
+    /// <summary>
+    /// Pauses log activitiy.
+    /// </summary>
+    Paused
 }

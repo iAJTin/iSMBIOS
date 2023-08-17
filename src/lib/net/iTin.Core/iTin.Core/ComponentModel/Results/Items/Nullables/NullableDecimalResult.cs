@@ -17,7 +17,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="NullableDecimalResult"/> with specified detailed error.
         /// </returns>
-        public new static NullableDecimalResult CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public new static NullableDecimalResult CreateErrorResult(string message, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="NullableDecimalResult"/> with specified detailed error.
@@ -28,7 +29,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="NullableDecimalResult"/> with specified detailed error.
         /// </returns>
-        public new static NullableDecimalResult CreateErrorResult(string message, decimal? result, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
+        public new static NullableDecimalResult CreateErrorResult(string message, decimal? result, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="NullableDecimalResult"/> with specified detailed errors collection.
@@ -83,7 +85,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new <see cref="NullableDecimalResult"/> instance for specified exception.
         /// </returns>
-        public new static NullableDecimalResult FromException(Exception exception) => FromException(exception, default);
+        public new static NullableDecimalResult FromException(Exception exception) => 
+            FromException(exception, default);
 
         /// <summary>
         /// Creates a new <see cref="NullableDecimalResult"/> instance from known exception.

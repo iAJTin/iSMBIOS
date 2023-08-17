@@ -1,14 +1,13 @@
 ﻿
-namespace iTin.Core.Interop.Shared.CrossPlatform
+namespace iTin.Core.Interop.Shared.CrossPlatform;
+
+/// <summary>
+/// Defines dll names
+/// </summary>
+public static class ExternDll
 {
     /// <summary>
-    /// Defines dll names
+    /// Cpuid dll
     /// </summary>
-    public static class ExternDll
-    {
-        /// <summary>
-        /// Cpuid dll
-        /// </summary>
-        public const string Cpuid = "cpuid";
-    }
+    public const string Cpuid = "cpuid";
 }

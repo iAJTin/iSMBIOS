@@ -1,44 +1,43 @@
 
-namespace iTin.Logging.ComponentModel
+namespace iTin.Logging.ComponentModel;
+
+/// <summary>
+/// Contains values that specify log verbosity.
+/// </summary>
+public enum LogLevel
 {
     /// <summary>
-    /// Contains values that specify log verbosity.
+    /// None
     /// </summary>
-    public enum LogLevel
-    {
-        /// <summary>
-        /// None
-        /// </summary>
-        None,
+    None,
 
-        /// <summary>
-        /// Fatal
-        /// </summary>
-        Fatal,
+    /// <summary>
+    /// Fatal
+    /// </summary>
+    Fatal,
         
-        /// <summary>
-        /// Error
-        /// </summary>
-        Error,
+    /// <summary>
+    /// Error
+    /// </summary>
+    Error,
         
-        /// <summary>
-        /// Warning
-        /// </summary>
-        Warn,
+    /// <summary>
+    /// Warning
+    /// </summary>
+    Warn,
         
-        /// <summary>
-        /// Information
-        /// </summary>
-        Info,
+    /// <summary>
+    /// Information
+    /// </summary>
+    Info,
         
-        /// <summary>
-        /// Debug
-        /// </summary>
-        Debug,
+    /// <summary>
+    /// Debug
+    /// </summary>
+    Debug,
         
-        /// <summary>
-        /// All
-        /// </summary>
-        All
-    }
+    /// <summary>
+    /// All
+    /// </summary>
+    All
 }

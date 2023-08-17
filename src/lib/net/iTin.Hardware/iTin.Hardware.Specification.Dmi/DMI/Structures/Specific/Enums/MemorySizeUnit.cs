@@ -1,29 +1,28 @@
 ﻿
-namespace iTin.Hardware.Specification.Dmi
+namespace iTin.Hardware.Specification.Dmi;
+
+/// <summary>
+/// Defines the unit of measurement of the memory.
+/// </summary>
+public enum MemorySizeUnit
 {
     /// <summary>
-    /// Defines the unit of measurement of the memory.
+    /// Memory expressed in kilobytes
     /// </summary>
-    public enum MemorySizeUnit
-    {
-        /// <summary>
-        /// Memory expressed in kilobytes
-        /// </summary>
-        KB = -1,
+    KB = -1,
 
-        /// <summary>
-        /// Memory expressed in megabytes
-        /// </summary>
-        MB,
+    /// <summary>
+    /// Memory expressed in megabytes
+    /// </summary>
+    MB,
 
-        /// <summary>
-        /// Memory expressed in gigabytes
-        /// </summary>
-        GB,
+    /// <summary>
+    /// Memory expressed in gigabytes
+    /// </summary>
+    GB,
 
-        /// <summary>
-        /// Undefined
-        /// </summary>
-        Reserved
-    }
+    /// <summary>
+    /// Undefined
+    /// </summary>
+    Reserved
 }

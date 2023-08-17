@@ -1,11 +1,11 @@
 ﻿
 using System;
 using System.Collections.Generic;
-namespace iTin.Core.ComponentModel.Results
 
+namespace iTin.Core.ComponentModel.Results
 {
     /// <summary>
-    /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a byte result.
+    /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a <see cref="T:System.Byte"/> result.
     /// </summary>
     public class ByteResult : ResultBase<byte>
     {
@@ -17,7 +17,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="ByteResult"/> with specified detailed error.
         /// </returns>
-        public new static ByteResult CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public new static ByteResult CreateErrorResult(string message, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="ByteResult"/> with specified detailed error.
@@ -28,7 +29,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="ByteResult"/> with specified detailed error.
         /// </returns>
-        public new static ByteResult CreateErrorResult(string message, byte result, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
+        public new static ByteResult CreateErrorResult(string message, byte result, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="ByteResult"/> with specified detailed errors collection.
@@ -83,7 +85,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new <see cref="ByteResult"/> instance for specified exception.
         /// </returns>
-        public new static ByteResult FromException(Exception exception) => FromException(exception, default);
+        public new static ByteResult FromException(Exception exception) => 
+            FromException(exception, default);
 
         /// <summary>
         /// Creates a new <see cref="ByteResult"/> instance from known exception.

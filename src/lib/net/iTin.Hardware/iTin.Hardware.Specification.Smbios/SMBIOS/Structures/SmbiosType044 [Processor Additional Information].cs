@@ -26,7 +26,6 @@ namespace iTin.Hardware.Specification.Smbios;
 // |              Block                                                                                         |
 // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-/// <inheritdoc/>
 /// <summary>
 /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Processor Additional Information (Type 44) structure.
 /// </summary>
@@ -69,10 +68,7 @@ internal sealed class SmbiosType044 : SmbiosBaseType
 
     #region protected override methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         properties.Add(SmbiosProperty.ProcessorAdditionalInformation.ReferencedHandle, ReferencedHandle);

@@ -2,26 +2,25 @@
 using System.Diagnostics;
 using System.Threading;
 
-namespace iTin.Logging
+namespace iTin.Logging;
+
+/// <summary>
+/// Static class than contains methods for retrieve system information.
+/// </summary>
+public static class SystemHelper
 {
     /// <summary>
-    /// Static class than contains methods for retrieve system information.
+    /// Runs specified program with parameters and options.
     /// </summary>
-    public static class SystemHelper
+    /// <param name="program">Program name</param>
+    /// <param name="arguments">Program arguments</param>
+    public static void RunProgram(string program, string arguments)
     {
-        /// <summary>
-        /// Runs specified program with parameters and options.
-        /// </summary>
-        /// <param name="program">Program name</param>
-        /// <param name="arguments">Program arguments</param>
-        public static void RunProgram(string program, string arguments)
+        ProcessStartInfo startInfo = new ProcessStartInfo(program, arguments) { UseShellExecute = true };
+        using (Process.Start(startInfo))
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo(program, arguments) { UseShellExecute = true };
-            using (Process.Start(startInfo))
-            {
-            }
-
-            Thread.Sleep(1000);
         }
+
+        Thread.Sleep(1000);
     }
 }

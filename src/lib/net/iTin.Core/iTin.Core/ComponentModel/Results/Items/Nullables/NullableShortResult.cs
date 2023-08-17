@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace iTin.Core.ComponentModel.Results
 {
-
     /// <summary>
     /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a nullable short result.
     /// </summary>
@@ -18,7 +17,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="NullableShortResult"/> with specified detailed error.
         /// </returns>
-        public new static NullableShortResult CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public new static NullableShortResult CreateErrorResult(string message, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="NullableShortResult"/> with specified detailed error.
@@ -29,7 +29,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="NullableShortResult"/> with specified detailed error.
         /// </returns>
-        public new static NullableShortResult CreateErrorResult(string message, short? result, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
+        public new static NullableShortResult CreateErrorResult(string message, short? result, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="NullableShortResult"/> with specified detailed errors collection.
@@ -84,7 +85,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new <see cref="NullableShortResult"/> instance for specified exception.
         /// </returns>
-        public new static NullableShortResult FromException(Exception exception) => FromException(exception, default);
+        public new static NullableShortResult FromException(Exception exception) => 
+            FromException(exception, default);
 
         /// <summary>
         /// Creates a new <see cref="NullableShortResult"/> instance from known exception.

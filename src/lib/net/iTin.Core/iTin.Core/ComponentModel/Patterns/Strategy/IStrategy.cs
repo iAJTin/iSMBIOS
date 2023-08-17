@@ -1,14 +1,13 @@
 ﻿
-namespace iTin.Core.ComponentModel.Patterns
+namespace iTin.Core.ComponentModel.Patterns;
+
+/// <summary>
+/// 
+/// </summary>
+public interface IStrategy
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IStrategy
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        void Execute();
-    }
+    void Execute();
 }

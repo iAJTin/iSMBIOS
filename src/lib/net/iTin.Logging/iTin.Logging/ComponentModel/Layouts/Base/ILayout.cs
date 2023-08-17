@@ -1,10 +1,9 @@
 
-namespace iTin.Logging.ComponentModel
+namespace iTin.Logging.ComponentModel;
+
+/// <summary>
+/// Defines a generic layout
+/// </summary>
+public interface ILayout
 {
-    /// <summary>
-    /// Defines a generic layout
-    /// </summary>
-    public interface ILayout
-    {
-    }
 }

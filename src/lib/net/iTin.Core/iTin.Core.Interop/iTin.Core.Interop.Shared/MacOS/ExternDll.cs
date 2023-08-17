@@ -1,14 +1,13 @@
 ﻿
-namespace iTin.Core.Interop.Shared.MacOS
+namespace iTin.Core.Interop.Shared.MacOS;
+
+/// <summary>
+/// Defines library names
+/// </summary>
+public static class ExternDll
 {
     /// <summary>
-    /// Defines library names
+    /// libc library
     /// </summary>
-    public static class ExternDll
-    {
-        /// <summary>
-        /// libc library
-        /// </summary>
-        public const string Libc = "libc";
-    }
+    public const string Libc = "libc";
 }

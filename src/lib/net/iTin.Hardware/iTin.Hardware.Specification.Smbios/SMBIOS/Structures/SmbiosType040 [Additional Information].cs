@@ -31,7 +31,6 @@ namespace iTin.Hardware.Specification.Smbios
     // |              entries                                                                                       |
     // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-    /// <inheritdoc/>
     /// <summary>
     /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Additional Information (Type 40) structure.
     /// </summary>
@@ -39,8 +38,6 @@ namespace iTin.Hardware.Specification.Smbios
     {
         #region constructor/s
 
-        #region [public] SmbiosType040(SmbiosStructureHeaderInfo, int): Initializes a new instance of the class by specifying the structure information and the SMBIOS version
-        /// <inheritdoc/>
         /// <summary>
         /// Initializes a new instance of the <see cref="SmbiosType040"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
         /// </summary>
@@ -49,13 +46,11 @@ namespace iTin.Hardware.Specification.Smbios
         public SmbiosType040(SmbiosStructureHeaderInfo smbiosStructureHeaderInfo, int smbiosVersion) : base(smbiosStructureHeaderInfo, smbiosVersion)
         {
         }
-        #endregion
 
         #endregion
 
         #region private properties
 
-        #region [private] (byte) Count: Gets a value representing the 'Count' field
         /// <summary>
         /// Gets a value representing the <b>Count</b> field.
         /// </summary>
@@ -64,18 +59,12 @@ namespace iTin.Hardware.Specification.Smbios
         /// </value>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private byte Count => Reader.GetByte(0x04);
-        #endregion
 
         #endregion
 
         #region protected override methods
 
-        #region [protected] {override} (void) PopulateProperties(SmbiosPropertiesTable): Populates the property collection for this structure
         /// <inheritdoc/>
-        /// <summary>
-        /// Populates the property collection for this structure.
-        /// </summary>
-        /// <param name="properties">Collection of properties of this structure.</param>
         protected override void PopulateProperties(SmbiosPropertiesTable properties)
         {
             if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)
@@ -94,14 +83,12 @@ namespace iTin.Hardware.Specification.Smbios
             IEnumerable<AdditionalInformationEntry> containedElements = GetContainedElements(containedElementsArray, n);
             properties.Add(SmbiosProperty.AdditionalInformation.Entries, new AdditionalInformationEntryCollection(containedElements));
         }
-        #endregion
 
         #endregion
 
 
         #region BIOS Specification 2.7.1 (26/01/2011)
 
-        #region [private] {static} (IEnumerable<AdditionalInformationEntry>) GetContainedElements(byte[], byte): Gets the list of additional entries
         /// <summary>
         /// Gets the list of additional entries.
         /// </summary>
@@ -113,7 +100,7 @@ namespace iTin.Hardware.Specification.Smbios
         private static IEnumerable<AdditionalInformationEntry> GetContainedElements(byte[] rawValueArray, byte n)
         {
             int m = rawValueArray.Length / n;
-            Collection<AdditionalInformationEntry> containedElements = new Collection<AdditionalInformationEntry>();
+            var containedElements = new Collection<AdditionalInformationEntry>();
 
             for (int i = 0; i < rawValueArray.Length; i += m)
             {
@@ -125,7 +112,6 @@ namespace iTin.Hardware.Specification.Smbios
 
             return containedElements;
         }
-        #endregion
 
         #endregion
     }

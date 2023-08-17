@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file.
   
     | Library | Version | Description |
     |:------|:------|:----------|
-    | iTin.Core| **2.0.0.6** | Base library containing various extensions, helpers, common constants |
+    | iTin.Core| **2.0.0.7** | Base library containing various extensions, helpers, common constants |
     | **iTin.Core.Hardware.Abstractions** | **1.0.0.0** | **Generic Common Hardware Abstractions** |
     | iTin.Core.Hardware.Common | **1.0.0.5** | Common Hardware Infrastructure |
     | iTin.Core.Hardware.Linux.Specification.Smbios | **1.0.0.2** | Linux Hardware Infrastructure |
@@ -38,7 +38,7 @@ All notable changes to this project will be documented in this file.
     | iTin.Hardware.Specification.Dmi | **3.3.0.7** | DMI Specification Implementation |
     | iTin.Hardware.Specification.Smbios | **3.3.0.7** | SMBIOS Specification Implementation |
     | iTin.Hardware.Specification.Tpm | **1.0.0.2** | TPM Specification Implementation |
-    | iTin.Logging | **1.0.0.2** | Logging library |
+    | iTin.Logging | **1.0.0.3** | Logging library |
 
 ## [1.1.7] - 2022-10-11
 

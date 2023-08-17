@@ -1,24 +1,23 @@
 
-namespace iTin.Logging.ComponentModel
+namespace iTin.Logging.ComponentModel;
+
+/// <summary>
+/// Contains values that specify log deep
+/// </summary>
+public enum LogDeep
 {
     /// <summary>
-    /// Contains values that specify log deep
+    /// Logger show any call (Application / External).
     /// </summary>
-    public enum LogDeep
-    {
-        /// <summary>
-        /// Logger show any call (Application / External).
-        /// </summary>
-        AnyCall,
+    AnyCall,
 
-        /// <summary>
-        /// Logger show only application calls.
-        /// </summary>
-        OnlyApplicationCalls,
+    /// <summary>
+    /// Logger show only application calls.
+    /// </summary>
+    OnlyApplicationCalls,
 
-        /// <summary>
-        /// Logger show only library external calls.
-        /// </summary>
-        OnlyExternalCalls,
-    }
+    /// <summary>
+    /// Logger show only library external calls.
+    /// </summary>
+    OnlyExternalCalls,
 }

@@ -1,24 +1,23 @@
 ﻿
-namespace iTin.Core.Hardware.Windows.Specification.Smbios
+namespace iTin.Core.Hardware.Windows.Specification.Smbios;
+
+/// <summary>
+/// Defines firmware tables
+/// </summary>
+public enum FirmwareProvider
 {
     /// <summary>
-    /// Defines firmware tables
+    /// 'ACPI' table
     /// </summary>
-    public enum FirmwareProvider
-    {
-        /// <summary>
-        /// 'ACPI' table
-        /// </summary>
-        ACPI = 0x41435049,
+    ACPI = 0x41435049,
 
-        /// <summary>
-        /// 'FIRM' table
-        /// </summary>
-        FIRM = 0x4649524D,
+    /// <summary>
+    /// 'FIRM' table
+    /// </summary>
+    FIRM = 0x4649524D,
 
-        /// <summary>
-        /// 'RSMB' table
-        /// </summary>
-        RSMB = 0x52534D42
-    }
+    /// <summary>
+    /// 'RSMB' table
+    /// </summary>
+    RSMB = 0x52534D42
 }

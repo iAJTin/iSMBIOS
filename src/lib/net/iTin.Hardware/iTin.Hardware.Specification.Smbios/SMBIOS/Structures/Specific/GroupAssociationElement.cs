@@ -4,6 +4,7 @@ using System.Diagnostics;
 using iTin.Hardware.Specification.Smbios.Property;
 
 namespace iTin.Hardware.Specification.Smbios;
+
 // Type 014: Group Associations. Contained Elements
 // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 // | Offset       Name            Length      Value       Description                                           |
@@ -70,10 +71,7 @@ public class GroupAssociationElement : SpecificSmbiosBaseType
 
     #region protected override methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         properties.Add(SmbiosProperty.GroupAssociations.Items.Structure, ItemType);

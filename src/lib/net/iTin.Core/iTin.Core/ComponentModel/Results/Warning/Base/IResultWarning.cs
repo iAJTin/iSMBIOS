@@ -1,25 +1,24 @@
 ﻿
-namespace iTin.Core.ComponentModel
+namespace iTin.Core.ComponentModel;
+
+/// <summary>
+/// Defines a generic result data.
+/// </summary>
+public interface IResultWarning
 {
     /// <summary>
-    /// Defines a generic result data.
+    /// Gets or sets the code.
     /// </summary>
-    public interface IResultWarning
-    {
-        /// <summary>
-        /// Gets or sets the code.
-        /// </summary>
-        /// <value>
-        /// The code.
-        /// </value>
-        string Code { get; set; }
+    /// <value>
+    /// The code.
+    /// </value>
+    string Code { get; set; }
 
-        /// <summary>
-        /// Gets or sets the message.
-        /// </summary>
-        /// <value>
-        /// The message.
-        /// </value>
-        string Message { get; set; }
-    }
+    /// <summary>
+    /// Gets or sets the message.
+    /// </summary>
+    /// <value>
+    /// The message.
+    /// </value>
+    string Message { get; set; }
 }

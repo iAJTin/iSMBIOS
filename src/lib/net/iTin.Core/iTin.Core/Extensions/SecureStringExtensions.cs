@@ -5,72 +5,71 @@ using System.Security;
 
 using iTin.Logging;
 
-namespace iTin.Core
+namespace iTin.Core;
+
+/// <summary>
+/// Static class than contains extension methods for objects of type <see cref="T:System.Security.SecureString" />.
+/// </summary>
+public static class SecureStringExtensions
 {
     /// <summary>
-    /// Static class than contains extension methods for objects of type <see cref="T:System.Security.SecureString" />.
+    /// Determines whether input secure string is disposed.
     /// </summary>
-    public static class SecureStringExtensions
+    /// <param name="target">Input secure string.</param>
+    /// <returns>
+    /// <b>true</b> if input secure string is disposed; Otherwise <b>false</b>.
+    /// </returns>
+    public static bool Disposed(this SecureString target)
     {
-        /// <summary>
-        /// Determines whether input secure string is disposed.
-        /// </summary>
-        /// <param name="target">Input secure string.</param>
-        /// <returns>
-        /// <b>true</b> if input secure string is disposed; Otherwise <b>false</b>.
-        /// </returns>
-        public static bool Disposed(this SecureString target)
+        Logger.Instance.Debug("");
+        Logger.Instance.Debug($" Assembly: {typeof(SecureStringExtensions).Assembly.GetName().Name}, v{typeof(SecureStringExtensions).Assembly.GetName().Version}, Namespace: {typeof(SecureStringExtensions).Namespace}, Class: {nameof(SecureStringExtensions)}");
+        Logger.Instance.Debug(" Determines whether input secure string is disposed");
+        Logger.Instance.Debug($" > Signature: ({typeof(bool)}) Disposed(this {typeof(SecureString)})");
+        Logger.Instance.Debug($"   > target: {target}");
+
+        bool disposed = false;
+
+        try
         {
-            Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(SecureStringExtensions).Assembly.GetName().Name}, v{typeof(SecureStringExtensions).Assembly.GetName().Version}, Namespace: {typeof(SecureStringExtensions).Namespace}, Class: {nameof(SecureStringExtensions)}");
-            Logger.Instance.Debug(" Determines whether input secure string is disposed");
-            Logger.Instance.Debug($" > Signature: ({typeof(bool)}) Disposed(this {typeof(SecureString)})");
-            Logger.Instance.Debug($"   > target: {target}");
-
-            bool disposed = false;
-
-            try
-            {
-                var test = target.Length;
-            }
-            catch (ObjectDisposedException)
-            {
-                disposed = true;
-            }
-
-            Logger.Instance.Debug($" > Output: {disposed}");
-
-            return disposed;
+            var test = target.Length;
+        }
+        catch (ObjectDisposedException)
+        {
+            disposed = true;
         }
 
-        /// <summary>
-        /// Returns the value stored in the specified secure string
-        /// </summary>
-        /// <param name="target">Input secure string.</param>
-        /// <returns>
-        /// A <see cref="T:System.String"/> which contains stored value into secure string.
-        /// </returns>
-        public static string Value(this SecureString target)
+        Logger.Instance.Debug($" > Output: {disposed}");
+
+        return disposed;
+    }
+
+    /// <summary>
+    /// Returns the value stored in the specified secure string
+    /// </summary>
+    /// <param name="target">Input secure string.</param>
+    /// <returns>
+    /// A <see cref="T:System.String"/> which contains stored value into secure string.
+    /// </returns>
+    public static string Value(this SecureString target)
+    {
+        Logger.Instance.Debug("");
+        Logger.Instance.Debug($" Assembly: {typeof(SecureStringExtensions).Assembly.GetName().Name}, v{typeof(SecureStringExtensions).Assembly.GetName().Version}, Namespace: {typeof(SecureStringExtensions).Namespace}, Class: {nameof(SecureStringExtensions)}");
+        Logger.Instance.Debug(" Returns the value stored in the specified secure string");
+        Logger.Instance.Debug($" > Signature: ({typeof(string)}) Value(this {typeof(SecureString)})");
+        Logger.Instance.Debug($"   > target: {target}");
+
+        bool disposed = target.Disposed();
+        if (disposed)
         {
-            Logger.Instance.Debug("");
-            Logger.Instance.Debug($" Assembly: {typeof(SecureStringExtensions).Assembly.GetName().Name}, v{typeof(SecureStringExtensions).Assembly.GetName().Version}, Namespace: {typeof(SecureStringExtensions).Namespace}, Class: {nameof(SecureStringExtensions)}");
-            Logger.Instance.Debug(" Returns the value stored in the specified secure string");
-            Logger.Instance.Debug($" > Signature: ({typeof(string)}) Value(this {typeof(SecureString)})");
-            Logger.Instance.Debug($"   > target: {target}");
-
-            bool disposed = target.Disposed();
-            if (disposed)
-            {
-                return null;
-            }
-
-            IntPtr pointerToTarget = Marshal.SecureStringToBSTR(target);
-            string text = Marshal.PtrToStringBSTR(pointerToTarget);
-            Marshal.FreeBSTR(pointerToTarget);
-
-            Logger.Instance.Debug($" > Output: {text}");
-
-            return text;
+            return null;
         }
+
+        IntPtr pointerToTarget = Marshal.SecureStringToBSTR(target);
+        string text = Marshal.PtrToStringBSTR(pointerToTarget);
+        Marshal.FreeBSTR(pointerToTarget);
+
+        Logger.Instance.Debug($" > Output: {text}");
+
+        return text;
     }
 }

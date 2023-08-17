@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace iTin.Core.ComponentModel.Results
 {
     /// <summary>
-    /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a double result.
+    /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a <see cref="T:System.Double"/> result.
     /// </summary>
     public class DoubleResult : ResultBase<double>
     {
@@ -17,7 +17,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="DoubleResult"/> with specified detailed error.
         /// </returns>
-        public new static DoubleResult CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public new static DoubleResult CreateErrorResult(string message, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="DoubleResult"/> with specified detailed error.
@@ -28,7 +29,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="DoubleResult"/> with specified detailed error.
         /// </returns>
-        public new static DoubleResult CreateErrorResult(string message, double result, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
+        public new static DoubleResult CreateErrorResult(string message, double result, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="DoubleResult"/> with specified detailed errors collection.
@@ -83,7 +85,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new <see cref="DoubleResult"/> instance for specified exception.
         /// </returns>
-        public new static DoubleResult FromException(Exception exception) => FromException(exception, default);
+        public new static DoubleResult FromException(Exception exception) => 
+            FromException(exception, default);
 
         /// <summary>
         /// Creates a new <see cref="DoubleResult"/> instance from known exception.

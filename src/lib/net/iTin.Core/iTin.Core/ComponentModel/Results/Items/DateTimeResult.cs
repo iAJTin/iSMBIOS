@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace iTin.Core.ComponentModel.Results
 {
     /// <summary>
-    /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a datetime result.
+    /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a <see cref="T:System.DateTime"/> result.
     /// </summary>
     public class DateTimeResult : ResultBase<DateTime>
     {
@@ -17,7 +17,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="DateTimeResult"/> with specified detailed error.
         /// </returns>
-        public new static DateTimeResult CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public new static DateTimeResult CreateErrorResult(string message, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="DateTimeResult"/> with specified detailed error.
@@ -28,7 +29,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="DateTimeResult"/> with specified detailed error.
         /// </returns>
-        public new static DateTimeResult CreateErrorResult(string message, DateTime result, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
+        public new static DateTimeResult CreateErrorResult(string message, DateTime result, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="DateTimeResult"/> with specified detailed errors collection.
@@ -83,20 +85,21 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new <see cref="DateTimeResult"/> instance for specified exception.
         /// </returns>
-        public new static DateTimeResult FromException(Exception exception) => FromException(exception, default);
+        public new static DateTimeResult FromException(Exception exception) => 
+            FromException(exception, default);
 
         /// <summary>
         /// Creates a new <see cref="DateTimeResult"/> instance from known exception.
         /// </summary>
         /// <param name="exception">Target exception.</param>
-        /// <param name="Result">Result Result</param>
+        /// <param name="result">Result Result</param>
         /// <returns>
         /// A new <see cref="DateTimeResult"/> instance for specified exception.
         /// </returns>
-        public new static DateTimeResult FromException(Exception exception, DateTime Result) =>
+        public new static DateTimeResult FromException(Exception exception, DateTime result) =>
             new()
             {
-                Result = Result,
+                Result = result,
                 Success = false,
                 Errors = new List<IResultError> { new ResultExceptionError { Exception = exception } }
             };

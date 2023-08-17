@@ -3,102 +3,80 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace iTin.Logging.ComponentModel
+namespace iTin.Logging.ComponentModel;
+
+/// <summary>
+/// Defines mappings for <see cref="FileLog"/>.
+/// </summary>
+public class FileMapping
 {
+    #region public static members
+
     /// <summary>
-    /// Defines mappings for <see cref="FileLog"/>.
+    /// Returns new empty instance of <see cref="FileMapping"/> that indicates not found.
     /// </summary>
-    public class FileMapping
-    {
-        #region public static members
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    public static readonly FileMapping NotFoundMapping = new();
 
-        #region [public] {static} {readonly} (FileMapping) NotFoundMapping: Returns new empty instance of FileMapping that indicates not found
-        /// <summary>
-        /// Returns new empty instance of <see cref="FileMapping"/> that indicates not found.
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public static readonly FileMapping NotFoundMapping = new FileMapping();
-        #endregion
+    /// <summary>
+    /// Returns new instance of <see cref="FileMapping"/> configured for <b>Fatal</b> log level.
+    /// </summary>
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    public static readonly FileMapping DefaultFatalMapping = new() { Level = LogLevel.Fatal, Pattern = KnownPatterns.DefaultFatalPattern };
 
-        #region [public] {static} {readonly} (FileMapping) DefaultFatalMapping: Returns new instance of FileMapping configured for fatal log level
-        /// <summary>
-        /// Returns new instance of <see cref="FileMapping"/> configured for <b>Fatal</b> log level.
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public static readonly FileMapping DefaultFatalMapping = new FileMapping { Level = LogLevel.Fatal, Pattern = KnownPatterns.DefaultFatalPattern };
-        #endregion
+    /// <summary>
+    /// Returns new instance of <see cref="FileMapping"/> configured for <b>Error</b> log level.
+    /// </summary>
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    public static readonly FileMapping DefaultErrorMapping = new() { Level = LogLevel.Error, Pattern = KnownPatterns.DefaultErrorPattern };
 
-        #region [public] {static} {readonly} (FileMapping) DefaultFatalMapping: Returns new instance of FileMapping configured for error log level
-        /// <summary>
-        /// Returns new instance of <see cref="FileMapping"/> configured for <b>Error</b> log level.
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public static readonly FileMapping DefaultErrorMapping = new FileMapping { Level = LogLevel.Error, Pattern = KnownPatterns.DefaultErrorPattern };
-        #endregion
+    /// <summary>
+    /// Returns new instance of <see cref="FileMapping"/> configured for <b>Info</b> log level.
+    /// </summary>
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    public static readonly FileMapping DefaultInfoMapping = new() { Level = LogLevel.Info, Pattern = KnownPatterns.DefaultPattern };
 
-        #region [public] {static} {readonly} (FileMapping) DefaultInfoMapping: Returns new instance of FileMapping configured for info log level
-        /// <summary>
-        /// Returns new instance of <see cref="FileMapping"/> configured for <b>Info</b> log level.
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public static readonly FileMapping DefaultInfoMapping = new FileMapping { Level = LogLevel.Info, Pattern = KnownPatterns.DefaultPattern };
-        #endregion
+    /// <summary>
+    /// Returns new instance of <see cref="FileMapping"/> configured for <b>Debug</b> log level.
+    /// </summary>
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    public static readonly FileMapping DefaultDebugMapping = new() { Level = LogLevel.Debug, Pattern = KnownPatterns.DefaultPattern };
 
-        #region [public] {static} {readonly} (FileMapping) DefaultDebugMapping: Returns new instance of FileMapping configured for debug log level
-        /// <summary>
-        /// Returns new instance of <see cref="FileMapping"/> configured for <b>Debug</b> log level.
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public static readonly FileMapping DefaultDebugMapping = new FileMapping { Level = LogLevel.Debug, Pattern = KnownPatterns.DefaultPattern };
-        #endregion
+    /// <summary>
+    /// Returns new instance of <see cref="FileMapping"/> configured for <b>Warn</b> log level.
+    /// </summary>
+    [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+    public static readonly FileMapping DefaultWarnMapping = new() { Level = LogLevel.Warn, Pattern = KnownPatterns.DefaultPattern };
 
-        #region [public] {static} {readonly} (FileMapping) DefaultWarnMapping: Returns new instance of FileMapping configured for warn log level
-        /// <summary>
-        /// Returns new instance of <see cref="FileMapping"/> configured for <b>Warn</b> log level.
-        /// </summary>
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        public static readonly FileMapping DefaultWarnMapping = new FileMapping { Level = LogLevel.Warn, Pattern = KnownPatterns.DefaultPattern };
-        #endregion
+    #endregion
 
-        #endregion
+    #region public properties
 
-        #region public properties
+    /// <summary>
+    /// Gets or sets the log level.
+    /// </summary>
+    /// <value>
+    /// The log level.
+    /// </value>
+    public LogLevel Level { get; set; }
 
-        #region [public] (LogLevel) Level: Gets the log level        
-        /// <summary>
-        /// Gets or sets the log level.
-        /// </summary>
-        /// <value>
-        /// The log level.
-        /// </value>
-        public LogLevel Level { get; set; }
-        #endregion
+    /// <summary>
+    /// Gets or set the pattern lines for this mapping  .
+    /// </summary>
+    /// <value>
+    /// The pattern lines for this mapping.
+    /// </value>
+    public IEnumerable<string> Pattern { get; set; }
 
-        #region [public] (IEnumerable<string>) Pattern: Gets or set the pattern lines for this mapping        
-        /// <summary>
-        /// Gets or set the pattern lines for this mapping  .
-        /// </summary>
-        /// <value>
-        /// The pattern lines for this mapping.
-        /// </value>
-        public IEnumerable<string> Pattern { get; set; }
-        #endregion
+    #endregion
 
-        #endregion
+    #region protected override methods
 
-        #region protected methods
+    /// <summary>
+    /// Returns a <see cref="T:System.String" /> that represents this instance.
+    /// </summary>
+    /// <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+    public override string ToString() => $"Level={Level}, Patterns={Pattern.Count()}";
 
-        #region [public] (string) {override} ToString(): Returns a string that represents this instance
-        /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
-        public override string ToString()
-        {
-            return $"Level={Level}, Patterns={Pattern.Count()}";
-        }
-        #endregion
-
-        #endregion
-    }
+    #endregion
 }

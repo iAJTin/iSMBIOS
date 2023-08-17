@@ -46,7 +46,7 @@ public class AdditionalInformationEntry : SpecificSmbiosBaseType
     {
     }
 
-#endregion
+    #endregion
 
     #region private properties
 
@@ -115,10 +115,6 @@ public class AdditionalInformationEntry : SpecificSmbiosBaseType
     #region protected override methods
 
     /// <inheritdoc/>
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         properties.Add(SmbiosProperty.AdditionalInformation.Entry.EntryLength, EntryLength);

@@ -2,36 +2,35 @@
 using System.Data;
 using System.Xml;
 
-namespace iTin.Core.Helpers
+namespace iTin.Core.Helpers;
+
+/// <summary>
+/// Static class than contains methods for manipulating xml documents.
+/// </summary>
+public static class XmlHelper
 {
     /// <summary>
-    /// Static class than contains methods for manipulating xml documents.
+    /// Returns a DataSet which represents target xml document.
     /// </summary>
-    public static class XmlHelper
+    /// <param name="xml">The value.</param>
+    /// <returns>
+    /// A <see cref="DataSet"/>.
+    /// </returns>
+    public static DataSet ToDataSet(string xml)
     {
-        /// <summary>
-        /// Returns a DataSet which represents target xml document.
-        /// </summary>
-        /// <param name="xml">The value.</param>
-        /// <returns>
-        /// A <see cref="DataSet"/>.
-        /// </returns>
-        public static DataSet ToDataSet(string xml)
+        var result = new DataSet();
+
+        try
         {
-            var result = new DataSet();
+            var document = new XmlDocument();
+            document.LoadXml(xml);
+            result.ReadXml(new XmlNodeReader(document));
 
-            try
-            {
-                var document = new XmlDocument();
-                document.LoadXml(xml);
-                result.ReadXml(new XmlNodeReader(document));
-
-                return result;
-            }
-            catch
-            {
-                throw;
-            }
+            return result;
+        }
+        catch
+        {
+            throw;
         }
     }
 }

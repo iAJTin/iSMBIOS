@@ -5,7 +5,6 @@ using System.Linq;
 
 namespace iTin.Hardware.Specification.Smbios;
 
-/// <inheritdoc/>
 /// <summary>
 /// Represents a collection of memory device identifiers.
 /// </summary>

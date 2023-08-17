@@ -6,6 +6,7 @@
     <title>iSMBIOS</title>
     <authors>iAJTin</authors>
     <owners>iAJTin</owners>
+    <readme>.\README.md</readme>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/iAJTin/iSMBIOS</projectUrl>
     <icon>.\iSMBIOS.png</icon>
@@ -28,6 +29,7 @@
     </dependencies>
   </metadata>
   <files>
+    <file src=".\README.md" target="." />
     <file src="..\README.txt" target="." />
     <file src=".\iSMBIOS.png" target="." />
     <file src="..\src\lib\net\iTin.Hardware\iTin.Hardware.Specification.Dmi\bin\Release\**" target="lib" exclude="**\*.deps.json;**\*.pdb;" />

@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>iTin.Core</AssemblyName>
     <PackageId>iTin.Core</PackageId>
-    <Version>2.0.0.6</Version>
+    <Version>2.0.0.7</Version>
     <Authors>iTin</Authors>
     <Company>iTin</Company>
     <Product>iTin.Core</Product>

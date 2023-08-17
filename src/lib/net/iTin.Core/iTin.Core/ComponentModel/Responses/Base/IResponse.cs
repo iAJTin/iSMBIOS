@@ -1,35 +1,34 @@
 ﻿
 using System.Collections.Generic;
 
-namespace iTin.Core.ComponentModel
+namespace iTin.Core.ComponentModel;
+
+/// <summary>
+/// Defines a response.
+/// </summary>
+public interface IResponse
 {
     /// <summary>
-    /// Defines a response.
+    /// Gets a value that indicates whether the current operation was executed successfully.
     /// </summary>
-    public interface IResponse
-    {
-        /// <summary>
-        /// Gets a value that indicates whether the current operation was executed successfully.
-        /// </summary>
-        /// <value>
-        /// <b>true</b> if current operation was executed successfully; otherwise, <b>false</b>.
-        /// </value>
-        bool Success { get; set; }
+    /// <value>
+    /// <b>true</b> if current operation was executed successfully; otherwise, <b>false</b>.
+    /// </value>
+    bool Success { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value that contains a error list.
-        /// </summary>
-        /// <value>
-        /// Error list.
-        /// </value>
-        IEnumerable<IResponseError> Errors { get; set; }
+    /// <summary>
+    /// Gets or sets a value that contains a error list.
+    /// </summary>
+    /// <value>
+    /// Error list.
+    /// </value>
+    IEnumerable<IResponseError> Errors { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value that contains a warnings list.
-        /// </summary>
-        /// <value>
-        /// Warnings list.
-        /// </value>
-        IEnumerable<IResponseWarning> Warnings { get; set; }
-    }
+    /// <summary>
+    /// Gets or sets a value that contains a warnings list.
+    /// </summary>
+    /// <value>
+    /// Warnings list.
+    /// </value>
+    IEnumerable<IResponseWarning> Warnings { get; set; }
 }

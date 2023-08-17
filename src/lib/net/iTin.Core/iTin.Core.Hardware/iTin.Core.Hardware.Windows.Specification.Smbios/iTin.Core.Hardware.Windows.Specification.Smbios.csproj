@@ -14,6 +14,7 @@
     <Description>Win32 Generic Hardware Calls (SMBIOS)</Description>
     <Copyright>Copyright © 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

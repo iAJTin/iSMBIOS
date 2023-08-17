@@ -99,7 +99,6 @@ namespace iTin.Hardware.Specification.Smbios;
 // |                                                                  Note: See GetEnclosureSkuNumber(byte, byte)   |
 // •————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-/// <inheritdoc/>
 /// <summary>
 /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the System Enclosure or Chassis (Type 3) structure.
 /// </summary>
@@ -259,10 +258,7 @@ internal sealed class SmbiosType003 : SmbiosBaseType
 
     #region protected override methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         #region 2.0+

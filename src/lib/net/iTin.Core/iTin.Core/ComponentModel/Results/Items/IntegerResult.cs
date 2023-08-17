@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace iTin.Core.ComponentModel.Results
 {
     /// <summary>
-    /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a integer result.
+    /// Specialization of the interface <see cref="ResultBase{T}" /> that contains a <see cref="T:System.Int32"/> result.
     /// </summary>
     public class IntegerResult : ResultBase<int>
     {
@@ -17,7 +17,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="IntegerResult"/> with specified detailed error.
         /// </returns>
-        public new static IntegerResult CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public new static IntegerResult CreateErrorResult(string message, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="IntegerResult"/> with specified detailed error.
@@ -28,7 +29,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="IntegerResult"/> with specified detailed error.
         /// </returns>
-        public new static IntegerResult CreateErrorResult(string message, int result, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
+        public new static IntegerResult CreateErrorResult(string message, int result, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="IntegerResult"/> with specified detailed errors collection.
@@ -83,7 +85,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new <see cref="IntegerResult"/> instance for specified exception.
         /// </returns>
-        public new static IntegerResult FromException(Exception exception) => FromException(exception, default);
+        public new static IntegerResult FromException(Exception exception) => 
+            FromException(exception, default);
 
         /// <summary>
         /// Creates a new <see cref="IntegerResult"/> instance from known exception.

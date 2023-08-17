@@ -18,7 +18,6 @@ namespace iTin.Core.ComponentModel
     {
         #region constructor/s
 
-        #region [private] ByteReader(byte[]): Initializes a new instance of the class
         /// <summary>
         /// Initializes a new instance of the <see cref="ByteReader"/> class.
         /// </summary>
@@ -29,11 +28,8 @@ namespace iTin.Core.ComponentModel
 
         #endregion
 
-        #endregion
-
         #region public properties
 
-        #region [public] (byte[]) Data: Gets a reference to original data.
         /// <summary>
         /// Gets a reference to original data
         /// </summary>
@@ -41,13 +37,11 @@ namespace iTin.Core.ComponentModel
         /// Array of bytes that contains original data
         /// </value>
         public byte[] Data { get; }
-        #endregion
 
         #endregion
 
         #region public static methods
 
-        #region [public] {static} (ByteReader) FromByteArray(byte[]): 
         /// <summary>
         /// 
         /// </summary>
@@ -55,13 +49,11 @@ namespace iTin.Core.ComponentModel
         /// <returns>
         /// </returns>
         public static ByteReader FromByteArray(byte[] data) => new(data);
-        #endregion
 
         #endregion
 
         #region public methods
 
-        #region [public] (byte) GetByte(byte): Returns the stored value at the specified byte
         /// <summary>
         /// Returns the stored value at the specified byte.
         /// </summary>
@@ -79,11 +71,8 @@ namespace iTin.Core.ComponentModel
 
 #endif
 
-        #endregion
-
 #if NETSTANDARD2_1 || NET5_0_OR_GREATER
 
-        #region [public] (Span<byte>) GetBytes(byte, byte): Returns the stored bytes from start with specified lenght
         /// <summary>
         /// Returns the bytes stored from the specified starting position and with the specified length.
         /// </summary>
@@ -93,11 +82,9 @@ namespace iTin.Core.ComponentModel
         /// The array value stored.
         /// </returns>
         public Span<byte> GetBytes(byte start, byte lenght) => Data.AsSpan(start, lenght + 1).ToArray();
-        #endregion
 
 #else
 
-        #region [public] (byte[]) GetBytes(byte, byte): Returns the stored bytes from start with specified lenght
         /// <summary>
         /// Returns the bytes stored from the specified starting position and with the specified length.
         /// </summary>
@@ -116,11 +103,9 @@ namespace iTin.Core.ComponentModel
 
             return (byte[])bytes.ToArray().Clone();
         }
-        #endregion
 
 #endif
 
-        #region [public] (int) GetDoubleWord(byte): Returns the stored value from the specified byte
         /// <summary>
         /// Returns the stored value from the specified byte.
         /// </summary>
@@ -129,9 +114,7 @@ namespace iTin.Core.ComponentModel
         /// The value stored in the indicated byte.
         /// </returns>
         public int GetDoubleWord(byte offset) => Data.GetDoubleWord(offset);
-        #endregion
 
-        #region [public] (long) GetQuadrupleWord(byte): Returns the stored value from the specified byte
         /// <summary>
         /// Returns the stored value from the specified byte.
         /// </summary>
@@ -140,9 +123,7 @@ namespace iTin.Core.ComponentModel
         /// The value stored in the indicated byte.
         /// </returns>
         public long GetQuadrupleWord(byte offset) => Data.GetQuadrupleWord(offset);
-        #endregion
 
-        #region [public] (int) GetWord(byte): Returns the stored value from the specified byte
         /// <summary>
         /// Returns the stored value from the specified byte.
         /// </summary>
@@ -151,13 +132,11 @@ namespace iTin.Core.ComponentModel
         /// The value stored in the indicated byte.
         /// </returns>
         public int GetWord(byte offset) => Data.GetWord(offset);
-        #endregion
 
         #endregion
 
         #region public override methods
 
-        #region [public] {override} (string) ToString(): Returns a string that represents this instance
         /// <summary>
         /// Returns a <see cref="T:System.String"/> that represents this instance.
         /// </summary>
@@ -165,7 +144,6 @@ namespace iTin.Core.ComponentModel
         /// A <see cref="T:System.String"/> that represents this instance.
         /// </returns>
         public override string ToString() => $"Length = {Data.Length}";
-        #endregion
 
         #endregion
     }

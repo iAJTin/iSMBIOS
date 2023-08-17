@@ -48,7 +48,6 @@ namespace iTin.Hardware.Specification.Smbios;
 // |              Records         BYTEs                                                                         |
 // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-/// <inheritdoc/>
 /// <summary>
 /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Management Controller Host Interface (Type 42) structure.
 /// </summary>
@@ -105,10 +104,7 @@ internal sealed class SmbiosType042 : SmbiosBaseType
 
     #region protected override methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         properties.Add(SmbiosProperty.ManagementControllerHostInterface.InterfaceType, GetInterfaceType(InterfaceType));

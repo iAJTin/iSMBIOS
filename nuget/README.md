@@ -303,8 +303,8 @@ My email address is
 ![email.png][email] 
 
 
-[email]: ./assets/email.png "email"
-[documentation]: ./documentation/iTin.Hardware.Specification.Dmi.md
+[email]: ./../assets/email.png "email"
+[documentation]: ./../documentation/iTin.Hardware.Specification.Dmi.md
 [CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md
 [iPowerShellSmbios]: https://github.com/iAJTin/iPowerShellSmbios
 [here]: https://github.com/iAJTin/iPowerShellSmbios/blob/main/documentation/iPowerShellSmbios.md

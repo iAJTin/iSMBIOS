@@ -72,12 +72,9 @@ public class MemoryChannelElement : SpecificSmbiosBaseType
 
     #endregion
 
-    #region private methods
+    #region protected methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         properties.Add(SmbiosProperty.MemoryChannel.MemoryDevices.Load, Load);

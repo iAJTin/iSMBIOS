@@ -78,7 +78,6 @@ namespace iTin.Hardware.Specification.Smbios;
 // |                                                                  Note: Please see, GetErrorCorrectingCapability  |
 // •——————————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-/// <inheritdoc/>
 /// <summary>
 /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the Memory Controller Information (Type 5, Obsolete) structure.
 /// </summary>
@@ -184,10 +183,7 @@ internal sealed class SmbiosType005 : SmbiosBaseType
 
     #region protected override methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         if (StructureInfo.StructureVersion < SmbiosStructureVersion.v20)

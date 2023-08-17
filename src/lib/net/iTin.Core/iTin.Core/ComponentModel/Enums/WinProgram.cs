@@ -1,30 +1,29 @@
 ﻿
 using System;
 
-namespace iTin.Core.ComponentModel.Enums
+namespace iTin.Core.ComponentModel.Enums;
+
+/// <summary>
+/// Defines known windows programs
+/// </summary>
+[Serializable]
+public enum WinProgram
 {
     /// <summary>
-    /// Defines known windows programs
+    /// Notepad program
     /// </summary>
-    [Serializable]
-    public enum WinProgram
-    {
-        /// <summary>
-        /// Notepad program
-        /// </summary>
-        [EnumDescription("Notepad")]
-        Notepad,
+    [EnumDescription("Notepad")]
+    Notepad,
 
-        /// <summary>
-        /// Notepad++ program
-        /// </summary>
-        [EnumDescription("Notepad++")]
-        NotepadPlusPlus,
+    /// <summary>
+    /// Notepad++ program
+    /// </summary>
+    [EnumDescription("Notepad++")]
+    NotepadPlusPlus,
 
-        /// <summary>
-        /// Paint program
-        /// </summary>
-        [EnumDescription("Paint")]
-        Paint
-    }
+    /// <summary>
+    /// Paint program
+    /// </summary>
+    [EnumDescription("Paint")]
+    Paint
 }

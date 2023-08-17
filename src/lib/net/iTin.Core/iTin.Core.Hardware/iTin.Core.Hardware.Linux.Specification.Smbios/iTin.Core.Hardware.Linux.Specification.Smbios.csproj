@@ -14,6 +14,7 @@
     <Description>MacOS Generic Desktop Hardware Calls</Description>
     <Copyright>Copyright © 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

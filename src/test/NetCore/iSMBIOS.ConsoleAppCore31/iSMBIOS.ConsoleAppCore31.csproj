@@ -8,6 +8,7 @@
     <Copyright>Copyright © 2019</Copyright>
     <Company>iTin</Company>
     <Product>iSMBIOS.ConsoleAppCore</Product>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

@@ -17,7 +17,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="NullableLongResult"/> with specified detailed error.
         /// </returns>
-        public new static NullableLongResult CreateErrorResult(string message, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
+        public new static NullableLongResult CreateErrorResult(string message, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } });
 
         /// <summary>
         /// Returns a new <see cref="NullableLongResult"/> with specified detailed error.
@@ -28,7 +29,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new invalid <see cref="NullableLongResult"/> with specified detailed error.
         /// </returns>
-        public new static NullableLongResult CreateErrorResult(string message, long? result, string code = "") => CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
+        public new static NullableLongResult CreateErrorResult(string message, long? result, string code = "") => 
+            CreateErrorResult(new IResultError[] { new ResultError { Code = code, Message = message } }, result);
 
         /// <summary>
         /// Returns a new <see cref="NullableLongResult"/> with specified detailed errors collection.
@@ -83,7 +85,8 @@ namespace iTin.Core.ComponentModel.Results
         /// <returns>
         /// A new <see cref="NullableLongResult"/> instance for specified exception.
         /// </returns>
-        public new static NullableLongResult FromException(Exception exception) => FromException(exception, default);
+        public new static NullableLongResult FromException(Exception exception) =>
+            FromException(exception, default);
 
         /// <summary>
         /// Creates a new <see cref="NullableLongResult"/> instance from known exception.

@@ -27,7 +27,6 @@ namespace iTin.Hardware.Specification.Smbios;
 // |                                                      property applies to.                                  |
 // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-/// <inheritdoc/>
 /// <summary>
 /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the String Property (Type 46) structure.
 /// </summary>
@@ -83,10 +82,7 @@ internal sealed class SmbiosType046 : SmbiosBaseType
 
     #region protected override methods
 
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
+    /// <inheritdoc/>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         #region version 3.5

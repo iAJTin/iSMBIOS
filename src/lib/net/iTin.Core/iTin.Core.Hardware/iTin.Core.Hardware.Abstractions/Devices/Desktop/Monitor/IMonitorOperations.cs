@@ -1,19 +1,18 @@
 ﻿
 using System.Collections.Generic;
 
-namespace iTin.Core.Hardware.Abstractions.Devices.Desktop.Monitor
+namespace iTin.Core.Hardware.Abstractions.Devices.Desktop.Monitor;
+
+/// <summary>
+/// Define a generic <b>Monitor</b> operations.
+/// </summary>
+public interface IMonitorOperations
 {
     /// <summary>
-    /// Define a generic <b>Monitor</b> operations.
+    /// Gets a value containing the raw <b>EDID</b> data.
     /// </summary>
-    public interface IMonitorOperations
-    {
-        /// <summary>
-        /// Gets a value containing the raw <b>EDID</b> data.
-        /// </summary>
-        /// <returns>
-        /// The raw <b>EDID</b> data.
-        /// </returns>
-        IEnumerable<byte[]> GetEdidDataCollection();
-    }
+    /// <returns>
+    /// The raw <b>EDID</b> data.
+    /// </returns>
+    IEnumerable<byte[]> GetEdidDataCollection();
 }

@@ -64,7 +64,6 @@ namespace iTin.Hardware.Specification.Smbios;
 // | 1Bh          OEM-defined     DWORD       Varies      OEM- or BIOS vendor-specific information              |
 // •————————————————————————————————————————————————————————————————————————————————————————————————————————————•
 
-/// <inheritdoc/>
 /// <summary>
 /// Specialization of the <see cref="SmbiosBaseType"/> class that contains the logic to decode the TPM Device (Type 43) structure.
 /// </summary>
@@ -72,7 +71,6 @@ internal sealed class SmbiosType043 : SmbiosBaseType
 {
     #region constructor/s
 
-    /// <inheritdoc/>
     /// <summary>
     /// Initializes a new instance of the <see cref="SmbiosType043"/> class by specifying the structure information and the <see cref="SMBIOS"/> version.
     /// </summary>
@@ -176,10 +174,6 @@ internal sealed class SmbiosType043 : SmbiosBaseType
     #region protected override methods
 
     /// <inheritdoc/>
-    /// <summary>
-    /// Populates the property collection for this structure.
-    /// </summary>
-    /// <param name="properties">Collection of properties of this structure.</param>
     protected override void PopulateProperties(SmbiosPropertiesTable properties)
     {
         if (StructureInfo.StructureVersion < SmbiosStructureVersion.Latest)

@@ -1,7 +1,7 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.1.8] 
+## [1.1.8] - 2023-08-17
 
 ### Added
  

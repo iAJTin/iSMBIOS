@@ -9,8 +9,18 @@ This library implements DMTF Specification 3.7.0 version and olders versions
 For more information, please see https://www.dmtf.org/standards/smbios
 
 
-Changes in this version (v1.1.8)
+Changes in this version (v1.1.9)
 ================================
+
+· Added
+-----
+
+· Changed
+-------
+
+
+v1.1.8
+======
 
 · Added
   -----

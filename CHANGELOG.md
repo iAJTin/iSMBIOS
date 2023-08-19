@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 ### Added
 
   - Multiple Repository is used.
+
+    In the image, I show my folder structure, in case it helps someone
+
+    ![multi-repo.png][mutli-repo] 
   
 ### Changed
 
@@ -698,4 +702,5 @@ for more information, please see how to use it in the example project. On the ot
 [1.0.0]: https://github.com/iAJTin/iSMBIOS
 
 [help]: ./assets/help.png "help"
+[mutli-repo]: ./assets/multi-repo.png "folder structure"
 [Connecting to WMI on a Remote Computer]: https://docs.microsoft.com/es-es/windows/win32/wmisdk/connecting-to-wmi-on-a-remote-computer

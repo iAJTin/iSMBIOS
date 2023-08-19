@@ -13,8 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\lib\net\iTin.Core\iTin.Core\iTin.Core.csproj" />
-    <ProjectReference Include="..\..\..\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Common\iTin.Core.Hardware.Common.csproj" />
     <ProjectReference Include="..\..\..\lib\net\iTin.Hardware\iTin.Hardware.Specification.Dmi\iTin.Hardware.Specification.Dmi.csproj" />
   </ItemGroup>
 

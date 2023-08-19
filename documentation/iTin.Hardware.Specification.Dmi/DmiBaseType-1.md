@@ -14,7 +14,7 @@ public abstract class DmiBaseType<TSmbios> : IDmiType
 
 | name | description |
 | --- | --- |
-| [ImplementedProperties](DmiBaseType-1/ImplementedProperties.md) { get; } | Returns a list of implemented properties for this structure. |
+| [ImplementedProperties](DmiBaseType-1/ImplementedProperties.md) { get; } |  |
 | [ImplementedVersion](DmiBaseType-1/ImplementedVersion.md) { get; } | Returns a value that indicates the implemented version of this [`DMI`](../iTin.Hardware.Specification/DMI.md) structure. |
 | [GetProperty](DmiBaseType-1/GetProperty.md)(…) | Returns the value of specified property. Always returns the first appearance of the property. |
 | [GetUnderlyingSmbiosStructure](DmiBaseType-1/GetUnderlyingSmbiosStructure.md)() | Returns a reference to the underlying smbios structure for this dmi type. |

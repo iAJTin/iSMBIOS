@@ -3,16 +3,16 @@
 Determines whether the element with the specified key is in the collection.
 
 ```csharp
-public bool Contains(DmiStructureClass ResultKey)
+public bool Contains(DmiStructureClass resultKey)
 ```
 
 | parameter | description |
 | --- | --- |
-| ResultKey | One of the Results of SmbiosStructure that represents the key of the object [`DmiStructure`](../DmiStructure.md) to search. |
+| resultKey | One of the Results of SmbiosStructure that represents the key of the object [`DmiStructure`](../DmiStructure.md) to search. |
 
 ## Return Value
 
-true if the object [`DmiStructure`](../DmiStructure.md) with the *ResultKey* is in the collection; otherwise, it is false.
+true if the object [`DmiStructure`](../DmiStructure.md) with the *resultKey* is in the collection; otherwise, it is false.
 
 ## Exceptions
 

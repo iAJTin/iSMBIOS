@@ -37,7 +37,11 @@ public static class MemoryDevice
 | static [NonVolatileSize](DmiProperty.MemoryDevice/NonVolatileSize.md) { get; } | Gets a value representing the key to retrieve the property. |
 | static [PartNumber](DmiProperty.MemoryDevice/PartNumber.md) { get; } | Gets a value representing the key to retrieve the property. |
 | static [PhysicalMemoryArrayHandle](DmiProperty.MemoryDevice/PhysicalMemoryArrayHandle.md) { get; } | Gets a value representing the key to retrieve the property value. |
+| static [PMIC0ManufacturerId](DmiProperty.MemoryDevice/PMIC0ManufacturerId.md) { get; } | Gets a value representing the key to retrieve the property. |
+| static [PMIC0RevisionNumber](DmiProperty.MemoryDevice/PMIC0RevisionNumber.md) { get; } | Gets a value representing the key to retrieve the property. |
 | static [Rank](DmiProperty.MemoryDevice/Rank.md) { get; } | Gets a value representing the key to retrieve the property. |
+| static [RCDManufacturerId](DmiProperty.MemoryDevice/RCDManufacturerId.md) { get; } | Gets a value representing the key to retrieve the property. |
+| static [RCDRevisionNumber](DmiProperty.MemoryDevice/RCDRevisionNumber.md) { get; } | Gets a value representing the key to retrieve the property. |
 | static [SerialNumber](DmiProperty.MemoryDevice/SerialNumber.md) { get; } | Gets a value representing the key to retrieve the property. |
 | static [Size](DmiProperty.MemoryDevice/Size.md) { get; } | Gets a value representing the key to retrieve the property. |
 | static [Speed](DmiProperty.MemoryDevice/Speed.md) { get; } | Gets a value representing the key to retrieve the property. |

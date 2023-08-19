@@ -50,12 +50,12 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\lib\net\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Common\iTin.Core.Hardware.Common.csproj">
-      <Project>{33420a65-6a25-4d12-977c-d3ca7003fd61}</Project>
+    <ProjectReference Include="..\..\..\..\..\iTin\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Common\src\iTin.Core.Hardware.Common.csproj">
+      <Project>{8BA8430B-57A4-44C9-B1B4-461A70CCDD43}</Project>
       <Name>iTin.Core.Hardware.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\lib\net\iTin.Core\iTin.Core\iTin.Core.csproj">
-      <Project>{8a1c5156-3836-430c-9d14-fad69d693376}</Project>
+    <ProjectReference Include="..\..\..\..\..\iTin\iTin.Core\iTin.Core\src\iTin.Core.csproj">
+      <Project>{3E22C28F-5945-4A10-ACA6-FE50EF47E011}</Project>
       <Name>iTin.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\lib\net\iTin.Hardware\iTin.Hardware.Specification.Dmi\iTin.Hardware.Specification.Dmi.csproj">

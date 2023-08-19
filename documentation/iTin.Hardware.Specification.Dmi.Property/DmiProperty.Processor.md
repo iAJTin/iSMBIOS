@@ -31,6 +31,7 @@ public static class Processor
 | static [SocketDesignation](DmiProperty.Processor/SocketDesignation.md) { get; } | Gets a value representing the key to retrieve the property value. |
 | static [ThreadCount](DmiProperty.Processor/ThreadCount.md) { get; } | Gets a value representing the key to retrieve the property value. |
 | static [ThreadCount2](DmiProperty.Processor/ThreadCount2.md) { get; } | Gets a value representing the key to retrieve the property value. |
+| static [ThreadEnabled](DmiProperty.Processor/ThreadEnabled.md) { get; } | Gets a value representing the key to retrieve the property value. |
 | static [UpgradeMethod](DmiProperty.Processor/UpgradeMethod.md) { get; } | Gets a value representing the key to retrieve the property value. |
 | static class [Characteristics](DmiProperty.Processor.Characteristics.md) | Contains the key definition for the Characteristics section. |
 | static class [Status](DmiProperty.Processor.Status.md) | Contains the key definition for the Status section. |

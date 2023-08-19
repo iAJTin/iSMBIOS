@@ -26,8 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\iTin.Core\iTin.Core.csproj" />
-    <ProjectReference Include="..\iTin.Core.Interop.Shared\iTin.Core.Interop.Shared.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\..\iTin\iTin.Core\iTin.Core.Interop\iTin.Core.Interop.Shared\src\iTin.Core.Interop.Shared.csproj" />
   </ItemGroup>
 
 </Project>

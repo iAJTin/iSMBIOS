@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\iTin.Core\iTin.Core\iTin.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\iTin\iTin.Core\iTin.Core\src\iTin.Core.csproj" />
   </ItemGroup>
 
 </Project>

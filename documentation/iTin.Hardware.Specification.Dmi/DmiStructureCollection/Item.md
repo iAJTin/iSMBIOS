@@ -3,7 +3,7 @@
 Gets the element with the specified key.
 
 ```csharp
-public DmiStructure this[DmiStructureClass ResultKey] { get; }
+public DmiStructure this[DmiStructureClass resultKey] { get; }
 ```
 
 ## Exceptions

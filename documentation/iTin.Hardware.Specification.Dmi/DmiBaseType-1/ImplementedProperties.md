@@ -1,14 +1,8 @@
 # DmiBaseType&lt;TSmbios&gt;.ImplementedProperties property
 
-Returns a list of implemented properties for this structure.
-
 ```csharp
 public IEnumerable<IPropertyKey> ImplementedProperties { get; }
 ```
-
-## Return Value
-
-A list of implemented properties for this structure.
 
 ## See Also
 

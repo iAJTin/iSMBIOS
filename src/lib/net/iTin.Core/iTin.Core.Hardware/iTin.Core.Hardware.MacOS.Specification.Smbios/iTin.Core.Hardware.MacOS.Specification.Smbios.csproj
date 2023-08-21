@@ -18,8 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\iTin\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Abstractions\src\iTin.Core.Hardware.Abstractions.csproj" />
-    <ProjectReference Include="..\..\..\..\..\..\..\iTin\iTin.Core\iTin.Core.Interop\iTin.Core.Interop.Shared\src\iTin.Core.Interop.Shared.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\..\iTin\iTin.Core\iTin.Core.Hardware.Abstractions\src\iTin.Core.Hardware.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\..\iTin\iTin.Core\iTin.Core.Interop.Shared\src\iTin.Core.Interop.Shared.csproj" />
   </ItemGroup>
 
 </Project>

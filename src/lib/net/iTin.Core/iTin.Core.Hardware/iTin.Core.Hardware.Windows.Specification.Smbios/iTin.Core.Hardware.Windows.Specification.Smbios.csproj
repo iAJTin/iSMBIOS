@@ -22,9 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\iTin\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Abstractions\src\iTin.Core.Hardware.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\..\iTin\iTin.Core\iTin.Core.Hardware.Abstractions\src\iTin.Core.Hardware.Abstractions.csproj" />
     <ProjectReference Include="..\..\iTin.Core.Interop\iTin.Core.Interop.Windows.Smbios\iTin.Core.Interop.Windows.Specification.Smbios.csproj" />
   </ItemGroup>
-
 
 </Project>

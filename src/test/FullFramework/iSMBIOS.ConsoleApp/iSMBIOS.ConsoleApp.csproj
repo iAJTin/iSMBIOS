@@ -50,8 +50,8 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\iTin\iTin.Core\iTin.Core.Hardware\iTin.Core.Hardware.Common\src\iTin.Core.Hardware.Common.csproj">
-      <Project>{8BA8430B-57A4-44C9-B1B4-461A70CCDD43}</Project>
+    <ProjectReference Include="..\..\..\..\..\iTin\iTin.Core\iTin.Core.Hardware.Common\src\iTin.Core.Hardware.Common.csproj">
+      <Project>{96ADB681-638B-4052-8D2B-E74E604CD183}</Project>
       <Name>iTin.Core.Hardware.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\iTin\iTin.Core\iTin.Core\src\iTin.Core.csproj">

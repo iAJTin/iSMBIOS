@@ -47,10 +47,10 @@ class Program
 
         if (baseBoard != null)
         {
-            Console.WriteLine(\$"Manufacturer: {baseBoard.Manufacturer}");
-            Console.WriteLine(\$"Product/Model: {baseBoard.Product}");
-            Console.WriteLine(\$"Serial Number: {baseBoard.SerialNumber}");
-            Console.WriteLine(\$"Version: {baseBoard.Version}");
+            Console.WriteLine($"Manufacturer: {baseBoard.Manufacturer}");
+            Console.WriteLine($"Product/Model: {baseBoard.Product}");
+Console.WriteLine($"Serial Number: {baseBoard.SerialNumber}");
+Console.WriteLine($"Version: {baseBoard.Version}");
         }
     }
 }
@@ -72,17 +72,17 @@ class Program
         var systemInfo = dmi.System.FirstOrDefault();
         if (systemInfo != null)
         {
-            Console.WriteLine(\$"System UUID: {systemInfo.Uuid}");
-            Console.WriteLine(\$"SKU Number: {systemInfo.SkuNumber}");
+            Console.WriteLine($"System UUID: {systemInfo.Uuid}");
+            Console.WriteLine($"SKU Number: {systemInfo.SkuNumber}");
         }
 
         // Extract BIOS Firmware details
         var biosInfo = dmi.Bios.FirstOrDefault();
         if (biosInfo != null)
         {
-            Console.WriteLine(\$"BIOS Vendor: {biosInfo.Vendor}");
-            Console.WriteLine(\$"BIOS Version: {biosInfo.BiosVersion}");
-            Console.WriteLine(\$"Release Date: {biosInfo.BiosReleaseDate}");
+            Console.WriteLine($"BIOS Vendor: {biosInfo.Vendor}");
+            Console.WriteLine($"BIOS Version: {biosInfo.BiosVersion}");
+            Console.WriteLine($"Release Date: {biosInfo.BiosReleaseDate}");
         }
     }
 }
@@ -106,10 +106,10 @@ class Program
     static void Main()
     {
         // Gets and prints the global SMBIOS specification version
-        Console.WriteLine(\$"SMBIOS Version > {DMI.CreateInstance().SmbiosVersion}");
+        Console.WriteLine($"SMBIOS Version > {DMI.CreateInstance().SmbiosVersion}");
 
         // Gets and prints the specific implemented structure version
-        Console.WriteLine(\$"Implemented Version > {DMI.CreateInstance().ImplementedVersion}");
+        Console.WriteLine($"Implemented Version > {DMI.CreateInstance().ImplementedVersion}");
     }
 }
 ```
@@ -129,8 +129,8 @@ class Program
         
         // Fetch a single property via strong-typed key definitions
         var result = dmi.GetProperty(SmbiosStructure.Bios, BiosProperty.BiosVersion);
-        Console.WriteLine(\$"Property Description: {result.Property.Description}");
-        Console.WriteLine(\$"Raw Value: {result.Value}");
+        Console.WriteLine($"Property Description: {result.Property.Description}");
+        Console.WriteLine($"Raw Value: {result.Value}");
     }
 }
 ```
@@ -173,7 +173,7 @@ class Program
         // Print raw structure types, handles, and binary lengths available in memory
         foreach (var structure in dmi.Structures)
         {
-            Console.WriteLine(\$"Type: {structure.Header.Type} | Handle: {structure.Header.Handle} | Length: {structure.Header.Length}");
+            Console.WriteLine($"Type: {structure.Header.Type} | Handle: {structure.Header.Handle} | Length: {structure.Header.Length}");
         }
     }
 }

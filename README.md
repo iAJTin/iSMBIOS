@@ -128,7 +128,7 @@ class Program
         var dmi = DMI.CreateInstance();
         
         // Fetch a single property via strong-typed key definitions
-        Property精 result = dmi.GetProperty(SmbiosStructure.Bios, BiosProperty.BiosVersion);
+        var result = dmi.GetProperty(SmbiosStructure.Bios, BiosProperty.BiosVersion);
         Console.WriteLine(\$"Property Description: {result.Property.Description}");
         Console.WriteLine(\$"Raw Value: {result.Value}");
     }

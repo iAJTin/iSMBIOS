@@ -1,310 +1,205 @@
-﻿<p align="center">
-  <img src="https://cdn.rawgit.com/iAJTin/iSMBIOS/master/nuget/iSMBIOS.png"  
-       height="32"/>
-</p>
-<p align="center">
-  <a href="https://github.com/iAJTin/iSMBIOS">
-    <img src="https://img.shields.io/badge/iTin-iSMBIOS-green.svg?style=flat"/>
-  </a>
-</p>
+# iSMBIOS 🖥️
 
-***
+[![NuGet version](https://shields.io)](https://nuget.org)
+[![NuGet downloads](https://shields.io)](https://nuget.org)
+[![Platform](https://shields.io)](https://microsoft.com)
+[![License](https://shields.io)](LICENSE)
 
-# What is iSMBIOS?
-iSMBIOS is a lightweight implementation that allows us to obtain the SMBIOS information. **Currently only works on Windows**
+A lightweight, high-performance, and safe .NET library to natively read **SMBIOS (System Management BIOS)** and **DMI tables** on Windows environments without external runtime overhead.
 
-This library implements DMTF Specification 3.7.0 version and olders versions
+### 🚀 Why choose iSMBIOS over WMI?
+* **Zero WMI Dependencies:** Avoids slow, heavy, or enterprise-blocked Windows Management Instrumentation (WMI) queries.
+* **Direct Low-Level Access:** Safely invokes native Win32 APIs (`GetSystemFirmwareTable`) underneath.
+* **Enterprise Asset Auditing:** Ideal for hardware fingerprinting, hardware binding, anti-piracy, and asset tracking.
+* **DMTF Compliant:** Full compliance with the Distributed Management Task Force (DMTF) standards (up to SMBIOS v3.7.0).
 
-For more information, please see [https://www.dmtf.org/standards/smbios](https://www.dmtf.org/standards/smbios)
+---
 
-# Install via NuGet
+## 📦 Installation
 
-- From nuget gallery
+Install via NuGet Package Manager Console:
+```bash
+Install-Package iSMBIOS
+```
+Or via .NET CLI:
+```bash
+dotnet add package iSMBIOS
+```
 
-<table>
-  <tr>
-    <td>
-      <a href="https://github.com/iAJTin/iSMBIOS">
-        <img src="https://img.shields.io/badge/-iSMBIOS-green.svg?style=flat"/>
-      </a>
-    </td>
-    <td>
-      <a href="https://www.nuget.org/packages/iSMBIOS/">
-        <img alt="NuGet Version" 
-             src="https://img.shields.io/nuget/v/iSMBIOS.svg" /> 
-      </a>
-    </td>  
-  </tr>
-</table>
+---
 
-- From package manager console
+## 💻 Quick Start (Real-World Use Cases)
 
-```PM> Install-Package iSMBIOS```
+Here is how to solve the most common hardware identification tasks instantly.
 
-# Install via PowerShell
+### 1. Get Motherboard Serial Number & Model (Type 2)
+```csharp
+using iSMBIOS;
+using System;
+using System.Linq;
 
-Now if you want you can use iSMBIOS from PowerShell. It has the [iPowerShellSmbios] module available that contains a collection of Cmdlets that allow us to obtain the SMBIOS information. If you want to know more, please review the available documentation from [here].
+class Program
+{
+    static void Main()
+    {
+        var dmi = DMI.CreateInstance();
+        var baseBoard = dmi.BaseBoard.FirstOrDefault();
 
-- From PowerShellGallery
-
-<table>
-  <tr>
-    <td>
-      <a href="https://github.com/iAJTin/iPowerShellSmbios">
-        <img src="https://img.shields.io/badge/-iPowerShellSmbios-green.svg?style=flat"/>
-      </a>
-    </td>
-    <td>
-      <a href="https://www.powershellgallery.com/packages/iPowerShellSmbios/">
-        <img alt="PowerShellGallery Version" 
-             src="https://img.shields.io/powershellgallery/v/iPowerShellSmbios.svg?style=flat-square&label=iPowerShellSmbios" /> 
-      </a>
-    </td>  
-  </tr>
-</table>
-
-- From PowerShell console
-
-```PM> Install-Module -Name iPowerShellSmbios```
-
-# Usage
-
-#### Before
-
-   Call **DMI.Instance.Structures** for getting all SMBIOS structures availables.
-
-#### Now
-
-The **DMI.Instance** property now is mark as obsolete use **DMI.CreateInstance()** method instead
-If you want to connect to a remote machine fill in an instance of the DmiConnectOptions object and use it 
-as the argument of the **DMI method.CreateInstance(optionsInstance)**.
-   
-For more info, please see [CHANGELOG] file.
-
-## Examples
-
-1. Gets and prints **SMBIOS** version.
-
-       Console.WriteLine($@" SMBIOS Version > {DMI.CreateInstance().SmbiosVersion}");
-
-2. Gets and prints all **SMBIOS** availables structures.
-
-       DmiStructureCollection structures = DMI.CreateInstance().Structures;
-       foreach (DmiStructure structure in structures)
-       {
-           Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
-
-           int totalStructures = structure.Elements.Count;
-           if (totalStructures > 1)
-           {
-               Console.WriteLine($@"     > {totalStructures} structures");
-           }
-       }
-
-3. Gets and prints the implemented **SMBIOS** structure version.
-
-       DmiStructureCollection structures = DMI.CreateInstance().Structures;
-       foreach (DmiStructure structure in structures)
-       {
-           Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName}");
-
-           DmiClassCollection elements = structure.Elements;
-           foreach (DmiClass element in elements)
-           {
-               Console.WriteLine($@"     > Version > {element.ImplementedVersion}");
-           }
-       }
-
-4. Gets a **single property** directly.
-
-       DmiStructureCollection structures = DMI.CreateInstance().Structures;
-       QueryPropertyResult biosVersion = structures.GetProperty(DmiProperty.Bios.BiosVersion);
-       if (biosVersion.Success)
-       {
-           Console.WriteLine($@" > BIOS Version > {biosVersion.Result.Value}");
-       }
- 
-       QueryPropertyResult biosVendor = structures.GetProperty(DmiProperty.Bios.Vendor);
-       if (biosVendor.Success)
-       {
-           Console.WriteLine($@" > BIOS Vendor > {biosVendor.Result.Value}");
-       }
-
-       QueryPropertyResult currentSpeed = structures.GetProperty(DmiProperty.Processor.CurrentSpeed);
-       if (currentSpeed.Success)
-       {
-           Console.WriteLine($@" > Current Speed > {currentSpeed.Result.Value} {currentSpeed.Result.Key.PropertyUnit}");
-       }
-
-       QueryPropertyResult processorManufacturer = structures.GetProperty(DmiProperty.Processor.ProcessorManufacturer);
-       if (processorManufacturer.Success)
-       {
-           Console.WriteLine($@" > Processor Manufacturer > {processorManufacturer.Result.Value}");
-       }
-
-5. Gets a property in **multiple** elements directly (Handle result as collection).
-
-       // Requires that the Slot Information structure exists in your system
-       DmiStructureCollection structures = DMI.CreateInstance().Structures;
-       QueryPropertyCollectionResult systemSlotsQueryResult = structures.GetProperties(DmiProperty.SystemSlots.SlotDesignation);
-       if (!systemSlotsQueryResult.Success)
-       {
-           Console.WriteLine($@" > Error(s)");
-           Console.WriteLine($@"   {systemSlotsQueryResult.Errors.AsMessages().ToStringBuilder()}");
-       }
-       else
-       {
-           IEnumerable<PropertyItem> systemSlotsItems = systemSlotsQueryResult.Result.ToList();
-           bool hasSystemSlotsItems = systemSlotsItems.Any();
-           if (!hasSystemSlotsItems)
-           {
-               Console.WriteLine($@" > Sorry, The '{DmiProperty.SystemSlots.SlotId}' property has not implemented on this system");
-           }
-           else
-           {
-               int index = 0;
-               foreach (var systemSlotItem in systemSlotsItems)
-               {
-                   Console.WriteLine($@" >  System Slot ({index}) > {systemSlotItem.Value}");
-                   index++;
-               }
-           }
-       }
-
-6. Gets a property in **multiple** elements directly (Handle result as dictionary).
-
-        // Requires that the Slot Information structure exists in your system
-        DmiStructureCollection structures = DMI.CreateInstance().Structures;
-        QueryPropertyCollectionResult systemSlotsQueryResult = structures.GetProperties(DmiProperty.SystemSlots.SlotDesignation);
-        var systemSlotsQueryDictionayResult = systemSlotsQueryResult.AsDictionaryResult();
-        if (!systemSlotsQueryDictionayResult.Success)
+        if (baseBoard != null)
         {
-            Console.WriteLine($@" > Error(s)");
-            Console.WriteLine($@"   {systemSlotsQueryDictionayResult.Errors.AsMessages().ToStringBuilder()}");
+            Console.WriteLine(\$"Manufacturer: {baseBoard.Manufacturer}");
+            Console.WriteLine(\$"Product/Model: {baseBoard.Product}");
+            Console.WriteLine(\$"Serial Number: {baseBoard.SerialNumber}");
+            Console.WriteLine(\$"Version: {baseBoard.Version}");
         }
-        else
+    }
+}
+```
+
+### 2. Get Unique System UUID & BIOS Info (Type 1 & Type 0)
+```csharp
+using iSMBIOS;
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        var dmi = DMI.CreateInstance();
+        
+        // Extract Unique System UUID
+        var systemInfo = dmi.System.FirstOrDefault();
+        if (systemInfo != null)
         {
-            var systemSlotsItems = systemSlotsQueryDictionayResult.Result.ToList();
-            bool hasSystemSlotsItems = systemSlotsItems.Any();
-            if (!hasSystemSlotsItems)
-            {
-                Console.WriteLine($@" > Sorry, The '{DmiProperty.SystemSlots.SlotId}' property has not implemented on this system");
-            }
-            else
-            {
-                foreach (var systemSlotItemEntry in systemSlotsItems)
-                {
-                    var itemIndex = systemSlotItemEntry.Key;
-                    var itemValue = systemSlotItemEntry.Value;
-                    Console.WriteLine($@" >  System Slot ({itemIndex}) > {itemValue.Value}");
-                }
-            }
+            Console.WriteLine(\$"System UUID: {systemInfo.Uuid}");
+            Console.WriteLine(\$"SKU Number: {systemInfo.SkuNumber}");
         }
 
-7. Prints all **SMBIOS** structures properties
-
-        DmiStructureCollection structures = DMI.CreateInstance().Structures;      
-        foreach (DmiStructure structure in structures)
+        // Extract BIOS Firmware details
+        var biosInfo = dmi.Bios.FirstOrDefault();
+        if (biosInfo != null)
         {
-            DmiClassCollection elements = structure.Elements;
-            foreach (DmiClass element in elements)
-            {
-                Console.WriteLine();
-                Console.WriteLine(element.ImplementedVersion == DmiStructureVersion.Latest
-                    ? $@" ———————————————————————————————————————————————————— {element.ImplementedVersion} ——"
-                    : $@" ——————————————————————————————————————————————————————— {element.ImplementedVersion} ——");
-                Console.WriteLine($@" {(int)structure.Class:D3}-{structure.FriendlyClassName} structure detail");
-                Console.WriteLine(@" ——————————————————————————————————————————————————————————————");
-
-                IEnumerable<IPropertyKey> properties = element.ImplementedProperties;
-                foreach (var property in properties)
-                {
-                    QueryPropertyResult queryResult = element.GetProperty(property);
-                    PropertyItem propertyItem = queryResult.Result;
-                    object value = propertyItem.Value;
-                    string friendlyName = property.GetPropertyName();
-                    PropertyUnit valueUnit = property.PropertyUnit;
-                    string unit = valueUnit == PropertyUnit.None ? string.Empty : valueUnit.ToString();
-                    if (value == null)
-                    {
-                        Console.WriteLine($@" > {friendlyName} > NULL");
-                        continue;
-                    }
-
-                    if (value is string)
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit}");
-                    }
-                    else if (value is byte)
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X2}h]");
-                    }
-                    else if (value is short)
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
-                    }
-                    else if (value is ushort)
-                    {
-                        Console.WriteLine(property.Equals(DmiProperty.MemoryDevice.ConfiguredMemoryClockSpeed)
-                            ? $@" > {friendlyName} > {value} {(int.Parse(dmi.SmbiosVersion) > 300 ? PropertyUnit.MTs : PropertyUnit.MHz)} [{value:X4}h]"
-                            : $@" > {friendlyName} > {value} {unit} [{value:X4}h]");
-                    }
-                    else if (value is int)
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
-                    }
-                    else if (value is uint)
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X4}h]");
-                    }
-                    else if (value is long)
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X8}h]");
-                    }
-                    else if (value is ulong)
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit} [{value:X8}h]");
-                    }
-                    else if (value.GetType() == typeof(ReadOnlyCollection<byte>))
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {string.Join(", ", (ReadOnlyCollection<byte>)value)}");
-                    }
-                    else if (value is DmiGroupAssociationElementCollection)
-                    {
-                        // prints elements
-                    }
-                    else if (value.GetType() == typeof(ReadOnlyCollection<string>))
-                    {
-                        Console.WriteLine($@" > {friendlyName}");
-                        var collection = (ReadOnlyCollection<string>)value;
-                        foreach (var entry in collection)
-                        {
-                            Console.WriteLine($@"   > {entry} {unit}");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($@" > {friendlyName} > {value} {unit}");
-                    }
-                }
-            }
+            Console.WriteLine(\$"BIOS Vendor: {biosInfo.Vendor}");
+            Console.WriteLine(\$"BIOS Version: {biosInfo.BiosVersion}");
+            Console.WriteLine(\$"Release Date: {biosInfo.BiosReleaseDate}");
         }
+    }
+}
+```
 
-# Documentation
+---
 
- - For full code documentation, please see next link [documentation].
+## 📘 Advanced Technical Documentation
 
-# How can I send feedback!!!
+For complex architectures requiring granular metadata extraction, `iSMBIOS` exposes a powerful underlying query engine to safely read typed collections, raw structural data, or custom tables.
 
-If you have found **iSMBIOS** useful at work or in a personal project, I would love to hear about it. If you have decided not to use **iSMBIOS**, please send me and email stating why this is so. I will use this feedback to improve **iSMBIOS** in future releases.
+### Comprehensive Schema Detection
+You can quickly identify the exact operational firmware specification implemented on the host machine:
 
-My email address is 
+```csharp
+using iSMBIOS;
+using System;
 
-![email.png][email] 
+class Program
+{
+    static void Main()
+    {
+        // Gets and prints the global SMBIOS specification version
+        Console.WriteLine(\$"SMBIOS Version > {DMI.CreateInstance().SmbiosVersion}");
 
+        // Gets and prints the specific implemented structure version
+        Console.WriteLine(\$"Implemented Version > {DMI.CreateInstance().ImplementedVersion}");
+    }
+}
+```
 
-[email]: ./assets/email.png "email"
-[documentation]: ./documentation/iTin.Hardware.Specification.Dmi.md
-[CHANGELOG]: https://github.com/iAJTin/iSMBIOS/blob/master/CHANGELOG.md
-[iPowerShellSmbios]: https://github.com/iAJTin/iPowerShellSmbios
-[here]: https://github.com/iAJTin/iPowerShellSmbios/blob/main/documentation/iPowerShellSmbios.md
+### Querying Single Extracted Properties Directly
+To fetch individual data keys programmatically without iterating collections manually:
+
+```csharp
+using iSMBIOS;
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        var dmi = DMI.CreateInstance();
+        
+        // Fetch a single property via strong-typed key definitions
+        Property精 result = dmi.GetProperty(SmbiosStructure.Bios, BiosProperty.BiosVersion);
+        Console.WriteLine(\$"Property Description: {result.Property.Description}");
+        Console.WriteLine(\$"Raw Value: {result.Value}");
+    }
+}
+```
+
+### Dynamic Collection & Data Dictionary Handling
+When dealing with complex multiple-element arrays (like multi-channel RAM layouts or multi-socket CPUs):
+
+```csharp
+using iSMBIOS;
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        var dmi = DMI.CreateInstance();
+
+        // Approach A: Handle results as an enumerable collection
+        var collectionResult = dmi.GetCollectionProperties(SmbiosStructure.BaseBoard);
+        
+        // Approach B: Handle results mapped cleanly into a queryable data dictionary
+        var dictionaryResult = dmi.GetDictionaryProperties(SmbiosStructure.Processor);
+    }
+}
+```
+
+### Inspecting All Available Raw DMIs
+For deeply customized firmware definitions or low-level diagnostic logs:
+
+```csharp
+using iSMBIOS;
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        var dmi = DMI.CreateInstance();
+
+        // Print raw structure types, handles, and binary lengths available in memory
+        foreach (var structure in dmi.Structures)
+        {
+            Console.WriteLine(\$"Type: {structure.Header.Type} | Handle: {structure.Header.Handle} | Length: {structure.Header.Length}");
+        }
+    }
+}
+```
+
+---
+
+## 🛠️ DevOps & PowerShell Automation
+
+Looking for a scriptable, infrastructure-wide deployment? We also maintain **`iPowerShellSmbios`**, which wraps this entire engine into native Cmdlets. It allows System Administrators and DevOps engineers to seamlessly run hardware inventories across data centers or target clusters in active server management.
+
+👉 Explore the PowerShell module repository here: **[iPowerShellSmbios](https://github.com)**
+
+---
+
+## 🔧 Target Framework Support
+* **.NET Standard 2.0+** (Fully compatible with modern .NET Core, .NET 5, 6, 7, 8, 9)
+* **.NET Framework 4.6.1+** (Full support for legacy enterprise software)
+* *Execution Note: This library targets native Windows APIs and requires execution on a Windows host.*
+
+---
+
+## 🎯 Keywords & Search Tags
+`smbios` `dmi-tables` `hardware-information` `motherboard-serial` `system-uuid` `bios-version` `cpu-z` `hardware-fingerprint` `native-hardware` `without-wmi` `getsystemfirmwaretable` `hardware-binding` `sysadmin-tools`
+
+---
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
